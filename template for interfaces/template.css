@@ -107,7 +107,7 @@ html,
 body,
 header,
 #pic {
-    background-image: url("TUP BG DARK.png");
+    background-image: url("TUP BG GREEN.png");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -118,7 +118,7 @@ header,
 }
 
 .view {
-    background: #000 url("TUP BG DARK.png");
+    background: #000 url("TUP BG GREEN.png");
     color: #fff;
     width: 100%;
     display: flex;
