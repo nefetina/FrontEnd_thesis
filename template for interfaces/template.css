@@ -154,7 +154,7 @@ header,
 @media screen and (max-width: 1200px) {
     .sidebar {
         height: 100%;
-        width: 80px !important;
+        width: 19% !important;
         position: fixed;
         /* Stay in place */
         top: 0;
@@ -192,18 +192,25 @@ header,
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        height: 100%;
-        width: 50px !important;
+        height: 100vh;
+        /* 100% Full-height */
+        width: 18%;
+        /* 0 width - change this with JavaScript */
         position: fixed;
         /* Stay in place */
+        z-index: 2;
+        /* Stay on top */
         top: 0;
         left: 0;
         background-color: #004D00;
+        /* Black*/
         overflow-x: hidden;
+        /* Disable horizontal scroll */
         padding-top: 60px;
+        /* Place content 60px from the top */
         transition: 0.5s;
-        z-index: 2;
-        /* Stay on top */
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
     }
 }
 
@@ -218,44 +225,17 @@ header,
         color: white !important;
     }
     .sidebar {
-        height: 100%;
-        width: 140px !important;
-        position: fixed;
-        /* Stay in place */
-        top: 0;
-        left: 0;
-        background-color: #004D00;
-        overflow-x: hidden;
-        padding-top: 60px;
-        transition: 0.5s;
-        z-index: 2;
-        /* Stay on top */
-        display: none;
-    }
-}
-
-
-/*************************lower than small lang*****/
-
-@media screen and (max-width: 450px) {
-    .sidebar {
-        padding-top: 15px;
-    }
-    .sidebar a {
-        font-size: 18px;
-    }
-    .sidebar {
-        height: 100%;
+        height: 100vh;
         /* 100% Full-height */
-        width: 0;
+        width: 18%;
         /* 0 width - change this with JavaScript */
         position: fixed;
         /* Stay in place */
-        z-index: 1;
+        z-index: 2;
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #111;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -265,8 +245,74 @@ header,
         /* 0.5 second transition effect to slide in the sidebar */
         display: none;
     }
+}
+
+
+/*************************lower than small lang*****/
+
+@media screen and (max-width: 450px) {
+    .sidebar {
+        height: 100vh;
+        /* 100% Full-height */
+        width: 15%;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
+    }
+    #title {
+        padding-top: 2px;
+        font-size: 21pt;
+    }
     .main {
         overflow: hidden !important;
         overflow-y: scroll !important;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .sidebar {
+        height: 100vh;
+        /* 100% Full-height */
+        width: 10%;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
+    }
+    #title {
+        padding-top: 2px;
+        font-size: 21pt;
+    }
+    .main {
+        overflow: hidden !important;
+        overflow-y: scroll !important;
+    }
+    #close {
+        justify-content: center !important;
     }
 }
