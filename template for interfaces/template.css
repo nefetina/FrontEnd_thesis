@@ -16,6 +16,13 @@
   padding-left: 80px;
 }
 */
+*{
+  margin:0px;
+  padding: 0px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+ 
+
+}
 
 
 .sidebar {
@@ -58,26 +65,21 @@
 
 /* Position and style the close button (top) */
 .sidebar .closebtn {
- 
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
- 
-    background-color: #004D00;
-    color: white;
-    border-radius:5px;
-    border: none;
+  background-color: #004D00;
+  color: white;
+  border-radius:5px;
+  border: none;
 
-  
-  
 }
 
 /* The button used to open the sidebar */
 
 #openbtn:hover {
-  
   color: rgb(130, 167, 0) !important;
   transition: 0.3s;
 }
@@ -85,14 +87,17 @@
 
 
 .navbar{
-background-color: rgba(0, 0, 0, 0.411);
-color: white;
-width: 100% !important;
-height: 120px;
-top: -10px;
-padding: 35px;
-margin-left: auto; 
-cursor:default !important;
+  background-color: #10000098!important;
+  color: white !important; 
+  width: 100% !important;
+  height: 100px;
+  margin-left: auto; 
+  cursor:default !important;
+  position: absolute;
+  z-index: 1;
+
+  
+  
 
 }
 
@@ -104,26 +109,68 @@ cursor:default !important;
 
 }
 
-.parent{
-  background-image: url("TUP BG BRIGHT.png");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html,
+body,
+header,
+
+#pic{
+
+  background-image: url("TUP BG DARK.png");
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-attachment: fixed;
+
 }
-.overlay{
-  position:absolute;
+.view {
+  background: #000 url("TUP BG DARK.png");
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  position: relative;
+ }
+
+.color-overlay {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
   height: 100%;
-  background: #1b412dcc;
+  background: #1b412db7;;
+ 
+  position: absolute;
+ }
+.container-fluid{
+  opacity: 1 !important;
 }
 
 
