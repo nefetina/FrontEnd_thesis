@@ -16,291 +16,257 @@
   padding-left: 80px;
 }
 */
-*{
-  margin:0px;
-  padding: 0px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
- 
 
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
 
 .sidebar {
-  height: 100%; 
-  width: 140px !important; 
-  position: fixed; /* Stay in place */
-  top: 0;
-  left: 0;
-  background-color: #004D00; 
-  overflow-x: hidden; 
-  padding-top: 60px; 
-  transition: 0.5s; 
-  z-index: 2;/* Stay on top */
-  
-}
-
-#hp{
-  
-  margin-left: 0px !important;
-  font-size: 10px;
-  
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-
-}
-
-/* The sidebar links */
-.sidebar a {
-  padding: 8px 8px 8px 10px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #ffffff;
-  display: block;
-  transition: 0.3s;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidebar a:hover {
-  color: #479101;
-}
-
-/* Position and style the close button (top) */
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  background-color: #004D00;
-  color: white;
-  border-radius:5px;
-  border: none;
-
-}
-
-/* The button used to open the sidebar */
-
-#openbtn:hover {
-  color: rgb(130, 167, 0) !important;
-  transition: 0.3s;
-}
-
-
-
-.navbar{
-  background-color: #10000098!important;
-  color: white !important; 
-  width: 100% !important;
-  height: 100px;
-  margin-left: auto; 
-  cursor:default !important;
-  position: absolute;
-  z-index: 1;
-
-  
-  
-
-}
-
-.navbar-brand{
-  
-  font-size: 40px !important;
-  cursor:default !important;
-  color: white !important;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-html,
-body,
-header,
-
-#pic{
-
-  background-image: url("TUP BG DARK.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover;
-  background-size:cover;
-  background-attachment: fixed;
-
-}
-.view {
-  background: #000 url("TUP BG DARK.png");
-  color: #fff;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  
-  position: relative;
- }
-
-.color-overlay {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: #1b412db7;;
- 
-  position: absolute;
- }
-.container-fluid{
-  opacity: 1 !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*************************xtra large*****/
-/*************************paglumagpas sa max width mababalik sa default setup*****/
-@media screen and (max-width: 1200px) {
-  .sidebar {
-    height: 100%; 
-    width: 80px !important; 
-    position: fixed; /* Stay in place */
+    height: 100%;
+    width: 140px !important;
+    position: fixed;
+    /* Stay in place */
     top: 0;
     left: 0;
-    background-color: #004D00; 
-    overflow-x: hidden; 
-    padding-top: 60px; 
-    transition: 0.5s; 
-    z-index: 2;/* Stay on top */
-  }
-  
-  #hp{
-    
+    background-color: #004D00;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    z-index: 2;
+    /* Stay on top */
+}
+
+#hp {
     margin-left: 0px !important;
     font-size: 10px;
-    
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-  
-  }
-  
-  /* The sidebar links */
-  .sidebar a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* The sidebar links */
+
+.sidebar a {
     padding: 8px 8px 8px 10px;
     text-decoration: none;
     font-size: 25px;
     color: #ffffff;
     display: block;
     transition: 0.3s;
-  }
-  
- 
 }
-/*************************large*****/
-@media screen and (max-width: 991px) {
- 
+
+
+/* When you mouse over the navigation links, change their color */
+
+.sidebar a:hover {
+    color: #479101;
 }
-/*************************medium*****/
-@media screen and (max-width: 768px) {
-  .sidebar {
-    height: 100%; 
-    width: 50px !important; 
-    position: fixed; /* Stay in place */
+
+
+/* Position and style the close button (top) */
+
+.sidebar .closebtn {
+    position: absolute;
     top: 0;
-    left: 0;
-    background-color: #004D00; 
-    overflow-x: hidden; 
-    padding-top: 60px; 
-    transition: 0.5s; 
-    z-index: 2;/* Stay on top */
-  }
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background-color: #004D00;
+    color: white;
+    border-radius: 5px;
+    border: none;
 }
-/*************************small*****/
-@media screen and (max-width: 576px) {
- 
-  .navbar-brand{
-    padding-left: 0px !important;
-    font-size: 40px !important;
-    cursor:default !important;
+
+
+/* The button used to open the sidebar */
+
+#openbtn:hover {
+    color: rgb(130, 167, 0) !important;
+    transition: 0.3s;
+}
+
+.navbar {
+    background-color: #10000098!important;
     color: white !important;
-  
-  }
-  .sidebar {
-    height: 100%; 
-    width: 140px !important; 
-    position: fixed; /* Stay in place */
-    top: 0;
-    left: 0;
-    background-color: #004D00; 
-    overflow-x: hidden; 
-    padding-top: 60px; 
-    transition: 0.5s; 
-    z-index: 2;/* Stay on top */
-    display: none;
-  }
-  
+    width: 100% !important;
+    height: 100px;
+    margin-left: auto;
+    cursor: default !important;
+    position: absolute;
+    z-index: 1;
 }
+
+.navbar-brand {
+    font-size: 40px !important;
+    cursor: default !important;
+    color: white !important;
+}
+
+html,
+body,
+header,
+#pic {
+    background-image: url("TUP BG DARK.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.view {
+    background: #000 url("TUP BG DARK.png");
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.color-overlay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background: #1b412db7;
+    position: absolute;
+}
+
+.container-fluid {
+    opacity: 1 !important;
+}
+
+.card {
+    margin: 10px;
+}
+
+
+/*************************xtra large*****/
+
+
+/*************************paglumagpas sa max width mababalik sa default setup*****/
+
+@media screen and (max-width: 1200px) {
+    .sidebar {
+        height: 100%;
+        width: 80px !important;
+        position: fixed;
+        /* Stay in place */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        z-index: 2;
+        /* Stay on top */
+    }
+    #hp {
+        margin-left: 0px !important;
+        font-size: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    /* The sidebar links */
+    .sidebar a {
+        padding: 8px 8px 8px 10px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #ffffff;
+        display: block;
+        transition: 0.3s;
+    }
+}
+
+
+/*************************large*****/
+
+@media screen and (max-width: 991px) {}
+
+
+/*************************medium*****/
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        height: 100%;
+        width: 50px !important;
+        position: fixed;
+        /* Stay in place */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        z-index: 2;
+        /* Stay on top */
+    }
+}
+
+
+/*************************small*****/
+
+@media screen and (max-width: 576px) {
+    .navbar-brand {
+        padding-left: 0px !important;
+        font-size: 40px !important;
+        cursor: default !important;
+        color: white !important;
+    }
+    .sidebar {
+        height: 100%;
+        width: 140px !important;
+        position: fixed;
+        /* Stay in place */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        z-index: 2;
+        /* Stay on top */
+        display: none;
+    }
+}
+
+
 /*************************lower than small lang*****/
 
-
 @media screen and (max-width: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-  .sidebar {
-      height: 100%; /* 100% Full-height */
-      width: 0; /* 0 width - change this with JavaScript */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Stay on top */
-      top: 0;
-      left: 0;
-      background-color: #111; /* Black*/
-      overflow-x: hidden; /* Disable horizontal scroll */
-      padding-top: 60px; /* Place content 60px from the top */
-      transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-      display: none;
+    .sidebar {
+        padding-top: 15px;
     }
-    
-    
-    
-  
-  .main{
-    overflow: hidden !important;
-    overflow-y: scroll !important;
-  }
-
+    .sidebar a {
+        font-size: 18px;
+    }
+    .sidebar {
+        height: 100%;
+        /* 100% Full-height */
+        width: 0;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #111;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
+    }
+    .main {
+        overflow: hidden !important;
+        overflow-y: scroll !important;
+    }
 }
-
-  
-  
-
- 
