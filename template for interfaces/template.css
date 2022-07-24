@@ -41,11 +41,12 @@
     /* Stay on top */
 }
 
-#hp {
-    margin-left: 0px !important;
+#icons {
+    margin: 10px;
     font-size: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 
 
 /* The sidebar links */
@@ -63,7 +64,8 @@
 /* When you mouse over the navigation links, change their color */
 
 .sidebar a:hover {
-    color: #479101;
+    color: #ffffff;
+    background-color: #91f99154;
 }
 
 
@@ -73,7 +75,7 @@
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 34pt;
+    font-size: 36px;
     margin-left: 50px;
     background-color: #004D00;
     color: white;
