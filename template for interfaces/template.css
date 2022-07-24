@@ -23,6 +23,8 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/*****************************************SIDEBAR*******************************/
+
 .sidebar {
     height: 100%;
     width: 140px !important;
@@ -79,8 +81,9 @@
 }
 
 
-/* The button used to open the sidebar */
+/***************************************** NAVBAR*******************************/
 
+/* The button used to open the sidebar */
 #openbtn:hover {
     color: rgb(130, 167, 0) !important;
     transition: 0.3s;
@@ -102,6 +105,10 @@
     cursor: default !important;
     color: white !important;
 }
+
+
+
+/*****************************************BACKGROUND*******************************/
 
 html,
 body,
@@ -126,16 +133,7 @@ header,
     position: relative;
 }
 
-.color-overlay {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    background: #1b412db7;
-    position: absolute;
-}
+
 
 .container-fluid {
     opacity: 1 !important;
@@ -145,6 +143,17 @@ header,
     margin: 10px;
 }
 
+
+
+
+
+
+
+
+
+
+
+/*****************************************SCREEN ADJUSTMENTS*******************************/
 
 /*************************xtra large*****/
 
