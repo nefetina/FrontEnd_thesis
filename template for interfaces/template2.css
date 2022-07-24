@@ -1,0 +1,321 @@
+
+.title{
+
+  background-color: rgba(0, 0, 0, 0.411) !important;
+  color: white;
+
+ 
+  width: 100% !important;
+  height: 120px;
+  top: -10px;
+  
+  padding: 35px;
+  margin-left: auto; 
+}
+#titulo{
+  margin-left: 200px;
+  display: flex;
+  position: absolute;
+}
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*****************************************SIDEBAR*******************************/
+
+.sidebar {
+    height: 100%;
+    width: 140px !important;
+    position: fixed;
+    /* Stay in place */
+    top: 0;
+    left: 0;
+    background-color: #004D00;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    z-index: 2;
+    /* Stay on top */
+}
+
+#hp {
+    margin-left: 0px !important;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* The sidebar links */
+
+.sidebar a {
+    padding: 8px 8px 8px 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+
+.sidebar a:hover {
+    color: #479101;
+}
+
+
+/* Position and style the close button (top) */
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background-color: #004D00;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+
+/***************************************** NAVBAR*******************************/
+
+/* The button used to open the sidebar */
+#openbtn:hover {
+    color: rgb(130, 167, 0) !important;
+    transition: 0.3s;
+}
+
+.navbar {
+    background-color: #10000098!important;
+    color: white !important;
+    width: 100% !important;
+    height: 100px;
+    margin-left: auto;
+    cursor: default !important;
+    position: absolute;
+    z-index: 1;
+}
+
+.navbar-brand {
+    font-size: 40px !important;
+    cursor: default !important;
+    color: white !important;
+}
+
+
+
+/*****************************************BACKGROUND*******************************/
+
+html,
+body,
+header,
+#pic {
+    background-image: url("TUP BG GREEN.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.view {
+    background: url("TUP BG GREEN.png");
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************SCREEN ADJUSTMENTS*******************************/
+
+/*************************xtra large*****/
+
+
+/*************************paglumagpas sa max width mababalik sa default setup*****/
+
+@media screen and (max-width: 1200px) {
+    .sidebar {
+        height: 100%;
+        width: 19% !important;
+        position: fixed;
+        /* Stay in place */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        z-index: 2;
+        /* Stay on top */
+    }
+    #hp {
+        margin-left: 0px !important;
+        font-size: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    /* The sidebar links */
+    .sidebar a {
+        padding: 8px 8px 8px 10px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #ffffff;
+        display: block;
+        transition: 0.3s;
+    }
+}
+
+
+/*************************large*****/
+
+@media screen and (max-width: 991px) {}
+
+
+/*************************medium*****/
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        height: 100vh;
+        /* 100% Full-height */
+        width: 18%;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 2;
+        /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
+    }
+}
+
+
+/*************************small*****/
+
+@media screen and (max-width: 576px) {
+    .navbar-brand {
+        padding-left: 0px !important;
+        font-size: 40px !important;
+        cursor: default !important;
+        color: white !important;
+    }
+    .sidebar {
+        height: 100vh;
+        /* 100% Full-height */
+        width: 18%;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 2;
+        /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
+    }
+}
+
+
+/*************************lower than small lang*****/
+
+@media screen and (max-width: 450px) {
+    .sidebar {
+        height: 100vh;
+        /* 100% Full-height */
+        width: 15%;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
+    }
+    #title {
+        padding-top: 2px;
+        font-size: 21pt;
+    }
+    .main {
+        overflow: hidden !important;
+        overflow-y: scroll !important;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .sidebar {
+        height: 100vh;
+        /* 100% Full-height */
+        width: 10%;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #004D00;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidebar */
+        display: none;
+    }
+    #title {
+        padding-top: 2px;
+        font-size: 21pt;
+    }
+    .main {
+        overflow: hidden !important;
+        overflow-y: scroll !important;
+    }
+    #close {
+        justify-content: center !important;
+    }
+}
