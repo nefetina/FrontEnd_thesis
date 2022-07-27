@@ -28,7 +28,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
-/*for active button style correspond to its html site*/
+/*for active button correspond to its html site*/
 #active{
     color: 	#0096FF;
     background-color: #1b412dcc;
@@ -150,6 +150,13 @@
 }
 
 /* table adjustments*/
+.table{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 700px !important ;
+
+}
+
 .thead{
     background-color: #449049 !important;
     color: #fff !important;
@@ -160,12 +167,7 @@
     border-bottom: 1px solid #4caf50 !important; 
 }
 
-/*descriptions on form style*/
-.descriptions{
-    background-color: #449049;
-    color: #fff;
-    margin-top: 6px;
-}
+
 /* button position on card*/
 .btnmove{
     float: right !important;
