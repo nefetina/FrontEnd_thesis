@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----TAB NAME------------------------------------------------->
+    <title>TUPC ONLINE SYSTEM</title>
+    <!----TAB ICON------------------------------------------------->
+    <link rel="icon" href="TUP LOGO.png">
+    <!----CSS AND JS------------------------------------------------->
+    <script src="rep(sv).js"></script>
+    <link rel="stylesheet" type="text/css" href="report(sv).css">
+
+    <!----BOOTSTRAP LINK------------------------------------------------->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!----ADD UP------------------------------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!----font links----------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--NAVBAR-------------------------------------------------------------------------------------------->
+
+    <nav class="navbar">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
+        <div id="titulo">
+            <a class="navbar-brand" href="#">INTERNET CONNECTIVITY REGISTRATION</a>
+        </div>
+
+    </nav>
+    <!--BREADCRUMB-------------------------------------------------------------------------------->
+    <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb ">
+            <li class="breadcrumb-item ml-auto" onclick="requestforrep()"><a href="#">FACULTY WIFI REGISTRATION</a></li>
+        </ol>
+    </nav>
+
+    <!--CONTAINER FLUID-------------------------------------------------------------------------------------------->
+    <div>
+
+        <div class="container-fluid ">
+
+            <!--SIDEBAR-------------------------------------------------------------------------------------------->
+
+            <div class="row no-gutters">
+                <div class="col-xl-1 text-center">
+                    <div id="mySidebar" class="sidebar">
+                        <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
+                        <img src="TUP LOGO.png" width="100" height="80" alt="tuplogo" id="logo">
+                        <a href="HOMEPAGE(SV).html"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
+                        <a href="INTERNET(SV).html"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
+                        <a href="REPORT(SV).html" id="active"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
+                        <a href="#contact"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
+
+                    </div>
+                </div>
+                <div class="col-xl-11">
+                    <div class="jumbotron "><br>
+
+                        <!--FORM-------------------------------------------------------------------------------------------->
+                        <div class="card-body">
+                            <form>
+                                <div class="formtitle">
+                                    FILL UP THE FORM HERE
+                                </div>
+                                <div class="descriptions">
+                                    Request
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-xl-6">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Full name">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                        Date Requested:
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:">
+                                    </div>
+                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                        Time:
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                    </div>
+
+                                </div>
+                                <div class="descriptions col-12 m-2">
+                                    Request to Borrow
+                                </div>
+
+                                <!--Radio btn-------------------------------------------------------------------------------------------->
+                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                    <div class="col-xl-4 col-lg-6">
+                                        <h6 class=""><input type="radio" class="radio " name="station"> Projector</h6>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6">
+                                        <h6 class=""><input type="radio" class="radio " name="station"> Extension</h6>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-12">
+                                        <h6 class=""><input type="radio" class="radio " name="station"> Patch Cord</h6>
+                                    </div>
+                                </div>
+                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                    <div class="col-xl-4 col-lg-6">
+                                        <h6 class=""><input type="radio" class="radio" name="station"> Others</h6>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-xl-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Reason for borrowing:">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-xl-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                    </div>
+                                </div>
+
+
+                                <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                <div class="col-xl-12 ">
+                                    <p class="card-text">Check it properly before you send it.</p>
+                                    <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                                                Submit
+                                                            </button>
+                                    <button type="button" class="btn btn-danger float-right m-1">
+                                                                Cancel
+                                                            </button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</body>
+
+</html>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!----TAB NAME------------------------------------------------->  
+    <!----TAB NAME------------------------------------------------->
     <title>TUPC ONLINE SYSTEM</title>
-<!----TAB ICON------------------------------------------------->
+    <!----TAB ICON------------------------------------------------->
     <link rel="icon" href="TUP LOGO.png">
     <!----CSS AND JS------------------------------------------------->
     <script src="rep(uitc).js"></script>
@@ -20,9 +20,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!----ADD UP------------------------------------------------->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!----icon----------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!----icon----------->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"> <!----font links----------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!----font links----------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -31,7 +33,7 @@
 
 <body>
     <!--NAVBAR-------------------------------------------------------------------------------------------->
-    
+
     <nav class="navbar">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
         <div id="titulo">
@@ -44,17 +46,17 @@
 
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-          <li class="breadcrumb-item ml-auto" onclick="requestforrep()" ><a href="#">REQUEST FOR REPAIR & MAINTENANCE</a></li>
-          <li class="breadcrumb-item" onclick="maintenance()" ><a href="#">MAINTENANCE</a></li>
-          <li class="breadcrumb-item" onclick="borrow()"><a href="#">BORROW</a></li>
+            <li class="breadcrumb-item ml-auto" onclick="requestforrep()"><a href="#">REQUEST FOR REPAIR & MAINTENANCE</a></li>
+            <li class="breadcrumb-item" onclick="maintenance()"><a href="#">MAINTENANCE</a></li>
+            <li class="breadcrumb-item" onclick="borrow()"><a href="#">BORROW</a></li>
         </ol>
-      </nav>
-    
+    </nav>
+
     <!--CONTAINER FLUID-------------------------------------------------------------------------------------------->
     <div>
         <div class="container-fluid ">
-    
-    <!--SIDEBAR-------------------------------------------------------------------------------------------->
+
+            <!--SIDEBAR-------------------------------------------------------------------------------------------->
 
             <div class="row no-gutters">
                 <div class="col-xl-1 text-center">
@@ -71,15 +73,15 @@
                         <a href="#contact"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
                     </div>
                 </div>
-    <!--CARD-------------------------------------------------------------------------------------------->
-                <div class="col-xl-11 main" >
-                    
+                <!--CARD-------------------------------------------------------------------------------------------->
+                <div class="col-xl-11 main">
+
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-    
-    <!--TABLE1 REQUEST FOR REPAIR & MAINTENANCE-------------------------------------------------------------------------------------------->
+
+                        <!--TABLE1 REQUEST FOR REPAIR & MAINTENANCE-------------------------------------------------------------------------------------------->
                         <div class="col-xl-11 " id="table1">
                             <div class="jumbotron "><br>
-                                <div class="card-body"  >
+                                <div class="card-body">
                                     <form>
                                         <div class="formtitle">
                                             REQUEST FOR REPAIR & MAINTENANCE
@@ -87,385 +89,378 @@
                                         <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
-                                                <tr>
-                                                    <th scope="col">RQSTD BY</th>
-                                                    <th scope="col ">POSITION</th>
-                                                    <th scope="col ">DEPARTMENT</th>
-                                                    <th scope="col">DATE/TIME SUBMITTED</th>
-                                                    <th scope="col">COMPLAINT</th>
-                                                    <th scope="col ">TYPE</th>
-                                                    <th scope="col ">SERIAL NO.</th>
-                                                    <th scope="col">BRAND</th>
-                                                    <th scope="col">SPECS</th>
-                                                    <th scope="col">ACTION</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th scope="col">RQSTD BY</th>
+                                                        <th scope="col ">POSITION</th>
+                                                        <th scope="col ">DEPARTMENT</th>
+                                                        <th scope="col">DATE/TIME SUBMITTED</th>
+                                                        <th scope="col">COMPLAINT</th>
+                                                        <th scope="col ">TYPE</th>
+                                                        <th scope="col ">SERIAL NO.</th>
+                                                        <th scope="col">BRAND</th>
+                                                        <th scope="col">SPECS</th>
+                                                        <th scope="col">ACTION</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;"  onclick="form11()">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;" onclick="form11()">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    
-                                        
+
                                     </form>
-                                
-                                    
-                                    
-                                
-                                    
                                 </div>
-                               
                             </div>
                         </div>
 
-    <!--FORMTABLE1.1-------------------------------------------------------------------------------------------->
+                        <!--FORMTABLE1.1-------------------------------------------------------------------------------------------->
 
                         <div class="col-xl-11 collapse " id="tableform1">
                             <div class="jumbotron "><br>
-                            
-                                <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                        <div class="card-body">
-                                                            <form>
-                                                                <div class="formtitle">
-                                                                    FILL UP THE FORM HERE
-                                                                </div>
-                                                                <div class="descriptions">
-                                                                    Initial Assesment
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-4 col-lg-6">
-                                                                        <h6 class=""><input type="radio" class="radio " name="station"  > Serviceable</h6>
-                                                                    </div> 
-                                                                    <div class="col-xl-4 col-lg-6">
-                                                                        <h6 class=""><input type="radio" class="radio " name="station"  > Unserviceable</h6>
-                                                                    </div> 
-                                                                    <div class="col-xl-4 col-lg-12">
-                                                                        <h6 class=""><input type="radio" class="radio " name="station" > Under Warranty</h6>
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Accessed by:">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Date Assigned:
-                                                                    </div>
-                                                                    <div class="col-xl-5">
-                                                                        <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Personal Assigned:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="descriptions col-12 m-2">
-                                                                    Supplies and Materials  (Parts to be Replaced)
-                                                                </div>
-                            
-                                <!--TABLE-------------------------------------------------------------------------------------------->
-                            
-                                                                <div class="table-responsive col-xl-12">
-                                                                    <table class="table">
-                                                                        <thead class="thead">
-                                                                          <tr>
-                                                                            <th scope="col-xl-2 ">Quantity</th>
-                                                                            <th scope="col-xl-2 ">Units</th>
-                                                                            <th scope="col-xl-4 ">Particulars</th>
-                                                                            <th scope="col-xl-4 ">Availability (type OK if Available)</th>
-                                                                          </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                          <tr>
-                                                                            <th scope="row"><input type="text" class="form-control p-2"></th>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                          </tr>
-                                                                          <tr>
-                                                                            <th scope="row"><input type="text" class="form-control p-2"></th>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                          </tr>
-                                                                          <tr>
-                                                                            <th scope="row"><input type="text" class="form-control p-2"></th>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                            <td><input type="text" class="form-control p-2"></td>
-                                                                          </tr>
-                                                                        </tbody>
-                                                                      </table>
-                                                                </div>
-                            
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                <div class="col-xl-12 ">
-                                                                    <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
+
+                                <!--FORM-------------------------------------------------------------------------------------------->
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            FILL UP THE FORM HERE
+                                        </div>
+                                        <div class="descriptions">
+                                            Initial Assesment
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-4 col-lg-6">
+                                                <h6 class=""><input type="radio" class="radio " name="station"> Serviceable</h6>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-6">
+                                                <h6 class=""><input type="radio" class="radio " name="station"> Unserviceable</h6>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-12">
+                                                <h6 class=""><input type="radio" class="radio " name="station"> Under Warranty</h6>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Accessed by:">
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date Assigned:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:">
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Personal Assigned:">
+                                            </div>
+
+                                        </div>
+                                        <div class="descriptions col-12 m-2">
+                                            Supplies and Materials (Parts to be Replaced)
+                                        </div>
+
+                                        <!--TABLE-------------------------------------------------------------------------------------------->
+
+                                        <div class="table-responsive col-xl-12">
+                                            <table class="table">
+                                                <thead class="thead">
+                                                    <tr>
+                                                        <th scope="col-xl-2 ">Quantity</th>
+                                                        <th scope="col-xl-2 ">Units</th>
+                                                        <th scope="col-xl-4 ">Particulars</th>
+                                                        <th scope="col-xl-4 ">Availability (type OK if Available)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row"><input type="text" class="form-control p-2"></th>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row"><input type="text" class="form-control p-2"></th>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row"><input type="text" class="form-control p-2"></th>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                        <td><input type="text" class="form-control p-2"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                         Next
                                                                     </button>
-                                                                    <button type="button" class="btn btn-danger float-right m-1"  >
+                                            <button type="button" class="btn btn-danger float-right m-1">
                                                                         Cancel
                                                                     </button>
-                                                                    
-                                                                </div>
-                                                                
-                                                            </form>
-                                                           
-                                                            
-                                                            
-                                                           
-                                                            
-                                                        </div>
-                                                    </div>
+
+                                        </div>
+
+                                    </form>
+
+
+
+
+
+                                </div>
+                            </div>
                         </div>
-    <!--FORMTABLE1.2-------------------------------------------------------------------------------------------->
+                        <!--FORMTABLE1.2-------------------------------------------------------------------------------------------->
 
                         <div class="col-xl-11 collapse" id="tableform2">
                             <div class="jumbotron "><br>
-                            
-                                <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                        <div class="card-body">
-                                                            <form>
-                                                                <div class="formtitle">
-                                                                    FILL UP THE FORM HERE
-                                                                </div>
-                                                                <div class="descriptions">
-                                                                    Approval                
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-4 col-lg-6">
-                                                                        <h6 class=""><input type="radio" class="radio " name="approval"  > Approved</h6>
-                                                                    </div> 
-                                                                    <div class="col-xl-4 col-lg-6">
-                                                                        <h6 class=""><input type="radio" class="radio " name="approval"  > Disapproved</h6>
-                                                                    </div> 
-                                                                    <div class="col-xl-4 col-lg-12">
-                                                                        <h6 class=""><input type="radio" class="radio " name="approval" > Resubmit Request</h6>
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-12">
-                                                                        <textarea class="form-control"  placeholder="Note:" rows="2" id="textarea1" style="height: 100px" ></textarea>
-                                                                    </div>          
-                                                                </div>
 
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Coordinator, UITC:">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Date:
-                                                                    </div>
-                                                                    <div class="col-xl-5">
-                                                                        <input type="date" class="form-control my-2 p-2" placeholder="Date:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Time:
-                                                                    </div>
-                                                                    <div class="col-xl-5">
-                                                                        <input type="time" class="form-control my-2 p-2" placeholder="Time:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="descriptions col-12 m-2">
-                                                                    Action Taken
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="UITC Personnel:">
-                                                                    </div>
-                                                    
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Date Started:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="date" class="form-control my-2 p-2" placeholder="Date:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Time Started:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="time" class="form-control my-2 p-2" placeholder="Time:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Date Ended:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="date" class="form-control my-2 p-2" placeholder="Date:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Time Ended:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="time" class="form-control my-2 p-2" placeholder="Time:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-12">
-                                                                        <textarea class="form-control"  placeholder="Solution and Recommendation:" rows="2" id="textarea1" style="height: 100px" ></textarea>
-                                                                    </div>          
-                                                                </div>
-                                                                
-                            
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                <div class="col-xl-12 ">
-                                                                    <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="button" class="btn btn-primary  float-right m-1" onclick="next2()" >
+                                <!--FORM-------------------------------------------------------------------------------------------->
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            FILL UP THE FORM HERE
+                                        </div>
+                                        <div class="descriptions">
+                                            Approval
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-4 col-lg-6">
+                                                <h6 class=""><input type="radio" class="radio " name="approval"> Approved</h6>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-6">
+                                                <h6 class=""><input type="radio" class="radio " name="approval"> Disapproved</h6>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-12">
+                                                <h6 class=""><input type="radio" class="radio " name="approval"> Resubmit Request</h6>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-12">
+                                                <textarea class="form-control" placeholder="Note:" rows="2" id="textarea1" style="height: 100px"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Coordinator, UITC:">
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                            </div>
+
+                                        </div>
+                                        <div class="descriptions col-12 m-2">
+                                            Action Taken
+                                        </div>
+                                        <div class="form-row">
+
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="UITC Personnel:">
+                                            </div>
+
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date Started:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time Started:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date Ended:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time Ended:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-12">
+                                                <textarea class="form-control" placeholder="Solution and Recommendation:" rows="2" id="textarea1" style="height: 100px"></textarea>
+                                            </div>
+                                        </div>
+
+
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next2()">
                                                                         Next
                                                                     </button>
-                                                                    <button type="button" class="btn btn-danger float-right m-1" onclick="back1()" >
+                                            <button type="button" class="btn btn-danger float-right m-1" onclick="back1()">
                                                                         Back
                                                                     </button>
-                                                                    
-                                                                </div>
-                                                                
-                                                            </form>
-                                                           
-                                                            
-                                                            
-                                                           
-                                                            
-                                                        </div>
-                                                    </div>
+
+                                        </div>
+
+                                    </form>
+
+
+
+
+
+                                </div>
+                            </div>
                         </div>
-    <!--FORMTABLE1.3-------------------------------------------------------------------------------------------->          
+                        <!--FORMTABLE1.3-------------------------------------------------------------------------------------------->
 
                         <div class="col-xl-11 collapse" id="tableform3">
                             <div class="jumbotron "><br>
-                            
-                                <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                        <div class="card-body">
-                                                            <form>
-                                                                <div class="formtitle">
-                                                                    FILL UP THE FORM HERE
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-6  col-12">
-                                                                        <h6 class=""><input type="radio" class="radio " name="status">Accepted</h6>
-                                                                    </div> 
-                                                                    <div class="col-xl-6 col-12">
-                                                                        <h6 class=""><input type="radio" class="radio" name="status">Rejected</h6>
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="End-User:">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Date:">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Time:
-                                                                    </div>
-                                                                    <div class="col-xl-5">
-                                                                        <input type="time" class="form-control my-2 p-2" placeholder="TIME:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
-                            
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                <div class="col-xl-12 ">
-                                                                    <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="button" class="btn btn-primary  float-right m-1" >
+
+                                <!--FORM-------------------------------------------------------------------------------------------->
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            FILL UP THE FORM HERE
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-6  col-12">
+                                                <h6 class=""><input type="radio" class="radio " name="status">Accepted</h6>
+                                            </div>
+                                            <div class="col-xl-6 col-12">
+                                                <h6 class=""><input type="radio" class="radio" name="status">Rejected</h6>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="End-User:">
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Date:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="TIME:">
+                                            </div>
+
+                                        </div>
+
+
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" class="btn btn-primary  float-right m-1">
                                                                         Submit
                                                                     </button>
-                                                                <button type="button" class="btn btn-danger float-right m-1" onclick="back2()" >
+                                            <button type="button" class="btn btn-danger float-right m-1" onclick="back2()">
                                                                         Back
                                                                     </button>
-                                                                    
-                                                                </div>
-                                                                
-                                                            </form>
-                                                           
-                                                            
-                                                            
-                                                           
-                                                            
-                                                        </div>
-                                                    </div>
-                        </div>
-                        
 
-    <!--TABLE2 MAINTENANCE-------------------------------------------------------------------------------------------->
+                                        </div>
+
+                                    </form>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--TABLE2 MAINTENANCE-------------------------------------------------------------------------------------------->
                         <div class="col-xl-11 collapse" id="table2">
                             <div class="jumbotron "><br>
-                                <div class="card-body"  >
+                                <div class="card-body">
                                     <form>
                                         <div class="formtitle">
                                             MAINTENANCE
@@ -473,585 +468,585 @@
                                         <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
-                                                <tr>
-                                                    <th scope="col">UITC PERSON</th>
-                                                    <th scope="col ">DATE START</th>
-                                                    <th scope="col ">DATE FINISH</th>
-                                                    <th scope="col">SOL. & RECOM.</th>
-                                                    <th scope="col">END USER</th>
-                                                    <th scope="col ">DATE</th>
-                                                    <th scope="col ">TIME</th>
-                                                    <th scope="col">ACTION</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th scope="col">UITC PERSON</th>
+                                                        <th scope="col ">DATE START</th>
+                                                        <th scope="col ">DATE FINISH</th>
+                                                        <th scope="col">SOL. & RECOM.</th>
+                                                        <th scope="col">END USER</th>
+                                                        <th scope="col ">DATE</th>
+                                                        <th scope="col ">TIME</th>
+                                                        <th scope="col">ACTION</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;"  onclick="form21()">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;" onclick="form21()">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    
-                                        
+
+
                                     </form>
-                                
-                                    
-                                    
-                                
-                                    
+
+
+
+
+
                                 </div>
-                               
+
                             </div>
                         </div>
 
-    <!--FORMTABLE2.1-------------------------------------------------------------------------------------------->
+                        <!--FORMTABLE2.1-------------------------------------------------------------------------------------------->
 
                         <div class="col-xl-11 collapse" id="tableform4">
                             <div class="jumbotron "><br>
-                            
-                                <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                        <div class="card-body">
-                                                            <form>
-                                                                <div class="formtitle">
-                                                                    FILL UP THE FORM HERE                   
-                                                                </div>
-                                                                <div class="descriptions">
-                                                                    Description of Property
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-4">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="Type:">
-                                                                    </div> 
-                                                                    <div class="col-xl-4">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="Serial no.:">
-                                                                    </div> 
-                                                                    <div class="col-xl-4">
-                                                                        <input type="text" class="form-control  my-1 p-2" placeholder="Date of maintenance:">
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-4">
-                                                                        <input type="text" class="form-control my-1  p-2" placeholder="Brand/Model:">
-                                                                    </div> 
-                                                                    <div class="col-xl-4">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="ICT Equipment Code:">
-                                                                    </div> 
-                                                                    <div class="col-xl-4">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="ICT Equipment Name:">
-                                                                    </div> 
-                                                                </div>
-                                                                
-                                                                <div class="descriptions col-12 m-2">
-                                                                    SOFTWARE
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Update Software:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
-                                                                              <option value="default">Status</option>
-                                                                              <option>Request</option>
-                                                                              <option>Complain</option>
-                                                                              <option>Suggest</option>
-                                                                              <option>Others</option>
-                                                                            </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Clear out browser file:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
-                                                                              <option value="default">Status</option>
-                                                                              <option>Request</option>
-                                                                              <option>Complain</option>
-                                                                              <option>Suggest</option>
-                                                                              <option>Others</option>
-                                                                            </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Update Software:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
-                                                                              <option value="default">Status</option>
-                                                                              <option>Request</option>
-                                                                              <option>Complain</option>
-                                                                              <option>Suggest</option>
-                                                                              <option>Others</option>
-                                                                            </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
 
-                                                                 
-                                                                <div class="descriptions col-12 m-2">
-                                                                    SECURITY
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Scan for viruses:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
+                                <!--FORM-------------------------------------------------------------------------------------------->
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            FILL UP THE FORM HERE
+                                        </div>
+                                        <div class="descriptions">
+                                            Description of Property
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-4">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="Type:">
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="Serial no.:">
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <input type="text" class="form-control  my-1 p-2" placeholder="Date of maintenance:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-4">
+                                                <input type="text" class="form-control my-1  p-2" placeholder="Brand/Model:">
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="ICT Equipment Code:">
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="ICT Equipment Name:">
+                                            </div>
+                                        </div>
+
+                                        <div class="descriptions col-12 m-2">
+                                            SOFTWARE
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Update Software:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
                                                                               <option value="default">Status</option>
                                                                               <option>Request</option>
                                                                               <option>Complain</option>
                                                                               <option>Suggest</option>
                                                                               <option>Others</option>
                                                                             </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Update Anti-virus:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Clear out browser file:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
                                                                               <option value="default">Status</option>
                                                                               <option>Request</option>
                                                                               <option>Complain</option>
                                                                               <option>Suggest</option>
                                                                               <option>Others</option>
                                                                             </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Run Malware:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Update Software:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
                                                                               <option value="default">Status</option>
                                                                               <option>Request</option>
                                                                               <option>Complain</option>
                                                                               <option>Suggest</option>
                                                                               <option>Others</option>
                                                                             </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
-                            
-                            
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                <div class="col-xl-12 ">
-                                                                    <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="button" class="btn btn-primary  float-right m-1" onclick="next3()" >
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="descriptions col-12 m-2">
+                                            SECURITY
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Scan for viruses:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
+                                                                              <option value="default">Status</option>
+                                                                              <option>Request</option>
+                                                                              <option>Complain</option>
+                                                                              <option>Suggest</option>
+                                                                              <option>Others</option>
+                                                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Update Anti-virus:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
+                                                                              <option value="default">Status</option>
+                                                                              <option>Request</option>
+                                                                              <option>Complain</option>
+                                                                              <option>Suggest</option>
+                                                                              <option>Others</option>
+                                                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Run Malware:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
+                                                                              <option value="default">Status</option>
+                                                                              <option>Request</option>
+                                                                              <option>Complain</option>
+                                                                              <option>Suggest</option>
+                                                                              <option>Others</option>
+                                                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next3()">
                                                                         Next
                                                                     </button>
-                                                                    <button type="button" class="btn btn-danger float-right m-1"  >
+                                            <button type="button" class="btn btn-danger float-right m-1">
                                                                         Cancel
                                                                     </button>
-                                                                    
-                                                                </div>
-                                                                
-                                                            </form>
-                                                           
-                                                            
-                                                            
-                                                           
-                                                            
-                                                        </div>
-                                                    </div>
+
+                                        </div>
+
+                                    </form>
+
+
+
+
+
+                                </div>
+                            </div>
                         </div>
-    <!--FORMTABLE2.2-------------------------------------------------------------------------------------------->
-                    
+                        <!--FORMTABLE2.2-------------------------------------------------------------------------------------------->
+
                         <div class="col-xl-11 collapse" id="tableform5">
                             <div class="jumbotron "><br>
-                            
-                                <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                        <div class="card-body">
-                                                            <form>
-                                                                <div class="formtitle">
-                                                                    FILL UP THE FORM HERE              
-                                                                </div>
-                                                                
-                                                                <div class="descriptions col-12 m-2">
-                                                                    PHYSICAL COMPUTER MAINTENANCE
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Clean Keyboard:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
-                                                                              <option value="default">Status</option>
-                                                                              <option>Request</option>
-                                                                              <option>Complain</option>
-                                                                              <option>Suggest</option>
-                                                                              <option>Others</option>
-                                                                            </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Dust the computer unit:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
-                                                                              <option value="default">Status</option>
-                                                                              <option>Request</option>
-                                                                              <option>Complain</option>
-                                                                              <option>Suggest</option>
-                                                                              <option>Others</option>
-                                                                            </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Organize cables:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
-                                                                              <option value="default">Status</option>
-                                                                              <option>Request</option>
-                                                                              <option>Complain</option>
-                                                                              <option>Suggest</option>
-                                                                              <option>Others</option>
-                                                                            </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Wipe down the monitor:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
-                                                                              <option value="default">Status</option>
-                                                                              <option>Request</option>
-                                                                              <option>Complain</option>
-                                                                              <option>Suggest</option>
-                                                                              <option>Others</option>
-                                                                            </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
 
-                                                                 
-                                                                <div class="descriptions col-12 m-2">
-                                                                    GENERAL COMPUTER MAINTENANCE
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Run Disk Clean-up:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
+                                <!--FORM-------------------------------------------------------------------------------------------->
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            FILL UP THE FORM HERE
+                                        </div>
+
+                                        <div class="descriptions col-12 m-2">
+                                            PHYSICAL COMPUTER MAINTENANCE
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Clean Keyboard:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
                                                                               <option value="default">Status</option>
                                                                               <option>Request</option>
                                                                               <option>Complain</option>
                                                                               <option>Suggest</option>
                                                                               <option>Others</option>
                                                                             </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Defrangement Hard drive:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Dust the computer unit:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
                                                                               <option value="default">Status</option>
                                                                               <option>Request</option>
                                                                               <option>Complain</option>
                                                                               <option>Suggest</option>
                                                                               <option>Others</option>
                                                                             </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Empty Recycle bin:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Organize cables:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
                                                                               <option value="default">Status</option>
                                                                               <option>Request</option>
                                                                               <option>Complain</option>
                                                                               <option>Suggest</option>
                                                                               <option>Others</option>
                                                                             </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                        Create a system restore point:
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="p-1 mt-1" id="option1">
-                                                                            <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)" > 
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Wipe down the monitor:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
                                                                               <option value="default">Status</option>
                                                                               <option>Request</option>
                                                                               <option>Complain</option>
                                                                               <option>Suggest</option>
                                                                               <option>Others</option>
                                                                             </select>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                
-                            
-                            
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                <div class="col-xl-12 ">
-                                                                    <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="button" class="btn btn-primary  float-right m-1" onclick="next4()" >
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="descriptions col-12 m-2">
+                                            GENERAL COMPUTER MAINTENANCE
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Run Disk Clean-up:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
+                                                                              <option value="default">Status</option>
+                                                                              <option>Request</option>
+                                                                              <option>Complain</option>
+                                                                              <option>Suggest</option>
+                                                                              <option>Others</option>
+                                                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Defrangement Hard drive:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
+                                                                              <option value="default">Status</option>
+                                                                              <option>Request</option>
+                                                                              <option>Complain</option>
+                                                                              <option>Suggest</option>
+                                                                              <option>Others</option>
+                                                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Empty Recycle bin:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
+                                                                              <option value="default">Status</option>
+                                                                              <option>Request</option>
+                                                                              <option>Complain</option>
+                                                                              <option>Suggest</option>
+                                                                              <option>Others</option>
+                                                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Create a system restore point:
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <div class="p-1 mt-1" id="option1">
+                                                    <select class="form-control" id="list1" value="Select type of letter" onChange="number_function (this.value, this.defaultValue)"> 
+                                                                              <option value="default">Status</option>
+                                                                              <option>Request</option>
+                                                                              <option>Complain</option>
+                                                                              <option>Suggest</option>
+                                                                              <option>Others</option>
+                                                                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Remarks:">
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next4()">
                                                                         Next
                                                                     </button>
-                                                                    <button type="button" class="btn btn-danger float-right m-1"  onclick="back3()">
+                                            <button type="button" class="btn btn-danger float-right m-1" onclick="back3()">
                                                                         Back
                                                                     </button>
-                                                                    
-                                                                </div>
-                                                                
-                                                            </form>
-                                                           
-                                                            
-                                                            
-                                                           
-                                                            
-                                                        </div>
-                                                    </div>
+
+                                        </div>
+
+                                    </form>
+
+
+
+
+
+                                </div>
+                            </div>
                         </div>
-    <!--FORMTABLE2.3-------------------------------------------------------------------------------------------->
+                        <!--FORMTABLE2.3-------------------------------------------------------------------------------------------->
 
                         <div class="col-xl-11 collapse" id="tableform6">
                             <div class="jumbotron "><br>
-                            
-                                <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                        <div class="card-body">
-                                                            <form>
-                                                                <div class="formtitle">
-                                                                    FILL UP THE FORM HERE                   
-                                                                </div>
-                                                                <div class="descriptions">
-                                                                    MAINTAINED BY:
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="UITC Personnel:">
-                                                                    </div> 
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="Signature:">
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Date Started:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="date" class="form-control my-2 p-2" placeholder="Date:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Time Started:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="time" class="form-control my-2 p-2" placeholder="Time:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Date Ended:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="date" class="form-control my-2 p-2" placeholder="Date:">
-                                                                    </div>
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Time Ended:
-                                                                    </div>
-                                                                    <div class="col-xl-2">
-                                                                        <input type="time" class="form-control my-2 p-2" placeholder="Time:">
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-12">
-                                                                        <textarea class="form-control"  placeholder="Solution and Recommendation:" rows="2" id="textarea1" style="height: 100px" ></textarea>
-                                                                    </div>          
-                                                                </div>
-                                                                <div class="descriptions">
-                                                                    MAINTAINED BY:
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="End-User:">
-                                                                    </div> 
-                                                                    <div class="col-xl-6">
-                                                                        <input type="text" class="form-control my-1 p-2" placeholder="Signature:">
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Date:
-                                                                    </div>
-                                                                    <div class="col-xl-5">
-                                                                        <input type="date" class="form-control my-1 p-2" placeholder="Date:">
-                                                                    </div> 
-                                                                    <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                        Time:
-                                                                    </div>
-                                                                    <div class="col-xl-5">
-                                                                        <input type="time" class="form-control my-1 p-2" placeholder="Time:">
-                                                                    </div> 
-                                                                </div>
-                                                                
-                            
-                            
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                <div class="col-xl-12 ">
-                                                                    <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="button" class="btn btn-primary  float-right m-1"  >
+
+                                <!--FORM-------------------------------------------------------------------------------------------->
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            FILL UP THE FORM HERE
+                                        </div>
+                                        <div class="descriptions">
+                                            MAINTAINED BY:
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="UITC Personnel:">
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="Signature:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date Started:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time Started:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date Ended:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time Ended:
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-12">
+                                                <textarea class="form-control" placeholder="Solution and Recommendation:" rows="2" id="textarea1" style="height: 100px"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="descriptions">
+                                            MAINTAINED BY:
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="End-User:">
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-1 p-2" placeholder="Signature:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="date" class="form-control my-1 p-2" placeholder="Date:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="time" class="form-control my-1 p-2" placeholder="Time:">
+                                            </div>
+                                        </div>
+
+
+
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" class="btn btn-primary  float-right m-1">
                                                                         Submit
                                                                     </button>
-                                                                    <button type="button" class="btn btn-danger float-right m-1" onclick="back4()" >
+                                            <button type="button" class="btn btn-danger float-right m-1" onclick="back4()">
                                                                         Back
                                                                     </button>
-                                                                    
-                                                                </div>
-                                                                
-                                                            </form>
-                                                           
-                                                            
-                                                            
-                                                           
-                                                            
-                                                        </div>
-                                                    </div>
+
+                                        </div>
+
+                                    </form>
+
+
+
+
+
+                                </div>
+                            </div>
                         </div>
 
-    <!--TABLE3 BORROW-------------------------------------------------------------------------------------------->
+                        <!--TABLE3 BORROW-------------------------------------------------------------------------------------------->
                         <div class="col-xl-11  collapse" id="table3">
                             <div class="jumbotron "><br>
-                                <div class="card-body"  >
+                                <div class="card-body">
                                     <form>
                                         <div class="formtitle">
                                             BORROW
@@ -1059,75 +1054,75 @@
                                         <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
-                                                <tr>
-                                                    <th scope="col">NAME</th>
-                                                    <th scope="col ">RQST BORROW</th>
-                                                    <th scope="col ">DATE RQSTD</th>
-                                                    <th scope="col">TIME</th>
-                                                    <th scope="col">PURPOSE</th>
-                                                    <th scope="col">ACTION</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th scope="col">NAME</th>
+                                                        <th scope="col ">RQST BORROW</th>
+                                                        <th scope="col ">DATE RQSTD</th>
+                                                        <th scope="col">TIME</th>
+                                                        <th scope="col">PURPOSE</th>
+                                                        <th scope="col">ACTION</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>              
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>empty</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    
-                                        
+
+
                                     </form>
-                                
-                                    
-                                    
-                                
-                                    
+
+
+
+
+
                                 </div>
-                               
+
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
-    <!--BG CALL-------------------------------------------------------------------------------------------->
+            <!--BG CALL-------------------------------------------------------------------------------------------->
             <div id="pic" class="view drk "></div>
         </div>
     </div>
