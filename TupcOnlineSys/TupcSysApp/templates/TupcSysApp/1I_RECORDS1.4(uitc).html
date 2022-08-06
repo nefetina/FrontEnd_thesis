@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----TAB NAME------------------------------------------------>
+    <title>TUPC ONLINE SYSTEM</title>
+    <!----TAB ICON------------------------------------------------>
+    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
+    <!----CSS AND JS------------------------------------------------>
+    <script src="{% static 'js/3I_rec1.4(uitc).js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/2I_records1.4(uitc).css'%}">
+
+    <!----BOOTSTRAP LINK------------------------------------------------>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!----ADD UP------------------------------------------------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!----icon---------->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!----font links---------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--NAVBAR1-------------------------------------------------------------------------------------------->
+
+    <nav class="navbar van">
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
+        <div id="titulo">
+            <a class="navbar-brand" id="title" href="#">RECORDS</a>
+        </div>
+
+    </nav>
+
+    <!--NAVBAR2-------------------------------------------------------------------------------------------->
+    <nav class="navbar navbar-expand-lg van2">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">&#9776;</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="1F_RECORDS1.1(uitc).html">ID</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="1G_RECORDS1.2(uitc).html">INTERNET CONNECTIVITY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="1H_RECORDS1.3(uitc).html">LAB SCHEDULE</a>
+                </li>
+                <li class="nav-item" id="actibo">
+                    <a class="nav-link" href="1I_RECORDS1.4(uitc).html">REPORTS</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <!--BREADCRUMB-------------------------------------------------------------------------------------------->
+
+    <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb ">
+            <li class="breadcrumb-item ml-auto" onclick="reportandmaintenance()"><a href="#">REPAIR AND MAINTENANCE RECORD</a></li>
+            <li class="breadcrumb-item" onclick="maintenance()"><a href="#">MAINTENANCE RECORD</a></li>
+            <li class="breadcrumb-item" onclick="borrow()"><a href="#">BORROW RECORD</a></li>
+            <li class="breadcrumb-item" onclick="inventory()"><a href="#">INVENTORY</a></li>
+
+        </ol>
+    </nav>
+
+    <div>
+        <div class="container-fluid ">
+
+            <!--SIDEBAR-------------------------------------------------------------------------------------------->
+
+            <div class="row no-gutters">
+                <div class="col-xl-1 text-center">
+                    <div id="mySidebar" class="sidebar">
+                        <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
+                        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
+                        <a href="1A_HOMEPAGE(UITC).html"><i class="fa fa-2x fa-user-circle" aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
+                        <a href="1B_ID'S(UITC).html"><i class="fa fa-2x fa-id-card " aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
+                        <a href="1C_INTERNET(UITC).html"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
+                        <a href="1D_LABSCHED(UITC).html"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
+                        <a href="1E_REPORTS(UITC).html"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
+                        <a href="1F_RECORDS1.1(uitc).html" id="active"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
+                        <a href="1J_PERMISSION(UITC).html"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">PERMISSION</h6></i></a>
+                        <a href="#contact"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
+                    </div>
+                </div>
+
+                <!--CARD-------------------------------------------------------------------------------------------->
+                <!--TABLE 1 REPAIR AND MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
+
+                <div class="col-xl-11 collapse" id="table1">
+                    <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
+                        <div class="jumbotron col-11 m-1"><br>
+
+
+                            <div class="card-body">
+                                <form>
+                                    <div class="formtitle">
+                                        REPAIR AND MAINTENANCE RECORD
+                                    </div>
+                                    <div class="table-responsive-xl col-xl-12">
+                                        <table class="table">
+                                            <thead class="thead">
+                                                <tr>
+                                                    <th scope="col">REQUESTED BY</th>
+                                                    <th scope="col ">POSITION</th>
+                                                    <th scope="col ">DEPARTMENT</th>
+                                                    <th scope="col">DATE/TIME SUBMITTED</th>
+                                                    <th scope="col">COMPLAINT</th>
+                                                    <th scope="col">TYPE</th>
+                                                    <th scope="col">SERIAL NO.</th>
+                                                    <th scope="col">BRAND</th>
+                                                    <th scope="col">SPECS</th>
+                                                    <th scope="col">STATUS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </form>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--TABLE 2 MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
+
+                <div class="col-xl-11 collapse " id="table2">
+                    <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
+                        <div class="jumbotron col-11 m-1"><br>
+
+
+                            <div class="card-body">
+                                <form>
+                                    <div class="formtitle">
+                                        MAINTENANCE RECORD
+                                    </div>
+                                    <div class="table-responsive-xl col-xl-12">
+                                        <table class="table">
+                                            <thead class="thead">
+                                                <tr>
+                                                    <th scope="col">UITC PERSON</th>
+                                                    <th scope="col ">DATE START</th>
+                                                    <th scope="col ">DATE FINISH</th>
+                                                    <th scope="col">SOL. AND RECOM.</th>
+                                                    <th scope="col">END USER</th>
+                                                    <th scope="col">DATE</th>
+                                                    <th scope="col">TIME</th>
+                                                    <th scope="col">STATUS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </form>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--TABLE 3 BORROW RECORD-------------------------------------------------------------------------------------------->
+
+                <div class="col-xl-11 collapse" id="table3">
+                    <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
+                        <div class="jumbotron col-11 m-1"><br>
+
+
+                            <div class="card-body">
+                                <form>
+                                    <div class="formtitle">
+                                        BORROW RECORD
+                                    </div>
+                                    <div class="table-responsive-xl col-xl-12">
+                                        <table class="table">
+                                            <thead class="thead">
+                                                <tr>
+                                                    <th scope="col">NAME</th>
+                                                    <th scope="col ">REQUEST BORROW</th>
+                                                    <th scope="col ">DATE REQUESTED</th>
+                                                    <th scope="col">TIME</th>
+                                                    <th scope="col">PURPOSE</th>
+                                                    <th scope="col">STATUS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </form>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--FORMTABLE 1 INVENTORY RECORD-------------------------------------------------------------------------------------------->
+
+                <div class="col-xl-11 " id="table4">
+                    <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
+                        <div class="jumbotron col-11 m-1"><br>
+
+
+                            <div class="card-body">
+                                <form>
+                                    <div class="formtitle">
+                                        INVENTORY
+                                    </div>
+                                    <div class="descriptions">
+                                        ADD OF EQUIPMENTS
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:">
+                                        </div>
+                                        <div class="col-xl-5">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="No of Units:">
+                                        </div>
+                                        <div class="col-xl-1">
+                                            <button type="button" class="btn btn-success  mt-2 ">
+                                            ADD
+                                        </button>
+                                        </div>
+                                    </div>
+                                    <div class="descriptions col-12 m-2">
+                                        Supplies and Materials (Parts to be Replaced)
+                                    </div>
+
+                                    <!--TABLE-------------------------------------------------------------------------------------------->
+
+                                    <div class="table-responsive col-xl-12">
+                                        <table class="table">
+                                            <thead class="thead">
+                                                <tr>
+                                                    <th scope="col-xl-2 ">Quantity</th>
+                                                    <th scope="col-xl-6 ">Equipment</th>
+                                                    <th scope="col-xl-4 ">Modify/Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"><input type="text" class="form-control p-2"></th>
+                                                    <td><input type="text" class="form-control p-2"></td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><input type="text" class="form-control p-2"></th>
+                                                    <td><input type="text" class="form-control p-2"></td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><input type="text" class="form-control p-2"></th>
+                                                    <td><input type="text" class="form-control p-2"></td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-12 ">
+                                        <p class="card-text">Check it properly before you send it.</p>
+                                        <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                        Next
+                                    </button>
+                                        <button type="button" class="btn btn-danger float-right m-1">
+                                        Cancel
+                                    </button>
+
+                                    </div>
+
+                                </form>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--BG CALL-------------------------------------------------------------------------------------------->
+                <div id="pic" class="view drk "></div>
+            </div>
+        </div>
+
+
+
+</body>
+
+</html>

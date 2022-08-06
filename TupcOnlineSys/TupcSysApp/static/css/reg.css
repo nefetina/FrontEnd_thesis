@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+/******************************************************************row content*************************************************************************************************************/
+
+.row {
+    background: url("images/green.png")no-repeat center/cover;
+    border-radius: 1cm;
+    box-shadow: 12px 12px 22px black;
+    color: #000;
+}
+
+img {
+    position: relative !important;
+    border-bottom-left-radius: 1cm;
+    border-top-left-radius: 1cm;
+    height: 55vh;
+    width: 100vw;
+}
+
+
+/******************************************************************form visibility*************************************************************************************************************/
+
+#form2 {
+    display: none;
+    transition: .2s ease-in !important;
+}
+
+
+/******************************************************************buttons*************************************************************************************************************/
+
+.btn {
+    background-color: #720000;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 1px;
+    transition: 1s ease-in;
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight: light;
+    place-items: center;
+    width: 70%;
+    height: 34px;
+    justify-content: center;
+    display: flex;
+    background: hsla(148, 42%, 18%, 0.8);
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    transition: .2s ease-in;
+    color: #720000;
+}
+
+
+/********************************************************************************************BACKGROUND AND OVERLAY***************************************************************************************************************************/
+
+.parent {
+    background-image: url("images/TUP_BG_BRIGHT.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #1b412dcc;
+}
+
+
+/********************************************************************************************ADJUST***************************************************************************************************************************/
+
+
+/*************************xtra large*****/
+
+
+/*************************paglumagpas sa max width mababalik sa default setup*****/
+
+@media screen and (max-width: 1200px) {
+    #text1 {
+        font-size: 30px !important;
+    }
+    #btn1 {
+        font-size: 18px !important;
+    }
+    #btn2 {
+        font-size: 15px !important;
+    }
+}
+
+
+/*************************large*****/
+
+@media screen and (max-width: 991px) {
+    img {
+        position: relative !important;
+        border-bottom-left-radius: 0cm;
+        border-top-left-radius: 1cm;
+        border-top-right-radius: 1cm;
+        height: 100%;
+        width: 100%;
+    }
+    #text1 {
+        font-size: 40px !important;
+    }
+}
+
+
+/*************************medium*****/
+
+@media screen and (max-width: 768px) {}
+
+
+/*************************small*****/
+
+@media screen and (max-width: 576px) {
+    #text1 {
+        font-size: 25px !important;
+    }
+    #btn1 {
+        font-size: 14px !important;
+    }
+    #btn2 {
+        font-size: 12px !important;
+    }
+}
+
+
+/*************************lower than small lang*****/
+
+@media screen and (max-width: 400px) {
+    #btn1 {
+        font-size: 14px !important;
+    }
+    #btn2 {
+        font-size: 10px !important;
+    }
+    #text1 {
+        font-size: 20px !important;
+    }
+    #text2 {
+        font-size: 15px !important;
+    }
+    #text3 {
+        font-size: 15px !important;
+    }
+    #text4 {
+        font-size: 15px !important;
+    }
+}
