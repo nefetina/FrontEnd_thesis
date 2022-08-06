@@ -181,25 +181,11 @@
 }
 
 
-/*to do card style*/
-
-#to-do {
-    color: #05a2a0ef;
-    font-size: 60px !important;
-    font-weight: lighter !important;
-    padding-bottom: 40px !important;
-    padding-top: 0px !important;
-    cursor: default;
-    margin-top: -80px !important;
-    margin-bottom: -10px;
-}
 
 
-/*to-do text area*/
 
-#textarea1 {
-    border-radius: 20px;
-}
+
+
 
 
 /*****************************************BACKGROUND*******************************/
