@@ -1,155 +1,198 @@
-* {
+*{
     padding: 0;
     margin: 0;
 }
-
-
 /******************************************************************row content*************************************************************************************************************/
-
-.row {
-    background: url("static/images/green.png")no-repeat center/cover !important;
+.row{
+    background: url("/static/images/green.png")no-repeat center/cover;
     border-radius: 1cm;
-    box-shadow: 12px 12px 22px black;
+    box-shadow: 12px 12px 22px black ;
     color: #000;
+    
+    
+    
+    
+    
 }
-
-img {
-    position: relative !important;
-    border-bottom-left-radius: 1cm;
-    border-top-left-radius: 1cm;
+img{
+    position:relative !important;
+    border-bottom-left-radius: 1cm ;
+    border-top-left-radius: 1cm ;
     height: 55vh;
     width: 100vw;
+    
+    
+    
+    
+
 }
-
-
 /******************************************************************buttons*************************************************************************************************************/
+.btn{
+    background-color:#720000;
+    color:rgb(255, 255, 255);
 
-.btn {
-    background-color: #720000;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width:1px;
     transition: 1s ease-in;
     cursor: pointer;
     border-radius: 50px;
-    font-weight: light;
+
+    
+    font-weight:light;
     place-items: center;
-    width: 70%;
+    width: 70% ;
     height: 34px;
     justify-content: center;
     display: flex;
+    
     background: hsla(148, 42%, 18%, 0.8);
     margin: 20px auto;
+    
     border: none;
     outline: none;
+   
     font-size: 20px;
+    
 }
-
-.btn:hover {
+.btn:hover{
+    
     background-color: #ffffff;
     transition: .2s ease-in;
     color: #720000;
 }
 
 
-/********************************************************************************************BACKGROUND AND OVERLAY***************************************************************************************************************************/
-
-.parent {
-    background-image: url("static/images/TUP_BG_BRIGHT.png") !important;
-    background-repeat: no-repeat;
-    background-size: cover;
+.parent{
+    position: relative;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    
     position: relative;
 }
-
-.overlay {
-    position: absolute;
+.child{
+    position:absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    background: #1b412dcc;
+    height: 100%;
+    
 }
+
+
+
+
+
+/********************************************************************************************BACKGROUND AND OVERLAY***************************************************************************************************************************/
+
+html,
+body,
+header,
+#pic {
+    background-image: url("/static/images/TUPBGGREEN.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    
+    
+    
+}
+
+.view {
+    background-image: url("/static/images/TUPBGGREEN.png");
+    color: #fff;
+    width: 100%;
+    height: auto;
+    display: flex;
+    
+    
+}
+
 
 
 /*************************xtra large*****/
-
-
 /*************************paglumagpas sa max width mababalik sa default setup*****/
-
 @media screen and (max-width: 1200px) {
-    #text1 {
+    #text1{
         font-size: 30px !important;
     }
-    #btn1 {
+    #btn1{
         font-size: 18px !important;
-    }
-    #btn2 {
+    } 
+    #btn2{
         font-size: 15px !important;
-    }
+    } 
+    
 }
-
-
 /*************************large*****/
-
 @media screen and (max-width: 991px) {
-    img {
-        position: relative !important;
-        border-bottom-left-radius: 0cm;
-        border-top-left-radius: 1cm;
-        border-top-right-radius: 1cm;
+    img{
+        position:relative !important;
+        border-bottom-left-radius: 0cm ;
+        border-top-left-radius: 1cm ;
+        border-top-right-radius: 1cm ;
         height: 100%;
         width: 100%;
+        
     }
-    #text1 {
+    #text1{
         font-size: 40px !important;
     }
+    
 }
+
 
 
 /*************************medium*****/
-
-@media screen and (max-width: 768px) {}
-
-
+@media screen and (max-width: 768px) {
+    
+}
 /*************************small*****/
-
 @media screen and (max-width: 576px) {
-    #text1 {
+    #text1{
         font-size: 25px !important;
     }
-    #btn1 {
+    #btn1{
         font-size: 14px !important;
-    }
-    #btn2 {
+    } 
+    #btn2{
         font-size: 12px !important;
-    }
+    } 
+    
 }
-
-
 /*************************lower than small lang*****/
-
 @media screen and (max-width: 400px) {
-    #btn1 {
+    #btn1{
         font-size: 14px !important;
-    }
-    #btn2 {
+    } 
+    #btn2{
         font-size: 10px !important;
-    }
-    #text1 {
+    } 
+    #text1{
         font-size: 20px !important;
     }
-    #text2 {
+    #text2{
         font-size: 15px !important;
     }
-    #text3 {
+    #text3{
         font-size: 15px !important;
     }
-    #text4 {
+    #text4{
         font-size: 15px !important;
     }
 }
+
+
+
+
+
+
+
+
+

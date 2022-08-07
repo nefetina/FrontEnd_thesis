@@ -189,7 +189,7 @@ html,
 body,
 header,
 #pic {
-    background-image: url("static/images/TUP_BG_GREEN.png");
+    background-image: url("/static/images/TUPBGGREEN.png");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -200,7 +200,7 @@ header,
 }
 
 .view {
-    background: url("static/images/TUP_BG_GREEN.png");
+    background-image: url("/static/images/TUPBGGREEN.png");
     color: #fff;
     width: 100%;
     display: flex;
