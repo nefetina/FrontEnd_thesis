@@ -60,11 +60,11 @@
                     <div id="mySidebar" class="sidebar">
                         <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
                         <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
-                        <a href="1K_HOMEPAGE(FV).html"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
-                        <a href="1L_ID(FV).html" id="active"><i class="fa fa-2x fa-id-badge" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
-                        <a href="1M_INTERNET(FV).html"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
-                        <a href="1N_SCHEDULE(FV).html"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
-                        <a href="1O_REPORTS(FV).html"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
+                        <a href="{% url 'TupcSysApp:FacultyHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
+                        <a href="{% url 'TupcSysApp:FacultyID'%}" id="active"><i class="fa fa-2x fa-id-badge" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
+                        <a href="{% url 'TupcSysApp:FacultyInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
+                        <a href="{% url 'TupcSysApp:FacultyLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
+                        <a href="{% url 'TupcSysApp:FacultyReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
                         <a href="#contact"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
 
                     </div>

@@ -7,7 +7,7 @@
 /******************************************************************row content*************************************************************************************************************/
 
 .row {
-    background: url("images/green.png")no-repeat center/cover;
+    background: url("static/images/green.png")no-repeat center/cover !important;
     border-radius: 1cm;
     box-shadow: 12px 12px 22px black;
     color: #000;
@@ -54,7 +54,7 @@ img {
 /********************************************************************************************BACKGROUND AND OVERLAY***************************************************************************************************************************/
 
 .parent {
-    background-image: url("images/TUP_BG_BRIGHT.png");
+    background-image: url("static/images/TUP_BG_BRIGHT.png") !important;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -71,7 +71,7 @@ img {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: #1b412dcc;
 }
 

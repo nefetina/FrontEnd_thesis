@@ -4,6 +4,8 @@ import mysql.connector as sql
 from . import views
 # Create your views here.
 
+installed_apps = ['TupcSysApp']
+
 def index(request):#login page
     return render (request, 'TupcSysApp/LOGIN.html')
 
@@ -48,7 +50,7 @@ def FacultyID(request):#FACULTY ID page
     return render (request, 'TupcSysApp/1L_ID(FV).html')
 
 def FacultyInternet(request):#FACULTY INTERNET page
-    return render (request, 'TupcSysApp/1M_INTENET(FV).html')
+    return render (request, 'TupcSysApp/1M_INTERNET(FV).html')
 
 def FacultyLabsched(request):#FACULTY LABSCHED page
     return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html')

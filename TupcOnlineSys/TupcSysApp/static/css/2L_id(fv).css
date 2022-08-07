@@ -184,7 +184,7 @@ html,
 body,
 header,
 #pic {
-    background-image: url("images/TUP_BG_RED.png.png");
+    background-image: url("static/images/TUP_BG_RED.png.png");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -195,7 +195,7 @@ header,
 }
 
 .view {
-    background: url("images/TUP_BG_RED.png");
+    background: url("static/images/TUP_BG_RED.png");
     color: #fff;
     width: 100%;
     display: flex;

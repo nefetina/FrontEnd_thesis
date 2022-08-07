@@ -2,6 +2,8 @@ from django.urls import path
 from django.conf import settings
 from . import views
 
+app_name = 'TupcSysApp'
+
 urlpatterns =[
     path('', views.index, name='index'), 
     path('register/', views.register, name='register'), 
@@ -19,7 +21,7 @@ urlpatterns =[
     path('FacultyID/', views.FacultyID, name='FacultyID'), 
     path('FacultyInternet/', views.FacultyInternet, name='FacultyInternet'), 
     path('FacultyLabsched/', views.FacultyLabsched, name='FacultyLabsched'), 
-    path('FacultyReports', views.FacultyReports, name='FacultyReports'), 
+    path('FacultyReports/', views.FacultyReports, name='FacultyReports'), 
     path('StudentHome/', views.StudentHome, name='StudentHome'), 
     path('StudentInternet/', views.StudentInternet, name='StudentInternet'), 
     path('StudentReports/', views.StudentReports, name='StudentReports'), 

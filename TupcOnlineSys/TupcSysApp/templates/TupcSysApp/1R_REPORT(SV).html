@@ -11,7 +11,7 @@
     <!----TAB ICON------------------------------------------------>
     <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
     <!----CSS AND JS------------------------------------------------>
-    <script src="{% static'js/3R_rep(sv).js'%}"></script>
+    <script src="{% static 'js/3R_rep(sv).js'%}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/2R_report(sv).css'%}">
 
     <!----BOOTSTRAP LINK------------------------------------------------>
@@ -58,9 +58,9 @@
                     <div id="mySidebar" class="sidebar">
                         <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
                         <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
-                        <a href="1P_HOMEPAGE(SV).html"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
-                        <a href="1Q_INTERNET(SV).html"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
-                        <a href="1R_REPORT(SV).html" id="active"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
+                        <a href="{% url 'TupcSysApp:StudentHome'%}" ><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
+                        <a href="{% url 'TupcSysApp:StudentInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
+                        <a href="{% url 'TupcSysApp:StudentReports'%}" id="active"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
                         <a href="#contact"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
                     </div>
                 </div>
