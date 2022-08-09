@@ -1,16 +1,19 @@
-
 function validate ()
 {
     var un = document.forms["log"]["uname"].value;
     var up = document.forms["log"]["upass"].value;
     
-    if(un == "INSTRUCTOR@gmail.com" && up == "instructor")
+    if(un == "faculty" && up == "faculty1")
     {
-        window.location.href="HOMEPAGE.html";
+        window.location.href="{% url 'TupcSysApp:UitcHome'%}";
     }
-    else if(un == "UITCSTAFF@gmail.com" && up == "uitcstaff")
+    else if(un == "uitc" && up == "uitc1")
     {
-        window.location.href="EQUIPMENT_DEVICE.html";
+        window.location.href="{% url 'TupcSysApp:FacultyHome'%}";
+    }
+    else if(un == "student" && up == "student1")
+    {
+        window.location.href="{% url 'TupcSysApp:StudentHome'%}";
     }
 
     else

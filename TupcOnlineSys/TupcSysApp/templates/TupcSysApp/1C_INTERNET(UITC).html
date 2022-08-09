@@ -67,22 +67,45 @@
                         <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
                         <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcInternet'%} id="active""><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcInternet'%}" id="active"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">PERMISSION</h6></i></a>
-                        <a href="#contact"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
+                        <a href="{% url 'TupcSysApp:index'%}"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
                     </div>
                 </div>
                 <!--CARD-------------------------------------------------------------------------------------------->
-                <div class="col-xl-11 main">
+                <div class="col-xl-11 main">                    
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                        <div id="table1" class="col-xl-11">
-                            <div class="jumbotron  m-1 "><br>
+                        <div id="table1" class="col-xl-11" >
+                            
+                            <form>
+                                <div class="form-row">
 
-
-                                <div class="card-body">
+                                    <div class="col-xl-9 col-lg-8 col-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                    </div>
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-1 col-lg-2 col-12">
+                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                    </div>
+                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Sorted by:
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Date</a>
+                                            <a class="dropdown-item" href="#">Ascending</a>
+                                            <a class="dropdown-item" href="#">Descending</a>
+                                        </div>
+                                      </div>
+                                </div>
+                            </form>
+                            <div class="jumbotron  m-1 "   ><br>
+                            
+                                
+                                <div class="card-body"  >
                                     <form>
                                         <div class="formtitle">
                                             FACULTY WIFI REQUEST
@@ -90,87 +113,110 @@
                                         <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
-                                                    <tr>
-                                                        <th scope="col">NAME</th>
-                                                        <th scope="col ">DEPARTMENT</th>
-                                                        <th scope="col ">DESIGNATION</th>
-                                                        <th scope="col">SYSTEM</th>
-                                                        <th scope="col">MAC ADDRESS</th>
-                                                        <th scope="col">FACULTYR</th>
-                                                        <th scope="col">MOBILE NO.</th>
-                                                        <th scope="col">ADDRESS</th>
-                                                        <th scope="col">EMAIL</th>
-                                                        <th scope="col">ACTION</th>
-                                                    </tr>
+                                                <tr>
+                                                    <th scope="col">NAME</th>
+                                                    <th scope="col ">DEPARTMENT</th>
+                                                    <th scope="col ">DESIGNATION</th>
+                                                    <th scope="col">SYSTEM</th>
+                                                    <th scope="col">MAC ADDRESS</th>
+                                                    <th scope="col">FACULTYR</th>
+                                                    <th scope="col">MOBILE NO.</th>
+                                                    <th scope="col">ADDRESS</th>
+                                                    <th scope="col">EMAIL</th>
+                                                    <th scope="col">ACTION</th>
+                                                </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-
-
+                                    
+                                        
                                     </form>
-
-
-
-
-
+                                
+                                    
+                                    
+                                
+                                    
                                 </div>
                             </div>
+                        
                         </div>
                         <div id="table2" class="col-xl-11 collapse">
-                            <div class="jumbotron col-xl-11 m-1 "><br>
+                            <form>
+                                <div class="form-row">
+
+                                    <div class="col-xl-9 col-lg-8 col-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                    </div>
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-1 col-lg-2 col-12">
+                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                    </div>
+                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Sorted by:
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Date</a>
+                                            <a class="dropdown-item" href="#">Ascending</a>
+                                            <a class="dropdown-item" href="#">Descending</a>
+                                        </div>
+                                      </div>
+                                </div>
+                            </form>
+                            <div class="jumbotron  m-1 " ><br>
 
                                 <div class="card-body">
                                     <form>
@@ -180,80 +226,102 @@
                                         <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
-                                                    <tr>
-                                                        <th scope="col">NAME</th>
-                                                        <th scope="col ">EMPLOYEE NO.</th>
-                                                        <th scope="col ">DATE REQSTD</th>
-                                                        <th scope="col">GOV’T ID NO.</th>
-                                                        <th scope="col">CONTACT PERSON</th>
-                                                        <th scope="col">C.P NUMBER</th>
-                                                        <th scope="col">DATE RLSD</th>
-                                                        <th scope="col">ACTION</th>
-                                                    </tr>
+                                                  <tr>
+                                                    <th scope="col-xl-1">NAME</th>
+                                                    <th scope="col-xl-1 ">EMPLOYEE NO.</th>
+                                                    <th scope="col-xl-1 ">DATE REQSTD</th>
+                                                    <th scope="col-xl-1">GOV’T ID NO.</th>
+                                                    <th scope="col-xl-1">CONTACT PERSON</th>
+                                                    <th scope="col-xl-1">C.P NUMBER</th>
+                                                    <th scope="col-xl-1">DATE RLSD</th>
+                                                    <th scope="col-xl-1">ACTION</th>
+                                                  </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
+                                                  <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;"  >APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" >APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                  </tr>
                                                 </tbody>
-                                            </table>
+                                              </table>
                                         </div>
-
-
+                                       
+                                        
                                     </form>
-
-
-
-
-
+                                   
+                                    
+                                    
+                                   
+                                    
                                 </div>
-
-                            </div>
+                                
+                            </div> 
                         </div>
                         <div id="table3" class="col-xl-11 collapse">
-                            <div class="jumbotron col-xl-11 m-1 "><br>
+                            <form>
+                                <div class="form-row">
+
+                                    <div class="col-xl-9 col-lg-8 col-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                    </div>
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-1 col-lg-2 col-12">
+                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                    </div>
+                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Sorted by:
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Date</a>
+                                            <a class="dropdown-item" href="#">Ascending</a>
+                                            <a class="dropdown-item" href="#">Descending</a>
+                                        </div>
+                                      </div>
+                                </div>
+                            </form>
+                            <div class="jumbotron  m-1 " ><br>
 
                                 <div class="card-body">
                                     <form>
@@ -263,87 +331,87 @@
                                         <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
-                                                    <tr>
-                                                        <th scope="col">NAME</th>
-                                                        <th scope="col ">STUDENT NO.</th>
-                                                        <th scope="col ">COURSE</th>
-                                                        <th scope="col">O.R. #</th>
-                                                        <th scope="col">SEMESTER</th>
-                                                        <th scope="col">USERNAME</th>
-                                                        <th scope="col">MOBILE NO.</th>
-                                                        <th scope="col">ADDRESS</th>
-                                                        <th scope="col">EMAIL</th>
-                                                        <th scope="col">ACTION</th>
-                                                    </tr>
+                                                  <tr>
+                                                    <th scope="col">NAME</th>
+                                                    <th scope="col ">STUDENT NO.</th>
+                                                    <th scope="col ">COURSE</th>
+                                                    <th scope="col">O.R. #</th>
+                                                    <th scope="col">SEMESTER</th>
+                                                    <th scope="col">USERNAME</th>
+                                                    <th scope="col">MOBILE NO.</th>
+                                                    <th scope="col">ADDRESS</th>
+                                                    <th scope="col">EMAIL</th>
+                                                    <th scope="col">ACTION</th>
+                                                  </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>empty</td>
-                                                        <td>
-                                                            <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-
-                                                        </td>
-                                                    </tr>
+                                                  <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" >APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" >APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                  </tr>
                                                 </tbody>
-                                            </table>
+                                              </table>
                                         </div>
-
-
+                                       
+                                        
                                     </form>
-
-
-
-
-
+                                   
+                                    
+                                    
+                                   
+                                    
                                 </div>
-
-                            </div>
+                                
+                            </div> 
                         </div>
-
+                        
                     </div>
                 </div>
             </div>
