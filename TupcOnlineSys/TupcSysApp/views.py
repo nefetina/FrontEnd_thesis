@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect, render
+from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 import mysql.connector as sql
 from . import views
 # Create your views here.
