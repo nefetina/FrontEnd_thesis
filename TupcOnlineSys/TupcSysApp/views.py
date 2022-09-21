@@ -1,18 +1,61 @@
 from django.shortcuts import render
+from multiprocessing import context
+from .models import *
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 import mysql.connector as sql
-from . import views
+from django.contrib.auth.models import User, auth
+from django.contrib.auth import authenticate
+from .forms import Registration
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 installed_apps = ['TupcSysApp']
 
-def index(request):#login page
-    return render (request, 'TupcSysApp/LOGIN.html')
+
 
 def register(request):#registration
-    return render (request, 'TupcSysApp/REGISTRATION.html')
+    form = Registration()
+    if request.method == "POST":
+        form = Registration(request.POST)
+        if form.is_valid():
+
+            form.save()
+            messages.success(request, 'You are now registered')
+            return redirect('/')
+        else:
+            messages.warning(request, "Recheck all your input info")
+    context = {
+        'form':form
+    }
+    return render (request, 'TupcSysApp/REGISTRATION.html', context)
+    
+def index(request):#login page
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username = username, password = password)
+        if user is not None and user.Personal_description == "UITC Staff":
+            login(request, user)
+            return redirect('/UitcHome')
+
+        elif user is not None and user.Personal_description == "Faculty Member":
+            login(request, user)
+            return redirect('/FacultyHome')
+        elif user is not None and user.Personal_description == "Student":
+            login(request, user)
+            return redirect('/StudentHome')
+        else:
+            messages.warning(request, 'Invalid Credentials')
+
+    
+    return render (request, 'TupcSysApp/LOGIN.html')
+
 
 def UitcHome(request):#UITC HOMEPAGE page
     return render (request, 'TupcSysApp/1A_HOMEPAGE(UITC).html')
@@ -57,7 +100,7 @@ def FacultyInternet(request):#FACULTY INTERNET page
 def FacultyLabsched(request):#FACULTY LABSCHED page
     return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html')
 
-def FacultyReports(request):#FACULTY REPORTS page
+def FacultyReports(request):#FACULTY REPORTS page   
     return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
 
 def StudentHome(request):#STUDENT HOMEPAGE page
