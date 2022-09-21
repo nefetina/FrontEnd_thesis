@@ -7,6 +7,7 @@ app_name = 'TupcSysApp'
 
 urlpatterns =[
     path('', views.index, name='index'), 
+    path('Index/', views.Index, name='Index'),
     path('register/', views.register, name='register'), 
     path('UitcHome/', views.UitcHome, name='UitcHome'), 
     path('UitcID/', views.UitcID, name='UitcID'), 
@@ -26,4 +27,6 @@ urlpatterns =[
     path('StudentHome/', views.StudentHome, name='StudentHome'), 
     path('StudentInternet/', views.StudentInternet, name='StudentInternet'), 
     path('StudentReports/', views.StudentReports, name='StudentReports'), 
+    path('logout/', views.logoutUser, name='logout'),
+
     ]
