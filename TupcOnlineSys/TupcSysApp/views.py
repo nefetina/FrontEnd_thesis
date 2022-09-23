@@ -75,6 +75,14 @@ def logoutUser(request):
     request.user.Personal_description = None
     return redirect('/')
 
+def cancel(request, id):
+    a = register1.objects.get(id=id)
+    for x in register1.objects.only('id').filter(Status= "On process"):
+        if a == x:
+            x = register1.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcPermission')
 
 def Index(request):
     return redirect('/')

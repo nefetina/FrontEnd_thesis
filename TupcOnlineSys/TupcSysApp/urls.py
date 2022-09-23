@@ -9,6 +9,7 @@ urlpatterns =[
     path('', views.index, name='index'), 
     path('Index/', views.Index, name='Index'),
     path('permit/<int:id>', views.permit, name='permit'),
+    path('cancel/<int:id>', views.cancel, name='cancel'),
     path('register/', views.register, name='register'), 
     path('UitcHome/', views.UitcHome, name='UitcHome'), 
     path('UitcID/', views.UitcID, name='UitcID'), 
