@@ -18,14 +18,22 @@ installed_apps = ['TupcSysApp']
 
 
 
+def permit(request, id):
+    a = register1.objects.get(id=id)
+    for x in register1.objects.only('id').filter(Status= "On process"):
+        if a == x:
+            x = register1.objects.filter(id=id).update(Status="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcPermission')
+
 def register(request):#registration
     form = Registration()
     if request.method == "POST":
         form = Registration(request.POST)
         if form.is_valid():
-
             form.save()
-            messages.success(request, 'You are now registered')
+            messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
             return redirect('/')
         else:
             messages.warning(request, "Recheck all your input info")
@@ -45,10 +53,10 @@ def index(request):#login page
             login(request, user)
             return redirect('/UitcHome')
 
-        elif user is not None and user.Personal_description == "Faculty Member":
+        elif user is not None and user.Status == "Approved" and user.Personal_description == "Faculty Member":
             login(request, user)
             return redirect('/FacultyHome')
-        elif user is not None and user.Personal_description == "Student":
+        elif user is not None and user.Status == "Approved" and user.Personal_description == "Student":
             login(request, user)
             return redirect('/StudentHome')
         else:
@@ -173,7 +181,8 @@ def UitcRec4(request):#UITC HOMEPAGE page
 @login_required(login_url='/Index')
 def UitcPermission(request):#UITC PERMISSION page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return render (request, 'TupcSysApp/1J_PERMISSION(UITC).html')
+        data = register1.objects.filter(Status = "On process")
+        return render (request, 'TupcSysApp/1J_PERMISSION(UITC).html',{'data':data})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":

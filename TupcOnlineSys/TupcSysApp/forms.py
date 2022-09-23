@@ -8,6 +8,6 @@ from .models import register1
 class Registration(UserCreationForm):
     class Meta:
         model= register1
-        fields = ['username', 'first_name', 'last_name', 'password1', 'password2', 'Personal_description']
+        fields = ['username', 'first_name', 'last_name', 'email', 'idno', 'password1', 'password2', 'Personal_description']
        
         

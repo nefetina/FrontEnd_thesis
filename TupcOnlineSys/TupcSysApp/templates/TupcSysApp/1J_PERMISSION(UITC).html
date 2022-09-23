@@ -124,45 +124,23 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
+                                                    {% for p in data %}
+                                                    <td>{{p.first_name}}</td>
+                                                    <td>{{p.last_name}}</td>
+                                                    <td>{{p.email}}</td>
+                                                    <td>{{p.idno}}</td>
+                                                    <td>{{p.Personal_description}}</td>
+                                                    <td>
                                                     
                                                     <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
+                                                        <a class="btn btn-primary badge-pill" style="width: 120px;" id="b1" type='button' href="{% url 'TupcSysApp:permit' p.pk  %}" > APPROVE</a>
                                                         <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
                                                         <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
                                                         
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>empty</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
+                                                {% endfor%}
+
                                                 </tbody>
                                             </table>
                                         </div>

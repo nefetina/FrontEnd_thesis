@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 from pickle import TRUE
 from sqlite3 import Date
 from django.db import models
@@ -5,6 +6,7 @@ import os
 from django.db.models.deletion import CASCADE
 import django.utils.timezone
 from django.contrib.auth.models import AbstractUser
+
 
 class register1(AbstractUser):
     personal_option = [
@@ -14,6 +16,10 @@ class register1(AbstractUser):
     ]
     Personal_description = models.CharField(max_length = 40, null=False, choices= personal_option)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    idno = models.CharField(max_length= 20, null=False)
+    Status = models.CharField(max_length=50, default = "On process" , null=False)
+
+
 
 
 
