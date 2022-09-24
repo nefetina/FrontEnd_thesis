@@ -20,12 +20,32 @@ class register1(AbstractUser):
     Status = models.CharField(max_length=50, default = "On process" , null=False)
 
 
-
-
-
 class index(models.Model):
     User_name = models.CharField(max_length= 50, null=False)
     Password_data =models.CharField(default= "", max_length =40, null=False, unique = True)
 
 
+#faculty
+class faculty_ID(models.Model):
+    ff_name = models.CharField(max_length= 50, null=False)
+    fm_name = models.CharField(max_length= 50, null=False)
+    fl_name = models.CharField(max_length= 50, null=False)
+    f_suffix = models.CharField(max_length= 50, null=True)
+    f_emp = models.CharField(max_length = 100, null=False)
+    f_datereq = models.DateField()
+    f_daterel = models.DateField()
+    f_gsis = models.CharField(max_length = 100, null=True)
+    f_gsisp = models.CharField(max_length = 100, null=True)
+    f_tin = models.CharField(max_length = 100, null=True)
+    f_pagibig = models.CharField(max_length = 100, null=True)
+    f_phil = models.CharField(max_length = 100, null=True)
+    f_other = models.CharField(max_length = 100, null=True)
+    f_cp = models.CharField(max_length = 100, null=True)
+    f_num = models.CharField(max_length = 100, null=True)
+    f_add = models.CharField(max_length = 200, null=True)
+    f_signature = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     
+
+
+
+
