@@ -48,8 +48,10 @@
 
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="requestforrep()"><a href="#">REQUEST FOR REPAIR & MAINTENANCE</a></li>
-            <li class="breadcrumb-item" onclick="maintenance()"><a href="#">MAINTENANCE</a></li>
+            <li class="breadcrumb-item ml-auto" onclick="requestforrep()" ><a href="#">REQUEST FOR REPAIR & MAINTENANCE</a></li>
+            <li class="breadcrumb-item" onclick="maintenanceform()" ><a href="#">MAINTENANCE FORM</a></li>
+            <li class="breadcrumb-item" onclick="maintenance()" ><a href="#">MAINTENANCE</a></li>
+            <li class="breadcrumb-item" onclick="borrowform()"><a href="#">BORROW FORM</a></li>
             <li class="breadcrumb-item" onclick="borrow()"><a href="#">BORROW</a></li>
         </ol>
     </nav>
@@ -609,7 +611,7 @@
                                                     <td>emptysdsadsdsdasddw</td>
                                                     <td>emptysdsadsdsdasddw</td>
                                                     <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;"  onclick="form221()">APPROVE</button>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
                                                         <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
                                                         <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
                                                         
@@ -1204,6 +1206,89 @@
                                     
                                 </div>
                                
+                            </div>
+                        </div>
+    <!--FORMTABLE 3.1-------------------------------------------------------------------------------------------->                    
+                        <div class="col-xl-11 collapse " id="tableform7">
+                            <div class="jumbotron "><br>
+
+                                <!--FORM 2-------------------------------------------------------------------------------------------->
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            FILL UP THE FORM HERE
+                                        </div>
+                                        <div class="descriptions">
+                                            Request
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Date Requested:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:">
+                                            </div>
+                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
+                                                Time:
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                            </div>
+
+                                        </div>
+                                        <div class="descriptions col-12 m-2">
+                                            Request to Borrow
+                                        </div>
+
+                                        <!--Radio btn-------------------------------------------------------------------------------------------->
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-4 col-lg-6">
+                                                <h6 class=""><input type="radio" class="radio " name="station"> Projector</h6>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-6">
+                                                <h6 class=""><input type="radio" class="radio " name="station"> Extension</h6>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-12">
+                                                <h6 class=""><input type="radio" class="radio " name="station"> Patch Cord</h6>
+                                            </div>
+                                        </div>
+                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
+                                            <div class="col-xl-4 col-lg-6">
+                                                <h6 class=""><input type="radio" class="radio" name="station"> Others</h6>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-12">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Reason for borrowing:">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-12">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                            </div>
+                                        </div>
+
+
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                                                        Submit
+                                                                    </button>
+                                            <button type="button" class="btn btn-danger float-right m-1">
+                                                                        Cancel
+                                                                    </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         

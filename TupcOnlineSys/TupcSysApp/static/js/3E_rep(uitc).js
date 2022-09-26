@@ -151,11 +151,50 @@ function form111(){
     x1.style.display = "none";
 }
 
-function form221(){
+function maintenanceform(){
+
+    var a = document.getElementById("tableform1");
+    var b = document.getElementById("tableform2");
+    var c = document.getElementById("tableform3");
+    var d = document.getElementById("tableform7");
+
     var y2 = document.getElementById("tableform4");
-    var x2 = document.getElementById("table2");
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
+    var w2 = document.getElementById("table3");
     y2.style.display = "block";
     x2.style.display = "none";
+    z2.style.display = "none";
+    w2.style.display = "none";
+    a.style.display = "none";
+    b.style.display = "none";
+    c.style.display = "none";
+}
+
+function borrowform(){
+    var a = document.getElementById("tableform1");
+    var b = document.getElementById("tableform2");
+    var c = document.getElementById("tableform3");
+    var d = document.getElementById("tableform4");
+    var e = document.getElementById("tableform5");
+    var f = document.getElementById("tableform6");
+    
+    var y2 = document.getElementById("tableform7");
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
+    var w2 = document.getElementById("table3");
+    y2.style.display = "block";
+    x2.style.display = "none";
+    z2.style.display = "none";
+    w2.style.display = "none";
+
+
+    a.style.display = "none";
+    b.style.display = "none";
+    c.style.display = "none";
+    d.style.display = "none";
+    e.style.display = "none";
+    f.style.display = "none";
 }
 
 
@@ -167,6 +206,7 @@ function requestforrep(){
     var d = document.getElementById("tableform4");
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
+    var g = document.getElementById("tableform7");
     
 
     var y = document.getElementById("table1");
@@ -185,10 +225,12 @@ function requestforrep(){
     d.style.display = "none";
     e.style.display = "none";
     f.style.display = "none";
+    g.style.display = "none";
+}
 
     
   
-}
+
 function maintenance() {
     var a = document.getElementById("tableform1");
     var b = document.getElementById("tableform2");
@@ -196,6 +238,7 @@ function maintenance() {
     var d = document.getElementById("tableform4");
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
+    var g = document.getElementById("tableform7");
 
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
@@ -211,8 +254,10 @@ function maintenance() {
     d.style.display = "none";
     e.style.display = "none";
     f.style.display = "none";
-  
+    g.style.display = "none";
 }
+  
+
 function borrow(){
     var a = document.getElementById("tableform1");
     var b = document.getElementById("tableform2");
@@ -220,6 +265,7 @@ function borrow(){
     var d = document.getElementById("tableform4");
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
+    var g = document.getElementById("tableform7");
 
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
@@ -235,4 +281,5 @@ function borrow(){
     d.style.display = "none";
     e.style.display = "none";
     f.style.display = "none";
+    g.style.display = "none";
 }
