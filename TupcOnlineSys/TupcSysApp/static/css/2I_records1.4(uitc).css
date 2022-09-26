@@ -208,6 +208,24 @@
     color: #fff !important;
 }
 
+#idtable1 {
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+#idtable2 {
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+#idtable3 {
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
 
 /* border bottom line of the form title*/
 
