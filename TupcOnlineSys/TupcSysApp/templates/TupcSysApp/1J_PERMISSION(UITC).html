@@ -110,35 +110,37 @@
                                         <div class="formtitle">
                                             REGISTRATION PERMISSION
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable">
+                                        <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
                                                 <tr>
                                                     <th scope="col">FIRST NAME</th>
                                                     <th scope="col ">LAST NAME</th>
-                                                    <th scope="col ">USERNAME</th>
                                                     <th scope="col ">GSFE ACC.</th>
                                                     <th scope="col">TUPC ID NO.</th>
-                                                    <th scope="col">PERSONAL DESCRIPTION</th>
+                                                    <th scope="col">USER TYPE</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
+                                                    {% for p in data %}
+                                                    <td>{{p.first_name}}</td>
+                                                    <td>{{p.last_name}}</td>
+                                                    <td>{{p.email}}</td>
+                                                    <td>{{p.idno}}</td>
+                                                    <td>{{p.Personal_description}}</td>
+                                                    <td>
                                                     
                                                     <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        <a class="btn btn-primary badge-pill" style="width: 120px;" id="b1" type='button' href="{% url 'TupcSysApp:permit' p.pk  %}" > APPROVE</a>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;" >DOWNLOAD</a>
+                                                        <a class="btn btn-danger badge-pill" style="width: 120px;" type='button' href="{% url 'TupcSysApp:cancel' p.pk  %}" >CANCEL</a>
                                                         
                                                     </td>
                                                 </tr>
+                                                {% endfor%}
+
                                                 </tbody>
                                             </table>
                                         </div>

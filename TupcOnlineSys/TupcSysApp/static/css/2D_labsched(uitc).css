@@ -163,12 +163,7 @@
     color: #fff !important;
 }
 
-#idtable{
-    width: auto;
-    overflow: hidden;
-    overflow-x: scroll;
 
-}
 /* border bottom line of the form title*/
 
 .formtitle {

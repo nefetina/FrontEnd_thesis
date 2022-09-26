@@ -111,61 +111,91 @@
                                         <div class="formtitle">
                                             REQUEST FOR REPAIR & MAINTENANCE
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                        <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
                                                 <tr>
-                                                    <th scope="col">TYPE</th>
-                                                    <th scope="col ">BRAND/MODEL</th>
-                                                    <th scope="col ">SERIAL#</th>
-                                                    <th scope="col">SPECIFICATION</th>
-                                                    <th scope="col">NATURE OF WORK TO BE DONE</th>
-                                                    <th scope="col ">FULL NAME</th>
-                                                    <th scope="col ">POSITION /JOB</th>
-                                                    <th scope="col">DEPARTMENT</th>
-                                                    <th scope="col">SIGNATURE</th>
-                                                    <th scope="col">DATE</th>
-                                                    <th scope="col">TIME</th>
+                                                    <th scope="col">RQSTD BY</th>
+                                                    <th scope="col ">POSITION</th>
+                                                    <th scope="col ">DEPARTMENT</th>
+                                                    <th scope="col">DATE/TIME SUBMITTED</th>
+                                                    <th scope="col">COMPLAINT</th>
+                                                    <th scope="col ">TYPE</th>
+                                                    <th scope="col ">SERIAL NO.</th>
+                                                    <th scope="col">BRAND</th>
+                                                    <th scope="col">SPECS</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <div class="modal fade" id="dom" tabindex="-1" role="dialog" aria-labelledby="domTitle" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered"  role="document">
-                                                          <div class="modal-content" id="dal">
+                                                        <div class="modal-content" id="dal">
                                                             <div class="modal-header">
-                                                              <h6 class="modal-title"  id="MODAL2">Notification</h6>
-                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <h6 class="modal-title"  id="MODAL2">Notification</h6>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">
-                                                              </button>
+                                                            </button>
                                                             </div>
                                                             <div class="modal-body"  id="MODAL2">
                                                                 DO YOU REALLY WANT TO DELETE IT
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" class="btn btn-danger" data-dismiss="modal" id="b2" onclick="cancel2()">Cancel</button>
-                                                              <button type="button" class="btn btn-primary" data-dismiss="modal" id="b1" onclick="submit()">Yes</button>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="b2" onclick="cancel2()">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="b1" onclick="submit()">Yes</button>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         </div>
                                                 </div>
                                                 <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
                                                     
                                                     <td>
                                                         <a class="btn btn-primary badge-pill"   style="width: 120px; color: white;"  onclick="form111()">FORM</a>
                                                         <a class="btn btn-danger badge-pill"   style="width: 120px; color: white;" data-toggle="modal" data-target="#dom">MODAL</a>
                                                         <a class="btn btn-danger badge-pill" style="width: 120px;" id="dwnld_btn" title="Download">CANCEL</a>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill dwnld" style="width: 120px;" id="dwnld_btn1" title="Download">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
                                                         
                                                     </td>
                                                 </tr>
@@ -509,53 +539,15 @@
                                         <div class="formtitle">
                                             MAINTENANCE
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable2">
+                                        <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
                                                 <tr>
-                                                    <th scope="col">TYPE</th>
-                                                    <th scope="col ">SERIAL NO.</th>
-                                                    <th scope="col ">DATE OF MAINTENANCE</th>
-                                                    <th scope="col">BRAND MODEL</th>
-                                                    <th scope="col">ICT EQUIPMENT CODE</th>
-                                                    <th scope="col ">ICT EQUIPMENT NAME</th>
-                                                    <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">SCAN FOR VIRUSES STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">RUN MALWARE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">CLEAN KEYBOARD STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">ORGANIZE CABLES STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">WIPEDOWN MONITOR STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">UITC PERSONNEL</th>
-                                                    <th scope="col ">SIGNATURE</th>
-                                                    <th scope="col ">DATE STARTED</th>
-                                                    <th scope="col ">TIME STARTED</th>
-                                                    <th scope="col ">DATE ENDED</th>
-                                                    <th scope="col ">TIME ENDED</th>
-                                                    <th scope="col ">SOLUTION RECOMMENDATION</th>
-                                                    <th scope="col ">END USER</th>
-                                                    <th scope="col ">SIGNATURE</th>
+                                                    <th scope="col">UITC PERSON</th>
+                                                    <th scope="col ">DATE START</th>
+                                                    <th scope="col ">DATE FINISH</th>
+                                                    <th scope="col">SOL. & RECOM.</th>
+                                                    <th scope="col">END USER</th>
                                                     <th scope="col ">DATE</th>
                                                     <th scope="col ">TIME</th>
                                                     <th scope="col">ACTION</th>
@@ -563,53 +555,45 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
                                                     <td>
                                                         <button class="btn btn-primary badge-pill" style="width: 120px;"  onclick="form221()">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
                                                         <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
                                                         <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
                                                         
@@ -1163,29 +1147,53 @@
                                         <div class="formtitle">
                                             BORROW
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable3">
+                                        <div class="table-responsive-xl col-xl-12">
                                             <table class="table">
                                                 <thead class="thead">
                                                 <tr>
-                                                    <th scope="col">FULL NAME</th>
+                                                    <th scope="col">NAME</th>
+                                                    <th scope="col ">RQST BORROW</th>
                                                     <th scope="col ">DATE RQSTD</th>
                                                     <th scope="col">TIME</th>
-                                                    <th scope="col ">RQST BORROW</th>
-                                                    <th scope="col">REASON FOR BORROWING</th>
-                                                    <th scope="col">SIGNATURE</th>
+                                                    <th scope="col">PURPOSE</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>             
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>              
                                                     <td>
                                                         <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
+                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>empty</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
                                                         <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
                                                         <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
                                                         

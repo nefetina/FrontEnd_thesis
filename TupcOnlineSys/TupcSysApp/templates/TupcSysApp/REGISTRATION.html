@@ -22,6 +22,7 @@
 <body>
     <div class="parent"> <!--------------------------------------------------------bg background call---------------------------------------------------->   
         <div class="overlay"> <!--------------------------------------------------color overlay------------------------------------------>   
+            {%csrf_token%}
             <section class="form my-4 mx-5  ">
                 
                 <div class="container-fluid ">
@@ -57,114 +58,122 @@
                                 </a>
                             </div>
     
-                        
+                        </div>
+
+    
+                        <div class="col-xl-5 col-lg-5  pt-xl-5 pt-lg-5 pt-md-3   px-5 text-center">
+                         
+                            <form id="form1"> <!------------------------------------------------FORM1---------------------------------------------------->    
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-lg-9" >
+                                        <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
+                                        <h6 class="font-weight-bold " id="text2">Creat an account</h6>                                                                               
+                                    </div>
+    
+                                </div>
 
                                 <!--------------------------------------------------input fields-------------------------------------------------------->
-                                <div class="col-lg-7  text-center">
-                                    <form method="post">
-                                        {% csrf_token %}
-                                        <div id="form1">
-        
-                                            <div class="form-row n">
-                                                <div class="col-12  text-center" >
-                                                    <h3 class="font-weight-bold"  id="personal">PERSONAL INFO</h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-row n">
-                                                <div class="col-lg-12 text-center ">
-                                                    <h6 class="font-weight-bold "   id="fillup">Fill up Here</h6>
-                                                </div>
-                                            </div>
-                                            <div class="form-row n" >
-                                                <label class="row-2" >Username {{form.username}}  </label>
-        
-                                            </div>
-                                            <div class="form-row n" >
-                                                <label class="row-2" >First Name {{form.first_name}}  </label>
-        
-                                            </div>
-                                            <div class="form-row n">
-                                                <label class="row-2" >Last Name {{form.last_name}}  </label>
-        
-                                            </div>
-                                            <div class="form-row n">
-                                                <label class="row-2" >Email {{form.email}}  </label>
-        
-                                            </div>
-                                            <div class="form-row n">
-                                                <label class="row-2" >ID No.{{form.idno}}  </label>
-        
-                                            </div>
-                                            <div class="form-row n">
-                                                <div class="col-lg-4 bp">
-                                                    <a>
-                                                        <a type="button" class="btn" id="cancel" href="{% url 'TupcSysApp:index' %}" >Cancel</a>
-        
-                                                    </a>
-        
-                                                </div>
-                                                <div class="col-lg-4 bp">
-                                                    <a>
-                                                        <button type="button" class="btn" id ="log" onclick="toggle()">Next</button>
-        
-                                                    </a>
-        
-                                                </div>
-                                            </div>
-                                        </div>
-        
-                                        <div id="form2">
-        
-                                            <div class="form-row n ">
-                                                <div class="col-lg-12 text-center ">
-                                                    <h3 class="font-weight-bold " id="acc">CREATE ACCOUNT</h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-row n">
-                                                <div class="col-lg-12 text-center">
-                                                    <h6 class="font-weight-bold " >Fill up Here</h6>
-                                                </div>
-                                            </div>
-        
-        
-                                            <div class="form-row n ">
-                                                <label class="row-2">Password {{form.password1}}  </label>
-        
-        
-                                            </div>
-                                            <div class="form-row n ">
-                                                <label class="row-2">Confirm Password {{form.password2}}  </label>
-        
-        
-                                            </div>
-                                            <div class="form-row n">
-                                                <label class="row-2 jd">Personal Description {{form.Personal_description}} </label>
-        
-        
-                                            </div>
-                                            <div class="form-row n">
-                                                <div class="col-lg-4 bp">
-                                                    <a>
-                                                        <button type="button" class="btn" id="back1" onclick="toggle1()">Back</button>
-        
-                                                    </a>
-        
-                                                </div>
-                                                <div class="col-lg-4 bp">
-                                                    <a>
-                                                        <button type="submit" class="btn" id="reg1" >Register</button>
-        
-                                                    </a>
-        
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-lg-9  mt-lg-4">
+                                        <input type="text" class="form-control mt-xl-2 m-lg-0 my-xl-2 my-lg-1 my-md-2 my-1" placeholder="First Name">
+                                    </div>
+    
                                 </div>
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" placeholder="Last Name">
+                                    </div>
+    
+                                </div>
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" placeholder="Username">
+                                    </div>
+    
+                                </div>
+                                
+                                <!------------------------------------------------------buttons-------------------------------------------------------->
+                                <div class="form-row ">
+                                    <div class="col-xl-12 mt-lg-4 d-flex justify-content-center align-items-center">
+                                        <button type="button" class="btn  my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn1" onclick="toggle()">NEXT</button>
+                                    </div>
+    
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-lg-12  d-flex justify-content-center align-items-center">
+                                        <button type="button" class="btn  my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn2" onclick="return1()">RETURN </button>
+                                    </div>
+    
+                                </div>
+                                
+                               
+                            
+                                                            
+                            </form>
 
 
                            
-                        
+                            
+                            <form id="form2"> <!----------------------------------------------FORM2---------------------------------------------------->       
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-lg-9" >
+                                        <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
+                                        <h6 class="font-weight-bold " id="text2">Creat an account</h6>                                                                               
+                                    </div>
+    
+                                </div>
+
+                                <!-----------------------------------------------------input fields---------------------------------------------------->
+                                
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-lg-9  mt-lg-4">
+                                        <input type="password" class="form-control mt-xl-2 m-lg-0 my-xl-2 my-lg-1 my-md-2 my-1" placeholder="Password">
+                                    </div>
+    
+                                </div>
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-lg-9">
+                                        <input type="password" class="form-control my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" placeholder="Confirm Password">
+                                    </div>
+    
+                                </div>
+                                <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="col-xl-9 col-lg-9">
+                                        <div class="dropdown ">
+                                            <button class="btn btn-success dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Personal Description
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                              <a class="dropdown-item" href="#">UITC Staff</a>
+                                              <a class="dropdown-item" href="#">Faculty Member</a>
+                                              <a class="dropdown-item" href="#">Student</a>
+                                            </div>
+                                          </div>
+                                    </div>
+    
+                                </div>
+                                
+                                <!------------------------------------------------------buttons-------------------------------------------------------->
+                                
+                                <div class="form-row " >
+                                    <div class=" col-xl-12  mt-lg-4 d-flex justify-content-center align-items-center ">
+                                        
+                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn3">NEXT</button>
+                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn4" onclick="toggle1()">BACK</button>
+                                    </div>
+                                    <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1 " id="btn5"  onclick="return1()">RETURN</button>
+                                    </div>
+                                   
+                                    
+    
+                                </div>
+                                
+                               
+                            
+                                                            
+                            </form>
     
                         </div>
                         
@@ -172,6 +181,7 @@
                     </div>
                 </div>
             </section>
+
         </div>
    </div>
    
