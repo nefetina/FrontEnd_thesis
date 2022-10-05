@@ -22,7 +22,6 @@
 <body>
     <div class="parent"> <!--------------------------------------------------------bg background call---------------------------------------------------->   
         <div class="overlay"> <!--------------------------------------------------color overlay------------------------------------------>   
-            {%csrf_token%}
             <section class="form my-4 mx-5  ">
                 
                 <div class="container-fluid ">
@@ -62,171 +61,169 @@
 
     
                         <div class="col-xl-5 col-lg-5  pt-xl-5 pt-lg-5 pt-md-3   px-5 text-center">
-                         
-                            <form id="form1"> <!------------------------------------------------FORM1---------------------------------------------------->    
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9" >
-                                        <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
-                                        <h6 class="font-weight-bold " id="text2">Create an account</h6>                                                                               
+
+                            <form method="post" >
+                                {% csrf_token %}
+                                <div id="form1"> <!------------------------------------------------FORM1---------------------------------------------------->    
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9" >
+                                            <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
+                                            <h6 class="font-weight-bold " id="text2">Create an account</h6>                                                                               
+                                        </div>
+        
                                     </div>
-    
+
+                                    <!--------------------------------------------------input fields-------------------------------------------------------->
+                                    
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9  mt-lg-4">
+                                            <label class="row-2" >First Name {{form.first_name}}  </label>
+                                        </div>
+        
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9">
+                                            <label class="row-2" >Last Name {{form.last_name}}  </label>
+                                        </div>
+        
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9">
+                                            <label class="row-2" name="usernamep">Username {{form.username}}  </label>
+                                        </div>
+        
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9">
+                                            <label class="row-2" >Email {{form.email}}  </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9">
+                                            <label class="row-2" name="idno">ID No.{{form.idno}}  </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!------------------------------------------------------buttons-------------------------------------------------------->
+                                    <div class="form-row ">
+                                        <div class="col-xl-12 mt-lg-4 d-flex justify-content-center align-items-center">
+                                            <button type="button" class="btn  my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn1" onclick="next1()">NEXT</button>
+                                        </div>
+        
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-lg-12  d-flex justify-content-center align-items-center">
+                                            <button type="button" class="btn  my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn2" onclick="return1()">RETURN </button>
+                                        </div>
+        
+                                    </div>
+                                    
+                                
+                                
+                                                                
                                 </div>
 
-                                <!--------------------------------------------------input fields-------------------------------------------------------->
-                                
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9  mt-lg-4">
-                                        <input type="text" class="form-control mt-xl-2 m-lg-0 my-xl-2 my-lg-1 my-md-2 my-1" placeholder="First Name">
+                                <div id="form2"> <!----------------------------------------------FORM2---------------------------------------------------->       
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9" >
+                                            <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
+                                            <h6 class="font-weight-bold " id="text2">Create an account</h6>                                                                               
+                                        </div>
+        
                                     </div>
-    
-                                </div>
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" placeholder="Last Name">
-                                    </div>
-    
-                                </div>
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" placeholder="Username">
-                                    </div>
-    
-                                </div>
-                                
-                                <!------------------------------------------------------buttons-------------------------------------------------------->
-                                <div class="form-row ">
-                                    <div class="col-xl-12 mt-lg-4 d-flex justify-content-center align-items-center">
-                                        <button type="button" class="btn  my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn1" onclick="next1()">NEXT</button>
-                                    </div>
-    
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-lg-12  d-flex justify-content-center align-items-center">
-                                        <button type="button" class="btn  my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn2" onclick="return1()">RETURN </button>
-                                    </div>
-    
-                                </div>
-                                
-                               
-                            
-                                                            
-                            </form>
 
+                                    <!-----------------------------------------------------input fields---------------------------------------------------->
+                                    
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9  mt-lg-4">
+                                            <label class="row-2">Password {{form.password1}}  </label>
+                                        </div>
+        
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9">
+                                            <label class="row-2">Confirm Password {{form.password2}}  </label>
+                                        </div>
+        
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-xl-12 col-lg-9">
+                                            <label class="row-2 jd">Personal Description {{form.Personal_description}} </label>
 
-                           
-                            
-                            <form id="form2"> <!----------------------------------------------FORM2---------------------------------------------------->       
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9" >
-                                        <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
-                                        <h6 class="font-weight-bold " id="text2">Create an account</h6>                                                                               
+                                        </div>
                                     </div>
-    
-                                </div>
-
-                                <!-----------------------------------------------------input fields---------------------------------------------------->
-                                
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9  mt-lg-4">
-                                        <input type="password" class="form-control mt-xl-2 m-lg-0 my-xl-2 my-lg-1 my-md-2 my-1" placeholder="Password">
-                                    </div>
-    
-                                </div>
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9">
-                                        <input type="password" class="form-control my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" placeholder="Confirm Password">
-                                    </div>
-    
-                                </div>
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-xl-12 col-lg-9">
-                                        <label for="select">Personal Description:</label>
-                                            <select name="personal description" id="select">
-                                                <option value="UITC Staff">UITC Staff</option>
-                                                <option value="Faculty Member">Faculty Member</option>
-                                                <option value="Student">Student</option>
-                                            </select>
-                                    </div>
-                                </div>
-                                
-                                
-                                <!------------------------------------------------------buttons-------------------------------------------------------->
-                                
-                                <div class="form-row " >
-                                    <div class=" col-xl-12  mt-lg-4 d-flex justify-content-center align-items-center ">
+                                    
+                                    
+                                    <!------------------------------------------------------buttons-------------------------------------------------------->
+                                    
+                                    <div class="form-row " >
+                                        <div class=" col-xl-12  mt-lg-4 d-flex justify-content-center align-items-center ">
+                                            
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn3" onclick="next2()">NEXT</button>
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn4" onclick="back1()">BACK</button>
+                                        </div>
+                                        <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1 " id="btn5"  onclick="return1()">CANCEL</button>
+                                        </div>
+                                    
                                         
-                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn3" onclick="next2()">NEXT</button>
-                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn4" onclick="back1()">BACK</button>
+        
                                     </div>
-                                    <div class="col-lg-12 d-flex justify-content-center align-items-center">
-                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1 " id="btn5"  onclick="return1()">CANCEL</button>
-                                    </div>
-                                   
+
                                     
-    
+
                                 </div>
 
-                                
-
-                            </form>
-
-                            <form id="form3"> <!----------------------------------------------FORM2---------------------------------------------------->       
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9" >
-                                        <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
-                                        <h6 class="font-weight-bold " id="text2">Create an account</h6>                                                                               
+                                <div id="form3"> <!----------------------------------------------FORM2---------------------------------------------------->       
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9" >
+                                            <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
+                                            <h6 class="font-weight-bold " id="text2">Create an account</h6>                                                                               
+                                        </div>
+        
                                     </div>
-    
-                                </div>
 
-                                <!-----------------------------------------------------input fields---------------------------------------------------->
-                                
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9  mt-lg-4">
-                                        <img id="picout">
-
-                                        <script>
-                                            var loadFile = function(event) {
-                                            var image = document.getElementById('picout');
-                                            image.src = URL.createObjectURL(event.target.files[0]);
-                                        };
-                                        </script>
+                                    <!-----------------------------------------------------input fields---------------------------------------------------->
                                     
-                                    </div>
-    
-                                </div>
-                                <div class="form-row d-flex justify-content-center align-items-center ">
-                                    <div class="col-lg-9  mt-lg-4">
-                                        <input type="file"  accept="image/*" name="image" id="picin"  onchange="loadFile(event)"  >
-                                    </div>
-    
-                                </div>
-                                
-                                
-                                <!------------------------------------------------------buttons-------------------------------------------------------->
-                                
-                                <div class="form-row " >
-                                    <div class=" col-xl-12  mt-lg-4 d-flex justify-content-center align-items-center ">
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9  mt-lg-4">
+                                            <img id="picout">
+
+                                            <script>
+                                                var loadFile = function(event) {
+                                                var image = document.getElementById('picout');
+                                                image.src = URL.createObjectURL(event.target.files[0]);
+                                            };
+                                            </script>
                                         
-                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn3">SUBMIT</button>
-                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn4" onclick="back2()">BACK</button>
+                                        </div>
+        
                                     </div>
-                                    <div class="col-lg-12 d-flex justify-content-center align-items-center">
-                                        <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1 " id="btn5"  onclick="return1()">RETURN</button>
-                                    </div>
-                                   
                                     
-    
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-lg-9  mt-lg-4">
+                                            <input type="file"  accept="image/*" name="image" id="picin"  onchange="loadFile(event)"></input>
+                                        </div>
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center align-items-center ">
+
+                                            <button type="submit" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn3">SUBMIT</button>
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn4" onclick="back2()">BACK</button>
+                                        
+                                        <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1 " id="btn5"  onclick="return1()">RETURN</button>
+                                        </div>
+                                    
+                                        
+        
+                                    </div>
+
+                                    
+
                                 </div>
-
-                                
-
+        
                             </form>
-    
-    
                         </div>
-                        
-    
                     </div>
                 </div>
             </section>

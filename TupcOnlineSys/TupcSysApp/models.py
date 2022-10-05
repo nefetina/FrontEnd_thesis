@@ -19,6 +19,10 @@ class register1(AbstractUser):
     idno = models.CharField(max_length= 20, null=False)
     Status = models.CharField(max_length=50, default = "On process" , null=False)
 
+class pics(models.Model):
+    Usernamep= models.CharField(max_length= 50, null=False)
+    pic = models.FileField(max_length=254)
+
 
 class index(models.Model):
     User_name = models.CharField(max_length= 50, null=False)

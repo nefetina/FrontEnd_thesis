@@ -1,3 +1,4 @@
+from msilib.schema import File
 from django.shortcuts import render
 from multiprocessing import context
 from .models import *
@@ -16,7 +17,18 @@ from django.contrib.auth.forms import UserCreationForm
 
 installed_apps = ['TupcSysApp']
 
-
+def Document_save(request):
+    if request.method=="POST":
+        image = request.FILES["image"]
+        idno = request.POST.get('idno')
+        image_file = pics.objects.create(
+                                       
+                                       pic=image, idno=idno
+                                      )
+        image_path= image_file.pic.path
+        image_path.save()
+        return render(request, 'TupcSysApp/REGISTRATION.html', {"image_path":image_path})
+    return render(request,  'TupcSysApp/REGISTRATION.html')
 
 def permit(request, id):
     a = register1.objects.get(id=id)
@@ -30,8 +42,15 @@ def permit(request, id):
 def register(request):#registration
     form = Registration()
     if request.method == "POST":
-        form = Registration(request.POST)
+        image = request.POST.get("image")
+        form =  Registration(request.POST)
         if form.is_valid():
+            username = form['username'].value()
+            image_file = pics.objects.create(
+                                       
+                                       pic=image, Usernamep = username
+                                      )
+            image_file.save()
             form.save()
             messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
             return redirect('/')
