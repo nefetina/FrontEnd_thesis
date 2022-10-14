@@ -169,7 +169,7 @@
                         <div class="jumbotron m-1"><br>
                             <!--FORM 1-------------------------------------------------------------------------------------------->
                             <div class="card-body">
-                                <form>
+                                <form action=''>
                                     <div class="formtitle">
                                         FILL UP THE FORM HERE
                                     </div>
@@ -186,7 +186,14 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-xl-6">
-                                            <label class="row-2 jd">ID type{{form.Accounts}} </label>
+                                            <label class="row-2 jd">ID type <select id="inputState" class="row-2 jd" name="accounts" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option value="President">GSFE</option>
+                                                <option value="Vicepresident">TUP EMAIL</option>
+                                                <option value="Secretary">MS TEAMS</option>
+                                                <option value="Asec">ERS ACCOUNT</option>
+                                                <option value="Treasurer">NAS</option>
+                                            </select></label>
                                         </div>
                                         <div class="col-xl-6">
                                             <input type="text" class="form-control my-2 p-2" placeholder="Specifications:">

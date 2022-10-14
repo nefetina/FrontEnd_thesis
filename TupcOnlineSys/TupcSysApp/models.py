@@ -217,5 +217,5 @@ class PassReset(models.Model):
     
     email = models.CharField(max_length = 100, null=True)
     emp_idno = models.CharField(max_length = 50, null=True)
-    Account = models.CharField(max_length = 100, null=False, choices= accounts)
+    Account = models.CharField(max_length = 100, null=True, choices= accounts)
     
