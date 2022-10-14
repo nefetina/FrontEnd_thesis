@@ -27,17 +27,32 @@ function requestforrep() {
 
     var y = document.getElementById("form1");
     var x = document.getElementById("form2");
+    var z = document.getElementById("form3");
 
     y.style.display = "block";
     x.style.display = "none";
+    z.style.display = "none";
+
+}
+function requestforpassreset() {
+
+    var y = document.getElementById("form1");
+    var x = document.getElementById("form2");
+    var z = document.getElementById("form3");
+
+    y.style.display = "none";
+    x.style.display = "block";
+    z.style.display = "none";
 
 }
 
 function borrow() {
     var y = document.getElementById("form1");
     var x = document.getElementById("form2");
+    var z = document.getElementById("form3");
 
     y.style.display = "none";
-    x.style.display = "block";
+    x.style.display = "none";
+    z.style.display = "block";
 
 }

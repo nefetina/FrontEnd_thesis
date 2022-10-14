@@ -204,3 +204,18 @@ class borrow_record(models.Model):
     irf_borrow5 =  models.CharField(max_length = 100, null=True)
     i_sig5 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     i_stats5 = models.CharField(max_length = 100, null=True)
+
+#password reset student
+class PassReset(models.Model):
+    accounts = [
+        ('GSFE', 'GSFE'),
+        ('TUP EMAIL', 'TUP EMAIL'),
+        ('MS TEAMS', 'MS TEAMS'),
+        ('ERS ACCOUNT', 'ERS ACCOUNT'),
+        ('NAS', 'NAS'),
+    ]
+    
+    email = models.CharField(max_length = 100, null=True)
+    emp_idno = models.CharField(max_length = 50, null=True)
+    Account = models.CharField(max_length = 100, null=False, choices= accounts)
+    

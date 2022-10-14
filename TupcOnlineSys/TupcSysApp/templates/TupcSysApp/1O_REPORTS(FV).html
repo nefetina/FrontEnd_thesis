@@ -44,6 +44,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
             <li class="breadcrumb-item ml-auto" onclick="requestforrep()"><a href="#">REQUEST FOR REPAIR & MAINTENANCE</a></li>
+            <li class="breadcrumb-item" onclick="requestforpassreset()"><a href="#">REQUEST FOR PASSWORD RESET</a></li>
             <li class="breadcrumb-item" onclick="borrow()"><a href="#">BORROW FORM</a></li>
         </ol>
     </nav>
@@ -161,8 +162,59 @@
                                 </div>
                             </div>
                         </div>
+                        <!--REQUEST FOR PASSWORD RESET-------------------------------------------------------------------------------------------->
+                        <!--to be furnished-->
+
+                        <div class="col-xl-11" id="form2">
+                        <div class="jumbotron m-1"><br>
+                            <!--FORM 1-------------------------------------------------------------------------------------------->
+                            <div class="card-body">
+                                <form>
+                                    <div class="formtitle">
+                                        FILL UP THE FORM HERE
+                                    </div>
+                                    <div class="descriptions col-12 m-2">
+                                        Personal Information
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-xl-12">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="Full Name">
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="Employee ID">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-xl-6">
+                                            <label class="row-2 jd">ID type{{form.Accounts}} </label>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="Specifications:">
+                                        </div>
+                                    </div>
+                                   
+                                   
+
+
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-12">
+                                        <p class="card-text">Check it properly before you send it.</p>
+                                        <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                                                    Submit
+                                                                </button>
+                                        <button type="button" class="btn btn-danger float-right m-1">
+                                                                    Cancel
+                                                                </button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                        </div>
                         <!--BORROWERS FORM------------------------------------------------------->
-                        <div class="col-xl-11 collapse " id="form2">
+                        <div class="col-xl-11 collapse " id="form3">
                             <div class="jumbotron "><br>
 
                                 <!--FORM 2-------------------------------------------------------------------------------------------->
