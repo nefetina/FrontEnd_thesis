@@ -84,7 +84,8 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post" action='/FacultyID/'>
+                                        {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
@@ -94,27 +95,27 @@
 
                                         <div class="form-row">
                                             <div class="col-xl-3">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="First name">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="First name" name = 'ff_name1' >
                                             </div>
                                             <div class="col-xl-3">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Middle name">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Middle name" name = 'fm_name1'>
                                             </div>
                                             <div class="col-xl-3">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Surname">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Surname" name = 'fl_name1'>
                                             </div>
                                             <div class="col-xl-3">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Suffix">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Suffix" name = 'f_suffix1'>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Employee Number">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Employee Number" name = 'f_emp1'>
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Date Requested">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Requested" name = 'f_datereq1'>
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Date Released">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Released" name = 'f_daterel1'> 
                                             </div>
                                         </div>
                                         <div class="descriptions col-12 m-2">
@@ -122,24 +123,24 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="GSIS">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="GSIS" name = 'f_gsis1'>
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="TIN">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="TIN"  name = 'f_tin1'>
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="PAG-IBIG No.">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="PAG-IBIG No." name = 'f_pagibig1'>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="GSIS Policy No.">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="GSIS Policy No." name = 'f_gsisp1'>
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Philhealth">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Philhealth" name = 'f_phil1'>
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Other">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Other" name = 'f_other1'>
                                             </div>
                                         </div>
                                         <div class="descriptions col-12 m-2">
@@ -147,15 +148,15 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Contact Person">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Contact Person" name = 'f_cp1'>
                                             </div>
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Contact Number">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Contact Number" name = 'f_num1'>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Address">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Address" name = 'f_add1'>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -173,8 +174,8 @@
                                                 
                                                 <div class="tempContDiv">
                                                 
-                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400"></canvas>  
-                                                <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none"></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
+                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
+                                                <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
                                                 </div><div class="clearBoth"></div>
                                                 </div>
                                         </div>
@@ -182,7 +183,7 @@
                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
                                         <div class="col-xl-12 ">
                                             <p class="card-text">Check it properly before you send it.</p>
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="submit" class="btn btn-primary  float-right m-1"  >
                                                                         Submit
                                                                     </button>
                                             <button type="button" class="btn btn-danger float-right m-1">

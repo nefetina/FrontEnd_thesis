@@ -138,24 +138,26 @@
                                                     </thead>
                                                     <tbody>
                                                       <tr>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
-                                                        <td>emptysdsadsdsdasddw</td>
+                                                        {% for p in dataf %}
+                                                        <td></td>
+                                                        <td>{{p.ff_name}}</td>
+                                                        <td>{{p.fm_name}}</td>
+                                                        <td>{{p.fl_name}}</td>
+                                                        <td>{{p.f_suffix}}</td>
+                                                        <td>{{p.f_emp}}</td>
+                                                        <td>{{p.f_datereq}}</td>
+                                                        <td>{{p.f_daterel}}</td>
+                                                        <td>{{p.f_gsis}}</td>
+                                                        <td>{{p.f_tin}}</td>
+                                                        <td>{{p.f_pagibig}}</td>
+                                                        <td>{{p.f_gsisp}}</td>
+                                                        <td>{{p.f_phil}}</td>
+                                                        <td>{{p.f_other}}</td>
+                                                        <td>{{p.f_cp}}</td>
+                                                        <td>{{p.f_num}}</td>
+                                                        <td>{{p.f_add}}</td>
+                                                        <td>{{p.f_signature}}</td>
+                                                    
                                                         <td>
                                                             <button class="btn btn-primary badge-pill" style="width: 120px;">APPROVE</button>
                                                             <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
@@ -163,6 +165,7 @@
                                                             
                                                         </td>
                                                       </tr>
+                                                      {% endfor %}
                                                     </tbody>
                                                   </table>
                                             </div>

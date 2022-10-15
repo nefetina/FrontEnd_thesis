@@ -32,12 +32,12 @@ class index(models.Model):
 #faculty
 class faculty_ID(models.Model):
     ff_name = models.CharField(max_length= 50, null=False)
-    fm_name = models.CharField(max_length= 50, null=False)
+    fm_name = models.CharField(max_length= 50, null=True)
     fl_name = models.CharField(max_length= 50, null=False)
     f_suffix = models.CharField(max_length= 50, null=True)
     f_emp = models.CharField(max_length = 100, null=False)
-    f_datereq = models.DateField()
-    f_daterel = models.DateField()
+    f_datereq = models.DateField(null=True)
+    f_daterel = models.DateField(null=True)
     f_gsis = models.CharField(max_length = 100, null=True)
     f_gsisp = models.CharField(max_length = 100, null=True)
     f_tin = models.CharField(max_length = 100, null=True)
@@ -48,6 +48,7 @@ class faculty_ID(models.Model):
     f_num = models.CharField(max_length = 100, null=True)
     f_add = models.CharField(max_length = 200, null=True)
     f_signature = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    f_stat = models.CharField(max_length = 200, null=True)
     
 #faculty wifi request
 class faculty_wifi(models.Model):
@@ -61,8 +62,20 @@ class faculty_wifi(models.Model):
     g_fac = models.CharField(max_length = 100, null=True)
     g_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     g_datereq = models.DateField()
-    g_stats = models.CharField(max_length = 100, null=True)
+    g_stat = models.CharField(max_length = 100, null=True)
 
+class faculty_lab(models.Model):
+    f_name = models.CharField(max_length= 100, null=False)
+    dep = models.CharField(max_length= 100, null=False)
+    l_date = models.DateField()
+    lab_num = models.CharField(max_length= 100, null=False)
+    crs_sec = models.CharField(max_length= 100, null=False)
+    s_time = models.TimeField()
+    e_time = models.TimeField()
+    fl_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    l_stat = models.CharField(max_length = 100, null=True)
+    
+ 
 #student wifi record
 class student_wifi(models.Model):
     gf_name1 = models.CharField(max_length= 100, null=False)

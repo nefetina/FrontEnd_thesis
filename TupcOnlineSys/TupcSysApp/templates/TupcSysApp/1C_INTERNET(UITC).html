@@ -129,25 +129,26 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
-                                                        <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                
+                                                    <tr>
+                                                        {% for p in datag %}
+                                                        <td>{{p.gf_name}}</td>
+                                                        <td>{{p.g_dept}}</td>
+                                                        <td>{{p.g_des}}</td>
+                                                        <td>{{p.g_sys}}</td>
+                                                        <td>{{p.g_mac}}</td>
+                                                        <td>{{p.g_num}}</td>
+                                                        <td>{{p.g_email}}</td>
+                                                        <td>{{p.g_fac}}</td>
+                                                        <td>{{p.g_sig}}</td>
+                                                        <td>{{p.g_datereq}}</td>
+                                                        <td>
+                                                            <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
+                                                            <button class="btn btn-success badge-pill" style="width: 120px;">DOWNLOAD</button>
+                                                            <button class="btn btn-danger badge-pill" style="width: 120px;">CANCEL</button>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>

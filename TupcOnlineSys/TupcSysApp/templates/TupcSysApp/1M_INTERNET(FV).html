@@ -78,22 +78,23 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form>
+                                    <form method = "post" action = '/FacultyInternet/'>
+                                        {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
 
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name" name = "gf_name">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Department">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Department" name = "g_dept">
                                             </div>
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Designation">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Designation" name = "g_des">
                                             </div>
                                         </div>
                                         <div class="descriptions col-12 m-2">
@@ -101,43 +102,43 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Please specify:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Please specify:" name = "g_sys">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="MAC Address of the Wireless Card:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="MAC Address of the Wireless Card:" name = "g_mac">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Phone/Mobile Number:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Phone/Mobile Number:" name = "g_num">
                                             </div>
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Email Address:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Email Address:" name = "g_email">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Faculty Name:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Faculty Name:" name = "g_fac">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" name = "g_sig">
                                             </div>
                                             <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
                                                 Date:
                                             </div>
                                             <div class="col-xl-5">
-                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:" name = "g_datereq">
                                             </div>
                                         </div>
 
                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
                                         <div class="col-xl-12 mt-2">
                                             <p class="card-text">Check it properly before you send it.</p>
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                         Submit
                                                                     </button>
                                             <button type="button" class="btn btn-danger float-right m-1">

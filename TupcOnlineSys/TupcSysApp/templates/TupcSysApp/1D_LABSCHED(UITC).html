@@ -129,14 +129,16 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
+                                                    {% for p in datal %}
+                                                    <td>{{p.f_name}}</td>
+                                                    <td>{{p.dep}}</td>
+                                                    <td>{{p.l_date}}</td>
+                                                    <td>{{p.lab_num}}</td>
+                                                    <td>{{p.crs_sec}}</td>
+                                                    <td>{{p.s_time}}</td>
+                                                    <td>{{p.e_time}}</td>
+                                                    <td>{{p.fl_sig}}</td>
+                                                 
                                                     
                                                     <td>
                                                         <button class="btn btn-primary badge-pill" style="width: 120px;" id="b1">APPROVE</button>
@@ -145,6 +147,7 @@
                                                         
                                                     </td>
                                                 </tr>
+                                                {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>

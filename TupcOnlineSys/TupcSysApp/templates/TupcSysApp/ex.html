@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<h1>Edit Summary of Payment</h1>
+<form method="POST" action="/edit/">
+    {%csrf_token%}
+
+    <div> Password: {{form.password1}} </div>
+    <div> Confirm Password: {{form.password2}} </div>
+    <div>
+    <input type='submit' class= 'btn primary' ></input>
+    </div>  
+
+</form>
