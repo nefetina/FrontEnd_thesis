@@ -17,144 +17,37 @@ img {
     position: relative !important;
     border-bottom-left-radius: 1cm;
     border-top-left-radius: 1cm;
-    height: 55vh;
-    width: 100vw;
+    height: 10%;
+    width: 20%;
 }
-
-
-/******************************************************************form visibility*************************************************************************************************************/
-
-#form2 {
-    display: none;
-    transition: .2s ease-in !important;
-}
-#form3 {
-    display: none;
-    transition: .2s ease-in !important;
-}
-
 
 
 /******************************************************************buttons*************************************************************************************************************/
 
-#btn1:hover {
-    background-color: #ffffff;
-    transition: .1s ease-in-out;
-    color: #720000;
-}
-
-#btn1 {
+.btn {
     background-color: #720000;
     color: rgb(255, 255, 255);
     -webkit-text-stroke-width: 1px;
     transition: 1s ease-in;
     cursor: pointer;
     border-radius: 50px;
-    align-items: center;
     font-weight: light;
     place-items: center;
-    width: 80%;
+    width: 70%;
     height: 34px;
     justify-content: center;
     display: flex;
     background: hsla(148, 42%, 18%, 0.8);
+    margin: 20px auto;
+    border: none;
+    outline: none;
     font-size: 20px;
 }
 
-#btn2:hover {
+.btn:hover {
     background-color: #ffffff;
-    transition: .1s ease-in-out;
+    transition: .2s ease-in;
     color: #720000;
-}
-
-#btn2 {
-    background-color: #720000;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-width: 1px;
-    transition: 1s ease-in;
-    cursor: pointer;
-    border-radius: 50px;
-    align-items: center;
-    font-weight: light;
-    place-items: center;
-    width: 80%;
-    height: 34px;
-    justify-content: center;
-    display: flex;
-    background: hsla(148, 42%, 18%, 0.8);
-    font-size: 20px;
-}
-
-#btn3:hover {
-    background-color: #ffffff;
-    transition: .1s ease-in-out;
-    color: #720000;
-}
-
-#btn3 {
-    background-color: #720000;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-width: 1px;
-    transition: 1s ease-in;
-    cursor: pointer;
-    border-radius: 50px;
-    align-items: center;
-    font-weight: light;
-    place-items: center;
-    width: 40%;
-    height: 34px;
-    justify-content: center;
-    display: flex;
-    background: hsla(148, 42%, 18%, 0.8);
-    font-size: 20px;
-}
-
-#btn4:hover {
-    background-color: #ffffff;
-    transition: .1s ease-in-out;
-    color: #720000;
-}
-
-#btn4 {
-    background-color: #720000;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-width: 1px;
-    transition: 1s ease-in;
-    cursor: pointer;
-    border-radius: 50px;
-    align-items: center;
-    font-weight: light;
-    place-items: center;
-    width: 40%;
-    height: 34px;
-    justify-content: center;
-    display: flex;
-    background: hsla(148, 42%, 18%, 0.8);
-    font-size: 20px;
-}
-
-#btn5:hover {
-    background-color: #ffffff;
-    transition: .1s ease-in-out;
-    color: #720000;
-}
-
-#btn5 {
-    background-color: #720000;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-width: 1px;
-    transition: 1s ease-in;
-    cursor: pointer;
-    border-radius: 50px;
-    align-items: center;
-    font-weight: light;
-    place-items: center;
-    width: 80%;
-    height: 34px;
-    justify-content: center;
-    display: flex;
-    background: hsla(148, 42%, 18%, 0.8);
-    font-size: 20px;
 }
 
 .parent {
@@ -174,16 +67,6 @@ img {
     width: 100%;
     height: 100%;
 }
-/********************************************************************************************picture inserting***************************************************************************************************************************/
-#picout{
-    background-color: #000;
-    border:2px solid rgb(255, 255, 255) !important;
-    border-radius: 0% !important;
-    width: 200px !important;
-    height: 200px !important;
-}
-
-
 
 
 /********************************************************************************************BACKGROUND AND OVERLAY***************************************************************************************************************************/
@@ -192,8 +75,7 @@ html,
 body,
 header,
 #pic {
-    background-image: url("/static/images/TUPBGGREEN.png");
-    background-position: center center;
+    background-image: url("/static/images/GREEN BG.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -204,16 +86,45 @@ header,
 }
 
 .view {
-    background-image: url("/static/images/TUPBGGREEN.png");
-    background-position: center center;
+    background-image: url("/static/images/GREEN BG.jpg");
     color: #fff;
     width: 100%;
     height: auto;
     display: flex;
 }
 
+/*************************mga nadagdag mostly for responsiveness*****/
 
-/********************************************************************************************ADJUST***************************************************************************************************************************/
+
+#form2{
+    display: none;
+}
+#form3{
+    display: none;
+}
+
+
+.form-row input {
+    background-color: rgb(255, 255, 255);
+  
+    width: 300px  !important;
+    border-radius: 5px ;
+    border-color: 0%;
+    height: 40px;
+    margin: -40px;
+  
+
+    
+}
+#desc{
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+#pd{
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
 
 
 /*************************xtra large*****/
@@ -223,13 +134,33 @@ header,
 
 @media screen and (max-width: 1200px) {
     #text1 {
-        font-size: 30px !important;
+        font-size: 20px !important;
     }
-    #btn1 {
-        font-size: 18px !important;
-    }
-    #btn2 {
+    #text2 {
         font-size: 15px !important;
+    }
+    #btn1, #btn2, #btn3, #btn4, #btn5, #btn5, #btn6, #btn7, #btn8 {
+        font-size: 14px !important;
+        height: 25px;
+    }
+    #desc{
+        font-size: 12px !important;
+        margin: -20px !important;
+        font-weight: bold !important;
+    }
+    .form-row input {
+        background-color: rgb(255, 255, 255);
+      
+        width: 200px  !important;
+        border-radius: 5px ;
+        border-color: 0%;
+        height: 30px;
+        margin: -20px;
+        
+    }
+    #pd{
+        font-size: 10px !important;
+        font-weight: bold !important;
     }
 }
 
@@ -247,6 +178,29 @@ header,
     }
     #text1 {
         font-size: 40px !important;
+    }
+    #desc{
+        font-size: 18px !important;
+        margin: -20px !important;
+        font-weight: bold !important;
+    }
+    #pd{
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+    .form-row input {
+        background-color: rgb(255, 255, 255);
+      
+        width: 400px  !important;
+        border-radius: 5px ;
+        border-color: 0%;
+        height: 30px;
+        margin: -20px;
+        
+    }
+    #btn1, #btn2, #btn3, #btn4, #btn5, #btn5, #btn6, #btn7, #btn8 {
+        font-size: 18px !important;
+        height: 40px;
     }
 }
 
@@ -267,6 +221,29 @@ header,
     }
     #btn2 {
         font-size: 12px !important;
+    }
+    #desc{
+        font-size: 14px !important;
+        margin: -20px !important;
+        font-weight: bold !important;
+    }
+    #pd{
+        font-size: 14px !important;
+        font-weight: bold !important;
+    }
+    .form-row input {
+        background-color: rgb(255, 255, 255);
+      
+        width: 300px  !important;
+        border-radius: 5px ;
+        border-color: 0%;
+        height: 30px;
+        margin: -20px;
+        
+    }
+    #btn1, #btn2, #btn3, #btn4, #btn5, #btn5, #btn6, #btn7, #btn8 {
+        font-size: 18px !important;
+        height: 40px;
     }
 }
 
@@ -291,5 +268,71 @@ header,
     }
     #text4 {
         font-size: 15px !important;
+    }
+    #desc{
+        font-size: 14px !important;
+        margin: -20px !important;
+        font-weight: bold !important;
+    }
+    #pd{
+        font-size: 14px !important;
+        font-weight: bold !important;
+    }
+    .form-row input {
+        background-color: rgb(255, 255, 255);
+      
+        width: 150px  !important;
+        border-radius: 5px ;
+        border-color: 0%;
+        height: 25px;
+        margin: -20px;
+        
+    }
+    #btn1, #btn2, #btn3, #btn4, #btn5, #btn5, #btn6, #btn7, #btn8 {
+        font-size: 12px !important;
+        height: 20px;
+    }
+}
+@media screen and (max-width: 270px) {
+    #btn1 {
+        font-size: 14px !important;
+    }
+    #btn2 {
+        font-size: 10px !important;
+    }
+    #text1 {
+        font-size: 20px !important;
+    }
+    #text2 {
+        font-size: 15px !important;
+    }
+    #text3 {
+        font-size: 15px !important;
+    }
+    #text4 {
+        font-size: 15px !important;
+    }
+    #desc{
+        font-size: 10px !important;
+        margin: -20px !important;
+        font-weight: bold !important;
+    }
+    #pd{
+        font-size: 10px !important;
+        font-weight: bold !important;
+    }
+    .form-row input {
+        background-color: rgb(255, 255, 255);
+      
+        width: 150px  !important;
+        border-radius: 5px ;
+        border-color: 0%;
+        height: 20px;
+        margin: -40px;
+        
+    }
+    #btn1, #btn2, #btn3, #btn4, #btn5, #btn5, #btn6, #btn7, #btn8 {
+        font-size: 12px !important;
+        height: 20px;
     }
 }

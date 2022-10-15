@@ -47,12 +47,8 @@ class faculty_ID(models.Model):
     f_cp = models.CharField(max_length = 100, null=True)
     f_num = models.CharField(max_length = 100, null=True)
     f_add = models.CharField(max_length = 200, null=True)
-<<<<<<< HEAD
     f_signature = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     f_stat = models.CharField(max_length = 200, null=True)
-=======
-    f_signature = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100) #Signature-li
->>>>>>> 24a5769df32f6d9852ffc2cd404cf8afd412048a
     
 #faculty wifi request #1M #g
 class faculty_wifi(models.Model):
@@ -68,23 +64,7 @@ class faculty_wifi(models.Model):
     g_datereq = models.DateField()
     g_stat = models.CharField(max_length = 100, null=True)
 
-<<<<<<< HEAD
-class faculty_lab(models.Model):
-    f_name = models.CharField(max_length= 100, null=False)
-    dep = models.CharField(max_length= 100, null=False)
-    l_date = models.DateField()
-    lab_num = models.CharField(max_length= 100, null=False)
-    crs_sec = models.CharField(max_length= 100, null=False)
-    s_time = models.TimeField()
-    e_time = models.TimeField()
-    fl_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    l_stat = models.CharField(max_length = 100, null=True)
-    
- 
-#student wifi record
-=======
 #student wifi record #1Q #g
->>>>>>> 24a5769df32f6d9852ffc2cd404cf8afd412048a
 class student_wifi(models.Model):
     gf_name1 = models.CharField(max_length= 100, null=False)
     g_csec1 = models.CharField(max_length = 100, null=True)

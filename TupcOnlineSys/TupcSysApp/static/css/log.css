@@ -17,8 +17,8 @@ img {
     position: relative !important;
     border-bottom-left-radius: 1cm;
     border-top-left-radius: 1cm;
-    height: 55vh;
-    width: 100vw;
+    height: 10%;
+    width: 20%;
 }
 
 
@@ -75,7 +75,7 @@ html,
 body,
 header,
 #pic {
-    background-image: url("/static/images/TUPBGGREEN.png");
+    background-image: url("/static/images/GREEN BG.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -86,7 +86,7 @@ header,
 }
 
 .view {
-    background-image: url("/static/images/TUPBGGREEN.png");
+    background-image: url("/static/images/GREEN BG.jpg");
     color: #fff;
     width: 100%;
     height: auto;
@@ -94,22 +94,51 @@ header,
 }
 
 
-/*************************xtra large*****/
 
 
-/*************************paglumagpas sa max width mababalik sa default setup*****/
 
-@media screen and (max-width: 1200px) {
+
+
+/*************************mga nadagdag mostly for responsiveness*****/
+
+
+#gsfe, #tupcid, #pass{
+    border: #000 solid 1px;
+} 
+
+@media screen and (max-width: 1330px) {
     #text1 {
-        font-size: 30px !important;
+        font-size: 20px !important;
     }
     #btn1 {
-        font-size: 18px !important;
+        font-size: 15px !important;
+        height: 25px;
     }
     #btn2 {
         font-size: 15px !important;
-    }
+        height: 25px;
+    }   
 }
+/*************************xtra large*****/
+/*************************paglumagpas sa max width mababalik sa default setup*****/
+@media screen and (max-width: 1200px) {
+    #text1 {
+        font-size: 20px !important;
+    }
+    #btn1 {
+        font-size: 15px !important;
+        height: 25px;
+    }
+    #btn2 {
+        font-size: 15px !important;
+        height: 25px;
+    }
+    #gsfe, #tupcid, #pass{
+        height: 25px;
+    } 
+}
+
+
 
 
 /*************************large*****/
@@ -126,6 +155,17 @@ header,
     #text1 {
         font-size: 40px !important;
     }
+    #gsfe, #tupcid, #pass{
+        height: 40px;
+    } 
+    #btn1 {
+        font-size: 15px !important;
+        height: 30px;
+    }
+    #btn2 {
+        font-size: 15px !important;
+        height: 30px;
+    }
 }
 
 
@@ -141,10 +181,12 @@ header,
         font-size: 25px !important;
     }
     #btn1 {
-        font-size: 14px !important;
+        font-size: 18px !important;
+        height: 50px;
     }
     #btn2 {
-        font-size: 12px !important;
+        font-size: 18px !important;
+        height: 50px;
     }
 }
 
@@ -154,9 +196,11 @@ header,
 @media screen and (max-width: 400px) {
     #btn1 {
         font-size: 14px !important;
+        height: 30px !important;
     }
     #btn2 {
         font-size: 10px !important;
+        height: 30px;
     }
     #text1 {
         font-size: 20px !important;

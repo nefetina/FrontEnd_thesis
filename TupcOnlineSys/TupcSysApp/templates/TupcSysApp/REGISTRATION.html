@@ -39,13 +39,13 @@
                                 </ol>
                                 <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="{% static 'images/OS_PIC.jpg' %}" alt="First slide">
+                                    <img class="d-block w-100" src="{% static 'images/sdsd.jpg'%}" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="{% static 'images/OS_PIC RED.jpg' %}" alt="Second slide">
+                                    <img class="d-block w-100" src="{% static 'images/sdsd.jpg'%}" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="{% static 'images/OS_PIC GRAY.jpg' %}" alt="Third slide">
+                                    <img class="d-block w-100" src="{% static 'images/sdsd.jpg'%}" alt="Third slide">
                                 </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -66,7 +66,7 @@
                             <form method="post" >
                                 {% csrf_token %}
                                 <div id="form1"> <!------------------------------------------------FORM1---------------------------------------------------->    
-                                    <div class="form-row d-flex justify-content-center align-items-center ">
+                                    <div class="form-row mt-xl-1 d-flex justify-content-center align-items-center ">
                                         <div class="col-lg-9" >
                                             <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
                                             <h6 class="font-weight-bold " id="text2">Create an account</h6>                                                                               
@@ -76,38 +76,23 @@
 
                                     <!--------------------------------------------------input fields-------------------------------------------------------->
                                     
-                                    <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-lg-9  mt-lg-4">
-                                            <label class="row-2" >First Name {{form.first_name}}  </label>
-                                        </div>
-        
-                                    </div>
+                                    
                                     <div class="form-row d-flex justify-content-center align-items-center ">
                                         <div class="col-lg-9">
-                                            <label class="row-2" >Last Name {{form.last_name}}  </label>
-                                        </div>
-        
-                                    </div>
-                                    <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-lg-9">
-                                            <label class="row-2" name="usernamep">Username {{form.username}}  </label>
-                                        </div>
-        
-                                    </div>
-                                    <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-lg-9">
-                                            <label class="row-2" >Email {{form.email}}  </label>
+                                            <label for="idno" class="col-lg-12" id="desc">GSFE Account</label>
+                                            <label class="row-2" name="idno" >{{form.idno}} </label>
                                         </div>
                                     </div>
                                     <div class="form-row d-flex justify-content-center align-items-center ">
                                         <div class="col-lg-9">
-                                            <label class="row-2" name="idno">ID No.{{form.idno}}  </label>
+                                            <label for="idno" class="col-lg-12" id="desc">TUPC ID</label>
+                                            <label class="row-2" name="idno" >{{form.idno}}  </label>
                                         </div>
                                     </div>
                                     
                                     <!------------------------------------------------------buttons-------------------------------------------------------->
                                     <div class="form-row ">
-                                        <div class="col-xl-12 mt-lg-4 d-flex justify-content-center align-items-center">
+                                        <div class="col-xl-12 mt-lg-2 d-flex justify-content-center align-items-center">
                                             <button type="button" class="btn  my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn1" onclick="next1()">NEXT</button>
                                         </div>
         
@@ -134,40 +119,28 @@
                                     </div>
 
                                     <!-----------------------------------------------------input fields---------------------------------------------------->
+                                    
                                     <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-lg-9">
-                                        <p>Password must contain:</p>
-                                         <ul>
-                                           <li>at least 8 characters</li>
-                                           <li>at least 1 uppercase letter</li>
-                                           <li>at least 1 digit</li>
-                                         </ul>
-                                      </div>
-                                    </div>  
-                                    <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-lg-9  mt-lg-4">
-                                            <label class="row-2">Password {{form.password1}}  </label>
+                                        <div class="col-lg-9 ">
+                                            <label for="idno" class="col-lg-12" id="desc">NAME</label>
+                                            <label for="idno" class="col-lg-12" id="desc">Ex: Juan Tamad</label>
+                                            <label class="row-2" name="idno" >{{form.idno}} </label>
                                         </div>
         
                                     </div>
                                     <div class="form-row d-flex justify-content-center align-items-center ">
                                         <div class="col-lg-9">
-                                            <label class="row-2">Confirm Password {{form.password2}}  </label>
+                                            <label for="idno" class="col-lg-12" id="desc">Recovery Account</label>
+                                            <label class="row-2" name="idno" >{{form.idno}} </label>
                                         </div>
         
-                                    </div>
-                                    <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-xl-12 col-lg-9">
-                                            <label class="row-2 jd">Personal Description {{form.Personal_description}} </label>
-
-                                        </div>
                                     </div>
                                     
                                     
                                     <!------------------------------------------------------buttons-------------------------------------------------------->
                                     
                                     <div class="form-row " >
-                                        <div class=" col-xl-12  mt-lg-4 d-flex justify-content-center align-items-center ">
+                                        <div class=" col-xl-12  mt-xl-2 d-flex justify-content-center align-items-center ">
                                             
                                             <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn3" onclick="next2()">NEXT</button>
                                             <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn4" onclick="back1()">BACK</button>
@@ -183,7 +156,6 @@
                                     
 
                                 </div>
-
                                 <div id="form3"> <!----------------------------------------------FORM2---------------------------------------------------->       
                                     <div class="form-row d-flex justify-content-center align-items-center ">
                                         <div class="col-lg-9" >
@@ -196,32 +168,37 @@
                                     <!-----------------------------------------------------input fields---------------------------------------------------->
                                     
                                     <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-lg-9  mt-lg-4">
-                                            <img id="picout">
-
-                                            <script>
-                                                var loadFile = function(event) {
-                                                var image = document.getElementById('picout');
-                                                image.src = URL.createObjectURL(event.target.files[0]);
-                                            };
-                                            </script>
-                                        
+                                        <div class="col-lg-9">
+                                            <label for="pass" class="col-lg-12" id="desc">Password</label>
+                                            <label class="row-2" name="pass" >{{form.password1}} </label>
                                         </div>
         
                                     </div>
-                                    
                                     <div class="form-row d-flex justify-content-center align-items-center ">
-                                        <div class="col-lg-9  mt-lg-4">
-                                            <input type="file"  accept="image/*" name="image" id="picin"  onchange="loadFile(event)"></input>
+                                        <div class="col-lg-9">
+                                            <label for="cpass" class="col-lg-12" id="desc">Confirm Password</label>
+                                            <label class="row-2" name="cpass"> {{form.password2}}  </label>
                                         </div>
+        
                                     </div>
                                     <div class="form-row d-flex justify-content-center align-items-center ">
+                                        <div class="col-xl-12 col-lg-9">
+                                            <label class="row-2 jd" id="pd">Personal Description {{form.Personal_description}} </label>
 
-                                            <button type="submit" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn3">SUBMIT</button>
-                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn4" onclick="back2()">BACK</button>
-                                        
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <!------------------------------------------------------buttons-------------------------------------------------------->
+                                    
+                                    <div class="form-row " >
+                                        <div class=" col-xl-12  mt-xl-2 d-flex justify-content-center align-items-center ">
+                                            
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn6" onclick="">SUBMIT</button>
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1" id="btn7" onclick="back2()">BACK</button>
+                                        </div>
                                         <div class="col-lg-12 d-flex justify-content-center align-items-center">
-                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1 " id="btn5"  onclick="return1()">RETURN</button>
+                                            <button type="button" class="btn my-xl-2  my-lg-1 my-md-2 my-sm-2 my-1 " id="btn8"  onclick="return1()">CANCEL</button>
                                         </div>
                                     
                                         
@@ -231,7 +208,9 @@
                                     
 
                                 </div>
-        
+
+
+                                
                             </form>
                         </div>
                     </div>
