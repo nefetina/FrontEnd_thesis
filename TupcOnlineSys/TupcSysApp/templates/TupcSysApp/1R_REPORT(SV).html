@@ -45,6 +45,7 @@
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
             <li class="breadcrumb-item ml-auto" onclick="requestforrep()"><a href="#">BORROW FORM</a></li>
+            <li class="breadcrumb-item" onclick="requestforpassreset()"><a href="#">REQUEST FOR PASSWORD RESET</a></li>
         </ol>
     </nav>
 
@@ -132,8 +133,7 @@
                                         <div class="col-xl-12">
                                             <input type="text" class="form-control my-2 p-2" placeholder="Signature:"required>
                                         </div>
-                                    </div>
-
+                                    </div>                    
 
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
                                     <div class="col-xl-12 ">
@@ -146,7 +146,67 @@
                                                                 </button>
                                     </div>
                                 </form>
+
+                                
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <!--REQUEST FOR PASSWORD RESET-------------------------------------------------------------------------------------------->
+                <!--to be furnished-->
+
+                <div class="col-xl-11" id="form2">
+                    <div class="jumbotron m-1"><br>
+                        <!--FORM 1-------------------------------------------------------------------------------------------->
+                        <div class="card-body">
+                            <form action=''>
+                                <div class="formtitle">
+                                    FILL UP THE FORM HERE
+                                </div>
+                                <div class="descriptions col-12 m-2">
+                                    Personal Information
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-xl-12">
+                                        <input type="text" class="form-control my-2 p-2 " placeholder="Full Name">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Employee ID">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-xl-6">
+                                        <select id="inputState" class="form-control my-2 p-2" name="accounts" required>
+                                            <option selected disabled value="">ID TYPE :</option>
+                                            <option value="President">GSFE</option>
+                                            <option value="Vicepresident">TUP EMAIL</option>
+                                            <option value="Secretary">MS TEAMS</option>
+                                            <option value="Asec">ERS ACCOUNT</option>
+                                            <option value="Treasurer">NAS</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Specifications:">
+                                    </div>
+                                </div>
+                                
+                                
+
+
+                                <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                <div class="col-xl-12">
+                                    <p class="card-text">Check it properly before you send it.</p>
+                                    <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                                                Submit
+                                                            </button>
+                                    <button type="button" class="btn btn-danger float-right m-1">
+                                                                Cancel
+                                                            </button>
+
+                                </div>
+
+                            </form>
+
                         </div>
                     </div>
                 </div>

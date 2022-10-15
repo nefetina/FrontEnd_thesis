@@ -139,8 +139,8 @@ class repmain_rec(models.Model):
     i_sig2 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     is_date = models.DateField()
     is_time = models.TimeField()
-    ie_date = models.DateField() #walasadb
-    ie_time = models.TimeField() #walasadb
+    #ie_date = models.DateField() #walasadb
+    #ie_time = models.TimeField() #walasadb
     is_rec = models.CharField(max_length = 200, null=True) #textarea1
     i_aor = models.CharField(max_length = 200, null=True) #
     ie_user = models.CharField(max_length = 200, null=True)

@@ -22,3 +22,25 @@ function closeNav() {
     z.style.display = "block";
 
 }
+
+//breadcrumb navigation 
+
+function borrow() {
+    var y = document.getElementById("form1");
+    var x = document.getElementById("form2");
+
+    y.style.display = "block";
+    x.style.display = "none";
+
+}
+
+
+function requestforpassreset() {
+
+    var y = document.getElementById("form1");
+    var x = document.getElementById("form2");
+
+    y.style.display = "none";
+    x.style.display = "block";
+
+}
