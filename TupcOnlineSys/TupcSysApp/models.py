@@ -29,7 +29,7 @@ class index(models.Model):
     Password_data =models.CharField(default= "", max_length =40, null=False, unique = True)
 
 
-#faculty
+#faculty #1L #f
 class faculty_ID(models.Model):
     ff_name = models.CharField(max_length= 50, null=False)
     fm_name = models.CharField(max_length= 50, null=False)
@@ -47,9 +47,9 @@ class faculty_ID(models.Model):
     f_cp = models.CharField(max_length = 100, null=True)
     f_num = models.CharField(max_length = 100, null=True)
     f_add = models.CharField(max_length = 200, null=True)
-    f_signature = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    f_signature = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100) #Signature-li
     
-#faculty wifi request
+#faculty wifi request #1M #g
 class faculty_wifi(models.Model):
     gf_name = models.CharField(max_length= 100, null=False)
     g_dept = models.CharField(max_length = 100, null=True)
@@ -63,7 +63,7 @@ class faculty_wifi(models.Model):
     g_datereq = models.DateField()
     g_stats = models.CharField(max_length = 100, null=True)
 
-#student wifi record
+#student wifi record #1Q #g
 class student_wifi(models.Model):
     gf_name1 = models.CharField(max_length= 100, null=False)
     g_csec1 = models.CharField(max_length = 100, null=True)
@@ -79,7 +79,7 @@ class student_wifi(models.Model):
     g_daterec1 = models.DateField()
     g_stats1 = models.CharField(max_length = 100, null=True)
 
-#student internet access record
+#student internet access record #1Q #g
 class student_internet(models.Model):
     gf_name2 = models.CharField(max_length= 100, null=False)
     g_csec2 = models.CharField(max_length = 100, null=True)
@@ -94,7 +94,7 @@ class student_internet(models.Model):
     g_daterec2 = models.DateField()
     g_stats2 = models.CharField(max_length = 100, null=True)
 
-#schedules record
+#schedules record #1N #h
 class sched_rec(models.Model):
     hf_name = models.CharField(max_length= 100, null=False)
     h_dept = models.CharField(max_length = 100, null=True)
@@ -106,7 +106,7 @@ class sched_rec(models.Model):
     h_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     h_stats = models.CharField(max_length = 100, null=True)
 
-#repair and maintenance record
+#repair and maintenance record #1O #i
 class repmain_rec(models.Model):
     i_type = models.CharField(max_length= 100, null=False)
     i_brand = models.CharField(max_length = 100, null=True)
@@ -119,17 +119,17 @@ class repmain_rec(models.Model):
     i_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     i_daterec = models.DateField()
     i_time = models.TimeField()
-    ii_assess = models.CharField(max_length = 100, null=True)
-    i_assessby = models.CharField(max_length = 100, null=True)
+    ii_assess = models.CharField(max_length = 100, null=True) #
+    i_assessby = models.CharField(max_length = 100, null=True) #1E #i
     i_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     i_dateass = models.DateField()
     ip_assign = models.CharField(max_length = 100, null=True)
-    i_quant = models.CharField(max_length = 100, null=True)
-    i_units = models.CharField(max_length = 100, null=True)
-    i_partics = models.CharField(max_length = 100, null=True)
-    i_avail = models.CharField(max_length = 100, null=True)
-    i_approve = models.CharField(max_length = 100, null=True)
-    i_note = models.CharField(max_length = 100, null=True)
+    i_quant = models.CharField(max_length = 100, null=True)#
+    i_units = models.CharField(max_length = 100, null=True)#
+    i_partics = models.CharField(max_length = 100, null=True)#
+    i_avail = models.CharField(max_length = 100, null=True)#
+    i_approve = models.CharField(max_length = 100, null=True)#
+    i_note = models.CharField(max_length = 100, null=True)#textarea1
     i_coords = models.CharField(max_length = 100, null=True)
     i_sig1 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     i_daterec1 = models.DateField()
@@ -138,15 +138,17 @@ class repmain_rec(models.Model):
     i_sig2 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     is_date = models.DateField()
     is_time = models.TimeField()
-    is_rec = models.CharField(max_length = 200, null=True)
-    i_aor = models.CharField(max_length = 200, null=True)
+    ie_date = models.DateField()
+    ie_time = models.TimeField()
+    is_rec = models.CharField(max_length = 200, null=True) #textarea1
+    i_aor = models.CharField(max_length = 200, null=True) #
     ie_user = models.CharField(max_length = 200, null=True)
     i_daterec2 = models.DateField()
     i_sig3 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     i_time2 = models.TimeField()
     i_stats = models.CharField(max_length = 100, null=True)
 
-#maintenance record
+#maintenance record #1E #i
 class maintain_record(models.Model):
     i_type4 = models.CharField(max_length = 100, null=True)
     is_num4 = models.CharField(max_length = 100, null=True)
@@ -154,33 +156,33 @@ class maintain_record(models.Model):
     i_brand4 = models.CharField(max_length = 100, null=True)
     i_code = models.CharField(max_length = 100, null=True)
     ie_name = models.CharField(max_length = 100, null=True)
-    iup_sstats = models.CharField(max_length = 100, null=True)
+    iup_sstats = models.CharField(max_length = 100, null=True) #list1
     i_remarks = models.CharField(max_length = 100, null=True)
-    i_cobfs = models.CharField(max_length = 100, null=True)
+    i_cobfs = models.CharField(max_length = 100, null=True) #list1
     i_remarks2 = models.CharField(max_length = 100, null=True)
-    iup_sstats2 = models.CharField(max_length = 100, null=True)
+    iup_sstats2 = models.CharField(max_length = 100, null=True) #list1
     i_remarks3 = models.CharField(max_length = 100, null=True)
-    i_scan = models.CharField(max_length = 100, null=True)
+    i_scan = models.CharField(max_length = 100, null=True) #list1
     i_remarks4 = models.CharField(max_length = 100, null=True)
-    ia_virus = models.CharField(max_length = 100, null=True)
+    ia_virus = models.CharField(max_length = 100, null=True) #list1
     i_remarks5 = models.CharField(max_length = 100, null=True)
-    im_stats = models.CharField(max_length = 100, null=True)
+    im_stats = models.CharField(max_length = 100, null=True) #list1
     i_remarks6 = models.CharField(max_length = 100, null=True)
-    ik_stats = models.CharField(max_length = 100, null=True)
+    ik_stats = models.CharField(max_length = 100, null=True) #list1
     i_remarks7 = models.CharField(max_length = 100, null=True)
-    i_dust = models.CharField(max_length = 100, null=True)
+    i_dust = models.CharField(max_length = 100, null=True)#list1
     i_remarks8= models.CharField(max_length = 100, null=True)
-    i_organize = models.CharField(max_length = 100, null=True)
+    i_organize = models.CharField(max_length = 100, null=True)#list1
     i_remarks9 = models.CharField(max_length = 100, null=True)
-    i_wipe = models.CharField(max_length = 100, null=True)
+    i_wipe = models.CharField(max_length = 100, null=True)#list1
     i_remarks10 = models.CharField(max_length = 100, null=True)
-    i_run= models.CharField(max_length = 100, null=True)
+    i_run= models.CharField(max_length = 100, null=True)#list1
     i_remarks11 = models.CharField(max_length = 100, null=True)
-    i_defragement = models.CharField(max_length = 100, null=True)
+    i_defragement = models.CharField(max_length = 100, null=True)#list1
     i_remarks12 = models.CharField(max_length = 100, null=True)
-    i_empty = models.CharField(max_length = 100, null=True)
+    i_empty = models.CharField(max_length = 100, null=True)#list1
     i_remarks13 = models.CharField(max_length = 100, null=True)
-    i_create = models.CharField(max_length = 100, null=True)
+    i_create = models.CharField(max_length = 100, null=True)#list1
     i_remarks14 = models.CharField(max_length = 100, null=True)
     iu_pers4 = models.CharField(max_length = 100, null=True)
     i_sig4 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
@@ -188,14 +190,14 @@ class maintain_record(models.Model):
     is_time4 = models.TimeField()
     ie_date4 = models.DateField()
     ie_time4 = models.TimeField()
-    is_rec4 = models.CharField(max_length = 200, null=True)
+    is_rec4 = models.CharField(max_length = 200, null=True) #textarea1
     ie_user4 = models.CharField(max_length = 200, null=True)
     i_sig4 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     ie_date5 = models.DateField()
     i_time2 = models.TimeField()
     i_stats = models.CharField(max_length = 100, null=True)
 
-#borrowrecord
+#borrowrecord #1O #i
 class borrow_record(models.Model):
     if_name5 = models.CharField(max_length = 100, null=True)
     i_date5 = models.DateField()
