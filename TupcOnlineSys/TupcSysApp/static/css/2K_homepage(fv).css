@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 * {
     margin: 0px;
     padding: 0px;
@@ -128,21 +129,22 @@
 
 /*****************************************main contents*******************************/
 
-.jumbotron {
-    border-radius: 20px !important;
+.container {
+    display: flex;
+    width: 40%;
+    margin-top: 5%;
+    justify-content: flex-end;
 }
 
 
 /*to do card style*/
 
 #to-do {
-    color: #4caf50;
+    color: #05a2a0ef;
     font-size: 60px !important;
     font-weight: lighter !important;
-    padding-bottom: 40px !important;
-    padding-top: 0px !important;
     cursor: default;
-    margin-top: -80px !important;
+    margin-top: -78px !important;
     margin-bottom: -10px;
 }
 
@@ -151,6 +153,148 @@
 
 #textarea1 {
     border-radius: 20px;
+}
+
+
+/*clock**/
+
+.clock {
+    background: white;
+    width: 500px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.clock-time,
+.clock-ampm {
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    color: #05a2a0ef;
+}
+
+.clock-time {
+    font-size: 60px;
+}
+
+
+/*calendar*/
+
+.calendar_holder {
+    margin-top: 3%;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header .icons {
+    display: flex;
+}
+
+header .icons span {
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    color: #ff0808;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+
+.icons span:last-child {
+    margin-right: -10px;
+}
+
+header .icons span:hover {
+    background: #f2f2f2;
+}
+
+header .current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+.calendar {
+    padding: 20px;
+}
+
+.calendar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar li {
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+    cursor: default;
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+}
+
+.days li.inactive {
+    color: rgb(142, 28, 28);
+}
+
+.days li.active {
+    color: #fff;
+}
+
+.days li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+    background: maroon;
+}
+
+.days li:not(.active):hover::before {
+    background: #f2f2f2;
+}
+
+.current-date {
+    color: #0de4e0ef;
 }
 
 
@@ -177,125 +321,6 @@ header,
     display: flex;
     justify-content: center;
     position: relative;
-}
-
-
-/*clock**/
-
-.placer {
-    box-sizing: border-box;
-    background-color: lightslategray;
-    border: 3px solid black;
-    border-radius: 5%;
-    padding: 5px;
-    margin-top: 5%;
-}
-
-.clock {
-    width: 300px;
-    height: 300px;
-    background-color: rgba(255, 255, 255, .8);
-    border-radius: 50%;
-    border: 2px solid black;
-    position: relative;
-}
-
-.clock .number {
-    --rotation: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transform: rotate(var(--rotation));
-    font-size: 1.5rem;
-}
-
-.clock .number1 {
-    --rotation: 30deg;
-}
-
-.clock .number2 {
-    --rotation: 60deg;
-}
-
-.clock .number3 {
-    --rotation: 90deg;
-}
-
-.clock .number4 {
-    --rotation: 120deg;
-}
-
-.clock .number5 {
-    --rotation: 150deg;
-}
-
-.clock .number6 {
-    --rotation: 180deg;
-}
-
-.clock .number7 {
-    --rotation: 210deg;
-}
-
-.clock .number8 {
-    --rotation: 240deg;
-}
-
-.clock .number9 {
-    --rotation: 270deg;
-}
-
-.clock .number10 {
-    --rotation: 300deg;
-}
-
-.clock .number11 {
-    --rotation: 330deg;
-}
-
-.clock .hand {
-    --rotation: 0;
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    border: 1px solid white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    transform-origin: bottom;
-    z-index: 10;
-    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
-}
-
-.clock::after {
-    content: '';
-    position: absolute;
-    background-color: black;
-    z-index: 11;
-    width: 15px;
-    height: 15px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
-
-.clock .hand.second {
-    width: 3px;
-    height: 45%;
-    background-color: red;
-}
-
-.clock .hand.minute {
-    width: 7px;
-    height: 40%;
-    background-color: black;
-}
-
-.clock .hand.hour {
-    width: 10px;
-    height: 35%;
-    background-color: black;
 }
 
 

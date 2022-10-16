@@ -22,7 +22,7 @@
 
     <!----ADD UP------------------------------------------------>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!----font links---------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,43 +61,47 @@
                         <a href="{% url 'TupcSysApp:FacultyLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
                         <a href="{% url 'TupcSysApp:FacultyReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
                         <a href="{% url 'TupcSysApp:logout'%}"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
-                        
+
                     </div>
                 </div>
 
-                <!--Clock-------------------------------------------------------------------------------------------->
-                
-                <div class="col-xl-6 main">
-                    <div class="container-fluid text-center d-flex justify-content-center align-items-center "><br><br>
-                        <div class="placer">
+
+                <!--CALENDAR // CLOCK // TO DO-------------------------------------------------------------------------------------->
+
+                <div class="container">
+                    <div class="container1">
+                        <div class="clock_holder">
                             <div class="clock">
-                                <div class="hand hour" data-hour-hand></div>
-                                <div class="hand minute" data-minute-hand></div>
-                                <div class="hand second" data-second-hand></div>
-                                <div class="number number1">1</div>
-                                <div class="number number2">2</div>
-                                <div class="number number3">3</div>
-                                <div class="number number4">4</div>
-                                <div class="number number5">5</div>
-                                <div class="number number6">6</div>
-                                <div class="number number7">7</div>
-                                <div class="number number8">8</div>
-                                <div class="number number9">9</div>
-                                <div class="number number10">10</div>
-                                <div class="number number11">11</div>
-                                <div class="number number12">12</div>
+                                <span class="clock-time"></span>
+                                <span class="clock-ampm"></span>
+                            </div>
+                        </div>
+                        <div class="calendar_holder">
+                            <div class="wrapper">
+                                <header>
+                                    <p class="current-date"></p>
+                                    <div class="icons">
+                                        <span id="prev" class="material-icon"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                                        <span id="next" class="material-icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                                    </div>
+                                </header>
+                                <div class="calendar">
+                                    <ul class="weeks">
+                                        <li>Sun</li>
+                                        <li>Mon</li>
+                                        <li>Tue</li>
+                                        <li>Wed</li>
+                                        <li>Thu</li>
+                                        <li>Fri</li>
+                                        <li>Sat</li>
+                                    </ul>
+                                    <ul class="days"></ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!--TO-DO CARD-------------------------------------------------------------------------------------------->
-
-                <div class="col-xl-5 main">
-                    <!-- As a link -->
-                    <div class="container-fluid text-center d-flex justify-content-center align-items-center "><br><br>
-                        <div class="jumbotron col-10 m-4"><br>
-
+                    <div class="todo">
+                        <div class="jumbotron col-12 "><br>
                             <div class="card-body ">
                                 <div class="card-title" id="to-do">
                                     TO-DO
@@ -110,7 +114,109 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+
+            <script>
+                class DigitalClock {
+                    constructor(element) {
+                        this.element = element;
+                    }
+
+                    start() {
+                        this.update();
+
+                        setInterval(() => {
+                            this.update();
+                        }, 500);
+                    }
+
+                    update() {
+                        const parts = this.getTimeParts();
+                        const minuteFormatted = parts.minute.toString().padStart(2, "0");
+                        const timeFormatted = `${parts.hour}:${minuteFormatted}`;
+                        const amPm = parts.isAm ? "AM" : "PM";
+
+                        this.element.querySelector(".clock-time").textContent = timeFormatted;
+                        this.element.querySelector(".clock-ampm").textContent = amPm;
+                    }
+
+                    getTimeParts() {
+                        const now = new Date();
+
+                        return {
+                            hour: now.getHours() % 12 || 12,
+                            minute: now.getMinutes(),
+                            isAm: now.getHours() < 12
+                        };
+                    }
+                }
+
+                const clockElement = document.querySelector(".clock");
+                const clockObject = new DigitalClock(clockElement);
+
+                clockObject.start();
+
+
+                //calendar
+                const daysTag = document.querySelector(".days"),
+                    currentDate = document.querySelector(".current-date"),
+                    prevNextIcon = document.querySelectorAll(".icons span");
+
+                // getting new date, current year and month
+                let date = new Date(),
+                    currYear = date.getFullYear(),
+                    currMonth = date.getMonth();
+
+                // storing full name of all months in array
+                const months = ["January", "February", "March", "April", "May", "June", "July",
+                    "August", "September", "October", "November", "December"
+                ];
+
+                const renderCalendar = () => {
+                    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+                        lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+                        lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+                        lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+                    let liTag = "";
+
+                    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+                        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+                    }
+
+                    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+                        // adding active class to li if the current day, month, and year matched
+                        let isToday = i === date.getDate() && currMonth === new Date().getMonth() &&
+                            currYear === new Date().getFullYear() ? "active" : "";
+                        liTag += `<li class="${isToday}">${i}</li>`;
+                    }
+
+                    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+                        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+                    }
+                    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
+                    daysTag.innerHTML = liTag;
+                }
+                renderCalendar();
+
+                prevNextIcon.forEach(icon => { // getting prev and next icons
+                    icon.addEventListener("click", () => { // adding click event on both icons
+                        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
+                        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+                        if (currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
+                            // creating a new date of current year & month and pass it as date value
+                            date = new Date(currYear, currMonth);
+                            currYear = date.getFullYear(); // updating current year with new date year
+                            currMonth = date.getMonth(); // updating current month with new date month
+                        } else {
+                            date = new Date(); // pass the current date as date value
+                        }
+                        renderCalendar(); // calling renderCalendar function
+                    });
+                });
+            </script>
+
 
             <!--BG CALL-------------------------------------------------------------------------------------------->
             <div id="pic" class="view drk "></div>

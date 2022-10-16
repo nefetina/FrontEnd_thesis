@@ -117,6 +117,8 @@ def UitcHome(request):#UITC HOMEPAGE page
     else:
         return redirect('/')
 
+def UitcHome(request):
+    return render(request, 'TupcSysApp/1A_HOMEPAGE(UITC).html')
 
 @login_required(login_url='/Index')
 def UitcID(request):#UITC ID page
@@ -130,6 +132,8 @@ def UitcID(request):#UITC ID page
     else:
         return redirect('/')
 
+#def UitcID(request):
+#    return render(request, 'TupcSysApp/1B_IDS(UITC).html')
 
 @login_required(login_url='/Index')
 def UitcInternet(request):#UITC INTERNET page
@@ -143,6 +147,8 @@ def UitcInternet(request):#UITC INTERNET page
     else:
         return redirect('/')
 
+#def UitcInternet(request):
+#    return render(request, 'TupcSysApp/1C_INTERNET(UITC).html')
 
 @login_required(login_url='/Index')
 def UitcLabsched(request):#UITC LABSCHED page
@@ -156,6 +162,8 @@ def UitcLabsched(request):#UITC LABSCHED page
     else:
         return redirect('/')
 
+#def UitcLabsched(request):
+#    return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html')
 
 @login_required(login_url='/Index')
 def UitcReports(request):#UITC REPORTS page
@@ -168,6 +176,8 @@ def UitcReports(request):#UITC REPORTS page
     else:
         return redirect('/')
 
+#def UitcReports(request):
+#    return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
 
 @login_required(login_url='/Index')
 def UitcRec1(request):#UITC HOMEPAGE page
@@ -180,6 +190,9 @@ def UitcRec1(request):#UITC HOMEPAGE page
     else:
         return redirect('/')
 
+#def UitcRec1(request):
+#    return render(request, 'TupcSysApp/1F_RECORDS1.1(uitc).html')
+
 @login_required(login_url='/Index')
 def UitcRec2(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
@@ -190,6 +203,9 @@ def UitcRec2(request):#UITC HOMEPAGE page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
+
+#def UitcRec2(request):
+#    return render(request, 'TupcSysApp/1G_RECORDS1.2(uitc).html')
 
 @login_required(login_url='/Index')
 def UitcRec3(request):#UITC HOMEPAGE page
@@ -202,6 +218,9 @@ def UitcRec3(request):#UITC HOMEPAGE page
     else:
         return redirect('/')
 
+#def UitcRec3(request):
+#   return render(request, 'TupcSysApp/1H_RECORDS1.3(uitc).html')
+
 @login_required(login_url='/Index')
 def UitcRec4(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
@@ -212,6 +231,9 @@ def UitcRec4(request):#UITC HOMEPAGE page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
+
+#def UitcRec4(request):
+#    return render(request, 'TupcSysApp/1I_RECORDS1.4(uitc).html')
 
 @login_required(login_url='/Index')
 def UitcPermission(request):#UITC PERMISSION page
@@ -225,6 +247,8 @@ def UitcPermission(request):#UITC PERMISSION page
     else:
         return redirect('/')
 
+#def UitcPermission(request):
+#    return render(request, 'TupcSysApp/1J_PERMISSION(UITC).html')
 
 @login_required(login_url='/Index')
 def FacultyHome(request):#FACULTY HOMEPAGE page
@@ -248,8 +272,8 @@ def FacultyHome(request):#FACULTY HOMEPAGE page
 
 	return render(request, 'TupcSysApp/ex.html', {'form':form})"""
 
-def FacultyHome(request):
-     return render(request,'TupcSysApp/1K_HOMEPAGE(FV).html')
+#def FacultyHome(request):
+#     return render(request,'TupcSysApp/1K_HOMEPAGE(FV).html')
 
 @login_required(login_url='/Index')
 def FacultyID(request):#FACULTY ID page
@@ -287,8 +311,8 @@ def FacultyID(request):#FACULTY ID page
     else:
         return redirect('/')
 
-def FacultyID(request):
-     return render(request,'TupcSysApp/1L_ID(FV).html')
+#def FacultyID(request):
+#     return render(request,'TupcSysApp/1L_ID(FV).html')
 
 
 @login_required(login_url='/Index')
@@ -317,7 +341,8 @@ def FacultyInternet(request):#FACULTY INTERNET page
     else:
         return redirect('/')
 
-
+#def FacultyInternet(request):
+#     return render(request,'TupcSysApp/1M_INTERNET(FV).html')
 
 @login_required(login_url='/Index')
 def FacultyLabsched(request):#FACULTY LABSCHED page
@@ -343,67 +368,67 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
     else:
         return redirect('/')
 
-def FacultyLabsched(request):
-     return render(request,'TupcSysApp/1N_SCHEDULE(FV).html')
+#def FacultyLabsched(request):
+#     return render(request,'TupcSysApp/1N_SCHEDULE(FV).html')
 
-#@login_required(login_url='/Index')
-#def FacultyReports(request):#FACULTY REPORTS page   
-#    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-#        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-#        return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-#        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
-#    else:
-#        return redirect('/')
+@login_required(login_url='/Index')
+def FacultyReports(request):#FACULTY REPORTS page   
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')
 
-def FacultyReports(request):
-     return render(request,'TupcSysApp/1O_REPORTS(FV).html')
+#def FacultyReports(request):
+#     return render(request,'TupcSysApp/1O_REPORTS(FV).html')
 
-#@login_required(login_url='/Index')
-#def StudentHome(request):#STUDENT HOMEPAGE page
-#    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-#        return redirect('/UitcHome')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-#        return redirect('/FacultyHome')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-#        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
-#    else:
-#        return redirect('/')
+@login_required(login_url='/Index')
+def StudentHome(request):#STUDENT HOMEPAGE page
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return redirect('/UitcHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')
 
-def FacultyRstPass(request):
-    return render(request, 'TupcSysApp/1S_PASSRESET(FV).HTML')
+#def FacultyRstPass(request):
+ #   return render(request, 'TupcSysApp/1S_PASSRESET(FV).HTML')
 
-def StudentHome(request):
-     return render(request,'TupcSysApp/1P_HOMEPAGE(SV).html')
-
-
-
-#@login_required(login_url='/Index')
-#def StudentInternet(request):#STUDENT INTERNET ACCESS page
-#    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-#        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-#        return redirect('/FacultyHome')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-#        return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
-#    else:
-#        return redirect('/')
-
-def StudentInternet(request):
-     return render(request,'TupcSysApp/1Q_INTERNET(SV).html')
-
-#@login_required(login_url='/Index')
-#def StudentReports(request):#STUDENT REPORT page
-#    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-#        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-#        return redirect('/FacultyHome')
-#    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-#        return render (request, 'TupcSysApp/1R_REPORT(SV).html')
-#    else:
-#        return redirect('/')
+#def StudentHome(request):
+#     return render(request,'TupcSysApp/1P_HOMEPAGE(SV).html')
 
 
-def StudentReports(request):
-     return render(request,'TupcSysApp/1R_REPORT(SV).html')
+
+@login_required(login_url='/Index')
+def StudentInternet(request):#STUDENT INTERNET ACCESS page
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
+    else:
+        return redirect('/')
+
+#def StudentInternet(request):
+#     return render(request,'TupcSysApp/1Q_INTERNET(SV).html')
+
+@login_required(login_url='/Index')
+def StudentReports(request):#STUDENT REPORT page
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1R_REPORT(SV).html')
+    else:
+        return redirect('/')
+
+
+#def StudentReports(request):
+#     return render(request,'TupcSysApp/1R_REPORT(SV).html')
