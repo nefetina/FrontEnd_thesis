@@ -41,9 +41,10 @@
 
 /*for logo border*/
 
-#logo {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
-}
+#logo{
+    float: right !important;
+ }
+ 
 
 
 /* The sidebar links */
@@ -186,6 +187,22 @@
 
 .btnmove {
     float: right !important;
+}
+
+#btn3:hover{
+    border: 2px solid BLUE !important; 
+    background-color: #ffffff;
+    transition: .2s ease-in-out;
+    color: blue;
+    font-weight: bold;
+}
+
+#btn4:hover{
+    border: 2px solid RED !important; 
+    background-color: #ffffff;
+    transition: .2s ease-in-out;
+    color: RED;
+    font-weight: bold;
 }
 
 

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 * {
     margin: 0px;
     padding: 0px;
@@ -14,7 +15,7 @@
     /* Stay in place */
     top: 0;
     left: 0;
-    background-color: #505b66;
+    background-color: #662525;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -33,16 +34,9 @@
 /*for active button correspond to its html site*/
 
 #active {
-    color: #ffffff;
-    background-color: #1f8089e1;
+    color: #cff112dd;
+    background-color: #a02d2d;
     transform: scale(1);
-}
-
-
-/*for logo border*/
-
-#logo {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
 }
 
 
@@ -63,7 +57,7 @@
 
 .sidebar a:hover {
     color: #ffffff;
-    background-color: #42aab354;
+    background-color: #ae2424d3;
     transition: .2s ease-in;
     transform: scale(1.2);
 }
@@ -72,7 +66,7 @@
     color: #ffffff;
     border: 4px solid #fff;
     animation: anim shadow .3s forwards;
-    background-color: #1c625dcc;
+    background-color: #eb2020d3;
     transition: .2s ease-in;
 }
 
@@ -85,7 +79,7 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-    background-color: #505b66;
+    background-color: #662525;
     color: white;
     border-radius: 5px;
     border: none;
@@ -98,7 +92,7 @@
 /* The button used to open the sidebar */
 
 #openbtn:hover {
-    color: rgb(11, 125, 137) !important;
+    color: #c52020d8 !important;
     transition: 0.3s;
 }
 
@@ -140,40 +134,45 @@
 }
 
 
+
+
 /*to do card style*/
 
 #to-do {
-    color: #05a2a0ef;
+    color: #505b66;
     font-size: 60px !important;
     font-weight: lighter !important;
     cursor: default;
     margin-top: -78px !important;
-    margin-bottom: -10px;
+    margin-bottom: 5px;
 }
 
 
 /*to-do text area*/
 
 #textarea1 {
-    border-radius: 20px;
+    border-radius: 10px;
+    
+}
+
+.jumbotron {
+    border-radius: 10px !important;
 }
 
 
 /*clock**/
 
 .clock {
-    background: white;
-    width: 500px;
+    background: #505b66;
     padding: 10px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 10px !important;
 }
 
 .clock-time,
 .clock-ampm {
-    font-family: 'Poppins', sans-serif;
     font-size: 50px;
-    color: #05a2a0ef;
+    color: #fff;
 }
 
 .clock-time {
@@ -186,17 +185,16 @@
 .calendar_holder {
     margin-top: 3%;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .wrapper {
-    width: 500px;
     background: #fff;
-    border-radius: 10px;
+    border-bottom-left-radius: 2%;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    border-radius: 10px !important;
 }
 
 .wrapper header {
@@ -204,6 +202,9 @@
     align-items: center;
     padding: 25px 30px 10px;
     justify-content: space-between;
+    background: #505b66;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
 }
 
 header .icons {
@@ -214,7 +215,7 @@ header .icons span {
     height: 38px;
     width: 38px;
     cursor: pointer;
-    color: #047674ef;
+    color: #ff0808;
     text-align: center;
     line-height: 38px;
     font-size: 1.9rem;
@@ -237,6 +238,7 @@ header .current-date {
 
 .calendar {
     padding: 20px;
+    border-radius: 10px !important;
 }
 
 .calendar ul {
@@ -269,7 +271,7 @@ header .current-date {
 }
 
 .days li.inactive {
-    color: rgb(143, 212, 225);
+    color: rgb(142, 28, 28);
 }
 
 .days li.active {
@@ -289,7 +291,7 @@ header .current-date {
 }
 
 .days li.active::before {
-    background: #1f6d6cef;
+    background: maroon;
 }
 
 .days li:not(.active):hover::before {
@@ -297,7 +299,10 @@ header .current-date {
 }
 
 .current-date {
-    color: #0de4e0ef;
+    color: #fff;
+}
+#set2{
+    margin-right:100px !important ;
 }
 
 
@@ -307,7 +312,7 @@ html,
 body,
 header,
 #pic {
-    background-image: url("/static/images/TUPBGGRAY.png");
+    background-image: url("/static/images/TUPBGRED.png");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -318,7 +323,7 @@ header,
 }
 
 .view {
-    background-image: url("/static/images/TUPBGGRAY.png");
+    background-image: url("/static/images/TUPBGRED.png");
     color: #fff;
     width: 100%;
     display: flex;
@@ -343,7 +348,7 @@ header,
         /* Stay in place */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #662525;
         overflow-x: hidden;
         padding-top: 60px;
         transition: 0.5s;
@@ -370,7 +375,7 @@ header,
         right: 35px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #505b66;
+        background-color: #662525;
         color: white;
         border-radius: 5px;
         border: none;
@@ -394,7 +399,7 @@ header,
         /* Stay in place */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #662525;
         overflow-x: hidden;
         padding-top: 60px;
         transition: 0.5s;
@@ -438,7 +443,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #662525;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -490,7 +495,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #662525;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -514,7 +519,7 @@ header,
         right: 25px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #505b66;
+        background-color: #662525;
         color: white;
         border-radius: 5px;
     }
@@ -543,7 +548,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #662525;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -593,7 +598,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #662525;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -624,7 +629,7 @@ header,
         right: 15px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #505b66;
+        background-color: #662525;
         color: white;
         border-radius: 5px;
     }

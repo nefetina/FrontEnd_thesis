@@ -43,6 +43,7 @@
         <div id="titulo">
             <a class="navbar-brand" id="title" href="#">RECORDS</a>
         </div>
+        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
 
     </nav>
 
@@ -89,7 +90,6 @@
                 <div class="col-xl-1 text-center">
                     <div id="mySidebar" class="sidebar">
                         <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
-                        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
                         <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
@@ -159,6 +159,7 @@
                                             <th scope="col">ADDRESS</th>
                                             <th scope="col">SIGNATURE</th>
                                             <th scope="col">STATUS</th>
+                                            <th scope="col">ACTION</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -182,6 +183,14 @@
                                             <td>emptysdsadsdsdasddw</td>
                                             <td>emptysdsadsdsdasddw</td>
                                             <td>emptysdsadsdsdasddw</td>
+                                            <td>
+                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                        
+                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                    data-toggle="tooltip" data-placement="top" title="Downlaod"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                </div>
+                                            </td>
                                           </tr>
                                         </tbody>
                                       </table>

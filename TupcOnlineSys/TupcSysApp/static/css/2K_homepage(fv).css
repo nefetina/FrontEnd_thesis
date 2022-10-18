@@ -40,13 +40,6 @@
 }
 
 
-/*for logo border*/
-
-#logo {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
-}
-
-
 /* The sidebar links */
 
 .sidebar a {
@@ -129,6 +122,10 @@
 
 /*****************************************main contents*******************************/
 
+.jumbotron {
+    border-radius: 20px !important;
+}
+
 .container {
     display: flex;
     width: 40%;
@@ -136,41 +133,52 @@
     justify-content: flex-end;
 }
 
+.container1 {
+    width: 700px;
+    height: fit-content;
+    background-color: #662525;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
 
 /*to do card style*/
 
 #to-do {
-    color: #05a2a0ef;
+    color: #662525;
     font-size: 60px !important;
     font-weight: lighter !important;
     cursor: default;
     margin-top: -78px !important;
-    margin-bottom: -10px;
+    margin-bottom: 5px;
 }
 
 
 /*to-do text area*/
 
 #textarea1 {
-    border-radius: 20px;
+    border-radius: 10px;
+    
+}
+
+.jumbotron {
+    border-radius: 10px !important;
 }
 
 
 /*clock**/
 
 .clock {
-    background: white;
-    width: 500px;
+    background: #662525;
     padding: 10px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 10px !important;
 }
 
 .clock-time,
 .clock-ampm {
-    font-family: 'Poppins', sans-serif;
     font-size: 50px;
-    color: #05a2a0ef;
+    color: #fff;
 }
 
 .clock-time {
@@ -183,17 +191,16 @@
 .calendar_holder {
     margin-top: 3%;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .wrapper {
-    width: 500px;
     background: #fff;
-    border-radius: 10px;
+    border-bottom-left-radius: 2%;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    border-radius: 10px !important;
 }
 
 .wrapper header {
@@ -201,6 +208,9 @@
     align-items: center;
     padding: 25px 30px 10px;
     justify-content: space-between;
+    background: #662525;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
 }
 
 header .icons {
@@ -234,6 +244,7 @@ header .current-date {
 
 .calendar {
     padding: 20px;
+    border-radius: 10px !important;
 }
 
 .calendar ul {
@@ -294,8 +305,9 @@ header .current-date {
 }
 
 .current-date {
-    color: #0de4e0ef;
+    color: #fff;
 }
+
 
 
 /*****************************************BACKGROUND*******************************/

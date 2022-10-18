@@ -38,7 +38,7 @@
         <div id="titulo">
             <a class="navbar-brand" href="#">INTERNET CONNECTIVITY REGISTRATION</a>
         </div>
-
+        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
     </nav>
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
@@ -58,7 +58,6 @@
                 <div class="col-xl-1 text-center">
                     <div id="mySidebar" class="sidebar">
                         <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
-                        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
                         <a href="{% url 'TupcSysApp:FacultyHome'%}" ><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
                         <a href="{% url 'TupcSysApp:FacultyID'%}"><i class="fa fa-2x fa-id-badge" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
                         <a href="{% url 'TupcSysApp:FacultyInternet'%} id="active""><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>

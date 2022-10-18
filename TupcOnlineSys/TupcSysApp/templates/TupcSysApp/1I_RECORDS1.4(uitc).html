@@ -40,6 +40,7 @@
         <div id="titulo">
             <a class="navbar-brand" id="title" href="#">RECORDS</a>
         </div>
+        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
 
     </nav>
 
@@ -89,7 +90,6 @@
                 <div class="col-xl-1 text-center">
                     <div id="mySidebar" class="sidebar">
                         <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
-                        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
                         <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
@@ -181,6 +181,7 @@
                                             <th scope="col">SIGNATURE</th>
                                             <th scope="col">TIME</th>
                                             <th scope="col">STATUS</th>
+                                            <th scope="col">ACTION</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -224,6 +225,14 @@
                                             <td>emptysdsadsdsdasddw</td>
                                             <td>emptysdsadsdsdasddw</td>
                                             <td>emptysdsadsdsdasddw</td>
+                                            <td>
+                                              <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                      
+                                                  <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                  data-toggle="tooltip" data-placement="top" title="Downlaod"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                              </div>
+                                          </td>
                                           </tr>
                                           
                                         </tbody>
@@ -281,51 +290,52 @@
                                           <thead class="thead">
                                             <tr>
                                               <th scope="col">TYPE</th>
-                                                  <th scope="col ">SERIAL NO.</th>
-                                                  <th scope="col ">DATE OF MAINTENANCE</th>
-                                                  <th scope="col">BRAND MODEL</th>
-                                                  <th scope="col">ICT EQUIPMENT CODE</th>
-                                                  <th scope="col ">ICT EQUIPMENT NAME</th>
-                                                  <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">SCAN FOR VIRUSES STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">RUN MALWARE STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">CLEAN KEYBOARD STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">ORGANIZE CABLES STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">WIPEDOWN MONITOR STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
-                                                  <th scope="col ">REMARKS</th>
-                                                  <th scope="col ">UITC PERSONNEL</th>
-                                                  <th scope="col ">SIGNATURE</th>
-                                                  <th scope="col ">DATE STARTED</th>
-                                                  <th scope="col ">TIME STARTED</th>
-                                                  <th scope="col ">DATE ENDED</th>
-                                                  <th scope="col ">TIME ENDED</th>
-                                                  <th scope="col ">SOLUTION RECOMMENDATION</th>
-                                                  <th scope="col ">END USER</th>
-                                                  <th scope="col ">SIGNATURE</th>
-                                                  <th scope="col ">DATE</th>
-                                                  <th scope="col ">TIME</th>
+                                              <th scope="col ">SERIAL NO.</th>
+                                              <th scope="col ">DATE OF MAINTENANCE</th>
+                                              <th scope="col">BRAND MODEL</th>
+                                              <th scope="col">ICT EQUIPMENT CODE</th>
+                                              <th scope="col ">ICT EQUIPMENT NAME</th>
+                                              <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">SCAN FOR VIRUSES STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">RUN MALWARE STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">CLEAN KEYBOARD STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">ORGANIZE CABLES STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">WIPEDOWN MONITOR STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
+                                              <th scope="col ">REMARKS</th>
+                                              <th scope="col ">UITC PERSONNEL</th>
+                                              <th scope="col ">SIGNATURE</th>
+                                              <th scope="col ">DATE STARTED</th>
+                                              <th scope="col ">TIME STARTED</th>
+                                              <th scope="col ">DATE ENDED</th>
+                                              <th scope="col ">TIME ENDED</th>
+                                              <th scope="col ">SOLUTION RECOMMENDATION</th>
+                                              <th scope="col ">END USER</th>
+                                              <th scope="col ">SIGNATURE</th>
+                                              <th scope="col ">DATE</th>
+                                              <th scope="col ">TIME</th>
                                               <th scope="col">STATUS</th>
+                                              <th scope="col">ACTION</th>
                                             </tr>
                                           </thead>
                                           <tbody>
@@ -376,6 +386,14 @@
                                               <td>emptysdsadsdsdasddw</td>
                                               <td>emptysdsadsdsdasddw</td>
                                               <td>emptysdsadsdsdasddw</td>
+                                              <td>
+                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                        
+                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                    data-toggle="tooltip" data-placement="top" title="Downlaod"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                </div>
+                                            </td>
                                             </tr>
                                           </tbody>
                                         </table>
@@ -438,6 +456,7 @@
                                               <th scope="col">REASON FOR BORROWING</th>
                                               <th scope="col">SIGNATURE</th>
                                               <th scope="col">STATUS</th>
+                                              <th scope="col">ACTION</th>
                                             </tr>
                                           </thead>
                                           <tbody>
@@ -449,6 +468,14 @@
                                               <td>emptysdsadsdsdasddw</td>
                                               <td>emptysdsadsdsdasddw</td>
                                               <td>emptysdsadsdsdasddw</td>
+                                              <td>
+                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                        
+                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                    data-toggle="tooltip" data-placement="top" title="Downlaod"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                </div>
+                                            </td>
                                             </tr>
                                           </tbody>
                                         </table>
