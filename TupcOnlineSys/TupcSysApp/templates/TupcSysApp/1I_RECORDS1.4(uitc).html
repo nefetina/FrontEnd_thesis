@@ -74,6 +74,7 @@
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
             <li class="breadcrumb-item ml-auto" onclick="reportandmaintenance()"><a href="#">REPAIR AND MAINTENANCE RECORD</a></li>
+            <li class="breadcrumb-item" onclick="passres()"><a href="#">PASSWORD RESET RECORD</a></li>
             <li class="breadcrumb-item" onclick="maintenance()"><a href="#">MAINTENANCE RECORD</a></li>
             <li class="breadcrumb-item" onclick="borrow()"><a href="#">BORROW RECORD</a></li>
             <li class="breadcrumb-item" onclick="inventory()"><a href="#">INVENTORY</a></li>
@@ -493,9 +494,126 @@
                       
                         </div> 
 
+                      <!--TABLE 4 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
+                       <div id="table4" class="col-xl-11 collapse" >
+                              
+                        <form>
+                            <div class="form-row">
+
+                                <div class="col-xl-9 col-lg-8 col-12">
+                                    <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                </div>
+                                <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                <div class="col-xl-1 col-lg-2 col-12">
+                                    <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                </div>
+                                <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                    <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Sorted by:
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Date</a>
+                                        <a class="dropdown-item" href="#">Ascending</a>
+                                        <a class="dropdown-item" href="#">Descending</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="jumbotron m-1"><br>
+                      
+                      
+                          <div class="card-body">
+                              <form>
+                                  <div class="formtitle">
+                                      INVENTORY
+                                  </div>
+                                  <div class="descriptions">
+                                      ADD OF EQUIPMENTS
+                                  </div>
+                                  <div class="form-row">
+                                      <div class="col-xl-6">
+                                          <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:">
+                                      </div>
+                                      <div class="col-xl-5">
+                                          <input type="text" class="form-control my-2 p-2" placeholder="No of Units:">
+                                      </div>
+                                      <div class="col-xl-1">
+                                          <button type="button" class="btn btn-success  mt-2 "  >
+                                              ADD
+                                          </button>
+                                      </div>
+                                  </div>
+                                  <div class="descriptions col-12 m-2">
+                                      Supplies and Materials  (Parts to be Replaced)
+                                  </div>
+
+  <!--TABLE-------------------------------------------------------------------------------------------->
+
+                                  <div class="table-responsive col-xl-12">
+                                      <table class="table">
+                                          <thead class="thead">
+                                            <tr>
+                                              <th scope="col-xl-2 ">Quantity</th>
+                                              <th scope="col-xl-6 ">Equipment</th>
+                                              <th scope="col-xl-4 ">Modify/Delete</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row"><input type="text" class="form-control p-2"></th>
+                                              <td><input type="text" class="form-control p-2"></td>
+                                              <td>
+                                                  <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
+                                                  <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row"><input type="text" class="form-control p-2"></th>
+                                              <td><input type="text" class="form-control p-2"></td>
+                                              <td>
+                                                  <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
+                                                  <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row"><input type="text" class="form-control p-2"></th>
+                                              <td><input type="text" class="form-control p-2"></td>
+                                              <td>
+                                                  <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
+                                                  <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                  </div>
+
+  <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                  <div class="col-xl-12 ">
+                                      <p class="card-text">Check it properly before you send it.</p>
+                                      <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
+                                          Next
+                                      </button>
+                                      <button type="button" class="btn btn-danger float-right m-1"  >
+                                          Cancel
+                                      </button>
+                                      
+                                  </div>
+                                  
+                              </form>
+                            
+                              
+                              
+                            
+      
+                          </div>
+                      </div>
+                    
+                      
+                      </div>
+
                       <!--FORMTABLE 1 INVENTORY RECORD-------------------------------------------------------------------------------------------->  
                       
-                      <div id="table4" class="col-xl-11 collapse" >
+                      <div id="table5" class="col-xl-11 collapse" >
                             
                           <div class="jumbotron m-1"><br>
                         

@@ -23,13 +23,20 @@ function closeNav() {
 
 }
 
+
+
+
+
+
 function reportandmaintenance() {
+    var v= document.getElementById("table5")
     var w = document.getElementById("table4")
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
     var z = document.getElementById("table3");
 
 
+    v.style.display = "none";
     w.style.display = "none";
     y.style.display = "block";
     x.style.display = "none";
@@ -38,12 +45,31 @@ function reportandmaintenance() {
     
   
 }
-function maintenance() {
+function passres() {
+    var v= document.getElementById("table5")
     var w = document.getElementById("table4")
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
     var z = document.getElementById("table3");
 
+
+    v.style.display = "block";
+    w.style.display = "none";
+    y.style.display = "none";
+    x.style.display = "none";
+    z.style.display = "none";
+
+    
+  
+}
+function maintenance() {
+    var v= document.getElementById("table5")
+    var w = document.getElementById("table4")
+    var y = document.getElementById("table1");
+    var x = document.getElementById("table2");
+    var z = document.getElementById("table3");
+
+    v.style.display = "none";
     w.style.display = "none";
     y.style.display = "none";
     x.style.display = "block";
@@ -51,11 +77,13 @@ function maintenance() {
   
 }
 function borrow() {
+    var v= document.getElementById("table5")
     var w = document.getElementById("table4")
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
     var z = document.getElementById("table3");
 
+    v.style.display = "none";
     w.style.display = "none";
     y.style.display = "none";
     x.style.display = "none";
@@ -63,12 +91,15 @@ function borrow() {
   
 }
 
+
 function inventory() {
+    var v= document.getElementById("table5")
     var w = document.getElementById("table4")
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
     var z = document.getElementById("table3");
 
+    v.style.display = "none";
     w.style.display = "block";
     y.style.display = "none";
     x.style.display = "none";
