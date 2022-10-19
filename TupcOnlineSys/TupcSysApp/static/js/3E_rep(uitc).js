@@ -151,54 +151,8 @@ function form111(){
     x1.style.display = "none";
 }
 
-function maintenanceform(){
-
-    var a = document.getElementById("tableform1");
-    var b = document.getElementById("tableform2");
-    var c = document.getElementById("tableform3");
-    var d = document.getElementById("tableform7");
-
-    var y2 = document.getElementById("tableform4");
-    var x2 = document.getElementById("table1");
-    var z2 = document.getElementById("table2");
-    var w2 = document.getElementById("table3");
-    y2.style.display = "block";
-    x2.style.display = "none";
-    z2.style.display = "none";
-    w2.style.display = "none";
-    a.style.display = "none";
-    b.style.display = "none";
-    c.style.display = "none";
-}
-
-function borrowform(){
-    var a = document.getElementById("tableform1");
-    var b = document.getElementById("tableform2");
-    var c = document.getElementById("tableform3");
-    var d = document.getElementById("tableform4");
-    var e = document.getElementById("tableform5");
-    var f = document.getElementById("tableform6");
-    
-    var y2 = document.getElementById("tableform7");
-    var x2 = document.getElementById("table1");
-    var z2 = document.getElementById("table2");
-    var w2 = document.getElementById("table3");
-    y2.style.display = "block";
-    x2.style.display = "none";
-    z2.style.display = "none";
-    w2.style.display = "none";
 
 
-    a.style.display = "none";
-    b.style.display = "none";
-    c.style.display = "none";
-    d.style.display = "none";
-    e.style.display = "none";
-    f.style.display = "none";
-}
-
-
-/*breadcrumb buttons navigation*////////////////
 function requestforrep(){
     var a = document.getElementById("tableform1");
     var b = document.getElementById("tableform2");
@@ -211,13 +165,12 @@ function requestforrep(){
 
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
 
 
 
     y.style.display = "block";
     x.style.display = "none";
-    z.style.display = "none";
+   
 
     a.style.display = "none";
     b.style.display = "none";
@@ -231,7 +184,7 @@ function requestforrep(){
     
   
 
-function maintenance() {
+function requesforpassres() {
     var a = document.getElementById("tableform1");
     var b = document.getElementById("tableform2");
     var c = document.getElementById("tableform3");
@@ -242,11 +195,11 @@ function maintenance() {
 
     var y = document.getElementById("table1");
     var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
+    
 
     y.style.display = "none";
     x.style.display = "block";
-    z.style.display = "none";
+
 
     a.style.display = "none";
     b.style.display = "none";
@@ -258,7 +211,8 @@ function maintenance() {
 }
   
 
-function borrow(){
+function maintenanceform(){
+
     var a = document.getElementById("tableform1");
     var b = document.getElementById("tableform2");
     var c = document.getElementById("tableform3");
@@ -267,19 +221,50 @@ function borrow(){
     var f = document.getElementById("tableform6");
     var g = document.getElementById("tableform7");
 
-    var y = document.getElementById("table1");
-    var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
     
-    y.style.display = "none";
-    x.style.display = "none";
-    z.style.display = "block";
-  
+
+
+    x2.style.display = "none";
+    z2.style.display = "none";
+
+    a.style.display = "none";
+    b.style.display = "none";
+    c.style.display = "none";
+    d.style.display = "block";
+    e.style.display = "none";
+    f.style.display = "none";
+    g.style.display = "none";
+}
+
+function borrowform(){
+    var a = document.getElementById("tableform1");
+    var b = document.getElementById("tableform2");
+    var c = document.getElementById("tableform3");
+    var d = document.getElementById("tableform4");
+    var e = document.getElementById("tableform5");
+    var f = document.getElementById("tableform6");
+    var g = document.getElementById("tableform7");
+
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
+   
+
+
+    x2.style.display = "none";
+    z2.style.display = "none";
+   
     a.style.display = "none";
     b.style.display = "none";
     c.style.display = "none";
     d.style.display = "none";
     e.style.display = "none";
     f.style.display = "none";
-    g.style.display = "none";
+    g.style.display = "block";
 }
+
+
+/*breadcrumb buttons navigation*////////////////
+
+
