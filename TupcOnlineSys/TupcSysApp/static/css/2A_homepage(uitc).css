@@ -15,7 +15,7 @@
     /* Stay in place */
     top: 0;
     left: 0;
-    background-color: #662525;
+    background-color: #004D00;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -34,8 +34,8 @@
 /*for active button correspond to its html site*/
 
 #active {
-    color: #cff112dd;
-    background-color: #a02d2d;
+    color: #0096FF;
+    background-color: #1b412dcc;
     transform: scale(1);
 }
 
@@ -57,7 +57,7 @@
 
 .sidebar a:hover {
     color: #ffffff;
-    background-color: #ae2424d3;
+    background-color: #91f99154;
     transition: .2s ease-in;
     transform: scale(1.2);
 }
@@ -66,7 +66,7 @@
     color: #ffffff;
     border: 4px solid #fff;
     animation: anim shadow .3s forwards;
-    background-color: #eb2020d3;
+    background-color: #1b412dcc;
     transition: .2s ease-in;
 }
 
@@ -79,7 +79,7 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-    background-color: #662525;
+    background-color: #004D00;
     color: white;
     border-radius: 5px;
     border: none;
@@ -133,7 +133,7 @@
 /*to do card style*/
 
 #to-do {
-    color: #91f99154;
+    color: #177917;
     font-size: 60px !important;
     font-weight: lighter !important;
     cursor: default;
@@ -157,7 +157,7 @@
 /*clock**/
 
 .clock {
-    background: #91f99154;
+    background: #177917;
     padding: 10px;
     text-align: center;
     border-radius: 10px !important;
@@ -196,7 +196,7 @@
     align-items: center;
     padding: 25px 30px 10px;
     justify-content: space-between;
-    background: #91f99154;
+    background: #177917;
     border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;
 }
@@ -209,7 +209,7 @@ header .icons span {
     height: 38px;
     width: 38px;
     cursor: pointer;
-    color: #ff0808;
+    color: #ffffff;
     text-align: center;
     line-height: 38px;
     font-size: 1.9rem;
@@ -223,6 +223,7 @@ header .icons span {
 
 header .icons span:hover {
     background: #f2f2f2;
+    color: #177917;
 }
 
 header .current-date {
@@ -303,7 +304,7 @@ html,
 body,
 header,
 #pic {
-    background-image: url("/static/images/TUPBGRED.png");
+    background-image: url("/static/images/GREENBG .jpg");
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -314,7 +315,7 @@ header,
 }
 
 .view {
-    background-image: url("/static/images/TUPBGRED.png");
+    background-image: url("/static/images/GREENBG .jpg");
     color: #fff;
     width: 100%;
     display: flex;
@@ -339,7 +340,7 @@ header,
         /* Stay in place */
         top: 0;
         left: 0;
-        background-color: #662525;
+        background-color: #004D00;
         overflow-x: hidden;
         padding-top: 60px;
         transition: 0.5s;
@@ -366,7 +367,7 @@ header,
         right: 35px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #662525;
+        background-color: #004D00;
         color: white;
         border-radius: 5px;
         border: none;
@@ -390,7 +391,7 @@ header,
         /* Stay in place */
         top: 0;
         left: 0;
-        background-color: #662525;
+        background-color: #004D00;
         overflow-x: hidden;
         padding-top: 60px;
         transition: 0.5s;
@@ -434,7 +435,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #662525;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -486,7 +487,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #662525;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -510,7 +511,7 @@ header,
         right: 25px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #662525;
+        background-color: #004D00;
         color: white;
         border-radius: 5px;
     }
@@ -539,7 +540,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #662525;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -589,7 +590,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #662525;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -620,7 +621,7 @@ header,
         right: 15px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #662525;
+        background-color: #004D00;
         color: white;
         border-radius: 5px;
     }
