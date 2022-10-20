@@ -42,20 +42,25 @@ def permit(request, id):
 def register(request):#registration
     form = Registration()
     if request.method == "POST":
-        image = request.POST.get("image")
-        form =  Registration(request.POST)
-        if form.is_valid():
-            username = form['username'].value()
-            image_file = pics.objects.create(
-                                       
-                                       pic=image, Usernamep = username
-                                      )
-            image_file.save()
-            form.save()
-            messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
-            return redirect('/')
-        else:
-            messages.warning(request, "Recheck all your input info")
+        a = list.objects.all().values()
+        b = request.POST.get("username")
+        c = request.POST.get("gsfe")
+        d = request.POST.get("Personal_description")
+        
+        print(b,c,d)
+        for x in a:
+            print(x)
+            for y in x.values():
+                print(y)
+                if y == b:
+                    form =  Registration(request.POST)
+                    if form.is_valid():
+                        form.save()
+                        messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
+                        return redirect('/')
+                    else:
+                        messages.warning(request, "Recheck all your input info")
+                
     context = {
         'form':form
     }
@@ -333,7 +338,7 @@ def FacultyInternet(request):#FACULTY INTERNET page
             g_datereq = request.POST.get('g_datereq')
             g_stats = "On Process"
             data = faculty_wifi.objects.create(gf_name = gf_name, g_dept=g_dept, g_des=g_des, g_sys=g_sys, g_mac=g_mac, 
-             g_num=g_num, g_email=g_email, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stats=g_stats)
+             g_num=g_num, g_email=g_email, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stat=g_stats)
             data.save()
         return render (request, 'TupcSysApp/1M_INTERNET(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":

@@ -1,3 +1,4 @@
+from enum import unique
 from multiprocessing.sharedctypes import Value
 from pickle import TRUE
 from sqlite3 import Date
@@ -16,15 +17,16 @@ class register1(AbstractUser):
     ]
     Personal_description = models.CharField(max_length = 40, null=False, choices= personal_option)
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    idno = models.CharField(max_length= 20, null=False)
-    Status = models.CharField(max_length=50, default = "On process" , null=False)
+    gsfe = models.CharField(max_length= 100, null=False, unique = True)
+    name = models.CharField(max_length= 100, null=False)
 
-class pics(models.Model):
-    Usernamep= models.CharField(max_length= 50, null=False)
-    pic = models.FileField(max_length=254)
-
+class list(models.Model):
+    lgsfe = models.CharField(max_length= 100, null=False)
+    lidno = models.CharField(max_length= 20, null=False)
+    type = models.CharField(max_length= 100, null=False)
 
 class index(models.Model):
+    id = models.ForeignKey(register1, on_delete=models.CASCADE, primary_key = True, related_name='ids', verbose_name = 'idno')
     User_name = models.CharField(max_length= 50, null=False)
     Password_data =models.CharField(default= "", max_length =40, null=False, unique = True)
 
@@ -63,6 +65,18 @@ class faculty_wifi(models.Model):
     g_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     g_datereq = models.DateField()
     g_stat = models.CharField(max_length = 100, null=True)
+
+class faculty_lab(models.Model):
+    f_name = models.CharField(max_length= 100, null=False)
+    dep = models.CharField(max_length = 100, null=True)
+    l_date = models.DateField()
+    lab_num = models.CharField(max_length = 100, null=True)
+    crs_sec = models.CharField(max_length = 100, null=True)
+    s_time = models.TimeField()
+    e_time = models.TimeField()
+    fl_sig = models.CharField(max_length = 100, null=True)
+    l_stat = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+
 
 #student wifi record #1Q #g
 class student_wifi(models.Model):
