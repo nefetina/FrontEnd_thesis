@@ -237,20 +237,14 @@
     float: right !important;
 }
 #btn3:hover{
-    border: 2px solid BLUE !important; 
+    border: 2px solid #008f0085!important; 
     background-color: #ffffff;
     transition: .2s ease-in-out;
-    color: blue;
+    color: #008f0085;
     font-weight: bold;
 }
 
-#btn4:hover{
-    border: 2px solid RED !important; 
-    background-color: #ffffff;
-    transition: .2s ease-in-out;
-    color: RED;
-    font-weight: bold;
-}
+
 
 
 /*****************************************BACKGROUND*******************************/

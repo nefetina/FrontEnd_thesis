@@ -209,11 +209,23 @@
     color: #fff !important;
 }
 
-#idtable {
+#idtable1 {
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
 }
+#idtable2 {
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+#idtable3 {
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
 
 
 /* border bottom line of the form title*/
@@ -238,18 +250,10 @@
     float: right !important;
 }
 #btn3:hover{
-    border: 2px solid BLUE !important; 
+    border: 2px solid #008f0085!important; 
     background-color: #ffffff;
     transition: .2s ease-in-out;
-    color: blue;
-    font-weight: bold;
-}
-
-#btn4:hover{
-    border: 2px solid RED !important; 
-    background-color: #ffffff;
-    transition: .2s ease-in-out;
-    color: RED;
+    color: #008f0085;
     font-weight: bold;
 }
 
