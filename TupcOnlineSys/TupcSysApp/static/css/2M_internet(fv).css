@@ -42,10 +42,9 @@
 
 /*for logo border*/
 
-#logo{
+#logo {
     float: right !important;
- }
- 
+}
 
 
 /* The sidebar links */
@@ -157,21 +156,30 @@
 }
 
 
+/*terms and condition*/
+
+.checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+
 /* button position on card*/
 
 .btnmove {
     float: right !important;
 }
-#btn3:hover{
-    border: 2px solid BLUE !important; 
+
+#btn3:hover {
+    border: 2px solid BLUE !important;
     background-color: #ffffff;
     transition: .2s ease-in-out;
     color: blue;
     font-weight: bold;
 }
 
-#btn4:hover{
-    border: 2px solid RED !important; 
+#btn4:hover {
+    border: 2px solid RED !important;
     background-color: #ffffff;
     transition: .2s ease-in-out;
     color: RED;

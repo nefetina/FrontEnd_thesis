@@ -45,7 +45,7 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="barrow()"><a href="#">BORROW FORM</a></li>
+            <li class="breadcrumb-item ml-auto" onclick="borrow()"><a href="#">BORROW FORM</a></li>
             <li class="breadcrumb-item" onclick="requestforpassreset()"><a href="#">REQUEST FOR PASSWORD RESET</a></li>
         </ol>
     </nav>
@@ -107,18 +107,18 @@
                                     <!--Radio btn-------------------------------------------------------------------------------------------->
                                     <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                         <div class="col-xl-4 col-lg-6">
-                                            <h6 class=""><input type="radio" class="radio " name="station"> Projector</h6>
+                                            <h6 class=""><input type="checkbox" class="radio " name="station"> Projector</h6>
                                         </div>
                                         <div class="col-xl-4 col-lg-6">
-                                            <h6 class=""><input type="radio" class="radio " name="station"> Extension</h6>
+                                            <h6 class=""><input type="checkbox" class="radio " name="station"> Extension</h6>
                                         </div>
                                         <div class="col-xl-4 col-lg-12">
-                                            <h6 class=""><input type="radio" class="radio " name="station"> Patch Cord</h6>
+                                            <h6 class=""><input type="checkbox" class="radio " name="station"> Patch Cord</h6>
                                         </div>
                                     </div>
                                     <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                         <div class="col-xl-4 col-lg-6">
-                                            <h6 class=""><input type="radio" class="radio" name="station"> Others</h6>
+                                            <h6 class=""><input type="checkbox" class="radio" name="station"> Others</h6>
                                         </div>
                                         <div class="col-xl-6">
                                             <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:"required>
@@ -137,7 +137,10 @@
 
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
                                     <div class="col-xl-12 ">
-                                        <p class="card-text">Check it properly before you send it.</p>
+                                        <div class=checkbox>
+                                            <input type="checkbox" name="terms" id="terms" required>
+                                            <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
+                                        </div>
                                         <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                     Submit
                                                                 </button>
@@ -150,7 +153,7 @@
                                 
                             </div>
                         </div>
-                        <div class="jumbotron col-11 m-1" id="form2"><br>
+                        <div class="jumbotron col-11 m-1 collapse" id="form2"><br>
                             <!---------------BORROW REQUEST-------------------------------------------------------------------------------->
                             <div class="card-body">
                                 <form action=''>
@@ -162,15 +165,15 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2 " placeholder="Full Name">
+                                            <input type="text" class="form-control my-2 p-2 " name="rst_stdnt_fname" id="rst_stdnt_fname" placeholder="Full Name" required>
                                         </div>
                                         <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2" placeholder="Employee ID">
+                                            <input type="text" class="form-control my-2 p-2" name="rst_stdnt_idno" id="rst_stdnt_idno" placeholder="Student Number" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-xl-6">
-                                            <select id="inputState" class="form-control my-2 p-2" name="accounts" required>
+                                        <div class="col-xl-12">
+                                            <select id="inputState" class="form-control my-2 p-2" name="accounts" id="accounts" required>
                                                 <option selected disabled value="">ID TYPE :</option>
                                                 <option value="President">GSFE</option>
                                                 <option value="Vicepresident">TUP EMAIL</option>
@@ -179,9 +182,6 @@
                                                 <option value="Treasurer">NAS</option>
                                             </select>
                                         </div>
-                                        <div class="col-xl-6">
-                                            <input type="text" class="form-control my-2 p-2" placeholder="Specifications:">
-                                        </div>
                                     </div>
                                    
                                    
@@ -189,7 +189,10 @@
 
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
                                     <div class="col-xl-12">
-                                        <p class="card-text">Check it properly before you send it.</p>
+                                        <div class=checkbox>
+                                            <input type="checkbox" name="terms" id="terms" required>
+                                            <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
+                                        </div>
                                         <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                     Submit
                                                                 </button>
