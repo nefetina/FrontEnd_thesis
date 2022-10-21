@@ -250,20 +250,22 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>emptysdsadsdsdasddw</td>
-                                                      <td>
+                                                    {% for g1 in q1 %}
+                                                    <td>{{g.gf_name1}}</td>
+                                                    <td>{{g.g_csec1}}</td>
+                                                    <td>{{g.g_snum1}}</td>
+                                                    <td>{{g.g_sem1}}</td>
+                                                    <td>{{g.g_or1}}</td>
+                                                    <td>{{g.g_sys1}}</td>
+                                                    <td>{{g.g_mac1}</td>
+                                                    <td>{{g.g_num1}}</td>
+                                                    <td>{{g.g_email1}}</td>
+                                                    <td>{{g.g_add1}}</td>
+                                                    <td>{{g.g_sig1}}</td>
+                                                    <td>{{g.g_daterec1}</td>
+                                                    <td>{{g.g_stats1}</td>
+                                                    <td>
+
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                                 
                                                             <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
@@ -272,6 +274,7 @@
                                                         </div>
                                                     </td>
                                                   </tr>
+                                                  {% endfor%}
                                                 </tbody>
                                               </table>
                                         </div>
@@ -340,19 +343,20 @@
                                         </thead>
                                         <tbody>
                                           <tr>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>emptysdsadsdsdasddw</td>
-                                              <td>
+                                            {% for q in data %}
+                                            <td>{{q.gf_name2}}</td>
+                                            <td>{{q.g_csec2}}</td>
+                                            <td>{{q.g_snum2}}</td>
+                                            <td>{{q.g_sem2}}</td>
+                                            <td>{{q.g_or2}}</td>
+                                            <td>{{q.g_num2}}</td>
+                                            <td>{{q.g_email2}}</td>
+                                            <td>{{q.g_add2}}</td>
+                                            <td>{{q.gu_name2}}</td>
+                                            <td>{{q.g_sig}}</td>
+                                            <td>{{q.g_daterec2}}</td>
+                                            <td>{{q.g_stats2}}</td>
+                                            <td>
                                                 <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                     <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
@@ -361,6 +365,7 @@
                                                 </div>
                                             </td>
                                           </tr>
+                                          {% endfor%}
                                         </tbody>
                                       </table>
                                 </div>

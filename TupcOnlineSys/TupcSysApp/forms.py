@@ -23,7 +23,7 @@ class FacultyWifiForm(forms.ModelForm):
 		model = faculty_wifi
 		fields = '__all__' 
 
-'''class StudentWifiForm(forms.ModelForm):
+class StudentWifiForm(forms.ModelForm):
 	class Meta:
 		model = student_wifi
 		fields = '__all__'
@@ -51,7 +51,7 @@ class MaintenanceRecordForm(forms.ModelForm):
 class BorrowRecordForm(forms.ModelForm):
 	class Meta:
 		model = borrow_record
-		fields = '__all__'''
+		fields = '__all__'
 
 
 

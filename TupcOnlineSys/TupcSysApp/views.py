@@ -2,6 +2,7 @@ from msilib.schema import File
 from django.shortcuts import render
 from multiprocessing import context
 from .models import *
+from .forms import *
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
@@ -111,7 +112,7 @@ def cancel(request, id):
 def Index(request):
     return redirect('/')
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def UitcHome(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1A_HOMEPAGE(UITC).html')
@@ -120,7 +121,7 @@ def UitcHome(request):#UITC HOMEPAGE page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return redirect('/StudentHome')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
 def UitcHome(request):
     return render(request, 'TupcSysApp/1A_HOMEPAGE(UITC).html')
@@ -386,7 +387,7 @@ def FacultyReports(request):#FACULTY REPORTS page
 def FacultyReports(request):
      return render(request,'TupcSysApp/1O_REPORTS(FV).html')
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def StudentHome(request):#STUDENT HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return redirect('/UitcHome')
@@ -395,7 +396,7 @@ def StudentHome(request):#STUDENT HOMEPAGE page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
 def FacultyRstPass(request):
     return render(request, 'TupcSysApp/1S_PASSRESET(FV).HTML')
@@ -405,21 +406,35 @@ def StudentHome(request):
 
 
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def StudentInternet(request):#STUDENT INTERNET ACCESS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
-        return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
-    else:
-        return redirect('/')"""
+        if request.user.is_authenticated:
+            getDataStudentNet = student_internet.objects.all()
+            formstudentnet = StudentInternetForm(request.POST or None)
+
+            if request.method == 'POST':
+                if formstudentnet.is_valid():
+                    messages.info(request,'Successfully Added!')
+                    formstudentnet.save()
+                    return redirect('TupcSysApp:1Q_INTERNET(SV)')
+
+            context = {
+                'StudentInternet': getDataStudentNet
+            }
+
+
+            return render (request, 'TupcSysApp/1Q_INTERNET(SV).html', context)
+        return redirect('/')
 
 def StudentInternet(request):
      return render(request,'TupcSysApp/1Q_INTERNET(SV).html')
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def StudentReports(request):#STUDENT REPORT page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
@@ -428,7 +443,7 @@ def StudentReports(request):#STUDENT REPORT page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
 
 def StudentReports(request):

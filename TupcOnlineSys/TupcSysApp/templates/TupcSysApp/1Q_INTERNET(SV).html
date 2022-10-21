@@ -77,7 +77,8 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form>
+                                    <form action="" method="POST">
+                                        {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
@@ -137,7 +138,7 @@
                                                 <input type="checkbox" name="terms" id="terms" required>
                                                 <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
                                             </div>
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                     Submit
                                                                 </button>
                                             <button type="button" class="btn btn-danger float-right m-1">
@@ -155,7 +156,8 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form>
+                                    <form action="" method="POST">
+                                        {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
@@ -223,7 +225,7 @@
                                                 <input type="checkbox" name="terms" id="terms" required>
                                                 <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
                                             </div>
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                     Submit
                                                                 </button>
                                             <button type="button" class="btn btn-danger float-right m-1">

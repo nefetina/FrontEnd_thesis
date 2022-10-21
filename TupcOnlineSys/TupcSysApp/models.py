@@ -78,7 +78,7 @@ class faculty_lab(models.Model):
     l_stat = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
 
 
-''''#student wifi record #1Q #g
+#student wifi record #1Q #g
 class student_wifi(models.Model):
     gf_name1 = models.CharField(max_length= 100, null=False)
     g_csec1 = models.CharField(max_length = 100, null=True)
@@ -220,7 +220,7 @@ class borrow_record(models.Model):
     ir_borrow5 =  models.CharField(max_length = 100, null=True)
     irf_borrow5 =  models.CharField(max_length = 100, null=True)
     i_sig5 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    i_stats5 = models.CharField(max_length = 100, null=True)'''
+    i_stats5 = models.CharField(max_length = 100, null=True)
 
 #password reset student
 class PassReset(models.Model):
