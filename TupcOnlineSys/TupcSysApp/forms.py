@@ -18,6 +18,12 @@ class FacultyIDForm(forms.ModelForm):
 		model = faculty_ID
 		fields = '__all__'
 
+
+class Faculty_report(forms.ModelForm):
+	class Meta:
+		model = faculty_reports
+		fields = '__all__'
+
 class FacultyWifiForm(forms.ModelForm):
 	class Meta:
 		model = faculty_wifi

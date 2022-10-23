@@ -74,9 +74,44 @@ class faculty_lab(models.Model):
     crs_sec = models.CharField(max_length = 100, null=True)
     s_time = models.TimeField()
     e_time = models.TimeField()
-    fl_sig = models.CharField(max_length = 100, null=True)
-    l_stat = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    fl_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    l_stat = models.CharField(max_length = 100, null=True)
 
+class faculty_reports(models.Model):
+    ftype = models.CharField(max_length= 100, null=False)
+    fbrand = models.CharField(max_length = 100, null=True)
+    fserial = models.CharField(max_length= 100, null=False)
+    fspecs = models.CharField(max_length = 100, null=True)
+    fnature = models.CharField(max_length = 100, null=True)
+    fname = models.CharField(max_length= 100, null=False)
+    Fposjob = models.CharField(max_length= 100, null=False)
+    fdep = models.CharField(max_length = 100, null=True)
+    fdate = models.DateField()
+    ftime = models.TimeField()
+    fsign = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    fstat = models.CharField(max_length = 100, null=True)
+
+class faculty_passreset(models.Model):
+    id_type = [
+        ('GSFE', 'GSFE'),
+        ('TUP EMAIL', 'TUP EMAIL'),
+        ('MS TEAMS', 'MS TEAMS'),
+        ('ERS ACCOUNT', 'ERS ACCOUNT'),
+        ('NAS', 'NAS'),
+    ]
+    fwname = models.CharField(max_length= 100, null=False)
+    fwempID = models.CharField(max_length = 100, null=True)
+    fwIDtype = models.CharField(max_length = 40, null=False, choices= id_type)
+    fwstat = models.CharField(max_length = 100, null=True)
+
+class faculty_borrow(models.Model):
+    fbname = models.CharField(max_length= 100, null=False)
+    fbdate = models.DateField()
+    fbtime = models.TimeField()
+    fbreq = models.CharField(max_length= 100, null=False)
+    fbreason = models.CharField(max_length = 100, null=True)
+    fbsign = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    fbstat = models.CharField(max_length = 100, null=True)
 
 #student wifi record #1Q #g
 class student_wifi(models.Model):

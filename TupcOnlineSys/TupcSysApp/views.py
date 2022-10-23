@@ -1,4 +1,5 @@
 from msilib.schema import File
+from os import fstat
 from django.shortcuts import render
 from multiprocessing import context
 from .models import *
@@ -44,23 +45,20 @@ def register(request):#registration
     form = Registration()
     if request.method == "POST":
         a = list.objects.all().values()
-        b = request.POST.get("username")
-        c = request.POST.get("gsfe")
-        d = request.POST.get("Personal_description")
-        
-        print(b,c,d)
+        b = request.POST.get("username")  
+        print(b)
         for x in a:
-            print(x)
-            for y in x.values():
-                print(y)
-                if y == b:
-                    form =  Registration(request.POST)
-                    if form.is_valid():
-                        form.save()
-                        messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
-                        return redirect('/')
-                    else:
-                        messages.warning(request, "Recheck all your input info")
+            print(x["type"])
+            if x["lidno"] == b:
+                form =  Registration(request.POST)
+                #form["Personal_description"].value = c
+                if form.is_valid():
+                    form.save()
+                    messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
+                    return redirect('/')
+                else:
+                    messages.warning(request, "Recheck all your input info")
+
                 
     context = {
         'form':form
@@ -317,7 +315,7 @@ def FacultyID(request):#FACULTY ID page
 
 
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def FacultyInternet(request):#FACULTY INTERNET page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
@@ -341,12 +339,10 @@ def FacultyInternet(request):#FACULTY INTERNET page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
-def FacultyInternet(request):
-     return render(request,'TupcSysApp/1M_INTERNET(FV).html')
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def FacultyLabsched(request):#FACULTY LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
@@ -368,24 +364,35 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
-def FacultyLabsched(request):
-     return render(request,'TupcSysApp/1N_SCHEDULE(FV).html')
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def FacultyReports(request):#FACULTY REPORTS page   
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        if request.method == "POST":
+            ftype = request.POST.get('ftype')
+            fbrand = request.POST.get('fbrand')
+            fserial = request.POST.get('fserial')
+            fspecs = request.POST.get('fspecs')
+            fnature = request.POST.get('fnature')
+            fname = request.POST.get('fname')
+            Fposjob = request.POST.get('Fposjob')
+            fdep = request.POST.get('fdep')
+            fdate = request.POST.get('fdate')
+            ftime = request.POST.get('ftime')
+            fsign = request.POST.get('fsign')
+            fstat = "On Process"
+            data = faculty_reports.objects.create(ftype = ftype, fbrand=fbrand, fserial=fserial, fspecs=fspecs, fnature=fnature, 
+             fname=fname, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
+            data.save()
         return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
-
-def FacultyReports(request):
-     return render(request,'TupcSysApp/1O_REPORTS(FV).html')
+        return redirect('/')
 
 @login_required(login_url='/Index')
 def StudentHome(request):#STUDENT HOMEPAGE page
@@ -399,7 +406,41 @@ def StudentHome(request):#STUDENT HOMEPAGE page
         return redirect('/')
 
 def FacultyRstPass(request):
-    return render(request, 'TupcSysApp/1S_PASSRESET(FV).HTML')
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return redirect('/UitcHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        if request.method == "POST":
+            fwname = request.POST.get('fwname')
+            fwempID = request.POST.get('fwempID')
+            fwIDtype = request.POST.get('fwIDtype')
+            fwstat = "On Process"
+            data = faculty_passreset.objects.create(fwname = fwname, fwempID=fwempID, fwIDtype=fwIDtype, fwstat=fwstat)
+            data.save()
+        return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')
+
+def FacultyBorrower(request):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return redirect('/UitcHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        if request.method == "POST":
+            fbname = request.POST.get('fbname')
+            fbdate = request.POST.get('fbdate')
+            fbtime = request.POST.get('fbtime')
+            fbreq = request.POST.get('fbreq')
+            fbreason = request.POST.get('fbreason')
+            fbsign = request.POST.get('fbsign')
+            fbstat = "On Process"
+            data = faculty_borrow.objects.create(fbname = fbname, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
+            data.save()
+        return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')
 
 def StudentHome(request):
      return render(request,'TupcSysApp/1P_HOMEPAGE(SV).html')

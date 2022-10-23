@@ -79,7 +79,8 @@
                             <div class="jumbotron m-1"><br>
                                 <!--FORM 1-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post" action = '/FacultyReports/'>
+                                        {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
@@ -88,18 +89,18 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Type:" id="i_type" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Type:" id="i_type" name = "ftype" required>
                                             </div>
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Brand/Model:" id="i_brand" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Brand/Model:" id="i_brand" name = "fbrand" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Serial #:" id="is_num" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Serial #:" id="is_num" name = "fserial" required>
                                             </div>
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Specifications:" id="i_spec" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Specifications:" id="i_spec" name = "fspecs" required>
                                             </div>
                                         </div>
                                         <div class="descriptions col-12 m-2">
@@ -107,7 +108,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Nature of work to be done:" id="i_notbd" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Nature of work to be done:" id="i_notbd" name = "fnature" required>
                                             </div>
                                         </div>
                                         <div class="descriptions col-12 m-2">
@@ -115,32 +116,32 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name:" id="if_name" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name:" id="if_name" name = "fname" required>
                                             </div>
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Position/Job:" id="i_pos" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Position/Job:" id="i_pos" name = "Fposjob" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Department:" id="i_dept" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Department:" id="i_dept" name = "fdep" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" id="i_sig" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" id="i_sig" name = "fsign" required>
                                             </div>
                                             <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
                                                 Date:
                                             </div>
                                             <div class="col-xl-3">
-                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:" id="i_daterec" required>
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date:" id="i_daterec" name = "fdate" required>
                                             </div>
                                             <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
                                                 Time:
                                             </div>
                                             <div class="col-xl-3">
-                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" id="i_time" required>
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" id="i_time" name = "ftime" required>
                                             </div>
                                         </div>
 
@@ -148,7 +149,7 @@
                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
                                         <div class="col-xl-12">
                                             <p class="card-text">Check it properly before you send it.</p>
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                         Submit
                                                                     </button>
                                             <button type="button" class="btn btn-danger float-right m-1">
@@ -169,7 +170,8 @@
                         <div class="jumbotron m-1"><br>
                             <!--FORM 1-------------------------------------------------------------------------------------------->
                             <div class="card-body">
-                                <form action=''>
+                                <form method="post" action = '/FacultyRstPass/'>
+                                    {%csrf_token%}
                                     <div class="formtitle">
                                         FILL UP THE FORM HERE
                                     </div>
@@ -178,21 +180,21 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2 " placeholder="Full Name">
+                                            <input type="text" class="form-control my-2 p-2 " placeholder="Full Name" name = "fwname" required>
                                         </div>
                                         <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2" placeholder="Employee ID">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="Employee ID" name = "fwempID" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-xl-12">
-                                            <select id="inputState" class="form-control my-2 p-2" name="accounts" required>
+                                            <select id="inputState" class="form-control my-2 p-2" name="fwIDtype" required>
                                                 <option selected disabled value="">ID TYPE :</option>
-                                                <option value="President">GSFE</option>
-                                                <option value="Vicepresident">TUP EMAIL</option>
-                                                <option value="Secretary">MS TEAMS</option>
-                                                <option value="Asec">ERS ACCOUNT</option>
-                                                <option value="Treasurer">NAS</option>
+                                                <option value="GSFE">GSFE</option>
+                                                <option value="TUP EMAIL">TUP EMAIL</option>
+                                                <option value="MS TEAMS">MS TEAMS</option>
+                                                <option value="ERS ACCOUNT">ERS ACCOUNT</option>
+                                                <option value="NAS">NAS</option>
                                             </select>
                                         </div>
                                     </div>
@@ -203,7 +205,7 @@
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
                                     <div class="col-xl-12">
                                         <p class="card-text">Check it properly before you send it.</p>
-                                        <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                        <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                     Submit
                                                                 </button>
                                         <button type="button" class="btn btn-danger float-right m-1">
@@ -223,7 +225,8 @@
 
                                 <!--FORM 2-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post" action = '/FacultyBorrower/'>
+                                        {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
@@ -232,7 +235,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name" id="if_name5" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name" id="if_name5" name = "fbname" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -240,13 +243,13 @@
                                                 Date Requested:
                                             </div>
                                             <div class="col-xl-5">
-                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:" id="i_date5" required>
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:" id="i_date5" name = "fbdate" required>
                                             </div>
                                             <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
                                                 Time:
                                             </div>
                                             <div class="col-xl-5">
-                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" id="i_time5" required>
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" id="i_time5" name = "fbtime" required>
                                             </div>
 
                                         </div>
@@ -257,31 +260,31 @@
                                         <!--Radio btn-------------------------------------------------------------------------------------------->
                                         <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                             <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="checkbox" class="radio " name="station"> Projector</h6>
+                                                <h6 class=""><input type="checkbox" class="radio " name="fbreq" value = "Projector"> Projector</h6>
                                             </div>
                                             <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="checkbox" class="radio " name="station"> Extension</h6>
+                                                <h6 class=""><input type="checkbox" class="radio " name="fbreq" value = "Extension"> Extension</h6>
                                             </div>
                                             <div class="col-xl-4 col-lg-12">
-                                                <h6 class=""><input type="checkbox" class="radio " name="station"> Patch Cord</h6>
+                                                <h6 class=""><input type="checkbox" class="radio " name="fbreq" value = "Patch Cord"> Patch Cord</h6>
                                             </div>
                                         </div>
                                         <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                             <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="checkbox" class="radio" name="station"> Others</h6>
+                                                <h6 class=""><input type="checkbox" class="radio" > Others</h6>
                                             </div>
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:" id="ir_borrow5" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:" id="ir_borrow5" name = "fbreq" >
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Reason for borrowing:" id="irf_borrow5" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Reason for borrowing:" id="irf_borrow5" name = "fbreason" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" id="i_sig5" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" id="i_sig5" name = "fbsign" required>
                                             </div>
                                         </div>
 
@@ -289,7 +292,7 @@
                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
                                         <div class="col-xl-12 ">
                                             <p class="card-text">Check it properly before you send it.</p>
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                         Submit
                                                                     </button>
                                             <button type="button" class="btn btn-danger float-right m-1">
