@@ -151,17 +151,18 @@
                                                         </div>
                                                 </div>
                                                 <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
+                                                    {% for p in data %}
+                                                    <td>{{p.ftype}}</td>
+                                                    <td>{{p.fbrand}}</td>
+                                                    <td>{{p.fserial}}</td>
+                                                    <td>{{p.fspecs}}</td>
+                                                    <td>{{p.fnature}}</td>
+                                                    <td>{{p.fname}}</td>
+                                                    <td>{{p.Fposjob}}</td>
+                                                    <td>{{p.fdep}}</td>
+                                                    <td>{{p.fsign}}</td>
+                                                    <td>{{p.fdate}}</td>
+                                                    <td>{{p.ftime}}</td>
                                                     
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
@@ -175,6 +176,7 @@
                                                 
                                                     </td>
                                                 </tr>
+                                                {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>
@@ -520,7 +522,6 @@
                                                     <th scope="col">FULL NAME</th>
                                                     <th scope="col">EMPLOYEE ID</th>
                                                     <th scope="col">ID TYPE</th>
-                                                    <th scope="col">SPECIFICATION</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
@@ -545,10 +546,11 @@
                                                         </div>
                                                     </div>
                                                 <tr>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
+                                                    {% for p in data1 %}
+                                                    <td>{{p.fwname}}</td>
+                                                    <td>{{p.fwempID}}</td>
+                                                    <td>{{p.fwIDtype}}</td>
+                                                    
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                                             <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
@@ -560,6 +562,7 @@
                                                         
                                                     </td>
                                                 </tr>
+                                                {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>
