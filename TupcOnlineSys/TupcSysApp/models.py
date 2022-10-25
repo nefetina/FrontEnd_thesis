@@ -247,7 +247,7 @@ class maintain_record(models.Model):
     i_time2 = models.TimeField()
     i_stats = models.CharField(max_length = 100, null=True)
 
-#borrowrecord #1O #i
+#borrowrecord #1O #i #r
 class borrow_record(models.Model):
     if_name5 = models.CharField(max_length = 100, null=True)
     i_date5 = models.DateField()
@@ -270,4 +270,3 @@ class PassReset(models.Model):
     email = models.CharField(max_length = 100, null=True)
     emp_idno = models.CharField(max_length = 50, null=True)
     Account = models.CharField(max_length = 100, null=True, choices= accounts)
-    

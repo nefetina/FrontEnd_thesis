@@ -442,8 +442,6 @@ def FacultyBorrower(request):
 def StudentHome(request):
      return render(request,'TupcSysApp/1P_HOMEPAGE(SV).html')
 
-
-
 @login_required(login_url='/Index')
 def StudentInternet(request):#STUDENT INTERNET ACCESS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
@@ -451,26 +449,26 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
-        if request.user.is_authenticated:
-            getDataStudentNet = student_internet.objects.all()
-            formstudentnet = StudentInternetForm(request.POST or None)
-
-            if request.method == 'POST':
-                if formstudentnet.is_valid():
-                    messages.info(request,'Successfully Added!')
-                    formstudentnet.save()
-                    return redirect('TupcSysApp:1Q_INTERNET(SV)')
-
-            context = {
-                'StudentInternet': getDataStudentNet
-            }
-
-
-            return render (request, 'TupcSysApp/1Q_INTERNET(SV).html', context)
+        if request.method == "POST":
+            gf_name2 = request.POST.get('gf_name2')
+            g_csec2 = request.POST.get('g_csec2')
+            g_snum2 = request.POST.get('g_snum2')
+            g_sem2 = request.POST.get('g_sem2')
+            g_or2 = request.POST.get('g_or2')
+            g_num2 = request.POST.get('g_num2')
+            g_email2 = request.POST.get('g_email2')
+            g_add2=request.POST.get('g_add2')
+            gu_name2 = request.POST.get('gu_name2')
+            g_sig2=request.POST.get('g_sig2') 
+            g_daterec2 = request.POST.get('g_daterec2')
+            g_stats2 = "On Process"
+            data = faculty_borrow.objects.create(gf_name2 = gf_name2, g_csec2=g_csec2, 
+            g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=g_email2,
+            g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
+            data.save()
+        return render (request, 'TupcSysApp/1Q_INTERNET(SV).html', context)
+    else:
         return redirect('/')
-
-def StudentInternet(request):
-     return render(request,'TupcSysApp/1Q_INTERNET(SV).html')
 
 @login_required(login_url='/Index')
 def StudentReports(request):#STUDENT REPORT page
@@ -479,6 +477,17 @@ def StudentReports(request):#STUDENT REPORT page
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        if request.method == "POST":
+            if_name5 = request.POST.get('if_name5')
+            i_date5 = request.POST.get('i_date5')
+            i_time5 = request.POST.get('i_time5')
+            ir_borrow5 = request.POST.get('ir_borrow5')
+            irf_borrow5 = request.POST.get('irf_borrow5')
+            i_sig5 = request.POST.get('i_sig5')
+            i_stats5 = "On Process"
+            data = faculty_borrow.objects.create(if_name5 = if_name5, i_date5=i_date5, 
+            i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
+            data.save()
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
     else:
         return redirect('/')
