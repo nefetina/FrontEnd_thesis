@@ -114,36 +114,39 @@
                                             <table class="table">
                                                 <thead class="thead">
                                                 <tr>
-                                                    <th scope="col">FIRST NAME</th>
-                                                    <th scope="col ">LAST NAME</th>
-                                                    <th scope="col ">USERNAME</th>
                                                     <th scope="col ">GSFE ACC.</th>
                                                     <th scope="col">TUPC ID NO.</th>
                                                     <th scope="col">PERSONAL DESCRIPTION</th>
-                                                    <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    {% for p in data %}
-                                                    <td>{{p.first_name}}</td>
-                                                    <td>{{p.last_name}}</td>
-                                                    <td>{{p.email}}</td>
-                                                    <td>{{p.idno}}</td>
-                                                    <td>{{p.Personal_description}}</td>
+                                                    <td>aliza.mañego@gsfe.tupcavite.edu.ph</td>
+                                                    <td>tupc-19-1200</td>
+                                                    <td>Student</td>
                                                     <td>
                                                     
-                                                    <td>
-                                                        <a class="btn btn-primary badge-pill" style="width: 120px;" id="b1" type='button' href="{% url 'TupcSysApp:permit' p.pk  %}" > APPROVE</a>
+                                                    {% comment "" %}<td>
+                                                        <a class="btn btn-primary badge-pill" style="width: 120px;" id="b1" type='button'> APPROVE</a>
                                                         <button class="btn btn-success badge-pill" style="width: 120px;" >DOWNLOAD</a>
-                                                        <a class="btn btn-danger badge-pill" style="width: 120px;" type='button' href="{% url 'TupcSysApp:cancel' p.pk  %}" >CANCEL</a>
+                                                        <a class="btn btn-danger badge-pill" style="width: 120px;" type='button' >CANCEL</a>
                                                         
-                                                    </td>
+                                                    </td>{% endcomment %}
                                                 </tr>
-                                                {% endfor%}
 
                                                 </tbody>
                                             </table>
+                                            
+                                        </div>
+                                        <!---buttons-->
+                                        <div class="col-xl-12 ">
+                                            <button type="button" class="btn btn-primary  float-right m-1" >
+                                                Upload List
+                                            </button>
+                                            <button type="button" class="btn btn-success float-right m-1"  >
+                                                Update List
+                                            </button>
+                                            
                                         </div>
                                     
                                         
