@@ -256,7 +256,7 @@ header .current-date {
 }
 
 .calendar li {
-    color: #333;
+    color:#505b66;
     width: calc(100% / 7);
     font-size: 1.07rem;
 }
@@ -274,7 +274,7 @@ header .current-date {
 }
 
 .days li.inactive {
-    color: rgb(142, 28, 28);
+    color:#505b66;
 }
 
 .days li.active {
@@ -294,7 +294,7 @@ header .current-date {
 }
 
 .days li.active::before {
-    background: maroon;
+    background: #505b66;
 }
 
 .days li:not(.active):hover::before {
