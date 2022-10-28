@@ -1,7 +1,11 @@
 from msilib.schema import File
+from operator import indexOf
 from os import fstat
+from MySQLdb import ROWID
 from django.shortcuts import render
 from multiprocessing import context
+
+from pip import List
 from .models import *
 from .forms import *
 from django.shortcuts import redirect, render
@@ -28,6 +32,10 @@ installed_apps = ['TupcSysApp']
                                        pic=image, idno=idno
                                       )
         image_path= image_file.pic.path
+
+
+
+
         image_path.save()
         return render(request, 'TupcSysApp/REGISTRATION.html', {"image_path":image_path})
     return render(request,  'TupcSysApp/REGISTRATION.html')"""
@@ -47,13 +55,21 @@ def register(request):#registration
         a = list.objects.all().values()
         b = request.POST.get("username")  
         print(b)
-        for x in a:
-            print(x["type"])
+        ccc = list.objects.only('id').filter(lidno = b)
+        y = ccc.values()         
+        for x in y:
+            print(x['type'])
+            type = x['type']
+            lgsfe = x['lgsfe']
+
             if x["lidno"] == b:
                 form =  Registration(request.POST)
+
                 #form["Personal_description"].value = c
                 if form.is_valid():
                     form.save()
+                    register1.objects.filter(username=b).update(Personal_description=type)
+                    register1.objects.filter(username=b).update(gsfe=lgsfe)
                     messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
                     return redirect('/')
                 else:

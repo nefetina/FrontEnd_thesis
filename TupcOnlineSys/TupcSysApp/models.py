@@ -1,3 +1,4 @@
+from email.policy import default
 from enum import unique
 from multiprocessing.sharedctypes import Value
 from pickle import TRUE
@@ -10,14 +11,10 @@ from django.contrib.auth.models import AbstractUser
 
 
 class register1(AbstractUser):
-    personal_option = [
-        ('Faculty Member', 'Faculty Member'),
-        ('UITC Staff', 'UITC Staff'),
-        ('Student', 'Student'),
-    ]
-    Personal_description = models.CharField(max_length = 40, null=False, choices= personal_option)
+
+    Personal_description = models.CharField(max_length = 40, null=True, default = "")
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    gsfe = models.CharField(max_length= 100, null=False, unique = True)
+    gsfe = models.CharField(max_length= 100, null=True, unique = True, default = "")
     name = models.CharField(max_length= 100, null=False)
 
 class list(models.Model):

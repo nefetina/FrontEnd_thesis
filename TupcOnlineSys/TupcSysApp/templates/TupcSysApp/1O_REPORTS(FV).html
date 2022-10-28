@@ -18,7 +18,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <script defer="" type="text/javascript" src="https://static.zohocdn.com/forms/js/formstplivejs.5598e1e583c1d09fc270b76b7bc87fed.js"></script>
+    <script defer="" type="text/javascript" src="https://static.zohocdn.com/forms/js/formsthirdpartylivejs.fa80d21e90eb2a92193fc45ef5617573.js"></script>
+    <script defer="" type="text/javascript" src="https://static.zohocdn.com/forms/js/formscommonlive.66b46fe834fedf0c45347fdc5ff8e7ce.js"></script>
+    <script defer="" type="text/javascript" src="https://static.zohocdn.com/forms/js/formslive.0749e7d876e08624d4ea48aa2cf0c94d.js"></script>
+    <script defer="" type="text/javascript" src="https://static.zohocdn.com/forms/js/formsselect.b9384dcadf2bc7b3816527891df599f6.js"></script>
     <!----ADD UP------------------------------------------------>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -129,7 +134,24 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" id="i_sig" name = "fsign" required>
+                                                <div class="sign tempFrmWrapper" tabindex="1" elname="livefield-elem" comptype="25" id="Signature-li" needdata="true" compname="Signature" linkname="Signature" isvisible="true" mandatory="true" page_no="2" page_link_name="Page4"> 
+    
+    
+    
+                                                    <label class="labelName"><span>Signature</span> 
+                                                    
+                                                    <em class="important">*</em>
+                                                    
+                                                    </label>
+                                                    
+                                                        
+                                                    
+                                                    <div class="tempContDiv">
+                                                    
+                                                    <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
+                                                    <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
+                                                    </div><div class="clearBoth"></div>
+                                                    </div>
                                             </div>
                                             <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
                                                 Date:
@@ -283,9 +305,24 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" id="i_sig5" name = "fbsign" required>
-                                            </div>
+                                            <div class="sign tempFrmWrapper" tabindex="1" elname="livefield-elem" comptype="25" id="Signature-li" needdata="true" compname="Signature" linkname="Signature" isvisible="true" mandatory="true" page_no="2" page_link_name="Page4"> 
+
+
+
+                                                <label class="labelName"><span>Signature</span> 
+                                                
+                                                <em class="important">*</em>
+                                                
+                                                </label>
+                                                
+                                                    
+                                                
+                                                <div class="tempContDiv">
+                                                
+                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
+                                                <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
+                                                </div><div class="clearBoth"></div>
+                                                </div>
                                         </div>
 
 
@@ -309,5 +346,65 @@
         </div>
     </div>
 </body>
-
+<script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
+    $("#drawingCanvas-Signature").mousedown(function (event) {
+    var canvasElem = document.getElementById("drawingCanvas-Signature"); //No I18N	
+    var signatureFieldParent = $(canvasElem).attr('signaturefieldparent'); //No I18N
+    var fontColor = "#000000";
+    var inputElem = ""; //No I18N
+    if(signatureFieldParent  == "subform") {
+    inputElem = $("#formBodyDiv").find(".formFieldWrapper li[elemType=subFormField][viewtype=1] input[type=text]:first"); //No I18N
+    if(inputElem.length == 0) { //No I18N
+    inputElem = $("#formBodyDiv").find(".formFieldWrapper li[elemType=subFormField][viewtype=1] textarea:first"); //No I18N
+    }
+    }
+    else { //No I18N
+    inputElem = $("#formBodyDiv").find(".formFieldWrapper > .tempFrmWrapper > .tempContDiv input[type=text]:first"); //No I18N
+    if(inputElem.length == 0) { //No I18N
+    inputElem = $("#formBodyDiv").find(".formFieldWrapper > .tempFrmWrapper > .tempContDiv textarea:first"); //No I18N
+    }
+    }
+    if(inputElem != "" && inputElem.length > 0) {
+    fontColor = inputElem.css("color");// No I18N
+    }
+    var context = canvasElem.getContext("2d");// No I18N
+    var position = getXYCoords(event, canvasElem,false);
+    context.moveTo(position.X, position.Y);
+    context.beginPath();
+    $(this).mousemove(function (event) {
+    startScribbling(event, canvasElem, context, false, fontColor);
+    }).mouseup(function (event) {
+    endScribbling(event, canvasElem, context, fontColor);
+    var fieldElem = getClosestFieldElemLi(canvasElem);// No I18N
+    removeErrorFromLiElem(fieldElem);// No I18N
+    }).mouseout(function (event) {
+    endScribbling(event, canvasElem, context, fontColor);
+    var fieldElem = getClosestFieldElemLi(canvasElem);// No I18N
+    removeErrorFromLiElem(fieldElem);// No I18N
+    });
+    this.addEventListener('touchstart', function(event){
+    position = getXYCoords(event, canvasElem,true);
+    context.moveTo(position.X, position.Y);
+    context.beginPath();
+    event.preventDefault();
+    }, false);
+    this.addEventListener('touchmove', function(event){
+    startScribbling(event, canvasElem, context, true, fontColor);
+    event.preventDefault();
+    }, false);
+    });
+    var userAgent = window.navigator.userAgent;
+    var msie = userAgent.indexOf("MSIE ");
+    if (msie > 0) {
+    $("#drawingCanvas-Signature").keypress(function (event) {
+    if (event.keyCode === 13) {
+    event.preventDefault();
+    }
+    });
+    }
+    if (false == true)  //No I18N
+    {
+    $("#drawingCanvas-Signature").css("pointer-events","none");//No I18N
+    $("#drawingCanvas-Signature").css("cursor","default");//No I18N
+    }</script>
 </html>
