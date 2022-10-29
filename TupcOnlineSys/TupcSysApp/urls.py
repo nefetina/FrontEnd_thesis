@@ -12,6 +12,7 @@ urlpatterns =[
     path('cancel/<int:id>', views.cancel, name='cancel'),
     path('register/', views.register, name='register'), 
     path('UitcHome/', views.UitcHome, name='UitcHome'), 
+    path('upload_csv/', views.upload_csv, name='upload_csv'), 
     path('UitcID/', views.UitcID, name='UitcID'), 
     path('UitcInternet/', views.UitcInternet, name='UitcInternet'), 
     path('UitcLabsched/', views.UitcLabsched, name='UitcLabsched'), 

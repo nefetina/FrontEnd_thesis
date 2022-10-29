@@ -13,11 +13,10 @@ class Registration(UserCreationForm):
         model= register1    
         fields = ['gsfe', 'username', 'name', 'email', 'password1', 'password2']
 
-class FacultyIDForm(forms.ModelForm):
+class form_list(forms.ModelForm):
 	class Meta:
-		model = faculty_ID
-		fields = '__all__'
-
+		model = list
+		fields = ['lgsfe', 'lidno', 'type']
 
 class Faculty_report(forms.ModelForm):
 	class Meta:

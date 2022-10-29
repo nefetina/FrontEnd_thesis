@@ -4,7 +4,7 @@ from os import fstat
 from MySQLdb import ROWID
 from django.shortcuts import render
 from multiprocessing import context
-
+import logging
 from pip import List
 from .models import *
 from .forms import *
@@ -19,6 +19,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+
 # Create your views here.
 
 installed_apps = ['TupcSysApp']
@@ -39,7 +40,46 @@ installed_apps = ['TupcSysApp']
         image_path.save()
         return render(request, 'TupcSysApp/REGISTRATION.html', {"image_path":image_path})
     return render(request,  'TupcSysApp/REGISTRATION.html')"""
+def upload_csv(request):
+	data = {}
+	if "GET" == request.method:
+		return redirect('/UitcPermission', data)
+    # if not GET, then proceed
+	try:
+		csv_file = request.FILES["csv_file"]
+		if not csv_file.name.endswith('.csv'):
+			messages.error(request,'File is not CSV type')
+			return redirect('/UitcPermission')
+        #if file is too large, return
+		if csv_file.multiple_chunks():
+			messages.error(request,"Uploaded file is too big (%.2f MB)." % (csv_file.size/(1000*1000),))
+			return redirect('/UitcPermission')
 
+		file_data = csv_file.read().decode("utf-8")		
+
+		lines = file_data.split("\n")
+		#loop over the lines and save them in db. If error , store as string and then display
+		for line in lines:						
+			fields = line.split(",")
+			data_dict = {}
+			data_dict["lgsfe"] = fields[0]
+			data_dict["lidno"] = fields[1]
+			data_dict["type"] = fields[2]
+			try:
+				form = form_list(data_dict)
+				if form.is_valid():
+					form.save()					
+				else:
+					logging.getLogger("error_logger").error(form.errors.as_json())												
+			except Exception as e:
+				logging.getLogger("error_logger").error(repr(e))					
+				pass
+
+	except Exception as e:
+		logging.getLogger("error_logger").error("Unable to upload file. "+repr(e))
+		messages.error(request,"Unable to upload file. "+repr(e))
+
+	return redirect('/UitcPermission')
 def permit(request, id):
     a = register1.objects.get(id=id)
     for x in register1.objects.only('id').filter(Status= "On process"):
@@ -299,8 +339,10 @@ def UitcRec1(request):#UITC HOMEPAGE page
 @login_required(login_url='/Index')
 def UitcRec2(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data1 = faculty_wifi.objects.filter(g_stat = "Approved")
-        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data1':data1})
+        data1 = faculty_wifi.objects.all()
+        data2 = student_wifi.objects.all()
+        data3 = student_internet.objects.all()
+        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -309,48 +351,46 @@ def UitcRec2(request):#UITC HOMEPAGE page
         return redirect('/')
 
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def UitcRec3(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return render (request, 'TupcSysApp/1H_RECORDS1.3(uitc).html')
+        data = faculty_lab.objects.all()
+        return render (request, 'TupcSysApp/1H_RECORDS1.3(uitc).html', {'data':data})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
-def UitcRec3(request):
-   return render(request, 'TupcSysApp/1H_RECORDS1.3(uitc).html')
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def UitcRec4(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html')
+        data3 = borrow_record.objects.all()
+        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data3':data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
-def UitcRec4(request):
-    return render(request, 'TupcSysApp/1I_RECORDS1.4(uitc).html')
 
-"""@login_required(login_url='/Index')
+
+@login_required(login_url='/Index')
 def UitcPermission(request):#UITC PERMISSION page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data = register1.objects.filter(Status = "On process")
-        return render (request, 'TupcSysApp/1J_PERMISSION(UITC).html',{'data':data})
+        lists = list.objects.all()
+        return render (request, 'TupcSysApp/1J_PERMISSION(UITC).html',{'lists':lists})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
-def UitcPermission(request):
-    return render(request, 'TupcSysApp/1J_PERMISSION(UITC).html')
+
 
 """@login_required(login_url='/Index')
 def FacultyHome(request):#FACULTY HOMEPAGE page
