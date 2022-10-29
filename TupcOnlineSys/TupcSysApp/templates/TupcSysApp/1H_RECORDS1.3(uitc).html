@@ -157,15 +157,15 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
+                                                {% for p in data %}
+                                                <td>{{p.hf_name}}</td>
+                                                <td>{{p.h_dept}}</td>
+                                                <td>{{p.h_daterec}}</td>
+                                                <td>{{p.hl_num}}</td>
+                                                <td>{{p.h_csec}}</td>
+                                                <td>{{p.hs_time}}</td>
+                                                <td>{{p.he_time}}</td>
+                                                <td>{{p.h_sig}}</td>
                                                 <td>
                                                     <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
@@ -175,6 +175,7 @@
                                                     </div>
                                                 </td>
                                               </tr>
+                                              {% endfor %}
                                             </tbody>
                                           </table>
                                     </div>

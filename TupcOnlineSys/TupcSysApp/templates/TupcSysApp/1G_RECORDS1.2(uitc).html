@@ -161,17 +161,18 @@
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>
-                                                <td>emptysdsadsdsdasddw</td>   
+                                                {% for p in data %}
+                                                <td>{{p.gf_name}}</td>
+                                                <td>{{p.g_dept}}</td>
+                                                <td>{{p.g_des}}</td>
+                                                <td>{{p.g_sys}}</td>
+                                                <td>{{p.g_mac}}</td>
+                                                <td>{{p.g_num}}</td>
+                                                <td>{{p.g_email}}</td>
+                                                <td>{{p.g_fac}}</td>
+                                                <td>{{p.g_sig}}</td>
+                                                <td>{{p.g_datereq}}</td>
+                                                <td>{{p.g_stat}}</td>
                                                 <td>
                                                     <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
@@ -181,6 +182,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -257,13 +259,13 @@
                                                     <td>{{g.g_sem1}}</td>
                                                     <td>{{g.g_or1}}</td>
                                                     <td>{{g.g_sys1}}</td>
-                                                    <td>{{g.g_mac1}</td>
+                                                    <td>{{g.g_mac1}}</td>
                                                     <td>{{g.g_num1}}</td>
                                                     <td>{{g.g_email1}}</td>
                                                     <td>{{g.g_add1}}</td>
                                                     <td>{{g.g_sig1}}</td>
-                                                    <td>{{g.g_daterec1}</td>
-                                                    <td>{{g.g_stats1}</td>
+                                                    <td>{{g.g_daterec1}}</td>
+                                                    <td>{{g.g_stats1}}</td>
                                                     <td>
 
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
