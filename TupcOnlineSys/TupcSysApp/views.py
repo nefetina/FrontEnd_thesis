@@ -54,6 +54,7 @@ def register(request):#registration
     if request.method == "POST":
         a = list.objects.all().values()
         b = request.POST.get("username")  
+        c = request.POST.get("gsfe")  
         print(b)
         ccc = list.objects.only('id').filter(lidno = b)
         y = ccc.values()         
@@ -62,14 +63,12 @@ def register(request):#registration
             type = x['type']
             lgsfe = x['lgsfe']
 
-            if x["lidno"] == b:
+            if x["lidno"] == b and x['lgsfe'] == c:
                 form =  Registration(request.POST)
-
                 #form["Personal_description"].value = c
                 if form.is_valid():
                     form.save()
                     register1.objects.filter(username=b).update(Personal_description=type)
-                    register1.objects.filter(username=b).update(gsfe=lgsfe)
                     messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
                     return redirect('/')
                 else:

@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 class Registration(UserCreationForm):
     class Meta:
         model= register1    
-        fields = ['username', 'name', 'email', 'password1', 'password2']
+        fields = ['gsfe', 'username', 'name', 'email', 'password1', 'password2']
 
 class FacultyIDForm(forms.ModelForm):
 	class Meta:
