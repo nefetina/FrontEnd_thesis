@@ -250,8 +250,8 @@ def UitcRec1(request):#UITC HOMEPAGE page
 @login_required(login_url='/Index')
 def UitcRec2(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data1 = faculty_wifi.objects.filter(g_stat = "Approved")
-        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data1':data1})
+        data = faculty_wifi.objects.all()
+        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data':data})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -260,19 +260,19 @@ def UitcRec2(request):#UITC HOMEPAGE page
         return redirect('/')
 
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def UitcRec3(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return render (request, 'TupcSysApp/1H_RECORDS1.3(uitc).html')
+        data = faculty_lab.objects.all()
+        return render (request, 'TupcSysApp/1H_RECORDS1.3(uitc).html', {'data':data})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
-def UitcRec3(request):
-   return render(request, 'TupcSysApp/1H_RECORDS1.3(uitc).html')
+
 
 """@login_required(login_url='/Index')
 def UitcRec4(request):#UITC HOMEPAGE page
