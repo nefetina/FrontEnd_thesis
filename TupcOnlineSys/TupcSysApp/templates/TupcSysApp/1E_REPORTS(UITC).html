@@ -236,14 +236,15 @@
                         </div>
 
 
-    <!--FORMTABLE1.1-------------------------------------------------------------------------------------------->
+    <!--MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->
 
                         <div class="col-xl-11 collapse " id="tableform1">
                             <div class="jumbotron "><br>
                             
                                 <!--FORM-------------------------------------------------------------------------------------------->                        
                                                         <div class="card-body">
-                                                            <form>
+                                                            <form method = "post" action = '/UitcReports_maitenance/'>
+                                                                {%csrf_token%}
                                                                 <div class="formtitle">
                                                                     FILL UP THE FORM HERE
                                                                 </div>
@@ -509,7 +510,7 @@
                                 <!--BUTTONS-------------------------------------------------------------------------------------------->
                                                                 <div class="col-xl-12 ">
                                                                     <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="button" class="btn btn-primary  float-right m-1" >
+                                                                    <button type="submit" class="btn btn-primary  float-right m-1" >
                                                                         Submit
                                                                     </button>
                                                                 <button type="button" class="btn btn-danger float-right m-1" onclick="back2()" >
