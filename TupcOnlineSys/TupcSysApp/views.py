@@ -527,7 +527,7 @@ def StudentReports(request):#STUDENT REPORT page
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
             i_stats5 = "On Process"
-            data = faculty_borrow.objects.create(if_name5 = if_name5, i_date5=i_date5, 
+            data = borrow_record.objects.create(if_name5 = if_name5, i_date5=i_date5, 
             i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
             data.save()
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
@@ -535,5 +535,21 @@ def StudentReports(request):#STUDENT REPORT page
         return redirect('/')
 
 
-def StudentReports(request):
-     return render(request,'TupcSysApp/1R_REPORT(SV).html')
+def StudentReports_RequestPass(request):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        if request.method == "POST":
+            psname = request.POST.get('psname')
+            email = request.POST.get('email')
+            emp_idno = request.POST.get('emp_idno')
+            Account = request.POST.get('Account')
+            psstats = "On Process"
+            data = PassReset.objects.create(psname = psname, email = email, emp_idno=emp_idno, 
+            Account=Account, psstats=psstats)
+            data.save()
+        return render (request, 'TupcSysApp/1R_REPORT(SV).html')
+    else:
+        return redirect('/')

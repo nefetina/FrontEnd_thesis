@@ -31,6 +31,7 @@ urlpatterns =[
     path('StudentHome/', views.StudentHome, name='StudentHome'), 
     path('StudentWifi/', views.StudentWifi, name='StudentWifi'), 
     path('StudentInternet/', views.StudentInternet, name='StudentInternet'), 
+    path('StudentReports_RequestPass/', views.StudentReports_RequestPass, name='StudentReports_RequestPass'), 
     path('StudentReports/', views.StudentReports, name='StudentReports'), 
     path('logout/', views.logoutUser, name='logout'),
 
