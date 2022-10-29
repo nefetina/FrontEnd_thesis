@@ -107,7 +107,6 @@
                             </form>
                             <div class="jumbotron "><br>
                                 <div class="card-body">
-                                    
                                     <form>
                                         <div class="formtitle">
                                             REQUEST FOR REPAIR & MAINTENANCE
@@ -118,15 +117,9 @@
                                                 <tr>
                                                     <th scope="col">TYPE</th>
                                                     <th scope="col ">BRAND/MODEL</th>
-                                                    <th scope="col ">SERIAL#</th>
-                                                    <th scope="col">SPECIFICATION</th>
-                                                    <th scope="col">NATURE OF WORK TO BE DONE</th>
                                                     <th scope="col ">FULL NAME</th>
                                                     <th scope="col ">POSITION /JOB</th>
-                                                    <th scope="col">DEPARTMENT</th>
                                                     <th scope="col">SIGNATURE</th>
-                                                    <th scope="col">DATE</th>
-                                                    <th scope="col">TIME</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
@@ -160,54 +153,43 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                {% for p in data %}
                                                                 <form>
                                                                     <div class="form-row">
         
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Course and Section:" placeholder="Course and Section" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="SERIAL#: {{p.fserial}}" placeholder="SERIAL#" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Stundent No.:" placeholder="Stundent No." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="SPECIFICATION: {{p.fspecs}}" placeholder="SPECIFICATION" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Semester:" placeholder="Semester" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="NATURE OF WORK TO BE DONE: {{p.fnature}}" placeholder="NATURE OF WORK TO BE DONE" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="O.R. No.:" placeholder="O.R.NO." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="DEPARTMENT: {{p.fdep}}" placeholder="DEPARTMENT" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="System:" placeholder="System" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="DATE: {{p.fdate}}" placeholder="DATE" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="MAC Address" placeholder="MAC Address" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="TIME: {{p.ftime}}" placeholder="TIME" readonly>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-row">
-                                                                        <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Mobile No.:" placeholder="Mobile No." readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-row">
-                                                                        <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Email Address:" placeholder="Email Address" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    
-                                                                    
-                                                                    
                                                                 
-                                                        
+
                                                                 </form>
+                                                                {% endfor %}
                                                             </div>
                                                             <div class="modal-footer">
                                                             <button type="button" class="btn btn-primary">OK</button>
@@ -219,15 +201,10 @@
                                                     {% for p in data %}
                                                     <td><a href="" data-toggle="modal" data-target="#modal1">{{p.ftype}}</td>
                                                     <td>{{p.fbrand}}</td>
-                                                    <td>{{p.fserial}}</td>
-                                                    <td>{{p.fspecs}}</td>
-                                                    <td>{{p.fnature}}</td>
                                                     <td>{{p.fname}}</td>
                                                     <td>{{p.Fposjob}}</td>
-                                                    <td>{{p.fdep}}</td>
                                                     <td>{{p.fsign}}</td>
-                                                    <td>{{p.fdate}}</td>
-                                                    <td>{{p.ftime}}</td>
+                                        
                                                     
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
@@ -1152,7 +1129,8 @@
 
                                 <!--FORM 2-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form>
+                                    <form method = "post" action = '/UitcReports_borrow/'>
+                                        {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
@@ -1161,7 +1139,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name" name = "if_name5">
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -1169,13 +1147,13 @@
                                                 Date Requested:
                                             </div>
                                             <div class="col-xl-5">
-                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:">
+                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:" name = "i_date5">
                                             </div>
                                             <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
                                                 Time:
                                             </div>
                                             <div class="col-xl-5">
-                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:">
+                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" name = "i_time5">
                                             </div>
 
                                         </div>
@@ -1186,13 +1164,13 @@
                                         <!--Radio btn-------------------------------------------------------------------------------------------->
                                         <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                             <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="radio" class="radio " name="station"> Projector</h6>
+                                                <h6 class=""><input type="radio" class="radio " name="ir_borrow5" value = "Projector"> Projector</h6>
                                             </div>
                                             <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="radio" class="radio " name="station"> Extension</h6>
+                                                <h6 class=""><input type="radio" class="radio " name="ir_borrow5" value = "Extension"> Extension</h6>
                                             </div>
                                             <div class="col-xl-4 col-lg-12">
-                                                <h6 class=""><input type="radio" class="radio " name="station"> Patch Cord</h6>
+                                                <h6 class=""><input type="radio" class="radio " name="ir_borrow5" value = "Patch Cord"> Patch Cord</h6>
                                             </div>
                                         </div>
                                         <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
@@ -1200,17 +1178,17 @@
                                                 <h6 class=""><input type="radio" class="radio" name="station"> Others</h6>
                                             </div>
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:" name="ir_borrow5" disabled>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Reason for borrowing:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Reason for borrowing:" name="irf_borrow5">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" name="i_sig5">
                                             </div>
                                         </div>
 
@@ -1218,7 +1196,7 @@
                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
                                         <div class="col-xl-12 ">
                                             <p class="card-text">Check it properly before you send it.</p>
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
                                                                         Submit
                                                                     </button>
                                             <button type="button" class="btn btn-danger float-right m-1">

@@ -119,10 +119,6 @@
                                                     <th scope="col">FULL NAME</th>
                                                     <th scope="col">DEPARTMENT</th>
                                                     <th scope="col">DATE</th>
-                                                    <th scope="col">LABORATORY NO.</th>
-                                                    <th scope="col">COURSE AND SECTION</th>
-                                                    <th scope="col">START TIME</th>
-                                                    <th scope="col">END TIME</th>
                                                     <th scope="col">SIGNATURE</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
@@ -138,26 +134,27 @@
                                                               </button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                {% for p in datal %}
                                                                 <form>
                                                                     <div class="form-row">
                                                     
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Laboratory No.:" placeholder="Laboratory No" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Laboratory No.: {{p.lab_num}}" placeholder="Laboratory No" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Course and Section:" placeholder="Course and Section" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Course and Section: {{p.crs_sec}}" placeholder="Course and Section" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Start Time:" placeholder="Start Time" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Start Time: {{p.s_time}}" placeholder="Start Time" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="End Time:" placeholder="End Time" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="End Time: {{p.e_time}}" placeholder="End Time" readonly>
                                                                         </div>
                                                                     </div>
                                                                     
@@ -167,6 +164,7 @@
                                                                    
                                                         
                                                                 </form>
+                                                                {% endfor %}
                                                             </div>
                                                             <div class="modal-footer">
                                                               <button type="button" class="btn btn-primary">OK</button>
@@ -179,10 +177,6 @@
                                                     <td><a href="" data-toggle="modal" data-target="#modal1">{{p.f_name}}</td>
                                                     <td>{{p.dep}}</td>
                                                     <td>{{p.l_date}}</td>
-                                                    <td>{{p.lab_num}}</td>
-                                                    <td>{{p.crs_sec}}</td>
-                                                    <td>{{p.s_time}}</td>
-                                                    <td>{{p.e_time}}</td>
                                                     <td>{{p.fl_sig}}</td>
                                                  
                                                     

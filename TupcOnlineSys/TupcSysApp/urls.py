@@ -16,6 +16,7 @@ urlpatterns =[
     path('UitcInternet/', views.UitcInternet, name='UitcInternet'), 
     path('UitcLabsched/', views.UitcLabsched, name='UitcLabsched'), 
     path('UitcReports/', views.UitcReports, name='UitcReports'), 
+    path('UitcReports_borrow/', views.UitcReports_borrow, name='UitcReports_borrow'), 
     path('UitcRec1/', views.UitcRec1, name='UitcRec1'), 
     path('UitcRec2/', views.UitcRec2, name='UitcRec2'), 
     path('UitcRec3/', views.UitcRec3, name='UitcRec3'), 

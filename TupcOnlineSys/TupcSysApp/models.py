@@ -27,6 +27,14 @@ class index(models.Model):
     User_name = models.CharField(max_length= 50, null=False)
     Password_data =models.CharField(default= "", max_length =40, null=False, unique = True)
 
+class UITC_borrow_record(models.Model):
+    if_name5 = models.CharField(max_length = 100, null=True)
+    i_date5 = models.DateField()
+    i_time5 = models.TimeField()
+    ir_borrow5 =  models.CharField(max_length = 100, null=True)
+    irf_borrow5 =  models.CharField(max_length = 100, null=True)
+    i_sig5 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_stats5 = models.CharField(max_length = 100, null=True)
 
 #faculty #1L #f
 class faculty_ID(models.Model):

@@ -156,7 +156,9 @@ def UitcID(request):#UITC ID page
 def UitcInternet(request):#UITC INTERNET page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         datag = faculty_wifi.objects.filter(g_stat = "On Process")
-        return render (request, 'TupcSysApp/1C_INTERNET(UITC).html', {'datag':datag})
+        datah = student_wifi.objects.filter(g_stats1 = "On Process")
+        datai = student_internet.objects.filter(g_stats2 = "On Process")
+        return render (request, 'TupcSysApp/1C_INTERNET(UITC).html', {'datag':datag, 'datah':datah, 'datai':datai})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -190,8 +192,26 @@ def UitcReports(request):#UITC REPORTS page
        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
-
-
+@login_required(login_url='/Index')
+def UitcReports_borrow(request):#UITC REPORTS page
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        if request.method == "POST":
+            if_name5 = request.POST.get('if_name5')
+            i_date5 = request.POST.get('i_date5')
+            i_time5 = request.POST.get('i_time5')
+            ir_borrow5 = request.POST.get('ir_borrow5')
+            irf_borrow5 = request.POST.get('irf_borrow5')
+            i_sig5 = request.POST.get('i_sig5')
+            i_stats5 = "On Process"
+            data = UITC_borrow_record.objects.create(if_name5 = if_name5, i_date5=i_date5, i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5)
+            data.save()
+        return redirect('/UitcReports')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+       return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+       return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')
 
 @login_required(login_url='/Index')
 def UitcRec1(request):#UITC HOMEPAGE page
@@ -207,19 +227,18 @@ def UitcRec1(request):#UITC HOMEPAGE page
 
 
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def UitcRec2(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html')
+        data1 = faculty_wifi.objects.filter(g_stat = "Approved")
+        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data1':data1})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')"""
+        return redirect('/')
 
-def UitcRec2(request):
-    return render(request, 'TupcSysApp/1G_RECORDS1.2(uitc).html')
 
 """@login_required(login_url='/Index')
 def UitcRec3(request):#UITC HOMEPAGE page

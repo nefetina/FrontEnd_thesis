@@ -115,24 +115,11 @@
                                                 <table class="table table-fixed" >
                                                     <thead class="thead">
                                                       <tr>
-                                                        <th scope="col">PICTURE</th>
                                                         <th scope="col">FIRST NAME</th>
                                                         <th scope="col">MIDDLE NAME</th>
                                                         <th scope="col">LAST NAME</th>
                                                         <th scope="col">SUFFIX</th>
                                                         <th scope="col">EMPLOYEE NO.</th>
-                                                        <th scope="col">DATE REQSTD</th>
-                                                        <th scope="col">DATE RLSD</th>
-                                                        <th scope="col">GSIS</th>
-                                                        <th scope="col">TIN</th>
-                                                        <th scope="col">PAG-IBIG</th>
-                                                        <th scope="col">GSIS POLICY NO.</th>
-                                                        <th scope="col">PHILHEALTH</th>
-                                                        <th scope="col">OTHER</th>
-                                                        <th scope="col">CONTACT PERSON</th>
-                                                        <th scope="col">C.P NUMBER</th>
-                                                        <th scope="col">ADDRESS</th>
-                                                        <th scope="col">SIGNATURE</th>
                                                         <th scope="col">ACTION</th>
                                                       </tr>
                                                     </thead>
@@ -147,62 +134,63 @@
                                                                   </button>
                                                                 </div>
                                                                 <div class="modal-body">
+                                                                    {% for p in dataf %}
                                                                     <form>
                                                                         <div class="form-row">
             
-                                                                            <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date Requested:" placeholder="Date Requested:" readonly>
+                                                                            <div class="col-xl-6">DATE RELEASED: 
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_datereq}}" placeholder="Date Requested:" readonly>
                                                                             </div>
                                                                             <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date Released:" placeholder="Date Released:" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_daterel}}" placeholder="Date Released:" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS:" placeholder="GSIS" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_gsis}}" placeholder="GSIS" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="TIN:" placeholder="TIN:" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_tin}}" placeholder="TIN:" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PAG-IBIG:" placeholder="PAG-IBIG" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_pagibig}}" placeholder="PAG-IBIG" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS Policy No.:" placeholder="GSIS Policy No." readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_gsisp}}" placeholder="GSIS Policy No." readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PHILHEALTH:" placeholder="PHILHEALTH" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_phil}}" placeholder="PHILHEALTH" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="OTHER:" placeholder="OTHER" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{p.f_other}}" placeholder="OTHER" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Contact Persons:" placeholder="Contact Person" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_cp}}" placeholder="Contact Person" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="CP No.:" placeholder="CP No." readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_num}}" placeholder="CP No." readonly>
                                                                             </div>
                                                                             <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Signture:" placeholder="Signature" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_signature}}" placeholder="Signature" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address:" placeholder="Address" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_add}}" placeholder="Address" readonly>
                                                                             </div>
                                                                         </div>
                                                                         
@@ -210,6 +198,7 @@
                                                                        
                                                             
                                                                     </form>
+                                                                    {% endfor %}
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                   <button type="button" class="btn btn-primary">OK</button>
@@ -219,24 +208,12 @@
                                                         </div>
                                                         <tr>
                                                             {% for p in dataf %}
-                                                            <td></td>
                                                             <td><a href="" data-toggle="modal" data-target="#exampleModal">{{p.ff_name}}</td>
                                                             <td>{{p.fm_name}}</td>
                                                             <td>{{p.fl_name}}</td>
                                                             <td>{{p.f_suffix}}</td>
                                                             <td>{{p.f_emp}}</td>
-                                                            <td>{{p.f_datereq}}</td>
-                                                            <td>{{p.f_daterel}}</td>
-                                                            <td>{{p.f_gsis}}</td>
-                                                            <td>{{p.f_tin}}</td>
-                                                            <td>{{p.f_pagibig}}</td>
-                                                            <td>{{p.f_gsisp}}</td>
-                                                            <td>{{p.f_phil}}</td>
-                                                            <td>{{p.f_other}}</td>
-                                                            <td>{{p.f_cp}}</td>
-                                                            <td>{{p.f_num}}</td>
-                                                            <td>{{p.f_add}}</td>
-                                                            <td>{{p.f_signature}}</td>
+
                                                         
                                                             <td>
                                                                 <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
