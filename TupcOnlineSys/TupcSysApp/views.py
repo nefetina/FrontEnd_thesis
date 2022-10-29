@@ -477,14 +477,41 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_sig2=request.POST.get('g_sig2') 
             g_daterec2 = request.POST.get('g_daterec2')
             g_stats2 = "On Process"
-            data = faculty_borrow.objects.create(gf_name2 = gf_name2, g_csec2=g_csec2, 
+            data = student_internet.objects.create(gf_name2 = gf_name2, g_csec2=g_csec2, 
             g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=g_email2,
             g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
             data.save()
-        return render (request, 'TupcSysApp/1Q_INTERNET(SV).html', context)
+        return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
     else:
         return redirect('/')
-
+@login_required(login_url='/Index')
+def StudentWifi(request):#STUDENT INTERNET ACCESS page
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        if request.method == "POST":
+            gf_name1 = request.POST.get('gf_name1')
+            g_csec1 = request.POST.get('g_csec1')
+            g_snum1 = request.POST.get('g_snum1')
+            g_sem1 = request.POST.get('g_sem1')
+            g_or1 = request.POST.get('g_or1')
+            g_sys1 = request.POST.get('g_sys1')
+            g_mac1 = request.POST.get('g_mac1')
+            g_num1 = request.POST.get('g_num1')
+            g_email1 = request.POST.get('g_email1')
+            g_add1=request.POST.get('g_add1')
+            g_sig1=request.POST.get('g_sig1')
+            g_daterec1 = request.POST.get('g_daterec1')
+            g_stats1 = "On Process"
+            data = student_wifi.objects.create(gf_name1 = gf_name1, g_csec1=g_csec1, 
+            g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=g_email1,
+            g_add1=g_add1, g_sig1=g_sig1, g_daterec1=g_daterec1, g_stats1=g_stats1)
+            data.save()
+        return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
+    else:
+        return redirect('/')
 @login_required(login_url='/Index')
 def StudentReports(request):#STUDENT REPORT page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
