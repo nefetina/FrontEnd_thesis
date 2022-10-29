@@ -337,11 +337,13 @@
                                                         </div>
                                                       </div>  
                                                   <tr>
-                                                    <td><a href="" data-toggle="modal" data-target="#modal2">emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                  
+                                                    {% for p in datah %}
+                                                        <td><a href="" data-toggle="modal" data-target="#modal1">{{p.gf_name}}</td>
+                                                        <td>{{p.g_fn}}</td>
+                                                        <td>{{p.g_snum}}</td>
+                                                        <td>{{p.g_sig}}</td>
+                                                        <td>{{p.g_date}}</td>
+                                                        <td>
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
@@ -354,6 +356,7 @@
                                                         
                                                     </td>
                                                   </tr>
+                                                  {% endfor %}
                                                 </tbody>
                                               </table>
                                         </div>
@@ -473,11 +476,12 @@
                                                         </div>
                                                       </div>  
                                                   <tr>
-                                                    <td><a href="" data-toggle="modal" data-target="#modal3">emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>emptysdsadsdsdasddw</td>
-                                                    <td>
+                                                        {% for p in datai %}
+                                                        <td><a href="" data-toggle="modal" data-target="#modal1">{{p.gf_name}}</td>
+                                                        <td>{{p.g_fn}}</td>
+                                                        <td>{{p.g_snum}}</td>
+                                                        <td>{{p.g_sig}}</td>
+                                                        <td>{{p.g_date}}</td>                                                        <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                             <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
@@ -489,6 +493,7 @@
                                                         
                                                     </td>
                                                   </tr>
+                                                  {% endfor %}
                                                 </tbody>
                                               </table>
                                         </div>
