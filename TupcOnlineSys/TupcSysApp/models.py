@@ -247,7 +247,7 @@ class maintain_record(models.Model):
     ie_time4 = models.TimeField()
     is_rec4 = models.CharField(max_length = 200, null=True) #textarea1
     ie_user4 = models.CharField(max_length = 200, null=True)
-    i_sig4 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_sig5 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     ie_date5 = models.DateField()
     i_time2 = models.TimeField()
     i_stats = models.CharField(max_length = 100, null=True)

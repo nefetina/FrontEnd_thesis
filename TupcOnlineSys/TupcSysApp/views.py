@@ -216,14 +216,63 @@ def UitcReports_borrow(request):#UITC REPORTS page
 def UitcReports_maitenance(request):#UITC REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         if request.method == "POST":
-            if_name5 = request.POST.get('if_name5')
-            i_date5 = request.POST.get('i_date5')
-            i_time5 = request.POST.get('i_time5')
-            ir_borrow5 = request.POST.get('ir_borrow5')
-            irf_borrow5 = request.POST.get('irf_borrow5')
-            i_sig5 = request.POST.get('i_sig5')
-            i_stats5 = "On Process"
-            data = maintain_record.objects.create(if_name5 = if_name5, i_date5=i_date5, i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5)
+            i_type4 = request.POST.get('i_type4')
+            is_num4 = request.POST.get('is_num4')
+            i_datem = request.POST.get('i_datem')
+            i_brand4 = request.POST.get('i_brand4')
+            i_code = request.POST.get('i_code')
+            ie_name = request.POST.get('ie_name')
+            iup_sstats = "On Process"
+            i_remarks = request.POST.get('i_remarks')
+            i_cobfs = request.POST.get('i_cobfs')
+            i_remarks2 = request.POST.get('i_remarks2')
+            iup_sstats2 = "On Process"
+            i_remarks3 = request.POST.get('i_remarks3')
+            i_scan = request.POST.get('i_scan')
+            i_remarks4 = request.POST.get('i_remarks4')
+            ia_virus = request.POST.get('ia_virus')
+            i_remarks5 = request.POST.get('i_remarks5')
+            im_stats = request.POST.get('im_stats')
+            i_remarks6 = request.POST.get('i_remarks6')
+            ik_stats = request.POST.get('ik_stats')
+            i_remarks7 = request.POST.get('i_remarks7')
+            i_dust = request.POST.get('i_dust')
+            i_remarks8= request.POST.get('i_remarks8')
+            i_organize = request.POST.get('i_organize')
+            i_remarks9 = request.POST.get('i_remarks9')
+            i_wipe = request.POST.get('i_wipe')
+            i_remarks10 = request.POST.get('i_remarks10')
+            i_run= request.POST.get('i_run')
+            i_remarks11 = request.POST.get('i_remarks11')
+            i_defragement = request.POST.get('i_defragement')
+            i_remarks12 = request.POST.get('i_remarks12')
+            i_empty = request.POST.get('i_empty')
+            i_remarks13 = request.POST.get('i_remarks13')
+            i_create = request.POST.get('i_create')
+            i_remarks14 = request.POST.get('i_remarks14')
+            iu_pers4 = request.POST.get('iu_pers4')
+            i_sig4 = request.POST.get('i_sig4')
+            is_date4 = request.POST.get('is_date4')
+            is_time4 = request.POST.get('is_time4')
+            ie_date4 = request.POST.get('ie_date4')
+            ie_time4 = request.POST.get('ie_time4')
+            is_rec4 = request.POST.get('is_rec4')
+            ie_user4 = request.POST.get('ie_user4')
+            i_sig = request.POST.get('is_num4')
+            ie_date5 = request.POST.get('is_num4')
+            i_time2 = request.POST.get('is_num4')
+            i_stats = "On Process"
+            data = maintain_record.objects.create(i_type4 = i_type4, is_num4=is_num4, 
+            i_datem=i_datem, i_brand4=i_brand4, i_code=i_code, ie_name=ie_name, iup_sstats=iup_sstats,
+            i_remarks = i_remarks, i_cobfs=i_cobfs, i_remarks2=i_remarks2, iup_sstats2=iup_sstats2, 
+            i_remarks3=i_remarks3, i_scan=i_scan, i_remarks4=i_remarks4, ia_virus=ia_virus, 
+            i_remarks5=i_remarks5, im_stats=im_stats, i_remarks6=i_remarks6, ik_stats=ik_stats,
+            i_remarks7=i_remarks7, i_dust=i_dust, i_remarks8=i_remarks8, i_organize=i_organize,
+            i_remarks9=i_remarks9, i_wipe=i_wipe, i_remarks10=i_remarks10, i_run=i_run, i_remarks11=i_remarks11,
+            i_defragement=i_defragement, i_remarks12=i_remarks12, i_empty=i_empty, i_remarks13=i_remarks13,
+            i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, i_sig4=i_sig4, is_date4=is_date4,
+            is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
+            i_sig=i_sig, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
             data.save()
         return redirect('/UitcReports')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
@@ -250,8 +299,8 @@ def UitcRec1(request):#UITC HOMEPAGE page
 @login_required(login_url='/Index')
 def UitcRec2(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data = faculty_wifi.objects.all()
-        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data':data})
+        data1 = faculty_wifi.objects.filter(g_stat = "Approved")
+        return render (request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data1':data1})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -260,19 +309,19 @@ def UitcRec2(request):#UITC HOMEPAGE page
         return redirect('/')
 
 
-@login_required(login_url='/Index')
+"""@login_required(login_url='/Index')
 def UitcRec3(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data = faculty_lab.objects.all()
-        return render (request, 'TupcSysApp/1H_RECORDS1.3(uitc).html', {'data':data})
+        return render (request, 'TupcSysApp/1H_RECORDS1.3(uitc).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')
+        return redirect('/')"""
 
-
+def UitcRec3(request):
+   return render(request, 'TupcSysApp/1H_RECORDS1.3(uitc).html')
 
 """@login_required(login_url='/Index')
 def UitcRec4(request):#UITC HOMEPAGE page
