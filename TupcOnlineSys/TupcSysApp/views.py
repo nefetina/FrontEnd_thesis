@@ -300,14 +300,30 @@ def UitcReports(request):#UITC REPORTS page
         data = faculty_reports.objects.filter(fstat = "On Process")
         data1 = faculty_passreset.objects.filter(fwstat = "On Process") 
         data2 = PassReset.objects.filter(psstats = "On Process")
-        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data':data , 'data1':data1, 'data2':data2 })
+        data3 = faculty_borrow.objects.filter(fbstat = "On Process")
+        data4 = borrow_record.objects.filter(i_stats5 = "On Process")
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data':data , 'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4, })
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
        return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
-@login_required(login_url='/Index')
+
+"""@login_required(login_url='/Index')
+def UitcReports_borrow(request):#UITC REPORTS page
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        data1 = faculty_borrow.objects.filter(fbstat = "On Process")
+        data2 = borrow_record.objects.filter(i_stats5 = "On Process")
+        return redirect (request, ('/UitcReports'), {'data1':data1, 'data2':data2 })
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+       return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+       return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')"""
+
+'''@login_required(login_url='/Index')
 def UitcReports_borrow(request):#UITC REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         if request.method == "POST":
@@ -326,7 +342,8 @@ def UitcReports_borrow(request):#UITC REPORTS page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
-        return redirect('/')
+        return redirect('/')'''
+
 @login_required(login_url='/Index')
 def UitcReports_maitenance(request):#UITC REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
@@ -442,8 +459,11 @@ def UitcRec3(request):#UITC HOMEPAGE page
 @login_required(login_url='/Index')
 def UitcRec4(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data3 = borrow_record.objects.all()
-        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data3':data3})
+        data1 = faculty_borrow.objects.all()
+        data2 = borrow_record.objects.all()
+        data3 = faculty_passreset.objects.all()
+        data4 = PassReset.objects.all()
+        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4,})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
