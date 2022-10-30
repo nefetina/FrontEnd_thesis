@@ -132,13 +132,8 @@ input{
 }
 
 
-/* card body scroll function*/
 
-.card-body {
-    margin-top: -60px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
+
 
 
 /* border bottom line of the form title*/
@@ -187,6 +182,31 @@ input{
     font-weight: bold;
 }
 
+
+
+/* button position on card*/
+
+.btnmove {
+    float: right !important;
+}
+
+/*new for id pic and scrool bar y*/
+#picout{
+    background-color: #000;
+    border:2px solid rgb(255, 255, 255) !important;
+    border-radius: 0% !important;
+    width: 200px !important;
+    height: 200px !important;
+}
+
+#idform{
+    height: 550px;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+    
+   
+}
 
 /*****************************************breadcrumb*******************************/
 
