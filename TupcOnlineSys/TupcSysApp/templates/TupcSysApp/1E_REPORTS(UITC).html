@@ -1559,10 +1559,22 @@
 
                                     <div class="col-xl-9 col-lg-8 col-12">
                                         <input type="text" class="form-control my-2 p-2" id="searchUsers" onkeyup="searchUsers()" placeholder="Search....">
-                                        <span class="input-group-text bg-danger text-white"><i class='bx bx-search-alt-2 nav_logo-icon'></i></span> 
+                                        <span><i class='bx bx-search-alt-2 nav_logo-icon'></i></span> 
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    
+                                    <div class="col-xl-1 col-lg-2 col-12">
+                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                    </div>
+                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Sorted by:
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Date</a>
+                                            <a class="dropdown-item" href="#">Ascending</a>
+                                            <a class="dropdown-item" href="#">Descending</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                             <div class="jumbotron "><br>

@@ -1,4 +1,4 @@
-//SEARCH FUNCTION FOR USERS TABLE
+//SEARCH FUNCTION FOR USERS
 function searchUsers() {
 
     let rowCountO = 0;
