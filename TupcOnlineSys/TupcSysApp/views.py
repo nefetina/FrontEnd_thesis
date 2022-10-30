@@ -80,14 +80,6 @@ def upload_csv(request):
 		messages.error(request,"Unable to upload file. "+repr(e))
 
 	return redirect('/UitcPermission')
-def permit(request, id):
-    a = register1.objects.get(id=id)
-    for x in register1.objects.only('id').filter(Status= "On process"):
-        if a == x:
-            x = register1.objects.filter(id=id).update(Status="Approved")
-            break
-    messages.success(request, "Successfully done")
-    return redirect('/UitcPermission')
 
 def register(request):#registration
     form = Registration()
@@ -153,14 +145,96 @@ def logoutUser(request):
     request.user.Personal_description = None
     return redirect('/')
 
-def cancel(request, id):
-    a = register1.objects.get(id=id)
-    for x in register1.objects.only('id').filter(Status= "On process"):
+
+def facultyID_permit(request, id):
+    a = faculty_ID.objects.get(id=id)
+    for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
         if a == x:
-            x = register1.objects.get(id=id).delete()
+            x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcID')
+
+def facultyID_cancel(request, id):
+    a = faculty_ID.objects.get(id=id)
+    for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
+        if a == x:
+            x = faculty_ID.objects.get(id=id).delete()
             break
     messages.info(request, "Successfully deleted")
-    return redirect('/UitcPermission')
+    return redirect('/UitcID')
+
+def FacultyWifi_cancel(request, id):
+    a = faculty_wifi.objects.get(id=id)
+    for x in faculty_wifi.objects.only('id').filter(g_stat= "On process"):
+        if a == x:
+            x = faculty_wifi.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcInternet')
+
+def FacultyWifi_permit(request, id):
+    a = faculty_wifi.objects.get(id=id)
+    for x in faculty_wifi.objects.only('id').filter(g_stat= "On process"):
+        if a == x:
+            x = faculty_wifi.objects.filter(id=id).update(g_stat="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcInternet')
+
+def StudentWifi_cancel(request, id):
+    a = student_wifi.objects.get(id=id)
+    for x in student_wifi.objects.only('id').filter(g_stats1= "On process"):
+        if a == x:
+            x = student_wifi.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcInternet')
+
+def StudentWifi_permit(request, id):
+    a = student_wifi.objects.get(id=id)
+    for x in student_wifi.objects.only('id').filter(g_stats1= "On process"):
+        if a == x:
+            x = student_wifi.objects.filter(id=id).update(g_stats1="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcInternet')
+
+def StudentInternet_cancel(request, id):
+    a = student_internet.objects.get(id=id)
+    for x in student_internet.objects.only('id').filter(g_stats2= "On process"):
+        if a == x:
+            x = student_internet.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcInternet')
+
+def StudentInternet_permit(request, id):
+    a = student_internet.objects.get(id=id)
+    for x in student_internet.objects.only('id').filter(g_stats2= "On process"):
+        if a == x:
+            x = student_internet.objects.filter(id=id).update(g_stats2="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcInternet')
+
+def labsched_cancel(request, id):
+    a = faculty_lab.objects.get(id=id)
+    for x in faculty_lab.objects.only('id').filter(l_stat= "On process"):
+        if a == x:
+            x = faculty_lab.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcLabsched')
+
+def labsched_permit(request, id):
+    a = faculty_lab.objects.get(id=id)
+    for x in faculty_lab.objects.only('id').filter(l_stat= "On process"):
+        if a == x:
+            x = faculty_lab.objects.filter(id=id).update(l_stat="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcLabsched')
 
 def Index(request):
     return redirect('/')
