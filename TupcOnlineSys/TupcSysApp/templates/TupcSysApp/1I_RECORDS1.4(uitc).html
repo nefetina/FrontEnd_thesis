@@ -108,605 +108,531 @@
                 <!--CARD-------------------------------------------------------------------------------------------->
                 <div class="col-xl-11 main">                    
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                      <!--TABLE 1 REPAIR AND MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
-                
-                      <div id="table1" class="col-xl-11" >
-                            
-                        <form>
-                            <div class="form-row">
-
-                                <div class="col-xl-9 col-lg-8 col-12">
-                                    <input type="text" class="form-control my-2 p-2" placeholder="Search....">
-                                </div>
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                <div class="col-xl-1 col-lg-2 col-12">
-                                    <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                </div>
-                                <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                    <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Sorted by:
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Date</a>
-                                        <a class="dropdown-item" href="#">Ascending</a>
-                                        <a class="dropdown-item" href="#">Descending</a>
-                                    </div>
-                                  </div>
-                            </div>
-                        </form>
-                        <div class="jumbotron  m-1"><br>
-                            
-                            
-                          <div class="card-body">
-                              <form>
-                                  <div class="formtitle">
-                                      REPAIR AND MAINTENANCE RECORD
-                                  </div>
-                                  <div class="table-responsive-xl col-xl-12" id="idtable1">
-                                    <table class="table">
-                                        <thead class="thead">
-                                          <tr>
-                                            <th scope="col">TYPE</th>
-                                            <th scope="col">BRAND/MODEL</th>
-                                            <th scope="col">SERIAL#</th>
-                                            <th scope="col">SPECIFICATION</th>
-                                            <th scope="col">NATURE OF WORK TO BE DONE</th>
-                                            <th scope="col">FULL NAME</th>
-                                            <th scope="col">POSITION /JOB</th>
-                                            <th scope="col">DEPARTMENT</th>
-                                            <th scope="col">SIGNATURE</th>
-                                            <th scope="col">DATE</th>
-                                            <th scope="col">TIME</th>
-                                            <th scope="col">INITIAL ASSESSMENT</th>
-                                            <th scope="col">ACCESSED BY</th>
-                                            <th scope="col">SIGNATURE</th>
-                                            <th scope="col">DATE ASSIGNED</th>
-                                            <th scope="col">PERSONAL ASSIGNED</th>
-                                            <th scope="col">QUANTITY</th>
-                                            <th scope="col">UNITS</th>
-                                            <th scope="col">PARTICULARS</th>
-                                            <th scope="col">AVAILABILITY</th>
-                                            <th scope="col">APPROVAL</th>
-                                            <th scope="col">NOTE</th>
-                                            <th scope="col">COORDINATOR</th>
-                                            <th scope="col">SIGNATURE</th>
-                                            <th scope="col">DATE</th>
-                                            <th scope="col">TIME</th>
-                                            <th scope="col">UITC PERSONNEL</th>
-                                            <th scope="col">SIGNATURE</th>
-                                            <th scope="col">DATE STARTED</th>
-                                            <th scope="col">TIME STARTED</th>
-                                            <th scope="col">DATE ENDED</th>
-                                            <th scope="col">TIME ENDED</th>
-                                            <th scope="col">SOLUTION AND RECOMMENDATION</th>
-                                            <th scope="col">ACCEPTED OR REJECTED</th>
-                                            <th scope="col">END-USER</th>
-                                            <th scope="col">DATE</th>
-                                            <th scope="col">SIGNATURE</th>
-                                            <th scope="col">TIME</th>
-                                            <th scope="col">STATUS</th>
-                                            <th scope="col">ACTION</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                                {% for p in data %}
-                                                <td>{{p.i_type}}</td>
-                                                <td>{{p.i_brand}}</td>
-                                                <td>{{p.is_num}}</td>
-                                                <td>{{p.i_spec}}</td>
-                                                <td>{{p.i_notbd}}</td>
-                                                <td>{{p.if_name}}</td>
-                                                <td>{{p.i_pos}}</td>
-                                                <td>{{p.i_dept}}</td>
-                                                <td>{{p.i_sig}}</td>
-                                                <td>{{p.i_daterec}}</td>
-                                                <td>{{p.i_time}}</td>
-                                                <td>{{p.ii_assess}}</td>
-                                                <td>{{p.i_assessby}}</td>
-                                                <td>{{p.i_sig}}</td>
-                                                <td>{{p.i_dateass}}</td>
-                                                <td>{{p.ip_assign}}</td>
-                                                <td>{{p.i_quant}}</td>
-                                                <td>{{p.i_units}}</td>
-                                                <td>{{p.i_partics}}</td>
-                                                <td>{{p.i_avail}}</td>
-                                                <td>{{p.i_approve}}</td>
-                                                <td>{{p.i_note}}</td>
-                                                <td>{{p.i_coords}}</td>
-                                                <td>{{p.i_sig1}}</td>
-                                                <td>{{p.i_daterec1}}</td>
-                                                <td>{{p.i_time1}}</td>
-                                                <td>{{p.iu_pers}}</td>
-                                                <td>{{p.i_sig2}}</td>
-                                                <td>{{p.is_date}}</td>
-                                                <td>{{p.is_time}}</td>
-                                                <td>{{p.is_rec}}</td>
-                                                <td>{{p.i_aor}}</td>
-                                                <td>{{p.ie_user}}</td>
-                                                <td>{{p.i_daterec2}}</td>
-                                                <td>{{p.i_sig3}}</td>
-                                                <td>{{p.i_time2}}</td>
-                                                <td>{{p.i_stats}}</td>
-                                                <td>
-                                              <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                      
-                                                  <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                  data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                              </div>
-                                          </td>
-                                          </tr>
-                                          {% endfor %}
-                                        </tbody>
-                                      </table>
-                                </div>
-                                 
-                                  
-                              </form>
-                             
-                              
-                              
-                             
-                              
-                          </div>
-                      </div>
-                    
-                        </div>
-
-                      <!--TABLE 2 MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
-                
-                      <div id="table2" class="col-xl-11 collapse" >
-                            
-                          <form>
-                              <div class="form-row">
-  
-                                  <div class="col-xl-9 col-lg-8 col-12">
-                                      <input type="text" class="form-control my-2 p-2" placeholder="Search....">
-                                  </div>
-                                  <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                  <div class="col-xl-1 col-lg-2 col-12">
-                                      <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                  </div>
-                                  <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                      <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          <a class="dropdown-item" href="#">Date</a>
-                                          <a class="dropdown-item" href="#">Ascending</a>
-                                          <a class="dropdown-item" href="#">Descending</a>
-                                      </div>
-                                    </div>
-                              </div>
-                          </form>
-                          <div class="jumbotron  m-1"><br>
-                            
-                            
-                            <div class="card-body">
+                        <!--TABLE 1 REPAIR AND MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
+                            <div id="table1" class="col-xl-11" >
+                                
                                 <form>
-                                    <div class="formtitle">
-                                        MAINTENANCE RECORD
-                                    </div>
-                                    <div class="table-responsive-xl col-xl-12" id="idtable2">
-                                      <table class="table">
-                                          <thead class="thead">
-                                            <tr>
-                                              <th scope="col">TYPE</th>
-                                              <th scope="col ">SERIAL NO.</th>
-                                              <th scope="col ">DATE OF MAINTENANCE</th>
-                                              <th scope="col">BRAND MODEL</th>
-                                              <th scope="col">ICT EQUIPMENT CODE</th>
-                                              <th scope="col ">ICT EQUIPMENT NAME</th>
-                                              <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">SCAN FOR VIRUSES STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">RUN MALWARE STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">CLEAN KEYBOARD STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">ORGANIZE CABLES STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">WIPEDOWN MONITOR STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
-                                              <th scope="col ">REMARKS</th>
-                                              <th scope="col ">UITC PERSONNEL</th>
-                                              <th scope="col ">SIGNATURE</th>
-                                              <th scope="col ">DATE STARTED</th>
-                                              <th scope="col ">TIME STARTED</th>
-                                              <th scope="col ">DATE ENDED</th>
-                                              <th scope="col ">TIME ENDED</th>
-                                              <th scope="col ">SOLUTION RECOMMENDATION</th>
-                                              <th scope="col ">END USER</th>
-                                              <th scope="col ">SIGNATURE</th>
-                                              <th scope="col ">DATE</th>
-                                              <th scope="col ">TIME</th>
-                                              <th scope="col">STATUS</th>
-                                              <th scope="col">ACTION</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                                {% for p in data %}
-                                                <td>{{p.i_type4}}</td>
-                                                <td>{{p.is_num4}}</td>
-                                                <td>{{p.i_datem}}</td>
-                                                <td>{{p.i_brand4}}</td>
-                                                <td>{{p.i_code}}</td>
-                                                <td>{{p.ie_name}}</td>
-                                                <td>{{p.iup_sstats}}</td>
-                                                <td>{{p.i_remarks}}</td>
-                                                <td>{{p.i_cobfs}}</td>
-                                                <td>{{p.i_remarks2}}</td>
-                                                <td>{{p.iup_sstats2}}</td>
-                                                <td>{{p.i_remarks3}}</td>
-                                                <td>{{p.i_scan}}</td>
-                                                <td>{{p.i_remarks4}}</td>
-                                                <td>{{p.ia_virus}}</td>
-                                                <td>{{p.i_remarks5}}</td>
-                                                <td>{{p.im_stats}}</td>
-                                                <td>{{p.i_remarks6}}</td>
-                                                <td>{{p.ik_stats}}</td>
-                                                <td>{{p.i_remarks7}}</td>
-                                                <td>{{p.i_dust}}</td>
-                                                <td>{{p.i_remarks8}}</td>
-                                                <td>{{p.i_organize}}</td>
-                                                <td>{{p.i_remarks9}}</td>
-                                                <td>{{p.i_wipe}}</td>
-                                                <td>{{p.i_remarks10}}</td>
-                                                <td>{{p.i_run}}</td>
-                                                <td>{{p.i_remarks11}}</td>
-                                                <td>{{p.i_defragement}}</td>
-                                                <td>{{p.i_remarks12}}</td>
-                                                <td>{{p.i_empty}}</td>
-                                                <td>{{p.i_remarks13}}</td>
-                                                <td>{{p.i_create}}</td>
-                                                <td>{{p.i_remarks14}}</td>
-                                                <td>{{p.iu_pers4}}</td>
-                                                <td>{{p.is_date4}}</td>
-                                                <td>{{p.is_time4}}</td>
-                                                <td>{{p.ie_date4}}</td>
-                                                <td>{{p.ie_time4}}</td>
-                                                <td>{{p.is_rec4}}</td>
-                                                <td>{{p.ie_user4}}</td>
-                                                <td>{{p.i_sig4}}</td>
-                                                <td>{{p.ie_date5}}</td>
-                                                <td>{{p.i_time2}}</td>
-                                                
-                                                <td>
-                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                        
-                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                </div>
-                                            </td>
-                                            </tr>
-                                            {% endfor %}
-                                          </tbody>
-                                        </table>
-                                  </div>
-                                   
-                                    
-                                </form>
-                               
-                                
-                                
-                               
-                                
-                            </div>
-                        </div>
-                      
-                        </div> 
-
-                      <!--TABLE 3 BORROW RECORD-------------------------------------------------------------------------------------------->
-                      
-                      <div id="table3" class="col-xl-11 collapse" >
-                            
-                          <form>
-                              <div class="form-row">
-  
-                                <div class="col-lg-5" style="display: inline-flex;">
-                                    <input type="text" class="form-control my-2 p-2" id="searchUsers" onkeyup="searchUsers()" placeholder="Search....">
-                                    <span class="input-group-text bg-danger text-white"><i class='bx bx-search-alt-2 nav_logo-icon'></i></span>
-                                  </div>
-                                  <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                  
-                              </div>
-                          </form>
-                          <div class="jumbotron  m-1"><br>
-                        
-                        
-                            <div class="card-body">
-                                <form>
-                                    <div class="formtitle">
-                                        BORROW RECORD
-                                    </div>
-                                    <div class="table-responsive-xl col-xl-12" id="idtable3">
-                                      <table class="table">
-                                          <thead class="thead">
-                                            <tr>
-                                              <th scope="col">FULL NAME</th>
-                                              <th scope="col ">DATE RQSTD</th>
-                                              <th scope="col">TIME</th>
-                                              <th scope="col ">RQST BORROW</th>
-                                              <th scope="col">REASON FOR BORROWING</th>
-                                              <th scope="col">SIGNATURE</th>
-                                              <th scope="col">STATUS</th>
-                                              <th scope="col">ACTION</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                                {% for p in data3 %}
-                                                <td>{{p.if_name5}}</td>
-                                                <td>{{p.i_date5}}</td>
-                                                <td>{{p.i_time5}}</td>
-                                                <td>{{p.ir_borrow5}}</td>
-                                                <td>{{p.irf_borrow5}}</td>
-                                                <td>{{p.i_sig5}}</td>
-                                                <td>{{p.i_stats5}}</td>
-                                                <td>
-                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                        
-                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                </div>
-                                            </td>
-                                            </tr>
-                                            {% endfor %}
-                                          </tbody>
-                                        </table>
-                                  </div>
-                                   
-                                    
-                                </form>
-                                <div class="no-result-div mt-4 text-center" id="no-search">
-                                    <div class="div">
-                                      <img src="{%static 'images/search.svg'%}" alt="">
-                                      <h4 class="mt-3">Search not found...</h4>
-                                      <p>Search for fullnames, usernames, emails and etc.</p>
-                                    </div>
-                                </div>
-                                
-                                
-                               
-                                
-                            </div>
-                          </div>
-                      
-                        </div> 
-                        
-
-                      <!--TABLE 4 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
-                       <div id="table4" class="col-xl-11 collapse" >
-                              
-                        <form>
-                            <div class="form-row">
-
-                                <div class="col-xl-9 col-lg-8 col-12">
-                                    <input type="text" class="form-control my-2 p-2" placeholder="Search....">
-                                </div>
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                <div class="col-xl-1 col-lg-2 col-12">
-                                    <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                </div>
-                                <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                    <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Sorted by:
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Date</a>
-                                        <a class="dropdown-item" href="#">Ascending</a>
-                                        <a class="dropdown-item" href="#">Descending</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="jumbotron m-1"><br>
-                      
-                      
-                          <div class="card-body">
-                              <form>
-                                  <div class="formtitle">
-                                      INVENTORY
-                                  </div>
-                                  <div class="descriptions">
-                                      ADD OF EQUIPMENTS
-                                  </div>
-                                  <div class="form-row">
-                                      <div class="col-xl-6">
-                                          <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:">
-                                      </div>
-                                      <div class="col-xl-5">
-                                          <input type="text" class="form-control my-2 p-2" placeholder="No of Units:">
-                                      </div>
-                                      <div class="col-xl-1">
-                                          <button type="button" class="btn btn-success  mt-2 "  >
-                                              ADD
-                                          </button>
-                                      </div>
-                                  </div>
-                                  <div class="descriptions col-12 m-2">
-                                      Supplies and Materials  (Parts to be Replaced)
-                                  </div>
-
-  <!--TABLE-------------------------------------------------------------------------------------------->
-
-                                  <div class="table-responsive col-xl-12">
-                                      <table class="table">
-                                          <thead class="thead">
-                                            <tr>
-                                              <th scope="col-xl-2 ">Quantity</th>
-                                              <th scope="col-xl-6 ">Equipment</th>
-                                              <th scope="col-xl-4 ">Modify/Delete</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              <th scope="row"><input type="text" class="form-control p-2"></th>
-                                              <td><input type="text" class="form-control p-2"></td>
-                                              <td>
-                                                  <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
-                                                  <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row"><input type="text" class="form-control p-2"></th>
-                                              <td><input type="text" class="form-control p-2"></td>
-                                              <td>
-                                                  <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
-                                                  <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row"><input type="text" class="form-control p-2"></th>
-                                              <td><input type="text" class="form-control p-2"></td>
-                                              <td>
-                                                  <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
-                                                  <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                  </div>
-
-  <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                  <div class="col-xl-12 ">
-                                      <p class="card-text">Check it properly before you send it.</p>
-                                      <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
-                                          Next
-                                      </button>
-                                      <button type="button" class="btn btn-danger float-right m-1"  >
-                                          Cancel
-                                      </button>
-                                      
-                                  </div>
-                                  
-                              </form>
-                            
-                              
-                              
-                            
-      
-                          </div>
-                      </div>
-                    
-                      
-                      </div>
-
-                      <!--FORMTABLE 1 INVENTORY RECORD-------------------------------------------------------------------------------------------->  
-                      
-                      <div id="table5" class="col-xl-11 collapse" >
-                            
-                          <div class="jumbotron m-1"><br>
-                        
-                        
-                            <div class="card-body">
-                                <form>
-                                    <div class="formtitle">
-                                        INVENTORY
-                                    </div>
-                                    <div class="descriptions">
-                                        ADD OF EQUIPMENTS
-                                    </div>
                                     <div class="form-row">
-                                        <div class="col-xl-6">
-                                            <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:">
+
+                                        <div class="col-xl-9 col-lg-8 col-12">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="Search....">
                                         </div>
-                                        <div class="col-xl-5">
-                                            <input type="text" class="form-control my-2 p-2" placeholder="No of Units:">
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-1 col-lg-2 col-12">
+                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                         </div>
-                                        <div class="col-xl-1">
-                                            <button type="button" class="btn btn-success  mt-2 "  >
-                                                ADD
+                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sorted by:
                                             </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Date</a>
+                                                <a class="dropdown-item" href="#">Ascending</a>
+                                                <a class="dropdown-item" href="#">Descending</a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="descriptions col-12 m-2">
-                                        Supplies and Materials  (Parts to be Replaced)
-                                    </div>
-    
-    <!--TABLE-------------------------------------------------------------------------------------------->
-    
-                                    <div class="table-responsive col-xl-12">
-                                        <table class="table">
-                                            <thead class="thead">
-                                              <tr>
-                                                <th scope="col-xl-2 ">Quantity</th>
-                                                <th scope="col-xl-6 ">Equipment</th>
-                                                <th scope="col-xl-4 ">Modify/Delete</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr>
-                                                <th scope="row"><input type="text" class="form-control p-2"></th>
-                                                <td><input type="text" class="form-control p-2"></td>
-                                                <td>
-                                                    <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
-                                                    <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
-                                                </td>
-                                              </tr>
-                                              <tr>
-                                                <th scope="row"><input type="text" class="form-control p-2"></th>
-                                                <td><input type="text" class="form-control p-2"></td>
-                                                <td>
-                                                    <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
-                                                    <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
-                                                </td>
-                                              </tr>
-                                              <tr>
-                                                <th scope="row"><input type="text" class="form-control p-2"></th>
-                                                <td><input type="text" class="form-control p-2"></td>
-                                                <td>
-                                                    <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
-                                                    <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                    </div>
-    
-    <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-12 ">
-                                        <p class="card-text">Check it properly before you send it.</p>
-                                        <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
-                                            Next
-                                        </button>
-                                        <button type="button" class="btn btn-danger float-right m-1"  >
-                                            Cancel
-                                        </button>
-                                        
-                                    </div>
-                                    
                                 </form>
-                               
+                                <div class="jumbotron  m-1"><br>
                                 
                                 
-                               
-        
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="formtitle">
+                                                REPAIR AND MAINTENANCE RECORD
+                                            </div>
+                                            <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                                <table class="table">
+                                                    <thead class="thead">
+                                                        <tr>
+                                                            <th scope="col">TYPE</th>
+                                                            <th scope="col">BRAND/MODEL</th>
+                                                            <th scope="col">SERIAL#</th>
+                                                            <th scope="col">SPECIFICATION</th>
+                                                            <th scope="col">NATURE OF WORK TO BE DONE</th>
+                                                            <th scope="col">FULL NAME</th>
+                                                            <th scope="col">POSITION /JOB</th>
+                                                            <th scope="col">DEPARTMENT</th>
+                                                            <th scope="col">SIGNATURE</th>
+                                                            <th scope="col">DATE</th>
+                                                            <th scope="col">TIME</th>
+                                                            <th scope="col">INITIAL ASSESSMENT</th>
+                                                            <th scope="col">ACCESSED BY</th>
+                                                            <th scope="col">SIGNATURE</th>
+                                                            <th scope="col">DATE ASSIGNED</th>
+                                                            <th scope="col">PERSONAL ASSIGNED</th>
+                                                            <th scope="col">QUANTITY</th>
+                                                            <th scope="col">UNITS</th>
+                                                            <th scope="col">PARTICULARS</th>
+                                                            <th scope="col">AVAILABILITY</th>
+                                                            <th scope="col">APPROVAL</th>
+                                                            <th scope="col">NOTE</th>
+                                                            <th scope="col">COORDINATOR</th>
+                                                            <th scope="col">SIGNATURE</th>
+                                                            <th scope="col">DATE</th>
+                                                            <th scope="col">TIME</th>
+                                                            <th scope="col">UITC PERSONNEL</th>
+                                                            <th scope="col">SIGNATURE</th>
+                                                            <th scope="col">DATE STARTED</th>
+                                                            <th scope="col">TIME STARTED</th>
+                                                            <th scope="col">DATE ENDED</th>
+                                                            <th scope="col">TIME ENDED</th>
+                                                            <th scope="col">SOLUTION AND RECOMMENDATION</th>
+                                                            <th scope="col">ACCEPTED OR REJECTED</th>
+                                                            <th scope="col">END-USER</th>
+                                                            <th scope="col">DATE</th>
+                                                            <th scope="col">SIGNATURE</th>
+                                                            <th scope="col">TIME</th>
+                                                            <th scope="col">STATUS</th>
+                                                            <th scope="col">ACTION</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            {% for p in data %}
+                                                            <td>{{p.i_type}}</td>
+                                                            <td>{{p.i_brand}}</td>
+                                                            <td>{{p.is_num}}</td>
+                                                            <td>{{p.i_spec}}</td>
+                                                            <td>{{p.i_notbd}}</td>
+                                                            <td>{{p.if_name}}</td>
+                                                            <td>{{p.i_pos}}</td>
+                                                            <td>{{p.i_dept}}</td>
+                                                            <td>{{p.i_sig}}</td>
+                                                            <td>{{p.i_daterec}}</td>
+                                                            <td>{{p.i_time}}</td>
+                                                            <td>{{p.ii_assess}}</td>
+                                                            <td>{{p.i_assessby}}</td>
+                                                            <td>{{p.i_sig}}</td>
+                                                            <td>{{p.i_dateass}}</td>
+                                                            <td>{{p.ip_assign}}</td>
+                                                            <td>{{p.i_quant}}</td>
+                                                            <td>{{p.i_units}}</td>
+                                                            <td>{{p.i_partics}}</td>
+                                                            <td>{{p.i_avail}}</td>
+                                                            <td>{{p.i_approve}}</td>
+                                                            <td>{{p.i_note}}</td>
+                                                            <td>{{p.i_coords}}</td>
+                                                            <td>{{p.i_sig1}}</td>
+                                                            <td>{{p.i_daterec1}}</td>
+                                                            <td>{{p.i_time1}}</td>
+                                                            <td>{{p.iu_pers}}</td>
+                                                            <td>{{p.i_sig2}}</td>
+                                                            <td>{{p.is_date}}</td>
+                                                            <td>{{p.is_time}}</td>
+                                                            <td>{{p.is_rec}}</td>
+                                                            <td>{{p.i_aor}}</td>
+                                                            <td>{{p.ie_user}}</td>
+                                                            <td>{{p.i_daterec2}}</td>
+                                                            <td>{{p.i_sig3}}</td>
+                                                            <td>{{p.i_time2}}</td>
+                                                            <td>{{p.i_stats}}</td>
+                                                            <td>
+                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                        
+                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        
+                                        
+                                        </form>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        <!--TABLE 2 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
+                        <div id="table2" class="col-xl-11 collapse" >
+                                
+                            <form>
+                                <div class="form-row">
+
+                                    <div class="col-xl-9 col-lg-8 col-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                    </div>
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-1 col-lg-2 col-12">
+                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                    </div>
+                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Sorted by:
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Date</a>
+                                            <a class="dropdown-item" href="#">Ascending</a>
+                                            <a class="dropdown-item" href="#">Descending</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="jumbotron  m-1"><br>
+                                
+                                
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            PASSWORD RESET RECORD
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                            <table class="table">
+                                                <thead class="thead">
+                                                    <tr>
+                                                        <th scope="col">FULL NAME</th>
+                                                        <th scope="col">EMPLOYEE ID</th>
+                                                        <th scope="col">ID TYPE</th>
+                                                        <th scope="col">STATUS</th>
+                                                        <th scope="col">ACTION</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                       
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                       
+                                                        <td>
+                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                    
+                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    
+                                    
+                                    </form>
+                                </div>
                             </div>
                         </div>
+                        <!--TABLE 3 MAINTENANCE RECORD -------------------------------------------------------------------------------------------->
+                    
+                            <div id="table3" class="col-xl-11 collapse" >
+                                    
+                                <form>
+                                    <div class="form-row">
+
+                                        <div class="col-xl-9 col-lg-8 col-12">
+                                            <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                        </div>
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-1 col-lg-2 col-12">
+                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                        </div>
+                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sorted by:
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Date</a>
+                                                <a class="dropdown-item" href="#">Ascending</a>
+                                                <a class="dropdown-item" href="#">Descending</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="jumbotron  m-1"><br>
+                                    
+                                    
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="formtitle">
+                                                MAINTENANCE RECORD
+                                            </div>
+                                            <div class="table-responsive-xl col-xl-12" id="idtable2">
+                                                <table class="table">
+                                                <thead class="thead">
+                                                    <tr>
+                                                    <th scope="col">TYPE</th>
+                                                    <th scope="col ">SERIAL NO.</th>
+                                                    <th scope="col ">DATE OF MAINTENANCE</th>
+                                                    <th scope="col">BRAND MODEL</th>
+                                                    <th scope="col">ICT EQUIPMENT CODE</th>
+                                                    <th scope="col ">ICT EQUIPMENT NAME</th>
+                                                    <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">SCAN FOR VIRUSES STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">RUN MALWARE STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">CLEAN KEYBOARD STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">ORGANIZE CABLES STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">WIPEDOWN MONITOR STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
+                                                    <th scope="col ">REMARKS</th>
+                                                    <th scope="col ">UITC PERSONNEL</th>
+                                                    <th scope="col ">SIGNATURE</th>
+                                                    <th scope="col ">DATE STARTED</th>
+                                                    <th scope="col ">TIME STARTED</th>
+                                                    <th scope="col ">DATE ENDED</th>
+                                                    <th scope="col ">TIME ENDED</th>
+                                                    <th scope="col ">SOLUTION RECOMMENDATION</th>
+                                                    <th scope="col ">END USER</th>
+                                                    <th scope="col ">SIGNATURE</th>
+                                                    <th scope="col ">DATE</th>
+                                                    <th scope="col ">TIME</th>
+                                                    <th scope="col">STATUS</th>
+                                                    <th scope="col">ACTION</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        {% for p in data %}
+                                                        <td>{{p.i_type4}}</td>
+                                                        <td>{{p.is_num4}}</td>
+                                                        <td>{{p.i_datem}}</td>
+                                                        <td>{{p.i_brand4}}</td>
+                                                        <td>{{p.i_code}}</td>
+                                                        <td>{{p.ie_name}}</td>
+                                                        <td>{{p.iup_sstats}}</td>
+                                                        <td>{{p.i_remarks}}</td>
+                                                        <td>{{p.i_cobfs}}</td>
+                                                        <td>{{p.i_remarks2}}</td>
+                                                        <td>{{p.iup_sstats2}}</td>
+                                                        <td>{{p.i_remarks3}}</td>
+                                                        <td>{{p.i_scan}}</td>
+                                                        <td>{{p.i_remarks4}}</td>
+                                                        <td>{{p.ia_virus}}</td>
+                                                        <td>{{p.i_remarks5}}</td>
+                                                        <td>{{p.im_stats}}</td>
+                                                        <td>{{p.i_remarks6}}</td>
+                                                        <td>{{p.ik_stats}}</td>
+                                                        <td>{{p.i_remarks7}}</td>
+                                                        <td>{{p.i_dust}}</td>
+                                                        <td>{{p.i_remarks8}}</td>
+                                                        <td>{{p.i_organize}}</td>
+                                                        <td>{{p.i_remarks9}}</td>
+                                                        <td>{{p.i_wipe}}</td>
+                                                        <td>{{p.i_remarks10}}</td>
+                                                        <td>{{p.i_run}}</td>
+                                                        <td>{{p.i_remarks11}}</td>
+                                                        <td>{{p.i_defragement}}</td>
+                                                        <td>{{p.i_remarks12}}</td>
+                                                        <td>{{p.i_empty}}</td>
+                                                        <td>{{p.i_remarks13}}</td>
+                                                        <td>{{p.i_create}}</td>
+                                                        <td>{{p.i_remarks14}}</td>
+                                                        <td>{{p.iu_pers4}}</td>
+                                                        <td>{{p.is_date4}}</td>
+                                                        <td>{{p.is_time4}}</td>
+                                                        <td>{{p.ie_date4}}</td>
+                                                        <td>{{p.ie_time4}}</td>
+                                                        <td>{{p.is_rec4}}</td>
+                                                        <td>{{p.ie_user4}}</td>
+                                                        <td>{{p.i_sig4}}</td>
+                                                        <td>{{p.ie_date5}}</td>
+                                                        <td>{{p.i_time2}}</td>
+                                                        
+                                                        <td>
+                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                    
+                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                                </table>
+                                            </div>
+                                        
+                                            
+                                        </form>
+                                    
+                                        
+                                        
+                                    
+                                        
+                                    </div>
+                                </div>
+                            
+                            </div> 
+
+                        <!--TABLE 4 BORROW RECORD -------------------------------------------------------------------------------------------->
+                        
+                            <div id="table4" class="col-xl-11 collapse" >
+                                
+                                <form>
+                                    <div class="form-row">
+    
+                                        <div class="col-lg-5" style="display: inline-flex;">
+                                            <input type="text" class="form-control my-2 p-2" id="searchUsers" onkeyup="searchUsers()" placeholder="Search....">
+                                            <span class="input-group-text bg-danger text-white"><i class='bx bx-search-alt-2 nav_logo-icon'></i></span>
+                                        </div>
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    
+                                    </div>
+                                </form>
+                                <div class="jumbotron  m-1"><br>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="formtitle">
+                                                BORROW RECORD
+                                            </div>
+                                            <div class="table-responsive-xl col-xl-12" id="idtable3">
+                                            <table class="table">
+                                                <thead class="thead">
+                                                    <tr>
+                                                    <th scope="col">FULL NAME</th>
+                                                    <th scope="col ">DATE RQSTD</th>
+                                                    <th scope="col">TIME</th>
+                                                    <th scope="col ">RQST BORROW</th>
+                                                    <th scope="col">REASON FOR BORROWING</th>
+                                                    <th scope="col">SIGNATURE</th>
+                                                    <th scope="col">STATUS</th>
+                                                    <th scope="col">ACTION</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        {% for p in data3 %}
+                                                        <td>{{p.if_name5}}</td>
+                                                        <td>{{p.i_date5}}</td>
+                                                        <td>{{p.i_time5}}</td>
+                                                        <td>{{p.ir_borrow5}}</td>
+                                                        <td>{{p.irf_borrow5}}</td>
+                                                        <td>{{p.i_sig5}}</td>
+                                                        <td>{{p.i_stats5}}</td>
+                                                        <td>
+                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                
+                                                            <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                        </div>
+                                                    </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                                </table>
+                                        </div>
+                                        
+                                            
+                                        </form>
+                                        <div class="no-result-div mt-4 text-center" id="no-search">
+                                            <div class="div">
+                                            <img src="{%static 'images/search.svg'%}" alt="">
+                                            <h4 class="mt-3">Search not found...</h4>
+                                            <p>Search for fullnames, usernames, emails and etc.</p>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    
+                                        
+                                    </div>
+                                </div>
+                        
+                            </div> 
+                            
+
+                      
+
+                       <!--FORMTABLE 1 INVENTORY RECORD-------------------------------------------------------------------------------------------->  
+                      
+                        <div id="table5" class="col-xl-11 collapse" >
+                            
+                           <div class="jumbotron m-1"><br>
+                        
+                        
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            INVENTORY
+                                        </div>
+                                        <div class="descriptions">
+                                            ADD OF EQUIPMENTS
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:">
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="No of Units:">
+                                            </div>
+                                            <div class="col-xl-1">
+                                                <button type="button" class="btn btn-success  mt-2 "  >
+                                                    ADD
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="descriptions col-12 m-2">
+                                            Supplies and Materials  (Parts to be Replaced)
+                                        </div>
+        
+                                        <!--TABLE-------------------------------------------------------------------------------------------->
+        
+                                        <div class="table-responsive col-xl-12">
+                                            <table class="table">
+                                                <thead class="thead">
+                                                <tr>
+                                                    <th scope="col-xl-2 ">Quantity</th>
+                                                    <th scope="col-xl-6 ">Equipment</th>
+                                                    <th scope="col-xl-4 ">Modify/Delete</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>Extensions</td>
+                                                    <td>
+                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
+                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
+                                                    </td>
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+        
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-12 ">
+                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
+                                                Next
+                                            </button>
+                                            <button type="button" class="btn btn-danger float-right m-1"  >
+                                                Clear
+                                            </button>
+                                            
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
                       
                         
-                      </div>
+                        </div>
 
                     </div>
                 </div>

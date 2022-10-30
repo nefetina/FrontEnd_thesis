@@ -29,80 +29,90 @@ function closeNav() {
 
 
 function reportandmaintenance() {
-    var v= document.getElementById("table5")
-    var w = document.getElementById("table4")
-    var y = document.getElementById("table1");
-    var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
 
+    var v = document.getElementById("table1");
+    var w = document.getElementById("table2");
+    var x = document.getElementById("table3");
+    var y = document.getElementById("table4");
+    var z = document.getElementById("table5");
 
-    v.style.display = "none";
-    w.style.display = "none";
-    y.style.display = "block";
-    x.style.display = "none";
-    z.style.display = "none";
-
-    
-  
-}
-function passres() {
-    var v= document.getElementById("table5")
-    var w = document.getElementById("table4")
-    var y = document.getElementById("table1");
-    var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
 
 
     v.style.display = "block";
     w.style.display = "none";
-    y.style.display = "none";
     x.style.display = "none";
+    y.style.display = "none";
     z.style.display = "none";
 
-    
-  
+
+
+
 }
+
+function passres() {
+    var v = document.getElementById("table1");
+    var w = document.getElementById("table2");
+    var x = document.getElementById("table3");
+    var y = document.getElementById("table4");
+    var z = document.getElementById("table5");
+
+
+
+    v.style.display = "none";
+    w.style.display = "block";
+    x.style.display = "none";
+    y.style.display = "none";
+    z.style.display = "none";
+
+
+
+}
+
 function maintenance() {
-    var v= document.getElementById("table5")
-    var w = document.getElementById("table4")
-    var y = document.getElementById("table1");
-    var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
+    var a = document.getElementById("table1");
+    var b = document.getElementById("table2");
+    var c = document.getElementById("table3");
+    var d = document.getElementById("table4");
+    var e = document.getElementById("table5");
 
-    v.style.display = "none";
-    w.style.display = "none";
-    y.style.display = "none";
-    x.style.display = "block";
-    z.style.display = "none";
-  
+
+    a.style.display = "none";
+    b.style.display = "none";
+    c.style.display = "block";
+    d.style.display = "none";
+    e.style.display = "none";
+
 }
+
 function borrow() {
-    var v= document.getElementById("table5")
-    var w = document.getElementById("table4")
-    var y = document.getElementById("table1");
-    var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
+    var v = document.getElementById("table1");
+    var w = document.getElementById("table2");
+    var x = document.getElementById("table3");
+    var y = document.getElementById("table4");
+    var z = document.getElementById("table5");
+
 
     v.style.display = "none";
     w.style.display = "none";
-    y.style.display = "none";
     x.style.display = "none";
-    z.style.display = "block";
-  
+    y.style.display = "block";
+    z.style.display = "none";
+
 }
 
 
 function inventory() {
-    var v= document.getElementById("table5")
-    var w = document.getElementById("table4")
-    var y = document.getElementById("table1");
-    var x = document.getElementById("table2");
-    var z = document.getElementById("table3");
+    var v = document.getElementById("table1");
+    var w = document.getElementById("table2");
+    var x = document.getElementById("table3");
+    var y = document.getElementById("table4");
+    var z = document.getElementById("table5");
+
+
 
     v.style.display = "none";
-    w.style.display = "block";
-    y.style.display = "none";
+    w.style.display = "none";
     x.style.display = "none";
-    z.style.display = "none";
-  
+    y.style.display = "none";
+    z.style.display = "block";
 }
