@@ -139,6 +139,7 @@ def index(request):#login page
         return redirect('/StudentHome')
     
     return render (request, 'TupcSysApp/LOGIN.html')
+
 @login_required(login_url='/Index')
 def logoutUser(request):
     logout(request)
@@ -235,6 +236,78 @@ def labsched_permit(request, id):
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcLabsched')
+
+def fpasswordreset_cancel(request, id):
+    a = faculty_passreset.objects.get(id=id)
+    for x in faculty_passreset.objects.only('id').filter(fwstat= "On process"):
+        if a == x:
+            x = faculty_passreset.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcReports')
+
+def fpasswordreset_permit(request, id):
+    a = faculty_passreset.objects.get(id=id)
+    for x in faculty_passreset.objects.only('id').filter(fwstat= "On process"):
+        if a == x:
+            x = faculty_passreset.objects.filter(id=id).update(fwstat="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
+
+def spasswordreset_cancel(request, id):
+    a = PassReset.objects.get(id=id)
+    for x in PassReset.objects.only('id').filter(psstats= "On process"):
+        if a == x:
+            x = PassReset.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcReports')
+
+def spasswordreset_permit(request, id):
+    a = PassReset.objects.get(id=id)
+    for x in PassReset.objects.only('id').filter(psstats= "On process"):
+        if a == x:
+            x = PassReset.objects.filter(id=id).update(psstats="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
+
+def sborrow_cancel(request, id):
+    a = borrow_record.objects.get(id=id)
+    for x in borrow_record.objects.only('id').filter(i_stats5= "On process"):
+        if a == x:
+            x = borrow_record.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcReports')
+
+def sborrow_permit(request, id):
+    a = borrow_record.objects.get(id=id)
+    for x in borrow_record.objects.only('id').filter(i_stats5= "On process"):
+        if a == x:
+            x = borrow_record.objects.filter(id=id).update(i_stats5="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
+
+def fborrow_cancel(request, id):
+    a = faculty_borrow.objects.get(id=id)
+    for x in faculty_borrow.objects.only('id').filter(fbstat= "On process"):
+        if a == x:
+            x = faculty_borrow.objects.get(id=id).delete()
+            break
+    messages.info(request, "Successfully deleted")
+    return redirect('/UitcReports')
+
+def fborrow_permit(request, id):
+    a = faculty_borrow.objects.get(id=id)
+    for x in faculty_borrow.objects.only('id').filter(fbstat= "On process"):
+        if a == x:
+            x = faculty_borrow.objects.filter(id=id).update(fbstat="Approved")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
 
 def Index(request):
     return redirect('/')

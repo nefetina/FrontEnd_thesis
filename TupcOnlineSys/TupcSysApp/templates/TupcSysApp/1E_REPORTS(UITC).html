@@ -603,11 +603,11 @@
                                                     <td>{{p.fwIDtype}}</td>
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                            <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fpasswordreset_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                            <button type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
-                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
+                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true" href="{% url 'TupcSysApp:fpasswordreset_permit' p.pk  %}"></i></a>
                                                         </div>
                                                         
                                                     </td>
@@ -621,13 +621,12 @@
                                                     <td>{{p.Account}}</td>
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                            <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:spasswordreset_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                            <button type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
-                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
+                                                            data-toggle="tooltip" data-placement="top" title="Deny"  href="{% url 'TupcSysApp:spasswordreset_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true" ></i></a>
                                                         </div>
-                                                        
                                                     </td>
                                                 </tr>
                                                 {% endfor %}
@@ -1647,11 +1646,11 @@
                                                     
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                            <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                            <button type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
-                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
+                                                             title="Deny"  href="{% url 'TupcSysApp:fborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </div>
                                                         
                                                     </td>
@@ -1668,11 +1667,11 @@
                                                     
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                            <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:sborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                            <button type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
-                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5"  id="btn4"
+                                                            title="Deny"  href="{% url 'TupcSysApp:sborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true" ></i></a>
                                                         </div>
                                                         
                                                     </td>
