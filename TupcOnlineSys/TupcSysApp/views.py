@@ -19,10 +19,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-
+from datetime import datetime
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 installed_apps = ['TupcSysApp']
+
 
 """def Document_save(request):
     if request.method=="POST":
