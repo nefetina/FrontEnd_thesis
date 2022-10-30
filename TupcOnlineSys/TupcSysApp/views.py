@@ -105,6 +105,8 @@ def register(request):#registration
                     return redirect('/')
                 else:
                     messages.warning(request, "Recheck all your input info")
+            else:
+                messages.warning(request, "Recheck all your input info")
 
                 
     context = {
