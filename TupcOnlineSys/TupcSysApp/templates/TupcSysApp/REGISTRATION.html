@@ -17,9 +17,26 @@
 <!----CSS AND JS------------------------------------------------>    
     <script src="{% static 'js/registration.js'%}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reg.css'%}">
-
+<!----SWEET ALERT------------------------------------------------>    
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
+    {%for message in messages%}
+            {% if message.tags == 'warning'%}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                var m = "{{message}}";
+                swal("Invalid", m, "warning")
+            </script>
+            {% endif %}
+            {% if message.tags == 'success'%}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                var m = "{{message}}";
+                swal("Congrats", m, "success")
+            </script>
+            {% endif %}
+    {%endfor%}
     <div class="parent"> <!--------------------------------------------------------bg background call---------------------------------------------------->   
         <div class="overlay"> <!--------------------------------------------------color overlay------------------------------------------>   
             {%csrf_token%}

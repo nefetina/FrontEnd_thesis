@@ -34,6 +34,29 @@
 </head>
 
 <body>
+    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to logout?
+            </div>
+            <div class="modal-footer">
+            
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success"  >
+                    <a href="{% url 'TupcSysApp:logout'%}" style="color:white">Log out</a>
+                </button>
+                
+            </div>
+          </div>
+        </div>
+    </div>
     <!--NAVBAR-------------------------------------------------------------------------------------------->
 
     <nav class="navbar">
@@ -79,7 +102,7 @@
                         <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-2x fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
-                        <a href="{% url 'TupcSysApp:logout'%}"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
+                        <a href="" data-toggle="modal" data-target="#logout"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
                     </div>
                 </div>
                 <!--CARD-------------------------------------------------------------------------------------------->
