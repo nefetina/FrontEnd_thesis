@@ -146,7 +146,7 @@
 
 #to-do {
     color: #662525;
-    font-size: 60px !important;
+    font-size: 50px !important;
     font-weight: lighter !important;
     cursor: default;
     margin-top: -78px !important;
@@ -158,7 +158,6 @@
 
 #textarea1 {
     border-radius: 10px;
-    
 }
 
 .jumbotron {
@@ -307,7 +306,6 @@ header .current-date {
 .current-date {
     color: #fff;
 }
-
 
 
 /*****************************************BACKGROUND*******************************/
