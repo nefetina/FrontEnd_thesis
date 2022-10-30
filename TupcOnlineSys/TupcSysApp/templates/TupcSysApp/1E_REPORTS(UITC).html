@@ -569,8 +569,9 @@
                                                 <thead class="thead">
                                                 <tr>
                                                     <th scope="col">FULL NAME</th>
-                                                    <th scope="col">EMPLOYEE ID</th>
-                                                    <th scope="col">ID TYPE</th>
+                                                    <th scope="col">ID NUMBER</th>
+                                                    <th scope="col">ACCOUNT TYPE</th>
+                                                    <th scope="col">EMAIL</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
@@ -598,8 +599,26 @@
                                                     {% for p in data1 %}
                                                     <td>{{p.fwname}}</td>
                                                     <td>{{p.fwempID}}</td>
+                                                    <td>{{p.fwemail}}</td>
                                                     <td>{{p.fwIDtype}}</td>
-                                                    
+                                                    <td>
+                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                            <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></button>
+
+                                                            <button type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
+                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                        </div>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                <tr>
+                                                    {% for p in data2 %}
+                                                    <td>{{p.psname}}</td>
+                                                    <td>{{p.emp_idno}}</td>
+                                                    <td>{{p.email}}</td>
+                                                    <td>{{p.Account}}</td>
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                                             <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  

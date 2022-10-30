@@ -298,8 +298,9 @@ def UitcLabsched(request):#UITC LABSCHED page
 def UitcReports(request):#UITC REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         data = faculty_reports.objects.filter(fstat = "On Process")
-        data1 = faculty_passreset.objects.filter(fwstat = "On Process")
-        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data':data , 'data1':data1})
+        data1 = faculty_passreset.objects.filter(fwstat = "On Process") 
+        data2 = PassReset.objects.filter(psstats = "On Process")
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data':data , 'data1':data1, 'data2':data2 })
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
        return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -619,6 +620,7 @@ def StudentHome(request):#STUDENT HOMEPAGE page
     else:
         return redirect('/')
 
+@login_required(login_url='/Index')
 def FacultyRstPass(request):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return redirect('/UitcHome')
@@ -627,8 +629,9 @@ def FacultyRstPass(request):
             fwname = request.POST.get('fwname')
             fwempID = request.POST.get('fwempID')
             fwIDtype = request.POST.get('fwIDtype')
+            fwemail = request.POST.get('fwemail')
             fwstat = "On Process"
-            data = faculty_passreset.objects.create(fwname = fwname, fwempID=fwempID, fwIDtype=fwIDtype, fwstat=fwstat)
+            data = faculty_passreset.objects.create(fwname = fwname, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=fwemail, fwstat=fwstat)
             data.save()
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":

@@ -107,6 +107,7 @@ class faculty_passreset(models.Model):
     fwname = models.CharField(max_length= 100, null=False)
     fwempID = models.CharField(max_length = 100, null=True)
     fwIDtype = models.CharField(max_length = 40, null=False, choices= id_type)
+    fwemail = models.CharField(max_length = 100, null=True)
     fwstat = models.CharField(max_length = 100, null=True)
 
 class faculty_borrow(models.Model):
