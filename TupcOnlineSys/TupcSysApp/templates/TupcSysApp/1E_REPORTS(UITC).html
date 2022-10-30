@@ -52,7 +52,12 @@
             <li class="breadcrumb-item ml-auto" onclick="requestforrep()" ><a href="#">REQUEST FOR REPAIR & MAINTENANCE</a></li>
             <li class="breadcrumb-item" onclick="requesforpassres()" ><a href="#">REQUEST FOR PASSWORD RESET</a></li>
             <li class="breadcrumb-item" onclick="maintenanceform()" ><a href="#">MAINTENANCE FORM</a></li>
+            <li class="breadcrumb-item" onclick="maintenance()" ><a href="#">MAINTENANCE</a></li>
+             <!--COMMENT FOR NOW----
             <li class="breadcrumb-item" onclick="borrowform()"><a href="#">BORROW FORM</a></li>
+            ---->
+            
+            <li class="breadcrumb-item" onclick="borrow()" ><a href="#">BORROW</a></li>
         </ol>
     </nav>
 
@@ -236,7 +241,7 @@
                         </div>
 
 
-    <!--MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->
+    <!--REPAIR AND MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->
 
                         <div class="col-xl-11 collapse " id="tableform1">
                             <div class="jumbotron "><br>
@@ -556,7 +561,7 @@
                                 <div class="card-body"  >
                                     <form>
                                         <div class="formtitle">
-                                            MAINTENANCE
+                                            REQUEST FOR PASSWORD RESET
                                         </div>
                                         <div class="table-responsive-xl col-xl-12" id="idtable2">
                                             <table class="table">
@@ -622,8 +627,9 @@
                             </div>
                         </div>
 
-    <!--FORMTABLE2.1-------------------------------------------------------------------------------------------->
-
+    
+    <!--MAINTENANCE FORMTABLE2.1-------------------------------------------------------------------------------------------->
+                   
                         <div class="col-xl-11 collapse" id="tableform4">
                             <div class="jumbotron "><br>
                             
@@ -813,6 +819,8 @@
                                                         </div>
                                                     </div>
                         </div>
+                    
+
     <!--FORMTABLE2.2-------------------------------------------------------------------------------------------->
                     
                         <div class="col-xl-11 collapse" id="tableform5">
@@ -1020,8 +1028,9 @@
                                                         </div>
                                                     </div>
                         </div>
+                    
     <!--FORMTABLE2.3-------------------------------------------------------------------------------------------->
-
+                    
                         <div class="col-xl-11 collapse" id="tableform6">
                             <div class="jumbotron "><br>
                             
@@ -1123,8 +1132,148 @@
                                                         </div>
                                                     </div>
                         </div>
+                    
 
-    <!--FORMTABLE 3.1-------------------------------------------------------------------------------------------->                    
+    <!--TABLE3 MAINTENANCE-------------------------------------------------------------------------------------------->                    
+                        <div class="col-xl-11 collapse" id="table3">
+                            <form>
+                                <div class="form-row">
+
+                                    <div class="col-xl-9 col-lg-8 col-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                    </div>
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-1 col-lg-2 col-12">
+                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                    </div>
+                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Sorted by:
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Date</a>
+                                            <a class="dropdown-item" href="#">Ascending</a>
+                                            <a class="dropdown-item" href="#">Descending</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="jumbotron "><br>
+                                <div class="card-body"  >
+                                    <form>
+                                        <div class="formtitle">
+                                            MAINTENANCE
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12" id="idtable3">
+                                            <table class="table">
+                                                <thead class="thead">
+                                                <tr>
+                                                    <th scope="col">TYPE</th>
+                                            <th scope="col ">SERIAL NO.</th>
+                                            <th scope="col ">DATE OF MAINTENANCE</th>
+                                            <th scope="col">BRAND MODEL</th>
+                                            <th scope="col">ICT EQUIPMENT CODE</th>
+                                            <th scope="col ">ICT EQUIPMENT NAME</th>
+                                            <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">SCAN FOR VIRUSES STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">RUN MALWARE STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">CLEAN KEYBOARD STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">ORGANIZE CABLES STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">WIPEDOWN MONITOR STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
+                                            <th scope="col ">REMARKS</th>
+                                            <th scope="col ">UITC PERSONNEL</th>
+                                            <th scope="col ">SIGNATURE</th>
+                                            <th scope="col ">DATE STARTED</th>
+                                            <th scope="col ">TIME STARTED</th>
+                                            <th scope="col ">DATE ENDED</th>
+                                            <th scope="col ">TIME ENDED</th>
+                                            <th scope="col ">SOLUTION RECOMMENDATION</th>
+                                            <th scope="col ">END USER</th>
+                                            <th scope="col ">SIGNATURE</th>
+                                            <th scope="col ">DATE</th>
+                                            <th scope="col ">TIME</th>
+                                            <th scope="col">STATUS</th>
+                                                    <th scope="col">ACTION</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <div class="modal fade" id="mod" tabindex="-1" role="dialog" aria-labelledby="domTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered"  role="document">
+                                                        <div class="modal-content" id="dal">
+                                                            <div class="modal-header">
+                                                            <h6 class="modal-title"  id="MODAL2">Notification</h6>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body"  id="MODAL2">
+                                                                Do you really want to deny this?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="b2" onclick="cancel2()">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="b1" onclick="submit()">Yes</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                <tr>
+                                                    {% for p in data1 %}
+                                                    <td>{{p.fwname}}</td>
+                                                    <td>{{p.fwempID}}</td>
+                                                    <td>{{p.fwIDtype}}</td>
+                                                    
+                                                    <td>
+                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                            <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></button>
+
+                                                            <button type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
+                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                        </div>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    
+                                        
+                                    </form>
+                                
+                                    
+                                    
+                                
+                                    
+                                </div>
+                            
+                            </div>
+                        </div>
+
+
+    <!--BORROW FORMTABLE 3.1-------------------------------------------------------------------------------------------->                    
+                      {% comment %}
                         <div class="col-xl-11 collapse " id="tableform7">
                             <div class="jumbotron "><br>
 
@@ -1208,6 +1357,105 @@
                                 </div>
                             </div>
                         </div>
+                        {% endcomment %}
+
+    <!--TABLE4 BORROW-------------------------------------------------------------------------------------------->                    
+                        <div class="col-xl-11 collapse" id="table4">
+                            <form>
+                                <div class="form-row">
+
+                                    <div class="col-xl-9 col-lg-8 col-12">
+                                        <input type="text" class="form-control my-2 p-2" placeholder="Search....">
+                                    </div>
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-1 col-lg-2 col-12">
+                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                    </div>
+                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Sorted by:
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Date</a>
+                                            <a class="dropdown-item" href="#">Ascending</a>
+                                            <a class="dropdown-item" href="#">Descending</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="jumbotron "><br>
+                                <div class="card-body"  >
+                                    <form>
+                                        <div class="formtitle">
+                                        BORROW
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12" id="idtable4">
+                                            <table class="table">
+                                                <thead class="thead">
+                                                <tr>
+                                                    <th scope="col">FULL NAME</th>
+                                                    <th scope="col ">DATE RQSTD</th>
+                                                    <th scope="col">TIME</th>
+                                                    <th scope="col ">RQST BORROW</th>
+                                                    <th scope="col">REASON FOR BORROWING</th>
+                                                    <th scope="col">SIGNATURE</th>
+                                                    <th scope="col">STATUS</th>
+                                                    <th scope="col">ACTION</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <div class="modal fade" id="mod" tabindex="-1" role="dialog" aria-labelledby="domTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered"  role="document">
+                                                        <div class="modal-content" id="dal">
+                                                            <div class="modal-header">
+                                                            <h6 class="modal-title"  id="MODAL2">Notification</h6>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body"  id="MODAL2">
+                                                                Do you really want to deny this?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="b2" onclick="cancel2()">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="b1" onclick="submit()">Yes</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                <tr>
+                                                    {% for p in data1 %}
+                                                    <td>{{p.fwname}}</td>
+                                                    <td>{{p.fwempID}}</td>
+                                                    <td>{{p.fwIDtype}}</td>
+                                                    
+                                                    <td>
+                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                            <button type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></button>
+
+                                                            <button type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
+                                                            data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                        </div>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    
+                                        
+                                    </form>
+                                
+                                    
+                                    
+                                
+                                    
+                                </div>
+                            
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -1216,6 +1464,7 @@
             <div id="pic" class="view drk "></div>
         </div>
     </div>
+
 
 
 
