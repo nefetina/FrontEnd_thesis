@@ -17,9 +17,27 @@
 <!----CSS AND JS------------------------------------------------>    
     <script src="{% static 'js/login.js'%}"></script>
     <link rel="stylesheet" href="{% static 'css/log.css'%}">
+<!----SWEET ALERT------------------------------------------------>    
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-    <div class="parent"><-------------------------------------------parent for relativeness-------------------------------------------------------> 
+    {%for message in messages%}
+            {% if message.tags == 'warning'%}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                var m = "{{message}}";
+                swal("Invalid", m, "warning")
+            </script>
+            {% endif %}
+            {% if message.tags == 'success'%}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                var m = "{{message}}";
+                swal("Congrats", m, "success")
+            </script>
+            {% endif %}
+    {%endfor%}
+    <div class="parent"><!----------------------------parent relativeness---------------------------->
         <div class="child"><!----------------------------child for absolute centering---------------------------->
 
             <section class="form">

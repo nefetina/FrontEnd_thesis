@@ -103,7 +103,8 @@ def register(request):#registration
                 if form.is_valid():
                     form.save()
                     register1.objects.filter(username=b).update(Personal_description=type)
-                    messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
+                    messages.success(request, 'You are now successfully registered')
+
                     return redirect('/')
                 else:
                     messages.warning(request, "Recheck all your input info")
