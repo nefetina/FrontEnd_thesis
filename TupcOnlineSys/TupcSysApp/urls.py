@@ -24,6 +24,7 @@ urlpatterns =[
     path('UitcRec3/', views.UitcRec3, name='UitcRec3'), 
     path('UitcRec4/', views.UitcRec4, name='UitcRec4'), 
     path('UitcPermission/', views.UitcPermission, name='UitcPermission'), 
+    path('UitcInventory/', views.UitcInventory, name='UitcInventory'), 
     path('FacultyHome/', views.FacultyHome, name='FacultyHome'), 
     path('FacultyID/', views.FacultyID, name='FacultyID'), 
     path('FacultyInternet/', views.FacultyInternet, name='FacultyInternet'), 

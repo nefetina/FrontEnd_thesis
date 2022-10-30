@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!----TAB NAME------------------------------------------------>
-    <title>UITC PERMISSION</title>
+    <title>UITC USERS</title>
     <!----TAB ICON------------------------------------------------>
     <link rel="icon" href="{%static 'images/TUP_LOGO.png'%}">
     <!----CSS AND JS------------------------------------------------>
@@ -39,7 +39,7 @@
 
         <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
         <div id="titulo">
-            <a class="navbar-brand" id="title" href="#">PERMISSION</a>
+            <a class="navbar-brand" id="title" href="#">USERS</a>
         </div>
         <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
 
@@ -49,7 +49,7 @@
 
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto"><a href="#">REGISTRATION PERMISSION</a></li>
+            <li class="breadcrumb-item ml-auto"><a href="#">USERS MASTELIST</a></li>
 
         </ol>
     </nav>
@@ -69,7 +69,8 @@
                         <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcPermission'%}" id="active"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">PERMISSION</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcPermission'%}" id="active"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-2x fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
                         <a href="{% url 'TupcSysApp:logout'%}"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
                     </div>
                 </div>
@@ -108,7 +109,7 @@
                                 <div class="card-body"  >
                                     <form>
                                         <div class="formtitle">
-                                            REGISTRATION PERMISSION
+                                            USERS MASTERLIST
                                         </div>
                                         <div class="table-responsive-xl col-xl-12" id="idtable">
                                             <table class="table">

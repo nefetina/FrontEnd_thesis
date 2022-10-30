@@ -681,3 +681,14 @@ def StudentReports_RequestPass(request):
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
     else:
         return redirect('/')
+
+@login_required(login_url='/Index')
+def UitcInventory(request):#UITC ID page
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+       return render (request, 'TupcSysApp/1S_INVENTORY(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')

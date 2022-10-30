@@ -100,7 +100,7 @@
                         <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">PERMISSION</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
                         <a href="{% url 'TupcSysApp:logout'%}"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
                     </div>
                 </div>
@@ -563,7 +563,7 @@
                       
                         <div id="table5" class="col-xl-11 collapse" >
                             
-                           <div class="jumbotron m-1"><br>
+                            <div class="jumbotron m-1"><br>
                         
                         
                                 <div class="card-body">
@@ -571,25 +571,7 @@
                                         <div class="formtitle">
                                             INVENTORY
                                         </div>
-                                        <div class="descriptions">
-                                            ADD OF EQUIPMENTS
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:">
-                                            </div>
-                                            <div class="col-xl-5">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="No of Units:">
-                                            </div>
-                                            <div class="col-xl-1">
-                                                <button type="button" class="btn btn-success  mt-2 "  >
-                                                    ADD
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="descriptions col-12 m-2">
-                                            Supplies and Materials  (Parts to be Replaced)
-                                        </div>
+                                        
         
                                         <!--TABLE-------------------------------------------------------------------------------------------->
         
@@ -599,33 +581,21 @@
                                                 <tr>
                                                     <th scope="col-xl-2 ">Quantity</th>
                                                     <th scope="col-xl-6 ">Equipment</th>
-                                                    <th scope="col-xl-4 ">Modify/Delete</th>
+                                                   
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
                                                     <td>7</td>
                                                     <td>Extensions</td>
-                                                    <td>
-                                                        <button class="btn btn-primary badge-pill" style="width: 120px;">UPDATE</button>
-                                                        <button class="btn btn-danger badge-pill" style="width: 120px;">DELETE</button>     
-                                                    </td>
+                                                   
                                                 </tr>
                                                 
                                                 </tbody>
                                             </table>
                                         </div>
         
-                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                        <div class="col-xl-12 ">
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
-                                                Next
-                                            </button>
-                                            <button type="button" class="btn btn-danger float-right m-1"  >
-                                                Clear
-                                            </button>
-                                            
-                                        </div>
+                                        
                                         
                                     </form>
                                 </div>
