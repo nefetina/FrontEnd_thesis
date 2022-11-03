@@ -269,116 +269,116 @@
                         
                             </div>
                         <!--TABLE 2 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
-                        <div id="table2" class="col-xl-11 collapse" >
-                                
-                            <form>
-                                <div class="form-row">
-
-                                    <div class="col-xl-9 col-lg-8 col-12">
-                                        <input type="text" id="myInputprr" onkeyup="myFunctionprr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                                    </div>
-                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
-                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                    </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="jumbotron  m-1"><br>
-                                
-                                
-                                <div class="card-body">
-                                    <form>
-                                        <div class="formtitle">
-                                            PASSWORD RESET RECORD
-                                        </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable1">
-                                            <table class="table" id="myTableprr">
-                                                <thead class="thead">
-                                                    <tr>
-                                                        <th scope="col">FULL NAME</th>
-                                                        <th scope="col">ID NUMBER</th>
-                                                        <th scope="col">ACCOUNT TYPE</th>
-                                                        <th scope="col">EMAIL</th>
-                                                        <th scope="col">STATUS</th>
-                                                        <th scope="col">ACTION</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        {% for p in data3 %}
-                                                        <td>{{p.fwname}}</td>
-                                                        <td>{{p.fwempID}}</td>
-                                                        <td>{{p.fwemail}}</td>
-                                                        <td>{{p.fwIDtype}}</td>
-                                                        <td>{{p.fwstat}}</td>
-                                                       
-                                                        <td>
-                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                    
-                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                    <tr>
-                                                        {% for p in data4 %}
-                                                        <td>{{p.psname}}</td>
-                                                        <td>{{p.emp_idno}}</td>
-                                                        <td>{{p.email}}</td>
-                                                        <td>{{p.Account}}</td>
-                                                        <td>{{p.psstats}}</td>
-                                                       
-                                                        <td>
-                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                    
-                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <script>
-                                            function myFunctionprr() {
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInputprr");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("myTableprr");
-                                              tr = table.getElementsByTagName("tr");
-                                              for (i = 0; i < tr.length; i++) {
-                                                td = tr[i].getElementsByTagName("td")[0];
-                                                if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                    tr[i].style.display = "";
-                                                  } else {
-                                                    tr[i].style.display = "none";
-                                                  }
-                                                }       
-                                              }
-                                            }
-                                            </script>
+                            <div id="table2" class="col-xl-11 collapse" >
                                     
-                                    </form>
+                                <form>
+                                    <div class="form-row">
+
+                                        <div class="col-xl-9 col-lg-8 col-12">
+                                            <input type="text" id="myInputprr" onkeyup="myFunctionprr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
+                                        </div>
+                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-1 col-lg-2 col-12">
+                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                        </div>
+                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sorted by:
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Date</a>
+                                                <a class="dropdown-item" href="#">Ascending</a>
+                                                <a class="dropdown-item" href="#">Descending</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="jumbotron  m-1"><br>
+                                    
+                                    
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="formtitle">
+                                                PASSWORD RESET RECORD
+                                            </div>
+                                            <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                                <table class="table" id="myTableprr">
+                                                    <thead class="thead">
+                                                        <tr>
+                                                            <th scope="col">FULL NAME</th>
+                                                            <th scope="col">ID NUMBER</th>
+                                                            <th scope="col">ACCOUNT TYPE</th>
+                                                            <th scope="col">EMAIL</th>
+                                                            <th scope="col">STATUS</th>
+                                                            <th scope="col">ACTION</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            {% for p in data3 %}
+                                                            <td>{{p.fwname}}</td>
+                                                            <td>{{p.fwempID}}</td>
+                                                            <td>{{p.fwemail}}</td>
+                                                            <td>{{p.fwIDtype}}</td>
+                                                            <td>{{p.fwstat}}</td>
+                                                        
+                                                            <td>
+                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                        
+                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        <tr>
+                                                            {% for p in data4 %}
+                                                            <td>{{p.psname}}</td>
+                                                            <td>{{p.emp_idno}}</td>
+                                                            <td>{{p.email}}</td>
+                                                            <td>{{p.Account}}</td>
+                                                            <td>{{p.psstats}}</td>
+                                                        
+                                                            <td>
+                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                        
+                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <script>
+                                                function myFunctionprr() {
+                                                var input, filter, table, tr, td, i, txtValue;
+                                                input = document.getElementById("myInputprr");
+                                                filter = input.value.toUpperCase();
+                                                table = document.getElementById("myTableprr");
+                                                tr = table.getElementsByTagName("tr");
+                                                for (i = 0; i < tr.length; i++) {
+                                                    td = tr[i].getElementsByTagName("td")[0];
+                                                    if (td) {
+                                                    txtValue = td.textContent || td.innerText;
+                                                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                        tr[i].style.display = "";
+                                                    } else {
+                                                        tr[i].style.display = "none";
+                                                    }
+                                                    }       
+                                                }
+                                                }
+                                                </script>
+                                        
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <!--TABLE 3 MAINTENANCE RECORD -------------------------------------------------------------------------------------------->
                     
                             <div id="table3" class="col-xl-11 collapse" >
@@ -658,54 +658,54 @@
                                 </div>
                         
                             </div> 
+                        <!--TABLE 5 INVENTORY RECORD-------------------------------------------------------------------------------------------->  
+                          
                             
-
-                      
-
-                       <!--FORMTABLE 1 INVENTORY RECORD-------------------------------------------------------------------------------------------->  
-                      
-                        <div id="table5" class="col-xl-11 collapse" >
+                            <div id="table5" class="col-xl-11 collapse" >
+                                
+                                <div class="jumbotron m-1"><br>
                             
-                            <div class="jumbotron m-1"><br>
-                        
-                        
-                                <div class="card-body">
-                                    <form>
-                                        <div class="formtitle">
-                                            INVENTORY
-                                        </div>
-                                        
-        
-                                        <!--TABLE-------------------------------------------------------------------------------------------->
-        
-                                        <div class="table-responsive col-xl-12">
-                                            <table class="table">
-                                                <thead class="thead">
-                                                <tr>
-                                                    <th scope="col-xl-2 ">Quantity</th>
-                                                    <th scope="col-xl-6 ">Equipment</th>
-                                                   
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>7</td>
-                                                    <td>Extensions</td>
-                                                   
-                                                </tr>
-                                                
-                                                </tbody>
-                                            </table>
-                                        </div>
-        
-                                        
-                                        
-                                    </form>
+                            
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="formtitle">
+                                                INVENTORY
+                                            </div>
+                                            
+            
+                                            <!--TABLE-------------------------------------------------------------------------------------------->
+            
+                                            <div class="table-responsive col-xl-12">
+                                                <table class="table">
+                                                    <thead class="thead">
+                                                    <tr>
+                                                        <th scope="col-xl-2 ">Quantity</th>
+                                                        <th scope="col-xl-6 ">Equipment</th>
+                                                    
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>Extensions</td>
+                                                    
+                                                    </tr>
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+            
+                                            
+                                            
+                                        </form>
+                                    </div>
                                 </div>
+                        
+                            
                             </div>
                       
-                        
-                        </div>
+
+                     
 
                     </div>
                 </div>
@@ -714,12 +714,7 @@
                 <div id="pic" class="view drk "></div>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="{% static 'js/app.js' %}"></script>
-        <script src="{% static 'js/search.js' %}"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+        
 
 </body>
 

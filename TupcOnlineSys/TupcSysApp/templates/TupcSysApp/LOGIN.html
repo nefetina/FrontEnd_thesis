@@ -29,13 +29,6 @@
                 swal("Invalid", m, "warning")
             </script>
             {% endif %}
-            {% if message.tags == 'success'%}
-            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-            <script>
-                var m = "{{message}}";
-                swal("Congrats", m, "success")
-            </script>
-            {% endif %}
     {%endfor%}
     <div class="parent"><!----------------------------parent relativeness---------------------------->
         <div class="child"><!----------------------------child for absolute centering---------------------------->
