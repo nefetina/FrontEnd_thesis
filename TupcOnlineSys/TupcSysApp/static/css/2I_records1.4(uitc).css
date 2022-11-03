@@ -6,9 +6,11 @@
 
 
 /*****************************************SIDEBAR*******************************/
-input{
+
+input {
     border: 1px solid rgb(0, 0, 0) !important;
 }
+
 .sidebar {
     height: 100%;
     width: 140px !important;
@@ -43,10 +45,9 @@ input{
 
 /*for logo border*/
 
-#logo{
+#logo {
     float: right !important;
- }
- 
+}
 
 
 /* The sidebar links */
@@ -251,15 +252,14 @@ input{
 .btnmove {
     float: right !important;
 }
-#btn3:hover{
-    border: 2px solid #008f0085!important; 
+
+#btn3:hover {
+    border: 2px solid #008f0085!important;
     background-color: #ffffff;
     transition: .2s ease-in-out;
     color: #008f0085;
     font-weight: bold;
 }
-
-
 
 
 /*****************************************BACKGROUND*******************************/
