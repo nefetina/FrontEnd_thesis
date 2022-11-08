@@ -484,6 +484,7 @@ def UitcReports_maitenance(request):#UITC REPORTS page
             is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
             i_sig=i_sig, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return redirect('/UitcReports')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
        return redirect('/FacultyHome')
