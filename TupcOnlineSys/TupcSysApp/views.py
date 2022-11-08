@@ -784,6 +784,7 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=g_email2,
             g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
     else:
         return redirect('/')
@@ -812,6 +813,7 @@ def StudentWifi(request):#STUDENT INTERNET ACCESS page
             g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=g_email1,
             g_add1=g_add1, g_sig1=g_sig1, g_daterec1=g_daterec1, g_stats1=g_stats1)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
     else:
         return redirect('/')
@@ -833,6 +835,7 @@ def StudentReports(request):#STUDENT REPORT page
             data = borrow_record.objects.create(if_name5 = if_name5, i_date5=i_date5, 
             i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
     else:
         return redirect('/')
@@ -853,6 +856,7 @@ def StudentReports_RequestPass(request):
             data = PassReset.objects.create(psname = psname, email = email, emp_idno=emp_idno, 
             Account=Account, psstats=psstats)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
     else:
         return redirect('/')
