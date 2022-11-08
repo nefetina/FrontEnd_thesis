@@ -648,6 +648,7 @@ def FacultyInternet(request):#FACULTY INTERNET page
             data = faculty_wifi.objects.create(gf_name = gf_name, g_dept=g_dept, g_des=g_des, g_sys=g_sys, g_mac=g_mac, 
              g_num=g_num, g_email=g_email, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stat=g_stats)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1M_INTERNET(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -673,6 +674,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
             data = faculty_lab.objects.create(f_name = f_name, dep=dep, l_date=l_date, lab_num=lab_num, crs_sec=crs_sec, 
              s_time=s_time, e_time=e_time, fl_sig=fl_sig, l_stat = l_stat)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -701,6 +703,7 @@ def FacultyReports(request):#FACULTY REPORTS page
             data = faculty_reports.objects.create(ftype = ftype, fbrand=fbrand, fserial=fserial, fspecs=fspecs, fnature=fnature, 
              fname=fname, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -731,6 +734,7 @@ def FacultyRstPass(request):
             fwstat = "On Process"
             data = faculty_passreset.objects.create(fwname = fwname, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=fwemail, fwstat=fwstat)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -751,6 +755,7 @@ def FacultyBorrower(request):
             fbstat = "On Process"
             data = faculty_borrow.objects.create(fbname = fbname, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
+            messages.info(request, 'Successfully Submitted!')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')

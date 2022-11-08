@@ -376,7 +376,7 @@
             </div>
         </div>
     </div>
-</body>
+
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
     $("#drawingCanvas-Signature").mousedown(function (event) {
     var canvasElem = document.getElementById("drawingCanvas-Signature"); //No I18N	
@@ -438,4 +438,12 @@
     $("#drawingCanvas-Signature").css("pointer-events","none");//No I18N
     $("#drawingCanvas-Signature").css("cursor","default");//No I18N
     }</script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% for message in messages %}
+    <script>
+        swal("{{message}}","");
+    </script>
+    {% endfor %}
+</body>
 </html>
