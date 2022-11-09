@@ -19,7 +19,7 @@
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
-    z-index: 2;
+    z-index: 3 !important;
     /* Stay on top */
 }
 
@@ -479,12 +479,6 @@ header,
 /*************************small*****/
 
 @media screen and (max-width: 576px) {
-    .navbar-brand {
-        padding-left: 0px !important;
-        font-size: 21pt !important;
-        cursor: default !important;
-        color: white !important;
-    }
     .sidebar {
         height: 100vh;
         /* 100% Full-height */
@@ -532,6 +526,23 @@ header,
         display: flex;
         position: absolute;
     }
+    #logo {
+        
+        height: 40px !important;
+        width: 50px !important;
+    }
+    .navbar-brand {
+        padding-right: 40px !important;
+        font-size: 12pt !important;
+        cursor: default !important;
+        color: white !important;
+        
+    }
+    header .current-date {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
 }
 
 
@@ -571,10 +582,11 @@ header,
         font-size: 10vw !important;
     }
     .navbar-brand {
-        padding-left: 0px !important;
-        font-size: 18pt !important;
+        padding-right: 25px !important;
+        font-size: 12pt !important;
         cursor: default !important;
         color: white !important;
+        
     }
     .main {
         overflow: hidden !important;
@@ -585,7 +597,16 @@ header,
         display: flex;
         position: absolute;
     }
-}
+    .clock-time,
+    .clock-ampm {
+    font-size: 40px;
+    color: #fff;
+    }
+
+    .clock-time {
+        font-size: 50px;
+    }
+    }
 
 @media screen and (max-width: 360px) {
     .sidebar {

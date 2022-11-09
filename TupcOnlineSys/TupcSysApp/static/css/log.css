@@ -105,10 +105,9 @@ header,
 #gsfe, #tupcid, #pass{
     border: #000 solid 1px;
 } 
-
 @media screen and (max-width: 1330px) {
     #text1 {
-        font-size: 20px !important;
+        font-size: 35px !important;
     }
     #btn1 {
         font-size: 15px !important;
@@ -123,7 +122,7 @@ header,
 /*************************paglumagpas sa max width mababalik sa default setup*****/
 @media screen and (max-width: 1200px) {
     #text1 {
-        font-size: 20px !important;
+        font-size: 30px !important;
     }
     #btn1 {
         font-size: 15px !important;
@@ -134,9 +133,10 @@ header,
         height: 25px;
     }
     #gsfe, #tupcid, #pass{
-        height: 25px;
+        height: 30px;
     } 
 }
+
 
 
 

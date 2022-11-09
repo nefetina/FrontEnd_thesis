@@ -70,9 +70,9 @@
 
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="facultywifi()"><a href="#">EMPLOYEE WIFI REQUEST</a></li>
-            <li class="breadcrumb-item " onclick="studentwifi()"><a href="#">STUDENT WIFI REQUEST</a></li>
-            <li class="breadcrumb-item" onclick="studentinternet()"><a href="#">STUDENT INTERNET ACCESS REQUEST</a></li>
+            <li class="breadcrumb-item ml-auto" onclick="facultywifi()"><a href="#" id="bc">EMPLOYEE WIFI REQUEST</a></li>
+            <li class="breadcrumb-item " onclick="studentwifi()"><a href="#" id="bc">STUDENT WIFI REQUEST</a></li>
+            <li class="breadcrumb-item" onclick="studentinternet()"><a href="#" id="bc">STUDENT INTERNET ACCESS REQUEST</a></li>
         </ol>
     </nav>
 
@@ -139,13 +139,14 @@
                                                 <thead class="thead">
                                                 <tr>
                                                     <th scope="col">FULL NAME</th>
-                                                    <th scope="col ">DEPARTMENT</th>
+                                                    <th scope="col">DEPARTMENT</th>
                                                     <th scope="col">SIGNATURE</th>
                                                     <th scope="col">DATE</th>
                                                     <th scope="col">ACTION</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                     <!--modal for other info-------------------------------------------------------------------------------------------->
                                                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                                           <div class="modal-content">
@@ -203,7 +204,42 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                      </div>
+                                                    </div>
+
+                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                    <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                              <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                  <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                  </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form>
+                                                                        <div class="form-row">
+            
+                                                                            <div class="col-xl-12">
+                                                                                Reason for Denying
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
+                                                                            </div>
+                                                                        </div>
+                                                                       
+                                                                        
+                                                                        
+                                                                       
+                                                            
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                    </div>
+                                                    
                                                     <tr>
                                                         {% for p in datag %}
                                                         <td><a href="" data-toggle="modal" data-target="#modal1">{{p.gf_name}}</td>
@@ -217,7 +253,7 @@
                                                                 data-toggle="tooltip" data-placement="top" title="Approve"  href="{% url 'TupcSysApp:FacultyWifi_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
     
                                                                 <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                  data-toggle="tooltip" data-placement="top" title="Deny" href="{% url 'TupcSysApp:FacultyWifi_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                  data-toggle="tooltip" data-placement="top" title="Deny" href="{% url 'TupcSysApp:FacultyWifi_cancel' p.pk  %}" data-toggle="modal" data-target="#deny1"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                             </div>
                                                             
                                                         </td>
@@ -288,19 +324,20 @@
                                         <div class="formtitle">
                                             STUDENT WIFI REQUEST
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable2" >
+                                        <div class="table-responsive col-xl-12" id="idtable2" >
                                             <table class="table" id="myTableswr">
                                                 <thead class="thead">
                                                   <tr>
                                                     <th scope="col-xl-1">FULL NAME</th>
-                                                    <th scope="col-xl-1 ">SECTION</th>
-                                                    <th scope="col-xl-1 ">STUDENT NO.</th>
+                                                    <th scope="col-xl-1">SECTION</th>
+                                                    <th scope="col-xl-1">STUDENT NO.</th>
                                                     <th scope="col-xl-1">SIGNATURE</th>
                                                     <th scope="col-xl-1">DATE</th>
                                                     <th scope="col-xl-1">ACTION</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
+                                                  <!--modal for other info-------------------------------------------------------------------------------------------->
                                                     <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
@@ -359,7 +396,41 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                      </div>  
+                                                    </div>  
+
+                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                    <div class="modal fade" id="deny2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                              <form>
+                                                                  <div class="form-row">
+      
+                                                                      <div class="col-xl-12">
+                                                                          Reason for Denying
+                                                                          <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
+                                                                      </div>
+                                                                  </div>
+                                                                 
+                                                                  
+                                                                  
+                                                                 
+                                                      
+                                                              </form>
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
                                                   <tr>
                                                     {% for p in datah %}
                                                         <td><a href="" data-toggle="modal" data-target="#modal2">{{p.gf_name1}}</td>
@@ -372,10 +443,10 @@
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentWifi_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentWifi_permit' p.pk  %}"><i class="fa fa-check fa-lg" aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                              data-toggle="tooltip" data-placement="top" title="Deny" href="{% url 'TupcSysApp:StudentWifi_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                              data-toggle="tooltip" data-placement="top" title="Deny" href="{% url 'TupcSysApp:StudentWifi_cancel' p.pk  %}" data-toggle="modal" data-target="#deny2"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
                                                         </div>
                                                         
                                                     </td>
@@ -458,6 +529,7 @@
                                                   </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <!--modal for other info-------------------------------------------------------------------------------------------->
                                                     <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
@@ -519,7 +591,41 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                      </div>  
+                                                    </div>  
+                                                     
+                                                    <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                    <div class="modal fade" id="deny3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                              <form>
+                                                                  <div class="form-row">
+      
+                                                                      <div class="col-xl-12">
+                                                                          Reason for Denying
+                                                                          <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
+                                                                      </div>
+                                                                  </div>
+                                                                 
+                                                                  
+                                                                  
+                                                                 
+                                                      
+                                                              </form>
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
                                                   <tr>
                                                     {% for p in datai %}
                                                         <td><a href="" data-toggle="modal" data-target="#modal3">{{p.gf_name2}}</td>
@@ -533,7 +639,7 @@
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentInternet_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                              data-toggle="tooltip" data-placement="top" title="Deny" href="{% url 'TupcSysApp:StudentInternet_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                              data-toggle="tooltip" data-placement="top" title="Deny" href="{% url 'TupcSysApp:StudentInternet_cancel' p.pk  %}" data-toggle="modal" data-target="#deny3"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </div>
                                                         </td>
                                                     </td>

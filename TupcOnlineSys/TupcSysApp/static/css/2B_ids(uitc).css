@@ -146,7 +146,8 @@ input{
 /*****************************************main contents (card content)*******************************/
 
 .jumbotron {
-    border-radius: 20px !important;
+    border-radius: 5px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -175,6 +176,7 @@ input{
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    
 
 }
 
@@ -382,7 +384,7 @@ header,
 @media screen and (max-width: 576px) {
     .navbar-brand {
         padding-left: 0px !important;
-        font-size: 21pt !important;
+        font-size: 15pt !important;
         cursor: default !important;
         color: white !important;
     }
@@ -433,6 +435,20 @@ header,
         display: flex;
         position: absolute;
     }
+    #logo {
+        
+        height: 40px !important;
+        width: 50px !important;
+    }
+    #bc{
+        font-size: 20px !important;
+    }
+    .thead{
+        font-size: 10px !important;
+    }
+    .formtitle{
+        font-size: 14px !important;
+    }
 }
 
 
@@ -473,7 +489,7 @@ header,
     }
     .navbar-brand {
         padding-left: 0px !important;
-        font-size: 18pt !important;
+        font-size: 15pt !important;
         cursor: default !important;
         color: white !important;
     }

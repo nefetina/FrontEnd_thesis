@@ -120,6 +120,11 @@ header,
     font-size: 20px !important;
     font-weight: bold !important;
 }
+#desc2{
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin: 0;
+}
 #pd{
     font-size: 20px !important;
     font-weight: bold !important;
@@ -134,7 +139,7 @@ header,
 
 @media screen and (max-width: 1200px) {
     #text1 {
-        font-size: 20px !important;
+        font-size: 40px !important;
     }
     #text2 {
         font-size: 15px !important;
@@ -147,6 +152,11 @@ header,
         font-size: 12px !important;
         margin: -20px !important;
         font-weight: bold !important;
+    }
+    #desc2{
+        font-size: 10px !important;
+        font-weight: bold !important;
+        margin: -20 !important;
     }
     .form-row input {
         background-color: rgb(255, 255, 255);

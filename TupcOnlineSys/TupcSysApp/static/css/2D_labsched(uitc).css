@@ -146,9 +146,9 @@ input{
 /*****************************************main contents (card content)*******************************/
 
 .jumbotron {
-    border-radius: 20px !important;
+    border-radius: 5px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 /* card body scroll function*/
 
@@ -368,7 +368,7 @@ header,
     }
     .navbar-brand {
         padding-left: 0px !important;
-        font-size: 21pt !important;
+        font-size: 15pt !important;
         cursor: default !important;
         color: white !important;
     }
@@ -385,7 +385,7 @@ header,
 @media screen and (max-width: 576px) {
     .navbar-brand {
         padding-left: 0px !important;
-        font-size: 21pt !important;
+        font-size: 15pt !important;
         cursor: default !important;
         color: white !important;
     }
@@ -436,7 +436,27 @@ header,
         display: flex;
         position: absolute;
     }
+    #logo {
+        
+        height: 40px !important;
+        width: 50px !important;
+    }
+    #bc{
+        font-size: 20px !important;
+    }
+    .thead{
+        font-size: 10px !important;
+    }
+    .formtitle{
+        font-size: 15px !important;
+    }
+    .table td {
+        
+        font-size: 12px !important;
+    }
 }
+   
+
 
 
 /*************************lower than small lang*****/
@@ -476,7 +496,7 @@ header,
     }
     .navbar-brand {
         padding-left: 0px !important;
-        font-size: 18pt !important;
+        font-size: 12pt !important;
         cursor: default !important;
         color: white !important;
     }

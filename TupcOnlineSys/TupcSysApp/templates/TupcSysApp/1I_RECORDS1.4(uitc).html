@@ -93,11 +93,11 @@
 
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="reportandmaintenance()"><a href="#">REPAIR AND MAINTENANCE RECORD</a></li>
-            <li class="breadcrumb-item" onclick="passres()"><a href="#">PASSWORD RESET RECORD</a></li>
-            <li class="breadcrumb-item" onclick="maintenance()"><a href="#">MAINTENANCE RECORD</a></li>
-            <li class="breadcrumb-item" onclick="borrow()"><a href="#">BORROW RECORD</a></li>
-            <li class="breadcrumb-item" onclick="inventory()" ><a href="#">INVENTORY</a></li>
+            <li class="breadcrumb-item ml-auto" onclick="reportandmaintenance()"><a href="#" id="bc">REPAIR AND MAINTENANCE RECORD</a></li>
+            <li class="breadcrumb-item" onclick="passres()"><a href="#" id="bc">PASSWORD RESET RECORD</a></li>
+            <li class="breadcrumb-item" onclick="maintenance()"><a href="#" id="bc">MAINTENANCE RECORD</a></li>
+            <li class="breadcrumb-item" onclick="borrow()"><a href="#" id="bc">BORROW RECORD</a></li>
+            <li class="breadcrumb-item" onclick="inventory()" ><a href="#" id="bc">INVENTORY</a></li>
 
         </ol>
     </nav>
@@ -164,6 +164,7 @@
                                     </div>
                                 </div>
                             </div>  
+
                             <!--TABLE 1 REPAIR AND MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
                             <div id="table1" class="col-xl-11" >
                                 
@@ -303,7 +304,8 @@
                                 </div>
                         
                             </div>
-                                    <!--TABLE 2 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
+
+                            <!--TABLE 2 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
                             <div id="table2" class="col-xl-11 collapse" >
                                     
                                 <form>
@@ -336,7 +338,7 @@
                                             <div class="formtitle">
                                                 PASSWORD RESET RECORD
                                             </div>
-                                            <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                            <div class="table-responsive-xl col-xl-12" id="idtable2">
                                                 <table class="table" id="myTableprr">
                                                     <thead class="thead">
                                                         <tr>
@@ -414,6 +416,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <!--TABLE 3 MAINTENANCE RECORD -------------------------------------------------------------------------------------------->
                     
                             <div id="table3" class="col-xl-11 collapse" >
@@ -448,118 +451,118 @@
                                             <div class="formtitle">
                                                 MAINTENANCE RECORD
                                             </div>
-                                            <div class="table-responsive-xl col-xl-12" id="idtable2">
+                                            <div class="table-responsive-xl col-xl-12" id="idtable3">
                                                 <table class="table">
-                                                <thead class="thead">
-                                                    <tr>
-                                                    <th scope="col">TYPE</th>
-                                                    <th scope="col ">SERIAL NO.</th>
-                                                    <th scope="col ">DATE OF MAINTENANCE</th>
-                                                    <th scope="col">BRAND MODEL</th>
-                                                    <th scope="col">ICT EQUIPMENT CODE</th>
-                                                    <th scope="col ">ICT EQUIPMENT NAME</th>
-                                                    <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">SCAN FOR VIRUSES STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">RUN MALWARE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">CLEAN KEYBOARD STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">ORGANIZE CABLES STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">WIPEDOWN MONITOR STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
-                                                    <th scope="col ">REMARKS</th>
-                                                    <th scope="col ">UITC PERSONNEL</th>
-                                                    <th scope="col ">SIGNATURE</th>
-                                                    <th scope="col ">DATE STARTED</th>
-                                                    <th scope="col ">TIME STARTED</th>
-                                                    <th scope="col ">DATE ENDED</th>
-                                                    <th scope="col ">TIME ENDED</th>
-                                                    <th scope="col ">SOLUTION RECOMMENDATION</th>
-                                                    <th scope="col ">END USER</th>
-                                                    <th scope="col ">SIGNATURE</th>
-                                                    <th scope="col ">DATE</th>
-                                                    <th scope="col ">TIME</th>
-                                                    <th scope="col">STATUS</th>
-                                                    <th scope="col">ACTION</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        {% for p in data %}
-                                                        <td>{{p.i_type4}}</td>
-                                                        <td>{{p.is_num4}}</td>
-                                                        <td>{{p.i_datem}}</td>
-                                                        <td>{{p.i_brand4}}</td>
-                                                        <td>{{p.i_code}}</td>
-                                                        <td>{{p.ie_name}}</td>
-                                                        <td>{{p.iup_sstats}}</td>
-                                                        <td>{{p.i_remarks}}</td>
-                                                        <td>{{p.i_cobfs}}</td>
-                                                        <td>{{p.i_remarks2}}</td>
-                                                        <td>{{p.iup_sstats2}}</td>
-                                                        <td>{{p.i_remarks3}}</td>
-                                                        <td>{{p.i_scan}}</td>
-                                                        <td>{{p.i_remarks4}}</td>
-                                                        <td>{{p.ia_virus}}</td>
-                                                        <td>{{p.i_remarks5}}</td>
-                                                        <td>{{p.im_stats}}</td>
-                                                        <td>{{p.i_remarks6}}</td>
-                                                        <td>{{p.ik_stats}}</td>
-                                                        <td>{{p.i_remarks7}}</td>
-                                                        <td>{{p.i_dust}}</td>
-                                                        <td>{{p.i_remarks8}}</td>
-                                                        <td>{{p.i_organize}}</td>
-                                                        <td>{{p.i_remarks9}}</td>
-                                                        <td>{{p.i_wipe}}</td>
-                                                        <td>{{p.i_remarks10}}</td>
-                                                        <td>{{p.i_run}}</td>
-                                                        <td>{{p.i_remarks11}}</td>
-                                                        <td>{{p.i_defragement}}</td>
-                                                        <td>{{p.i_remarks12}}</td>
-                                                        <td>{{p.i_empty}}</td>
-                                                        <td>{{p.i_remarks13}}</td>
-                                                        <td>{{p.i_create}}</td>
-                                                        <td>{{p.i_remarks14}}</td>
-                                                        <td>{{p.iu_pers4}}</td>
-                                                        <td>{{p.is_date4}}</td>
-                                                        <td>{{p.is_time4}}</td>
-                                                        <td>{{p.ie_date4}}</td>
-                                                        <td>{{p.ie_time4}}</td>
-                                                        <td>{{p.is_rec4}}</td>
-                                                        <td>{{p.ie_user4}}</td>
-                                                        <td>{{p.i_sig4}}</td>
-                                                        <td>{{p.ie_date5}}</td>
-                                                        <td>{{p.i_time2}}</td>
+                                                    <thead class="thead">
+                                                        <tr>
+                                                        <th scope="col">TYPE</th>
+                                                        <th scope="col ">SERIAL NO.</th>
+                                                        <th scope="col ">DATE OF MAINTENANCE</th>
+                                                        <th scope="col">BRAND MODEL</th>
+                                                        <th scope="col">ICT EQUIPMENT CODE</th>
+                                                        <th scope="col ">ICT EQUIPMENT NAME</th>
+                                                        <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">SCAN FOR VIRUSES STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">RUN MALWARE STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">CLEAN KEYBOARD STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">ORGANIZE CABLES STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">WIPEDOWN MONITOR STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
+                                                        <th scope="col ">REMARKS</th>
+                                                        <th scope="col ">UITC PERSONNEL</th>
+                                                        <th scope="col ">SIGNATURE</th>
+                                                        <th scope="col ">DATE STARTED</th>
+                                                        <th scope="col ">TIME STARTED</th>
+                                                        <th scope="col ">DATE ENDED</th>
+                                                        <th scope="col ">TIME ENDED</th>
+                                                        <th scope="col ">SOLUTION RECOMMENDATION</th>
+                                                        <th scope="col ">END USER</th>
+                                                        <th scope="col ">SIGNATURE</th>
+                                                        <th scope="col ">DATE</th>
+                                                        <th scope="col ">TIME</th>
+                                                        <th scope="col">STATUS</th>
+                                                        <th scope="col">ACTION</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            {% for p in data %}
+                                                            <td>{{p.i_type4}}</td>
+                                                            <td>{{p.is_num4}}</td>
+                                                            <td>{{p.i_datem}}</td>
+                                                            <td>{{p.i_brand4}}</td>
+                                                            <td>{{p.i_code}}</td>
+                                                            <td>{{p.ie_name}}</td>
+                                                            <td>{{p.iup_sstats}}</td>
+                                                            <td>{{p.i_remarks}}</td>
+                                                            <td>{{p.i_cobfs}}</td>
+                                                            <td>{{p.i_remarks2}}</td>
+                                                            <td>{{p.iup_sstats2}}</td>
+                                                            <td>{{p.i_remarks3}}</td>
+                                                            <td>{{p.i_scan}}</td>
+                                                            <td>{{p.i_remarks4}}</td>
+                                                            <td>{{p.ia_virus}}</td>
+                                                            <td>{{p.i_remarks5}}</td>
+                                                            <td>{{p.im_stats}}</td>
+                                                            <td>{{p.i_remarks6}}</td>
+                                                            <td>{{p.ik_stats}}</td>
+                                                            <td>{{p.i_remarks7}}</td>
+                                                            <td>{{p.i_dust}}</td>
+                                                            <td>{{p.i_remarks8}}</td>
+                                                            <td>{{p.i_organize}}</td>
+                                                            <td>{{p.i_remarks9}}</td>
+                                                            <td>{{p.i_wipe}}</td>
+                                                            <td>{{p.i_remarks10}}</td>
+                                                            <td>{{p.i_run}}</td>
+                                                            <td>{{p.i_remarks11}}</td>
+                                                            <td>{{p.i_defragement}}</td>
+                                                            <td>{{p.i_remarks12}}</td>
+                                                            <td>{{p.i_empty}}</td>
+                                                            <td>{{p.i_remarks13}}</td>
+                                                            <td>{{p.i_create}}</td>
+                                                            <td>{{p.i_remarks14}}</td>
+                                                            <td>{{p.iu_pers4}}</td>
+                                                            <td>{{p.is_date4}}</td>
+                                                            <td>{{p.is_time4}}</td>
+                                                            <td>{{p.ie_date4}}</td>
+                                                            <td>{{p.ie_time4}}</td>
+                                                            <td>{{p.is_rec4}}</td>
+                                                            <td>{{p.ie_user4}}</td>
+                                                            <td>{{p.i_sig4}}</td>
+                                                            <td>{{p.ie_date5}}</td>
+                                                            <td>{{p.i_time2}}</td>
+                                                            
+                                                            <td>
+                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                                         
-                                                        <td>
-                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                    
-                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
 
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                </tbody>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         
@@ -576,28 +579,28 @@
                             </div> 
 
                             <!--TABLE 4 BORROW RECORD -------------------------------------------------------------------------------------------->
-                        
                             <div id="table4" class="col-xl-11 collapse" >
-                                
+                                    
                                 <form>
                                     <div class="form-row">
     
                                         <div class="col-xl-9 col-lg-8 col-12">
                                             <input type="text" id="myInputbr" onkeyup="myFunctionbr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                         </div>
-                                        
-                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
-                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                    </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
+                                       
+                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                        <div class="col-xl-1 col-lg-2 col-12">
+                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                        </div>
+                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sorted by:
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Date</a>
+                                                <a class="dropdown-item" href="#">Ascending</a>
+                                                <a class="dropdown-item" href="#">Descending</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -607,63 +610,63 @@
                                             <div class="formtitle">
                                                 BORROW RECORD
                                             </div>
-                                            <div class="table-responsive-xl col-xl-12" id="idtable3">
-                                            <table class="table" >
-                                                <thead class="thead">
-                                                    <tr>
-                                                    <th scope="col">FULL NAME</th>
-                                                    <th scope="col ">DATE RQSTD</th>
-                                                    <th scope="col">TIME</th>
-                                                    <th scope="col ">RQST BORROW</th>
-                                                    <th scope="col">REASON FOR BORROWING</th>
-                                                    <th scope="col">SIGNATURE</th>
-                                                    <th scope="col">STATUS</th>
-                                                    <th scope="col">ACTION</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        {% for p in data1 %}
-                                                        <td>{{p.fbname}}</td>
-                                                        <td>{{p.fbdate}}</td>
-                                                        <td>{{p.fbtime}}</td>
-                                                        <td>{{p.fbreq}}</td>
-                                                        <td>{{p.fbreason}}</td>
-                                                        <td>{{p.fbsign}}</td>
-                                                        <td>{{p.fbstat}}</td>
-                                                        <td>
-                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                
-                                                            <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+                                            <div class="table-responsive-xl col-xl-12" id="idtable4">
+                                                <table class="table" >
+                                                    <thead class="thead">
+                                                        <tr>
+                                                        <th scope="col">FULL NAME</th>
+                                                        <th scope="col ">DATE RQSTD</th>
+                                                        <th scope="col">TIME</th>
+                                                        <th scope="col ">RQST BORROW</th>
+                                                        <th scope="col">REASON FOR BORROWING</th>
+                                                        <th scope="col">SIGNATURE</th>
+                                                        <th scope="col">STATUS</th>
+                                                        <th scope="col">ACTION</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            {% for p in data1 %}
+                                                            <td>{{p.fbname}}</td>
+                                                            <td>{{p.fbdate}}</td>
+                                                            <td>{{p.fbtime}}</td>
+                                                            <td>{{p.fbreq}}</td>
+                                                            <td>{{p.fbreason}}</td>
+                                                            <td>{{p.fbsign}}</td>
+                                                            <td>{{p.fbstat}}</td>
+                                                            <td>
+                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                    
+                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
 
-                                                        </div>
-                                                    </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                    <tr>
-                                                        {% for p in data2 %}
-                                                        <td>{{p.if_name5}}</td>
-                                                        <td>{{p.i_date5}}</td>
-                                                        <td>{{p.i_time5}}</td>
-                                                        <td>{{p.ir_borrow5}}</td>
-                                                        <td>{{p.irf_borrow5}}</td>
-                                                        <td>{{p.i_sig5}}</td>
-                                                        <td>{{p.i_stats5}}</td>
-                                                        <td>
-                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                
-                                                            <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        <tr>
+                                                            {% for p in data2 %}
+                                                            <td>{{p.if_name5}}</td>
+                                                            <td>{{p.i_date5}}</td>
+                                                            <td>{{p.i_time5}}</td>
+                                                            <td>{{p.ir_borrow5}}</td>
+                                                            <td>{{p.irf_borrow5}}</td>
+                                                            <td>{{p.i_sig5}}</td>
+                                                            <td>{{p.i_stats5}}</td>
+                                                            <td>
+                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                    
+                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
 
-                                                        </div>
-                                                    </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <script>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <script>
                                             function myFunctionbr() {
                                               var input, filter, table, tr, td, i, txtValue;
                                               input = document.getElementById("myInputbr");
@@ -692,6 +695,7 @@
                                     </div>
                                 </div>
                         
+                            
                             </div> 
                    
 
