@@ -58,7 +58,7 @@
     <nav class="navbar">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
         <div id="titulo">
-            <a class="navbar-brand" href="#">INTERNET CONNECTIVITY REGISTRATION</a>
+            <a class="navbar-brand" href="#">INTERNET CONNECTIVITY</a>
         </div>
         <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
 
@@ -66,8 +66,8 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="wifi()"><a href="#">STUDENT WIFI REGISTRATION</a></li>
-            <li class="breadcrumb-item " onclick="internet()"><a href="#">INTERNET ACCESS REGISTRATION</a></li>
+            <li class="breadcrumb-item ml-auto" onclick="wifi()"><a href="#" id="bc">STUDENT WIFI REGISTRATION</a></li>
+            <li class="breadcrumb-item " onclick="internet()"><a href="#" id="bc">INTERNET ACCESS REGISTRATION</a></li>
         </ol>
     </nav>
 
@@ -98,7 +98,7 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form action="/StudentInternet/" method="POST">
+                                    <form action="/StudentInternet/" method="POST" id="studwifiform">
                                         {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
@@ -177,7 +177,7 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form action="/StudentWifi/" method="POST">
+                                    <form action="/StudentWifi/" method="POST" id="studaccessform">
                                         {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE

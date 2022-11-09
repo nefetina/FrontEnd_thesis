@@ -66,8 +66,8 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="borrow()"><a href="#">BORROW FORM</a></li>
-            <li class="breadcrumb-item" onclick="requestforpassreset()"><a href="#">REQUEST FOR PASSWORD RESET</a></li>
+            <li class="breadcrumb-item ml-auto" onclick="borrow()"><a href="#" id="bc">BORROW FORM</a></li>
+            <li class="breadcrumb-item" onclick="requestforpassreset()"><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
         </ol>
     </nav>
 
@@ -94,7 +94,7 @@
                         <div class="jumbotron col-11 m-1" id="form1"><br>
                             <!---------------BORROW REQUEST-------------------------------------------------------------------------------->
                             <div class="card-body">
-                                <form action="/StudentReports/" method="POST">
+                                <form action="/StudentReports/" method="POST" id="borrowform">
                                     {%csrf_token%}
                                     <div class="formtitle">
                                         FILL UP THE FORM HERE

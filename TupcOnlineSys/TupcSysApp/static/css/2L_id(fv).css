@@ -397,7 +397,7 @@ header,
 @media screen and (max-width: 576px) {
     .navbar-brand {
         padding-left: 0px !important;
-        font-size: 21pt !important;
+        font-size: 15pt !important;
         cursor: default !important;
         color: white !important;
     }
@@ -448,6 +448,20 @@ header,
         display: flex;
         position: absolute;
     }
+    #logo {
+        
+        height: 40px !important;
+        width: 50px !important;
+    }
+    #bc{
+        font-size: 20px !important;
+    }
+    .thead{
+        font-size: 10px !important;
+    }
+    .formtitle{
+        font-size: 14px !important;
+    }
 }
 
 
@@ -488,7 +502,7 @@ header,
     }
     .navbar-brand {
         padding-left: 0px !important;
-        font-size: 18pt !important;
+        font-size: 12pt !important;
         cursor: default !important;
         color: white !important;
     }
