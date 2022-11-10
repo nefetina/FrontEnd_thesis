@@ -58,7 +58,10 @@ class BorrowRecordForm(forms.ModelForm):
 		model = borrow_record
 		fields = '__all__'
 
-
+class InventoryForm(forms.ModelForm):
+	class Meta:
+		model = Inventory
+		fields = '__all__'
 
 
 

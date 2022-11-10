@@ -98,14 +98,13 @@
 
                 <!--CARD-------------------------------------------------------------------------------------------->
 
-                <div class="col-xl-11 main">
+                <div class="col-xl-11 main" >
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
                         <div  class="col-xl-11" >
-                            <div class="jumbotron m-1"><br>
-                        
-                        
+                            <div class="jumbotron m-1"> <br>
                                 <div class="card-body">
-                                    <form>
+                                      <form action="" method="POST">
+                                        {% csrf_token %}
                                         <div class="formtitle">
                                             INVENTORY
                                         </div>
@@ -114,57 +113,74 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:" name="i_equip" required>
                                             </div>
                                             <div class="col-xl-5">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="No of Units:">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="No of Units:" name="i_quant" required>
                                             </div>
                                             <div class="col-xl-1">
-                                                <button type="button" class="btn btn-success  mt-2 "  >
+                                                <button type="submit" class="btn btn-success  mt-2 " name="addInventory" >
                                                     ADD
                                                 </button>
                                             </div>
                                         </div>
                                         <div class="descriptions col-12 m-2">
                                             Supplies and Materials  (Parts to be Replaced)
+                                        </form>
                                         </div>
+
         
                                         <!--TABLE-------------------------------------------------------------------------------------------->
         
                                         <div class="table-responsive col-xl-12">
                                             <table class="table">
-                                                <thead class="thead">
+                                                <thead class="thead" id="myTableI">
                                                 <tr>
                                                     <th scope="col-xl-2 ">Quantity</th>
                                                     <th scope="col-xl-6 ">Equipment</th>
                                                     <th scope="col-xl-4 ">Modify/Delete</th>
+                                                    <th></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                    {% for i in inventory %}
+                                                    
                                                 <tr>
-                                                    <td>7</td>
-                                                    <td>Extensions</td>
-                                                    <td>
-                                                        <button class="btn btn-primary " style="width: 120px;">UPDATE</button>
-                                                        <button class="btn btn-danger " style="width: 120px;">DELETE</button>     
+                                                    <td>{{i.i_quant}}</td>
+                                                    <td>{{i.i_equip}}</td>
+                                                    <td><button class="btn btn-primary " style="width: 120px;">UPDATE</button></td>
+                                                    <td><button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger" data-bs-target="#modalDelete{{ i.id }}">DELETE</button></td>
                                                     </td>
                                                 </tr>
+                                                <!-- MODAL DELETE -->
+                                                <div class="modal fade" id="modalDelete{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalDelete" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">Are you sure you want to delete?</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <div class="text-center">
+                                                            <form action="" method="POST">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="id" value="{{ i.id }}">
+                                                            <h3>You are now deleting this item: {{ i.i_quant}} {{ i.i_equip }}</h3>
+                                                            <br>
+                                                            <button type="submit" class="btn btn-danger" name="deleteInventory">Yes I'm sure</button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No not now</button>
+                                                        </form>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                
+                                            {% endfor %}
                                                 
                                                 </tbody>
                                             </table>
-                                        </div>
-        
-                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                        <div class="col-xl-12 ">
-                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
-                                                Next
-                                            </button>
-                                            <button type="button" class="btn btn-danger float-right m-1"  >
-                                                Clear
-                                            </button>
-                                            
-                                        </div>
-                                        
+                                        </div> 
                                     </form>
                                 </div>
                             </div>
@@ -182,9 +198,13 @@
             <div id="pic" class="view drk "></div>
         </div>
     </div>
-
-
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% for message in messages %}
+    <script>
+        swal("{{message}}","");
+    </script>
+    {% endfor %}
 </body>
 
 </html>

@@ -277,3 +277,7 @@ class PassReset(models.Model):
     emp_idno = models.CharField(max_length = 50, null=True)
     Account = models.CharField(max_length = 100, null=True, choices= accounts)
     psstats = models.CharField(max_length = 100, null=True)
+
+class Inventory(models.Model):
+    i_quant =  models.CharField(max_length = 100, null=True)
+    i_equip =  models.CharField(max_length = 100, null=True)

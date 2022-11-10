@@ -869,8 +869,27 @@ def StudentReports_RequestPass(request):
 
 @login_required(login_url='/Index')
 def UitcInventory(request):#UITC ID page
-    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-       return render (request, 'TupcSysApp/1S_INVENTORY(UITC).html')
+    if request.user.is_authenticated:
+        getDataInventory = Inventory.objects.all()
+        forminventory = InventoryForm(request.POST or None)
+        buy_id = request.POST.get('id')
+        inventory_del = Inventory.objects.filter(id=buy_id)
+        
+        if request.method == 'POST':
+            if forminventory.is_valid():
+                messages.info(request,'Successfully Added!')
+                forminventory.save()
+                return redirect('/UitcInventory')
+
+        if request.method == "POST":
+            messages.info(request,'Successfully Deleted!')
+            inventory_del.delete()
+            return redirect('/UitcInventory')
+
+        context = {
+            'inventory': getDataInventory
+        }
+        return render (request, 'TupcSysApp/1S_INVENTORY(UITC).html', context)
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
