@@ -21,6 +21,12 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from datetime import datetime
 from django.http import HttpResponseRedirect
+from django.core.mail import message, send_mail
+from django.core.mail import EmailMessage
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
 # Create your views here.
 
 installed_apps = ['TupcSysApp']
@@ -89,21 +95,33 @@ def register(request):#registration
         a = list.objects.all().values()
         b = request.POST.get("username")  
         c = request.POST.get("gsfe")  
-        print(b)
+
         ccc = list.objects.only('id').filter(lidno = b)
         y = ccc.values()         
         for x in y:
             print(x['type'])
             type = x['type']
             lgsfe = x['lgsfe']
-
+           
             if x["lidno"] == b and x['lgsfe'] == c:
                 form =  Registration(request.POST)
                 #form["Personal_description"].value = c
                 if form.is_valid():
                     form.save()
+
                     register1.objects.filter(username=b).update(Personal_description=type)
                     messages.success(request, 'You are now successfully registered')
+                    name = form["name"].value()
+                    message = "You are succesfully registered as " + type + "! \n Your Username is " + b + '.'
+                    email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [lgsfe],
+
+                        )
+
+                    email.send()
 
                     return redirect('/')
                 else:

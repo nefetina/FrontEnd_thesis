@@ -136,3 +136,13 @@ AUTH_USER_MODEL = 'TupcSysApp.register1'
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_EXPIRE_SECONDS = 300
 SESSION_TIMEOUT_REDIRECT = '/'
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'tupc.uitconlinesystem@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'ujatoikcpcggcmoh'
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
