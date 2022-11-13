@@ -94,8 +94,7 @@ def register(request):#registration
     if request.method == "POST":
         a = list.objects.all().values()
         b = request.POST.get("username")  
-        c = request.POST.get("gsfe")  
-
+        c = request.POST.get("gsfe")
         ccc = list.objects.only('id').filter(lidno = b)
         y = ccc.values()         
         for x in y:
@@ -172,9 +171,24 @@ def logoutUser(request):
 
 def facultyID_permit(request, id):
     a = faculty_ID.objects.get(id=id)
+    current_user = request.user
     for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
         if a == x:
             x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Evaluation of ID has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcID')
@@ -190,6 +204,7 @@ def facultyID_cancel(request, id):
 
 def FacultyWifi_cancel(request, id):
     a = faculty_wifi.objects.get(id=id)
+    
     for x in faculty_wifi.objects.only('id').filter(g_stat= "On process"):
         if a == x:
             x = faculty_wifi.objects.get(id=id).delete()
@@ -199,9 +214,24 @@ def FacultyWifi_cancel(request, id):
 
 def FacultyWifi_permit(request, id):
     a = faculty_wifi.objects.get(id=id)
+    current_user = request.user
     for x in faculty_wifi.objects.only('id').filter(g_stat= "On process"):
         if a == x:
             x = faculty_wifi.objects.filter(id=id).update(g_stat="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Wifi Access has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcInternet')
@@ -217,9 +247,24 @@ def StudentWifi_cancel(request, id):
 
 def StudentWifi_permit(request, id):
     a = student_wifi.objects.get(id=id)
+    current_user = request.user
     for x in student_wifi.objects.only('id').filter(g_stats1= "On process"):
         if a == x:
             x = student_wifi.objects.filter(id=id).update(g_stats1="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Wifi Access has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcInternet')
@@ -235,9 +280,24 @@ def StudentInternet_cancel(request, id):
 
 def StudentInternet_permit(request, id):
     a = student_internet.objects.get(id=id)
+    current_user = request.user
     for x in student_internet.objects.only('id').filter(g_stats2= "On process"):
         if a == x:
             x = student_internet.objects.filter(id=id).update(g_stats2="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Internet Access has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcInternet')
@@ -253,9 +313,24 @@ def labsched_cancel(request, id):
 
 def labsched_permit(request, id):
     a = faculty_lab.objects.get(id=id)
+    current_user = request.user
     for x in faculty_lab.objects.only('id').filter(l_stat= "On process"):
         if a == x:
             x = faculty_lab.objects.filter(id=id).update(l_stat="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Laboratory Schedule has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcLabsched')
@@ -271,9 +346,24 @@ def fpasswordreset_cancel(request, id):
 
 def fpasswordreset_permit(request, id):
     a = faculty_passreset.objects.get(id=id)
+    current_user = request.user
     for x in faculty_passreset.objects.only('id').filter(fwstat= "On process"):
         if a == x:
             x = faculty_passreset.objects.filter(id=id).update(fwstat="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Password Reset has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
@@ -289,9 +379,24 @@ def spasswordreset_cancel(request, id):
 
 def spasswordreset_permit(request, id):
     a = PassReset.objects.get(id=id)
+    current_user = request.user
     for x in PassReset.objects.only('id').filter(psstats= "On process"):
         if a == x:
             x = PassReset.objects.filter(id=id).update(psstats="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Password Reset has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
@@ -307,9 +412,24 @@ def sborrow_cancel(request, id):
 
 def sborrow_permit(request, id):
     a = borrow_record.objects.get(id=id)
+    current_user = request.user
     for x in borrow_record.objects.only('id').filter(i_stats5= "On process"):
         if a == x:
             x = borrow_record.objects.filter(id=id).update(i_stats5="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Borrowing has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
@@ -325,9 +445,24 @@ def fborrow_cancel(request, id):
 
 def fborrow_permit(request, id):
     a = faculty_borrow.objects.get(id=id)
+    current_user = request.user
     for x in faculty_borrow.objects.only('id').filter(fbstat= "On process"):
         if a == x:
             x = faculty_borrow.objects.filter(id=id).update(fbstat="Approved")
+            name = current_user.name
+            uemail = current_user.gsfe
+            print(name)
+            print(uemail)
+            message = "Good day " + name + ", \n Your request for Borrowing has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
