@@ -635,26 +635,8 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                     <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="mod" tabindex="-1" role="dialog" aria-labelledby="domTitle" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered"  role="document">
-                                                        <div class="modal-content" id="dal">
-                                                            <div class="modal-header">
-                                                            <h6 class="modal-title"  id="MODAL2">Notification</h6>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">
-                                                            </button>
-                                                            </div>
-                                                            <div class="modal-body"  id="MODAL2">
-                                                                Do you really want to deny this?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="b2" onclick="cancel2()">Cancel</button>
-                                                            <button type="submit" class="btn btn-primary" data-dismiss="modal" id="b1" onclick="submit()">Yes</button>
-                                                            </div>
-                                                        </div>
-                                                        </div>
-                                                    </div>
+                                    
+                                                    
 
                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
                                                     <div class="modal fade" id="deny2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -734,7 +716,7 @@
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fpasswordreset_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
+                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#deny2" id="btn4"
                                                             data-toggle="tooltip" data-placement="top" title="Deny"  ><i class="fa fa-times" aria-hidden="true" href="{% url 'TupcSysApp:fpasswordreset_permit' p.pk  %}"></i></a>
                                                         </div>
                                                         
@@ -752,7 +734,7 @@
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:spasswordreset_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#mod" id="btn4"
+                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#deny3" id="btn4"
                                                             data-toggle="tooltip" data-placement="top" title="Deny"  href="{% url 'TupcSysApp:spasswordreset_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true" ></i></a>
                                                         </div>
                                                     </td>
@@ -1885,7 +1867,7 @@
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                             title="Deny"  href="{% url 'TupcSysApp:fborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                             title="Deny" data-toggle="modal" data-target="#deny5" href="{% url 'TupcSysApp:fborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </div>
                                                         
                                                     </td>
@@ -1906,7 +1888,7 @@
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:sborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5"  id="btn4"
-                                                            title="Deny"  href="{% url 'TupcSysApp:sborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true" ></i></a>
+                                                            title="Deny" data-toggle="modal" data-target="#deny6" href="{% url 'TupcSysApp:sborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true" ></i></a>
                                                         </div>
                                                         
                                                     </td>
