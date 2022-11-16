@@ -150,7 +150,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name:" id="if_name" name = "fname" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="{{request.user.name}}" id="if_name" name = "fname" readonly>
                                             </div>
                                             <div class="col-xl-12">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Position/Job:" id="i_pos" name = "Fposjob" required>
@@ -231,7 +231,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2 " placeholder="Full Name" name = "fwname" required>
+                                                <input type="text" class="form-control my-2 p-2 " placeholder="{{request.user.name}}" name = "fwname" readonly>
                                             </div>
                                             <div class="col-xl-12">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Employee ID" name = "fwempID" required>
@@ -288,7 +288,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name" id="if_name5" name = "fbname" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="{{request.user.name}}"  id="if_name5" name = "fbname" readonly>
                                             </div>
                                         </div>
                                         <div class="form-row">

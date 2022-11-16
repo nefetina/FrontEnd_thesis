@@ -788,7 +788,7 @@ def FacultyInternet(request):#FACULTY INTERNET page
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            gf_name = request.POST.get('gf_name')
+            request.POST.get('request.user.name')
             g_dept = request.POST.get('g_dept')
             g_des = request.POST.get('g_des')
             g_sys = request.POST.get('g_sys')
@@ -799,7 +799,7 @@ def FacultyInternet(request):#FACULTY INTERNET page
             g_sig = request.POST.get('g_sig')
             g_datereq = request.POST.get('g_datereq')
             g_stats = "On Process"
-            data = faculty_wifi.objects.create(gf_name = gf_name, g_dept=g_dept, g_des=g_des, g_sys=g_sys, g_mac=g_mac, 
+            data = faculty_wifi.objects.create(gf_name = request.user.name, g_dept=g_dept, g_des=g_des, g_sys=g_sys, g_mac=g_mac, 
              g_num=g_num, g_email=g_email, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stat=g_stats)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -816,7 +816,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            f_name = request.POST.get('f_name')
+            request.POST.get('request.user.name')
             dep = request.POST.get('dep')
             l_date = request.POST.get('l_date')
             lab_num = request.POST.get('lab_num')
@@ -825,7 +825,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
             e_time = request.POST.get('e_time')
             fl_sig = request.POST.get('fl_sig')
             l_stat = "On Process"
-            data = faculty_lab.objects.create(f_name = f_name, dep=dep, l_date=l_date, lab_num=lab_num, crs_sec=crs_sec, 
+            data = faculty_lab.objects.create(f_name = request.user.name, dep=dep, l_date=l_date, lab_num=lab_num, crs_sec=crs_sec, 
              s_time=s_time, e_time=e_time, fl_sig=fl_sig, l_stat = l_stat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -847,7 +847,7 @@ def FacultyReports(request):#FACULTY REPORTS page
             fserial = request.POST.get('fserial')
             fspecs = request.POST.get('fspecs')
             fnature = request.POST.get('fnature')
-            fname = request.POST.get('fname')
+            request.POST.get('request.user.name')
             Fposjob = request.POST.get('Fposjob')
             fdep = request.POST.get('fdep')
             fdate = request.POST.get('fdate')
@@ -855,7 +855,7 @@ def FacultyReports(request):#FACULTY REPORTS page
             fsign = request.POST.get('fsign')
             fstat = "On Process"
             data = faculty_reports.objects.create(ftype = ftype, fbrand=fbrand, fserial=fserial, fspecs=fspecs, fnature=fnature, 
-             fname=fname, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
+             fname=request.user.name, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
@@ -881,12 +881,12 @@ def FacultyRstPass(request):
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            fwname = request.POST.get('fwname')
+            request.POST.get('request.user.name')
             fwempID = request.POST.get('fwempID')
             fwIDtype = request.POST.get('fwIDtype')
             fwemail = request.POST.get('fwemail')
             fwstat = "On Process"
-            data = faculty_passreset.objects.create(fwname = fwname, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=fwemail, fwstat=fwstat)
+            data = faculty_passreset.objects.create(fwname = request.user.name, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=fwemail, fwstat=fwstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
@@ -900,14 +900,14 @@ def FacultyBorrower(request):
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            fbname = request.POST.get('fbname')
+            request.POST.get('request.user.name')
             fbdate = request.POST.get('fbdate')
             fbtime = request.POST.get('fbtime')
             fbreq = request.POST.get('fbreq')
             fbreason = request.POST.get('fbreason')
             fbsign = request.POST.get('fbsign')
             fbstat = "On Process"
-            data = faculty_borrow.objects.create(fbname = fbname, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
+            data = faculty_borrow.objects.create(fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
