@@ -927,7 +927,7 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
-            gf_name2 = request.POST.get('gf_name2')
+            request.POST.get('request.user.name')
             g_csec2 = request.POST.get('g_csec2')
             g_snum2 = request.POST.get('g_snum2')
             g_sem2 = request.POST.get('g_sem2')
@@ -939,7 +939,7 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_sig2=request.POST.get('g_sig2') 
             g_daterec2 = request.POST.get('g_daterec2')
             g_stats2 = "On Process"
-            data = student_internet.objects.create(gf_name2 = gf_name2, g_csec2=g_csec2, 
+            data = student_internet.objects.create(gf_name2 = request.user.name, g_csec2=g_csec2, 
             g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=g_email2,
             g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
             data.save()
@@ -948,14 +948,14 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
     else:
         return redirect('/')
 @login_required(login_url='/Index')
-def StudentWifi(request):#STUDENT INTERNET ACCESS page
+def StudentWifi(request):#STUDENT WIFI ACCESS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
-            gf_name1 = request.POST.get('gf_name1')
+            request.POST.get('request.user.name')
             g_csec1 = request.POST.get('g_csec1')
             g_snum1 = request.POST.get('g_snum1')
             g_sem1 = request.POST.get('g_sem1')
@@ -968,7 +968,7 @@ def StudentWifi(request):#STUDENT INTERNET ACCESS page
             g_sig1=request.POST.get('g_sig1')
             g_daterec1 = request.POST.get('g_daterec1')
             g_stats1 = "On Process"
-            data = student_wifi.objects.create(gf_name1 = gf_name1, g_csec1=g_csec1, 
+            data = student_wifi.objects.create(gf_name1 = request.user.name, g_csec1=g_csec1, 
             g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=g_email1,
             g_add1=g_add1, g_sig1=g_sig1, g_daterec1=g_daterec1, g_stats1=g_stats1)
             data.save()
@@ -984,14 +984,14 @@ def StudentReports(request):#STUDENT REPORT page
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
-            if_name5 = request.POST.get('if_name5')
+            request.POST.get('request.user.name')
             i_date5 = request.POST.get('i_date5')
             i_time5 = request.POST.get('i_time5')
             ir_borrow5 = request.POST.get('ir_borrow5')
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
             i_stats5 = "On Process"
-            data = borrow_record.objects.create(if_name5 = if_name5, i_date5=i_date5, 
+            data = borrow_record.objects.create(if_name5 = request.user.name, i_date5=i_date5, 
             i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -1007,12 +1007,12 @@ def StudentReports_RequestPass(request):
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
-            psname = request.POST.get('psname')
+            request.POST.get('request.user.name')
             email = request.POST.get('email')
             emp_idno = request.POST.get('emp_idno')
             Account = request.POST.get('Account')
             psstats = "On Process"
-            data = PassReset.objects.create(psname = psname, email = email, emp_idno=emp_idno, 
+            data = PassReset.objects.create(psname = request.user.name, email = email, emp_idno=emp_idno, 
             Account=Account, psstats=psstats)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -1050,6 +1050,8 @@ def UitcInventory(request):#UITC ID page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
+
+
   
 
 
