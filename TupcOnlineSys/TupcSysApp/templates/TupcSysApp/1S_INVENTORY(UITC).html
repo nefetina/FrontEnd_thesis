@@ -148,7 +148,7 @@
                                                 <tr>
                                                     <td>{{i.i_quant}}</td>
                                                     <td>{{i.i_equip}}</td>
-                                                    <td><button class="btn btn-primary " style="width: 120px;">UPDATE</button></td>
+                                                    <td><button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger" data-bs-target="#modalUpdate{{ i.id }}">UPDATE</button></td>
                                                     <td><button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger" data-bs-target="#modalDelete{{ i.id }}">DELETE</button></td>
                                                 </tr>
                                                 <!-- MODAL DELETE -->
@@ -168,14 +168,38 @@
                                                             <br>
                                                             <button type="submit" class="btn btn-danger" name="deleteInventory">Yes I'm sure</button>
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No not now</button>
-                                                        </form>
+                                                            </form>
                                                     </div>
                                                   </div>
                                                 </div>
                                               </div>
                                             </div>
-                                
-                                            {% endfor %}
+                                            <!-- MODAL UPDATE -->
+                                            <div class="modal fade" id="modalUpdate{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalUpdate" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Are you sure you want to update?</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                    <div class="text-center">
+                                                        <form action="" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="id" value="{{ i.id }}">
+                                                        <input type="text" name="i_quant" value="{{ i.i_quant }}">
+                                                        <input type="text" name="i_equip" value="{{ i.i_equip }}">
+                                                        <br>
+                                                        </br>
+                                                        <button type="submit" class="btn btn-danger" name="updateInventory";>Yes I'm sure</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No not now</button>
+                                                        </form>
+                                                        {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
                                                 
                                                 </tbody>
                                             </table>
@@ -199,8 +223,6 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/app.js' %}"></script>
-    <script src="{% static 'js/search.js' %}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {% for message in messages %}
     <script>

@@ -1,32 +1,32 @@
-from msilib.schema import File
-from operator import indexOf
-from os import fstat
-from MySQLdb import ROWID
-from django.shortcuts import render
-from multiprocessing import context
 import logging
-from pip import List
-from .models import *
-from .forms import *
-from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate
-from django.http import HttpResponse
-import mysql.connector as sql
-from django.contrib.auth.models import User, auth
-from django.contrib.auth import authenticate
-from .forms import Registration
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+import smtplib
+from audioop import reverse
 from datetime import datetime
-from django.http import HttpResponseRedirect
-from django.core.mail import message, send_mail
-from django.core.mail import EmailMessage
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import smtplib
+from msilib.schema import File
+from multiprocessing import context
+from operator import indexOf
+from os import fstat
+from unittest import loader
+
+import mysql.connector as sql
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User, auth
+from django.core.mail import EmailMessage, message, send_mail
+from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, redirect, render
+from MySQLdb import ROWID
+from pip import List
+
+from .forms import *
+from .forms import Registration
+from .models import *
+
 # Create your views here.
 
 installed_apps = ['TupcSysApp']
@@ -1031,6 +1031,7 @@ def UitcInventory(request):#UITC ID page
         if request.method == 'POST':
             if forminventory.is_valid():
                 messages.info(request,'Successfully Added!')
+                inventory_del.delete()
                 forminventory.save()
                 return redirect('/UitcInventory')
 
@@ -1049,3 +1050,6 @@ def UitcInventory(request):#UITC ID page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
+  
+
+
