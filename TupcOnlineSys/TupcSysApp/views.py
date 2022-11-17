@@ -4,7 +4,6 @@ from datetime import datetime
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from msilib.schema import File
 from multiprocessing import context
 from operator import indexOf
 from os import fstat
