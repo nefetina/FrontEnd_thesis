@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!----TAB NAME------------------------------------------------>
-    <title>TUPC ONLINE SYSTEM</title>
+    <title>STUDENT INTERNET CONNECTIVITY</title>
     <!----TAB ICON------------------------------------------------>
     <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
     <!----CSS AND JS------------------------------------------------>
@@ -137,6 +137,17 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
+                                            <div class="col-xl-12">
+                                                <div class="checkbox descriptions ">
+                                                    <input type="checkbox" name="terms" id="terms" required>
+                                                    <p class="card-text ">I understand that the Internet Access provided to me is for academic use only.
+                                                        I have gone through the Rules and Regulations of Using the Internet Access Center and I abide by it.
+                                                        I will not misuse the facility by any means.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-xl-6">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Username" name="gu_name2" required>
                                             </div>
@@ -152,6 +163,26 @@
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Signature" name="g_sig2" required>
                                             </div>
                                         </div>
+                                        <!--disclosure modal-------------------------------------------------------------------------------------------->    
+                                        <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to send?
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-primary">Send</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
 
                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
                                         <div class="col-xl-12 mt-2">
@@ -159,7 +190,7 @@
                                                 <input type="checkbox" name="terms" id="terms" required>
                                                 <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
                                             </div>
-                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" data-toggle="modal" data-target="#confirmation1">
                                                                     Submit
                                                                 </button>
                                             <button type="button" class="btn btn-danger float-right m-1">
@@ -239,14 +270,33 @@
                                                 <input type="date" class="form-control my-2 p-2" placeholder="Date:" name="g_daterec1" required>
                                             </div>
                                         </div>
-
+                                        <!--disclosure modal-------------------------------------------------------------------------------------------->    
+                                        <div class="modal fade" id="confirmation2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to send?
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-primary">Send</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
                                         <div class="col-xl-12 mt-2">
                                             <div class=checkbox>
                                                 <input type="checkbox" name="terms" id="terms" required>
                                                 <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
                                             </div>
-                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                            <button type="button" class="btn btn-primary  float-right m-1"  data-toggle="modal" data-target="#confirmation2">
                                                                     Submit
                                                                 </button>
                                             <button type="button" class="btn btn-danger float-right m-1">

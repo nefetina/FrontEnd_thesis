@@ -104,23 +104,14 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInput" onkeyup="myFunction()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                      </div>
+                                    
                                 </div>
                             </form>                    
                             
@@ -161,59 +152,59 @@
                                                                     <form>
                                                                         <div class="form-row">
             
-                                                                            <div class="col-xl-6">DATE RELEASED: 
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_datereq}}" placeholder="Date Requested:" readonly>
+                                                                            <div class="col-xl-6"> 
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date Requested: {{p.f_datereq}}" placeholder="Date Requested:" readonly>
                                                                             </div>
                                                                             <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_daterel}}" placeholder="Date Released:" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value=" Date Released: {{p.f_daterel}}" placeholder="Date Released:" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_gsis}}" placeholder="GSIS" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS: {{p.f_gsis}}" placeholder="GSIS" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_tin}}" placeholder="TIN:" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="TIN: {{p.f_tin}}" placeholder="TIN:" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_pagibig}}" placeholder="PAG-IBIG" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PAG-IBIG: {{p.f_pagibig}}" placeholder="PAG-IBIG" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_gsisp}}" placeholder="GSIS Policy No." readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS Policy No.: {{p.f_gsisp}}" placeholder="GSIS Policy No." readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_phil}}" placeholder="PHILHEALTH" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PHILHEALTH:{{p.f_phil}}" placeholder="PHILHEALTH" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{p.f_other}}" placeholder="OTHER" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="OTHER: {p.f_other}}" placeholder="OTHER" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_cp}}" placeholder="Contact Person" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Contact Person: {{p.f_cp}}" placeholder="Contact Person" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_num}}" placeholder="CP No." readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="CP No.: {{p.f_num}}" placeholder="CP No." readonly>
                                                                             </div>
                                                                             <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_signature}}" placeholder="Signature" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Signature: {{p.f_signature}}" placeholder="Signature" readonly>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.f_add}}" placeholder="Address" readonly>
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{p.f_add}}" placeholder="Address" readonly>
                                                                             </div>
                                                                         </div>
                                                                         
@@ -224,7 +215,7 @@
                                                                     {% endfor %}
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                  <button type="button" class="btn btn-primary">OK</button>
+                                                                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                                                                 </div>
                                                               </div>
                                                             </div>

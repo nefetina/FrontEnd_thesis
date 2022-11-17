@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--TAB NAME-->
-    <title>FACULTY ID REQUEST</title>
+    <title>EMPLOYEE ID REQUEST</title>
     <!----TAB ICON------------------------------------------------>
     <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
     <!--CSS & JS-->
@@ -152,10 +152,16 @@
                                             <div class="col-xl-4">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Employee Number" name = 'f_emp1' required>
                                             </div>
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Date Requested:
+                                            </div>
+                                            <div class="col-xl-2">
                                                 <input type="date" class="form-control my-2 p-2" placeholder="Date Requested" name = 'f_datereq1' required>
                                             </div>
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
+                                                Date Released:
+                                            </div>
+                                            <div class="col-xl-2">
                                                 <input type="date" class="form-control my-2 p-2" placeholder="Date Released" name = 'f_daterel1' required> 
                                             </div>
                                         </div>
@@ -221,12 +227,30 @@
                                                 </div>
                                         </div>
 
-                                        
-                                    
+                                        <!--disclosure modal-------------------------------------------------------------------------------------------->    
+                                        <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to send?
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-primary">Send</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
                                     <div class="col-xl-12 ">
                                         <p class="card-text">Check it properly before you send it.</p>
-                                        <button type="submit" class="btn btn-primary  float-right m-1"  >
+                                        <button type="button" class="btn btn-primary  float-right m-1"  data-toggle="modal" data-target="#confirmation1">
                                                                     Submit
                                                                 </button>
                                         <button type="button" class="btn btn-danger float-right m-1">

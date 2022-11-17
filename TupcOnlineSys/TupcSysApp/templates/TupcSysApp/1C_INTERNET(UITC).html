@@ -107,23 +107,14 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInputemp" onkeyup="myFunctionemp()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                      </div>
+                                     
                                 </div>
                             </form>
                             <div class="jumbotron  m-1 "   ><br>
@@ -148,7 +139,7 @@
                                                 <tbody>
                                                      <!--modal for other info-------------------------------------------------------------------------------------------->
                                                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
                                                             <div class="modal-header">
                                                               <h5 class="modal-title" id="exampleModalLabel"> OTHER INFORMATION</h5>
@@ -298,23 +289,14 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInputswr" onkeyup="myFunctionswr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                      </div>
+                                    
                                 </div>
                             </form>
                             <div class="jumbotron  m-1 " ><br>
@@ -353,37 +335,37 @@
                                                                     
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.g_or1}}" placeholder="O.R. No." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="O.R. No.:{{p.g_or1}}" placeholder="O.R. No." readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.g_sem1}}" placeholder="Semester" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Semester: {{p.g_sem1}}" placeholder="Semester" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.g_sys1}}" placeholder="System" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="System: {{p.g_sys1}}" placeholder="System" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.g_mac1}}" placeholder="MAC Address" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="MAC Address: {{p.g_mac1}}" placeholder="MAC Address" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.g_num1}}" placeholder="Mobile No." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Mobile No.: {{p.g_num1}}" placeholder="Mobile No." readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.g_email1}}" placeholder="Email Address" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Email Address: {{p.g_email1}}" placeholder="Email Address" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                       <div class="col-xl-12">
-                                                                          <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="{{p.g_add1}}" placeholder="Address" readonly>
+                                                                          <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{p.g_add1}}" placeholder="Address" readonly>
                                                                       </div>
                                                                   </div>
                       
@@ -491,23 +473,14 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInputsia" onkeyup="myFunctionsia()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                      </div>
+                                   
                                 </div>
                             </form>
                             <div class="jumbotron  m-1 " ><br>

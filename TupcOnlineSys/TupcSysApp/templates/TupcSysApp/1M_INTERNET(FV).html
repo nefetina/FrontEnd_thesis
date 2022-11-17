@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--TAB NAME-->
-    <title>FACULTY INTERNET CONNECTIVITY REQUEST</title>
+    <title>EMPLOYEE INTERNET CONNECTIVITY</title>
     <!----TAB ICON------------------------------------------------>
     <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
     <!--CSS & JS-->
@@ -117,8 +117,53 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
+                                            
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Department" name = "g_dept" required>
+                                                <select id="inputState" class="form-control my-2 p-2" name = "g_dept" required>
+                                                    <option selected disabled value="">Department:</option>
+                                                    <optgroup label="Administration Building">
+                                                        <option value="OP">OPERATOR</option>
+                                                        <option value="OCD">DIRECTORS OFFICE (OCD)</option>
+                                                        <option value="OAC">ACCOUNTING OFFICE (OAC)</option>
+                                                        <option value="OHR">HUMAN RESOURCES OFFICE (OHR)</option>
+                                                        <option value="ADAF">ASSISTANT DIRECTOR FOR ADMINISTRATION AND FINANCE (ADAF)</option>
+                                                    </optgroup>
+                                                    <optgroup label="Vergara Hall">
+                                                        <option value="OCR">REGISTRAR'S OFFICE (OCR)</option>
+                                                        <option value="OGS">GUIDANCE OFFICE (OGS)</option>
+                                                        <option value="OHS">CLINIC (OHS)</option>
+                                                        <option value="OJP/IRJP">INDUSTRIAL RELATIONS AND JOB PLACEMENT (OJP/IRJP)</option>
+                                                    </optgroup>
+                                                    <optgroup label="U-Building">
+                                                        <option value="OPR">PROCUREMENT OFFICE (OPR)</option><option value="President">OPERATOR</option>
+                                                        <option value="OCL">LIBRARY (OCL)</option>
+                                                        <option value="DLA">LIBERAL ARTS DEPARTMENT (DLA)</option>
+                                                        <option value="DMS">MATH AND SCIENCES DEPARTMENT (DMS)</option>
+                                                        <option value="OCP">PLANNING OFFICE (OCP)</option>
+                                                        <option value="CHEM">CHEMISTRY LAB</option><option value="President">OPERATOR</option>
+                                                        <option value="AVR">AUDIO VISUAL ROOM (AVR)</option>
+                                                    </optgroup>
+                                                    <optgroup label="R&E Area">
+                                                        <option value="IDO">INFRASTRUCTURE DEVELOPMENT OFFICE (IDO)</option>
+                                                        <option value="ORS & ORE">RESEARCH AND EXTENSION OFFICE (ORS & ORE) </option>
+                                                    </optgroup>
+                                                    <optgroup label="DIT/DED/DOE">
+                                                        <option value="DIT">INDUSTRIAL TECHNOLOGY DEPARTMENT (DIT)</option>
+                                                        <option value="DED">INDUSTRIAL EDUCATION DEPARTMENT (DED)</option><option value="President">OPERATOR</option>
+                                                        <option value="DOE">ENGINEERING SCIENCES DEPARTMENT (DOE)</option>
+                                                    </optgroup>
+                                                    <optgroup label="Aux/Gate">
+                                                        <option value="OAX">AUXILIARY SERVICES (OAX)</option>
+                                                        <option value="OLD GATE">GATE 2 (OLD GATE)</option>
+                                                        <option value="NEW GATE">GATE 1 (NEW GATE)</option>
+                                                    </optgroup>
+                                                    <optgroup label="New Buildings">
+                                                         
+                                                        <option value="OSA">STUDENT AFFAIRS OFFICE (OSA)</option>
+                                                        <option value="ADDA">ASSISTANT DIRECTOR FOR ACADEMIC AFFAIRS (ADDA)</option>
+                                                        <option value="OIT">INFORMATION TECHNOLOGY CENTER (OIT)</option>
+                                                    </optgroup>
+                                                </select>
                                             </div>
                                             <div class="col-xl-6">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Designation" name = "g_des" required>
@@ -129,7 +174,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Please specify:" name = "g_sys" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Device used please specify:" name = "g_sys" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -143,6 +188,18 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Email Address:" name = "g_email" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-xl-12">
+                                                <div class="checkbox descriptions ">
+                                                    <input type="checkbox" name="terms" id="terms" required>
+                                                    <p class="card-text ">I understand that the Wi-Fi Connectivity provided to me is for academic work only.
+                                                        The above mentioned system solely belongs for me. I have gone throught the
+                                                        norms and regulations of using the Wi-Fi Connectivity and I abide by it. I will not misuse this
+                                                        facility by any means.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -178,8 +235,26 @@
                                                 </div><div class="clearBoth"></div>
                                             </div>
                                         </div>
-
-                                        
+                                        <!--disclosure modal-------------------------------------------------------------------------------------------->    
+                                        <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to send?
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-primary">Send</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
                                     
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
                                     <div class="col-xl-12 mt-2">
@@ -187,7 +262,7 @@
                                             <input type="checkbox" name="terms" id="terms" required>
                                             <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
                                         </div>
-                                        <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
+                                        <button type="button" class="btn btn-primary  float-right m-1"  data-toggle="modal" data-target="#confirmation1">
                                                                     Submit
                                                                 </button>
                                         <button type="button" class="btn btn-danger float-right m-1">

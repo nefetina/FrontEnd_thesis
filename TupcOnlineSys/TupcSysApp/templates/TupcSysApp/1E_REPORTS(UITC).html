@@ -113,23 +113,14 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInputrrm" onkeyup="myFunctionrrm()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </form>
                             <div class="jumbotron "><br>
@@ -167,32 +158,32 @@
                                                                     <div class="form-row">
         
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="SERIAL#: {{p.fserial}}" placeholder="SERIAL#" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Serial#: {{p.fserial}}" placeholder="SERIAL#" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="SPECIFICATION: {{p.fspecs}}" placeholder="SPECIFICATION" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Specification: {{p.fspecs}}" placeholder="SPECIFICATION" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="NATURE OF WORK TO BE DONE: {{p.fnature}}" placeholder="NATURE OF WORK TO BE DONE" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Nature of Work to be Done: {{p.fnature}}" placeholder="NATURE OF WORK TO BE DONE" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="DEPARTMENT: {{p.fdep}}" placeholder="DEPARTMENT" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Department: {{p.fdep}}" placeholder="DEPARTMENT" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="DATE: {{p.fdate}}" placeholder="DATE" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date: {{p.fdate}}" placeholder="DATE" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="TIME: {{p.ftime}}" placeholder="TIME" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Time: {{p.ftime}}" placeholder="TIME" readonly>
                                                                         </div>
                                                                     </div>
                                                                 
@@ -567,11 +558,29 @@
                                                                     
                                                                 </div>
                                                                 
-                            
+                                                                <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                      <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                          <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                          </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            Are you sure you want to send?
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                          <button type="submit" class="btn btn-primary">Send</button>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                </div>
                                 <!--BUTTONS-------------------------------------------------------------------------------------------->
                                                                 <div class="col-xl-12 ">
                                                                     <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="submit" class="btn btn-primary  float-right m-1" >
+                                                                    <button type="button" class="btn btn-primary  float-right m-1" data-toggle="modal" data-target="#confirmation1" >
                                                                         Submit
                                                                     </button>
                                                                 <button type="button" class="btn btn-danger float-right m-1" onclick="back2()" >
@@ -598,23 +607,14 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInputpr" onkeyup="myFunctionpr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </form>
                             <div class="jumbotron "><br>
@@ -1260,11 +1260,30 @@
                                                                 </div>
                                                                 
                             
-                            
+                                                                <!--disclosure modal-------------------------------------------------------------------------------------------->    
+                                                                <div class="modal fade" id="confirmation2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            Are you sure you want to send?
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-primary">Send</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
                                 <!--BUTTONS-------------------------------------------------------------------------------------------->
                                                                 <div class="col-xl-12 ">
                                                                     <p class="card-text">Check it properly before you send it.</p>
-                                                                    <button type="submit" class="btn btn-primary  float-right m-1"  >
+                                                                    <button type="submit" class="btn btn-primary  float-right m-1" data-toggle="modal" data-target="#confirmation2" >
                                                                         Submit
                                                                     </button>
                                                                     <button type="button" class="btn btn-danger float-right m-1" onclick="back4()" >
@@ -1290,23 +1309,14 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInputm" onkeyup="myFunctionm()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </form>
                             <div class="jumbotron "><br>
@@ -1746,24 +1756,15 @@
                             <form>
                                 <div class="form-row">
 
-                                    <div class="col-xl-9 col-lg-8 col-12">
+                                    <div class="col-xl-10 col-lg-8 col-12">
                                         <input type="text" id="myInput" onkeyup="myFunction()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                         <span><i class='bx bx-search-alt-2 nav_logo-icon'></i></span> 
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
+                                    <div class="col-xl-2 col-lg-2 col-12">
                                         <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
                                     </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                        <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Date</a>
-                                            <a class="dropdown-item" href="#">Ascending</a>
-                                            <a class="dropdown-item" href="#">Descending</a>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </form>
                             <div class="jumbotron "><br>

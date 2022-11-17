@@ -147,17 +147,12 @@ input{
 }
 
 .jumbotron {
-    border-radius: 20px !important;
+    border-radius: 10px !important;
 }
 
 
 /* card body scroll function*/
 
-.card-body {
-    margin-top: -60px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
 
 
 /* border bottom line of the form title*/
