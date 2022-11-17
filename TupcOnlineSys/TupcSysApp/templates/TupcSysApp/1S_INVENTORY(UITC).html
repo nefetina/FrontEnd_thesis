@@ -148,8 +148,15 @@
                                                 <tr>
                                                     <td>{{i.i_quant}}</td>
                                                     <td>{{i.i_equip}}</td>
-                                                    <td><button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger" data-bs-target="#modalUpdate{{ i.id }}">UPDATE</button></td>
-                                                    <td><button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger" data-bs-target="#modalDelete{{ i.id }}">DELETE</button></td>
+                                                    <td>
+                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                            
+                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-success" data-bs-target="#modalUpdate{{ i.id }}">UPDATE</button>
+
+                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger" data-bs-target="#modalDelete{{ i.id }}">DELETE</button>
+                                                        </div>
+                                                    </td>
+                                                
                                                 </tr>
                                                 <!-- MODAL DELETE -->
                                                 <div class="modal fade" id="modalDelete{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalDelete" aria-hidden="true">
@@ -191,7 +198,7 @@
                                                         <input type="text" name="i_equip" value="{{ i.i_equip }}">
                                                         <br>
                                                         </br>
-                                                        <button type="submit" class="btn btn-danger" name="updateInventory";>Yes I'm sure</button>
+                                                        <button type="submit" class="btn btn-success" name="updateInventory";>Yes I'm sure</button>
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No not now</button>
                                                         </form>
                                                         {% endfor %}
