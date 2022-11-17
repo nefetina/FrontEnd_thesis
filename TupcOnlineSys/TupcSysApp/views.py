@@ -1,5 +1,4 @@
 import logging
-import smtplib
 from audioop import reverse
 from datetime import datetime
 from email.mime.application import MIMEApplication
@@ -719,7 +718,7 @@ def UitcPermission(request):#UITC PERMISSION page
 
 
 
-"""@login_required(login_url='/Index')
+@login_required(login_url='/Index')
 def FacultyHome(request):#FACULTY HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return redirect('/UitcHome')
@@ -728,7 +727,7 @@ def FacultyHome(request):#FACULTY HOMEPAGE page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return redirect('/StudentHome')
     else:
-        return redirect('/')"""
+        return redirect('/')
 """def edit(request):
 	cont = register1.objects.get(username="UITC00")
     cont.set_password("Anggandako28.")
@@ -741,8 +740,6 @@ def FacultyHome(request):#FACULTY HOMEPAGE page
 
 	return render(request, 'TupcSysApp/ex.html', {'form':form})"""
 
-def FacultyHome(request):
-     return render(request,'TupcSysApp/1K_HOMEPAGE(FV).html')
 
 @login_required(login_url='/Index')
 def FacultyID(request):#FACULTY ID page
@@ -895,6 +892,7 @@ def FacultyRstPass(request):
     else:
         return redirect('/')
 
+@login_required(login_url='/Index')
 def FacultyBorrower(request):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return redirect('/UitcHome')
@@ -916,8 +914,17 @@ def FacultyBorrower(request):
     else:
         return redirect('/')
 
+
 def StudentHome(request):
-     return render(request,'TupcSysApp/1P_HOMEPAGE(SV).html')
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render(request,'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')
+     
 
 @login_required(login_url='/Index')
 def StudentInternet(request):#STUDENT INTERNET ACCESS page
@@ -999,7 +1006,7 @@ def StudentReports(request):#STUDENT REPORT page
     else:
         return redirect('/')
 
-
+@login_required(login_url='/Index')
 def StudentReports_RequestPass(request):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
