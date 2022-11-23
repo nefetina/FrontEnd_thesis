@@ -301,12 +301,36 @@ def StudentInternet_permit(request, id):
     return redirect('/UitcInternet')
 
 def labsched_cancel(request, id):
-    a = faculty_lab.objects.get(id=id)
-    for x in faculty_lab.objects.only('id').filter(l_stat= "On process"):
-        if a == x:
-            x = faculty_lab.objects.get(id=id).delete()
-            break
-    messages.info(request, "Successfully deleted")
+    if request.method == 'POST':
+        a = faculty_lab.objects.get(id=id)
+        
+        for x in faculty_lab.objects.only('id').filter(l_stat= "On process"):
+            if a == x:
+                x = faculty_lab.objects.filter(id=id).update(l_stat="Declined")
+                y = faculty_lab.objects.filter(id=id).only("f_name").values()
+                
+                for x in y:
+                    print(x['f_name'])
+                    name = x['f_name']
+                    asd = register1.objects.filter(name=name).values()
+                    for z in asd:
+                        uemail = z['gsfe']
+                reason = request.POST.get("reason")
+                print(name)
+                print(reason)
+                print(uemail)
+                message = "Good day " + name + ", \n Your request for Laboratory Schedule has been declined, " + reason +"\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
+    messages.success(request, "Successfully done")
     return redirect('/UitcLabsched')
 
 def labsched_permit(request, id):
