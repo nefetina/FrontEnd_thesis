@@ -9,23 +9,21 @@ from django.db.models.deletion import CASCADE
 import django.utils.timezone
 from django.contrib.auth.models import AbstractUser
 
-
-class register1(AbstractUser):
-
-    Personal_description = models.CharField(max_length = 40, null=True, default = "")
-    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    gsfe = models.CharField(max_length= 100, null=True, unique = True, default = "")
-    name = models.CharField(max_length= 100, null=False)
-
 class list(models.Model):
     lgsfe = models.CharField(max_length= 100, null=False)
     lidno = models.CharField(max_length= 20, null=False)
     type = models.CharField(max_length= 100, null=False)
 
-class index(models.Model):
-    id = models.ForeignKey(register1, on_delete=models.CASCADE, primary_key = True, related_name='ids', verbose_name = 'idno')
-    User_name = models.CharField(max_length= 50, null=False)
-    Password_data =models.CharField(default= "", max_length =40, null=False, unique = True)
+class register1(AbstractUser):
+
+    Personal_description = models.CharField(max_length = 40, null=True, default = "")
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    gsfe = models.CharField(max_length= 100, null=False)
+    name = models.CharField(max_length= 100, null=False)
+    #idno = models.ForeignKey(list, on_delete=models.CASCADE)
+    #def __str__(self):
+        #return self.idno
+    
 
 '''class UITC_borrow_record(models.Model):
     if_name5 = models.CharField(max_length = 100, null=True)

@@ -8,7 +8,6 @@ from multiprocessing import context
 from operator import indexOf
 from os import fstat
 from unittest import loader
-
 import mysql.connector as sql
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -29,6 +28,10 @@ from .models import *
 
 installed_apps = ['TupcSysApp']
 
+if str(register1.objects.all().values()) == "<QuerySet []>":
+    print(register1.objects.all().values())
+    admin = register1.objects.create_user(username="TUPC-00-0000", gsfe="tupc.uitconlinesystem@gmail.com", name="Admin", password="UITCtoken0001#", Personal_description="UITC Staff")
+    admin.save()
 
 """def Document_save(request):
     if request.method=="POST":
@@ -82,16 +85,14 @@ def upload_csv(request):
 				pass
 
 	except Exception as e:
-		logging.getLogger("error_logger").error("Unable to upload file. "+repr(e))
-		messages.error(request,"Unable to upload file. "+repr(e))
-
-	return redirect('/UitcPermission')
+            pass
+            return redirect('/UitcPermission')
 
 def register(request):#registration
     form = Registration()
     if request.method == "POST":
         a = list.objects.all().values()
-        b = request.POST.get("username")  
+        b = request.POST.get("username")   
         c = request.POST.get("gsfe")
         ccc = list.objects.only('id').filter(lidno = b)
         y = ccc.values()         
@@ -99,13 +100,14 @@ def register(request):#registration
             print(x['type'])
             type = x['type']
             lgsfe = x['lgsfe']
-           
+            ids = x['id']
+            
+            
             if x["lidno"] == b and x['lgsfe'] == c:
                 form =  Registration(request.POST)
                 #form["Personal_description"].value = c
                 if form.is_valid():
                     form.save()
-
                     register1.objects.filter(username=b).update(Personal_description=type)
                     messages.success(request, 'You are now successfully registered')
                     name = form["name"].value()
@@ -192,11 +194,35 @@ def facultyID_permit(request, id):
     return redirect('/UitcID')
 
 def facultyID_cancel(request, id):
-    a = faculty_ID.objects.get(id=id)
-    for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
-        if a == x:
-            x = faculty_ID.objects.get(id=id).delete()
-            break
+    if request.method == 'POST':
+        a = faculty_ID.objects.get(id=id)
+        
+        for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
+            if a == x:
+                x = faculty_ID.objects.filter(id=id).update(f_stat="Declined")
+                y = faculty_ID.objects.filter(id=id).values()
+                
+                for x in y:
+                    print(x['f_name'])
+                    name = x['f_name']
+                    asd = register1.objects.filter(name=name).values()
+                    for z in asd:
+                        uemail = z['gsfe']
+                reason = request.POST.get("reason")
+                print(name)
+                print(reason)
+                print(uemail)
+                message = "Good day " + name + ", \n Your request for Laboratory Schedule has been declined, " + reason +"\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
     messages.info(request, "Successfully deleted")
     return redirect('/UitcID')
 
@@ -303,12 +329,10 @@ def StudentInternet_permit(request, id):
 def labsched_cancel(request, id):
     if request.method == 'POST':
         a = faculty_lab.objects.get(id=id)
-        
         for x in faculty_lab.objects.only('id').filter(l_stat= "On process"):
             if a == x:
                 x = faculty_lab.objects.filter(id=id).update(l_stat="Declined")
                 y = faculty_lab.objects.filter(id=id).only("f_name").values()
-                
                 for x in y:
                     print(x['f_name'])
                     name = x['f_name']

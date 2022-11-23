@@ -220,39 +220,6 @@
                                                               </div>
                                                             </div>
                                                         </div>
-                                                        <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                        <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                              <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                  <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                  </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="form-row">
-            
-                                                                            <div class="col-xl-12">
-                                                                                Reason for Denying
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
-                                                                            </div>
-                                                                        </div>
-                                                                       
-                                                                        
-                                                                        
-                                                                       
-                                                            
-                                                                    </form>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                                                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                        </div>
                                                         <tr>
                                                             {% for p in dataf %}
                                                             <td><a href="" data-toggle="modal" data-target="#exampleModal">{{p.ff_name}}</td>
@@ -269,10 +236,43 @@
                                                                     data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:facultyID_permit' p.pk  %}" ><i class="fa fa-check" aria-hidden="true"></i></a>
         
                                                                     <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                    data-toggle="tooltip" data-placement="top" title="Deny" href="{% url 'TupcSysApp:facultyID_cancel' p.pk  %}"  data-toggle="modal" data-target="#deny1" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                     data-toggle="modal" data-target="#deny1" ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
                                                                 
                                                             </td>
+                                                                                                                    <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                            <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form method="post" action="{% url 'TupcSysApp:facultyID_cancel' p.pk  %}">
+                                                                            {%csrf_token%}
+                                                                            <div class="form-row">
+                
+                                                                                <div class="col-xl-12">
+                                                                                    Reason for Denying
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                                            <button type="submit" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                                            </div>
+                                                                            
+                                                                            
+                                                                        
+                                                                
+                                                                        </form>
+                                                                </div>
+                                                                </div>
+                                                            </div>
                                                         </tr>
                                                       {% endfor %}
                                                     </tbody>
