@@ -151,14 +151,6 @@ input{
 }
 
 
-/* card body scroll function*/
-
-.card-body {
-    margin-top: -60px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-
 
 /* table adjustments*/
 
@@ -228,7 +220,36 @@ input{
     font-weight: bold;
 }
 
+#request {
+    margin: 10px;
+    margin-top: 12px !important ;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+#pending {
+    margin: 10px;
+    margin-top: 12px !important ;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+#zero {
+    margin: 10px;
+    margin-top: 12px !important ;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.t4{
+    min-height: 700px !important;
+}
 
+.active {
+ 
+    background-color: #1b412dcc;
+    border-radius: 5px;
+}
 /*****************************************BACKGROUND*******************************/
 
 html,
@@ -348,6 +369,30 @@ header,
         font-size: 21pt !important;
         cursor: default !important;
         color: white !important;
+    }
+    /* Collapsed breadcrumbs */
+  
+  .collapsed li {
+    overflow: hidden;
+  }
+    .collapsed li:after {
+    
+  
+      padding-left: 1em;
+    }
+  
+  .collapsed a {
+    max-width: 2em;
+    transition: max-width 300ms ease-in-out;
+  }
+    .collapsed a:hover,
+    .collapsed a:focus,
+    .collapsed li:hover a {
+      max-width: 1000px;
+    }
+    .collapsed li:hover:after {
+      padding-left: 0em;
+      background: transparent;
     }
 }
 

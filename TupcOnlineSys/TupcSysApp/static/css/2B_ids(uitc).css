@@ -151,13 +151,7 @@ input{
 }
 
 
-/* card body scroll function*/
 
-.card-body {
-    margin-top: -60px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
 
 
 /* table adjustments*/
@@ -208,7 +202,11 @@ input{
     color: RED;
     font-weight: bold;
 }
-
+.active {
+ 
+    background-color: #1b412dcc;
+    border-radius: 5px;
+}
 
 /*****************************************BACKGROUND*******************************/
 
@@ -330,6 +328,28 @@ header,
         cursor: default !important;
         color: white !important;
     }
+    .collapsed li {
+        overflow: hidden;
+      }
+        .collapsed li:after {
+        
+      
+          padding-left: 1em;
+        }
+      
+      .collapsed a {
+        max-width: 2em;
+        transition: max-width 300ms ease-in-out;
+      }
+        .collapsed a:hover,
+        .collapsed a:focus,
+        .collapsed li:hover a {
+          max-width: 1000px;
+        }
+        .collapsed li:hover:after {
+          padding-left: 0em;
+          background: transparent;
+        }
 }
 
 

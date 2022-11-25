@@ -69,17 +69,23 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------------------->
 
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="requestforrep()" ><a href="#"id="bc">REQUEST FOR REPAIR & MAINTENANCE</a></li>
-            <li class="breadcrumb-item" onclick="requesforpassres()" ><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
-            <li class="breadcrumb-item" onclick="maintenanceform()" ><a href="#" id="bc">MAINTENANCE FORM</a></li>
-            <li class="breadcrumb-item" onclick="maintenance()" ><a href="#" id="bc">MAINTENANCE</a></li>
+        <ol class="breadcrumb collapsed ">
+            <li class="mx-2 ml-auto active" onclick="requestforrep()" ><a href="#"id="bc">REQUEST FOR REPAIR & MAINTENANCE</a></li>
+            <li class="mx-2" onclick="requesforpassres()" ><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
+            <li class="mx-2" onclick="maintenanceform()" ><a href="#" id="bc">MAINTENANCE FORM</a></li>
+            <li class="mx-2" onclick="maintenance()" ><a href="#" id="bc">MAINTENANCE</a></li>
              <!--COMMENT FOR NOW----
-            <li class="breadcrumb-item" onclick="borrowform()"><a href="#">BORROW FORM</a></li>
+            <li class="mx-2" onclick="borrowform()"><a href="#">BORROW FORM</a></li>
             ---->
             
-            <li class="breadcrumb-item" onclick="borrow()" ><a href="#" id="bc">BORROW</a></li>
+            <li class="mx-2" onclick="borrow()" ><a href="#" id="bc">BORROW</a></li>
         </ol>
+
+        <script type="text/javascript">
+            $(document).on('click', 'ol, li', function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+        </script>
     </nav>
 
     <!--CONTAINER FLUID-------------------------------------------------------------------------------------------->
@@ -109,7 +115,7 @@
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
     
                     <!--TABLE1 REQUEST FOR REPAIR & MAINTENANCE-------------------------------------------------------------------------------------------->
-                        <div class="col-xl-11 " id="table1">
+                        <div class="col-xl-12 " id="table1">
                             <form>
                                 <div class="form-row">
 
@@ -142,7 +148,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                     <!--modal for other info-------------------------------------------------------------------------------------------->
+                                                    <!--modal for other info-------------------------------------------------------------------------------------------->
                                                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                         <div class="modal-content">
@@ -290,7 +296,7 @@
                         </div>
                     <!--REPAIR AND MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->
 
-                        <div class="col-xl-11 collapse " id="tableform1">
+                        <div class="col-xl-12 collapse " id="tableform1">
                             <div class="jumbotron "><br>
                             
                                 <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -396,7 +402,7 @@
                         </div>
                     <!--REPAIR AND MAINTENANCE FORMTABLE1.2-------------------------------------------------------------------------------------------->
 
-                        <div class="col-xl-11 collapse" id="tableform2">
+                        <div class="col-xl-12 collapse" id="tableform2">
                             <div class="jumbotron "><br>
                             
                                 <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -519,7 +525,7 @@
                         </div>
                     <!--REPAIR AND MAINTENANCE FORMTABLE1.3-------------------------------------------------------------------------------------------->          
 
-                        <div class="col-xl-11 collapse" id="tableform3">
+                        <div class="col-xl-12 collapse" id="tableform3">
                             <div class="jumbotron "><br>
                             
                                 <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -603,7 +609,7 @@
 
                     
                     <!--TABLE2 REQUEST FOR PASSWORD RESET-------------------------------------------------------------------------------------------->
-                        <div class="col-xl-11 collapse" id="table2">
+                        <div class="col-xl-12 collapse" id="table2">
                             <form>
                                 <div class="form-row">
 
@@ -779,7 +785,7 @@
 
                     <!--MAINTENANCE FORMTABLE2.1-------------------------------------------------------------------------------------------->
                    
-                        <div class="col-xl-11 collapse" id="tableform4">
+                        <div class="col-xl-12 collapse" id="tableform4">
                             <div class="jumbotron " ><br>
                             
                                 <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -970,7 +976,7 @@
                         </div>
                     <!--MAINTENANCE FORMTABLE2.2-------------------------------------------------------------------------------------------->
                     
-                        <div class="col-xl-11 collapse" id="tableform5">
+                        <div class="col-xl-12 collapse" id="tableform5">
                             <div class="jumbotron "><br>
                             
                                 <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -1177,7 +1183,7 @@
                         </div>
                     <!--MAINTENANCE FORMTABLE2.3-------------------------------------------------------------------------------------------->
                     
-                        <div class="col-xl-11 collapse" id="tableform6">
+                        <div class="col-xl-12 collapse" id="tableform6">
                             <div class="jumbotron "><br>
                             
                                 <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -1305,7 +1311,7 @@
 
 
                     <!--TABLE3 MAINTENANCE-------------------------------------------------------------------------------------------->                    
-                        <div class="col-xl-11 collapse" id="table3">
+                        <div class="col-xl-12 collapse" id="table3">
                             <form>
                                 <div class="form-row">
 
@@ -1664,7 +1670,7 @@
 
                     <!--BORROW FORMTABLE 3.1-------------------------------------------------------------------------------------------->                    
                     {% comment %}
-                        <div class="col-xl-11 collapse " id="tableform7">
+                        <div class="col-xl-12 collapse " id="tableform7">
                             <div class="jumbotron "><br>
 
                                 <!--FORM 2-------------------------------------------------------------------------------------------->
@@ -1752,7 +1758,7 @@
 
 
                     <!--TABLE4 BORROW-------------------------------------------------------------------------------------------->                    
-                        <div class="col-xl-11 collapse" id="table4">
+                        <div class="col-xl-12 collapse" id="table4">
                             <form>
                                 <div class="form-row">
 
@@ -1767,167 +1773,210 @@
                                     
                                 </div>
                             </form>
-                            <div class="jumbotron "><br>
-                                <div class="card-body"  >
-                                    <form>
-                                        <div class="formtitle">
-                                        BORROW
+                            <div class="row" >
+
+                                <div class="col-xl-3" >
+                                    <div class="jumbotron"><br>
+                            
+                                        <!--FORM-------------------------------------------------------------------------------------------->                        
+                                        <div class="card-body">
+                                            <form>
+                                                <h1 id="zero">0</h1>
+                                                <a><i class="fa fa-2x fa-envelope-o text-center d-flex justify-content-center align-items-center" aria-hidden="true">
+                                                    <h1 id="request">REQUEST</h1></i></a>
+                                                
+                                            </form>
+                                            
+                                            
+                                            
+                                            
+                                            
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable4">
-                                            <table class="table" id="myTable">
-                                                <thead class="thead">
-                                                <tr>
-                                                    <th scope="col">FULL NAME</th>
-                                                    <th scope="col ">DATE RQSTD</th>
-                                                    <th scope="col">TIME</th>
-                                                    <th scope="col ">RQST BORROW</th>
-                                                    <th scope="col">REASON FOR BORROWING</th>
-                                                    <th scope="col">SIGNATURE</th>
-                                                    <th scope="col">ACTION</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="deny5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                          <div class="modal-content">
-                                                            <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
-                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                              </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form>
-                                                                    <div class="form-row">
-        
-                                                                        <div class="col-xl-12">
-                                                                            Reason for Denying
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                                    
-                                                                    
-                                                                   
-                                                        
-                                                                </form>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                                              <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="modal fade" id="deny6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                          <div class="modal-content">
-                                                            <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
-                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                              </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form>
-                                                                    <div class="form-row">
-        
-                                                                        <div class="col-xl-12">
-                                                                            Reason for Denying
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                                    
-                                                                    
-                                                                   
-                                                        
-                                                                </form>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                                              <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                    </div>
-                                                <tr>
-                                                    {% for p in data3 %}
-                                                    <td>{{p.fbname}}</td>
-                                                    <td>{{p.fbdate}}</td>
-                                                    <td>{{p.fbtime}}</td>
-                                                    <td>{{p.fbreq}}</td>
-                                                    <td>{{p.fbreason}}</td>
-                                                    <td>{{p.fbsign}}</td>
-                                                    
-                                                    <td>
-                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
-
-                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                             title="Deny" data-toggle="modal" data-target="#deny5" href="{% url 'TupcSysApp:fborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                        </div>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                {% endfor %}
-                                                <tr>
-                                                    {% for p in data4 %}
-                                                    <td>{{p.if_name5}}</td>
-                                                    <td>{{p.i_date5}}</td>
-                                                    <td>{{p.i_time5}}</td>
-                                                    <td>{{p.ir_borrow5}}</td>
-                                                    <td>{{p.irf_borrow5}}</td>
-                                                    <td>{{p.i_sig5}}</td>
-                                                    
-                                                    <td>
-                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:sborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
-
-                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5"  id="btn4"
-                                                            title="Deny" data-toggle="modal" data-target="#deny6" href="{% url 'TupcSysApp:sborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true" ></i></a>
-                                                        </div>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <script>
-                                            function myFunction() {
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInput");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("myTable");
-                                              tr = table.getElementsByTagName("tr");
-                                              for (i = 0; i < tr.length; i++) {
-                                                td = tr[i].getElementsByTagName("td")[0];
-                                                if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                    tr[i].style.display = "";
-                                                  } else {
-                                                    tr[i].style.display = "none";
-                                                  }
-                                                }       
-                                              }
-                                            }
-                                            </script>
                                         
-                                    </form>
-
+                                    </div>
+                                    <div class="jumbotron"><br>
+                            
+                                        <!--FORM-------------------------------------------------------------------------------------------->                        
+                                        <div class="card-body">
+                                            <form>
+                                                <h1 id="zero">0</h1>
+                                                <a><i class="fa fa-2x fa-spinner text-center d-flex justify-content-center align-items-center" aria-hidden="true">
+                                                    <h1 id="request">PENDING</h1></i></a>
+                                                
+                                            </form>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-xl-9" >
+                                    <div class="jumbotron t4"><br>
+                                        <div class="card-body"  >
+                                            <form>
+                                                <div class="formtitle">
+                                                BORROW
+                                                </div>
+                                                <div class="table-responsive-xl col-xl-12" id="idtable4">
+                                                    <table class="table" id="myTable">
+                                                        <thead class="thead">
+                                                        <tr>
+                                                            <th scope="col">FULL NAME</th>
+                                                            <th scope="col ">DATE RQSTD</th>
+                                                            <th scope="col">TIME</th>
+                                                            <th scope="col ">RQST BORROW</th>
+                                                            <th scope="col">REASON FOR BORROWING</th>
+                                                            <th scope="col">SIGNATURE</th>
+                                                            <th scope="col">ACTION</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                            <div class="modal fade" id="deny5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                  <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                      <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                      </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-row">
+                
+                                                                                <div class="col-xl-12">
+                                                                                    Reason for Denying
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
+                                                                                </div>
+                                                                            </div>
+                                                                           
+                                                                            
+                                                                            
+                                                                           
+                                                                
+                                                                        </form>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                                      <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+        
+                                                            <div class="modal fade" id="deny6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                  <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                      <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                      </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-row">
+                
+                                                                                <div class="col-xl-12">
+                                                                                    Reason for Denying
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" >
+                                                                                </div>
+                                                                            </div>
+                                                                           
+                                                                            
+                                                                            
+                                                                           
+                                                                
+                                                                        </form>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                                      <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        <tr>
+                                                            {% for p in data3 %}
+                                                            <td>{{p.fbname}}</td>
+                                                            <td>{{p.fbdate}}</td>
+                                                            <td>{{p.fbtime}}</td>
+                                                            <td>{{p.fbreq}}</td>
+                                                            <td>{{p.fbreason}}</td>
+                                                            <td>{{p.fbsign}}</td>
+                                                            
+                                                            <td>
+                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                                    <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                    data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+        
+                                                                    <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
+                                                                     title="Deny" data-toggle="modal" data-target="#deny5" href="{% url 'TupcSysApp:fborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        <tr>
+                                                            {% for p in data4 %}
+                                                            <td>{{p.if_name5}}</td>
+                                                            <td>{{p.i_date5}}</td>
+                                                            <td>{{p.i_time5}}</td>
+                                                            <td>{{p.ir_borrow5}}</td>
+                                                            <td>{{p.irf_borrow5}}</td>
+                                                            <td>{{p.i_sig5}}</td>
+                                                            
+                                                            <td>
+                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                                                    <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                                    data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:sborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+        
+                                                                    <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5"  id="btn4"
+                                                                    title="Deny" data-toggle="modal" data-target="#deny6" href="{% url 'TupcSysApp:sborrow_cancel' p.pk  %}"><i class="fa fa-times" aria-hidden="true" ></i></a>
+                                                                </div>
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <script>
+                                                    function myFunction() {
+                                                      var input, filter, table, tr, td, i, txtValue;
+                                                      input = document.getElementById("myInput");
+                                                      filter = input.value.toUpperCase();
+                                                      table = document.getElementById("myTable");
+                                                      tr = table.getElementsByTagName("tr");
+                                                      for (i = 0; i < tr.length; i++) {
+                                                        td = tr[i].getElementsByTagName("td")[0];
+                                                        if (td) {
+                                                          txtValue = td.textContent || td.innerText;
+                                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                            tr[i].style.display = "";
+                                                          } else {
+                                                            tr[i].style.display = "none";
+                                                          }
+                                                        }       
+                                                      }
+                                                    }
+                                                    </script>
+                                                
+                                            </form>
+        
+                                            
+                                            
+                                        
+                                            
+                                        </div>
                                     
-                                    
-                                
-                                    
+                                    </div>
                                 </div>
                             
-                            </div>
                         </div>
                         
                     </div>
