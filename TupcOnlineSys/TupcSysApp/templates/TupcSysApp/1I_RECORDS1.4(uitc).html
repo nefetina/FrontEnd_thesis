@@ -160,15 +160,14 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td>Extensions</td>
-                                                        <td>Exsdadsds</td>
-                                                        <td>7</td>
-                                                        <td>5</td>
-                                                        <td>2</td>
-                                                        
+                                                        {% for i in data5 %}
+                                                        <td>{{i.i_equip}}</td>
+                                                        <td>{{i.i_model}}</td>
+                                                        <td>{{i.i_quantity}}</td>
+                                                        <td>
                                                     
                                                     </tr>
-                                                    
+                                                    {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
