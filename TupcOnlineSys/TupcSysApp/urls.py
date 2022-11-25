@@ -27,6 +27,7 @@ urlpatterns =[
     path('fborrow_cancel/<int:id>', views.fborrow_cancel, name='fborrow_cancel'),
     path('fborrow_permit/<int:id>', views.fborrow_permit, name='fborrow_permit'),
     path('register/', views.register, name='register'), 
+    path('forgotpassword/', views.forgotpassword, name='forgotpassword'), 
     path('UitcHome/', views.UitcHome, name='UitcHome'), 
     path('upload_csv/', views.upload_csv, name='upload_csv'), 
     path('UitcID/', views.UitcID, name='UitcID'), 

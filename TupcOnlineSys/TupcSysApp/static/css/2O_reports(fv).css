@@ -582,6 +582,78 @@ header,
         position: absolute;
     }
 }
+.signContainer canvas {
+    border: 1px solid #d6d8d9;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.tempContDiv input[type="text"]:hover,
+.tempContDiv textarea:hover,
+.mSelect select:hover,
+.tempContDiv input[type="file"]:hover,
+.form_sBox:hover,
+.signContainer .signArea:hover,
+.signContainer canvas:hover {
+    border: 1px solid #a5a5a5 !important;
+}
+
+.tempContDiv input[type="text"]:focus,
+.tempContDiv textarea:focus,
+.mSelect select:focus,
+.tempContDiv input[type="file"]:focus,
+.form_sBox:focus,
+.signContainer .signArea:focus,
+.signContainer canvas:focus {
+    border: 1px solid #24A68A !important;
+}
+
+.formFieldWrapper .error .tempContDiv input[type="text"]:focus,
+.formFieldWrapper .error .tempContDiv textarea:focus,
+.formFieldWrapper .error .tempContDiv .form_sBox:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.subContWrap {
+    margin: 0px;
+    margin-bottom: 0;
+}
+
+.phone .tempContDiv label,
+.date .tempContDiv label,
+.time .tempContDiv label,
+.address .tempContDiv label,
+.name .tempContDiv span label {
+    color: #7c7c7c;
+    font-size: 13px !important;
+}
+
+.date .tempContDiv .calendarIcon {
+    margin-top: 5px;
+}
+
+.fmFooter {
+    text-align: center;
+    overflow: hidden;
+    padding: 25px 30px;
+}
+
+.fmSmtButton {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 40px 10px 40px;
+    font-weight: 400;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-family: "Arimo", sans-serif;
+}
+
 .submitColor {
     color: #fff;
     border: 1px solid;

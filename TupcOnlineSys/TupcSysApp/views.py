@@ -87,6 +87,8 @@ def upload_csv(request):
 	except Exception as e:
             pass
             return redirect('/UitcPermission')
+def forgotpassword(request):
+      return render (request, 'TupcSysApp/FORGOT_PASS.html')
 
 def register(request):#registration
     form = Registration()
