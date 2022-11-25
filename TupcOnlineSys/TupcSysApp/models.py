@@ -36,6 +36,7 @@ class register1(AbstractUser):
 
 #faculty #1L #f
 class faculty_ID(models.Model):
+    email1 = models.CharField(max_length= 50, null=True)
     ff_name = models.CharField(max_length= 50, null=False)
     fm_name = models.CharField(max_length= 50, null=True)
     fl_name = models.CharField(max_length= 50, null=False)
@@ -70,6 +71,7 @@ class faculty_wifi(models.Model):
     g_stat = models.CharField(max_length = 100, null=True)
 
 class faculty_lab(models.Model):
+    email2 = models.CharField(max_length= 50, null=True)
     f_name = models.CharField(max_length= 100, null=False)
     dep = models.CharField(max_length = 100, null=True)
     l_date = models.DateField()
@@ -81,6 +83,7 @@ class faculty_lab(models.Model):
     l_stat = models.CharField(max_length = 100, null=True)
 
 class faculty_reports(models.Model):
+    email3 = models.CharField(max_length= 50, null=True)
     ftype = models.CharField(max_length= 100, null=False)
     fbrand = models.CharField(max_length = 100, null=True)
     fserial = models.CharField(max_length= 100, null=False)
@@ -109,6 +112,7 @@ class faculty_passreset(models.Model):
     fwstat = models.CharField(max_length = 100, null=True)
 
 class faculty_borrow(models.Model):
+    email4 = models.CharField(max_length= 50, null=True)
     fbname = models.CharField(max_length= 100, null=False)
     fbdate = models.DateField()
     fbtime = models.TimeField()

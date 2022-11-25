@@ -743,7 +743,8 @@ def UitcRec4(request):#UITC HOMEPAGE page
         data2 = borrow_record.objects.all()
         data3 = faculty_passreset.objects.all()
         data4 = PassReset.objects.all()
-        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4,})
+        data5 = Inventory.objects.all()
+        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4,'data5':data5})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
