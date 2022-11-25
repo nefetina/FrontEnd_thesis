@@ -277,5 +277,8 @@ class PassReset(models.Model):
     psstats = models.CharField(max_length = 100, null=True)
 
 class Inventory(models.Model):
-    i_quant =  models.CharField(max_length = 100, null=True)
+    i_quantity =  models.CharField(max_length = 100, null=True)
     i_equip =  models.CharField(max_length = 100, null=True)
+    i_model =  models.CharField(max_length = 100, null=True)
+    i_serial =  models.CharField(max_length = 100, null=True)
+

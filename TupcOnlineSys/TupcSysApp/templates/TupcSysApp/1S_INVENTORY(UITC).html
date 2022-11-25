@@ -113,14 +113,20 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Model:" name="i_model" required>
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Serial No.:" name="i_serial" required>
+                                            </div>
+                                            <div class="col-xl-6">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Name of Equipment:" name="i_equip" required>
                                             </div>
                                             <div class="col-xl-5">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="No of Units:" name="i_quant" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="No of Units:" name="i_quantity" required>
                                             </div>
                                             <div class="col-xl-1">
                                                 <button type="submit" class="btn btn-success  mt-2 " name="addInventory" >
-                                                    ADD
+                                                    +ADD
                                                 </button>
                                             </div>
                                         </div>
@@ -136,6 +142,8 @@
                                             <table class="table">
                                                 <thead class="thead" id="myTableI">
                                                 <tr>
+                                                    <th scope="col-xl-2 ">Model</th>
+                                                    <th scope="col-xl-6 ">Serial No.</th>
                                                     <th scope="col-xl-2 ">Quantity</th>
                                                     <th scope="col-xl-6 ">Equipment</th>
                                                     <th scope="col-xl-4 ">Modify/Delete</th>
@@ -146,7 +154,9 @@
                                                     {% for i in inventory %}
                                                     
                                                 <tr>
-                                                    <td>{{i.i_quant}}</td>
+                                                    <td>{{i.i_model}}</td>
+                                                    <td>{{i.i_serial}}</td>
+                                                    <td>{{i.i_quantity}}</td>
                                                     <td>{{i.i_equip}}</td>
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
@@ -171,7 +181,7 @@
                                                             <form action="" method="POST">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="id" value="{{ i.id }}">
-                                                            <h3>You are now deleting this item: {{ i.i_quant}} {{ i.i_equip }}</h3>
+                                                            <h3>You are now deleting this item: {{ i.i_model}} {{ i.i_serial}} {{ i.i_quantity}} {{ i.i_equip }}</h3>
                                                             <br>
                                                             <button type="submit" class="btn btn-danger" name="deleteInventory">Yes I'm sure</button>
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No not now</button>
@@ -194,7 +204,9 @@
                                                         <form action="" method="POST">
                                                         {% csrf_token %}
                                                         <input type="hidden" name="id" value="{{ i.id }}">
-                                                        <input type="text" name="i_quant" value="{{ i.i_quant }}">
+                                                        <input type="text" name="i_model" value="{{ i.i_model }}">
+                                                        <input type="text" name="i_serial" value="{{ i.i_serial }}">
+                                                        <input type="text" name="i_quantity" value="{{ i.i_quantity }}">
                                                         <input type="text" name="i_equip" value="{{ i.i_equip }}">
                                                         <br>
                                                         </br>
