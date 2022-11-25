@@ -928,9 +928,9 @@ def FacultyRstPass(request):
             request.POST.get('request.user.name')
             fwempID = request.POST.get('fwempID')
             fwIDtype = request.POST.get('fwIDtype')
-            fwemail = request.POST.get('fwemail')
+            fwemail = request.POST.get('request.user.email')
             fwstat = "On Process"
-            data = faculty_passreset.objects.create(fwname = request.user.name, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=fwemail, fwstat=fwstat)
+            data = faculty_passreset.objects.create(fwname = request.user.name, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=request.user.email, fwstat=fwstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
