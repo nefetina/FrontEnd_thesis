@@ -95,12 +95,17 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------------------->
 
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="facultywifi()"><a href="#" id="bc">EMPLOYEE MEMBER WIFI RECORD</a></li>
-            <li class="breadcrumb-item" onclick="studentwifi()"><a href="#" id="bc">STUDENT WIFI RECORD</a></li>
-            <li class="breadcrumb-item" onclick="studentinternet()"><a href="#" id="bc">STUDENT INTERNET ACCESS RECORD</a></li>
+        <ol class="breadcrumb collapsed">
+            <li class="mx-2 ml-auto active" onclick="facultywifi()"><a href="#" id="bc">EMPLOYEE MEMBER WIFI RECORD</a></li>
+            <li class="mx-2" onclick="studentwifi()"><a href="#" id="bc">STUDENT WIFI RECORD</a></li>
+            <li class="mx-2" onclick="studentinternet()"><a href="#" id="bc">STUDENT INTERNET ACCESS RECORD</a></li>
 
         </ol>
+        <script type="text/javascript">
+          $(document).on('click', 'ol, li', function(){
+              $(this).addClass('active').siblings().removeClass('active')
+          })
+      </script>
     </nav>
 
     <div>
@@ -131,116 +136,116 @@
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
                          <!--TABLE 1 FACULTY MEMBER WIFI RECORD-------------------------------------------------------------------------------------------->
                 
-                        <div id="table1" class="col-xl-11" >
+                        <div id="table1" class="col-xl-12" >
                             
-                        <form>
-                            <div class="form-row">
+                          <form>
+                              <div class="form-row">
 
-                                <div class="col-xl-9 col-lg-8 col-12">
-                                    <input type="text" id="myInputemp" onkeyup="myFunctionemp()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                                </div>
-                                <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                <div class="col-xl-1 col-lg-2 col-12">
-                                    <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                </div>
-                                <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                    <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Sorted by:
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Date</a>
-                                        <a class="dropdown-item" href="#">Ascending</a>
-                                        <a class="dropdown-item" href="#">Descending</a>
-                                    </div>
+                                  <div class="col-xl-9 col-lg-8 col-12">
+                                      <input type="text" id="myInputemp" onkeyup="myFunctionemp()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                   </div>
-                            </div>
-                        </form>
-                        <div class="jumbotron  m-1 "   ><br>
-                        
-                            
-                            <div class="card-body"  >
-                                <form>
-                                    <div class="formtitle">
-                                        EMPLOYEE WIFI REQUEST
+                                  <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                  <div class="col-xl-1 col-lg-2 col-12">
+                                      <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
+                                  </div>
+                                  <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                      <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Sorted by:
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                          <a class="dropdown-item" href="#">Date</a>
+                                          <a class="dropdown-item" href="#">Ascending</a>
+                                          <a class="dropdown-item" href="#">Descending</a>
+                                      </div>
                                     </div>
-                                    <div class="table-responsive-xl col-xl-12" id="idtable1">
-                                        <table class="table" id="myTableemp">
-                                            <thead class="thead">
-                                            <tr>
-                                                <th scope="col">FULL NAME</th>
-                                                <th scope="col ">DEPARTMENT</th>
-                                                <th scope="col ">DESIGNATION</th>
-                                                <th scope="col">SYSTEM</th>
-                                                <th scope="col">MAC ADDRESS</th>
-                                                <th scope="col">MOBILE NO.</th>
-                                                <th scope="col">EMAIL</th>
-                                                <th scope="col">FACULTY</th>
-                                                <th scope="col">SIGNATURE</th>
-                                                <th scope="col">DATE</th>
-                                                <th scope="col">STATUS</th>
-                                                <th scope="col">ACTION</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                {% for p in data1 %}
-                                                <td>{{p.gf_name}}</td>
-                                                <td>{{p.g_dept}}</td>
-                                                <td>{{p.g_des}}</td>
-                                                <td>{{p.g_sys}}</td>
-                                                <td>{{p.g_mac}}</td>
-                                                <td>{{p.g_num}}</td>
-                                                <td>{{p.g_email}}</td>
-                                                <td>{{p.g_fac}}</td>
-                                                <td>{{p.g_sig}}</td>
-                                                <td>{{p.g_datereq}}</td>
-                                                <td>{{p.g_stat}}</td>
-                                                <td>
-                                                    <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                            
-                                                        <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                        data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-    
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <script>
-                                        function myFunctionemp() {
-                                          var input, filter, table, tr, td, i, txtValue;
-                                          input = document.getElementById("myInputemp");
-                                          filter = input.value.toUpperCase();
-                                          table = document.getElementById("myTableemp");
-                                          tr = table.getElementsByTagName("tr");
-                                          for (i = 0; i < tr.length; i++) {
-                                            td = tr[i].getElementsByTagName("td")[0];
-                                            if (td) {
-                                              txtValue = td.textContent || td.innerText;
-                                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                tr[i].style.display = "";
-                                              } else {
-                                                tr[i].style.display = "none";
-                                              }
-                                            }       
+                              </div>
+                          </form>
+                          <div class="jumbotron  m-1 "   ><br>
+                          
+                              
+                              <div class="card-body"  >
+                                  <form>
+                                      <div class="formtitle">
+                                          EMPLOYEE WIFI REQUEST
+                                      </div>
+                                      <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                          <table class="table" id="myTableemp">
+                                              <thead class="thead">
+                                              <tr>
+                                                  <th scope="col">FULL NAME</th>
+                                                  <th scope="col ">DEPARTMENT</th>
+                                                  <th scope="col ">DESIGNATION</th>
+                                                  <th scope="col">SYSTEM</th>
+                                                  <th scope="col">MAC ADDRESS</th>
+                                                  <th scope="col">MOBILE NO.</th>
+                                                  <th scope="col">EMAIL</th>
+                                                  <th scope="col">FACULTY</th>
+                                                  <th scope="col">SIGNATURE</th>
+                                                  <th scope="col">DATE</th>
+                                                  <th scope="col">STATUS</th>
+                                                  <th scope="col">ACTION</th>
+                                              </tr>
+                                              </thead>
+                                              <tbody>
+                                              <tr>
+                                                  {% for p in data1 %}
+                                                  <td>{{p.gf_name}}</td>
+                                                  <td>{{p.g_dept}}</td>
+                                                  <td>{{p.g_des}}</td>
+                                                  <td>{{p.g_sys}}</td>
+                                                  <td>{{p.g_mac}}</td>
+                                                  <td>{{p.g_num}}</td>
+                                                  <td>{{p.g_email}}</td>
+                                                  <td>{{p.g_fac}}</td>
+                                                  <td>{{p.g_sig}}</td>
+                                                  <td>{{p.g_datereq}}</td>
+                                                  <td>{{p.g_stat}}</td>
+                                                  <td>
+                                                      <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                              
+                                                          <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                          data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+      
+                                                      </div>
+                                                  </td>
+                                              </tr>
+                                              {% endfor %}
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                      <script>
+                                          function myFunctionemp() {
+                                            var input, filter, table, tr, td, i, txtValue;
+                                            input = document.getElementById("myInputemp");
+                                            filter = input.value.toUpperCase();
+                                            table = document.getElementById("myTableemp");
+                                            tr = table.getElementsByTagName("tr");
+                                            for (i = 0; i < tr.length; i++) {
+                                              td = tr[i].getElementsByTagName("td")[0];
+                                              if (td) {
+                                                txtValue = td.textContent || td.innerText;
+                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                  tr[i].style.display = "";
+                                                } else {
+                                                  tr[i].style.display = "none";
+                                                }
+                                              }       
+                                            }
                                           }
-                                        }
-                                        </script>
-                                    
-                                </form>
-                            
-                                
-                                
-                            
-                                
-                            </div>
-                        </div>
+                                          </script>
+                                      
+                                  </form>
+                              
+                                  
+                                  
+                              
+                                  
+                              </div>
+                          </div>
                     
                         </div>
                          <!--TABLE 2 STUDENT WIFI RECORD-------------------------------------------------------------------------------------------->
-                        <div id="table2" class="col-xl-11 collapse" >                    
+                        <div id="table2" class="col-xl-12 collapse" >                    
                               <form>
                                   <div class="form-row">
 
@@ -391,7 +396,7 @@
                           </div>
                         
                         <!--TABLE 3 STUDENT WIFI RECORD-------------------------------------------------------------------------------------------->
-                        <div id="table3" class="col-xl-11 collapse" >                    
+                        <div id="table3" class="col-xl-12 collapse" >                    
                           <form>
                               <div class="form-row">
 

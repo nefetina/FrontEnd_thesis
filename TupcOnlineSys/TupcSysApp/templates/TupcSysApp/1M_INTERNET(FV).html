@@ -70,9 +70,14 @@
     </nav>
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="requestforrep()"><a href="#" id="bc">EMPLOYEE WIFI REGISTRATION</a></li>
+        <ol class="breadcrumb collapsed">
+            <li class="mx-2 ml-auto active" onclick="requestforrep()"><a href="#" id="bc">EMPLOYEE WIFI REGISTRATION</a></li>
         </ol>
+        <script type="text/javascript">
+            $(document).on('click', 'ol, li', function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+        </script>
     </nav>
 
     <!--CONTAINER FLUID-------------------------------------------------------------------------------------------->
@@ -100,7 +105,7 @@
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
 
                         <!--REQUEST FOR WIFI CONNECTIVITY-------------------------------------------------------------------------------------------->
-                        <div class="col-xl-11" id="tableform1">
+                        <div class="col-xl-12" id="tableform1">
                             <div class="jumbotron m-1"><br>
 
                                 <!--FORM-------------------------------------------------------------------------------------------->

@@ -65,10 +65,15 @@
     </nav>
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="borrow()"><a href="#" id="bc">BORROW FORM</a></li>
-            <li class="breadcrumb-item" onclick="requestforpassreset()"><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
+        <ol class="breadcrumb collapsed">
+            <li class="mx-2 ml-auto active" onclick="borrow()"><a href="#" id="bc">BORROW FORM</a></li>
+            <li class="mx-2" onclick="requestforpassreset()"><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
         </ol>
+        <script type="text/javascript">
+          $(document).on('click', 'ol, li', function(){
+              $(this).addClass('active').siblings().removeClass('active')
+          })
+      </script>
     </nav>
 
     <div>
@@ -91,7 +96,7 @@
 
                 <div class="col-xl-11 main">
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                        <div class="jumbotron col-11 m-1" id="form1"><br>
+                        <div class="jumbotron col-xl-12 m-1" id="form1"><br>
                             <!---------------BORROW REQUEST-------------------------------------------------------------------------------->
                             <div class="card-body">
                                 <form action="/StudentReports/" method="POST" id="borrowform">
@@ -204,7 +209,7 @@
                                 
                             </div>
                         </div>
-                        <div class="jumbotron col-11 m-1 collapse" id="form2"><br>
+                        <div class="jumbotron  col-xl-12 m-1 collapse" id="form2"><br>
                             <!---------------BORROW REQUEST-------------------------------------------------------------------------------->
                             <div class="card-body">
                                 <form action="/StudentReports_RequestPass/" method="POST">

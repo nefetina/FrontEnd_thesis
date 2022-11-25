@@ -69,11 +69,16 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------------------->
 
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="facultywifi()"><a href="#" id="bc">EMPLOYEE WIFI REQUEST</a></li>
-            <li class="breadcrumb-item " onclick="studentwifi()"><a href="#" id="bc">STUDENT WIFI REQUEST</a></li>
-            <li class="breadcrumb-item" onclick="studentinternet()"><a href="#" id="bc">STUDENT INTERNET ACCESS REQUEST</a></li>
+        <ol class="breadcrumb collapsed ">
+            <li class="mx-2 ml-auto active" onclick="facultywifi()"><a href="#" id="bc">EMPLOYEE WIFI REQUEST</a></li>
+            <li class="mx-2 " onclick="studentwifi()"><a href="#" id="bc">STUDENT WIFI REQUEST</a></li>
+            <li class="mx-2" onclick="studentinternet()"><a href="#" id="bc">STUDENT INTERNET ACCESS REQUEST</a></li>
         </ol>
+        <script type="text/javascript">
+          $(document).on('click', 'ol, li', function(){
+              $(this).addClass('active').siblings().removeClass('active')
+          })
+      </script>
     </nav>
 
     <!--CONTAINER FLUID-------------------------------------------------------------------------------------------->
@@ -102,7 +107,7 @@
                 <div class="col-xl-11 main">                    
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
                     <!--TABLE1-------------------------------------------------------------------------------------------->
-                         <div id="table1" class="col-xl-11" >
+                         <div id="table1" class="col-xl-12" >
                             
                             <form>
                                 <div class="form-row">
@@ -285,7 +290,7 @@
                         
                         </div>
                     <!--TABLE2-------------------------------------------------------------------------------------------->
-                        <div id="table2" class="col-xl-11 collapse">
+                        <div id="table2" class="col-xl-12 collapse">
                             <form>
                                 <div class="form-row">
 
@@ -469,7 +474,7 @@
                             </div> 
                         </div>
                     <!--TABLE3-------------------------------------------------------------------------------------------->
-                        <div id="table3" class="col-xl-11 collapse">
+                        <div id="table3" class="col-xl-12 collapse">
                             <form>
                                 <div class="form-row">
 

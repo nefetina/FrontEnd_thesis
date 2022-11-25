@@ -91,15 +91,20 @@
     </nav>
     <!--BREADCRUMB-------------------------------------------------------------------------------------------->
 
-    <nav aria-label="breadcrumb ">
+    <nav aria-label="breadcrumb collapsed">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="reportandmaintenance()"><a href="#" id="bc">REPAIR AND MAINTENANCE RECORD</a></li>
-            <li class="breadcrumb-item" onclick="passres()"><a href="#" id="bc">PASSWORD RESET RECORD</a></li>
-            <li class="breadcrumb-item" onclick="maintenance()"><a href="#" id="bc">MAINTENANCE RECORD</a></li>
-            <li class="breadcrumb-item" onclick="borrow()"><a href="#" id="bc">BORROW RECORD</a></li>
-            <li class="breadcrumb-item" onclick="inventory()" ><a href="#" id="bc">INVENTORY</a></li>
+            <li class="mx-2 ml-auto active" onclick="reportandmaintenance()"><a href="#" id="bc">REPAIR AND MAINTENANCE RECORD</a></li>
+            <li class="mx-2" onclick="passres()"><a href="#" id="bc">PASSWORD RESET RECORD</a></li>
+            <li class="mx-2" onclick="maintenance()"><a href="#" id="bc">MAINTENANCE RECORD</a></li>
+            <li class="mx-2" onclick="borrow()"><a href="#" id="bc">BORROW RECORD</a></li>
+            <li class="mx-2" onclick="inventory()" ><a href="#" id="bc">INVENTORY</a></li>
 
         </ol>
+        <script type="text/javascript">
+            $(document).on('click', 'ol, li', function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+        </script>
     </nav>
 
     <div>
@@ -127,7 +132,7 @@
                 <div class="col-xl-11 main">                    
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
                             <!--TABLE 5 INVENTORY RECORD-------------------------------------------------------------------------------------------->  
-                            <div id="table5" class="col-xl-11 collapse" >
+                            <div id="table5" class="col-xl-12 collapse" >
     
                                 <div class="jumbotron m-1"><br>
                             
@@ -173,7 +178,7 @@
                             </div>  
 
                             <!--TABLE 1 REPAIR AND MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
-                            <div id="table1" class="col-xl-11" >
+                            <div id="table1" class="col-xl-12" >
                                 
                                 <form>
                                     <div class="form-row">
@@ -313,7 +318,7 @@
                             </div>
 
                             <!--TABLE 2 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
-                            <div id="table2" class="col-xl-11 collapse" >
+                            <div id="table2" class="col-xl-12 collapse" >
                                     
                                 <form>
                                     <div class="form-row">
@@ -426,7 +431,7 @@
                             
                             <!--TABLE 3 MAINTENANCE RECORD -------------------------------------------------------------------------------------------->
                     
-                            <div id="table3" class="col-xl-11 collapse" >
+                            <div id="table3" class="col-xl-12 collapse" >
                                     
                                 <form>
                                     <div class="form-row">
@@ -586,7 +591,7 @@
                             </div> 
 
                             <!--TABLE 4 BORROW RECORD -------------------------------------------------------------------------------------------->
-                            <div id="table4" class="col-xl-11 collapse" >
+                            <div id="table4" class="col-xl-12 collapse" >
                                     
                                 <form>
                                     <div class="form-row">

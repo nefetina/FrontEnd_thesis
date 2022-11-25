@@ -96,10 +96,15 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------------------->
 
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto"><a href="#" id="bc">SCHEDULES RECORD</a></li>
+        <ol class="breadcrumb collapsed">
+            <li class="mx-2 ml-auto active"><a href="#" id="bc">SCHEDULES RECORD</a></li>
 
         </ol>
+        <script type="text/javascript">
+          $(document).on('click', 'ol, li', function(){
+              $(this).addClass('active').siblings().removeClass('active')
+          })
+      </script>
     </nav>
 
     <div>
@@ -128,7 +133,7 @@
 
                 <div class="col-xl-11 main">
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                        <div  class="col-xl-11" >
+                        <div  class="col-xl-12" >
                             <form>
                                 <div class="form-row">
   

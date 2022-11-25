@@ -65,10 +65,15 @@
     </nav>
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb ">
-            <li class="breadcrumb-item ml-auto" onclick="wifi()"><a href="#" id="bc">STUDENT WIFI REGISTRATION</a></li>
-            <li class="breadcrumb-item " onclick="internet()"><a href="#" id="bc">INTERNET ACCESS REGISTRATION</a></li>
+        <ol class="breadcrumb collapsed">
+            <li class="mx-2 ml-auto active" onclick="wifi()"><a href="#" id="bc">STUDENT WIFI REGISTRATION</a></li>
+            <li class="mx-2 " onclick="internet()"><a href="#" id="bc">INTERNET ACCESS REGISTRATION</a></li>
         </ol>
+        <script type="text/javascript">
+            $(document).on('click', 'ol, li', function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+        </script>
     </nav>
 
     <!--CONTAINER FLUID-------------------------------------------------------------------------------------------->
@@ -93,7 +98,7 @@
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
 
                         <!--INTERNET ACCESS REQUEST-------------------------------------------------------------------------------------------->
-                        <div class="col-xl-11 collapse" id="form2">
+                        <div class="col-xl-12 collapse" id="form2">
                             <div class="jumbotron mt-1"><br>
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
@@ -202,8 +207,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-----------WIFI REGISTRATION------------------------------------------------------------------------------------->
-                        <div class="col-xl-11 " id="form1">
+                        <!--WIFI REGISTRATION-------------------------------------------------------------------------------------------->
+                        <div class="col-xl-12 " id="form1">
                             <div class="jumbotron m-1"><br>
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
