@@ -987,14 +987,14 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_sem2 = request.POST.get('g_sem2')
             g_or2 = request.POST.get('g_or2')
             g_num2 = request.POST.get('g_num2')
-            g_email2 = request.POST.get('g_email2')
+            g_email2 = request.POST.get('request.user.email')
             g_add2=request.POST.get('g_add2')
             gu_name2 = request.POST.get('gu_name2')
             g_sig2=request.POST.get('g_sig2') 
             g_daterec2 = request.POST.get('g_daterec2')
             g_stats2 = "On Process"
             data = student_internet.objects.create(gf_name2 = request.user.name, g_csec2=g_csec2, 
-            g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=g_email2,
+            g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=request.user.email,
             g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -1017,13 +1017,13 @@ def StudentWifi(request):#STUDENT WIFI ACCESS page
             g_sys1 = request.POST.get('g_sys1')
             g_mac1 = request.POST.get('g_mac1')
             g_num1 = request.POST.get('g_num1')
-            g_email1 = request.POST.get('g_email1')
+            g_email1 = request.POST.get('request.user.email')
             g_add1=request.POST.get('g_add1')
             g_sig1=request.POST.get('g_sig1')
             g_daterec1 = request.POST.get('g_daterec1')
             g_stats1 = "On Process"
             data = student_wifi.objects.create(gf_name1 = request.user.name, g_csec1=g_csec1, 
-            g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=g_email1,
+            g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=request.user.email,
             g_add1=g_add1, g_sig1=g_sig1, g_daterec1=g_daterec1, g_stats1=g_stats1)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -1062,11 +1062,11 @@ def StudentReports_RequestPass(request):
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
             request.POST.get('request.user.name')
-            email = request.POST.get('email')
+            email = request.POST.get('request.user.email')
             emp_idno = request.POST.get('emp_idno')
             Account = request.POST.get('Account')
             psstats = "On Process"
-            data = PassReset.objects.create(psname = request.user.name, email = email, emp_idno=emp_idno, 
+            data = PassReset.objects.create(psname = request.user.name, email = request.user.email, emp_idno=emp_idno, 
             Account=Account, psstats=psstats)
             data.save()
             messages.info(request, 'Successfully Submitted!')
