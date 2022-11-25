@@ -198,23 +198,18 @@ def facultyID_permit(request, id):
 def facultyID_cancel(request, id):
     if request.method == 'POST':
         a = faculty_ID.objects.get(id=id)
-        
+        reason = request.POST.get("reason")
         for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
             if a == x:
                 x = faculty_ID.objects.filter(id=id).update(f_stat="Declined")
                 y = faculty_ID.objects.filter(id=id).values()
-                
-                for x in y:
-                    print(x['f_name'])
-                    name = x['f_name']
-                    asd = register1.objects.filter(name=name).values()
-                    for z in asd:
-                        uemail = z['gsfe']
-                reason = request.POST.get("reason")
-                print(name)
+                for z in y:
+                    name = z['ff_name']
+                    uemail = z['email1']
+                    print(name)
+                    print(uemail)
                 print(reason)
-                print(uemail)
-                message = "Good day " + name + ", \n Your request for Laboratory Schedule has been declined, " + reason +"\n UITC admin"
+                message = "Good day " + name + ", \n Your request for ID request has been declined, " + reason + "\n UITC admin"
                 email = EmailMessage(
                             name,
                             message,
@@ -225,17 +220,35 @@ def facultyID_cancel(request, id):
 
                 email.send()
                 break
-    messages.info(request, "Successfully deleted")
+    messages.info(request, "Completed")
     return redirect('/UitcID')
 
 def FacultyWifi_cancel(request, id):
-    a = faculty_wifi.objects.get(id=id)
-    
-    for x in faculty_wifi.objects.only('id').filter(g_stat= "On process"):
-        if a == x:
-            x = faculty_wifi.objects.get(id=id).delete()
-            break
-    messages.info(request, "Successfully deleted")
+    if request.method == 'POST':
+        a = faculty_wifi.objects.get(id=id)
+        reason = request.POST.get("reason1")
+        for x in faculty_wifi.objects.only('id').filter(g_stat= "On process"):
+            if a == x:
+                x = faculty_wifi.objects.filter(id=id).update(g_stat="Declined")
+                y = faculty_wifi.objects.filter(id=id).values()
+                for z in y:
+                    name = z['gf_name']
+                    uemail = z['g_email']
+                    print(name)
+                    print(uemail)
+                print(reason)
+                message = "Good day " + name + ", \n Your request for Wifi request has been declined, " + reason + "\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
+    messages.info(request, "Completed")
     return redirect('/UitcInternet')
 
 def FacultyWifi_permit(request, id):
