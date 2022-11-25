@@ -989,7 +989,7 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
         if request.method == "POST":
             request.POST.get('request.user.name')
             g_csec2 = request.POST.get('g_csec2')
-            g_snum2 = request.POST.get('g_snum2')
+            g_snum2 = request.user.username
             g_sem2 = request.POST.get('g_sem2')
             g_or2 = request.POST.get('g_or2')
             g_num2 = request.POST.get('g_num2')
@@ -997,7 +997,7 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_add2=request.POST.get('g_add2')
             gu_name2 = request.POST.get('gu_name2')
             g_sig2=request.POST.get('g_sig2') 
-            g_daterec2 = request.POST.get('g_daterec2')
+            g_daterec2 = datetime.now()
             g_stats2 = "On Process"
             data = student_internet.objects.create(gf_name2 = request.user.name, g_csec2=g_csec2, 
             g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=request.user.email,
@@ -1017,7 +1017,7 @@ def StudentWifi(request):#STUDENT WIFI ACCESS page
         if request.method == "POST":
             request.POST.get('request.user.name')
             g_csec1 = request.POST.get('g_csec1')
-            g_snum1 = request.POST.get('g_snum1')
+            g_snum1 = request.user.username
             g_sem1 = request.POST.get('g_sem1')
             g_or1 = request.POST.get('g_or1')
             g_sys1 = request.POST.get('g_sys1')
@@ -1026,7 +1026,7 @@ def StudentWifi(request):#STUDENT WIFI ACCESS page
             g_email1 = request.user.email
             g_add1=request.POST.get('g_add1')
             g_sig1=request.POST.get('g_sig1')
-            g_daterec1 = request.POST.get('g_daterec1')
+            g_daterec1 = datetime.now()
             g_stats1 = "On Process"
             data = student_wifi.objects.create(gf_name1 = request.user.name, g_csec1=g_csec1, 
             g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=request.user.email,
@@ -1045,8 +1045,8 @@ def StudentReports(request):#STUDENT REPORT page
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
             request.POST.get('request.user.name')
-            i_date5 = request.POST.get('i_date5')
-            i_time5 = request.POST.get('i_time5')
+            i_date5 = datetime.now()
+            i_time5 = datetime.now().time()
             ir_borrow5 = request.POST.get('ir_borrow5')
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
@@ -1069,7 +1069,7 @@ def StudentReports_RequestPass(request):
         if request.method == "POST":
             request.POST.get('request.user.name')
             email = request.user.gsfe
-            emp_idno = request.POST.get('emp_idno')
+            emp_idno = request.user.username
             Account = request.POST.get('Account')
             psstats = "On Process"
             data = PassReset.objects.create(psname = request.user.name, email = request.user.gsfe, emp_idno=emp_idno, 

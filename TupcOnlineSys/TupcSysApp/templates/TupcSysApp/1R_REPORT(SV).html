@@ -112,21 +112,7 @@
                                             <input type="text" class="form-control my-2 p-2" placeholder="{{request.user.name}}" name="if_name5" readonly>
                                         </div>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                            Date Requested:
-                                        </div>
-                                        <div class="col-xl-5">
-                                            <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:" name="i_date5" required>
-                                        </div>
-                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                            Time:
-                                        </div>
-                                        <div class="col-xl-5">
-                                            <input type="time" class="form-control my-2 p-2" placeholder="Time:" name="i_time5" required>
-                                        </div>
 
-                                    </div>
                                     <div class="descriptions col-12 m-2">
                                         Request to Borrow
                                     </div>
@@ -242,7 +228,7 @@
                                             <input type="text" class="form-control my-2 p-2 " name="psname" id="psname" placeholder="{{request.user.name}}" readonly>
                                         </div>
                                         <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2" name="emp_idno" id="emp_idno" placeholder="Student Number" required>
+                                            <input type="text" class="form-control my-2 p-2" name="emp_idno" id="emp_idno" placeholder="{{request.user.username}}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -257,7 +243,7 @@
                                             </select>
                                         </div>
                                         <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2" name="email" id="email" placeholder=" {{request.user.email}}" readonly>
+                                            <input type="text" class="form-control my-2 p-2" name="email" id="email" placeholder=" {{request.user.gsfe}}" readonly>
                                         </div>
                                     </div>
                                    
