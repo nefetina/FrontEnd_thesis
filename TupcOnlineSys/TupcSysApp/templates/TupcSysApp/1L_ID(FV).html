@@ -159,10 +159,17 @@
                                             </div>
                                             <div class="col-xl-4 text-center d-flex justify-content-center align-items-center">
                                                 Date Requested:
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Requested" name = 'f_datereq1' required>
-                                            </div>
+                
+                                            <label class="col-xl-4 text-center d-flex justify-content-center align-items-center" id = "current_date" name = "f_datereq1">
+                                                <script>
+                                                    date = new Date();
+                                                    year = date.getFullYear();
+                                                    month = date.getMonth() + 1;
+                                                    day = date.getDate();
+                                                    document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+                                                    document.getElementById("current_date").value = month + "/" + day + "/" + year;
+                                                </script>
+                                            </label>
                                             
                                         </div>
                                         <div class="descriptions col-12 m-2">
