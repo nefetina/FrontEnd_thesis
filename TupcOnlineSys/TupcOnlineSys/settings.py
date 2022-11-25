@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'TupcOnlineSys.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tupcxx',
+        'NAME': 'tupcsys',
         'HOST': 'localhost',
         'USER': 'root',
         'PASSWORD': '',
