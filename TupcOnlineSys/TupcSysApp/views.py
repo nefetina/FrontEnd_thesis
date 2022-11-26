@@ -92,7 +92,8 @@ def forgotpassword(request):
 
 #download html button
 def employeeID_dl(request):
-    return render (request, 'TupcSysApp/4AEMPLOYEEID.html')
+    data = faculty_ID.objects.all()
+    return render (request, 'TupcSysApp/4AEMPLOYEEID.html',{'data':data})
 def internetStudent_dl(request):
     return render (request, 'TupcSysApp/4BINTERNETACCESS(sv).html')
 def wifiStudent_dl(request):
