@@ -433,15 +433,14 @@ def labsched_permit(request, id):
 def fpasswordreset_cancel(request, id):
     if request.method == 'POST':
         a = faculty_passreset.objects.get(id=id)
-        reason = request.POST.get("reasons")
         for x in faculty_passreset.objects.only('id').filter(fwstat= "On process"):
             if a == x:
                 x = faculty_passreset.objects.filter(id=id).update(fwstat="Approved")
                 y = faculty_passreset.objects.filter(id=id).only("fwname").values()
                 for z in y:
                     name = z['fwname']
-                    uemail = z['fwemail']  
-        
+                    uemail = z['fwemail'] 
+                reason = request.POST.get("reason")
                 print(name)
                 print(reason)
                 print(uemail)
@@ -456,7 +455,7 @@ def fpasswordreset_cancel(request, id):
 
                 email.send()
                 break
-    messages.info(request, "Completed")
+    messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
 def fpasswordreset_permit(request, id):
@@ -483,12 +482,31 @@ def fpasswordreset_permit(request, id):
     return redirect('/UitcReports')
 
 def spasswordreset_cancel(request, id):
-    a = PassReset.objects.get(id=id)
-    for x in PassReset.objects.only('id').filter(psstats= "On process"):
-        if a == x:
-            x = PassReset.objects.get(id=id).delete()
-            break
-    messages.info(request, "Successfully deleted")
+    if request.method == 'POST':
+        a = PassReset.objects.get(id=id)
+        for x in PassReset.objects.only('id').filter(psstats= "On process"):
+            if a == x:
+                x = PassReset.objects.filter(id=id).update(psstats="Approved")
+                y = PassReset.objects.filter(id=id).only("psname").values()
+                for z in y:
+                    name = z['psname']
+                    uemail = z['email'] 
+                reason = request.POST.get("sreason")
+                print(name)
+                print(reason)
+                print(uemail)
+                message = "Good day " + name + ", \n Your request for Password Reset has been declined, " + reason +"\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
+    messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
 def spasswordreset_permit(request, id):
