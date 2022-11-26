@@ -1,525 +1,982 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-{%load static%}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%load static%}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!----TAB NAME------------------------------------------------>
     <title>UITC RECORDS</title>
     <!----TAB ICON------------------------------------------------>
-    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
+    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}" />
     <!----CSS AND JS------------------------------------------------>
     <script src="{% static 'js/3G_rec1.2(uitc).js'%}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/2G_records1.2(uitc).css'%}">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/2G_records1.2(uitc).css'%}"
+    />
 
     <!----BOOTSTRAP LINK------------------------------------------------>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
     <!----ADD UP------------------------------------------------>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!----icon---------->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!----font links---------->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
-    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <body>
+    <div
+      class="modal fade"
+      id="logout"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-              Are you sure you want to logout?
-          </div>
+          <div class="modal-body">Are you sure you want to logout?</div>
           <div class="modal-footer">
-          
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <a href="{% url 'TupcSysApp:logout'%}" style="color:white" type="button" class="btn btn-primary" >Log out</a>
-              
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <a
+              href="{% url 'TupcSysApp:logout'%}"
+              style="color: white"
+              type="button"
+              class="btn btn-primary"
+              >Log out</a
+            >
           </div>
         </div>
       </div>
-    </div>  
+    </div>
     <!--NAVBAR1-------------------------------------------------------------------------------------------->
 
     <nav class="navbar van">
-
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
-        <div id="titulo">
-            <a class="navbar-brand" id="title" href="#">RECORDS</a>
-        </div>
-        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
-
+      <span
+        style="font-size: 30px; cursor: pointer"
+        onclick="openNav()"
+        id="openbtn"
+        >&#9776;
+      </span>
+      <div id="titulo">
+        <a class="navbar-brand" id="title" href="#">RECORDS</a>
+      </div>
+      <img
+        src="{% static 'images/TUP_LOGO.png'%}"
+        width="100"
+        height="80"
+        alt="tuplogo"
+        id="logo"
+      />
     </nav>
 
     <!--NAVBAR2-------------------------------------------------------------------------------------------->
     <nav class="navbar navbar-expand-lg van2">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">&#9776;</span>
-        </button>
+      <a class="navbar-brand" href="#"></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon">&#9776;</span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec1'%}">ID</a>
-                </li>
-                <li class="nav-item" id="actibo">
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec2'%}">INTERNET CONNECTIVITY</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec3'%}">LAB SCHEDULE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec4'%}">REPORTS</a>
-                </li>
-            </ul>
-
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec1'%}">ID</a>
+          </li>
+          <li class="nav-item" id="actibo">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec2'%}"
+              >INTERNET CONNECTIVITY</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec3'%}"
+              >LAB SCHEDULE</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec4'%}"
+              >REPORTS</a
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
     <!--BREADCRUMB-------------------------------------------------------------------------------------------->
 
     <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb collapsed">
-            <li class="mx-2 ml-auto active" onclick="facultywifi()"><a href="#" id="bc">EMPLOYEE MEMBER WIFI RECORD</a></li>
-            <li class="mx-2" onclick="studentwifi()"><a href="#" id="bc">STUDENT WIFI RECORD</a></li>
-            <li class="mx-2" onclick="studentinternet()"><a href="#" id="bc">STUDENT INTERNET ACCESS RECORD</a></li>
-
-        </ol>
-        <script type="text/javascript">
-          $(document).on('click', 'ol, li', function(){
-              $(this).addClass('active').siblings().removeClass('active')
-          })
+      <ol class="breadcrumb collapsed">
+        <li class="mx-2 ml-auto active" onclick="facultywifi()">
+          <a href="#" id="bc">EMPLOYEE MEMBER WIFI RECORD</a>
+        </li>
+        <li class="mx-2" onclick="studentwifi()">
+          <a href="#" id="bc">STUDENT WIFI RECORD</a>
+        </li>
+        <li class="mx-2" onclick="studentinternet()">
+          <a href="#" id="bc">STUDENT INTERNET ACCESS RECORD</a>
+        </li>
+      </ol>
+      <script type="text/javascript">
+        $(document).on("click", "ol, li", function () {
+          $(this).addClass("active").siblings().removeClass("active");
+        });
       </script>
     </nav>
 
     <div>
-        <div class="container-fluid ">
+      <div class="container-fluid">
+        <!--SIDEBAR-------------------------------------------------------------------------------------------->
 
-            <!--SIDEBAR-------------------------------------------------------------------------------------------->
-
-            <div class="row no-gutters">
-                <div class="col-xl-1 text-center">
-                    <div id="mySidebar" class="sidebar">
-                        <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
-                        <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcRec1'%}"  id="active"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-2x fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
-                        <a href="" data-toggle="modal" data-target="#logout"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
-                    </div>
-                </div>
-
-                <!--CARD-------------------------------------------------------------------------------------------->
-                <!--TABLE 1 FACULTY MEMBER WIFI RECORD-------------------------------------------------------------------------------------------->
-
-                <div class="col-xl-11 main" >                    
-                    <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                         <!--TABLE 1 FACULTY MEMBER WIFI RECORD-------------------------------------------------------------------------------------------->
-                
-                        <div id="table1" class="col-xl-12" >
-                            
-                          <form>
-                              <div class="form-row">
-
-                                  <div class="col-xl-9 col-lg-8 col-12">
-                                      <input type="text" id="myInputemp" onkeyup="myFunctionemp()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                                  </div>
-                                  <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                  <div class="col-xl-1 col-lg-2 col-12">
-                                      <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                  </div>
-                                  <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                      <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          <a class="dropdown-item" href="#">Date</a>
-                                          <a class="dropdown-item" href="#">Ascending</a>
-                                          <a class="dropdown-item" href="#">Descending</a>
-                                      </div>
-                                    </div>
-                              </div>
-                          </form>
-                          <div class="jumbotron  m-1 "   ><br>
-                          
-                              
-                              <div class="card-body"  >
-                                  <form>
-                                      <div class="formtitle">
-                                          EMPLOYEE WIFI REQUEST
-                                      </div>
-                                      <div class="table-responsive-xl col-xl-12" id="idtable1">
-                                          <table class="table" id="myTableemp">
-                                              <thead class="thead">
-                                              <tr>
-                                                  <th scope="col">FULL NAME</th>
-                                                  <th scope="col ">DEPARTMENT</th>
-                                                  <th scope="col ">DESIGNATION</th>
-                                                  <th scope="col">SYSTEM</th>
-                                                  <th scope="col">MAC ADDRESS</th>
-                                                  <th scope="col">MOBILE NO.</th>
-                                                  <th scope="col">EMAIL</th>
-                                                  <th scope="col">FACULTY</th>
-                                                  <th scope="col">SIGNATURE</th>
-                                                  <th scope="col">DATE</th>
-                                                  <th scope="col">STATUS</th>
-                                                  <th scope="col">ACTION</th>
-                                              </tr>
-                                              </thead>
-                                              <tbody>
-                                              <tr>
-                                                  {% for p in data1 %}
-                                                  <td>{{p.gf_name}}</td>
-                                                  <td>{{p.g_dept}}</td>
-                                                  <td>{{p.g_des}}</td>
-                                                  <td>{{p.g_sys}}</td>
-                                                  <td>{{p.g_mac}}</td>
-                                                  <td>{{p.g_num}}</td>
-                                                  <td>{{p.g_email}}</td>
-                                                  <td>{{p.g_fac}}</td>
-                                                  <td>{{p.g_sig}}</td>
-                                                  <td>{{p.g_datereq}}</td>
-                                                  <td>{{p.g_stat}}</td>
-                                                  <td>
-                                                      <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                              
-                                                        <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                        href = "{% url 'TupcSysApp:wifiFaculty_dl' %}" title="Download" ><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
-     
-                                                      </div>
-                                                  </td>
-                                              </tr>
-                                              {% endfor %}
-                                              </tbody>
-                                          </table>
-                                      </div>
-                                      <script>
-                                          function myFunctionemp() {
-                                            var input, filter, table, tr, td, i, txtValue;
-                                            input = document.getElementById("myInputemp");
-                                            filter = input.value.toUpperCase();
-                                            table = document.getElementById("myTableemp");
-                                            tr = table.getElementsByTagName("tr");
-                                            for (i = 0; i < tr.length; i++) {
-                                              td = tr[i].getElementsByTagName("td")[0];
-                                              if (td) {
-                                                txtValue = td.textContent || td.innerText;
-                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                  tr[i].style.display = "";
-                                                } else {
-                                                  tr[i].style.display = "none";
-                                                }
-                                              }       
-                                            }
-                                          }
-                                          </script>
-                                      
-                                  </form>
-                              
-                                  
-                                  
-                              
-                                  
-                              </div>
-                          </div>
-                    
-                        </div>
-                         <!--TABLE 2 STUDENT WIFI RECORD-------------------------------------------------------------------------------------------->
-                        <div id="table2" class="col-xl-12 collapse" >                    
-                              <form>
-                                  <div class="form-row">
-
-                                      <div class="col-xl-9 col-lg-8 col-12">
-                                        <input type="text" id="myInputswr" onkeyup="myFunctionswr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                                      </div>
-                                      <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                      <div class="col-xl-1 col-lg-2 col-12">
-                                          <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                      </div>
-                                      <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                          <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Sorted by:
-                                          </button>
-                              
-                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                              <a class="dropdown-item" href="#">Date</a>
-                                              <a type="button" class="dropdown-item" href="#" onclick="sortTable()">Ascending</a>
-                                              <a class="dropdown-item" href="#">Descending</a>
-                                          </div>
-                                        </div>
-                                  </div>
-                              </form>
-                              <div class="jumbotron  m-1"><br>
-                                  
-                                  
-                                  <div class="card-body">
-                                      <form>
-                                          <div class="formtitle">
-                                              STUDENT WIFI RECORD
-                                          </div>
-                                          <div class="table-responsive-xl col-xl-12" id="idtable2">
-                                            <table class="table" id="myTableswr">
-                                                <thead class="thead">
-                                                  <tr>
-                                                  <th scope="col-xl-1">FULL NAME</th>
-                                                  <th scope="col-xl-1 ">COURSE AND SECTION</th>
-                                                  <th scope="col-xl-1 ">STUDENT NO.</th>
-                                                  <th scope="col-xl-1">SEMESTER</th>
-                                                  <th scope="col-xl-1">O.R. NO.</th>
-                                                  <th scope="col-xl-1">SYSTEM</th>
-                                                  <th scope="col-xl-1">MAC ADDRESS</th>
-                                                  <th scope="col-xl-1">MOBILE NO.</th>
-                                                  <th scope="col-xl-1">EMAIL ADDRESS</th>
-                                                  <th scope="col-xl-1">ADDRESS</th>
-                                                  <th scope="col-xl-1">SIGNATURE</th>
-                                                  <th scope="col-xl-1">DATE</th>
-                                                  <th scope="col">STATUS</th>
-                                                  <th scope="col">ACTION</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    {% for g in data2 %}
-                                                    <td>{{g.gf_name1}}</td>
-                                                    <td>{{g.g_csec1}}</td>
-                                                    <td>{{g.g_snum1}}</td>
-                                                    <td>{{g.g_sem1}}</td>
-                                                    <td>{{g.g_or1}}</td>
-                                                    <td>{{g.g_sys1}}</td>
-                                                    <td>{{g.g_mac1}}</td>
-                                                    <td>{{g.g_num1}}</td>
-                                                    <td>{{g.g_email1}}</td>
-                                                    <td>{{g.g_add1}}</td>
-                                                    <td>{{g.g_sig1}}</td>
-                                                    <td>{{g.g_daterec1}}</td>
-                                                    <td>{{g.g_stats1}}</td>
-                                                    <td>
-
-                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                
-                                                          <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                          href = "{% url 'TupcSysApp:wifiStudent_dl' %}" title="Download" ><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
-       
-                                                        </div>
-                                                    </td>
-                                                  </tr>
-                                                  {% endfor%}
-                                                </tbody>
-                                              </table>
-                                              <script>
-                                                function sortTable() {
-                                                  var table, rows, switching, i, x, y, shouldSwitch;
-                                                  table = document.getElementById("myTableswr");
-                                                  switching = true;
-                                                  /*Make a loop that will continue until
-                                                  no switching has been done:*/
-                                                  while (switching) {
-                                                    //start by saying: no switching is done:
-                                                    switching = false;
-                                                    rows = table.rows;
-                                                    /*Loop through all table rows (except the
-                                                    first, which contains table headers):*/
-                                                    for (i = 1; i < (rows.length - 1); i++) {
-                                                      //start by saying there should be no switching:
-                                                      shouldSwitch = false;
-                                                      /*Get the two elements you want to compare,
-                                                      one from current row and one from the next:*/
-                                                      x = rows[i].getElementsByTagName("TD")[0];
-                                                      y = rows[i + 1].getElementsByTagName("TD")[0];
-                                                      //check if the two rows should switch place:
-                                                      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                                                        //if so, mark as a switch and break the loop:
-                                                        shouldSwitch = true;
-                                                        break;
-                                                      
-                                                      }
-                                                    }
-                                                    if (shouldSwitch) {
-                                                      /*If a switch has been marked, make the switch
-                                                      and mark that a switch has been done:*/
-                                                      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                                                      switching = true;
-                                                    }
-                                                  }
-                                                }
-                                              </script>
-                                        </div>
-                                        <script>
-                                            function myFunctionswr() {
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInputswr");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("myTableswr");
-                                              tr = table.getElementsByTagName("tr");
-                                              for (i = 0; i < tr.length; i++) {
-                                                td = tr[i].getElementsByTagName("td")[0];
-                                                if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                    tr[i].style.display = "";
-                                                  } else {
-                                                    tr[i].style.display = "none";
-                                                  }
-                                                }       
-                                              }
-                                            }
-                                            </script>
-                                          
-                                      </form>
-                                    
-                                      
-                                      
-                                    
-                                      
-                                  </div>
-                              </div>
-                          </div>
-                        
-                        <!--TABLE 3 STUDENT WIFI RECORD-------------------------------------------------------------------------------------------->
-                        <div id="table3" class="col-xl-12 collapse" >                    
-                          <form>
-                              <div class="form-row">
-
-                                  <div class="col-xl-9 col-lg-8 col-12">
-                                    <input type="text" id="myInputiar" onkeyup="myFunctioniar()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                                </div>
-                                  <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                  <div class="col-xl-1 col-lg-2 col-12">
-                                      <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                  </div>
-                                  <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                      <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sorted by:
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          <a class="dropdown-item" href="#">Date</a>
-                                          <a class="dropdown-item" href="#">Ascending</a>
-                                          <a class="dropdown-item" href="#">Descending</a>
-                                      </div>
-                                    </div>
-                              </div>
-                          </form>
-                          <div class="jumbotron  m-1"><br>
-                              
-                              
-                              <div class="card-body">
-                                <form>
-                                  <div class="formtitle">
-                                      STUDENT INTERNET ACCESS RECORD
-                                  </div>
-                                  <div class="table-responsive-xl col-xl-12" id="idtable3">
-                                    <table class="table" id="myTableiar">
-                                        <thead class="thead">
-                                          <tr>
-                                            <th scope="col">FULL NAME</th>
-                                            <th scope="col ">COURSE AND SECTION</th>
-                                            <th scope="col ">STUDENT NO.</th>                       
-                                            <th scope="col">SEMESTER</th>
-                                            <th scope="col">O.R. #</th>
-                                            <th scope="col">MOBILE NO.</th>
-                                            <th scope="col">EMAIL ADDRESS</th>
-                                            <th scope="col">ADDRESS</th>
-                                            <th scope="col">USERNAME</th>
-                                            <th scope="col">SIGNATURE</th>
-                                            <th scope="col">DATE</th>
-                                            <th scope="col">STATUS</th>
-                                            <th scope="col">ACTION</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            {% for q in data3 %}
-                                            <td>{{q.gf_name2}}</td>
-                                            <td>{{q.g_csec2}}</td>
-                                            <td>{{q.g_snum2}}</td>
-                                            <td>{{q.g_sem2}}</td>
-                                            <td>{{q.g_or2}}</td>
-                                            <td>{{q.g_num2}}</td>
-                                            <td>{{q.g_email2}}</td>
-                                            <td>{{q.g_add2}}</td>
-                                            <td>{{q.gu_name2}}</td>
-                                            <td>{{q.g_sig}}</td>
-                                            <td>{{q.g_daterec2}}</td>
-                                            <td>{{q.g_stats2}}</td>
-                                            <td>
-                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                        
-                                                  <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                  href = "{% url 'TupcSysApp:internetStudent_dl' %}" title="Download" ><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
-
-                                                </div>
-                                            </td>
-                                          </tr>
-                                          {% endfor%}
-                                        </tbody>
-                                      </table>
-                                </div>
-                                <script>
-                                    function myFunctioniar() {
-                                      var input, filter, table, tr, td, i, txtValue;
-                                      input = document.getElementById("myInputiar");
-                                      filter = input.value.toUpperCase();
-                                      table = document.getElementById("myTableiar");
-                                      tr = table.getElementsByTagName("tr");
-                                      for (i = 0; i < tr.length; i++) {
-                                        td = tr[i].getElementsByTagName("td")[0];
-                                        if (td) {
-                                          txtValue = td.textContent || td.innerText;
-                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                            tr[i].style.display = "";
-                                          } else {
-                                            tr[i].style.display = "none";
-                                          }
-                                        }       
-                                      }
-                                    }
-                                    </script>
-                                  
-                              </form>
-                                
-                                  
-                                  
-                                
-                                  
-                              </div>
-                          </div>
-                        </div>
-                           
-                          
-                         
-                    </div>
-                    
-                </div>
+        <div class="row no-gutters">
+          <div class="col-xl-1 text-center">
+            <div id="mySidebar" class="sidebar">
+              <button class="closebtn" id="close" onclick="closeNav()">
+                &times;
+              </button>
+              <a href="{% url 'TupcSysApp:UitcHome'%}"
+                ><i class="fa fa-2x fa-user-circle" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">HOME</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcID'%}"
+                ><i class="fa fa-2x fa-id-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">ID'S</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInternet'%}"
+                ><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INTERNET</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcLabsched'%}"
+                ><i class="fa fa-2x fa-calendar" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">SCHEDULE</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcReports'%}"
+                ><i class="fa fa-2x fa-file-text" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">REPORT</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"
+                ><i class="fa fa-2x fa-clipboard" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">RECORDS</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcPermission'%}"
+                ><i class="fa fa-2x fa-address-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">USERS</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInventory'%}"
+                ><i class="fa fa-2x fa-archive" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INVENTORY</h6></i
+                ></a
+              >
+              <a href="" data-toggle="modal" data-target="#logout"
+                ><i class="fa fa-2x fa-sign-out" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">LOG OUT</h6></i
+                ></a
+              >
             </div>
-            <!--BG CALL-------------------------------------------------------------------------------------------->
-            <div id="pic" class="view drk "></div>
+          </div>
+
+          <!--CARD-------------------------------------------------------------------------------------------->
+          <!--TABLE 1 FACULTY MEMBER WIFI RECORD-------------------------------------------------------------------------------------------->
+
+          <div class="col-xl-11 main">
+            <div
+              class="container-fluid text-center d-flex justify-content-center align-items-center"
+            >
+              <br /><br />
+              <!--TABLE 1 FACULTY MEMBER WIFI RECORD-------------------------------------------------------------------------------------------->
+
+              <div id="table1" class="col-xl-12">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        id="myInputemp"
+                        onkeyup="myFunctionemp()"
+                        class="form-control my-2 p-2"
+                        placeholder="Search for names.."
+                        title="Type in a name"
+                      />
+                    </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                    <div class="col-xl-1 col-lg-2 col-12">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-block my-2 p-2"
+                      >
+                        Search
+                      </button>
+                    </div>
+                    <div class="dropdown col-xl-2 col-lg-2 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#">Ascending</a>
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron m-1">
+                  <br />
+
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">EMPLOYEE WIFI REQUEST</div>
+                      <div class="table-responsive-xl col-xl-12" id="idtable1">
+                        <table class="table" id="myTableemp">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col">FULL NAME</th>
+                              <th scope="col ">DEPARTMENT</th>
+                              <th scope="col ">DESIGNATION</th>
+                              <th scope="col">SYSTEM</th>
+                              <th scope="col">MAC ADDRESS</th>
+                              <th scope="col">MOBILE NO.</th>
+                              <th scope="col">EMAIL</th>
+                              <th scope="col">FACULTY</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">DATE</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for p in data1 %}
+                              <td>{{p.gf_name}}</td>
+                              <td>{{p.g_dept}}</td>
+                              <td>{{p.g_des}}</td>
+                              <td>{{p.g_sys}}</td>
+                              <td>{{p.g_mac}}</td>
+                              <td>{{p.g_num}}</td>
+                              <td>{{p.g_email}}</td>
+                              <td>{{p.g_fac}}</td>
+                              <td>{{p.g_sig}}</td>
+                              <td>{{p.g_datereq}}</td>
+                              <td>{{p.g_stat}}</td>
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <a
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    href="{% url 'TupcSysApp:wifiFaculty_dl' %}"
+                                    title="Download"
+                                    ><i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i
+                                  ></a>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                      <script>
+                        function myFunctionemp() {
+                          var input, filter, table, tr, td, i, txtValue;
+                          input = document.getElementById("myInputemp");
+                          filter = input.value.toUpperCase();
+                          table = document.getElementById("myTableemp");
+                          tr = table.getElementsByTagName("tr");
+                          for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            if (td) {
+                              txtValue = td.textContent || td.innerText;
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else {
+                                tr[i].style.display = "none";
+                              }
+                            }
+                          }
+                        }
+                        // convert table to excel
+                        function exportTableToExcel(myTableemp, filename = "") {
+                          var downloadLink;
+                          var dataType = "application/vnd.ms-excel";
+                          var tableSelect = document.getElementById(myTableemp);
+                          var tableHTML = tableSelect.outerHTML.replace(
+                            / /g,
+                            "%20"
+                          );
+
+                          // Specify file name
+                          filename = filename
+                            ? filename + ".xls"
+                            : "excel_data.xls";
+
+                          // Create download link element
+                          downloadLink = document.createElement("a");
+
+                          document.body.appendChild(downloadLink);
+
+                          if (navigator.msSaveOrOpenBlob) {
+                            var blob = new Blob(["\ufeff", tableHTML], {
+                              type: dataType,
+                            });
+                            navigator.msSaveOrOpenBlob(blob, filename);
+                          } else {
+                            // Create a link to the file
+                            downloadLink.href =
+                              "data:" + dataType + ", " + tableHTML;
+
+                            // Setting the file name
+                            downloadLink.download = filename;
+
+                            //triggering the function
+                            downloadLink.click();
+                          }
+                        }
+                      </script>
+                    </form>
+                    <div>Download Records</div>
+                    <div
+                      class="col-xl-12 d-flex justify-content-center align-items-center"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                        onclick="exportTableToExcel('myTableemp', 'Employee_Wifi_request_record')"
+                        title="Download"
+                      >
+                        <i
+                          class="fa fa-arrow-circle-down"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--TABLE 2 STUDENT WIFI RECORD-------------------------------------------------------------------------------------------->
+              <div id="table2" class="col-xl-12 collapse">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        id="myInputswr"
+                        onkeyup="myFunctionswr()"
+                        class="form-control my-2 p-2"
+                        placeholder="Search for names.."
+                        title="Type in a name"
+                      />
+                    </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                    <div class="col-xl-1 col-lg-2 col-12">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-block my-2 p-2"
+                      >
+                        Search
+                      </button>
+                    </div>
+                    <div class="dropdown col-xl-2 col-lg-2 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a
+                          type="button"
+                          class="dropdown-item"
+                          href="#"
+                          onclick="sortTable()"
+                          >Ascending</a
+                        >
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron m-1">
+                  <br />
+
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">STUDENT WIFI RECORD</div>
+                      <div class="table-responsive-xl col-xl-12" id="idtable2">
+                        <table class="table" id="myTableswr">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col-xl-1">FULL NAME</th>
+                              <th scope="col-xl-1 ">COURSE AND SECTION</th>
+                              <th scope="col-xl-1 ">STUDENT NO.</th>
+                              <th scope="col-xl-1">SEMESTER</th>
+                              <th scope="col-xl-1">O.R. NO.</th>
+                              <th scope="col-xl-1">SYSTEM</th>
+                              <th scope="col-xl-1">MAC ADDRESS</th>
+                              <th scope="col-xl-1">MOBILE NO.</th>
+                              <th scope="col-xl-1">EMAIL ADDRESS</th>
+                              <th scope="col-xl-1">ADDRESS</th>
+                              <th scope="col-xl-1">SIGNATURE</th>
+                              <th scope="col-xl-1">DATE</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for g in data2 %}
+                              <td>{{g.gf_name1}}</td>
+                              <td>{{g.g_csec1}}</td>
+                              <td>{{g.g_snum1}}</td>
+                              <td>{{g.g_sem1}}</td>
+                              <td>{{g.g_or1}}</td>
+                              <td>{{g.g_sys1}}</td>
+                              <td>{{g.g_mac1}}</td>
+                              <td>{{g.g_num1}}</td>
+                              <td>{{g.g_email1}}</td>
+                              <td>{{g.g_add1}}</td>
+                              <td>{{g.g_sig1}}</td>
+                              <td>{{g.g_daterec1}}</td>
+                              <td>{{g.g_stats1}}</td>
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <a
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    href="{% url 'TupcSysApp:wifiStudent_dl' %}"
+                                    title="Download"
+                                    ><i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i
+                                  ></a>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor%}
+                          </tbody>
+                        </table>
+                        <script>
+                          function sortTable(n) {
+                            var table,
+                              rows,
+                              switching,
+                              i,
+                              x,
+                              y,
+                              shouldSwitch,
+                              dir,
+                              switchcount = 0;
+                            table = document.getElementById("myTableswr");
+                            switching = true;
+                            // Set the sorting direction to ascending:
+                            dir = "asc";
+                            /* Make a loop that will continue until
+                            no switching has been done: */
+                            while (switching) {
+                              // Start by saying: no switching is done:
+                              switching = false;
+                              rows = table.rows;
+                              /* Loop through all table rows (except the
+                              first, which contains table headers): */
+                              for (i = 1; i < rows.length - 1; i++) {
+                                // Start by saying there should be no switching:
+                                shouldSwitch = false;
+                                /* Get the two elements you want to compare,
+                                one from current row and one from the next: */
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+                                /* Check if the two rows should switch place,
+                                based on the direction, asc or desc: */
+                                if (dir == "asc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() >
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                } else if (dir == "desc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() <
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                }
+                              }
+                              if (shouldSwitch) {
+                                /* If a switch has been marked, make the switch
+                                and mark that a switch has been done: */
+                                rows[i].parentNode.insertBefore(
+                                  rows[i + 1],
+                                  rows[i]
+                                );
+                                switching = true;
+                                // Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                              } else {
+                                /* If no switching has been done AND the direction is "asc",
+                                set the direction to "desc" and run the while loop again. */
+                                if (switchcount == 0 && dir == "asc") {
+                                  dir = "desc";
+                                  switching = true;
+                                }
+                              }
+                            }
+                          }
+                          // convert table to excel
+                          function exportTableToExcel(
+                            myTableswr,
+                            filename = ""
+                          ) {
+                            var downloadLink;
+                            var dataType = "application/vnd.ms-excel";
+                            var tableSelect =
+                              document.getElementById(myTableswr);
+                            var tableHTML = tableSelect.outerHTML.replace(
+                              / /g,
+                              "%20"
+                            );
+
+                            // Specify file name
+                            filename = filename
+                              ? filename + ".xls"
+                              : "excel_data.xls";
+
+                            // Create download link element
+                            downloadLink = document.createElement("a");
+
+                            document.body.appendChild(downloadLink);
+
+                            if (navigator.msSaveOrOpenBlob) {
+                              var blob = new Blob(["\ufeff", tableHTML], {
+                                type: dataType,
+                              });
+                              navigator.msSaveOrOpenBlob(blob, filename);
+                            } else {
+                              // Create a link to the file
+                              downloadLink.href =
+                                "data:" + dataType + ", " + tableHTML;
+
+                              // Setting the file name
+                              downloadLink.download = filename;
+
+                              //triggering the function
+                              downloadLink.click();
+                            }
+                          }
+                        </script>
+                      </div>
+                      <script>
+                        function myFunctionswr() {
+                          var input, filter, table, tr, td, i, txtValue;
+                          input = document.getElementById("myInputswr");
+                          filter = input.value.toUpperCase();
+                          table = document.getElementById("myTableswr");
+                          tr = table.getElementsByTagName("tr");
+                          for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            if (td) {
+                              txtValue = td.textContent || td.innerText;
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else {
+                                tr[i].style.display = "none";
+                              }
+                            }
+                          }
+                        }
+                      </script>
+                    </form>
+                    <div>Download Records</div>
+                    <div
+                      class="col-xl-12 d-flex justify-content-center align-items-center"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                        onclick="exportTableToExcel('myTableswr', 'Student_Wifi_request_record')"
+                        title="Download"
+                      >
+                        <i
+                          class="fa fa-arrow-circle-down"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--TABLE 3 STUDENT WIFI RECORD-------------------------------------------------------------------------------------------->
+              <div id="table3" class="col-xl-12 collapse">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        id="myInputiar"
+                        onkeyup="myFunctioniar()"
+                        class="form-control my-2 p-2"
+                        placeholder="Search for names.."
+                        title="Type in a name"
+                      />
+                    </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                    <div class="col-xl-1 col-lg-2 col-12">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-block my-2 p-2"
+                      >
+                        Search
+                      </button>
+                    </div>
+                    <div class="dropdown col-xl-2 col-lg-2 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#">Ascending</a>
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron m-1">
+                  <br />
+
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">
+                        STUDENT INTERNET ACCESS RECORD
+                      </div>
+                      <div class="table-responsive-xl col-xl-12" id="idtable3">
+                        <table class="table" id="myTableiar">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col">FULL NAME</th>
+                              <th scope="col ">COURSE AND SECTION</th>
+                              <th scope="col ">STUDENT NO.</th>
+                              <th scope="col">SEMESTER</th>
+                              <th scope="col">O.R. NO.</th>
+                              <th scope="col">MOBILE NO.</th>
+                              <th scope="col">EMAIL ADDRESS</th>
+                              <th scope="col">ADDRESS</th>
+                              <th scope="col">USERNAME</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">DATE</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for q in data3 %}
+                              <td>{{q.gf_name2}}</td>
+                              <td>{{q.g_csec2}}</td>
+                              <td>{{q.g_snum2}}</td>
+                              <td>{{q.g_sem2}}</td>
+                              <td>{{q.g_or2}}</td>
+                              <td>{{q.g_num2}}</td>
+                              <td>{{q.g_email2}}</td>
+                              <td>{{q.g_add2}}</td>
+                              <td>{{q.gu_name2}}</td>
+                              <td>{{q.g_sig}}</td>
+                              <td>{{q.g_daterec2}}</td>
+                              <td>{{q.g_stats2}}</td>
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <a
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    href="{% url 'TupcSysApp:internetStudent_dl' %}"
+                                    title="Download"
+                                    ><i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i
+                                  ></a>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor%}
+                          </tbody>
+                        </table>
+                        <script>
+                          function sortTable(n) {
+                            var table,
+                              rows,
+                              switching,
+                              i,
+                              x,
+                              y,
+                              shouldSwitch,
+                              dir,
+                              switchcount = 0;
+                            table = document.getElementById("myTableiar");
+                            switching = true;
+                            // Set the sorting direction to ascending:
+                            dir = "asc";
+                            /* Make a loop that will continue until
+                            no switching has been done: */
+                            while (switching) {
+                              // Start by saying: no switching is done:
+                              switching = false;
+                              rows = table.rows;
+                              /* Loop through all table rows (except the
+                              first, which contains table headers): */
+                              for (i = 1; i < rows.length - 1; i++) {
+                                // Start by saying there should be no switching:
+                                shouldSwitch = false;
+                                /* Get the two elements you want to compare,
+                                one from current row and one from the next: */
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+                                /* Check if the two rows should switch place,
+                                based on the direction, asc or desc: */
+                                if (dir == "asc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() >
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                } else if (dir == "desc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() <
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                }
+                              }
+                              if (shouldSwitch) {
+                                /* If a switch has been marked, make the switch
+                                and mark that a switch has been done: */
+                                rows[i].parentNode.insertBefore(
+                                  rows[i + 1],
+                                  rows[i]
+                                );
+                                switching = true;
+                                // Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                              } else {
+                                /* If no switching has been done AND the direction is "asc",
+                                set the direction to "desc" and run the while loop again. */
+                                if (switchcount == 0 && dir == "asc") {
+                                  dir = "desc";
+                                  switching = true;
+                                }
+                              }
+                            }
+                          }
+                          // convert table to excel
+                          function exportTableToExcel(
+                            myTableiar,
+                            filename = "EMPLOYEE ID RECORD"
+                          ) {
+                            var downloadLink;
+                            var dataType = "application/vnd.ms-excel";
+                            var tableSelect =
+                              document.getElementById(myTableiar);
+                            var tableHTML = tableSelect.outerHTML.replace(
+                              / /g,
+                              "%20"
+                            );
+
+                            // Specify file name
+                            filename = filename
+                              ? filename + ".xls"
+                              : "excel_data.xls";
+
+                            // Create download link element
+                            downloadLink = document.createElement("a");
+
+                            document.body.appendChild(downloadLink);
+
+                            if (navigator.msSaveOrOpenBlob) {
+                              var blob = new Blob(["\ufeff", tableHTML], {
+                                type: dataType,
+                              });
+                              navigator.msSaveOrOpenBlob(blob, filename);
+                            } else {
+                              // Create a link to the file
+                              downloadLink.href =
+                                "data:" + dataType + ", " + tableHTML;
+
+                              // Setting the file name
+                              downloadLink.download = filename;
+
+                              //triggering the function
+                              downloadLink.click();
+                            }
+                          }
+                        </script>
+
+                        <script>
+                          function myFunctioniar() {
+                            var input, filter, table, tr, td, i, txtValue;
+                            input = document.getElementById("myInputiar");
+                            filter = input.value.toUpperCase();
+                            table = document.getElementById("myTableiar");
+                            tr = table.getElementsByTagName("tr");
+                            for (i = 0; i < tr.length; i++) {
+                              td = tr[i].getElementsByTagName("td")[0];
+                              if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (
+                                  txtValue.toUpperCase().indexOf(filter) > -1
+                                ) {
+                                  tr[i].style.display = "";
+                                } else {
+                                  tr[i].style.display = "none";
+                                }
+                              }
+                            }
+                          }
+                        </script>
+                      </div>
+                    </form>
+                    <div>Download Records</div>
+                    <div
+                      class="col-xl-12 d-flex justify-content-center align-items-center"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                        onclick="exportTableToExcel('myTableiar', 'StudentInternetAccess_Record')"
+                        title="Download"
+                      >
+                        <i
+                          class="fa fa-arrow-circle-down"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!--BG CALL-------------------------------------------------------------------------------------------->
+        <div id="pic" class="view drk"></div>
+      </div>
     </div>
-
-
-
-</body>
-
+  </body>
 </html>
-Footer
-© 202
+Footer © 202

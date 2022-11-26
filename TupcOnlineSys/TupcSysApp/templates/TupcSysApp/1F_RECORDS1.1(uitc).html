@@ -154,7 +154,7 @@
                                   </div>
                             </div>
                         </form>                    
-                        <div class="jumbotron  m-1"><br>
+                        <div class="jumbotron  m-1"><br />
                             
                             
                           <div class="card-body">
@@ -184,7 +184,8 @@
                                             <th scope="col">ADDRESS</th>
                                             <th scope="col">SIGNATURE</th>
                                             <th scope="col">STATUS</th>
-                                            <th scope="col">ACTION</th>
+                                            <th scope="col">Download PDF</th>
+                                            
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -216,6 +217,7 @@
 
                                                 </div>
                                             </td>
+
                                           </tr>
                                           {% endfor %}
                                         </tbody>
@@ -275,6 +277,37 @@
                                             }
                                           }
                                         }
+                                        // convert table to excel
+                                        function exportTableToExcel(myTable, filename = 'EMPLOYEE ID RECORD'){
+                                          var downloadLink;
+                                          var dataType = 'application/vnd.ms-excel';
+                                          var tableSelect = document.getElementById(myTable);
+                                          var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+                                          
+                                          // Specify file name
+                                          filename = filename?filename+'.xls':'excel_data.xls';
+                                          
+                                          // Create download link element
+                                          downloadLink = document.createElement("a");
+                                          
+                                          document.body.appendChild(downloadLink);
+                                          
+                                          if(navigator.msSaveOrOpenBlob){
+                                              var blob = new Blob(['\ufeff', tableHTML], {
+                                                  type: dataType
+                                              });
+                                              navigator.msSaveOrOpenBlob( blob, filename);
+                                          }else{
+                                              // Create a link to the file
+                                              downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                                          
+                                              // Setting the file name
+                                              downloadLink.download = filename;
+                                              
+                                              //triggering the function
+                                              downloadLink.click();
+                                          }
+                                      }
                                         </script>
                                 </div>
                                 <script>
@@ -300,7 +333,12 @@
                                     
                                   
                               </form>
-                             
+                              <div>Download Records</div>
+                              <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                                        
+                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" onclick="exportTableToExcel('myTable', 'Employee_ID_Record')" title="Download" ><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+
+                              </div>
                               
                               
                              
