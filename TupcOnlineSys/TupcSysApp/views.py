@@ -1016,7 +1016,7 @@ def FacultyBorrower(request):
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            email4 = request.POST.get('email4')
+            request.POST.get('email4')
             request.POST.get('request.user.name')
             fbdate = datetime.now()
             fbtime = datetime.now().time()
@@ -1059,7 +1059,7 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_sem2 = request.POST.get('g_sem2')
             g_or2 = request.POST.get('g_or2')
             g_num2 = request.POST.get('g_num2')
-            g_email2 = request.POST.get('request.user.email')
+            request.POST.get('request.user.email')
             g_add2=request.POST.get('g_add2')
             gu_name2 = request.POST.get('gu_name2')
             g_sig2=request.POST.get('g_sig2') 

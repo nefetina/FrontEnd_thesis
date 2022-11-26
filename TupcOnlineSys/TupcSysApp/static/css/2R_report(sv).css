@@ -870,3 +870,285 @@ header,
         position: absolute;
     }
 }
+
+.signContainer canvas {
+    border: 1px solid #d6d8d9;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.tempContDiv input[type="text"]:hover,
+.tempContDiv textarea:hover,
+.mSelect select:hover,
+.tempContDiv input[type="file"]:hover,
+.form_sBox:hover,
+.signContainer .signArea:hover,
+.signContainer canvas:hover {
+    border: 1px solid #a5a5a5 !important;
+}
+
+.tempContDiv input[type="text"]:focus,
+.tempContDiv textarea:focus,
+.mSelect select:focus,
+.tempContDiv input[type="file"]:focus,
+.form_sBox:focus,
+.signContainer .signArea:focus,
+.signContainer canvas:focus {
+    border: 1px solid #24A68A !important;
+}
+
+.formFieldWrapper .error .tempContDiv input[type="text"]:focus,
+.formFieldWrapper .error .tempContDiv textarea:focus,
+.formFieldWrapper .error .tempContDiv .form_sBox:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.subContWrap {
+    margin: 0px;
+    margin-bottom: 0;
+}
+
+.phone .tempContDiv label,
+.date .tempContDiv label,
+.time .tempContDiv label,
+.address .tempContDiv label,
+.name .tempContDiv span label {
+    color: #7c7c7c;
+    font-size: 13px !important;
+}
+
+.date .tempContDiv .calendarIcon {
+    margin-top: 5px;
+}
+
+.fmFooter {
+    text-align: center;
+    overflow: hidden;
+    padding: 25px 30px;
+}
+
+.fmSmtButton {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 40px 10px 40px;
+    font-weight: 400;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-family: "Arimo", sans-serif;
+}
+
+.submitColor {
+    color: #fff;
+    border: 1px solid;
+    border-color: #24A68A;
+    background: #24A68A;
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.submitColor:hover {
+    background: #24A68A;
+}
+
+.saveColor,
+.reviewBtn {
+    color: #fff;
+    border: 1px solid;
+    border-color: #494949;
+    background: #494949;
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.saveColor:hover,
+.reviewBtn:hover {
+    background: #494949;
+}
+
+.cancelColor {
+    color: #444;
+    border: solid 1px #ccc;
+    background: #eaeaea;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F4F4F4));
+    background: -moz-linear-gradient(top, #FFFFFF, #F4F4F4);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F4F4F4');
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px #fff inset;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 2px 0px #fff;
+}
+
+.cancelColor:hover {
+    border: 1px solid #aaa;
+    background: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F4F4F4));
+    background: -moz-linear-gradient(top, #FFFFFF, #F4F4F4);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F4F4F4');
+}
+
+.brandingContainer {
+    text-align: right;
+    color: #666;
+    border-top: 1px dashed #ccc;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.form_sBox {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #d6d8d9;
+    height: 31px;
+}
+
+.fmFooter .next_previous {
+    padding: 10px 30px 10px 30px;
+    background: #ebedef;
+    border: 1px solid #c9c9c9;
+    color: #222;
+    padding: 10px 7px;
+    font-size: 15px;
+    padding: 10px 35px;
+    min-height: 30px;
+    min-width: 75px;
+}
+
+.pageFotDef .prevAlign {
+    float: left;
+}
+
+.pageFotDef .alignNext {
+    float: right;
+}
+
+.pageFotDef .submitColor {
+    float: none;
+}
+
+.pBarWrapper {
+    margin-top: 20px !important;
+    padding: 20px 30px 10px;
+}
+
+.pBarWrapper .selected em.pNumber {
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0);
+}
+
+.pBarWrapper .selected .pBar,
+.pBarWrapper .selected em.pNumber b {
+    background: #24A68A;
+}
+
+.pBarWrapper .currentPTab em.pNumber {
+    color: #fff;
+    border: 2px solid #24A68A;
+}
+
+.bar .currentPTab .pArrow {
+    border-color: #24A68A transparent;
+}
+
+.form_sBox .customArrow {
+    right: 3px;
+    top: 5px !important;
+}
+
+.form_sBox select {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-right: 20px !important;
+    padding-left: 3px !important;
+}
+
+.commentBg {
+    background: #f4f4f4;
+}
+
+.commentBg .backgroundSecBg {
+    padding: 30px;
+}
+
+.signContainer .signArea,
+.tempContDiv input[type="file"],
+.mSelect select {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #d2d2d2;
+}
+
+.subfrmWrapper-horizontal ul {
+    background: #f9f9f9;
+}
+
+.instruction {
+    color: #7c7c7c;
+    font-size: 13px !important;
+    font-style: normal;
+}
+
+.section {
+    padding: 10px 30px;
+}
+
+.section h2 {
+    font-size: 18px;
+    border-bottom: 1px solid #d6d8d9;
+    font-family: "Arimo", sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.uploadContainer::before {
+    border-color: #d6d8d9;
+}
+
+.slider .tempContDiv .ui-slider .ui-slider-range {
+    background: #24a68a;
+}
+
+.mSelect select[multiple]:focus option:checked {
+    background: #24A68B linear-gradient(0deg, #24A68B 0%, #24A68B 100%);
+}
+
+.uploadContainer:hover::before,
+.uploadContainer:focus::before,
+.uploadContainer:active::before {
+    border-color: #a5a5a5;
+}
+
+.themePopupInnerCont .backgroundSecBg {
+    padding: 30px;
+}
+
+.subfrmWrapper-horizontal {
+    overflow-y: hidden;
+    border-color: #d6d8d9;
+    border-radius: 3px;
+}
+
+.signContainer a {
+    color: #24A68A;
+}
+
+.uploadContainer .floatText a {
+    color: #24A68A;
+    font-family: "Arimo", sans-serif !important;
+}
+
+.signContainer canvas:hover,
+.signContainer canvas:focus {
+    border-color: #24A68A;
+    outline: none;
+}
