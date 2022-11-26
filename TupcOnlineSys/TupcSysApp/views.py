@@ -88,7 +88,19 @@ def upload_csv(request):
             pass
             return redirect('/UitcPermission')
 def forgotpassword(request):
-      return render (request, 'TupcSysApp/FORGOT_PASS.html')
+    return render (request, 'TupcSysApp/FORGOT_PASS.html')
+
+#download html button
+def employeeID_dl(request):
+    return render (request, 'TupcSysApp/4AEMPLOYEEID.html')
+def internetStudent_dl(request):
+    return render (request, 'TupcSysApp/4BINTERNETACCESS(sv).html')
+def wifiStudent_dl(request):
+    return render (request, 'TupcSysApp/4CWIFICON(sv).html')
+def Borrower_dl(request):
+    return render (request, 'TupcSysApp/4DBORROWERSFORM(fv).html')
+def wifiFaculty_dl(request):
+    return render (request, 'TupcSysApp/4EWIFICON(fv).html')
 
 def register(request):#registration
     form = Registration()

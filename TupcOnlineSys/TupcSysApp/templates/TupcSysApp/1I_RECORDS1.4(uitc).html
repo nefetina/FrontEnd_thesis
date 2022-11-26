@@ -1,724 +1,956 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static%}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static%}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!----TAB NAME------------------------------------------------>
     <title>UITC RECORDS</title>
     <!----TAB ICON------------------------------------------------>
-    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
+    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}" />
     <!----CSS AND JS------------------------------------------------>
     <script src="{% static 'js/3I_rec1.4(uitc).js'%}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/2I_records1.4(uitc).css'%}">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/2I_records1.4(uitc).css'%}"
+    />
 
     <!----BOOTSTRAP LINK------------------------------------------------>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
     <!----ADD UP------------------------------------------------>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!----icon---------->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!----font links---------->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
-    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to logout?
-            </div>
-            <div class="modal-footer">
-            
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                <a href="{% url 'TupcSysApp:logout'%}" style="color:white" type="button" class="btn btn-primary" >Log out</a>
-                
-            </div>
+  <body>
+    <div
+      class="modal fade"
+      id="logout"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure you want to logout?</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <a
+              href="{% url 'TupcSysApp:logout'%}"
+              style="color: white"
+              type="button"
+              class="btn btn-primary"
+              >Log out</a
+            >
           </div>
         </div>
+      </div>
     </div>
     <!--NAVBAR1-------------------------------------------------------------------------------------------->
 
     <nav class="navbar van">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
-        <div id="titulo">
-            <a class="navbar-brand" id="title" href="#">RECORDS</a>
-        </div>
-        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
-
+      <span
+        style="font-size: 30px; cursor: pointer"
+        onclick="openNav()"
+        id="openbtn"
+        >&#9776;
+      </span>
+      <div id="titulo">
+        <a class="navbar-brand" id="title" href="#">RECORDS</a>
+      </div>
+      <img
+        src="{% static 'images/TUP_LOGO.png'%}"
+        width="100"
+        height="80"
+        alt="tuplogo"
+        id="logo"
+      />
     </nav>
 
     <!--NAVBAR2-------------------------------------------------------------------------------------------->
     <nav class="navbar navbar-expand-lg van2">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">&#9776;</span>
-        </button>
+      <a class="navbar-brand" href="#"></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon">&#9776;</span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec1'%}">ID</a>
-                </li>
-                <li class="nav-item" >
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec2'%}">INTERNET CONNECTIVITY</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec3'%}">LAB SCHEDULE</a>
-                </li>
-                <li class="nav-item" id="actibo">
-                    <a class="nav-link" href="{% url 'TupcSysApp:UitcRec4'%}">REPORTS</a>
-                </li>
-            </ul>
-
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec1'%}">ID</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec2'%}"
+              >INTERNET CONNECTIVITY</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec3'%}"
+              >LAB SCHEDULE</a
+            >
+          </li>
+          <li class="nav-item" id="actibo">
+            <a class="nav-link" href="{% url 'TupcSysApp:UitcRec4'%}"
+              >REPORTS</a
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
     <!--BREADCRUMB-------------------------------------------------------------------------------------------->
 
     <nav aria-label="breadcrumb collapsed">
-        <ol class="breadcrumb ">
-            <li class="mx-2 ml-auto active" onclick="reportandmaintenance()"><a href="#" id="bc">REPAIR AND MAINTENANCE RECORD</a></li>
-            <li class="mx-2" onclick="passres()"><a href="#" id="bc">PASSWORD RESET RECORD</a></li>
-            <li class="mx-2" onclick="maintenance()"><a href="#" id="bc">MAINTENANCE RECORD</a></li>
-            <li class="mx-2" onclick="borrow()"><a href="#" id="bc">BORROW RECORD</a></li>
-            <li class="mx-2" onclick="inventory()" ><a href="#" id="bc">INVENTORY</a></li>
-
-        </ol>
-        <script type="text/javascript">
-            $(document).on('click', 'ol, li', function(){
-                $(this).addClass('active').siblings().removeClass('active')
-            })
-        </script>
+      <ol class="breadcrumb">
+        <li class="mx-2 ml-auto active" onclick="reportandmaintenance()">
+          <a href="#" id="bc">REPAIR AND MAINTENANCE RECORD</a>
+        </li>
+        <li class="mx-2" onclick="passres()">
+          <a href="#" id="bc">PASSWORD RESET RECORD</a>
+        </li>
+        <li class="mx-2" onclick="maintenance()">
+          <a href="#" id="bc">MAINTENANCE RECORD</a>
+        </li>
+        <li class="mx-2" onclick="borrow()">
+          <a href="#" id="bc">BORROW RECORD</a>
+        </li>
+        <li class="mx-2" onclick="inventory()">
+          <a href="#" id="bc">INVENTORY</a>
+        </li>
+      </ol>
+      <script type="text/javascript">
+        $(document).on("click", "ol, li", function () {
+          $(this).addClass("active").siblings().removeClass("active");
+        });
+      </script>
     </nav>
 
     <div>
-        <div class="container-fluid ">
+      <div class="container-fluid">
+        <!--SIDEBAR-------------------------------------------------------------------------------------------->
 
-            <!--SIDEBAR-------------------------------------------------------------------------------------------->
-
-            <div class="row no-gutters">
-                <div class="col-xl-1 text-center">
-                    <div id="mySidebar" class="sidebar">
-                        <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
-                        <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-2x fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
-                        <a href="" data-toggle="modal" data-target="#logout"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
-                    </div>
-                </div>
-
-                <!--CARD-------------------------------------------------------------------------------------------->
-                <div class="col-xl-11 main">                    
-                    <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                            <!--TABLE 5 INVENTORY RECORD-------------------------------------------------------------------------------------------->  
-                            <div id="table5" class="col-xl-12 collapse" >
-    
-                                <div class="jumbotron m-1"><br>
-                            
-                            
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="formtitle">
-                                                INVENTORY
-                                            </div>
-                                            
-            
-                                                <!--TABLE-------------------------------------------------------------------------------------------->
-            
-                                            <div class="table-responsive col-xl-12">
-                                                <table class="table">
-                                                    <thead class="thead">
-                                                    <tr>
-                                                        <th scope="col">Equipment</th>
-                                                        <th scope="col">Model</th>
-                                                        <th scope="col">Total Quantity</th>
-                                                        <th scope="col">Current Quantity</th>
-                                                        <th scope="col">Borrow</th>
-                                                    
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        {% for i in data5 %}
-                                                        <td>{{i.i_equip}}</td>
-                                                        <td>{{i.i_model}}</td>
-                                                        <td>{{i.i_quantity}}</td>
-                                                        <td>
-                                                    
-                                                    </tr>
-                                                    {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>  
-
-                            <!--TABLE 1 REPAIR AND MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
-                            <div id="table1" class="col-xl-12" >
-                                
-                                <form>
-                                    <div class="form-row">
-
-                                        <div class="col-xl-9 col-lg-8 col-12">
-                                            <input type="text" class="form-control my-2 p-2" placeholder="Search....">
-                                        </div>
-                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                        <div class="col-xl-1 col-lg-2 col-12">
-                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                        </div>
-                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Sorted by:
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Date</a>
-                                                <a class="dropdown-item" href="#">Ascending</a>
-                                                <a class="dropdown-item" href="#">Descending</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="jumbotron  m-1"><br>
-                                
-                                
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="formtitle">
-                                                REPAIR AND MAINTENANCE RECORD
-                                            </div>
-                                            <div class="table-responsive-xl col-xl-12" id="idtable1">
-                                                <table class="table">
-                                                    <thead class="thead">
-                                                        <tr>
-                                                            <th scope="col">TYPE</th>
-                                                            <th scope="col">BRAND/MODEL</th>
-                                                            <th scope="col">SERIAL#</th>
-                                                            <th scope="col">SPECIFICATION</th>
-                                                            <th scope="col">NATURE OF WORK TO BE DONE</th>
-                                                            <th scope="col">FULL NAME</th>
-                                                            <th scope="col">POSITION /JOB</th>
-                                                            <th scope="col">DEPARTMENT</th>
-                                                            <th scope="col">SIGNATURE</th>
-                                                            <th scope="col">DATE</th>
-                                                            <th scope="col">TIME</th>
-                                                            <th scope="col">INITIAL ASSESSMENT</th>
-                                                            <th scope="col">ACCESSED BY</th>
-                                                            <th scope="col">SIGNATURE</th>
-                                                            <th scope="col">DATE ASSIGNED</th>
-                                                            <th scope="col">PERSONAL ASSIGNED</th>
-                                                            <th scope="col">QUANTITY</th>
-                                                            <th scope="col">UNITS</th>
-                                                            <th scope="col">PARTICULARS</th>
-                                                            <th scope="col">AVAILABILITY</th>
-                                                            <th scope="col">APPROVAL</th>
-                                                            <th scope="col">NOTE</th>
-                                                            <th scope="col">COORDINATOR</th>
-                                                            <th scope="col">SIGNATURE</th>
-                                                            <th scope="col">DATE</th>
-                                                            <th scope="col">TIME</th>
-                                                            <th scope="col">UITC PERSONNEL</th>
-                                                            <th scope="col">SIGNATURE</th>
-                                                            <th scope="col">DATE STARTED</th>
-                                                            <th scope="col">TIME STARTED</th>
-                                                            <th scope="col">DATE ENDED</th>
-                                                            <th scope="col">TIME ENDED</th>
-                                                            <th scope="col">SOLUTION AND RECOMMENDATION</th>
-                                                            <th scope="col">ACCEPTED OR REJECTED</th>
-                                                            <th scope="col">END-USER</th>
-                                                            <th scope="col">DATE</th>
-                                                            <th scope="col">SIGNATURE</th>
-                                                            <th scope="col">TIME</th>
-                                                            <th scope="col">STATUS</th>
-                                                            <th scope="col">ACTION</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            {% for p in data %}
-                                                            <td>{{p.i_type}}</td>
-                                                            <td>{{p.i_brand}}</td>
-                                                            <td>{{p.is_num}}</td>
-                                                            <td>{{p.i_spec}}</td>
-                                                            <td>{{p.i_notbd}}</td>
-                                                            <td>{{p.if_name}}</td>
-                                                            <td>{{p.i_pos}}</td>
-                                                            <td>{{p.i_dept}}</td>
-                                                            <td>{{p.i_sig}}</td>
-                                                            <td>{{p.i_daterec}}</td>
-                                                            <td>{{p.i_time}}</td>
-                                                            <td>{{p.ii_assess}}</td>
-                                                            <td>{{p.i_assessby}}</td>
-                                                            <td>{{p.i_sig}}</td>
-                                                            <td>{{p.i_dateass}}</td>
-                                                            <td>{{p.ip_assign}}</td>
-                                                            <td>{{p.i_quant}}</td>
-                                                            <td>{{p.i_units}}</td>
-                                                            <td>{{p.i_partics}}</td>
-                                                            <td>{{p.i_avail}}</td>
-                                                            <td>{{p.i_approve}}</td>
-                                                            <td>{{p.i_note}}</td>
-                                                            <td>{{p.i_coords}}</td>
-                                                            <td>{{p.i_sig1}}</td>
-                                                            <td>{{p.i_daterec1}}</td>
-                                                            <td>{{p.i_time1}}</td>
-                                                            <td>{{p.iu_pers}}</td>
-                                                            <td>{{p.i_sig2}}</td>
-                                                            <td>{{p.is_date}}</td>
-                                                            <td>{{p.is_time}}</td>
-                                                            <td>{{p.is_rec}}</td>
-                                                            <td>{{p.i_aor}}</td>
-                                                            <td>{{p.ie_user}}</td>
-                                                            <td>{{p.i_daterec2}}</td>
-                                                            <td>{{p.i_sig3}}</td>
-                                                            <td>{{p.i_time2}}</td>
-                                                            <td>{{p.i_stats}}</td>
-                                                            <td>
-                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                        
-                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        
-                                        
-                                        </form>
-                                    </div>
-                                </div>
-                        
-                            </div>
-
-                            <!--TABLE 2 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
-                            <div id="table2" class="col-xl-12 collapse" >
-                                    
-                                <form>
-                                    <div class="form-row">
-
-                                        <div class="col-xl-9 col-lg-8 col-12">
-                                            <input type="text" id="myInputprr" onkeyup="myFunctionprr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                                        </div>
-                                            <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                        <div class="col-xl-1 col-lg-2 col-12">
-                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                        </div>
-                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Sorted by:
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Date</a>
-                                                <a class="dropdown-item" href="#">Ascending</a>
-                                                <a class="dropdown-item" href="#">Descending</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="jumbotron  m-1"><br>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="formtitle">
-                                                PASSWORD RESET RECORD
-                                            </div>
-                                            <div class="table-responsive-xl col-xl-12" id="idtable2">
-                                                <table class="table" id="myTableprr">
-                                                    <thead class="thead">
-                                                        <tr>
-                                                            <th scope="col">FULL NAME</th>
-                                                            <th scope="col">ID NUMBER</th>
-                                                            <th scope="col">ACCOUNT TYPE</th>
-                                                            <th scope="col">EMAIL</th>
-                                                            <th scope="col">STATUS</th>
-                                                            <th scope="col">ACTION</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            {% for p in data3 %}
-                                                            <td>{{p.fwname}}</td>
-                                                            <td>{{p.fwempID}}</td>
-                                                            <td>{{p.fwemail}}</td>
-                                                            <td>{{p.fwIDtype}}</td>
-                                                            <td>{{p.fwstat}}</td>
-                                                        
-                                                            <td>
-                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                        
-                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                        <tr>
-                                                            {% for p in data4 %}
-                                                            <td>{{p.psname}}</td>
-                                                            <td>{{p.emp_idno}}</td>
-                                                            <td>{{p.email}}</td>
-                                                            <td>{{p.Account}}</td>
-                                                            <td>{{p.psstats}}</td>
-                                                        
-                                                            <td>
-                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                        
-                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <script>
-                                                function myFunctionprr() {
-                                                var input, filter, table, tr, td, i, txtValue;
-                                                input = document.getElementById("myInputprr");
-                                                filter = input.value.toUpperCase();
-                                                table = document.getElementById("myTableprr");
-                                                tr = table.getElementsByTagName("tr");
-                                                for (i = 0; i < tr.length; i++) {
-                                                    td = tr[i].getElementsByTagName("td")[0];
-                                                    if (td) {
-                                                    txtValue = td.textContent || td.innerText;
-                                                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                        tr[i].style.display = "";
-                                                    } else {
-                                                        tr[i].style.display = "none";
-                                                    }
-                                                    }       
-                                                }
-                                                }
-                                                </script>
-                                        
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--TABLE 3 MAINTENANCE RECORD -------------------------------------------------------------------------------------------->
-                    
-                            <div id="table3" class="col-xl-12 collapse" >
-                                    
-                                <form>
-                                    <div class="form-row">
-
-                                        <div class="col-xl-9 col-lg-8 col-12">
-                                            <input type="text" class="form-control my-2 p-2" placeholder="Search....">
-                                        </div>
-                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                        <div class="col-xl-1 col-lg-2 col-12">
-                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                        </div>
-                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Sorted by:
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Date</a>
-                                                <a class="dropdown-item" href="#">Ascending</a>
-                                                <a class="dropdown-item" href="#">Descending</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="jumbotron  m-1"><br>
-                                    
-                                    
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="formtitle">
-                                                MAINTENANCE RECORD
-                                            </div>
-                                            <div class="table-responsive-xl col-xl-12" id="idtable3">
-                                                <table class="table">
-                                                    <thead class="thead">
-                                                        <tr>
-                                                        <th scope="col">TYPE</th>
-                                                        <th scope="col ">SERIAL NO.</th>
-                                                        <th scope="col ">DATE OF MAINTENANCE</th>
-                                                        <th scope="col">BRAND MODEL</th>
-                                                        <th scope="col">ICT EQUIPMENT CODE</th>
-                                                        <th scope="col ">ICT EQUIPMENT NAME</th>
-                                                        <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">CLEAR OUT BROWSER FILE STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">UPDATE SOFTWARE STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">SCAN FOR VIRUSES STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">RUN MALWARE STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">CLEAN KEYBOARD STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">DUST THE COMPUTER UNIT STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">ORGANIZE CABLES STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">WIPEDOWN MONITOR STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">RUN DISK CLEAN UP MONITOR STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">CREATE SYSTEM RESTORE POINT STATUS</th>
-                                                        <th scope="col ">REMARKS</th>
-                                                        <th scope="col ">UITC PERSONNEL</th>
-                                                        <th scope="col ">SIGNATURE</th>
-                                                        <th scope="col ">DATE STARTED</th>
-                                                        <th scope="col ">TIME STARTED</th>
-                                                        <th scope="col ">DATE ENDED</th>
-                                                        <th scope="col ">TIME ENDED</th>
-                                                        <th scope="col ">SOLUTION RECOMMENDATION</th>
-                                                        <th scope="col ">END USER</th>
-                                                        <th scope="col ">SIGNATURE</th>
-                                                        <th scope="col ">DATE</th>
-                                                        <th scope="col ">TIME</th>
-                                                        <th scope="col">STATUS</th>
-                                                        <th scope="col">ACTION</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            {% for p in data %}
-                                                            <td>{{p.i_type4}}</td>
-                                                            <td>{{p.is_num4}}</td>
-                                                            <td>{{p.i_datem}}</td>
-                                                            <td>{{p.i_brand4}}</td>
-                                                            <td>{{p.i_code}}</td>
-                                                            <td>{{p.ie_name}}</td>
-                                                            <td>{{p.iup_sstats}}</td>
-                                                            <td>{{p.i_remarks}}</td>
-                                                            <td>{{p.i_cobfs}}</td>
-                                                            <td>{{p.i_remarks2}}</td>
-                                                            <td>{{p.iup_sstats2}}</td>
-                                                            <td>{{p.i_remarks3}}</td>
-                                                            <td>{{p.i_scan}}</td>
-                                                            <td>{{p.i_remarks4}}</td>
-                                                            <td>{{p.ia_virus}}</td>
-                                                            <td>{{p.i_remarks5}}</td>
-                                                            <td>{{p.im_stats}}</td>
-                                                            <td>{{p.i_remarks6}}</td>
-                                                            <td>{{p.ik_stats}}</td>
-                                                            <td>{{p.i_remarks7}}</td>
-                                                            <td>{{p.i_dust}}</td>
-                                                            <td>{{p.i_remarks8}}</td>
-                                                            <td>{{p.i_organize}}</td>
-                                                            <td>{{p.i_remarks9}}</td>
-                                                            <td>{{p.i_wipe}}</td>
-                                                            <td>{{p.i_remarks10}}</td>
-                                                            <td>{{p.i_run}}</td>
-                                                            <td>{{p.i_remarks11}}</td>
-                                                            <td>{{p.i_defragement}}</td>
-                                                            <td>{{p.i_remarks12}}</td>
-                                                            <td>{{p.i_empty}}</td>
-                                                            <td>{{p.i_remarks13}}</td>
-                                                            <td>{{p.i_create}}</td>
-                                                            <td>{{p.i_remarks14}}</td>
-                                                            <td>{{p.iu_pers4}}</td>
-                                                            <td>{{p.is_date4}}</td>
-                                                            <td>{{p.is_time4}}</td>
-                                                            <td>{{p.ie_date4}}</td>
-                                                            <td>{{p.ie_time4}}</td>
-                                                            <td>{{p.is_rec4}}</td>
-                                                            <td>{{p.ie_user4}}</td>
-                                                            <td>{{p.i_sig4}}</td>
-                                                            <td>{{p.ie_date5}}</td>
-                                                            <td>{{p.i_time2}}</td>
-                                                            
-                                                            <td>
-                                                                <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                        
-                                                                    <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                    data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        
-                                            
-                                        </form>
-                                    
-                                        
-                                        
-                                    
-                                        
-                                    </div>
-                                </div>
-                            
-                            </div> 
-
-                            <!--TABLE 4 BORROW RECORD -------------------------------------------------------------------------------------------->
-                            <div id="table4" class="col-xl-12 collapse" >
-                                    
-                                <form>
-                                    <div class="form-row">
-    
-                                        <div class="col-xl-9 col-lg-8 col-12">
-                                            <input type="text" id="myInputbr" onkeyup="myFunctionbr()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                                        </div>
-                                       
-                                         <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                        <div class="col-xl-1 col-lg-2 col-12">
-                                            <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                        </div>
-                                        <div class="dropdown col-xl-2  col-lg-2 col-12">
-                                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Sorted by:
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Date</a>
-                                                <a class="dropdown-item" href="#">Ascending</a>
-                                                <a class="dropdown-item" href="#">Descending</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="jumbotron  m-1"><br>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="formtitle">
-                                                BORROW RECORD
-                                            </div>
-                                            <div class="table-responsive-xl col-xl-12" id="idtable4">
-                                                <table class="table" >
-                                                    <thead class="thead">
-                                                        <tr>
-                                                        <th scope="col">FULL NAME</th>
-                                                        <th scope="col ">DATE RQSTD</th>
-                                                        <th scope="col">TIME</th>
-                                                        <th scope="col ">RQST BORROW</th>
-                                                        <th scope="col">REASON FOR BORROWING</th>
-                                                        <th scope="col">SIGNATURE</th>
-                                                        <th scope="col">STATUS</th>
-                                                        <th scope="col">ACTION</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            {% for p in data1 %}
-                                                            <td>{{p.fbname}}</td>
-                                                            <td>{{p.fbdate}}</td>
-                                                            <td>{{p.fbtime}}</td>
-                                                            <td>{{p.fbreq}}</td>
-                                                            <td>{{p.fbreason}}</td>
-                                                            <td>{{p.fbsign}}</td>
-                                                            <td>{{p.fbstat}}</td>
-                                                            <td>
-                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                    
-                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                            </div>
-                                                        </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                        <tr>
-                                                            {% for p in data2 %}
-                                                            <td>{{p.if_name5}}</td>
-                                                            <td>{{p.i_date5}}</td>
-                                                            <td>{{p.i_time5}}</td>
-                                                            <td>{{p.ir_borrow5}}</td>
-                                                            <td>{{p.irf_borrow5}}</td>
-                                                            <td>{{p.i_sig5}}</td>
-                                                            <td>{{p.i_stats5}}</td>
-                                                            <td>
-                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                    
-                                                                <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
-                                                            </div>
-                                                        </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <script>
-                                            function myFunctionbr() {
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInputbr");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("myTablebr");
-                                              tr = table.getElementsByTagName("tr");
-                                              for (i = 0; i < tr.length; i++) {
-                                                td = tr[i].getElementsByTagName("td")[0];
-                                                if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                    tr[i].style.display = "";
-                                                  } else {
-                                                    tr[i].style.display = "none";
-                                                  }
-                                                }       
-                                              }
-                                            }
-                                            </script>
-                                            
-                                        </form>
-                                        
-                                        
-                                    
-                                        
-                                    </div>
-                                </div>
-                        
-                            
-                            </div> 
-                   
-
-                    </div>
-                </div>
+        <div class="row no-gutters">
+          <div class="col-xl-1 text-center">
+            <div id="mySidebar" class="sidebar">
+              <button class="closebtn" id="close" onclick="closeNav()">
+                &times;
+              </button>
+              <a href="{% url 'TupcSysApp:UitcHome'%}"
+                ><i class="fa fa-2x fa-user-circle" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">HOME</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcID'%}"
+                ><i class="fa fa-2x fa-id-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">ID'S</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInternet'%}"
+                ><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INTERNET</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcLabsched'%}"
+                ><i class="fa fa-2x fa-calendar" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">SCHEDULE</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcReports'%}"
+                ><i class="fa fa-2x fa-file-text" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">REPORT</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"
+                ><i class="fa fa-2x fa-clipboard" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">RECORDS</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcPermission'%}"
+                ><i class="fa fa-2x fa-address-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">USERS</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInventory'%}"
+                ><i class="fa fa-2x fa-archive" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INVENTORY</h6></i
+                ></a
+              >
+              <a href="" data-toggle="modal" data-target="#logout"
+                ><i class="fa fa-2x fa-sign-out" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">LOG OUT</h6></i
+                ></a
+              >
             </div>
-                <!--BG CALL-------------------------------------------------------------------------------------------->
-                <div id="pic" class="view drk "></div>
+          </div>
+
+          <!--CARD-------------------------------------------------------------------------------------------->
+          <div class="col-xl-11 main">
+            <div
+              class="container-fluid text-center d-flex justify-content-center align-items-center"
+            >
+              <br /><br />
+              <!--TABLE 5 INVENTORY RECORD-------------------------------------------------------------------------------------------->
+              <div id="table5" class="col-xl-12 collapse">
+                <div class="jumbotron m-1">
+                  <br />
+
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">INVENTORY</div>
+
+                      <!--TABLE-------------------------------------------------------------------------------------------->
+
+                      <div class="table-responsive col-xl-12">
+                        <table class="table">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col">Equipment</th>
+                              <th scope="col">Model</th>
+                              <th scope="col">Total Quantity</th>
+                              <th scope="col">Current Quantity</th>
+                              <th scope="col">Borrow</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for i in data5 %}
+                              <td>{{i.i_equip}}</td>
+                              <td>{{i.i_model}}</td>
+                              <td>{{i.i_quantity}}</td>
+                              <td></td>
+                            </tr>
+
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--TABLE 1 REPAIR AND MAINTENANCE RECORD-------------------------------------------------------------------------------------------->
+              <div id="table1" class="col-xl-12">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        class="form-control my-2 p-2"
+                        placeholder="Search...."
+                      />
+                    </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                    <div class="col-xl-1 col-lg-2 col-12">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-block my-2 p-2"
+                      >
+                        Search
+                      </button>
+                    </div>
+                    <div class="dropdown col-xl-2 col-lg-2 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#">Ascending</a>
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron m-1">
+                  <br />
+
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">REPAIR AND MAINTENANCE RECORD</div>
+                      <div class="table-responsive-xl col-xl-12" id="idtable1">
+                        <table class="table">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col">TYPE</th>
+                              <th scope="col">BRAND/MODEL</th>
+                              <th scope="col">SERIAL#</th>
+                              <th scope="col">SPECIFICATION</th>
+                              <th scope="col">NATURE OF WORK TO BE DONE</th>
+                              <th scope="col">FULL NAME</th>
+                              <th scope="col">POSITION /JOB</th>
+                              <th scope="col">DEPARTMENT</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">DATE</th>
+                              <th scope="col">TIME</th>
+                              <th scope="col">INITIAL ASSESSMENT</th>
+                              <th scope="col">ACCESSED BY</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">DATE ASSIGNED</th>
+                              <th scope="col">PERSONAL ASSIGNED</th>
+                              <th scope="col">QUANTITY</th>
+                              <th scope="col">UNITS</th>
+                              <th scope="col">PARTICULARS</th>
+                              <th scope="col">AVAILABILITY</th>
+                              <th scope="col">APPROVAL</th>
+                              <th scope="col">NOTE</th>
+                              <th scope="col">COORDINATOR</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">DATE</th>
+                              <th scope="col">TIME</th>
+                              <th scope="col">UITC PERSONNEL</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">DATE STARTED</th>
+                              <th scope="col">TIME STARTED</th>
+                              <th scope="col">DATE ENDED</th>
+                              <th scope="col">TIME ENDED</th>
+                              <th scope="col">SOLUTION AND RECOMMENDATION</th>
+                              <th scope="col">ACCEPTED OR REJECTED</th>
+                              <th scope="col">END-USER</th>
+                              <th scope="col">DATE</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">TIME</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for p in data %}
+                              <td>{{p.i_type}}</td>
+                              <td>{{p.i_brand}}</td>
+                              <td>{{p.is_num}}</td>
+                              <td>{{p.i_spec}}</td>
+                              <td>{{p.i_notbd}}</td>
+                              <td>{{p.if_name}}</td>
+                              <td>{{p.i_pos}}</td>
+                              <td>{{p.i_dept}}</td>
+                              <td>{{p.i_sig}}</td>
+                              <td>{{p.i_daterec}}</td>
+                              <td>{{p.i_time}}</td>
+                              <td>{{p.ii_assess}}</td>
+                              <td>{{p.i_assessby}}</td>
+                              <td>{{p.i_sig}}</td>
+                              <td>{{p.i_dateass}}</td>
+                              <td>{{p.ip_assign}}</td>
+                              <td>{{p.i_quant}}</td>
+                              <td>{{p.i_units}}</td>
+                              <td>{{p.i_partics}}</td>
+                              <td>{{p.i_avail}}</td>
+                              <td>{{p.i_approve}}</td>
+                              <td>{{p.i_note}}</td>
+                              <td>{{p.i_coords}}</td>
+                              <td>{{p.i_sig1}}</td>
+                              <td>{{p.i_daterec1}}</td>
+                              <td>{{p.i_time1}}</td>
+                              <td>{{p.iu_pers}}</td>
+                              <td>{{p.i_sig2}}</td>
+                              <td>{{p.is_date}}</td>
+                              <td>{{p.is_time}}</td>
+                              <td>{{p.is_rec}}</td>
+                              <td>{{p.i_aor}}</td>
+                              <td>{{p.ie_user}}</td>
+                              <td>{{p.i_daterec2}}</td>
+                              <td>{{p.i_sig3}}</td>
+                              <td>{{p.i_time2}}</td>
+                              <td>{{p.i_stats}}</td>
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Download"
+                                  >
+                                    <i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--TABLE 2 PASSWORD RESET RECORD-------------------------------------------------------------------------------------------->
+              <div id="table2" class="col-xl-12 collapse">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        id="myInputprr"
+                        onkeyup="myFunctionprr()"
+                        class="form-control my-2 p-2"
+                        placeholder="Search for names.."
+                        title="Type in a name"
+                      />
+                    </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                    <div class="col-xl-1 col-lg-2 col-12">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-block my-2 p-2"
+                      >
+                        Search
+                      </button>
+                    </div>
+                    <div class="dropdown col-xl-2 col-lg-2 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#">Ascending</a>
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron m-1">
+                  <br />
+
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">PASSWORD RESET RECORD</div>
+                      <div class="table-responsive-xl col-xl-12" id="idtable2">
+                        <table class="table" id="myTableprr">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col">FULL NAME</th>
+                              <th scope="col">ID NUMBER</th>
+                              <th scope="col">ACCOUNT TYPE</th>
+                              <th scope="col">EMAIL</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for p in data3 %}
+                              <td>{{p.fwname}}</td>
+                              <td>{{p.fwempID}}</td>
+                              <td>{{p.fwemail}}</td>
+                              <td>{{p.fwIDtype}}</td>
+                              <td>{{p.fwstat}}</td>
+
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Download"
+                                  >
+                                    <i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                              {% for p in data4 %}
+                              <td>{{p.psname}}</td>
+                              <td>{{p.emp_idno}}</td>
+                              <td>{{p.email}}</td>
+                              <td>{{p.Account}}</td>
+                              <td>{{p.psstats}}</td>
+
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Download"
+                                  >
+                                    <i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                      <script>
+                        function myFunctionprr() {
+                          var input, filter, table, tr, td, i, txtValue;
+                          input = document.getElementById("myInputprr");
+                          filter = input.value.toUpperCase();
+                          table = document.getElementById("myTableprr");
+                          tr = table.getElementsByTagName("tr");
+                          for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            if (td) {
+                              txtValue = td.textContent || td.innerText;
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else {
+                                tr[i].style.display = "none";
+                              }
+                            }
+                          }
+                        }
+                      </script>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--TABLE 3 MAINTENANCE RECORD -------------------------------------------------------------------------------------------->
+
+              <div id="table3" class="col-xl-12 collapse">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        class="form-control my-2 p-2"
+                        placeholder="Search...."
+                      />
+                    </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                    <div class="col-xl-1 col-lg-2 col-12">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-block my-2 p-2"
+                      >
+                        Search
+                      </button>
+                    </div>
+                    <div class="dropdown col-xl-2 col-lg-2 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#">Ascending</a>
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron m-1">
+                  <br />
+
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">MAINTENANCE RECORD</div>
+                      <div class="table-responsive-xl col-xl-12" id="idtable3">
+                        <table class="table">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col">TYPE</th>
+                              <th scope="col ">SERIAL NO.</th>
+                              <th scope="col ">DATE OF MAINTENANCE</th>
+                              <th scope="col">BRAND MODEL</th>
+                              <th scope="col">ICT EQUIPMENT CODE</th>
+                              <th scope="col ">ICT EQUIPMENT NAME</th>
+                              <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">
+                                CLEAR OUT BROWSER FILE STATUS
+                              </th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">UPDATE SOFTWARE STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">SCAN FOR VIRUSES STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">UPDATE ANTI-VIRUS STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">RUN MALWARE STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">CLEAN KEYBOARD STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">
+                                DUST THE COMPUTER UNIT STATUS
+                              </th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">ORGANIZE CABLES STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">WIPEDOWN MONITOR STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">
+                                RUN DISK CLEAN UP MONITOR STATUS
+                              </th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">DEFRAGEMENT HARDRIVE STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">EMPTY RECYCLE BIN STATUS</th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">
+                                CREATE SYSTEM RESTORE POINT STATUS
+                              </th>
+                              <th scope="col ">REMARKS</th>
+                              <th scope="col ">UITC PERSONNEL</th>
+                              <th scope="col ">SIGNATURE</th>
+                              <th scope="col ">DATE STARTED</th>
+                              <th scope="col ">TIME STARTED</th>
+                              <th scope="col ">DATE ENDED</th>
+                              <th scope="col ">TIME ENDED</th>
+                              <th scope="col ">SOLUTION RECOMMENDATION</th>
+                              <th scope="col ">END USER</th>
+                              <th scope="col ">SIGNATURE</th>
+                              <th scope="col ">DATE</th>
+                              <th scope="col ">TIME</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for p in data %}
+                              <td>{{p.i_type4}}</td>
+                              <td>{{p.is_num4}}</td>
+                              <td>{{p.i_datem}}</td>
+                              <td>{{p.i_brand4}}</td>
+                              <td>{{p.i_code}}</td>
+                              <td>{{p.ie_name}}</td>
+                              <td>{{p.iup_sstats}}</td>
+                              <td>{{p.i_remarks}}</td>
+                              <td>{{p.i_cobfs}}</td>
+                              <td>{{p.i_remarks2}}</td>
+                              <td>{{p.iup_sstats2}}</td>
+                              <td>{{p.i_remarks3}}</td>
+                              <td>{{p.i_scan}}</td>
+                              <td>{{p.i_remarks4}}</td>
+                              <td>{{p.ia_virus}}</td>
+                              <td>{{p.i_remarks5}}</td>
+                              <td>{{p.im_stats}}</td>
+                              <td>{{p.i_remarks6}}</td>
+                              <td>{{p.ik_stats}}</td>
+                              <td>{{p.i_remarks7}}</td>
+                              <td>{{p.i_dust}}</td>
+                              <td>{{p.i_remarks8}}</td>
+                              <td>{{p.i_organize}}</td>
+                              <td>{{p.i_remarks9}}</td>
+                              <td>{{p.i_wipe}}</td>
+                              <td>{{p.i_remarks10}}</td>
+                              <td>{{p.i_run}}</td>
+                              <td>{{p.i_remarks11}}</td>
+                              <td>{{p.i_defragement}}</td>
+                              <td>{{p.i_remarks12}}</td>
+                              <td>{{p.i_empty}}</td>
+                              <td>{{p.i_remarks13}}</td>
+                              <td>{{p.i_create}}</td>
+                              <td>{{p.i_remarks14}}</td>
+                              <td>{{p.iu_pers4}}</td>
+                              <td>{{p.is_date4}}</td>
+                              <td>{{p.is_time4}}</td>
+                              <td>{{p.ie_date4}}</td>
+                              <td>{{p.ie_time4}}</td>
+                              <td>{{p.is_rec4}}</td>
+                              <td>{{p.ie_user4}}</td>
+                              <td>{{p.i_sig4}}</td>
+                              <td>{{p.ie_date5}}</td>
+                              <td>{{p.i_time2}}</td>
+
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Download"
+                                  >
+                                    <i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!--TABLE 4 BORROW RECORD -------------------------------------------------------------------------------------------->
+              <div id="table4" class="col-xl-12 collapse">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        id="myInputbr"
+                        onkeyup="myFunctionbr()"
+                        class="form-control my-2 p-2"
+                        placeholder="Search for names.."
+                        title="Type in a name"
+                      />
+                    </div>
+
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                    <div class="col-xl-1 col-lg-2 col-12">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-block my-2 p-2"
+                      >
+                        Search
+                      </button>
+                    </div>
+                    <div class="dropdown col-xl-2 col-lg-2 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#">Ascending</a>
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="jumbotron m-1">
+                  <br />
+                  <div class="card-body">
+                    <form>
+                      <div class="formtitle">BORROW RECORD</div>
+                      <div class="table-responsive-xl col-xl-12" id="idtable4">
+                        <table class="table">
+                          <thead class="thead">
+                            <tr>
+                              <th scope="col">FULL NAME</th>
+                              <th scope="col ">DATE RQSTD</th>
+                              <th scope="col">TIME</th>
+                              <th scope="col ">RQST BORROW</th>
+                              <th scope="col">REASON FOR BORROWING</th>
+                              <th scope="col">SIGNATURE</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for p in data1 %}
+                              <td>{{p.fbname}}</td>
+                              <td>{{p.fbdate}}</td>
+                              <td>{{p.fbtime}}</td>
+                              <td>{{p.fbreq}}</td>
+                              <td>{{p.fbreason}}</td>
+                              <td>{{p.fbsign}}</td>
+                              <td>{{p.fbstat}}</td>
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <a
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    href="{% url 'TupcSysApp:Borrower_dl' %}"
+                                    title="Download"
+                                    ><i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i
+                                  ></a>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                              {% for p in data2 %}
+                              <td>{{p.if_name5}}</td>
+                              <td>{{p.i_date5}}</td>
+                              <td>{{p.i_time5}}</td>
+                              <td>{{p.ir_borrow5}}</td>
+                              <td>{{p.irf_borrow5}}</td>
+                              <td>{{p.i_sig5}}</td>
+                              <td>{{p.i_stats5}}</td>
+                              <td>
+                                <div
+                                  class="col-xl-12 d-flex justify-content-center align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                                    id="btn3"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Download"
+                                  >
+                                    <i
+                                      class="fa fa-arrow-circle-down"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                      <script>
+                        function myFunctionbr() {
+                          var input, filter, table, tr, td, i, txtValue;
+                          input = document.getElementById("myInputbr");
+                          filter = input.value.toUpperCase();
+                          table = document.getElementById("myTablebr");
+                          tr = table.getElementsByTagName("tr");
+                          for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            if (td) {
+                              txtValue = td.textContent || td.innerText;
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else {
+                                tr[i].style.display = "none";
+                              }
+                            }
+                          }
+                        }
+                      </script>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        
-
-</body>
-
+        <!--BG CALL-------------------------------------------------------------------------------------------->
+        <div id="pic" class="view drk"></div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1797,18 +1797,18 @@
                                                         </thead>
                                                         <tbody>
                                                         <tr>
-                                                            {% for p in data3 %}
-                                                            <td>{{p.fbname}}</td>
-                                                            <td>{{p.fbdate}}</td>
-                                                            <td>{{p.fbtime}}</td>
-                                                            <td>{{p.fbreq}}</td>
-                                                            <td>{{p.fbreason}}</td>
-                                                            <td>{{p.fbsign}}</td>
+                                                            {% for p1 in data3 %}
+                                                            <td>{{p1.fbname}}</td>
+                                                            <td>{{p1.fbdate}}</td>
+                                                            <td>{{p1.fbtime}}</td>
+                                                            <td>{{p1.fbreq}}</td>
+                                                            <td>{{p1.fbreason}}</td>
+                                                            <td>{{p1.fbsign}}</td>
                                                             
                                                             <td>
                                                                 <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                                                     <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                    data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                                    data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p1.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
         
                                                                     <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
                                                                      title="Deny" data-toggle="modal" data-target="#denybf"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -1826,7 +1826,7 @@
                                                                     </button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        <form method="post" action = "{% url 'TupcSysApp:fborrow_cancel' p.pk  %}">
+                                                                        <form method="post" action = "{% url 'TupcSysApp:fborrow_cancel' p1.pk  %}">
                                                                             {%csrf_token%}
                                                                             <div class="form-row">
                 
