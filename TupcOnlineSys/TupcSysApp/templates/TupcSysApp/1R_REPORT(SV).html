@@ -70,8 +70,9 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb collapsed">
-            <li class="mx-2 ml-auto active" onclick="borrow()"><a href="#" id="bc">BORROW FORM</a></li>
-            <li class="mx-2" onclick="requestforpassreset()"><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
+           
+            <li class="mx-2 ml-auto active" onclick="requestforpassreset()"><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
+            <li class="mx-2 " onclick="borrow()"><a href="#" id="bc">BORROW FORM</a></li>
         </ol>
         <script type="text/javascript">
           $(document).on('click', 'ol, li', function(){
@@ -100,7 +101,7 @@
 
                 <div class="col-xl-11 main">
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                        <div class="jumbotron col-xl-12 m-1" id="form1"><br>
+                        <div class="jumbotron col-xl-11 m-1 collapse" id="form1"><br>
                             <!---------------BORROW REQUEST-------------------------------------------------------------------------------->
                             <div class="card-body">
                                 <form action="/StudentReports/" method="POST" id="borrowform">
@@ -112,9 +113,28 @@
                                         Request
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-xl-12">
+                                        <div class="col-xl-6">
                                             <input type="text" class="form-control my-2 p-2" placeholder="{{request.user.name}}" name="if_name5" readonly>
                                         </div>
+                                            <div
+                                            class="col-xl-3 text-center d-flex justify-content-center align-items-center"
+                                        >
+                                            Date Requested:
+                                        </div>
+                                        <div class="col-xl-3 text-center d-flex justify-content-center align-items-center">
+                                            <input type="text" class="form-control my-2 p-2"  id = "current_date" name = "f_datereq1" readonly required>
+                                        
+                                                <script>
+                                                    date = new Date();
+                                                    year = date.getFullYear();
+                                                    month = date.getMonth() + 1;
+                                                    day = date.getDate();
+                                                    document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+                                                    document.getElementById("current_date").value = month + "/" + day + "/" + year;
+                                                </script>
+                                            </label>
+                                        </div>
+                                        
                                     </div>
 
                                     <div class="descriptions col-12 m-2">
@@ -139,7 +159,7 @@
                                             <h6 class=""><input type="checkbox" class="radio " name="ir_borrow5" value = "Keyboard"> Keyboard</h6>
                                         </div>
                                         <div class="col-xl-2 col-lg-6">
-                                            <h6 class=""><input type="checkbox" class="radio " name="ir_borrow5" value = "Monitor"> KMonitor/h6>
+                                            <h6 class=""><input type="checkbox" class="radio " name="ir_borrow5" value = "Monitor"> Monitor</h6>
                                         </div>
                                     </div>
                                     
@@ -216,8 +236,8 @@
                                 
                             </div>
                         </div>
-                        <div class="jumbotron  col-xl-12 m-1 collapse" id="form2"><br>
-                            <!---------------BORROW REQUEST-------------------------------------------------------------------------------->
+                        <div class="jumbotron  col-xl-11 m-1 " id="form2"><br>
+                            <!---------------REQUEST FO PASSRESET-------------------------------------------------------------------------------->
                             <div class="card-body">
                                 <form action="/StudentReports_RequestPass/" method="POST">
                                     {%csrf_token%}
