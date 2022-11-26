@@ -257,6 +257,7 @@ class maintain_record(models.Model):
 
 #borrowrecord #1O #i #r
 class borrow_record(models.Model):
+    email5 = models.CharField(max_length= 50, null=True)
     if_name5 = models.CharField(max_length = 100, null=True)
     i_date5 = models.DateField()
     i_time5 = models.TimeField()

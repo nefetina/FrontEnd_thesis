@@ -415,7 +415,7 @@ def labsched_permit(request, id):
             y = faculty_lab.objects.filter(id=id).only("f_name").values()
             for z in y:
                 name = z['f_name']
-                uemail = z['email2']    
+                uemail = z['email2']  
             message = "Good day " + name + ", \n Your request for Laboratory Schedule has been approved, please proceed to UITC. \n UITC admin"
             email = EmailMessage(
                         name,
@@ -429,22 +429,21 @@ def labsched_permit(request, id):
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcLabsched')
-
-def fpasswordreset_cancel(request, id):
+def fpass_cancel(request, id):
     if request.method == 'POST':
         a = faculty_passreset.objects.get(id=id)
         for x in faculty_passreset.objects.only('id').filter(fwstat= "On process"):
             if a == x:
-                x = faculty_passreset.objects.filter(id=id).update(fwstat="Approved")
+                x = faculty_passreset.objects.filter(id=id).update(fwstat="Declined")
                 y = faculty_passreset.objects.filter(id=id).only("fwname").values()
                 for z in y:
                     name = z['fwname']
-                    uemail = z['fwemail'] 
-                reason = request.POST.get("reason")
+                    uemail = z['fwemail']  
+                reason = request.POST.get("freason")
                 print(name)
                 print(reason)
                 print(uemail)
-                message = "Good day " + name + ", \n Your request for Laboratory Schedule has been declined, " + reason +"\n UITC admin"
+                message = "Good day " + name + ", \n Your request for Password Reset has been declined, " + reason +"\n UITC admin"
                 email = EmailMessage(
                             name,
                             message,
@@ -457,7 +456,6 @@ def fpasswordreset_cancel(request, id):
                 break
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
-
 def fpasswordreset_permit(request, id):
     a = faculty_passreset.objects.get(id=id)
     for x in faculty_passreset.objects.only('id').filter(fwstat= "On process"):
@@ -493,7 +491,6 @@ def spasswordreset_cancel(request, id):
                     uemail = z['email'] 
                 reason = request.POST.get("sreason")
                 print(name)
-                print(reason)
                 print(uemail)
                 message = "Good day " + name + ", \n Your request for Password Reset has been declined, " + reason +"\n UITC admin"
                 email = EmailMessage(
@@ -511,14 +508,13 @@ def spasswordreset_cancel(request, id):
 
 def spasswordreset_permit(request, id):
     a = PassReset.objects.get(id=id)
-    current_user = request.user
     for x in PassReset.objects.only('id').filter(psstats= "On process"):
         if a == x:
             x = PassReset.objects.filter(id=id).update(psstats="Approved")
-            name = current_user.name
-            uemail = current_user.gsfe
-            print(name)
-            print(uemail)
+            y = PassReset.objects.filter(id=id).only("psname").values()
+            for z in y:
+                name = z['psname']
+                uemail = z['email'] 
             message = "Good day " + name + ", \n Your request for Password Reset has been approved, please proceed to UITC. \n UITC admin"
             email = EmailMessage(
                         name,
@@ -534,11 +530,29 @@ def spasswordreset_permit(request, id):
     return redirect('/UitcReports')
 
 def sborrow_cancel(request, id):
-    a = borrow_record.objects.get(id=id)
-    for x in borrow_record.objects.only('id').filter(i_stats5= "On process"):
-        if a == x:
-            x = borrow_record.objects.get(id=id).delete()
-            break
+    if request.method == 'POST':
+        a = borrow_record.objects.get(id=id)
+        for x in borrow_record.objects.only('id').filter(i_stats5= "On process"):
+            if a == x:
+                x = borrow_record.objects.filter(id=id).update(i_stats5="Approved")
+                y = borrow_record.objects.filter(id=id).only("if_name5").values()
+                for z in y:
+                    name = z['if_name5']
+                    uemail = z['email5'] 
+                reason = request.POST.get("sreason")
+                print(name)
+                print(uemail)
+                message = "Good day " + name + ", \n Your request for Password Reset has been declined, " + reason +"\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
     messages.info(request, "Successfully deleted")
     return redirect('/UitcReports')
 
@@ -567,22 +581,41 @@ def sborrow_permit(request, id):
     return redirect('/UitcReports')
 
 def fborrow_cancel(request, id):
-    a = faculty_borrow.objects.get(id=id)
-    for x in faculty_borrow.objects.only('id').filter(fbstat= "On process"):
-        if a == x:
-            x = faculty_borrow.objects.get(id=id).delete()
-            break
+    if request.method == 'POST':
+        a = faculty_borrow.objects.get(id=id)
+        for x in faculty_borrow.objects.only('id').filter(fbstat= "On process"):
+            if a == x:
+                x = faculty_borrow.objects.filter(id=id).update(fbstat="Approved")
+                y = faculty_borrow.objects.filter(id=id).only("fbname").values()
+                for z in y:
+                    name = z['fbname']
+                    uemail = z['email4'] 
+                reason = request.POST.get("reasonbf")
+                print(name)
+                print(uemail)
+                message = "Good day " + name + ", \n Your request for Borrowing has been declined, " + reason +"\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
     messages.info(request, "Successfully deleted")
     return redirect('/UitcReports')
 
 def fborrow_permit(request, id):
     a = faculty_borrow.objects.get(id=id)
-    current_user = request.user
     for x in faculty_borrow.objects.only('id').filter(fbstat= "On process"):
         if a == x:
             x = faculty_borrow.objects.filter(id=id).update(fbstat="Approved")
-            name = current_user.name
-            uemail = current_user.gsfe
+            y = faculty_borrow.objects.filter(id=id).only("fbname").values()
+            for z in y:
+                name = z['fbname']
+                uemail = z['email4'] 
             print(name)
             print(uemail)
             message = "Good day " + name + ", \n Your request for Borrowing has been approved, please proceed to UITC. \n UITC admin"
@@ -1034,7 +1067,7 @@ def FacultyBorrower(request):
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            request.POST.get('email4')
+            
             request.POST.get('request.user.name')
             fbdate = datetime.now()
             fbtime = datetime.now().time()
@@ -1042,7 +1075,7 @@ def FacultyBorrower(request):
             fbreason = request.POST.get('fbreason')
             fbsign = request.POST.get('fbsign')
             fbstat = "On Process"
-            data = faculty_borrow.objects.create(fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
+            data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
@@ -1128,6 +1161,7 @@ def StudentReports(request):#STUDENT REPORT page
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
+            email5 = request.user.email
             request.POST.get('request.user.name')
             i_date5 = datetime.now()
             i_time5 = datetime.now().time()
@@ -1135,7 +1169,7 @@ def StudentReports(request):#STUDENT REPORT page
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
             i_stats5 = "On Process"
-            data = borrow_record.objects.create(if_name5 = request.user.name, i_date5=i_date5, 
+            data = borrow_record.objects.create(email5 = email5, if_name5 = request.user.name, i_date5=i_date5, 
             i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
             data.save()
             messages.info(request, 'Successfully Submitted!')
