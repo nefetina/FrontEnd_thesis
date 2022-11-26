@@ -871,7 +871,7 @@ header,
     }
 }
 
-.signContainer canvas {
+.signContainer1 canvas {
     border: 1px solid #d6d8d9;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -883,8 +883,8 @@ header,
 .mSelect select:hover,
 .tempContDiv input[type="file"]:hover,
 .form_sBox:hover,
-.signContainer .signArea:hover,
-.signContainer canvas:hover {
+.signContainer1 .signArea:hover,
+.signContainer1 canvas:hover {
     border: 1px solid #a5a5a5 !important;
 }
 
@@ -893,8 +893,8 @@ header,
 .mSelect select:focus,
 .tempContDiv input[type="file"]:focus,
 .form_sBox:focus,
-.signContainer .signArea:focus,
-.signContainer canvas:focus {
+.signContainer1 .signArea:focus,
+.signContainer1 canvas:focus {
     border: 1px solid #24A68A !important;
 }
 
@@ -996,7 +996,7 @@ header,
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F4F4F4');
 }
 
-.brandingContainer {
+.brandingContainer1 {
     text-align: right;
     color: #666;
     border-top: 1px dashed #ccc;
@@ -1080,7 +1080,7 @@ header,
     padding: 30px;
 }
 
-.signContainer .signArea,
+.signContainer1 .signArea1,
 .tempContDiv input[type="file"],
 .mSelect select {
     -webkit-border-radius: 2px;
@@ -1138,17 +1138,17 @@ header,
     border-radius: 3px;
 }
 
-.signContainer a {
+.signContainer1 a {
     color: #24A68A;
 }
 
-.uploadContainer .floatText a {
+.uploadContainer1 .floatText a {
     color: #24A68A;
     font-family: "Arimo", sans-serif !important;
 }
 
-.signContainer canvas:hover,
-.signContainer canvas:focus {
+.signContainer1 canvas:hover,
+.signContainer1 canvas:focus {
     border-color: #24A68A;
     outline: none;
 }

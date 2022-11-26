@@ -70,9 +70,8 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb collapsed">
-           
-            <li class="mx-2 ml-auto active" onclick="requestforpassreset()"><a href="#" id="bc">REQUEST FOR PASSWORD RESET</a></li>
-            <li class="mx-2 " onclick="borrow()"><a href="#" id="bc">BORROW FORM</a></li>
+            <li class="mx-2  ml-auto active" ><a href="#" onclick="requestforpassreset()" id="bc">REQUEST FOR PASSWORD RESET</a></li>
+            <li class="mx-2" onclick="borrow()" ><a href="#" id="bc">BORROW FORM</a></li>
         </ol>
         <script type="text/javascript">
           $(document).on('click', 'ol, li', function(){
@@ -101,6 +100,83 @@
 
                 <div class="col-xl-11 main">
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
+                        
+                        <div class="jumbotron  col-xl-11 m-1 " id="form2"><br>
+                            <!---------------REQUEST FO PASSRESET-------------------------------------------------------------------------------->
+                            <div class="card-body">
+                                <form action="/StudentReports_RequestPass/" method="POST">
+                                    {%csrf_token%}
+                                    <div class="formtitle">
+                                        FILL UP THE FORM HERE
+                                    </div>
+                                    <div class="descriptions col-12 m-2">
+                                        Personal Information
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-xl-12">
+                                            <input type="text" class="form-control my-2 p-2 " name="psname" id="psname" placeholder="{{request.user.name}}" readonly>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <input type="text" class="form-control my-2 p-2" name="emp_idno" id="emp_idno" placeholder="{{request.user.username}}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-xl-12">
+                                            <select id="inputState" class="form-control my-2 p-2" name="Account" id="accounts" required>
+                                                <option selected disabled value="">ID TYPE :</option>
+                                                <option value="GSFE">GSFE</option>
+                                                <option value="TUP EMAIL">TUP EMAIL</option>
+                                                <option value="MS TEAMS">MS TEAMS</option>
+                                                <option value="ERS ACCOUNT">ERS ACCOUNT</option>
+                                                <option value="NAS">NAS</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <input type="text" class="form-control my-2 p-2" name="email" id="email" placeholder=" {{request.user.gsfe}}" readonly>
+                                        </div>
+                                    </div>
+                                   
+                                    <!--disclosure modal-------------------------------------------------------------------------------------------->    
+                                    <div class="modal fade" id="confirmation2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to send?
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="submit" class="btn btn-primary">Send</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+                                    <div class="col-xl-12">
+                                        <div class=checkbox>
+                                            <input type="checkbox" name="terms" id="terms" required>
+                                            <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
+                                        </div>
+                                        <button type="button" class="btn btn-primary  float-right m-1"  data-toggle="modal" data-target="#confirmation2">
+                                                                    Submit
+                                                                </button>
+                                        <button type="button" class="btn btn-danger float-right m-1">
+                                                                    Clear
+                                                                </button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
                         <div class="jumbotron col-xl-11 m-1 collapse" id="form1"><br>
                             <!---------------BORROW REQUEST-------------------------------------------------------------------------------->
                             <div class="card-body">
@@ -178,10 +254,10 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-xl-12">
-                                            <div class=" col-xl-6 sign tempFrmWrapper" tabindex="1" elname="livefield-elem" comptype="25" id="Signature-li" needdata="true" compname="Signature" linkname="Signature" isvisible="true" mandatory="true" page_no="2" page_link_name="Page4"> 
-
-
-
+                                            <div class=" col-xl-6 sign tempFrmWrapper" tabindex="1" elname="livefield-elem" comptype="25" id="Signature1-li" needdata="true" compname="Signature1" linkname="Signature1" isvisible="true" mandatory="true" page_no="3" page_link_name="Page3"> 
+                
+                
+                
                                                 <label class="labelName"><span>Signature</span> 
                                                 
                                                 <em class="important">*</em>
@@ -192,12 +268,12 @@
                                                 
                                                 <div class="tempContDiv">
                                                 
-                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
-                                                <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
+                                                <div class="signContainer1" elname="signContainer" id="signContainer1-Signature"><canvas id="drawingCanvas1-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
+                                                <div class="signArea" elname="signArea" id="sign-area-Signature1" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas1-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature1"></p>
                                                 </div><div class="clearBoth"></div>
                                             </div>
                                         </div>
-                                    </div>                    
+                                    </div>                
                                      <!--disclosure modal-------------------------------------------------------------------------------------------->    
                                      <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -236,82 +312,6 @@
                                 
                             </div>
                         </div>
-                        <div class="jumbotron  col-xl-11 m-1 " id="form2"><br>
-                            <!---------------REQUEST FO PASSRESET-------------------------------------------------------------------------------->
-                            <div class="card-body">
-                                <form action="/StudentReports_RequestPass/" method="POST">
-                                    {%csrf_token%}
-                                    <div class="formtitle">
-                                        FILL UP THE FORM HERE
-                                    </div>
-                                    <div class="descriptions col-12 m-2">
-                                        Personal Information
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2 " name="psname" id="psname" placeholder="{{request.user.name}}" readonly>
-                                        </div>
-                                        <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2" name="emp_idno" id="emp_idno" placeholder="{{request.user.username}}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-xl-12">
-                                            <select id="inputState" class="form-control my-2 p-2" name="Account" id="accounts" required>
-                                                <option selected disabled value="">ID TYPE :</option>
-                                                <option value="GSFE">GSFE</option>
-                                                <option value="TUP EMAIL">TUP EMAIL</option>
-                                                <option value="MS TEAMS">MS TEAMS</option>
-                                                <option value="ERS ACCOUNT">ERS ACCOUNT</option>
-                                                <option value="NAS">NAS</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-xl-12">
-                                            <input type="text" class="form-control my-2 p-2" name="email" id="email" placeholder=" {{request.user.gsfe}}" readonly>
-                                        </div>
-                                    </div>
-                                   
-                                    <!--disclosure modal-------------------------------------------------------------------------------------------->    
-                                    <div class="modal fade" id="confirmation2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure you want to send?
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                              <button type="submit" class="btn btn-primary">Send</button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                    </div>
-
-
-                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-12">
-                                        <div class=checkbox>
-                                            <input type="checkbox" name="terms" id="terms" required>
-                                            <p class="card-text">Your information will be kept confidential and protected under the Data Privacy Act of 2012</p>
-                                        </div>
-                                        <button type="button" class="btn btn-primary  float-right m-1"  data-toggle="modal" data-target="#confirmation2">
-                                                                    Submit
-                                                                </button>
-                                        <button type="button" class="btn btn-danger float-right m-1">
-                                                                    Clear
-                                                                </button>
-
-                                    </div>
-
-                                </form>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -319,67 +319,67 @@
             <div id="pic" class="view drk "></div>
         </div>
     </div>
-<script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
-    $("#drawingCanvas-Signature").mousedown(function (event) {
-    var canvasElem = document.getElementById("drawingCanvas-Signature"); //No I18N	
-    var signatureFieldParent = $(canvasElem).attr('signaturefieldparent'); //No I18N
-    var fontColor = "#000000";
-    var inputElem = ""; //No I18N
-    if(signatureFieldParent  == "subform") {
-    inputElem = $("#formBodyDiv").find(".formFieldWrapper li[elemType=subFormField][viewtype=1] input[type=text]:first"); //No I18N
-    if(inputElem.length == 0) { //No I18N
-    inputElem = $("#formBodyDiv").find(".formFieldWrapper li[elemType=subFormField][viewtype=1] textarea:first"); //No I18N
-    }
-    }
-    else { //No I18N
-    inputElem = $("#formBodyDiv").find(".formFieldWrapper > .tempFrmWrapper > .tempContDiv input[type=text]:first"); //No I18N
-    if(inputElem.length == 0) { //No I18N
-    inputElem = $("#formBodyDiv").find(".formFieldWrapper > .tempFrmWrapper > .tempContDiv textarea:first"); //No I18N
-    }
-    }
-    if(inputElem != "" && inputElem.length > 0) {
-    fontColor = inputElem.css("color");// No I18N
-    }
-    var context = canvasElem.getContext("2d");// No I18N
-    var position = getXYCoords(event, canvasElem,false);
-    context.moveTo(position.X, position.Y);
-    context.beginPath();
-    $(this).mousemove(function (event) {
-    startScribbling(event, canvasElem, context, false, fontColor);
-    }).mouseup(function (event) {
-    endScribbling(event, canvasElem, context, fontColor);
-    var fieldElem = getClosestFieldElemLi(canvasElem);// No I18N
-    removeErrorFromLiElem(fieldElem);// No I18N
-    }).mouseout(function (event) {
-    endScribbling(event, canvasElem, context, fontColor);
-    var fieldElem = getClosestFieldElemLi(canvasElem);// No I18N
-    removeErrorFromLiElem(fieldElem);// No I18N
-    });
-    this.addEventListener('touchstart', function(event){
-    position = getXYCoords(event, canvasElem,true);
-    context.moveTo(position.X, position.Y);
-    context.beginPath();
-    event.preventDefault();
-    }, false);
-    this.addEventListener('touchmove', function(event){
-    startScribbling(event, canvasElem, context, true, fontColor);
-    event.preventDefault();
-    }, false);
-    });
-    var userAgent = window.navigator.userAgent;
-    var msie = userAgent.indexOf("MSIE ");
-    if (msie > 0) {
-    $("#drawingCanvas-Signature").keypress(function (event) {
-    if (event.keyCode === 13) {
-    event.preventDefault();
-    }
-    });
-    }
-    if (false == true)  //No I18N
-    {
-    $("#drawingCanvas-Signature").css("pointer-events","none");//No I18N
-    $("#drawingCanvas-Signature").css("cursor","default");//No I18N
-    }</script>
+    <script type="module">setCanvasElemWidth("Signature1");	//No I18N				   		
+        $("#drawingCanvas1-Signature").mousedown(function (event) {
+        var canvasElem = document.getElementById("drawingCanvas1-Signature"); //No I18N	
+        var signatureFieldParent = $(canvasElem).attr('signaturefieldparent'); //No I18N
+        var fontColor = "#000000";
+        var inputElem = ""; //No I18N
+        if(signatureFieldParent  == "subform") {
+        inputElem = $("#formBodyDiv").find(".formFieldWrapper li[elemType=subFormField][viewtype=1] input[type=text]:first"); //No I18N
+        if(inputElem.length == 0) { //No I18N
+        inputElem = $("#formBodyDiv").find(".formFieldWrapper li[elemType=subFormField][viewtype=1] textarea:first"); //No I18N
+        }
+        }
+        else { //No I18N
+        inputElem = $("#formBodyDiv").find(".formFieldWrapper > .tempFrmWrapper > .tempContDiv input[type=text]:first"); //No I18N
+        if(inputElem.length == 0) { //No I18N
+        inputElem = $("#formBodyDiv").find(".formFieldWrapper > .tempFrmWrapper > .tempContDiv textarea:first"); //No I18N
+        }
+        }
+        if(inputElem != "" && inputElem.length > 0) {
+        fontColor = inputElem.css("color");// No I18N
+        }
+        var context = canvasElem.getContext("2d");// No I18N
+        var position = getXYCoords(event, canvasElem,false);
+        context.moveTo(position.X, position.Y);
+        context.beginPath();
+        $(this).mousemove(function (event) {
+        startScribbling(event, canvasElem, context, false, fontColor);
+        }).mouseup(function (event) {
+        endScribbling(event, canvasElem, context, fontColor);
+        var fieldElem = getClosestFieldElemLi(canvasElem);// No I18N
+        removeErrorFromLiElem(fieldElem);// No I18N
+        }).mouseout(function (event) {
+        endScribbling(event, canvasElem, context, fontColor);
+        var fieldElem = getClosestFieldElemLi(canvasElem);// No I18N
+        removeErrorFromLiElem(fieldElem);// No I18N
+        });
+        this.addEventListener('touchstart', function(event){
+        position = getXYCoords(event, canvasElem,true);
+        context.moveTo(position.X, position.Y);
+        context.beginPath();
+        event.preventDefault();
+        }, false);
+        this.addEventListener('touchmove', function(event){
+        startScribbling(event, canvasElem, context, true, fontColor);
+        event.preventDefault();
+        }, false);
+        });
+        var userAgent = window.navigator.userAgent;
+        var msie = userAgent.indexOf("MSIE ");
+        if (msie > 0) {
+        $("#drawingCanvas1-Signature").keypress(function (event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        }
+        });
+        }
+        if (false == true)  //No I18N
+        {
+        $("#drawingCanvas1-Signature").css("pointer-events","none");//No I18N
+        $("#drawingCanvas1-Signature").css("cursor","default");//No I18N
+        }</script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {% for message in messages %}
