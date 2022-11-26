@@ -539,7 +539,7 @@ def sborrow_cancel(request, id):
                 for z in y:
                     name = z['if_name5']
                     uemail = z['email5'] 
-                reason = request.POST.get("sreason")
+                reason = request.POST.get("reasonsb")
                 print(name)
                 print(uemail)
                 message = "Good day " + name + ", \n Your request for Password Reset has been declined, " + reason +"\n UITC admin"
@@ -553,17 +553,19 @@ def sborrow_cancel(request, id):
 
                 email.send()
                 break
-    messages.info(request, "Successfully deleted")
+    messages.info(request, "Completed")
     return redirect('/UitcReports')
 
 def sborrow_permit(request, id):
     a = borrow_record.objects.get(id=id)
-    current_user = request.user
     for x in borrow_record.objects.only('id').filter(i_stats5= "On process"):
         if a == x:
             x = borrow_record.objects.filter(id=id).update(i_stats5="Approved")
-            name = current_user.name
-            uemail = current_user.gsfe
+            y = borrow_record.objects.filter(id=id).only("if_name5").values()
+            for z in y:
+                name = z['if_name5']
+                uemail = z['email5'] 
+
             print(name)
             print(uemail)
             message = "Good day " + name + ", \n Your request for Borrowing has been approved, please proceed to UITC. \n UITC admin"
