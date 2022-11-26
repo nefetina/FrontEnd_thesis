@@ -220,10 +220,10 @@
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" ><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                               data-toggle="modal" data-target="#denybf" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                               data-toggle="modal" data-target="#denyrm" ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </div>
                                                 
                                                     </td>
@@ -1655,92 +1655,7 @@
 
 
 
-                    <!--BORROW FORMTABLE 3.1-------------------------------------------------------------------------------------------->                    
-                    {% comment %}
-                        <div class="col-xl-12 collapse " id="tableform7">
-                            <div class="jumbotron "><br>
 
-                                <!--FORM 2-------------------------------------------------------------------------------------------->
-                                <div class="card-body">
-                                    <form method = "post" action = '/UitcReports_borrow/'>
-                                        {%csrf_token%}
-                                        <div class="formtitle">
-                                            FILL UP THE FORM HERE
-                                        </div>
-                                        <div class="descriptions">
-                                            Request
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Full name" name = "if_name5">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                Date Requested:
-                                            </div>
-                                            <div class="col-xl-5">
-                                                <input type="date" class="form-control my-2 p-2" placeholder="Date Assigned:" name = "i_date5">
-                                            </div>
-                                            <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                Time:
-                                            </div>
-                                            <div class="col-xl-5">
-                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" name = "i_time5">
-                                            </div>
-
-                                        </div>
-                                        <div class="descriptions col-12 m-2">
-                                            Request to Borrow
-                                        </div>
-
-                                        <!--Radio btn-------------------------------------------------------------------------------------------->
-                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                            <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="radio" class="radio " name="ir_borrow5" value = "Projector"> Projector</h6>
-                                            </div>
-                                            <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="radio" class="radio " name="ir_borrow5" value = "Extension"> Extension</h6>
-                                            </div>
-                                            <div class="col-xl-4 col-lg-12">
-                                                <h6 class=""><input type="radio" class="radio " name="ir_borrow5" value = "Patch Cord"> Patch Cord</h6>
-                                            </div>
-                                        </div>
-                                        <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                            <div class="col-xl-4 col-lg-6">
-                                                <h6 class=""><input type="radio" class="radio" name="station"> Others</h6>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Please Specify:" name="ir_borrow5" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Reason for borrowing:" name="irf_borrow5">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Signature:" name="i_sig5">
-                                            </div>
-                                        </div>
-
-
-                                        <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                        <div class="col-xl-12 ">
-                                            <p class="card-text">Check it properly before you send it.</p>
-                                            <button type="submit" class="btn btn-primary  float-right m-1" onclick="next1()">
-                                                                        Submit
-                                                                    </button>
-                                            <button type="button" class="btn btn-danger float-right m-1">
-                                                                        Clear
-                                                                    </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    {% endcomment %}
 
 
 
@@ -1836,12 +1751,12 @@
                                                                     data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p1.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
         
                                                                     <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                     title="Deny" data-toggle="modal" data-target="#denybf"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                     title="Deny" data-toggle="modal" data-target="#denybfs"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
                                                                 
                                                             </td>
                                                                                                                                                                             <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                            <div class="modal fade" id="denybf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="denybfs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">

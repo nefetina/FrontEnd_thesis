@@ -371,7 +371,7 @@ def StudentInternet_permit(request, id):
     a = student_internet.objects.get(id=id)
     for x in student_internet.objects.only('id').filter(g_stats2= "On process"):
         if a == x:
-            x = student_internet.objects.filter(id=id).update(g_stats2="Declined")
+            x = student_internet.objects.filter(id=id).update(g_stats2="Approved")
             y = student_internet.objects.filter(id=id).values()
             for z in y:
                 name = z['gf_name2']
@@ -424,7 +424,7 @@ def labsched_permit(request, id):
     a = faculty_lab.objects.get(id=id)
     for x in faculty_lab.objects.only('id').filter(l_stat= "On process"):
         if a == x:
-            x = faculty_lab.objects.filter(id=id).update(l_stat="Declined")
+            x = faculty_lab.objects.filter(id=id).update(l_stat="Approved")
             y = faculty_lab.objects.filter(id=id).only("f_name").values()
             for z in y:
                 name = z['f_name']
