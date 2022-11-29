@@ -243,7 +243,6 @@ class maintain_record(models.Model):
     i_create = models.CharField(max_length = 100, null=True)#list1
     i_remarks14 = models.CharField(max_length = 100, null=True)
     iu_pers4 = models.CharField(max_length = 100, null=True)
-    i_sig4 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     is_date4 = models.DateField()
     is_time4 = models.TimeField()
     ie_date4 = models.DateField()

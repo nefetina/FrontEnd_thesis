@@ -794,16 +794,15 @@ def UitcReports_maitenance(request):#UITC REPORTS page
             i_create = request.POST.get('i_create')
             i_remarks14 = request.POST.get('i_remarks14')
             iu_pers4 = request.POST.get('iu_pers4')
-            i_sig4 = request.POST.get('i_sig4')
             is_date4 = request.POST.get('is_date4')
             is_time4 = request.POST.get('is_time4')
             ie_date4 = request.POST.get('ie_date4')
             ie_time4 = request.POST.get('ie_time4')
             is_rec4 = request.POST.get('is_rec4')
             ie_user4 = request.POST.get('ie_user4')
-            i_sig = request.POST.get('is_num4')
-            ie_date5 = request.POST.get('is_num4')
-            i_time2 = request.POST.get('is_num4')
+            i_sig = request.POST.get('i_sig')
+            ie_date5 = request.POST.get('ie_date5')
+            i_time2 = request.POST.get('i_time2')
             i_stats = "On Process"
             data = maintain_record.objects.create(i_type4 = i_type4, is_num4=is_num4, 
             i_datem=i_datem, i_brand4=i_brand4, i_code=i_code, ie_name=ie_name, iup_sstats=iup_sstats,
@@ -813,7 +812,7 @@ def UitcReports_maitenance(request):#UITC REPORTS page
             i_remarks7=i_remarks7, i_dust=i_dust, i_remarks8=i_remarks8, i_organize=i_organize,
             i_remarks9=i_remarks9, i_wipe=i_wipe, i_remarks10=i_remarks10, i_run=i_run, i_remarks11=i_remarks11,
             i_defragement=i_defragement, i_remarks12=i_remarks12, i_empty=i_empty, i_remarks13=i_remarks13,
-            i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, i_sig4=i_sig4, is_date4=is_date4,
+            i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, is_date4=is_date4,
             is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
             i_sig=i_sig, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
             data.save()
@@ -876,7 +875,8 @@ def UitcRec4(request):#UITC HOMEPAGE page
         data3 = faculty_passreset.objects.all()
         data4 = PassReset.objects.all()
         data5 = Inventory.objects.all()
-        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4,'data5':data5})
+        data6 = maintain_record.objects.all()
+        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4,'data5':data5,'data6':data6})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -929,7 +929,7 @@ def FacultyID(request):#FACULTY ID page
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            email1 = request.user.gsfe
+            request.POST.get('request.user.gsfe')
             ff_name1 = request.POST.get('ff_name1')
             fm_name1 = request.POST.get('fm_name1')
             fl_name1 = request.POST.get('fl_name1')
@@ -948,7 +948,7 @@ def FacultyID(request):#FACULTY ID page
             f_add1 = request.POST.get('f_add1')
             f_signature1 = request.POST.get('f_signature1')
             f_stat = "On Process"
-            data = faculty_ID.objects.create(email1 = email1, ff_name = ff_name1, fm_name=fm_name1, fl_name=fl_name1, f_suffix=f_suffix1, f_emp=f_emp1, 
+            data = faculty_ID.objects.create(email1 = request.user.gsfe, ff_name = ff_name1, fm_name=fm_name1, fl_name=fl_name1, f_suffix=f_suffix1, f_emp=f_emp1, 
             f_datereq=f_datereq1, f_daterel=f_daterel1, f_gsis=f_gsis1, f_gsisp=f_gsisp1, f_tin=f_tin1, f_pagibig=f_pagibig1, f_phil=f_phil1, 
             f_other=f_other1, f_cp=f_cp1, f_num=f_num1, f_add=f_add1, f_signature=f_signature1, f_stat=f_stat)
             data.save()
@@ -974,13 +974,13 @@ def FacultyInternet(request):#FACULTY INTERNET page
             g_sys = request.POST.get('g_sys')
             g_mac = request.POST.get('g_mac')
             g_num = request.POST.get('g_num')
-            g_email = request.user.gsfe
+            request.POST.get('request.user.gsfe')
             g_fac = request.POST.get('g_fac')
             g_sig = request.POST.get('g_sig')
             g_datereq = datetime.now()
             g_stats = "On Process"
             data = faculty_wifi.objects.create(gf_name = request.user.name, g_dept=g_dept, g_des=g_des, g_sys=g_sys, g_mac=g_mac, 
-             g_num=g_num, g_email=g_email, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stat=g_stats)
+             g_num=g_num, g_email=request.user.gsfe, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stat=g_stats)
             data.save()
             messages.info(request, 'Successfully Submitted!')
         return render (request, 'TupcSysApp/1M_INTERNET(FV).html')
@@ -996,7 +996,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            email2 = request.user.gsfe
+            request.POST.get('request.user.gsfe')
             request.POST.get('request.user.name')
             dep = request.POST.get('dep')
             l_date = request.POST.get('l_date')
@@ -1006,7 +1006,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
             e_time = request.POST.get('e_time')
             fl_sig = request.POST.get('fl_sig')
             l_stat = "On Process"
-            data = faculty_lab.objects.create(email2 = email2, f_name = request.user.name, dep=dep, l_date=l_date, lab_num=lab_num, crs_sec=crs_sec, 
+            data = faculty_lab.objects.create(email2 = request.user.gsfe, f_name = request.user.name, dep=dep, l_date=l_date, lab_num=lab_num, crs_sec=crs_sec, 
              s_time=s_time, e_time=e_time, fl_sig=fl_sig, l_stat = l_stat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -1201,7 +1201,7 @@ def StudentReports_RequestPass(request):
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
             request.POST.get('request.user.name')
-            email = request.user.gsfe
+            request.POST.get('request.user.gsfe')
             emp_idno = request.user.username
             Account = request.POST.get('Account')
             psstats = "On Process"
