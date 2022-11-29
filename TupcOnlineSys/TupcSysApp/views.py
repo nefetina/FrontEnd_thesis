@@ -1023,7 +1023,7 @@ def FacultyReports(request):#FACULTY REPORTS page
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            email3 = request.POST.get('email3')
+            request.POST.get('request.user.gsfe')
             ftype = request.POST.get('ftype')
             fbrand = request.POST.get('fbrand')
             fserial = request.POST.get('fserial')
@@ -1066,6 +1066,7 @@ def FacultyRstPass(request):
             request.POST.get('request.user.name')
             fwempID = request.POST.get('fwempID')
             fwIDtype = request.POST.get('fwIDtype')
+            request.POST.get('request.user.gsfe')
             fwstat = "On Process"
             data = faculty_passreset.objects.create(fwname = request.user.name, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=request.user.gsfe, fwstat=fwstat)
             data.save()
@@ -1125,14 +1126,14 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_sem2 = request.POST.get('g_sem2')
             g_or2 = request.POST.get('g_or2')
             g_num2 = request.POST.get('g_num2')
-            request.POST.get('request.user.email')
+            request.POST.get('request.user.gsfe')
             g_add2=request.POST.get('g_add2')
             gu_name2 = request.POST.get('gu_name2')
             g_sig2=request.POST.get('g_sig2') 
             g_daterec2 = datetime.now()
             g_stats2 = "On Process"
             data = student_internet.objects.create(gf_name2 = request.user.name, g_csec2=g_csec2, 
-            g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=request.user.email,
+            g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=request.user.gsfe,
             g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -1155,13 +1156,13 @@ def StudentWifi(request):#STUDENT WIFI ACCESS page
             g_sys1 = request.POST.get('g_sys1')
             g_mac1 = request.POST.get('g_mac1')
             g_num1 = request.POST.get('g_num1')
-            g_email1 = request.user.email
+            request.POST.get('request.user.gsfe')
             g_add1=request.POST.get('g_add1')
             g_sig1=request.POST.get('g_sig1')
             g_daterec1 = datetime.now()
             g_stats1 = "On Process"
             data = student_wifi.objects.create(gf_name1 = request.user.name, g_csec1=g_csec1, 
-            g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=request.user.email,
+            g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=request.user.gsfe,
             g_add1=g_add1, g_sig1=g_sig1, g_daterec1=g_daterec1, g_stats1=g_stats1)
             data.save()
             messages.info(request, 'Successfully Submitted!')
@@ -1176,7 +1177,7 @@ def StudentReports(request):#STUDENT REPORT page
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
-            email5 = request.user.email
+            request.POST.get('request.user.gsfe')
             request.POST.get('request.user.name')
             i_date5 = datetime.now()
             i_time5 = datetime.now().time()
@@ -1184,7 +1185,7 @@ def StudentReports(request):#STUDENT REPORT page
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
             i_stats5 = "On Process"
-            data = borrow_record.objects.create(email5 = email5, if_name5 = request.user.name, i_date5=i_date5, 
+            data = borrow_record.objects.create(email5 = request.user.gsfe, if_name5 = request.user.name, i_date5=i_date5, 
             i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
             data.save()
             messages.info(request, 'Successfully Submitted!')
