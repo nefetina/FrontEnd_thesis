@@ -68,6 +68,18 @@ img {
     height: 100%;
 }
 
+.eye{
+    height: 20px;
+    width: 20px;
+}
+
+#psbtn{
+    background-color: #ffecec !important;
+}
+#psbtn:hover{
+    transition: .2s ease-in-out !important;
+    background-color: #05f89b !important;
+}
 
 /********************************************************************************************BACKGROUND AND OVERLAY***************************************************************************************************************************/
 

@@ -36,6 +36,11 @@
     <link rel="stylesheet" href="{% static 'css/log.css'%}" />
     <!----SWEET ALERT------------------------------------------------>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!----ICON------------------------------------------------>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
   </head>
   <body>
     {%for message in messages%} {% if message.tags == 'warning'%}
@@ -161,19 +166,26 @@
                       />
                     </div>
                   </div>
-                  <div
-                    class="form-row d-flex justify-content-center align-items-center"
-                  >
-                    <div class="col-lg-9">
+                  <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class=" col-xl-9 col-12 input-group my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1">
                       <input
-                        type="password"
-                        class="form-control my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                        id="pass"
-                        placeholder="Password"
-                        name="password"
-                        required
-                      />
+                      type="password"
+                      class="form-control "
+                      id="pass"
+                      placeholder="Password"
+                      name="password"
+                      required
+                    />
+                      <div class="input-group-append" >
+                        <span class="input-group-text"  id="psbtn" >
+                          <i class="fa fa-eye" onclick="show()" id="icon"></i>
+                        </span>
+                      </div>
                     </div>
+
+
+
+                   
                   </div>
 
                   <!-----------------------------------------------------------------buttons-------------------------------------------------------->
