@@ -137,178 +137,19 @@
                 </div>
               </div>
 
-              <div
-                class="col-xl-5 col-lg-5 pt-xl-5 pt-lg-5 pt-md-3 px-5 text-center"
-              >
-                <form method="post" action="/forgotpassword">
-                  {% csrf_token %}
-                  <div id="form1">
-                    <!------------------------------------------------FORM1---------------------------------------------------->
-                    <div
-                      class="form-row mt-xl-1 d-flex justify-content-center align-items-center"
-                    >
-                      <div class="col-lg-9">
-                        <h1 class="font-weight-bold" id="text1">
-                          FORGOT PASSWORD
-                        </h1>
-                        <h6 class="font-weight-bold" id="text2">
-                          Enter your Credentials
-                        </h6>
-                      </div>
-                    </div>
-
-                    <!--------------------------------------------------input fields-------------------------------------------------------->
-
-                    <div
-                      class="form-row d-flex justify-content-center align-items-center"
-                    >
-                      <div class="col-lg-9">
-                        <input
-                          type="text"
-                          class="form-control mt-xl-5 mt-lg-3 my-xl-2 my-lg-1 my-md-2 my-1"
-                          id="tupcid"
-                          placeholder="GSFE Email"
-                          name="gsfe"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="form-row d-flex justify-content-center align-items-center"
-                    >
-                      <div class="col-lg-9">
-                        <input
-                          type="text"
-                          class="form-control my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="username"
-                          placeholder="TUPC-XX-XXXX"
-                          name="username"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <!------------------------------------------------------buttons-------------------------------------------------------->
-                    <div class="form-row">
-                      <div
-                        class="col-xl-12 mt-lg-2 d-flex justify-content-center align-items-center"
-                      >
-                        <button
-                          type="button"
-                          class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="btn1"
-                          onclick="next1()"
-                        >
-                          NEXT
-                        </button>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div
-                        class="col-lg-12 d-flex justify-content-center align-items-center"
-                      >
-                        <button
-                          type="button"
-                          class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="btn2"
-                          onclick="return1()"
-                        >
-                          RETURN
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div id="form2">
-                    <!----------------------------------------------FORM2---------------------------------------------------->
-                    <div
-                      class="form-row d-flex justify-content-center align-items-center"
-                    >
-                      <div class="col-lg-9">
-                        <h1 class="font-weight-bold" id="text1">
-                          FORGOT PASSWORD
-                        </h1>
-                        <h6 class="font-weight-bold" id="text2">
-                          Enter your Credentials
-                        </h6>
-                      </div>
-                    </div>
-
-                    <!-----------------------------------------------------input fields---------------------------------------------------->
-
-                    <div
-                      class="form-row d-flex justify-content-center align-items-center"
-                    >
-                      <div class="col-lg-9">
-                        <input
-                          type="password"
-                          class="form-control mt-xl-5 mt-lg-3 my-xl-2 my-lg-1 my-md-2 my-1"
-                          id="password"
-                          placeholder="New Password"
-                          name="password"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="form-row d-flex justify-content-center align-items-center"
-                    >
-                      <div class="col-lg-9">
-                        <input
-                          type="password"
-                          class="form-control my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="password"
-                          placeholder="Confirm Password"
-                          name="password"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <!------------------------------------------------------buttons-------------------------------------------------------->
-
-                    <div class="form-row">
-                      <div
-                        class="col-xl-12 mt-xl-2 d-flex justify-content-center align-items-center"
-                      >
-                        <button
-                          type="submit"
-                          class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="btn1"
-                          onclick="validate()"
-                        >
-                          SUBMIT
-                        </button>
-                        <button
-                          type="button"
-                          class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="btn7"
-                          onclick="back1()"
-                        >
-                          BACK
-                        </button>
-                      </div>
-                      <div
-                        class="col-xl-12 d-flex justify-content-center align-items-center"
-                      >
-                        <button
-                          type="button"
-                          class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="btn8"
-                          onclick="return1()"
-                        >
-                          CANCEL
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
+<!--Reset Password-->
+<div class="col-xl-5 col-lg-5 pt-xl-5 pt-lg-5 pt-md-3 px-5 text-center">
+     <h2 class="font-weight-bold mt-3">Reset Password</h2>
+  <hr>
+  <p>Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one.</p>
+      <form method="POST">
+          {% csrf_token %}
+          {{ password_reset_form}}                    
+          <button class="btn btn-primary" type="submit">Send email</button>
+          <button type="button" class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
+          id="btn2" onclick="return1()">RETURN</button>
+      </form>
+  </div> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

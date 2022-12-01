@@ -1,33 +1,26 @@
-from hashlib import sha256
 import logging
-from audioop import reverse
 from datetime import datetime
-from email.mime.application import MIMEApplication
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from multiprocessing import context
-from operator import indexOf
-from os import fstat
-import random
 
-from django.conf import settings
 from .models import register1
-from unittest import loader
-import mysql.connector as sql
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User, auth
-from django.core.mail import EmailMessage, message, send_mail
-from django.http import Http404, HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect, render
-from MySQLdb import ROWID
-from pip import List
+from django.core.mail import EmailMessage, send_mail, BadHeaderError
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
 
 from .forms import *
 from .forms import Registration
 from .models import *
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import PasswordResetForm
+from django.template.loader import render_to_string
+from django.db.models.query_utils import Q
+from django.utils.http import urlsafe_base64_encode
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
 
 # Create your views here.
 
@@ -1254,22 +1247,32 @@ def UitcInventory(request):#UITC ID page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
-    
-def forgotpassword(request):
-    if request.method=="POST":
-        old_pass=request.POST.get("pass_now")
-        new_pass=request.POST.get("new_pass")
-        gsfe=request.user.gsfe
-        username=request.user.username
-        user=authenticate(gsfe=gsfe, username=username, password=old_pass)
-        if user is not None:
-            user=User.objects.get(gsfe=gsfe, username=username)
-            user.set_password(new_pass)
-            user.save()
-            login(request, user)
-            messages.success(request, 'Password changed successfully')
-            return redirect('/')
-        messages.success(request, 'Invalid Password')
-        return redirect('/')
-    return render (request, 'TupcSysApp/FORGOT_PASS.html')
   
+def forgotpassword(request):
+	if request.method == "POST":
+		password_reset_form = PasswordResetForm(request.POST)
+		if password_reset_form.is_valid():
+			data = password_reset_form.cleaned_data['email']
+			associated_users = register1.objects.filter(Q(email=data))
+			if associated_users.exists():
+				for user in associated_users:
+					subject = "Password Reset Requested"
+					email_template_name = "TupcSysApp/password_reset_email.txt"
+					c = {
+					"email":user.email,
+					'domain':'127.0.0.1:8000',
+					'site_name': 'TupcSysApp',
+					"uid": urlsafe_base64_encode(force_bytes(user.pk)),
+					'token': default_token_generator.make_token(user),
+					'protocol': 'http',
+					}
+					email = render_to_string(email_template_name, c)
+					try:
+						send_mail(subject, email, 'tupc.uitconlinesystem@gmail.com', [user.email], fail_silently=False)
+					except BadHeaderError:
+						return HttpResponse('Invalid header found.')			
+					messages.success(request, 'A message with reset password instructions has been sent to your inbox.')
+					return redirect ('/')
+			messages.error(request, 'An invalid email has been entered.')
+	password_reset_form = PasswordResetForm()
+	return render (request, 'TupcSysApp/FORGOT_PASS.html', context={"password_reset_form":password_reset_form})
