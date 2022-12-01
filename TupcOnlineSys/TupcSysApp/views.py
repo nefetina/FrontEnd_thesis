@@ -1,3 +1,4 @@
+from hashlib import sha256
 import logging
 from audioop import reverse
 from datetime import datetime
@@ -7,6 +8,10 @@ from email.mime.text import MIMEText
 from multiprocessing import context
 from operator import indexOf
 from os import fstat
+import random
+
+from django.conf import settings
+from .models import register1
 from unittest import loader
 import mysql.connector as sql
 from django.contrib import messages
@@ -87,8 +92,7 @@ def upload_csv(request):
 	except Exception as e:
             pass
             return redirect('/UitcPermission')
-def forgotpassword(request):
-    return render (request, 'TupcSysApp/FORGOT_PASS.html')
+
 
 #download html button
 def employeeID_dl(request):
@@ -1244,8 +1248,22 @@ def UitcInventory(request):#UITC ID page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
-
-
+    
+def forgotpassword(request):
+    if request.method=="POST":
+        old_pass=request.POST.get("pass_now")
+        new_pass=request.POST.get("new_pass")
+        gsfe=request.user.gsfe
+        username=request.user.username
+        user=authenticate(gsfe=gsfe, username=username, password=old_pass)
+        if user is not None:
+            user=User.objects.get(gsfe=gsfe, username=username)
+            user.set_password(new_pass)
+            user.save()
+            login(request, user)
+            messages.success(request, 'Password changed successfully')
+            return redirect('/')
+        messages.success(request, 'Invalid Password')
+        return redirect('/')
+    return render (request, 'TupcSysApp/FORGOT_PASS.html')
   
-
-

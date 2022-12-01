@@ -140,7 +140,7 @@
               <div
                 class="col-xl-5 col-lg-5 pt-xl-5 pt-lg-5 pt-md-3 px-5 text-center"
               >
-                <form method="post">
+                <form method="post" action="/forgotpassword">
                   {% csrf_token %}
                   <div id="form1">
                     <!------------------------------------------------FORM1---------------------------------------------------->
@@ -168,7 +168,7 @@
                           class="form-control mt-xl-5 mt-lg-3 my-xl-2 my-lg-1 my-md-2 my-1"
                           id="tupcid"
                           placeholder="GSFE Email"
-                          name="username"
+                          name="gsfe"
                           required
                         />
                       </div>
@@ -178,11 +178,11 @@
                     >
                       <div class="col-lg-9">
                         <input
-                          type="password"
+                          type="text"
                           class="form-control my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="pass"
-                          placeholder="TUPC ID"
-                          name="password"
+                          id="username"
+                          placeholder="TUPC-XX-XXXX"
+                          name="username"
                           required
                         />
                       </div>
@@ -241,11 +241,11 @@
                     >
                       <div class="col-lg-9">
                         <input
-                          type="text"
+                          type="password"
                           class="form-control mt-xl-5 mt-lg-3 my-xl-2 my-lg-1 my-md-2 my-1"
-                          id="tupcid"
+                          id="password"
                           placeholder="New Password"
-                          name="username"
+                          name="password"
                           required
                         />
                       </div>
@@ -257,7 +257,7 @@
                         <input
                           type="password"
                           class="form-control my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="pass"
+                          id="password"
                           placeholder="Confirm Password"
                           name="password"
                           required
@@ -274,8 +274,8 @@
                         <button
                           type="submit"
                           class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
-                          id="btn6"
-                          onclick=""
+                          id="btn1"
+                          onclick="validate()"
                         >
                           SUBMIT
                         </button>
