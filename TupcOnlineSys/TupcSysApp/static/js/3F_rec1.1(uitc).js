@@ -1,3 +1,4 @@
+
 function openNav() {
 
     var y = document.getElementById("mySidebar");
@@ -7,6 +8,8 @@ function openNav() {
     y.style.display = "block";
     x.style.display = "block";
     z.style.display = "block";
+    var a = document.getElementById("body_dl");
+    a.style.display = "none";
 
 
 }

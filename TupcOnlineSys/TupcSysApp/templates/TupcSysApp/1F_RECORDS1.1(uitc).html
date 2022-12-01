@@ -33,7 +33,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
 
 </head>
-
 <body>
     <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal modal-dialog-centered" role="document">
@@ -213,7 +212,7 @@
                                                 <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                     <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                   href = "{% url 'TupcSysApp:employeeID_dl' %}" title="Download" ><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
+                                                   href = "{% url 'TupcSysApp:employeeID_dl' p.pk%}" title="Download" ><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
 
                                                 </div>
                                             </td>
@@ -357,7 +356,6 @@
             <div id="pic" class="view drk "></div>
         </div>
     </div>
-
 
 
 </body>

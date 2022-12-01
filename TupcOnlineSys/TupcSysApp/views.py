@@ -95,17 +95,21 @@ def upload_csv(request):
 
 
 #download html button
-def employeeID_dl(request):
-    data = faculty_ID.objects.all()
+def employeeID_dl(request, id):
+    data = faculty_ID.objects.filter(id=id)
     return render (request, 'TupcSysApp/4AEMPLOYEEID.html',{'data':data})
-def internetStudent_dl(request):
-    return render (request, 'TupcSysApp/4BINTERNETACCESS(sv).html')
-def wifiStudent_dl(request):
-    return render (request, 'TupcSysApp/4CWIFICON(sv).html')
-def Borrower_dl(request):
-    return render (request, 'TupcSysApp/4DBORROWERSFORM(fv).html')
-def wifiFaculty_dl(request):
-    return render (request, 'TupcSysApp/4EWIFICON(fv).html')
+def internetStudent_dl(request, id):
+    data3 = student_internet.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4BINTERNETACCESS(sv).html',{'data3':data3})
+def wifiStudent_dl(request, id):
+    data2 = student_wifi.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4CWIFICON(sv).html',{'data2':data2})
+def Borrower_dl(request, id):
+    data1 = borrow_record.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4DBORROWERSFORM(fv).html',{'data1':data1})
+def wifiFaculty_dl(request, id):
+    data1 = faculty_wifi.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4EWIFICON(fv).html',{'data1':data1})
 
 def register(request):#registration
     form = Registration()
