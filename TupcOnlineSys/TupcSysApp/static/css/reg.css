@@ -8,15 +8,15 @@
 
 .row {
     background: url("/static/images/green.png")no-repeat center/cover;
-    border-radius: 1cm;
+    border-radius: 50px;
     box-shadow: 12px 12px 22px black;
     color: #000;
 }
 
 img {
     position: relative !important;
-    border-bottom-left-radius: 1cm;
-    border-top-left-radius: 1cm;
+    border-bottom-left-radius:  50px;
+    border-top-left-radius:  50px;
     height: 10%;
     width: 20%;
 }
@@ -230,7 +230,7 @@ header,
         font-size: 14px !important;
     }
     #btn2 {
-        font-size: 12px !important;
+        font-size: 200px !important;
     }
     #desc{
         font-size: 14px !important;
@@ -252,7 +252,7 @@ header,
         
     }
     #btn1, #btn2, #btn3, #btn4, #btn5, #btn5, #btn6, #btn7, #btn8 {
-        font-size: 18px !important;
+        font-size: 20px !important;
         height: 40px;
     }
 }
@@ -261,12 +261,7 @@ header,
 /*************************lower than small lang*****/
 
 @media screen and (max-width: 400px) {
-    #btn1 {
-        font-size: 14px !important;
-    }
-    #btn2 {
-        font-size: 10px !important;
-    }
+    
     #text1 {
         font-size: 20px !important;
     }
@@ -277,7 +272,7 @@ header,
         font-size: 15px !important;
     }
     #text4 {
-        font-size: 15px !important;
+        font-size: 200px !important;
     }
     #desc{
         font-size: 14px !important;
@@ -291,7 +286,7 @@ header,
     .form-row input {
         background-color: rgb(255, 255, 255);
       
-        width: 150px  !important;
+        width: 250px  !important;
         border-radius: 5px ;
         border-color: 0%;
         height: 25px;
@@ -299,11 +294,11 @@ header,
         
     }
     #btn1, #btn2, #btn3, #btn4, #btn5, #btn5, #btn6, #btn7, #btn8 {
-        font-size: 12px !important;
-        height: 20px;
+        font-size: 15px !important;
+        height: 30px;
     }
 }
-@media screen and (max-width: 270px) {
+@media screen and (max-width: 324px) {
     #btn1 {
         font-size: 14px !important;
     }
@@ -334,7 +329,7 @@ header,
     .form-row input {
         background-color: rgb(255, 255, 255);
       
-        width: 150px  !important;
+        width: 200px  !important;
         border-radius: 5px ;
         border-color: 0%;
         height: 20px;
