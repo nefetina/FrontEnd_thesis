@@ -714,7 +714,8 @@ def UitcReports(request):#UITC REPORTS page
         data2 = PassReset.objects.filter(psstats = "On Process")
         data3 = faculty_borrow.objects.filter(fbstat = "On Process")
         data4 = borrow_record.objects.filter(i_stats5 = "On Process")
-        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data':data , 'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4, })
+        data5 = maintain_record.objects.filter(i_stats = "On Process")
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data':data , 'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4, 'data5':data5})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
        return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1276,3 +1277,57 @@ def forgotpassword(request):
 			messages.error(request, 'An invalid email has been entered.')
 	password_reset_form = PasswordResetForm()
 	return render (request, 'TupcSysApp/FORGOT_PASS.html', context={"password_reset_form":password_reset_form})
+
+
+def reqrepmain_permit(request, id):
+    a = faculty_reports.objects.get(id=id)
+    for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
+            if a == x:
+                x = faculty_reports.objects.filter(id=id).update(fstat="Approved")
+                y = faculty_reports.objects.filter(id=id).values()
+                for z in y:
+                    name = z['fname']
+                    uemail = z['email3']
+                    print(name)
+                    print(uemail)
+            message = "Good day " + name + ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
+
+                        )
+
+            email.send()
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
+
+def reqrepmain_cancel(request, id):
+    if request.method == 'POST':
+        a = faculty_reports.objects.get(id=id)
+        reason = request.POST.get("reason")
+        for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
+            if a == x:
+                x = faculty_reports.objects.filter(id=id).update(fstat="Declined")
+                y = faculty_reports.objects.filter(id=id).values()
+                for z in y:
+                    name = z['fname']
+                    uemail = z['email3']
+                    print(name)
+                    print(uemail)
+                print(reason)
+                message = "Good day " + name + ", \n Your request for repair and maintence has been declined, " + reason + "\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
+    messages.info(request, "Completed")
+    return redirect('/UitcReports')

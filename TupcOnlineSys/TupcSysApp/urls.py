@@ -59,5 +59,7 @@ urlpatterns =[
     path('StudentReports_RequestPass/', views.StudentReports_RequestPass, name='StudentReports_RequestPass'), 
     path('StudentReports/', views.StudentReports, name='StudentReports'), 
     path('logout/', views.logoutUser, name='logout'),
+    path('reqrepmain_permit/<int:id>', views.reqrepmain_permit, name='reqrepmain_permit'),
+    path('reqrepmain_cancel/<int:id>', views.reqrepmain_cancel, name='reqrepmain_cancel'),
 
     ]

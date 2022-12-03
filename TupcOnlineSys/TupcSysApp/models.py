@@ -164,7 +164,7 @@ class sched_rec(models.Model):
     h_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     h_stats = models.CharField(max_length = 100, null=True)
 
-#repair and maintenance record #1O #i
+#maintenance record #1O #i
 class repmain_rec(models.Model):
     i_type = models.CharField(max_length= 100, null=False)
     i_brand = models.CharField(max_length = 100, null=True)
@@ -206,7 +206,7 @@ class repmain_rec(models.Model):
     i_time2 = models.TimeField()
     i_stats = models.CharField(max_length = 100, null=True)
 
-#maintenance record #1E #i
+#repair and maintenance record #1E #i
 class maintain_record(models.Model):
     i_type4 = models.CharField(max_length = 100, null=True)
     is_num4 = models.CharField(max_length = 100, null=True)
