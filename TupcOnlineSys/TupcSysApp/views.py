@@ -22,6 +22,9 @@ from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 
+import base64
+from django.core.files.base import ContentFile
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
 installed_apps = ['TupcSysApp']
@@ -831,6 +834,7 @@ def UitcReports_maitenance(request):#UITC REPORTS page
 @login_required(login_url='/Index')
 def UitcRec1(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        
         data = faculty_ID.objects.all()
         return render (request, 'TupcSysApp/1F_RECORDS1.1(uitc).html', {'data':data})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
@@ -950,7 +954,8 @@ def FacultyID(request):#FACULTY ID page
             f_cp1 = request.POST.get('f_cp1')
             f_num1 = request.POST.get('f_num1')
             f_add1 = request.POST.get('f_add1')
-            f_signature = request.POST.get('f_signature')
+            f_signature = request.POST.get('f_signatures')
+
             print(f_signature)
             print(f_add1)
             f_stat = "On Process"

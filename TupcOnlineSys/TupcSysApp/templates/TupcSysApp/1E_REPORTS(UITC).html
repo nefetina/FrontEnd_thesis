@@ -288,9 +288,10 @@
                                         </div>
                                     
                                     </div>
-                                </div>  
+                                </div>
+                                <div></div>
                                 {% for pr in data %}
-                                    <form method="post" action = "{% url 'TupcSysApp:reqrepmain_permit' pr.pk  %}">
+                                    <form method="post" action = "{% url 'TupcSysApp:reqrepmain_permit' pr.pk  %}" >
                                         {%csrf_token%}
 
                                             <!--REPAIR AND MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->

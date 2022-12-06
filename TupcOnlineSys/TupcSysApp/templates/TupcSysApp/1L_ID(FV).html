@@ -113,7 +113,7 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form method="post" action='/FacultyID/' id="idform">
+                                    <form method="post" action='/FacultyID/' id="idform" name = "myform">
                                         {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
@@ -234,9 +234,10 @@
                                                 
                                                 <div class="tempContDiv" >
                                                 
-                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature" value = "asd"></canvas>  
-                                                <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
+                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signaturexx" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature"></canvas>  
+                                                <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signaturexx');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
                                                 </div><div class="clearBoth"></div>
+                                                <input type = "text" id = "f_signatures"  name = "f_signatures" hidden></input>
                                             </div>
                                         </div>
 
@@ -255,7 +256,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="submit" class="btn btn-primary" id = "dwnld_btn1">Send</button>
+                                                  <button type="submit" id = "btn1" class="btn btn-primary" >Send</button>
                                                 </div>
                                               </div>
                                             </div>
@@ -281,32 +282,23 @@
             </div>
         </div>
     </div>
+
     <script type="text/javascript">
-        $("body").on("click", "#dwnld_btn1", function () {
-            html2canvas($('#drawingCanvas-Signature')[0], {
-                onrendered: function (canvas) {
-                     var data = canvas.toDataURL();
-                    var docDefinition = {
-                        content: [{
-                            image: data,
-                            width: 170
-                        }]
-                    };
-                    pdfMake.createPdf(docDefinition).download("signature.pdf");
-                    
-                    alert(pdfMake.createPdf(docDefinition));
-                }
-            });
-            var canvasElem = document.getElementById("drawingCanvas-Signature");
-            var context = canvasElem.getContext("2d");
-            const data = canvasElem.toDataURL("image/png");
-            document.getElementByName("f_signature").value = data;
-        });
+        const canvas = document.getElementById("drawingCanvas-Signaturexx");
         
+        document.getElementById("btn1").addEventListener('click', function() {
+            const canvasURL = canvas.toDataURL();
+            console.log(canvasURL);
+            document.forms['myform']['f_signatures'].value = canvasURL;
+            alert(canvasURL);
+            
+        });
     </script>
+
+
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
-    $("#drawingCanvas-Signature").mousedown(function (event) {
-    var canvasElem = document.getElementById("drawingCanvas-Signature"); //No I18N	
+    $("#drawingCanvas-Signaturexx").mousedown(function (event) {
+    var canvasElem = document.getElementById("drawingCanvas-Signaturexx"); //No I18N	
     var signatureFieldParent = $(canvasElem).attr('signaturefieldparent'); //No I18N
     var fontColor = "#000000";
     var inputElem = ""; //No I18N
@@ -355,7 +347,7 @@
     var userAgent = window.navigator.userAgent;
     var msie = userAgent.indexOf("MSIE ");
     if (msie > 0) {
-    $("#drawingCanvas-Signature").keypress(function (event) {
+    $("#drawingCanvas-Signaturexx").keypress(function (event) {
     if (event.keyCode === 13) {
     event.preventDefault();
     }
@@ -363,8 +355,8 @@
     }
     if (false == true)  //No I18N
     {
-    $("#drawingCanvas-Signature").css("pointer-events","none");//No I18N
-    $("#drawingCanvas-Signature").css("cursor","default");//No I18N
+    $("#drawingCanvas-Signaturexx").css("pointer-events","none");//No I18N
+    $("#drawingCanvas-Signaturexx").css("cursor","default");//No I18N
     }
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
