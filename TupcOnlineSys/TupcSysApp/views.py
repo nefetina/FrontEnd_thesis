@@ -191,14 +191,12 @@ def logoutUser(request):
 def facultyID_permit(request, id):
     a = faculty_ID.objects.get(id=id)
     for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
-            if a == x:
-                x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
-                y = faculty_ID.objects.filter(id=id).values()
-                for z in y:
-                    name = z['ff_name']
-                    uemail = z['email1']
-                    print(name)
-                    print(uemail)
+        if a == x:
+            x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
+            y = faculty_ID.objects.filter(id=id).values()
+            for z in y:
+                name = z['ff_name']
+                uemail = z['email1']
             message = "Good day " + name + ", \n Your request for Evaluation of ID has been approved, please proceed to UITC. \n UITC admin"
             email = EmailMessage(
                         name,
@@ -273,7 +271,7 @@ def FacultyWifi_permit(request, id):
     a = faculty_wifi.objects.get(id=id)
     for x in faculty_wifi.objects.only('id').filter(g_stat= "On process"):
         if a == x:
-            x = faculty_wifi.objects.filter(id=id).update(g_stat="Declined")
+            x = faculty_wifi.objects.filter(id=id).update(g_stat="Approved")
             y = faculty_wifi.objects.filter(id=id).values()
             for z in y:
                 name = z['gf_name']
@@ -667,10 +665,20 @@ def UitcHome(request):#UITC HOMEPAGE page
 
 
 
+
+
+def UitcID_modal(request, id):#UITC ID page
+    datag1 = faculty_ID.objects.filter(id=id).only("f_stat")
+    datag = faculty_ID.objects.filter(f_stat = datag1)
+    print(datag1)
+    return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'datag':datag})
+
+
 @login_required(login_url='/Index')
 def UitcID(request):#UITC ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
        dataf = faculty_ID.objects.filter(f_stat = "On Process")
+       
        return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf':dataf})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')

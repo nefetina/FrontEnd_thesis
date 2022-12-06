@@ -36,6 +36,7 @@ urlpatterns =[
     path('UitcHome/', views.UitcHome, name='UitcHome'), 
     path('upload_csv/', views.upload_csv, name='upload_csv'), 
     path('UitcID/', views.UitcID, name='UitcID'), 
+    path('UitcID_modal/<int:id>', views.UitcID_modal, name='UitcID_modal'), 
     path('UitcInternet/', views.UitcInternet, name='UitcInternet'), 
     path('UitcLabsched/', views.UitcLabsched, name='UitcLabsched'), 
     path('UitcReports/', views.UitcReports, name='UitcReports'), 

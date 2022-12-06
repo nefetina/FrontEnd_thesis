@@ -142,98 +142,97 @@
                                                       </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                              <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                  <h5 class="modal-title" id="exampleModalLabel"> Other Information</h5>
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                  </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    {% for p in dataf %}
-                                                                    <form>
-                                                                        <div class="form-row">
-            
-                                                                            <div class="col-xl-6"> 
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date Requested: {{p.f_datereq}}" placeholder="Date Requested:" readonly>
-                                                                            </div>
-                                                                            <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value=" Date Released: {{p.f_daterel}}" placeholder="Date Released:" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS: {{p.f_gsis}}" placeholder="GSIS" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="TIN: {{p.f_tin}}" placeholder="TIN:" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PAG-IBIG: {{p.f_pagibig}}" placeholder="PAG-IBIG" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS Policy No.: {{p.f_gsisp}}" placeholder="GSIS Policy No." readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PHILHEALTH:{{p.f_phil}}" placeholder="PHILHEALTH" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="OTHER: {{p.f_other}}" placeholder="OTHER" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Contact Person: {{p.f_cp}}" placeholder="Contact Person" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-6">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="CP No.: {{p.f_num}}" placeholder="CP No." readonly>
-                                                                            </div>
-                                                                            <div class="col-xl-6">
-                                                                                <img class="form-control my-2 p-2"   src= "{{p.f_signature}}" />
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-row">
-                                                                            <div class="col-xl-12">
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{p.f_add}}" placeholder="Address" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        
-                                                                       
-                                                            
-                                                                    </form>
-                                                                    {% endfor %}
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                        </div>
 
                                                         <tr>
                                                             {% for p in dataf %}
-                                                            <td><a href="" data-toggle="modal" data-target="#exampleModal">{{p.ff_name}}</td>
+                                                            <td><a href="{% url 'TupcSysApp:UitcID_modal' p.pk  %}" data-toggle="modal" data-target="#exampleModal">{{p.ff_name}}</td>
                                                             <td>{{p.fm_name}}</td>
                                                             <td>{{p.fl_name}}</td>
                                                             <td>{{p.f_suffix}}</td>
                                                             <td>{{p.f_emp}}</td>
-
+                                                                                                                        <!--modal for other info-------------------------------------------------------------------------------------------->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel"> Other Information</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        {% for p in dataf %}
+                                                                        <form>
+                                                                            <div class="form-row">
+                
+                                                                                <div class="col-xl-6"> 
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date Requested: {{p.f_datereq}}" placeholder="Date Requested:" readonly>
+                                                                                </div>
+                                                                                <div class="col-xl-6">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value=" Date Released: {{p.f_daterel}}" placeholder="Date Released:" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS: {{p.f_gsis}}" placeholder="GSIS" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="TIN: {{p.f_tin}}" placeholder="TIN:" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PAG-IBIG: {{p.f_pagibig}}" placeholder="PAG-IBIG" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="GSIS Policy No.: {{p.f_gsisp}}" placeholder="GSIS Policy No." readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="PHILHEALTH:{{p.f_phil}}" placeholder="PHILHEALTH" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="OTHER: {{p.f_other}}" placeholder="OTHER" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Contact Person: {{p.f_cp}}" placeholder="Contact Person" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-6">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="CP No.: {{p.f_num}}" placeholder="CP No." readonly>
+                                                                                </div>
+                                                                                <div class="col-xl-6">
+                                                                                    <img class="form-control my-2 p-2"   src= "{{p.f_signature}}" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12">
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{p.f_add}}" placeholder="Address" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                            
+                                                                        
+                                                                
+                                                                        </form>
+                                                                        {% endfor %}
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
                                                         
                                                             <td>
                                                                 <div class=" col-xl-12 d-flex justify-content-center align-items-center ">

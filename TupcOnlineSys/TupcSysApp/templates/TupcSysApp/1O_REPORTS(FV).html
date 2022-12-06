@@ -206,6 +206,7 @@
                       method="post"
                       action="/FacultyReports/"
                       id="repairmaintenanceform"
+                      name = "myform"
                     >
                       {%csrf_token%}
                       <div class="formtitle">FILL UP THE FORM HERE</div>
@@ -433,6 +434,7 @@
                               ></p>
                             </div>
                             <div class="clearBoth"></div>
+                            <input type = "text" id = "fsign"  name = "fsign" hidden></input>
                           </div>
                         </div>
                         
@@ -480,7 +482,7 @@
                               >
                                 Close
                               </button>
-                              <button type="submit" class="btn btn-primary">
+                              <button type="submit" id ="btn1rm" class="btn btn-primary">
                                 Send
                               </button>
                             </div>
@@ -511,6 +513,16 @@
                   </div>
                 </div>
               </div>
+              <script type="text/javascript">
+                const canvas = document.getElementById("drawingCanvas-Signature");
+                document.getElementById("btn1rm").addEventListener('click', function() {
+                  const canvasURL = canvas.toDataURL();
+                  console.log(canvasURL);
+                  document.forms['myform']['fsign'].value = canvasURL;
+                  alert(canvasURL);
+                  
+              });
+            </script>
               <!--REQUEST FOR PASSWORD RESET-------------------------------------------------------------------------------------------->
               <!--to be furnished-->
 
@@ -662,6 +674,7 @@
                       method="post"
                       action="/FacultyBorrower/"
                       id="borrowform"
+                      name = "myform1"
                     >
                       {%csrf_token%}
                       <div class="formtitle">FILL UP THE FORM HERE</div>
@@ -823,6 +836,7 @@
                                 <div class="signContainer1" elname="signContainer" id="signContainer1-Signature"><canvas id="drawingCanvas1-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
                                 <div class="signArea" elname="signArea" id="sign-area-Signature1" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas1-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature1"></p>
                                 </div><div class="clearBoth"></div>
+                                <input type = "text" id = "fbsign"  name = "fbsign" hidden></input>
                             </div>
                         </div>
                     </div>
@@ -867,7 +881,7 @@
                               >
                                 Close
                               </button>
-                              <button type="submit" class="btn btn-primary">
+                              <button type="submit" id = "btn1br" class="btn btn-primary">
                                 Send
                               </button>
                             </div>
@@ -904,7 +918,15 @@
         </div>
       </div>
     </div>
-
+    <script type="text/javascript">
+        const canvas1 = document.getElementById("drawingCanvas1-Signature");
+        document.getElementById("btn1br").addEventListener('click', function() {
+        const canvasURL = canvas1.toDataURL();
+        console.log(canvasURL);
+        document.forms['myform1']['fbsign'].value = canvasURL;
+        alert(canvasURL);
+      });
+    </script>
     <script type="module">
       setCanvasElemWidth("Signature"); //No I18N
       $("#drawingCanvas-Signature").mousedown(function (event) {
