@@ -802,7 +802,8 @@ def UitcReports_maitenance(request):#UITC REPORTS page
             ie_time4 = request.POST.get('ie_time4')
             is_rec4 = request.POST.get('is_rec4')
             ie_user4 = request.POST.get('ie_user4')
-            i_sig = request.POST.get('i_sig')
+            i_sig5 = request.POST.get('i_sig5')
+            i_sign = request.POST.get('i_sign')
             ie_date5 = request.POST.get('ie_date5')
             i_time2 = request.POST.get('i_time2')
             i_stats = "On Process"
@@ -816,7 +817,7 @@ def UitcReports_maitenance(request):#UITC REPORTS page
             i_defragement=i_defragement, i_remarks12=i_remarks12, i_empty=i_empty, i_remarks13=i_remarks13,
             i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, is_date4=is_date4,
             is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
-            i_sig=i_sig, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
+            i_sig5=i_sig5, i_sign=i_sign, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
             data.save()
             messages.info(request, 'Successfully Submitted!')
         return redirect('/UitcReports')
@@ -878,7 +879,8 @@ def UitcRec4(request):#UITC HOMEPAGE page
         data4 = PassReset.objects.all()
         data5 = Inventory.objects.all()
         data6 = maintain_record.objects.all()
-        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3, 'data4':data4,'data5':data5,'data6':data6})
+        data7 = faculty_reports.objects.all()
+        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3,'data4':data4,'data5':data5,'data6':data6,'data7':data7})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1104,6 +1106,28 @@ def FacultyBorrower(request):
     else:
         return redirect('/')
 
+@login_required(login_url='/Index')
+def FacultyBorrower(request):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return redirect('/UitcHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        if request.method == "POST":
+            
+            request.POST.get('request.user.name')
+            fbdate = datetime.now()
+            fbtime = datetime.now().time()
+            fbreq = request.POST.get('fbreq')
+            fbreason = request.POST.get('fbreason')
+            fbsign = request.POST.get('fbsign')
+            fbstat = "On Process"
+            data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
+            data.save()
+            messages.info(request, 'Successfully Submitted!')
+        return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')
 
 def StudentHome(request):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
@@ -1280,29 +1304,87 @@ def forgotpassword(request):
 
 
 def reqrepmain_permit(request, id):
-    a = faculty_reports.objects.get(id=id)
-    for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
-            if a == x:
-                x = faculty_reports.objects.filter(id=id).update(fstat="Approved")
-                y = faculty_reports.objects.filter(id=id).values()
-                for z in y:
-                    name = z['fname']
-                    uemail = z['email3']
-                    print(name)
-                    print(uemail)
+    a = faculty_reports.objects.get(id=id) 
+    print(a)
+    i_assessby = request.POST.get("i_assessby")
+    i_sig = request.POST.get("i_sig")
+    i_dateass = request.POST.get("i_dateass")
+    ip_assign = request.POST.get("ip_assign")
+    i_quant = request.POST.get("i_quant")
+    i_units = request.POST.get("i_units")
+    i_partics = request.POST.get("i_partics")
+    i_avail = request.POST.get("i_avail")
+    i_approve = request.POST.get("i_approve")
+    i_note = request.POST.get("i_note")
+    i_coords = request.POST.get("i_coords")
+    i_sig1 = request.POST.get("i_sig1")
+    i_daterec1 = request.POST.get("i_daterec1")
+    i_time1 = request.POST.get("i_time1")
+    iu_pers = request.POST.get("iu_pers")
+    i_sig2 = request.POST.get("i_sig2")
+    is_date = request.POST.get("is_date")
+    is_time = request.POST.get("is_time")
+    ie_date = request.POST.get("ie_date")
+    ie_time = request.POST.get("ie_time")
+    is_rec = request.POST.get("is_rec")
+    i_aor = request.POST.get("i_aor")
+    ie_user = request.POST.get("ie_user")
+    i_daterec2 = request.POST.get("i_daterec2")
+    i_sig3 = request.POST.get("i_sig3")
+    i_time2 = request.POST.get("i_time2")
+    station = request.POST.get("station")
+
+    if request.method == "POST":
+        for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
+                if a == x:
+                    x = faculty_reports.objects.filter(id=id).update(fstat="Approved")
+                    faculty_reports.objects.filter(id=id).update(i_assessby=i_assessby)
+                    faculty_reports.objects.filter(id=id).update(i_sig=i_sig)
+                    faculty_reports.objects.filter(id=id).update(i_dateass=i_dateass)
+                    faculty_reports.objects.filter(id=id).update(ip_assign=ip_assign)
+                    faculty_reports.objects.filter(id=id).update(i_quant=i_quant)
+                    faculty_reports.objects.filter(id=id).update(i_units=i_units)
+                    faculty_reports.objects.filter(id=id).update(i_partics=i_partics)
+                    faculty_reports.objects.filter(id=id).update(i_avail=i_avail)
+                    faculty_reports.objects.filter(id=id).update(i_approve=i_approve)
+                    faculty_reports.objects.filter(id=id).update( i_note=i_note)
+                    faculty_reports.objects.filter(id=id).update(i_coords=i_coords)
+                    faculty_reports.objects.filter(id=id).update(i_sig1=i_sig1)
+                    faculty_reports.objects.filter(id=id).update(i_daterec1=i_daterec1)                        
+                    faculty_reports.objects.filter(id=id).update(i_time1=i_time1)
+                    faculty_reports.objects.filter(id=id).update(iu_pers=iu_pers)
+                    faculty_reports.objects.filter(id=id).update(i_sig2=i_sig2)
+                    faculty_reports.objects.filter(id=id).update(is_date=is_date)
+                    faculty_reports.objects.filter(id=id).update(is_time=is_time)
+                    faculty_reports.objects.filter(id=id).update(ie_date=ie_date)
+                    faculty_reports.objects.filter(id=id).update(ie_time=ie_time)
+                    faculty_reports.objects.filter(id=id).update(is_rec=is_rec)
+                    faculty_reports.objects.filter(id=id).update(i_aor=i_aor)
+                    faculty_reports.objects.filter(id=id).update(ie_user=ie_user)
+                    faculty_reports.objects.filter(id=id).update(i_daterec2=i_daterec2)
+                    faculty_reports.objects.filter(id=id).update(i_sig3=i_sig3)
+                    faculty_reports.objects.filter(id=id).update(i_time2=i_time2)  
+                    faculty_reports.objects.filter(id=id).update(station=station)
+
+        y = faculty_reports.objects.filter(id=id).values()
+        for z in y:
+            name = z['fname']
+            uemail = z['email3']
+            print(name)
+            print(uemail)
             message = "Good day " + name + ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n UITC admin"
             email = EmailMessage(
-                        name,
-                        message,
-                        'tupc.uitconlinesystem@gmail.com',
-                        [uemail],
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
 
-                        )
+                            )
 
             email.send()
             break
-    messages.success(request, "Successfully done")
-    return redirect('/UitcReports')
+        messages.success(request, "Successfully done")
+        return redirect('/UitcReports')
 
 def reqrepmain_cancel(request, id):
     if request.method == 'POST':

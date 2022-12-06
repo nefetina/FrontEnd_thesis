@@ -151,6 +151,16 @@ function form111() {
     y1.style.display = "block";
     x1.style.display = "none";
 }
+function form222() {
+    var w1 = document.getElementById("tableform3");
+    var v1 = document.getElementById("tableform2");
+    var y1 = document.getElementById("tableform1");
+    var x1 = document.getElementById("table1");
+    w1.style.display = "none";
+    v1.style.display = "none";
+    y1.style.display = "none";
+    x1.style.display = "block";
+}
 
 
 

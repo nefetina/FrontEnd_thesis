@@ -168,27 +168,27 @@
                                                                             <div class="form-row">
                 
                                                                                 <div class="col-xl-12">
-                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Serial#: {{pr.fserial}}" placeholder="SERIAL#" readonly>
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Serial#: {{p.fserial}}" placeholder="SERIAL#" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-row">
                                                                                 <div class="col-xl-12">
-                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Specification: {{pr.fspecs}}" placeholder="SPECIFICATION" readonly>
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Specification: {{p.fspecs}}" placeholder="SPECIFICATION" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-row">
                                                                                 <div class="col-xl-12">
-                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Nature of Work to be Done: {{pr.fnature}}" placeholder="NATURE OF WORK TO BE DONE" readonly>
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Nature of Work to be Done: {{p.fnature}}" placeholder="NATURE OF WORK TO BE DONE" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-row">
                                                                                 <div class="col-xl-12">
-                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Department: {{pr.fdep}}" placeholder="DEPARTMENT" readonly>
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Department: {{p.fdep}}" placeholder="DEPARTMENT" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-row">
                                                                                 <div class="col-xl-12">
-                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date: {{pr.fdate}}" placeholder="DATE" readonly>
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Date: {{p.fdate}}" placeholder="DATE" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-row">
@@ -256,9 +256,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                
                                                             </tr>
-                                                            {% endfor %}
+                                                        
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -289,304 +288,9 @@
                                     
                                     </div>
                                 </div>  
-                                {% for pr in data %}
-                                    <form method="post" action = "{% url 'TupcSysApp:reqrepmain_permit' pr.pk  %}">
-                                        {%csrf_token%}
-
-                                            <!--REPAIR AND MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->
-                                            <div class="col-xl-12 collapse " id="tableform1">
-                                                <div class="jumbotron "><br>
-                                                    
-                                                    <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                                            <div class="card-body" id="tfsize">
-                                                                                
-                                                                                    <div class="formtitle">
-                                                                                        FILL UP THE FORM HERE
-                                                                                    </div>
-                                                                                    <div class="descriptions">
-                                                                                        Initial Assesment
-                                                                                    </div>
-                                                                                    <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                                        <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Serviceable" name="station"  > Serviceable</h6>
-                                                                                        </div> 
-                                                                                        <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Unserviceable" name="station"  > Unserviceable</h6>
-                                                                                        </div> 
-                                                                                        <div class="col-xl-4 col-lg-12">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Under Warranty" name="station" > Under Warranty</h6>
-                                                                                        </div> 
-                                                                                    </div>
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2"  name="i_assessby" required>
-                                                                                        </div>
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" name="i_sig" required>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                                            Date Assigned:
-                                                                                        </div>
-                                                                                        <div class="col-xl-5">
-                                                                                            <input type="date" class="form-control my-2 p-2"  name="i_dateass" required>
-                                                                                        </div>
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2"  name="ip_assign" required>
-                                                                                        </div>
-                                                                                        
-                                                                                    </div>
-                                                                                    <div class="descriptions col-12 m-2">
-                                                                                        Supplies and Materials  (Parts to be Replaced)
-                                                                                    </div>
-                                                
-                                                    <!--TABLE-------------------------------------------------------------------------------------------->
-                                                
-                                                                                    <div class="table-responsive col-xl-12">
-                                                                                        <table class="table">
-                                                                                            <thead class="thead">
-                                                                                            <tr>
-                                                                                                <th scope="col-xl-2 ">Quantity</th>
-                                                                                                <th scope="col-xl-2 ">Units</th>
-                                                                                                <th scope="col-xl-4 ">Particulars</th>
-                                                                                                <th scope="col-xl-4 ">Availability (type OK if Available)</th>
-                                                                                            </tr>
-                                                                                            </thead>
-                                                                                            <tbody>
-                                                                                            <tr>
-                                                                                                <td><input type="text" name="i_quant" class="form-control p-2"></td>
-                                                                                                <td><input type="text" name="i_units" class="form-control p-2"></td>
-                                                                                                <td><input type="text" name="i_partics" class="form-control p-2"></td>
-                                                                                                <td><input type="text" name="i_avail" class="form-control p-2"></td>
-                                                                                            </tr>
-                                                                                            
-                                                                                            </tbody>
-                                                                                        </table>
-                                                                                    </div>
-                                                
-                                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                                    <div class="col-xl-12 ">
-                                                                                        <p class="card-text">Check it properly before you send it.</p>
-                                                                                        <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
-                                                                                            Next
-                                                                                        </button>
-                                                                                        <button type="button" class="btn btn-danger float-right m-1"  >
-                                                                                            Return
-                                                                                        </button>
-                                                                                        
-                                                                                    </div>
-                                                                                    
-                                                                                
-                                                                            
-                                                                                
-                                                                                
-                                                                            
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                            </div>
-                                            <!--REPAIR AND MAINTENANCE FORMTABLE1.2-------------------------------------------------------------------------------------------->
-                                            <div class="col-xl-12 collapse" id="tableform2">
-                                                <div class="jumbotron "><br>
-                                                
-                                                    <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                                            <div class="card-body" id="tfsize">
-                                                                                
-                                                                                    <div class="formtitle">
-                                                                                        FILL UP THE FORM HERE
-                                                                                    </div>
-                                                                                    <div class="descriptions">
-                                                                                        Approval                
-                                                                                    </div>
-                                                                                    <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                                        <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Approved" name="i_approve"  > Approved</h6>
-                                                                                        </div> 
-                                                                                        <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Disapproved" name="i_approve"  > Disapproved</h6>
-                                                                                        </div> 
-                                                                                        <div class="col-xl-4 col-lg-12">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Resubmit Request" name="i_approve" > Resubmit Request</h6>
-                                                                                        </div> 
-                                                                                    </div>
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-xl-12">
-                                                                                            <textarea class="form-control"  name="i_note" rows="2" id="textarea1" style="height: 100px" ></textarea>
-                                                                                        </div>          
-                                                                                    </div>
-
-                                                                                    <div class="form-row"> 
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" name="i_coords" required>
-                                                                                        </div>
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder = "Signature" name="i_sig1" required>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                                            Date:
-                                                                                        </div>
-                                                                                        <div class="col-xl-5">
-                                                                                            <input type="date" class="form-control my-2 p-2" name="i_daterec1" required>
-                                                                                        </div>
-                                                                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                                            Time:
-                                                                                        </div>
-                                                                                        <div class="col-xl-5">
-                                                                                            <input type="time" class="form-control my-2 p-2" name="i_time1" required>
-                                                                                        </div>
-                                                                                        
-                                                                                    </div>
-                                                                                    <div class="descriptions col-12 m-2">
-                                                                                        Action Taken
-                                                                                    </div>
-                                                                                    <div class="form-row">
-                                                                                        
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder="UITC Personnel:" name="iu_pers" required>
-                                                                                        </div>
-                                                                        
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder="Signature:" name="i_sig2" required>
-                                                                                        </div>
-                                                                                        
-                                                                                    </div>
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                                            Date Started:
-                                                                                        </div>
-                                                                                        <div class="col-xl-2">
-                                                                                            <input type="date" class="form-control my-2 p-2" name="is_date" required>
-                                                                                        </div>
-                                                                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                                            Time Started:
-                                                                                        </div>
-                                                                                        <div class="col-xl-2">
-                                                                                            <input type="time" class="form-control my-2 p-2"  name="is_time" required>
-                                                                                        </div>
-                                                                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                                            Date Ended:
-                                                                                        </div>
-                                                                                        <div class="col-xl-2">
-                                                                                            <input type="date" class="form-control my-2 p-2" name="ie_date" required>
-                                                                                        </div>
-                                                                                        <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                                            Time Ended:
-                                                                                        </div>
-                                                                                        <div class="col-xl-2">
-                                                                                            <input type="time" class="form-control my-2 p-2" name="ie_time" required>
-                                                                                        </div>
-                                                                                        
-                                                                                    </div>
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-xl-12">
-                                                                                            <textarea class="form-control"   placeholder="Solution and Recommendation:" name="is_rec" rows="2" id="textarea1" style="height: 100px" ></textarea>
-                                                                                        </div>          
-                                                                                    </div>
-                                                                                    
-                                                
-                                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                                    <div class="col-xl-12 ">
-                                                                                        <p class="card-text">Check it properly before you send it.</p>
-                                                                                        <button type="button" class="btn btn-primary  float-right m-1" onclick="next2()" >
-                                                                                            Next
-                                                                                        </button>
-                                                                                        <button type="button" class="btn btn-danger float-right m-1" onclick="back1()" >
-                                                                                            Back
-                                                                                        </button>
-                                                                                        
-                                                                                    </div>
-                                                                                    
-                                                                                
-                                                                            
-                                                                                
-                                                                                
-                                                                            
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                            </div>
-                                            <!--REPAIR AND MAINTENANCE FORMTABLE1.3-------------------------------------------------------------------------------------------->          
-
-                                            <div class="col-xl-12 collapse" id="tableform3">
-                                                <div class="jumbotron "><br>
-                                                    <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                    <div class="card-body" id="tfsize">
-                                                        
-                                                            <div class="formtitle">
-                                                                FILL UP THE FORM HERE
-                                                            </div>
-                                                            <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                <div class="col-xl-6  col-12">
-                                                                    <h6 class=""><input type="radio" class="radio " value="Accepted" name="i_aor" >Accepted</h6>
-                                                                </div> 
-                                                                <div class="col-xl-6 col-12">
-                                                                    <h6 class=""><input type="radio" class="radio" value="Rejected" name="i_aor" >Rejected</h6>
-                                                                </div> 
-                                                            </div>
-                                                            <div class="form-row">                      
-                                                                <div class="col-xl-6">
-                                                                    <input type="text" class="form-control my-2 p-2" placeholder="End-User:" name="ie_user" required>
-                                                                </div>
-                                                                <div class="col-xl-6">
-                                                                    <input type="Date" class="form-control my-2 p-2" placeholder="Date:" name="i_daterec2" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-row">
-                                                                
-                                                                <div class="col-xl-6">
-                                                                    <input type="text" class="form-control my-2 p-2" placeholder="Signature:" name=" i_sig3" required>
-                                                                </div>
-                                                                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                    Time:
-                                                                </div>
-                                                                <div class="col-xl-5">
-                                                                    <input type="time" class="form-control my-2 p-2" placeholder="TIME:" name="i_time2" required>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                            <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        Are you sure you want to send?
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Send</button>
-                                                                    </div>
-                                                                </div>
-                                                                </div>
-                                                            </div>
-                                                            <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                            <div class="col-xl-12 ">
-                                                                <p class="card-text">Check it properly before you send it.</p>
-                                                                <button type="button" class="btn btn-primary  float-right m-1" data-toggle="modal" data-target="#confirmation1" >
-                                                                    Submit
-                                                                </button>
-                                                                <button type="button" class="btn btn-danger float-right m-1" onclick="back2()" >
-                                                                    Back
-                                                                </button>
-                                                                
-                                                            </div>
-                                                            
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    
-                                        
-                                    </form>
                                 {% endfor %}
+
+                        
 
 
                                 <!--TABLE2 REQUEST FOR PASSWORD RESET-------------------------------------------------------------------------------------------->
@@ -762,7 +466,9 @@
 
                                 <div class="col-xl-12 collapse" id="tableform4">
                                     <div class="jumbotron " ><br>
-                 
+                                        {% comment "" %}<form method = "post" action = '/UitcReports_maitenance/'>
+                                            {%csrf_token%}{% endcomment %}
+                                        <!--FORM-------------------------------------------------------------------------------------------->                        
                                             <div class="card-body" id="tfsize">
                                                 <form>
                                                     <div class="formtitle">

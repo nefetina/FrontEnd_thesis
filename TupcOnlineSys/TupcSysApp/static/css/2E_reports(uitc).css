@@ -176,6 +176,11 @@ input{
     overflow: hidden;
     overflow-x: scroll;
 }
+#idtable4 {
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+}
 #tfsize{
     height: 550px;
     overflow: hidden;
@@ -575,7 +580,7 @@ header,
         /* Stay in place */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #004D00;
         overflow-x: hidden;
         padding-top: 60px;
         transition: 0.5s;
@@ -602,7 +607,7 @@ header,
         right: 35px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #505b66;
+        background-color: #004D00;
         color: white;
         border-radius: 5px;
         border: none;
@@ -626,7 +631,7 @@ header,
         /* Stay in place */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #004D00;
         overflow-x: hidden;
         padding-top: 60px;
         transition: 0.5s;
@@ -692,7 +697,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -744,7 +749,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -768,7 +773,7 @@ header,
         right: 25px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #505b66;
+        background-color: #004D00;
         color: white;
         border-radius: 5px;
     }
@@ -794,6 +799,9 @@ header,
     .formtitle{
         font-size: 14px !important;
     }
+    .fa {
+        font-size: 20px !important;
+    }
 }
 
 
@@ -812,7 +820,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -848,6 +856,9 @@ header,
         display: flex;
         position: absolute;
     }
+    .fa {
+        font-size: 20px !important;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -862,7 +873,7 @@ header,
         /* Stay on top */
         top: 0;
         left: 0;
-        background-color: #505b66;
+        background-color: #004D00;
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -893,7 +904,7 @@ header,
         right: 15px;
         font-size: 24pt;
         margin-left: 50px;
-        background-color: #505b66;
+        background-color: #004D00;
         color: white;
         border-radius: 5px;
     }
@@ -901,6 +912,9 @@ header,
         margin-left: 60px;
         display: flex;
         position: absolute;
+    }
+    .fa {
+        font-size: 20px !important;
     }
 }
 

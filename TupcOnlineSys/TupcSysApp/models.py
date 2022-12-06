@@ -82,6 +82,8 @@ class faculty_lab(models.Model):
     fl_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     l_stat = models.CharField(max_length = 100, null=True)
 
+#repair and maintenance record #1O #i
+
 class faculty_reports(models.Model):
     email3 = models.CharField(max_length= 50, null=True)
     ftype = models.CharField(max_length= 100, null=False)
@@ -96,6 +98,33 @@ class faculty_reports(models.Model):
     ftime = models.TimeField()
     fsign = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     fstat = models.CharField(max_length = 100, null=True)
+    i_assessby = models.CharField(max_length = 100, null=True) #1E #i
+    i_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_dateass = models.DateField(null=True)
+    ip_assign = models.CharField(max_length = 100, null=True)
+    i_quant = models.CharField(max_length = 100, null=True)#
+    i_units = models.CharField(max_length = 100, null=True)#
+    i_partics = models.CharField(max_length = 100, null=True)#
+    i_avail = models.CharField(max_length = 100, null=True)#
+    i_approve = models.CharField(max_length = 100, null=True)#
+    i_note = models.CharField(max_length = 100, null=True)#textarea1
+    i_coords = models.CharField(max_length = 100, null=True)
+    i_sig1 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_daterec1 = models.DateField(null=True)
+    i_time1 = models.TimeField(null=True)
+    iu_pers = models.CharField(max_length = 100, null=True)
+    i_sig2 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    is_date = models.DateField(null=True)
+    is_time = models.TimeField(null=True)
+    ie_date = models.DateField(null=True) #walasadb
+    ie_time = models.TimeField(null=True) #walasadb
+    is_rec = models.CharField(max_length = 200, null=True) #textarea1
+    i_aor = models.CharField(max_length = 200, null=True) #
+    ie_user = models.CharField(max_length = 200, null=True)
+    i_daterec2 = models.DateField(null=True)
+    i_sig3 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_time2 = models.TimeField(null=True)
+    station = models.CharField(max_length = 200, null=True)
 
 class faculty_passreset(models.Model):
     id_type = [
@@ -164,49 +193,11 @@ class sched_rec(models.Model):
     h_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     h_stats = models.CharField(max_length = 100, null=True)
 
-#maintenance record #1O #i
-class repmain_rec(models.Model):
-    i_type = models.CharField(max_length= 100, null=False)
-    i_brand = models.CharField(max_length = 100, null=True)
-    is_num = models.DateField()
-    i_spec = models.CharField(max_length = 100, null=True)
-    i_notbd = models.CharField(max_length = 100, null=True)
-    if_name = models.CharField(max_length = 100, null=True)
-    i_pos = models.CharField(max_length = 100, null=True)
-    i_dept = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    i_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    i_daterec = models.DateField()
-    i_time = models.TimeField()
-    ii_assess = models.CharField(max_length = 100, null=True) #
-    i_assessby = models.CharField(max_length = 100, null=True) #1E #i
-    i_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    i_dateass = models.DateField()
-    ip_assign = models.CharField(max_length = 100, null=True)
-    i_quant = models.CharField(max_length = 100, null=True)#
-    i_units = models.CharField(max_length = 100, null=True)#
-    i_partics = models.CharField(max_length = 100, null=True)#
-    i_avail = models.CharField(max_length = 100, null=True)#
-    i_approve = models.CharField(max_length = 100, null=True)#
-    i_note = models.CharField(max_length = 100, null=True)#textarea1
-    i_coords = models.CharField(max_length = 100, null=True)
-    i_sig1 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    i_daterec1 = models.DateField()
-    i_time1 = models.TimeField()
-    iu_pers = models.CharField(max_length = 100, null=True)
-    i_sig2 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    is_date = models.DateField()
-    is_time = models.TimeField()
-    #ie_date = models.DateField() #walasadb
-    #ie_time = models.TimeField() #walasadb
-    is_rec = models.CharField(max_length = 200, null=True) #textarea1
-    i_aor = models.CharField(max_length = 200, null=True) #
-    ie_user = models.CharField(max_length = 200, null=True)
-    i_daterec2 = models.DateField()
-    i_sig3 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    i_time2 = models.TimeField()
-    i_stats = models.CharField(max_length = 100, null=True)
 
-#repair and maintenance record #1E #i
+
+    
+
+#maintenance record #1E #i
 class maintain_record(models.Model):
     i_type4 = models.CharField(max_length = 100, null=True)
     is_num4 = models.CharField(max_length = 100, null=True)
@@ -253,6 +244,8 @@ class maintain_record(models.Model):
     ie_date5 = models.DateField()
     i_time2 = models.TimeField()
     i_stats = models.CharField(max_length = 100, null=True)
+    i_sign = models.CharField(max_length = 100, null=True)
+
 
 #borrowrecord #1O #i #r
 class borrow_record(models.Model):

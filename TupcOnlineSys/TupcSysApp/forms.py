@@ -43,10 +43,6 @@ class ScheduleRecordForm(forms.ModelForm):
 		model = sched_rec
 		fields = '__all__'
 
-class RepairandMaintenanceRecordForm(forms.ModelForm):
-	class Meta:
-		model = repmain_rec
-		fields = '__all__'
 
 class MaintenanceRecordForm(forms.ModelForm):
 	class Meta:
