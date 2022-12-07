@@ -107,7 +107,7 @@
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form action="/StudentInternet/" method="POST" id="studwifiform">
+                                    <form action="/StudentInternet/" method="POST" id="studwifiform" name = "myformsi">
                                         {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
@@ -180,6 +180,7 @@
                                                     <div class="signContainer1" elname="signContainer" id="signContainer1-Signature"><canvas id="drawingCanvas1-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
                                                     <div class="signArea" elname="signArea" id="sign-area-Signature1" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas1-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature1"></p>
                                                     </div><div class="clearBoth"></div>
+                                                    <input type = "text" id = "g_sig2"  name = "g_sig2" hidden></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -198,7 +199,8 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="submit" class="btn btn-primary">Send</button>
+                                                  <button type="submit" id="btn1" class="btn btn-primary">Send</button>
+                                                  
                                                 </div>
                                               </div>
                                             </div>
@@ -222,13 +224,25 @@
                                 </div>
                             </div>
                         </div>
+                            <script type="text/javascript">
+                                const canvass = document.getElementById("drawingCanvas1-Signature");
+                                
+                                document.getElementById("btn1").addEventListener('click', function() {
+                                    
+                                    const canvasURL = canvass.toDataURL();
+                                    console.log(canvasURL);
+                                    document.forms['myformsi']['g_sig2'].value = canvasURL;
+                                    alert(canvasURL);
+                                    
+                                });
+                            </script>
                         <!--WIFI REGISTRATION-------------------------------------------------------------------------------------------->
                         <div class="col-xl-11 " id="form1">
                             <div class="jumbotron m-1"><br>
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
-                                    <form action="/StudentWifi/" method="POST" id="studaccessform">
+                                    <form action="/StudentWifi/" method="POST" id="studaccessform" name="myformsw">
                                         {%csrf_token%}
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
@@ -298,6 +312,7 @@
                                                     <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
                                                     <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
                                                     </div><div class="clearBoth"></div>
+                                                    <input type = "text" id = "g_sig1"  name = "g_sig1" hidden></input>
                                                 </div>
                                             </div>
 
@@ -317,7 +332,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="submit" class="btn btn-primary">Send</button>
+                                                  <button type="submit" id="btn2sw" class="btn btn-primary">Send</button>
                                                 </div>
                                               </div>
                                             </div>
@@ -340,11 +355,24 @@
                                 </div>
                             </div>
                         </div>
+                            <script type="text/javascript">
+                                const canvas = document.getElementById("drawingCanvas-Signature");
+                                
+                                document.getElementById("btn2sw").addEventListener('click', function() {
+                                    
+                                    const canvasURL = canvas.toDataURL();
+                                    console.log(canvasURL);
+                                    document.forms['myformsw']['g_sig1'].value = canvasURL;
+                                    alert(canvasURL);
+                                    
+                                });
+                            </script>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
         $("#drawingCanvas-Signature").mousedown(function (event) {
         var canvasElem = document.getElementById("drawingCanvas-Signature"); //No I18N	

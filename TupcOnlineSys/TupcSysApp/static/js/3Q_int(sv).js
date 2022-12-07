@@ -66,3 +66,5 @@ function internet() {
     x.style.display = "block";
 
 }
+
+
