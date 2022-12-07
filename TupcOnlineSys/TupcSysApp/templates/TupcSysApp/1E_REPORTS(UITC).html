@@ -1300,10 +1300,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <script type="text/javascript">
-                                                                    const canvas = document.getElementById("signContainer5-Signature");
+                                                                    const canvam = document.getElementById("drawingCanvas5-Signature");
                                                                     
                                                                     document.getElementById("btnm").addEventListener('click', function() {
-                                                                        const canvasURL = canvas.toDataURL();
+                                                                        const canvasURL = canvam.toDataURL();
                                                                         console.log(canvasURL);
                                                                         document.forms['myformm']['i_sig5'].value = canvasURL;
                                                                         alert(canvasURL);
@@ -1360,7 +1360,7 @@
                                                         <div class="modal-body">
                                                             
                                                             <form>
-                                                                {% for p in data %}
+                                                                {% for p in data5 %}
                                                                 <div class="form-row">
                                                 
                                                                     <div class="col-xl-12">
@@ -1614,10 +1614,10 @@
                                                     </div>
                                                 </div>
                                             <tr>
-                                                {% for p in datal %}
+                                                {% for p in data5 %}
                                                 <td><a href="" data-toggle="modal" data-target="#modal3">{{p.i_type4}}</td>
-                                                <td>{{p.ie_user4}}</td>
-                                                <td>{{p.i_sig5}}</td>
+                                                <td>{{p.i_type4}}</td>
+                                                <td><img src="{{p.i_sig5}}" style = "height: 80px"></td>
                                                 <td>{{p.ie_date5}}</td>
                                                 <td>{{p.i_stats}}</td>
                                                 

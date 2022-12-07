@@ -188,38 +188,23 @@ def logoutUser(request):
     return redirect('/')
 
 def maintain_permit(request, id):
-    a = faculty_reports.objects.get(id=id)
-    for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
+    a = maintain_record.objects.get(id=id)
+    for x in maintain_record.objects.only('id').filter(i_stats= "On process"):
             if a == x:
-                x = faculty_reports.objects.filter(id=id).update(fstat="Approved")
-                y = faculty_reports.objects.filter(id=id).values()
-                for z in y:
-                    name = z['fname']
-                    uemail = z['email3']
-                    print(name)
-                    print(uemail)
-            message = "Good day " + name + ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n UITC admin"
-            email = EmailMessage(
-                        name,
-                        message,
-                        'tupc.uitconlinesystem@gmail.com',
-                        [uemail],
-
-                        )
-
-            email.send()
+                x = maintain_record.objects.filter(id=id).update(i_stats="Approved")
+            
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
 def maintain_cancel(request, id):
     if request.method == 'POST':
-        a = faculty_reports.objects.get(id=id)
+        a = maintain_record.objects.get(id=id)
         reason = request.POST.get("reason")
-        for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
+        for x in maintain_record.objects.only('id').filter(fstat= "On process"):
             if a == x:
-                x = faculty_reports.objects.filter(id=id).update(fstat="Declined")
-                y = faculty_reports.objects.filter(id=id).values()
+                x = maintain_record.objects.filter(id=id).update(fstat="Declined")
+                y = maintain_record.objects.filter(id=id).values()
                 for z in y:
                     name = z['fname']
                     uemail = z['email3']
@@ -818,6 +803,7 @@ def UitcReports_borrow(request):#UITC REPORTS page
        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')'''
+
 
 @login_required(login_url='/Index')
 def UitcReports_maintenance(request):#UITC REPORTS page
