@@ -33,6 +33,7 @@ urlpatterns =[
     path('internetStudent_dl/<int:id>', views.internetStudent_dl, name='internetStudent_dl'), 
     path('wifiStudent_dl/<int:id>', views.wifiStudent_dl, name='wifiStudent_dl'),
     path('Borrower_dl/<int:id>', views.Borrower_dl, name='Borrower_dl'),
+    path('Borrower_dsv/<int:id>', views.Borrower_dlsv, name='Borrower_dlsv'),
     path('wifiFaculty_dl/<int:id>', views.wifiFaculty_dl, name='wifiFaculty_dl'),
     path('forgotpassword/', views.forgotpassword, name='forgotpassword'), 
     path('UitcHome/', views.UitcHome, name='UitcHome'), 

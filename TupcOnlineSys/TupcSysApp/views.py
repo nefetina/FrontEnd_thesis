@@ -103,6 +103,9 @@ def wifiStudent_dl(request, id):
 def Borrower_dl(request, id):
     data1 = borrow_record.objects.filter(id=id)
     return render (request, 'TupcSysApp/4DBORROWERSFORM(fv).html',{'data1':data1})
+def Borrower_dlsv(request, id):
+    data1 = borrow_record.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4DBORROWERSFORM(sv).html',{'data1':data1})
 def wifiFaculty_dl(request, id):
     data1 = faculty_wifi.objects.filter(id=id)
     return render (request, 'TupcSysApp/4EWIFICON(fv).html',{'data1':data1})
