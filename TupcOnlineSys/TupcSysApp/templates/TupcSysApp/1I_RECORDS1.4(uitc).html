@@ -301,8 +301,11 @@
                     <div class="col-xl-9 col-lg-8 col-12">
                       <input
                         type="text"
+                        id="myInputram"
+                        onkeyup="myFunctionram()"
                         class="form-control my-2 p-2"
-                        placeholder="Search...."
+                        placeholder="Search for names.."
+                        title="Type in a name"
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
@@ -343,12 +346,12 @@
                     <form>
                       <div class="formtitle">REPAIR AND MAINTENANCE RECORD</div>
                       <div class="table-responsive-xl col-xl-12" id="idtable1">
-                        <table class="table">
+                        <table class="table" id="myTableram">
                           <thead class="thead">
                             <tr>
                               <th scope="col">TYPE</th>
                               <th scope="col">BRAND/MODEL</th>
-                              <th scope="col">SERIAL#</th>
+                              <th scope="col">SERIAL No.</th>
                               <th scope="col">SPECIFICATION</th>
                               <th scope="col">NATURE OF WORK TO BE DONE</th>
                               <th scope="col">FULL NAME</th>
@@ -452,7 +455,76 @@
                           </tbody>
                         </table>
                       </div>
+                      <script>
+                        function myFunctionram() {
+                          var input, filter, table, tr, td, i, txtValue;
+                          input = document.getElementById("myInputram");
+                          filter = input.value.toUpperCase();
+                          table = document.getElementById("myTableram");
+                          tr = table.getElementsByTagName("tr");
+                          for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[5];
+                            if (td) {
+                              txtValue = td.textContent || td.innerText;
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else {
+                                tr[i].style.display = "none";
+                              }
+                            }
+                          }
+                        }
+                        // convert table to excel
+                        function exportTableToExcel(myTableram, filename = "") {
+                          var downloadLink;
+                          var dataType = "application/vnd.ms-excel";
+                          var tableSelect = document.getElementById(myTableram);
+                          var tableHTML = tableSelect.outerHTML.replace(
+                            / /g,
+                            "%80"
+                          );
+
+                          // Specify file name
+                          filename = filename
+                            ? filename + ".xls"
+                            : "excel_data.xls";
+
+                          // Create download link element
+                          downloadLink = document.createElement("a");
+
+                          document.body.appendChild(downloadLink);
+
+                          if (navigator.msSaveOrOpenBlob) {
+                            var blob = new Blob(["\ufeff", tableHTML], {
+                              type: dataType,
+                            });
+                            navigator.msSaveOrOpenBlob(blob, filename);
+                          } else {
+                            // Create a link to the file
+                            downloadLink.href =
+                              "data:" + dataType + ", " + tableHTML;
+
+                            // Setting the file name
+                            downloadLink.download = filename;
+
+                            //triggering the function
+                            downloadLink.click();
+                          }
+                        }
+                      </script>
                     </form>
+                    <div>Download Records</div>
+                    <div
+                      class="col-xl-12 d-flex justify-content-center align-items-center"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                        onclick="exportTableToExcel('myTableram', 'Repair_and_Maintenance_Record')"
+                        title="Download">
+                        <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -919,7 +991,7 @@
                               <td>{{p.fbtime}}</td>
                               <td>{{p.fbreq}}</td>
                               <td>{{p.fbreason}}</td>
-                              <td>{{p.fbsign}}</td>
+                              <td><img src="{{p.fbsign}}" style = "height: 80px"></td>
                               <td>{{p.fbstat}}</td>
                               <td>
                                 <div
@@ -947,7 +1019,7 @@
                               <td>{{p.i_time5}}</td>
                               <td>{{p.ir_borrow5}}</td>
                               <td>{{p.irf_borrow5}}</td>
-                              <td>{{p.i_sig5}}</td>
+                              <td><img src="{{p.i_sig5}}" style="height: 80px"></td>
                               <td>{{p.i_stats5}}</td>
                               <td>
                                 <div

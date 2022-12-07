@@ -36,6 +36,7 @@ class register1(AbstractUser):
 
 #faculty #1L #f
 class faculty_ID(models.Model):
+    f_pic = models.TextField(max_length = 10000, null=True)
     email1 = models.CharField(max_length= 50, null=True)
     ff_name = models.CharField(max_length= 50, null=False)
     fm_name = models.CharField(max_length= 50, null=True)
@@ -53,7 +54,7 @@ class faculty_ID(models.Model):
     f_cp = models.CharField(max_length = 100, null=True)
     f_num = models.CharField(max_length = 100, null=True)
     f_add = models.CharField(max_length = 200, null=True)
-    f_signature = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    f_signature = models.TextField(max_length = 10000, null=True)
     f_stat = models.CharField(max_length = 200, null=True)
     
 #faculty wifi request #1M #g
@@ -66,7 +67,7 @@ class faculty_wifi(models.Model):
     g_num = models.CharField(max_length = 100, null=True)
     g_email = models.CharField(max_length = 100, null=True)
     g_fac = models.CharField(max_length = 100, null=True)
-    g_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    g_sig =models.TextField(max_length = 10000, null=True)
     g_datereq = models.DateField()
     g_stat = models.CharField(max_length = 100, null=True)
 
@@ -79,7 +80,7 @@ class faculty_lab(models.Model):
     crs_sec = models.CharField(max_length = 100, null=True)
     s_time = models.TimeField()
     e_time = models.TimeField()
-    fl_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    fl_sig = models.TextField(max_length = 10000, null=True)
     l_stat = models.CharField(max_length = 100, null=True)
 
 #repair and maintenance record #1O #i
@@ -96,10 +97,10 @@ class faculty_reports(models.Model):
     fdep = models.CharField(max_length = 100, null=True)
     fdate = models.DateField()
     ftime = models.TimeField()
-    fsign = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    fsign = models.TextField(max_length = 10000, null=True)
     fstat = models.CharField(max_length = 100, null=True)
     i_assessby = models.CharField(max_length = 100, null=True) #1E #i
-    i_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_sig = models.TextField(max_length = 10000, null=True)
     i_dateass = models.DateField(null=True)
     ip_assign = models.CharField(max_length = 100, null=True)
     i_quant = models.CharField(max_length = 100, null=True)#
@@ -109,11 +110,11 @@ class faculty_reports(models.Model):
     i_approve = models.CharField(max_length = 100, null=True)#
     i_note = models.CharField(max_length = 100, null=True)#textarea1
     i_coords = models.CharField(max_length = 100, null=True)
-    i_sig1 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_sig1 = models.TextField(max_length = 10000, null=True)
     i_daterec1 = models.DateField(null=True)
     i_time1 = models.TimeField(null=True)
     iu_pers = models.CharField(max_length = 100, null=True)
-    i_sig2 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_sig2 = models.TextField(max_length = 10000, null=True)
     is_date = models.DateField(null=True)
     is_time = models.TimeField(null=True)
     ie_date = models.DateField(null=True) #walasadb
@@ -122,7 +123,7 @@ class faculty_reports(models.Model):
     i_aor = models.CharField(max_length = 200, null=True) #
     ie_user = models.CharField(max_length = 200, null=True)
     i_daterec2 = models.DateField(null=True)
-    i_sig3 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_sig3 = models.TextField(max_length = 10000, null=True)
     i_time2 = models.TimeField(null=True)
     station = models.CharField(max_length = 200, null=True)
 
@@ -147,7 +148,7 @@ class faculty_borrow(models.Model):
     fbtime = models.TimeField()
     fbreq = models.CharField(max_length= 100, null=False)
     fbreason = models.CharField(max_length = 100, null=True)
-    fbsign = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    fbsign = models.TextField(max_length = 10000, null=True)
     fbstat = models.CharField(max_length = 100, null=True)
 
 #student wifi record #1Q #g
@@ -162,7 +163,7 @@ class student_wifi(models.Model):
     g_num1 = models.CharField(max_length = 100, null=True)
     g_email1 = models.CharField(max_length = 100, null=True)
     g_add1 = models.CharField(max_length = 100, null=True)
-    g_sig1 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    g_sig1 = models.TextField(max_length = 10000, null=True)
     g_daterec1 = models.DateField()
     g_stats1 = models.CharField(max_length = 100, null=True)
 
@@ -177,7 +178,7 @@ class student_internet(models.Model):
     g_email2 = models.CharField(max_length = 100, null=True)
     g_add2 = models.CharField(max_length = 100, null=True)
     gu_name2 = models.CharField(max_length = 100, null=True)
-    g_sig2 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    g_sig2 = models.TextField(max_length = 10000, null=True)
     g_daterec2 = models.DateField()
     g_stats2 = models.CharField(max_length = 100, null=True)
 
@@ -190,7 +191,7 @@ class sched_rec(models.Model):
     h_csec = models.CharField(max_length = 100, null=True)
     hs_time = models.TimeField()
     he_time = models.TimeField()
-    h_sig = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    h_sig = models.TextField(max_length = 10000, null=True)
     h_stats = models.CharField(max_length = 100, null=True)
 
 
@@ -240,7 +241,7 @@ class maintain_record(models.Model):
     ie_time4 = models.TimeField()
     is_rec4 = models.CharField(max_length = 200, null=True) #textarea1
     ie_user4 = models.CharField(max_length = 200, null=True)
-    i_sig5 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, default = "") 
+    i_sig5 = models.TextField(max_length = 10000, null=True)
     ie_date5 = models.DateField()
     i_time2 = models.TimeField()
     i_stats = models.CharField(max_length = 100, null=True)
@@ -255,7 +256,7 @@ class borrow_record(models.Model):
     i_time5 = models.TimeField()
     ir_borrow5 =  models.CharField(max_length = 100, null=True)
     irf_borrow5 =  models.CharField(max_length = 100, null=True)
-    i_sig5 = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    i_sig5 = models.TextField(max_length = 10000, null=True)
     i_stats5 = models.CharField(max_length = 100, null=True)
 
 #password reset student

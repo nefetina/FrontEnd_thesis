@@ -146,10 +146,11 @@ function back4() {
 
 /*opening the form from tables*/ ///////////////
 function form111() {
-    var v1 = document.getElementById("rapforms");
+
+
     var y1 = document.getElementById("tableform1");
     var x1 = document.getElementById("table1");
-    v1.style.display = "block";
+
     y1.style.display = "block";
     x1.style.display = "none";
 }
