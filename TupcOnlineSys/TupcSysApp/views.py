@@ -187,7 +187,58 @@ def logoutUser(request):
     request.user.Personal_description = None
     return redirect('/')
 
+def maintain_permit(request, id):
+    a = faculty_reports.objects.get(id=id)
+    for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
+            if a == x:
+                x = faculty_reports.objects.filter(id=id).update(fstat="Approved")
+                y = faculty_reports.objects.filter(id=id).values()
+                for z in y:
+                    name = z['fname']
+                    uemail = z['email3']
+                    print(name)
+                    print(uemail)
+            message = "Good day " + name + ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                        name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [uemail],
 
+                        )
+
+            email.send()
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
+
+def maintain_cancel(request, id):
+    if request.method == 'POST':
+        a = faculty_reports.objects.get(id=id)
+        reason = request.POST.get("reason")
+        for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
+            if a == x:
+                x = faculty_reports.objects.filter(id=id).update(fstat="Declined")
+                y = faculty_reports.objects.filter(id=id).values()
+                for z in y:
+                    name = z['fname']
+                    uemail = z['email3']
+                    print(name)
+                    print(uemail)
+                print(reason)
+                message = "Good day " + name + ", \n Your request for repair and maintence has been declined, " + reason + "\n UITC admin"
+                email = EmailMessage(
+                            name,
+                            message,
+                            'tupc.uitconlinesystem@gmail.com',
+                            [uemail],
+
+                            )
+
+                email.send()
+                break
+    messages.info(request, "Completed")
+    return redirect('/UitcReports')
 def facultyID_permit(request, id):
     a = faculty_ID.objects.get(id=id)
     for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
@@ -769,75 +820,71 @@ def UitcReports_borrow(request):#UITC REPORTS page
         return redirect('/')'''
 
 @login_required(login_url='/Index')
-def UitcReports_maitenance(request):#UITC REPORTS page
-    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        if request.method == "POST":
-            i_type4 = request.POST.get('i_type4')
-            is_num4 = request.POST.get('is_num4')
-            i_datem = request.POST.get('i_datem')
-            i_brand4 = request.POST.get('i_brand4')
-            i_code = request.POST.get('i_code')
-            ie_name = request.POST.get('ie_name')
-            iup_sstats = "On Process"
-            i_remarks = request.POST.get('i_remarks')
-            i_cobfs = request.POST.get('i_cobfs')
-            i_remarks2 = request.POST.get('i_remarks2')
-            iup_sstats2 = "On Process"
-            i_remarks3 = request.POST.get('i_remarks3')
-            i_scan = request.POST.get('i_scan')
-            i_remarks4 = request.POST.get('i_remarks4')
-            ia_virus = request.POST.get('ia_virus')
-            i_remarks5 = request.POST.get('i_remarks5')
-            im_stats = request.POST.get('im_stats')
-            i_remarks6 = request.POST.get('i_remarks6')
-            ik_stats = request.POST.get('ik_stats')
-            i_remarks7 = request.POST.get('i_remarks7')
-            i_dust = request.POST.get('i_dust')
-            i_remarks8= request.POST.get('i_remarks8')
-            i_organize = request.POST.get('i_organize')
-            i_remarks9 = request.POST.get('i_remarks9')
-            i_wipe = request.POST.get('i_wipe')
-            i_remarks10 = request.POST.get('i_remarks10')
-            i_run= request.POST.get('i_run')
-            i_remarks11 = request.POST.get('i_remarks11')
-            i_defragement = request.POST.get('i_defragement')
-            i_remarks12 = request.POST.get('i_remarks12')
-            i_empty = request.POST.get('i_empty')
-            i_remarks13 = request.POST.get('i_remarks13')
-            i_create = request.POST.get('i_create')
-            i_remarks14 = request.POST.get('i_remarks14')
-            iu_pers4 = request.POST.get('iu_pers4')
-            is_date4 = request.POST.get('is_date4')
-            is_time4 = request.POST.get('is_time4')
-            ie_date4 = request.POST.get('ie_date4')
-            ie_time4 = request.POST.get('ie_time4')
-            is_rec4 = request.POST.get('is_rec4')
-            ie_user4 = request.POST.get('ie_user4')
-            i_sig5 = request.POST.get('i_sig5')
-            i_sign = request.POST.get('i_sign')
-            ie_date5 = request.POST.get('ie_date5')
-            i_time2 = request.POST.get('i_time2')
-            i_stats = "On Process"
-            data = maintain_record.objects.create(i_type4 = i_type4, is_num4=is_num4, 
-            i_datem=i_datem, i_brand4=i_brand4, i_code=i_code, ie_name=ie_name, iup_sstats=iup_sstats,
-            i_remarks = i_remarks, i_cobfs=i_cobfs, i_remarks2=i_remarks2, iup_sstats2=iup_sstats2, 
-            i_remarks3=i_remarks3, i_scan=i_scan, i_remarks4=i_remarks4, ia_virus=ia_virus, 
-            i_remarks5=i_remarks5, im_stats=im_stats, i_remarks6=i_remarks6, ik_stats=ik_stats,
-            i_remarks7=i_remarks7, i_dust=i_dust, i_remarks8=i_remarks8, i_organize=i_organize,
-            i_remarks9=i_remarks9, i_wipe=i_wipe, i_remarks10=i_remarks10, i_run=i_run, i_remarks11=i_remarks11,
-            i_defragement=i_defragement, i_remarks12=i_remarks12, i_empty=i_empty, i_remarks13=i_remarks13,
-            i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, is_date4=is_date4,
-            is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
-            i_sig5=i_sig5, i_sign=i_sign, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
-            data.save()
-            messages.info(request, 'Successfully Submitted!')
-        return redirect('/UitcReports')
-    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-       return redirect('/FacultyHome')
-    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-       return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
-    else:
-        return redirect('/')
+def UitcReports_maintenance(request):#UITC REPORTS page
+    if request.method == "POST":
+        i_type4 = request.POST.get('i_type4')
+        is_num4 = request.POST.get('is_num4')
+        i_datem = request.POST.get('i_datem')
+        i_brand4 = request.POST.get('i_brand4')
+        i_code = request.POST.get('i_code')
+        ie_name = request.POST.get('ie_name')
+        iup_sstats = "On Process"
+        i_remarks = request.POST.get('i_remarks')
+        i_cobfs = request.POST.get('i_cobfs')
+        i_remarks2 = request.POST.get('i_remarks2')
+        iup_sstats2 = "On Process"
+        i_remarks3 = request.POST.get('i_remarks3')
+        i_scan = request.POST.get('i_scan')
+        i_remarks4 = request.POST.get('i_remarks4')
+        ia_virus = request.POST.get('ia_virus')
+        i_remarks5 = request.POST.get('i_remarks5')
+        im_stats = request.POST.get('im_stats')
+        i_remarks6 = request.POST.get('i_remarks6')
+        ik_stats = request.POST.get('ik_stats')
+        i_remarks7 = request.POST.get('i_remarks7')
+        i_dust = request.POST.get('i_dust')
+        i_remarks8= request.POST.get('i_remarks8')
+        i_organize = request.POST.get('i_organize')
+        i_remarks9 = request.POST.get('i_remarks9')
+        i_wipe = request.POST.get('i_wipe')
+        i_remarks10 = request.POST.get('i_remarks10')
+        i_run= request.POST.get('i_run')
+        i_remarks11 = request.POST.get('i_remarks11')
+        i_defragement = request.POST.get('i_defragement')
+        i_remarks12 = request.POST.get('i_remarks12')
+        i_empty = request.POST.get('i_empty')
+        i_remarks13 = request.POST.get('i_remarks13')
+        i_create = request.POST.get('i_create')
+        i_remarks14 = request.POST.get('i_remarks14')
+        iu_pers4 = request.POST.get('iu_pers4')
+        is_date4 = request.POST.get('is_date4')
+        is_time4 = request.POST.get('is_time4')
+        ie_date4 = request.POST.get('ie_date4')
+        ie_time4 = request.POST.get('ie_time4')
+        is_rec4 = request.POST.get('is_rec4')
+        ie_user4 = request.POST.get('ie_user4')
+        i_sign = request.POST.get('i_sign')
+        ie_date5 = request.POST.get('ie_date5')
+        i_sig5 = request.POST.get('i_sig5')
+        i_time2 = request.POST.get('i_time2')
+        i_stats = "On Process"
+        data = maintain_record.objects.create(i_type4 = i_type4, is_num4=is_num4, 
+        i_datem=i_datem, i_brand4=i_brand4, i_code=i_code, ie_name=ie_name, iup_sstats=iup_sstats,
+        i_remarks = i_remarks, i_cobfs=i_cobfs, i_remarks2=i_remarks2, iup_sstats2=iup_sstats2, 
+        i_remarks3=i_remarks3, i_scan=i_scan, i_remarks4=i_remarks4, ia_virus=ia_virus, 
+        i_remarks5=i_remarks5, im_stats=im_stats, i_remarks6=i_remarks6, ik_stats=ik_stats,
+        i_remarks7=i_remarks7, i_dust=i_dust, i_remarks8=i_remarks8, i_organize=i_organize,
+        i_remarks9=i_remarks9, i_wipe=i_wipe, i_remarks10=i_remarks10, i_run=i_run, i_remarks11=i_remarks11,
+        i_defragement=i_defragement, i_remarks12=i_remarks12, i_empty=i_empty, i_remarks13=i_remarks13,
+        i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, is_date4=is_date4,
+        is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
+        i_sign=i_sign, i_sig5=i_sig5, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
+        data.save()
+        messages.info(request, 'Successfully Submitted!')
+    return redirect('/UitcReports')
+
+
+
 
 @login_required(login_url='/Index')
 def UitcRec1(request):#UITC HOMEPAGE page

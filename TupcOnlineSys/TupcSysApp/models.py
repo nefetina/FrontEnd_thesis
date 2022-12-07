@@ -83,7 +83,6 @@ class faculty_lab(models.Model):
     fl_sig = models.TextField(max_length = 10000, null=True)
     l_stat = models.CharField(max_length = 100, null=True)
 
-#repair and maintenance record #1O #i
 
 class faculty_reports(models.Model):
     email3 = models.CharField(max_length= 50, null=True)
