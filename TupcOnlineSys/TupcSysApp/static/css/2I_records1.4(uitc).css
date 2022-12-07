@@ -198,13 +198,8 @@ input {
 
 
 
-/* card body scroll function*/
 
-.card-body {
-    margin-top: -60px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
+
 
 
 /* table adjustments*/
@@ -218,23 +213,31 @@ input {
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    overflow-y: scroll;
+    height: 450px;
 }
 
 #idtable2 {
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    overflow-y: scroll;
+    height: 450px;
 }
 
 #idtable3 {
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    overflow-y: scroll;
+    height: 450px;
 }
 #idtable4 {
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    overflow-y: scroll;
+    height: 450px;
 }
 
 

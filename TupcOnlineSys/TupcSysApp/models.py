@@ -124,7 +124,7 @@ class faculty_reports(models.Model):
     i_daterec2 = models.DateField(null=True)
     i_sig3 = models.TextField(max_length = 10000, null=True)
     i_time2 = models.TimeField(null=True)
-    station = models.CharField(max_length = 200, null=True)
+    i_serv = models.CharField(max_length = 200, null=True)
 
 class faculty_passreset(models.Model):
     id_type = [

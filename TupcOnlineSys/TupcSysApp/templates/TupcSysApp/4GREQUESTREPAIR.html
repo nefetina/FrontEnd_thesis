@@ -1,0 +1,493 @@
+
+<html lang="en">
+    {% load static%}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>TUPC ONLINE SYSTEM</title>
+   
+        <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
+        
+        <script src=""></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/5Grequestrepair.css'%}">
+    
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+    
+    
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
+    </head>
+    
+    <body>
+        
+        <div class="container-fluid ">
+            <div class="row no-gutters">
+                <div class="col-xl-12 col-12">
+                    <button type="button" class="btn btn-primary btn-block my-2 p-2 download" id="dwnld_btn1">Download</button>
+                </div>
+                
+            </div>
+        </div>
+    
+    
+       
+    
+        <div class="container-fluid all" id="all">
+            <br>
+            <div class="row no-gutters">
+                <div class="tophead col-2 text-center"  id="tophead2" >
+                    <img src="{% static 'images/TUP_LOGO.png'%}" width="180" height="150"  alt="tuplogo" id="logo" class="mt-3">
+                            
+                </div>
+                <div class="tophead2 col-10 text-center  align-items-center " id="tophead">
+                    <div class="mt-4">
+                        <span class="line1">TECHNOLOGICAL UNIVERSITY OF THE PHILIPPINES CAVITE CAMPUS</span><br>
+                        <span class="line2">Carlos Q. Trinidad Avenue, Salawag, Dasmarinas City, Cavite, Philippines</span><br>
+                        <span class="line3">TELEFAX: (046) 416-4920</span><br>
+                        <span class="line4">EMAIL: cavite@tup.edu.ph | WEBSITE: www.tup.edu.ph</span><br>
+                    </div>
+                    
+    
+                </div>
+               
+                
+                
+    
+            </div>
+            <div class="row no-gutters ">
+                  
+                <div class="tophead3 col-2 text-center "  id="tophead2" >
+                    <div class="mt-4">
+                        <span class="line1">OIT</span><br>
+                    </div>
+                            
+                </div>
+                <div class="tophead4 col-10 text-center  align-items-center " id="tophead">
+                    <div class="mt-2">
+                        <span class="line1">REQUEST FOR REPAIR AND MAINTENANCE</span><br>
+                       
+                        
+                    </div>
+                    
+    
+                </div>
+                
+                
+    
+            </div>
+            
+            
+            
+           
+            <div class="row no-gutters ">
+                <div class="col-xl-12" >
+                    <form>
+                        
+                        {% for p in data1%}           
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable1">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">DESCRIPTIONS OF PROPERTY</th>
+                                       
+                                        
+                                        
+                                        
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Type:</th>
+                                        <td class="col-3">{{p.ftype}}</td>
+                                        <th class="col-3">Brandmodel:</th>
+                                        <td class="col-3">{{p.fbrand}}</td>
+                                        
+                                        
+                                        
+                                    
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Serial No:</th>
+                                        <td class="col-3"> {{p.fserial}}</td>
+                                        <th class="col-3">Specifications:</th>
+                                        <td class="col-3"> {{p.fspecs}}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">DEFECTS AND COMPLAINTS:</th>
+                                       
+                                        
+                                        
+                                        
+                                       
+                                    </tr>
+                                    <tr id="sol">
+                                        <th class="col-3">Nature and scope of work to be done:</th>
+                                        <td class="col-9"> {{p.fnature}}</td>
+                                        
+                                        
+
+                                    </tr>
+                                    <tr>
+                                       
+                                        
+
+                                    </tr>
+                                    <tr>
+                                        
+                                        
+
+                                    </tr>
+                                   
+                                   
+                                    
+                                    
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">REQUESTED BY:</th>
+                                       
+                                        
+                                        
+                                        
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th class="col-2">Name:</th>
+                                        <td class="col-4"> {{p.fname}}</td>
+                                        <th class="col-2">Position/title:</th>
+                                        <td class="col-4"> {{p.Fposjob}}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th class="col-2">Department:</th>
+                                        <td class="col-4"> {{p.fdep}}</td>
+                                        <th class="col-2">Signature:</th>
+                                        <td class="col-4"> <img src="{{p.fsign}}" style="height: 80px"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <th class="col-2">Date Submitted:</th>
+                                        <td class="col-4"> {{p.fdate}}</td>
+                                        <th class="col-2">Time Submitted:</th>
+                                        <td class="col-4"> {{p.ftime}}</td>
+
+                                    </tr>
+                                    
+                                    
+                                    
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">INITIAL ASSESSMENT:</th>
+          
+                                       
+                                    </tr>
+                                    <tr  class="text-center  align-items-center ">
+                                        <th class="col-6">Unserviceable, Serviceable, & Under Warranty:</th>
+                                        <td class="col-6">{{p.i_serv}}</td>
+                                      
+
+                                    </tr>
+                                    
+                                    
+                                    
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12" >
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    
+                                    <tr>
+                                        <th class="col-2">Assessed by:</th>
+                                        <td class="col-4"> {{p.i_assessby}}</td>
+                                        <th class="col-2">Signature:</th>
+                                        <td class="col-4"><img src="{{p.i_sig}}"</td>
+                                        
+
+                                    </tr>
+                                    <tr>
+                                        <th class="col-2">Date assessed:</th>
+                                        <td class="col-4">{{p.i_dateass}}</td>
+                                        <th class="col-2">Personal assigned:</th>
+                                        <td class="col-4">{{p.ip_assign}}</td>
+                                        
+
+                                    </tr>
+                                    
+                                    
+                                    
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">SUPPLIES AND MATERIALS:</th>
+                                       
+                                        
+                                        
+                                        
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th class="col-2" rowspan="2">Parts to be replaced/supplied</th>
+                                        <th class="col-2">Quantity</th>
+                                        <th class="col-2">Unit</th>
+                                        <th class="col-2">Particulars</th>
+                                       
+                                       
+
+                                    </tr>
+                                    <tr>
+                                        
+                                        
+                                        <td class="col-2">{{p.i_quant}}</td>
+                                        <td class="col-2">{{p.i_units}}</td>
+                                        <td class="col-2">{{p.i_partics}}</td>
+
+                                    </tr>
+                                   
+                                    
+                                    
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">APPROVAL</th>
+                                       
+                                        
+                                        
+                                        
+                                       
+                                    </tr>
+                                   
+                                    <tr  class="text-center  align-items-center ">
+                                        <th class="col-6">Approved, Disapproved, & Resubmit :</th>
+                                        <td class="col-6">{{p.fstat}}</td>
+                                        
+
+                                    </tr>
+                                    
+                                    
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    
+                                    <tr id="sola">
+                                        <th class="col-3">Notes:</th>
+                                        <td class="col-9">{{p.i_note}}</td>
+                                        
+                                        
+
+                                    </tr>
+
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12" >
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    
+                                    <tr>
+                                        <th class="col-2">Coordinator, UITC:</th>
+                                        <td class="col-4">{{p.i_coords}}</td>
+                                        <th class="col-2">Signature:</th>
+                                        <td class="col-4">{{p.i_sig1}}</td>
+                                        
+
+                                    </tr>
+                                    <tr>
+                                        <th class="col-2">Date:</th>
+                                        <td class="col-4">{{p.i_daterec1}}</td>
+                                        <th class="col-2">Time:</th>
+                                        <td class="col-4">{{p.i_time1}}</td>
+                                        
+
+                                    </tr>
+                                    
+                                    
+                                    
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable1">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">ACTION TAKEN</th>
+                                       
+                                        
+                                        
+                                        
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">UITC Personnel:</th>
+                                        <td class="col-3">{{p.iu_pers}}</td>
+                                        <th class="col-3">Signature:</th>
+                                        <td class="col-3">{{p.i_sig2}}</td>
+                                        
+                                        
+                                        
+                                    
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Date Started:</th>
+                                        <td class="col-3">{{p.is_date}}</td>
+                                        <th class="col-3">Date Ended:</th>
+                                        <td class="col-3">{{p.ie_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Time Started:</th>
+                                        <td class="col-3">{{p.is_time}}</td>
+                                        <th class="col-3">Time Ended:</th>
+                                        <td class="col-3">{{p.ie_time}}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    
+                                    <tr id="sols">
+                                        <th class="col-3">Solution/Recommendation:</th>
+                                        <td class="col-9">{{p.is_rec}}</td>
+                                        
+                                        
+
+                                    </tr>
+
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+
+                                    <tr  class="text-center  align-items-center ">
+                                        <th class="col-6">Accepted & Rejected:</th>
+                                        <td class="col-6">{{p.i_aor}}</td>
+                                    </tr>
+
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive-xl  col-xl-12  mt-3" id="idtable1">
+                            <table class="table table-bordered">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th colspan="4" class="descriptions  justify-content-center 3">ACTION TAKEN</th>   
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">End user:</th>
+                                        <td class="col-3">{{p.ie_user}}</td>
+                                        <th class="col-3">Signature:</th>
+                                        <td class="col-3">{{p.i_sig3}}</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Date:</th>
+                                        <td class="col-3">{{p.i_daterec2}}</td>
+                                        <th class="col-3">Time:</th>
+                                        <td class="col-3">{{p.i_time2}}</td>
+                                    </tr>
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        {%endfor%}
+                    </form>
+                </div>
+
+            </div>
+
+            
+        </div>
+
+        
+        <script type="text/javascript">
+            $("body").on("click", "#dwnld_btn1", function () {
+                html2canvas($('#all')[0], {
+                    onrendered: function (canvas) {
+                         var data = canvas.toDataURL();
+                        var docDefinition = {
+                            content: [{
+                                image: data,
+                                width: 500
+                            }]
+                        };
+                        pdfMake.createPdf(docDefinition).download("Request for Repair and Maintenance.pdf");
+                    }
+                });
+            });
+            
+        </script>
+        
+    
+    </body>
+    
+    </html>

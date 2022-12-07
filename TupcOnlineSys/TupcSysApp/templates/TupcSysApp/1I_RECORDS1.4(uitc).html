@@ -360,8 +360,7 @@
                               <th scope="col">SIGNATURE</th>
                               <th scope="col">DATE</th>
                               <th scope="col">TIME</th>
-                              <th scope="col">INITIAL ASSESSMENT</th>
-                              <th scope="col">ACCESSED BY</th>
+                              <th scope="col">ASSESSED BY</th>
                               <th scope="col">SIGNATURE</th>
                               <th scope="col">DATE ASSIGNED</th>
                               <th scope="col">PERSONAL ASSIGNED</th>
@@ -402,12 +401,11 @@
                               <td>{{p.fname}}</td>
                               <td>{{p.Fposjob}}</td>
                               <td>{{p.fdep}}</td>
-                              <td>{{p.i_sig}}</td>
+                              <td> <img src="{{p.fsign}}" style="height: 80px" /></td>
                               <td>{{p.fdate}}</td>
                               <td>{{p.ftime}}</td>
-                              <td>{{p.ii_assess}}</td>
                               <td>{{p.i_assessby}}</td>
-                              <td>{{p.i_sig}}</td>
+                              <td> <img src="{{p.i_sig}}" style="height: 80px" /></td>
                               <td>{{p.i_dateass}}</td>
                               <td>{{p.ip_assign}}</td>
                               <td>{{p.i_quant}}</td>
@@ -417,37 +415,40 @@
                               <td>{{p.i_approve}}</td>
                               <td>{{p.i_note}}</td>
                               <td>{{p.i_coords}}</td>
-                              <td>{{p.i_sig1}}</td>
+                              <td> <img src="{{p.i_sig1}}" style="height: 80px" /></td>
                               <td>{{p.i_daterec1}}</td>
                               <td>{{p.i_time1}}</td>
                               <td>{{p.iu_pers}}</td>
-                              <td>{{p.i_sig2}}</td>
+                              <td> <img src="{{p.i_sig2}}" style="height: 80px" /></td>
                               <td>{{p.is_date}}</td>
                               <td>{{p.is_time}}</td>
+                              <td>{{p.ie_date}}</td>
+                              <td>{{p.ie_time}}</td>
                               <td>{{p.is_rec}}</td>
                               <td>{{p.i_aor}}</td>
                               <td>{{p.ie_user}}</td>
                               <td>{{p.i_daterec2}}</td>
-                              <td>{{p.i_sig3}}</td>
+                              <td> <img src="{{p.i_sig3}}" style="height: 80px" /></td>
                               <td>{{p.i_time2}}</td>
                               <td>{{p.i_stats}}</td>
                               <td>
                                 <div
                                   class="col-xl-12 d-flex justify-content-center align-items-center"
                                 >
-                                  <button
+                                  <a
                                     type="button"
                                     class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
                                     id="btn3"
                                     data-toggle="tooltip"
                                     data-placement="top"
                                     title="Download"
+                                    href="{% url 'TupcSysApp:repair_dl' p.pk%}"
                                   >
                                     <i
                                       class="fa fa-arrow-circle-down"
                                       aria-hidden="true"
                                     ></i>
-                                  </button>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -521,8 +522,12 @@
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
                         onclick="exportTableToExcel('myTableram', 'Repair_and_Maintenance_Record')"
-                        title="Download">
-                        <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+                        title="Download"
+                      >
+                        <i
+                          class="fa fa-arrow-circle-down"
+                          aria-hidden="true"
+                        ></i>
                       </button>
                     </div>
                   </div>
@@ -835,7 +840,7 @@
                               <th scope="col ">TIME ENDED</th>
                               <th scope="col ">SOLUTION RECOMMENDATION</th>
                               <th scope="col ">END USER</th>
-                              <th scope="col ">SIGNATURE</th>
+                              <th scope="col ">SIGNED</th>
                               <th scope="col ">DATE</th>
                               <th scope="col ">TIME</th>
                               <th scope="col">STATUS</th>
@@ -844,7 +849,7 @@
                           </thead>
                           <tbody>
                             <tr>
-                              {% for p in data %}
+                              {% for p in data6 %}
                               <td>{{p.i_type4}}</td>
                               <td>{{p.is_num4}}</td>
                               <td>{{p.i_datem}}</td>
@@ -880,12 +885,14 @@
                               <td>{{p.i_create}}</td>
                               <td>{{p.i_remarks14}}</td>
                               <td>{{p.iu_pers4}}</td>
+                              <td> <img src="{{p.i_sig5}}" style="height: 80px" /></td>
                               <td>{{p.is_date4}}</td>
                               <td>{{p.is_time4}}</td>
                               <td>{{p.ie_date4}}</td>
                               <td>{{p.ie_time4}}</td>
                               <td>{{p.is_rec4}}</td>
                               <td>{{p.ie_user4}}</td>
+                              <td>{{p.i_sign}}</td>
                               <td>{{p.ie_date5}}</td>
                               <td>{{p.i_time2}}</td>
 
@@ -893,19 +900,20 @@
                                 <div
                                   class="col-xl-12 d-flex justify-content-center align-items-center"
                                 >
-                                  <button
+                                  <a
                                     type="button"
                                     class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
                                     id="btn3"
                                     data-toggle="tooltip"
                                     data-placement="top"
                                     title="Download"
+                                    href="{% url 'TupcSysApp:maintenance_dl' p.pk%}"
                                   >
                                     <i
                                       class="fa fa-arrow-circle-down"
                                       aria-hidden="true"
                                     ></i>
-                                  </button>
+                              </a>
                                 </div>
                               </td>
                             </tr>
@@ -970,7 +978,7 @@
                     <form>
                       <div class="formtitle">BORROW RECORD</div>
                       <div class="table-responsive-xl col-xl-12" id="idtable4">
-                        <table class="table" id = "myTablebr">
+                        <table class="table" id="myTablebr">
                           <thead class="thead">
                             <tr>
                               <th scope="col">FULL NAME</th>
@@ -991,7 +999,9 @@
                               <td>{{p.fbtime}}</td>
                               <td>{{p.fbreq}}</td>
                               <td>{{p.fbreason}}</td>
-                              <td><img src="{{p.fbsign}}" style = "height: 80px"></td>
+                              <td>
+                                <img src="{{p.fbsign}}" style="height: 80px" />
+                              </td>
                               <td>{{p.fbstat}}</td>
                               <td>
                                 <div
@@ -1019,7 +1029,9 @@
                               <td>{{p.i_time5}}</td>
                               <td>{{p.ir_borrow5}}</td>
                               <td>{{p.irf_borrow5}}</td>
-                              <td><img src="{{p.i_sig5}}" style="height: 80px"></td>
+                              <td>
+                                <img src="{{p.i_sig5}}" style="height: 80px" />
+                              </td>
                               <td>{{p.i_stats5}}</td>
                               <td>
                                 <div
@@ -1066,43 +1078,59 @@
                           }
                         }
                         // convert table to excel
-                        function exportTableToExcel(myTablebr, filename = ''){
+                        function exportTableToExcel(myTablebr, filename = "") {
                           var downloadLink;
-                          var dataType = 'application/vnd.ms-excel';
+                          var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTablebr);
-                          var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-                          
+                          var tableHTML = tableSelect.outerHTML.replace(
+                            / /g,
+                            "%20"
+                          );
+
                           // Specify file name
-                          filename = filename?filename+'.xls':'excel_data.xls';
-                          
+                          filename = filename
+                            ? filename + ".xls"
+                            : "excel_data.xls";
+
                           // Create download link element
                           downloadLink = document.createElement("a");
-                          
+
                           document.body.appendChild(downloadLink);
-                          
-                          if(navigator.msSaveOrOpenBlob){
-                              var blob = new Blob(['\ufeff', tableHTML], {
-                                  type: dataType
-                              });
-                              navigator.msSaveOrOpenBlob( blob, filename);
-                          }else{
-                              // Create a link to the file
-                              downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-                          
-                              // Setting the file name
-                              downloadLink.download = filename;
-                              
-                              //triggering the function
-                              downloadLink.click();
+
+                          if (navigator.msSaveOrOpenBlob) {
+                            var blob = new Blob(["\ufeff", tableHTML], {
+                              type: dataType,
+                            });
+                            navigator.msSaveOrOpenBlob(blob, filename);
+                          } else {
+                            // Create a link to the file
+                            downloadLink.href =
+                              "data:" + dataType + ", " + tableHTML;
+
+                            // Setting the file name
+                            downloadLink.download = filename;
+
+                            //triggering the function
+                            downloadLink.click();
                           }
-                      }
+                        }
                       </script>
                     </form>
                     <div>Download Records</div>
-                    <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                              
-                      <button type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" onclick="exportTableToExcel('myTablebr', 'Borrow_Record')" title="Download" ><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
-
+                    <div
+                      class="col-xl-12 d-flex justify-content-center align-items-center"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                        onclick="exportTableToExcel('myTablebr', 'Borrow_Record')"
+                        title="Download"
+                      >
+                        <i
+                          class="fa fa-arrow-circle-down"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -109,6 +109,15 @@ def Borrower_dlsv(request, id):
 def wifiFaculty_dl(request, id):
     data1 = faculty_wifi.objects.filter(id=id)
     return render (request, 'TupcSysApp/4EWIFICON(fv).html',{'data1':data1})
+def maintenance_dl(request, id):
+    data1 = maintain_record.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4FMAINTENANCE.html',{'data1':data1})
+def repair_dl(request, id):
+    data1 = faculty_reports.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4GREQUESTREPAIR.html',{'data1':data1})
+def ID_dl(request, id):
+    data1 = faculty_ID.objects.filter(id=id)
+    return render (request, 'TupcSysApp/4HID(fv).html',{'data1':data1})
 
 def register(request):#registration
     form = Registration()
@@ -132,6 +141,7 @@ def register(request):#registration
                     form.save()
                     register1.objects.filter(username=b).update(Personal_description=type)
                     messages.success(request, 'You are now successfully registered')
+                    #email
                     name = form["name"].value()
                     message = "You are succesfully registered as " + type + "! \n Your Username is " + b + '.'
                     email = EmailMessage(
@@ -264,6 +274,7 @@ def facultyID_cancel(request, id):
                     print(name)
                     print(uemail)
                 print(reason)
+                
                 message = "Good day " + name + ", \n Your request for ID request has been declined, " + reason + "\n UITC admin"
                 email = EmailMessage(
                             name,
@@ -1381,7 +1392,7 @@ def reqrepmain_permit(request, id):
     i_daterec2 = request.POST.get("i_daterec2")
     i_sig3 = request.POST.get("i_sig3")
     i_time2 = request.POST.get("i_time2")
-    station = request.POST.get("station")
+    i_serv = request.POST.get("i_serv")
 
     if request.method == "POST":
         for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
@@ -1413,7 +1424,7 @@ def reqrepmain_permit(request, id):
                     faculty_reports.objects.filter(id=id).update(i_daterec2=i_daterec2)
                     faculty_reports.objects.filter(id=id).update(i_sig3=i_sig3)
                     faculty_reports.objects.filter(id=id).update(i_time2=i_time2)  
-                    faculty_reports.objects.filter(id=id).update(station=station)
+                    faculty_reports.objects.filter(id=id).update(i_serv=i_serv)
 
         y = faculty_reports.objects.filter(id=id).values()
         for z in y:

@@ -1,0 +1,177 @@
+{%load static%}
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/5HID.css'%}">
+    
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+<title>{{check.name}} {{check.lastname}}</title>
+
+</head>
+
+<body>
+ 
+  
+  <div class="page">
+    <button  id="printPageButton" onclick="printFunction()" class="button">Print</button>
+   
+  
+    <div class="container">
+      
+      
+        
+          <div class="container-fluid ">
+
+            <div class="row no-gutters">
+              <div class="card">
+                <div class="text-xenter">
+                  <div class="pp">
+                             
+                      <img class="profile-img" src="{{ check.idpic.url }}" alt="" >
+                  </div>
+                  
+                  <div class="names">
+                      <h4 class="profile-name">{{check.name}} </h4>
+                      <p class="profile-name2">{{check.lastname}}</p>
+                      <h6 class="course">{{check.course}}</h6>
+                      <img class="signature" src="{{ check.signature.url }}" alt="" >
+                      <p class="number">{{check.snumber}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card2 text-center d-flex align-items-center justify-content-center  ">
+                
+                <div class="row no-gutters" id="first">
+                  <div class="tophead col-4 text-center"  id="tophead2" >
+                     GSIS No.
+                              
+                  </div>
+                  <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
+                   
+                  </div>
+                  <div class="tophead col-4 text-center"  id="tophead2" >
+                    GSIS Policy No.
+                              
+                  </div>
+                  <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
+                     
+                  </div>
+                  <div class="tophead col-4 text-center"  id="tophead2" >
+                   TIN No.
+                              
+                  </div>
+                  <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
+                     
+                  </div>
+                  <div class="tophead col-4 text-center"  id="tophead2" >
+                    PAG-IBIG No.
+                              
+                  </div>
+                  <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
+                     
+                  </div>
+                  <div class="tophead col-4 text-center"  id="tophead2" >
+                    Philhealth No.
+                              
+                  </div>
+                  <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
+                     
+                  </div>
+                  <div class=" col-12 text-center  align-items-center ">
+                    <div class="descriptions d-flex justify-content-center align-items-center  ">
+                      In case of emergency, contact:
+                    </div>
+                  </div>
+                  
+                  <div class="tophead col-12 text-center"  id="tophead2" >
+                     
+                              
+                  </div>
+                  <div class="tophead col-12 text-center"  id="topheadaddress" >
+                     
+                              
+                  </div>
+                  <div class="tophead col-12 text-center"  id="tophead2" >
+                     
+                              
+                  </div>
+                  <div class=" col-4 text-center"  id="certified" >
+                     CERTIFIED BY:
+                              
+                  </div>
+                  <div class=" col-8 text-center"  id="certifiedname" >
+                     MYRNA M. TEPORA, Ph. D.
+                     Campus Director
+                              
+                  </div>
+                  <div class=" col-12 descriptions">
+                    <div class=" col-6" id="note">
+                      If found, please return to:
+                      HRD Office, TUP CAVITE
+                      Carlos Q, Trinidad Ave.,
+                      Salawag, Dasmarinaz City
+                      Cavite 4134,
+                      Tel. No. 0464164920
+                    </div>
+                    
+                  
+                  
+                </div>
+                
+                 
+                  
+                  
+      
+              </div>
+      
+              </div>
+              
+            </div>
+            
+           
+          </div>
+
+          
+      
+        
+          
+        
+    </div>
+    
+
+  </div>
+
+  
+
+
+
+  <script>
+    function printFunction() { 
+      window.print(); 
+    }
+  </script>
+
+    
+  
+  
+</body>
+
+</html>

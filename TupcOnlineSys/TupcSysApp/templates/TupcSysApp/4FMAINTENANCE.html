@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static%}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TUPC ONLINE SYSTEM</title>
+
+    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}" />
+
+    <script src=""></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/5Grequestrepair.css'%}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row no-gutters">
+        <div class="col-xl-6 col-12">
+          <button
+            type="button"
+            class="btn btn-primary btn-block my-2 p-2 download"
+            onclick="window.print()"
+          >
+            Print
+          </button>
+        </div>
+        <div class="col-xl-6 col-12">
+          <button
+            type="button"
+            class="btn btn-primary btn-block my-2 p-2 download"
+            id="dwnld_btn1"
+          >
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid all" id="all">
+      <br />
+      <div class="row no-gutters">
+        <div class="tophead col-2 text-center" id="tophead2">
+          <img
+            src="{% static 'images/TUP_LOGO.png'%}"
+            width="180"
+            height="150"
+            alt="tuplogo"
+            id="logo"
+            class="mt-3"
+          />
+        </div>
+        <div
+          class="tophead2 col-10 text-center align-items-center"
+          id="tophead"
+        >
+          <div class="mt-4">
+            <span class="line1"
+              >TECHNOLOGICAL UNIVERSITY OF THE PHILIPPINES CAVITE CAMPUS</span
+            ><br />
+            <span class="line2"
+              >Carlos Q. Trinidad Avenue, Salawag, Dasmarinas City, Cavite,
+              Philippines</span
+            ><br />
+            <span class="line3">TELEFAX: (046) 416-4920</span><br />
+            <span class="line4"
+              >EMAIL: cavite@tup.edu.ph | WEBSITE: www.tup.edu.ph</span
+            ><br />
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="tophead3 col-2 text-center" id="tophead2">
+          <div class="mt-4"><span class="line1">OIT</span><br /></div>
+        </div>
+        <div
+          class="tophead4 col-10 text-center align-items-center"
+          id="tophead"
+        >
+          <div class="mt-2">
+            <span class="line1">MAINTENANCE REPORT</span><br />
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-xl-12">
+          <form>
+            {% for p in data1%}
+
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable1">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th
+                      colspan="4"
+                      class="descriptions justify-content-center 3"
+                    >
+                      DESCRIPTIONS OF PROPERTY
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="col-3">Type:{{p.i_type4}}</th>
+                    <td class="col-3"></td>
+                    <th class="col-3">Brandmodel:</th>
+                    <td class="col-3"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-3">Serial No:</th>
+                    <td class="col-3"></td>
+                    <th class="col-3">ICT Equipment code:</th>
+                    <td class="col-3"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-3">Date of Maintenance:</th>
+                    <td class="col-3"></td>
+                    <th class="col-3">ICT Equipment name:</th>
+                    <td class="col-3"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th
+                      colspan="4"
+                      class="descriptions justify-content-center 3"
+                    >
+                      SOFTWARE
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="col-3"></th>
+                    <th class="col-1">STATUS</th>
+                    <th class="col-8">REMARKS</th>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Update Software</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Clear out browser files</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Configure start up program</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th
+                      colspan="4"
+                      class="descriptions justify-content-center 3"
+                    >
+                      SECURITY
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="col-3"></th>
+                    <th class="col-1">STATUS</th>
+                    <th class="col-8">REMARKS</th>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Scan for viruses</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Update anti-virus</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Run anti-malware</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th
+                      colspan="4"
+                      class="descriptions justify-content-center 3"
+                    >
+                      PHYSICAL COMPUTER MAINTENANCE
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="col-3"></th>
+                    <th class="col-1">STATUS</th>
+                    <th class="col-8">REMARKS</th>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Clean Keyboard</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Dust the computer unit</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Wipe down the monitor</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Organize cables</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th
+                      colspan="4"
+                      class="descriptions justify-content-center 3"
+                    >
+                      GENERAL COMPUTER MAINTENANCE
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="col-3"></th>
+                    <th class="col-1">STATUS</th>
+                    <th class="col-8">REMARKS</th>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Run Disk Cleanup</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Defragment Hard Drive</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Empty recycle bin</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-3">Create a system restore point</td>
+                    <td class="col-1"></td>
+                    <td class="col-8"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th
+                      colspan="4"
+                      class="descriptions justify-content-center 3"
+                    >
+                      MAINTAINED BY:
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="col-3">UITC PERSONNEL:</th>
+                    <td class="col-3"></td>
+                    <th class="col-3">Signature:</th>
+                    <td class="col-3"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-3">Date Started:</th>
+                    <td class="col-3"></td>
+                    <th class="col-3">Date Ended:</th>
+                    <td class="col-3"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-3">Time Started:</th>
+                    <td class="col-3"></td>
+                    <th class="col-3">Time Ended:</th>
+                    <td class="col-3"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr id="sol">
+                    <th class="col-3">Solution/Recommendation:</th>
+                    <td class="col-9"></td>
+                  </tr>
+                  <tr></tr>
+                  <tr></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-responsive-xl col-xl-12 mt-3" id="idtable">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th
+                      colspan="4"
+                      class="descriptions justify-content-center 3"
+                    >
+                      USER CONFIRMATION
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="col-2">End-user:</th>
+                    <td class="col-4"></td>
+                    <th class="col-2">Signature:</th>
+                    <td class="col-4"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-2">Date:</th>
+                    <td class="col-4"></td>
+                    <th class="col-2">Time:</th>
+                    <td class="col-4"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            {%endfor%}
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $("body").on("click", "#dwnld_btn1", function () {
+        html2canvas($("#all")[0], {
+          onrendered: function (canvas) {
+            var data = canvas.toDataURL();
+            var docDefinition = {
+              content: [
+                {
+                  image: data,
+                  width: 500,
+                },
+              ],
+            };
+            pdfMake
+              .createPdf(docDefinition)
+              .download("Request for Repair and Maintenance.pdf");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,340 @@
+.container{
+    position: absolute;
+    display: inline-block;
+    left: 22%;
+    top:10%;
+}
+.card{
+    height: 3.375in;
+    width: 2.275in;
+    display: inline-block;
+    padding: 1.3rem 0 1.3rem 0;
+    box-shadow: 0 0 5px #b4b4b4;
+    background: url("/static/images/ID.jpg");
+    background-repeat: no-repeat;
+    background-size: 218.4px 324px;
+    border-radius: 20px;
+    
+}
+
+.card2{
+    height: 3.375in;
+    width: 2.275in;
+    display: inline-block;
+    margin-left: 5px;
+    box-shadow: 0 0 5px #b4b4b4;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 218.4px 324px;
+    border-radius: 20px;
+    position: relative !important;
+}
+.box{
+  border: 2px solid black;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 200px;
+}
+.signature{
+    position: absolute;
+    top: 79%;
+    left: 20%;
+    max-height: 29px;
+    width: 94px;
+}
+.profile-img{
+    position: absolute;
+    top: 28%;
+    right: 20%;
+    width: 105px;
+    height: 105px;
+ 
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 9px rgba(153, 153, 153, 0.404);
+}
+.profile-name{
+    position: absolute;
+    top: 58%;
+    right: 27%;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-top: .5rem;
+    color: black;
+    max-width: 230px;
+    
+}
+
+
+.profile-name2{
+  position: absolute;
+  top: 64%;
+  right: 34%;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 10pt;
+  margin-top: .5rem;
+  color: black;
+  max-width: 200px;
+  
+}
+
+
+.course{
+    position: absolute;
+    top: 70%;
+    left: 18%;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-top: .5rem;
+    text-align: center;
+    color: black;
+}
+
+.number{
+    position: absolute;
+    top: 90%;
+    left: 18%;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 9pt;
+    margin-top: .5rem;
+    text-align: center;
+    color: black;
+}
+
+  .namec{
+      position: absolute;
+      top: 19.5%;
+      left: 55%;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: .7rem;
+      margin-top: .5rem;
+      text-align: center;
+      color: black;
+
+  }
+
+  .address{
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: .7rem;
+    margin-top: .5rem;
+    text-align: center;
+    color: black;
+    max-width: 10000px;
+
+}
+
+.numberc{
+  position: absolute;
+  top: 40%;
+  left: 67%;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .7rem;
+  margin-top: .5rem;
+  text-align: center;
+  color: black;
+  max-width: 180px;
+
+
+}
+
+@media print {
+  #printPageButton {
+    display: none;
+  }
+}
+
+
+.button {width: 100%;
+  position: absolute;
+  top: 50%;}
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+@media print {
+    body *:not(#all):not(#all *) {
+        visibility: hidden;
+    }
+    #all {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+.container-fluid{
+    width: 100% !important;
+}
+
+
+#all {
+    align-items: center;
+    margin: auto;
+    width: 100% !important;
+}
+
+.line2, .line3, .line4{
+    font-size: 20px !important;
+    width: 100% !important;
+}
+
+
+
+.all{
+    background-color: rgba(255, 255, 255, 0.884) !important;
+    width: 100% !important;
+}
+.download {
+    width: 100% !important;
+    font-size: 30px !important;
+    
+    margin: auto;
+    
+    display: flex;
+    
+    border-radius: 5px;
+    
+    height: 60px;
+    color: white;
+    background-color: green !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    
+}
+.download:hover{
+    transform: scale(1.05) !important;
+    background-color: green !important;
+    background-color:hsla(202, 99%, 50%, 0.61) !important;
+    border: 2px solid rgb(255, 255, 255) !important;
+}
+
+.tophead {
+    height: 20px;
+    border: 2px solid #000000;
+    justify-content: center;
+    align-items: center ;
+    display: flex   ;
+    width: 100px !important;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+
+.tophead2 {
+    height: 20px;
+    border: 2px solid #000000;
+    width: auto !important;
+    
+}
+#topheadaddress {
+    height: 30px !important;
+    border: 2px solid #000000;
+    width: auto !important;
+    
+    
+}
+
+
+.line1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100% !important;
+}
+
+.info {
+    font-size: 30px;
+    font-weight:normal;
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100% !important;
+}
+.info1 {
+    font-size: 22px;
+    font-weight:bold;
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100% !important;
+}
+.descriptions{
+    background-color: #000000 !important;
+    color: #fff;
+    font-size: 10px;
+    width: 200px !important;
+    padding: 2px;
+    margin: 2px;
+    
+    
+}
+
+
+
+html,
+body,
+header,
+#pic {
+    background-image: url("TUP BG GREEN.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.view {
+    background: url("TUP BG GREEN.png");
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#first{
+  margin: 10px;
+ 
+}
+#certified{
+  font-size: 8px;
+  margin-top: 2px;
+}
+#certifiedname{
+  font-size: 8px;
+  margin-top: 25px;
+}
+#note{
+  font-size: 6px;
+  text-align: left;
+}
+
+
