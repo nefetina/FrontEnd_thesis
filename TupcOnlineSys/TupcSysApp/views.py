@@ -260,7 +260,7 @@ def facultyID_permit(request, id):
             break
     messages.success(request, "Successfully done")
     return render (request, 'TupcSysApp/4HID.html',{'data1':data1})
-git 
+
 def facultyID_cancel(request, id):
     if request.method == 'POST':
         a = faculty_ID.objects.get(id=id)
