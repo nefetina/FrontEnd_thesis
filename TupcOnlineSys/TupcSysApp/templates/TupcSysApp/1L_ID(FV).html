@@ -123,12 +123,13 @@
                                         </div>
                                         <div class="form-row d-flex justify-content-center align-items-center ">
                                             <div class="col-xl-12  mt-lg-4">
-                                                <img id="picout">
-                                    
+                                                <img id="f_pic" name = "f_pic">
+                                                <input type="text" id = "f_pics" name = "f_pics" hidden/>
                                                 <script>
                                                     var loadFile = function(event) {
-                                                    var image = document.getElementById('picout');
+                                                    var image = document.getElementById('f_pic');
                                                     image.src = URL.createObjectURL(event.target.files[0]);
+
                                                 };
                                                 </script>
                                             
@@ -173,6 +174,7 @@
                                                         day = date.getDate();
                                                         document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
                                                         document.getElementById("current_date").value = month + "/" + day + "/" + year;
+
                                                     </script>
                                                 </label>
                                             </div>
@@ -290,9 +292,16 @@
             const canvasURL = canvas.toDataURL();
             console.log(canvasURL);
             document.forms['myform']['f_signatures'].value = canvasURL;
-            alert(canvasURL);
+            var canvass = document.createElement('CANVAS');
+            canvass.setAttribute('height', 350)
+            canvass.setAttribute('width', 350)
+            var context = canvass.getContext('2d');
+            context.drawImage(document.getElementById('f_pic'),0,0);
+            var pic = canvass.toDataURL();
+            document.forms['myform']['f_pics'].value = pic;
             
         });
+
     </script>
 
 

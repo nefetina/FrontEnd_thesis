@@ -23,7 +23,7 @@
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
-<title>{{check.name}} {{check.lastname}}</title>
+<title>{{p.ff_name}} {{p.fl_name}}</title>
 
 </head>
 
@@ -39,21 +39,21 @@
       
         
           <div class="container-fluid ">
-
+            {% for p in data1 %}
             <div class="row no-gutters">
               <div class="card">
                 <div class="text-xenter">
                   <div class="pp">
                              
-                      <img class="profile-img" src="{{ check.idpic.url }}" alt="" >
+                      <img class="profile-img" src="{{p.f_pic}}" alt="" >
                   </div>
                   
                   <div class="names">
-                      <h4 class="profile-name">{{check.name}} </h4>
-                      <p class="profile-name2">{{check.lastname}}</p>
-                      <h6 class="course">{{check.course}}</h6>
-                      <img class="signature" src="{{ check.signature.url }}" alt="" >
-                      <p class="number">{{check.snumber}}</p>
+                      <h4 class="profile-name">{{p.ff_name}} {{p.fm_name}} {{p.fl_name}}</h4>
+                      <p class="profile-name2">faculty</p>
+                      
+                      <img class="signature" src="{{p.f_signature}}" alt="">
+                      <p class="number">ID No. {{p.f_emp}}</p>
                   </div>
                 </div>
               </div>
@@ -64,8 +64,9 @@
                      GSIS No.
                               
                   </div>
+                  
                   <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
-                   
+                    <p id = "first"> {{p.f_gsis}}</p>
                   </div>
                   <div class="tophead col-4 text-center"  id="tophead2" >
                     GSIS Policy No.
@@ -138,7 +139,7 @@
                 
                  
                   
-                  
+              {%endfor%}
       
               </div>
       

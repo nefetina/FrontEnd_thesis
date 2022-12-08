@@ -31,7 +31,7 @@ installed_apps = ['TupcSysApp']
 
 if str(register1.objects.all().values()) == "<QuerySet []>":
     print(register1.objects.all().values())
-    admin = register1.objects.create_user(username="TUPC-00-0000", gsfe="tupc.uitconlinesystem@gmail.com", name="Admin", password="UITCtoken0001#", Personal_description="UITC Staff")
+    admin = register1.objects.create_user(username="TUPC-00-0000", gsfe="tupc.uitconlinesystem@gmail.com", email="tupc.uitconlinesystem@gmail.com", name="Admin", password="UITCtoken0001#", Personal_description="UITC Staff")
     admin.save()
 
 """def Document_save(request):
@@ -239,9 +239,10 @@ def maintain_cancel(request, id):
     return redirect('/UitcReports')
 def facultyID_permit(request, id):
     a = faculty_ID.objects.get(id=id)
+    data1 = faculty_ID.objects.filter(id=id)
     for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
         if a == x:
-            x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
+            #x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
             y = faculty_ID.objects.filter(id=id).values()
             for z in y:
                 name = z['ff_name']
@@ -258,8 +259,8 @@ def facultyID_permit(request, id):
             email.send()
             break
     messages.success(request, "Successfully done")
-    return redirect('/UitcID')
-
+    return render (request, 'TupcSysApp/4HID.html',{'data1':data1})
+git 
 def facultyID_cancel(request, id):
     if request.method == 'POST':
         a = faculty_ID.objects.get(id=id)
@@ -1000,6 +1001,7 @@ def FacultyID(request):#FACULTY ID page
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
             request.POST.get('request.user.gsfe')
+            f_pic = request.POST.get('f_pics')
             ff_name1 = request.POST.get('ff_name1')
             fm_name1 = request.POST.get('fm_name1')
             fl_name1 = request.POST.get('fl_name1')
@@ -1021,7 +1023,7 @@ def FacultyID(request):#FACULTY ID page
             print(f_signature)
             print(f_add1)
             f_stat = "On Process"
-            data = faculty_ID.objects.create(email1 = request.user.gsfe, ff_name = ff_name1, fm_name=fm_name1, fl_name=fl_name1, f_suffix=f_suffix1, f_emp=f_emp1, 
+            data = faculty_ID.objects.create(f_pic=f_pic, email1 = request.user.gsfe, ff_name = ff_name1, fm_name=fm_name1, fl_name=fl_name1, f_suffix=f_suffix1, f_emp=f_emp1, 
             f_datereq=f_datereq1, f_daterel=f_daterel1, f_gsis=f_gsis1, f_gsisp=f_gsisp1, f_tin=f_tin1, f_pagibig=f_pagibig1, f_phil=f_phil1, 
             f_other=f_other1, f_cp=f_cp1, f_num=f_num1, f_add=f_add1, f_signature=f_signature, f_stat=f_stat)
             data.save()
