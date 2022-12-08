@@ -11,7 +11,7 @@ from django.contrib.auth.models import AbstractUser
 
 class list(models.Model):
     lgsfe = models.CharField(max_length= 100, null=False)
-    lidno = models.CharField(max_length= 20, null=False)
+    lidno = models.CharField(max_length= 50, null=False)
     type = models.CharField(max_length= 100, null=False)
 
 class register1(AbstractUser):
