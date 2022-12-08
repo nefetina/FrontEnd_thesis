@@ -821,68 +821,75 @@ def UitcReports_borrow(request):#UITC REPORTS page
 
 @login_required(login_url='/Index')
 def UitcReports_maintenance(request):#UITC REPORTS page
-    if request.method == "POST":
-        i_type4 = request.POST.get('i_type4')
-        is_num4 = request.POST.get('is_num4')
-        i_datem = request.POST.get('i_datem')
-        i_brand4 = request.POST.get('i_brand4')
-        i_code = request.POST.get('i_code')
-        ie_name = request.POST.get('ie_name')
-        iup_sstats = "On Process"
-        i_remarks = request.POST.get('i_remarks')
-        i_cobfs = request.POST.get('i_cobfs')
-        i_remarks2 = request.POST.get('i_remarks2')
-        iup_sstats2 = "On Process"
-        i_remarks3 = request.POST.get('i_remarks3')
-        i_scan = request.POST.get('i_scan')
-        i_remarks4 = request.POST.get('i_remarks4')
-        ia_virus = request.POST.get('ia_virus')
-        i_remarks5 = request.POST.get('i_remarks5')
-        im_stats = request.POST.get('im_stats')
-        i_remarks6 = request.POST.get('i_remarks6')
-        ik_stats = request.POST.get('ik_stats')
-        i_remarks7 = request.POST.get('i_remarks7')
-        i_dust = request.POST.get('i_dust')
-        i_remarks8= request.POST.get('i_remarks8')
-        i_organize = request.POST.get('i_organize')
-        i_remarks9 = request.POST.get('i_remarks9')
-        i_wipe = request.POST.get('i_wipe')
-        i_remarks10 = request.POST.get('i_remarks10')
-        i_run= request.POST.get('i_run')
-        i_remarks11 = request.POST.get('i_remarks11')
-        i_defragement = request.POST.get('i_defragement')
-        i_remarks12 = request.POST.get('i_remarks12')
-        i_empty = request.POST.get('i_empty')
-        i_remarks13 = request.POST.get('i_remarks13')
-        i_create = request.POST.get('i_create')
-        i_remarks14 = request.POST.get('i_remarks14')
-        iu_pers4 = request.POST.get('iu_pers4')
-        is_date4 = request.POST.get('is_date4')
-        is_time4 = request.POST.get('is_time4')
-        ie_date4 = request.POST.get('ie_date4')
-        ie_time4 = request.POST.get('ie_time4')
-        is_rec4 = request.POST.get('is_rec4')
-        ie_user4 = request.POST.get('ie_user4')
-        i_sign = request.POST.get('i_sign')
-        ie_date5 = request.POST.get('ie_date5')
-        i_sig5 = request.POST.get('i_sig5')
-        i_time2 = request.POST.get('i_time2')
-        i_stats = "On Process"
-        data = maintain_record.objects.create(i_type4 = i_type4, is_num4=is_num4, 
-        i_datem=i_datem, i_brand4=i_brand4, i_code=i_code, ie_name=ie_name, iup_sstats=iup_sstats,
-        i_remarks = i_remarks, i_cobfs=i_cobfs, i_remarks2=i_remarks2, iup_sstats2=iup_sstats2, 
-        i_remarks3=i_remarks3, i_scan=i_scan, i_remarks4=i_remarks4, ia_virus=ia_virus, 
-        i_remarks5=i_remarks5, im_stats=im_stats, i_remarks6=i_remarks6, ik_stats=ik_stats,
-        i_remarks7=i_remarks7, i_dust=i_dust, i_remarks8=i_remarks8, i_organize=i_organize,
-        i_remarks9=i_remarks9, i_wipe=i_wipe, i_remarks10=i_remarks10, i_run=i_run, i_remarks11=i_remarks11,
-        i_defragement=i_defragement, i_remarks12=i_remarks12, i_empty=i_empty, i_remarks13=i_remarks13,
-        i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, is_date4=is_date4,
-        is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
-        i_sign=i_sign, i_sig5=i_sig5, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
-        data.save()
-        messages.info(request, 'Successfully Submitted!')
-    return redirect('/UitcReports')
-
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        if request.method == "POST":
+            i_type4 = request.POST.get('i_type4')
+            is_num4 = request.POST.get('is_num4')
+            i_datem = request.POST.get('i_datem')
+            i_brand4 = request.POST.get('i_brand4')
+            i_code = request.POST.get('i_code')
+            ie_name = request.POST.get('ie_name')
+            iup_sstats = "On Process"
+            i_remarks = request.POST.get('i_remarks')
+            i_cobfs = request.POST.get('i_cobfs')
+            i_remarks2 = request.POST.get('i_remarks2')
+            iup_sstats2 = "On Process"
+            i_remarks3 = request.POST.get('i_remarks3')
+            i_scan = request.POST.get('i_scan')
+            i_remarks4 = request.POST.get('i_remarks4')
+            ia_virus = request.POST.get('ia_virus')
+            i_remarks5 = request.POST.get('i_remarks5')
+            im_stats = request.POST.get('im_stats')
+            i_remarks6 = request.POST.get('i_remarks6')
+            ik_stats = request.POST.get('ik_stats')
+            i_remarks7 = request.POST.get('i_remarks7')
+            i_dust = request.POST.get('i_dust')
+            i_remarks8= request.POST.get('i_remarks8')
+            i_organize = request.POST.get('i_organize')
+            i_remarks9 = request.POST.get('i_remarks9')
+            i_wipe = request.POST.get('i_wipe')
+            i_remarks10 = request.POST.get('i_remarks10')
+            i_run= request.POST.get('i_run')
+            i_remarks11 = request.POST.get('i_remarks11')
+            i_defragement = request.POST.get('i_defragement')
+            i_remarks12 = request.POST.get('i_remarks12')
+            i_empty = request.POST.get('i_empty')
+            i_remarks13 = request.POST.get('i_remarks13')
+            i_create = request.POST.get('i_create')
+            i_remarks14 = request.POST.get('i_remarks14')
+            iu_pers4 = request.POST.get('iu_pers4')
+            is_date4 = request.POST.get('is_date4')
+            is_time4 = request.POST.get('is_time4')
+            ie_date4 = request.POST.get('ie_date4')
+            ie_time4 = request.POST.get('ie_time4')
+            is_rec4 = request.POST.get('is_rec4')
+            ie_user4 = request.POST.get('ie_user4')
+            i_sign = request.POST.get('i_sign')
+            ie_date5 = request.POST.get('ie_date5')
+            i_sig5 = request.POST.get('i_sig5')
+            i_time2 = request.POST.get('i_time2')
+            i_stats = "On Process"
+            data = maintain_record.objects.create(i_type4 = i_type4, is_num4=is_num4, 
+            i_datem=i_datem, i_brand4=i_brand4, i_code=i_code, ie_name=ie_name, iup_sstats=iup_sstats,
+            i_remarks = i_remarks, i_cobfs=i_cobfs, i_remarks2=i_remarks2, iup_sstats2=iup_sstats2, 
+            i_remarks3=i_remarks3, i_scan=i_scan, i_remarks4=i_remarks4, ia_virus=ia_virus, 
+            i_remarks5=i_remarks5, im_stats=im_stats, i_remarks6=i_remarks6, ik_stats=ik_stats,
+            i_remarks7=i_remarks7, i_dust=i_dust, i_remarks8=i_remarks8, i_organize=i_organize,
+            i_remarks9=i_remarks9, i_wipe=i_wipe, i_remarks10=i_remarks10, i_run=i_run, i_remarks11=i_remarks11,
+            i_defragement=i_defragement, i_remarks12=i_remarks12, i_empty=i_empty, i_remarks13=i_remarks13,
+            i_create=i_create, i_remarks14=i_remarks14, iu_pers4=iu_pers4, is_date4=is_date4,
+            is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
+            i_sign=i_sign, i_sig5=i_sig5, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
+            data.save()
+            messages.info(request, 'Successfully Submitted!')
+            return redirect('/UitcHome')
+        return render (request, 'TupcSysApp/1E_REPORT(UITC).html')
+    else:
+        return redirect('/')
 
 
 
@@ -1019,6 +1026,7 @@ def FacultyID(request):#FACULTY ID page
             f_other=f_other1, f_cp=f_cp1, f_num=f_num1, f_add=f_add1, f_signature=f_signature, f_stat=f_stat)
             data.save()
             messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
+            return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1L_ID(FV).html')
 
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1049,6 +1057,7 @@ def FacultyInternet(request):#FACULTY INTERNET page
              g_num=g_num, g_email=request.user.gsfe, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stat=g_stats)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect('/FacultyHome')
         return render (request, 'TupcSysApp/1M_INTERNET(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -1076,6 +1085,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
              s_time=s_time, e_time=e_time, fl_sig=fl_sig, l_stat = l_stat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect('/FacultyHome')
         return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -1106,6 +1116,7 @@ def FacultyReports(request):#FACULTY REPORTS page
              fname=request.user.name, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect('/FacultyHome')
         return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -1137,6 +1148,7 @@ def FacultyRstPass(request):
             data = faculty_passreset.objects.create(fwname = request.user.name, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=request.user.gsfe, fwstat=fwstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -1160,6 +1172,7 @@ def FacultyBorrower(request):
             data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -1172,7 +1185,6 @@ def FacultyBorrower(request):
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            
             request.POST.get('request.user.name')
             fbdate = datetime.now()
             fbtime = datetime.now().time()
@@ -1183,22 +1195,13 @@ def FacultyBorrower(request):
             data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
 
-def StudentHome(request):
-    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
-    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        return redirect('/FacultyHome')
-    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-        return render(request,'TupcSysApp/1P_HOMEPAGE(SV).html')
-    else:
-        return redirect('/')
-     
 
 @login_required(login_url='/Index')
 def StudentInternet(request):#STUDENT INTERNET ACCESS page
@@ -1225,6 +1228,7 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
     else:
         return redirect('/')
@@ -1254,6 +1258,7 @@ def StudentWifi(request):#STUDENT WIFI ACCESS page
             g_add1=g_add1, g_sig1=g_sig1, g_daterec1=g_daterec1, g_stats1=g_stats1)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
     else:
         return redirect('/')
@@ -1277,6 +1282,7 @@ def StudentReports(request):#STUDENT REPORT page
             i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
     else:
         return redirect('/')
@@ -1298,6 +1304,7 @@ def StudentReports_RequestPass(request):
             Account=Account, psstats=psstats)
             data.save()
             messages.info(request, 'Successfully Submitted!')
+            return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
     else:
         return redirect('/')
