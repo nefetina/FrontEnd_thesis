@@ -823,10 +823,6 @@ def UitcReports_borrow(request):#UITC REPORTS page
 @login_required(login_url='/Index')
 def UitcReports_maintenance(request):#UITC REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
-    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        return redirect('/FacultyHome')
-    elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
             i_type4 = request.POST.get('i_type4')
             is_num4 = request.POST.get('is_num4')
@@ -886,9 +882,12 @@ def UitcReports_maintenance(request):#UITC REPORTS page
             is_time4=is_time4, ie_date4=ie_date4, ie_time4=ie_time4, is_rec4=is_rec4, ie_user4=ie_user4,
             i_sign=i_sign, i_sig5=i_sig5, ie_date5=ie_date5, i_time2=i_time2, i_stats=i_stats)
             data.save()
-            messages.info(request, 'Successfully Submitted!')
-            return redirect('/UitcHome')
-        return render (request, 'TupcSysApp/1E_REPORT(UITC).html')
+        messages.info(request, 'Successfully Submitted!')
+        return redirect('/UitcHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return redirect('/FacultyHome')
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
 

@@ -1,3 +1,4 @@
+
 function openNav() {
 
     var y = document.getElementById("mySidebar");
@@ -182,7 +183,7 @@ function requestforrep() {
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
 
-
+    document.getElementById("tableform4").hidden = true;
 
     x2.style.display = "block";
     z2.style.display = "none";
@@ -215,14 +216,14 @@ function requesforpassres() {
     var z2 = document.getElementById("table2");
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
-
+    document.getElementById("tableform4").hidden = true;
 
     x2.style.display = "none";
     z2.style.display = "block";
     y2.style.display = "none";
     v2.style.display = "none";
 
-
+    
     a.style.display = "none";
     b.style.display = "none";
     c.style.display = "none";
@@ -248,7 +249,7 @@ function maintenanceform() {
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
 
-
+    document.getElementById("tableform4").hidden = false;
     x2.style.display = "none";
     z2.style.display = "none";
     y2.style.display = "none";
@@ -278,7 +279,7 @@ function maintenance() {
     var z2 = document.getElementById("table2");
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
-
+    document.getElementById("tableform4").hidden = true;
 
 
     x2.style.display = "none";
@@ -325,7 +326,7 @@ function borrowform() {
 }
 
 function borrow() {
-
+    document.getElementById("tableform4").hidden = true;
     var a = document.getElementById("tableform1");
     var b = document.getElementById("tableform2");
     var c = document.getElementById("tableform3");

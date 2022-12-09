@@ -309,13 +309,13 @@
                                                                                     </div>
                                                                                     <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                                                                         <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Serviceable" name="i_serv"  > Serviceable</h6>
+                                                                                            <h6 class=""><input type="radio" class="radio " value="Serviceable" name="station"  > Serviceable</h6>
                                                                                         </div> 
                                                                                         <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Unserviceable" name="i_serv"  > Unserviceable</h6>
+                                                                                            <h6 class=""><input type="radio" class="radio " value="Unserviceable" name="station"  > Unserviceable</h6>
                                                                                         </div> 
                                                                                         <div class="col-xl-4 col-lg-12">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Under Warranty" name="i_serv" > Under Warranty</h6>
+                                                                                            <h6 class=""><input type="radio" class="radio " value="Under Warranty" name="station" > Under Warranty</h6>
                                                                                         </div> 
                                                                                     </div>
                                                                                     <div class="form-row">
@@ -762,7 +762,7 @@
                                 <!--MAINTENANCE FORMTABLE2.1-------------------------------------------------------------------------------------------->
                                 <form method="post" action='/UitcReports_maintenance/' id="myformm">
                                     {%csrf_token%}
-                                    <div class="col-xl-12 collapse" id="tableform4">
+                                    <div class="col-xl-12" id="tableform4" hidden>
                                         <div class="jumbotron " ><br>
                                         
                                             <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -843,7 +843,7 @@
                                                                             </div>
                                                                             <div class="form-row">
                                                                                 <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
-                                                                                    Configure start up program:
+                                                                                    Update Software:
                                                                                 </div>
                                                                                 <div class="col-xl-4">
                                                                                     <div class="p-1 mt-1" id="option1">
