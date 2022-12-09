@@ -235,7 +235,11 @@ input{
     background-color: #0cbebcef;
     border-radius: 5px;
 }
-
+#vids{
+    width: 560px;
+    height:315px;
+   
+}
 /*****************************************BACKGROUND*******************************/
 
 html,
@@ -638,28 +642,60 @@ header,
         cursor: default !important;
         color: white !important;
     }
+    li:after {
+     
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        width: 2em;
+        text-align: center;
+      }
+    li:last-child {
+      font-weight: bold;
+    }
+      li:last-child:after {
+        content: '';
+      }
+    
+    a {
+      text-decoration: none;
+      display: inline-block;
+      color: #333;
+      white-space: nowrap;
+    }
+      a:hover {
+        text-decoration: underline;
+      }
+    
+    
+    /* Collapsed breadcrumbs */
+    
     .collapsed li {
-        overflow: hidden;
+      overflow: hidden;
+    }
+      .collapsed li:after {
+        background: rgb(227,227,227);
+        background: linear-gradient(90deg, rgba(227,227,227,0.4) 0%, rgba(227,227,227,1) 35%);
+        padding-left: 1em;
       }
-        .collapsed li:after {
-        
-      
-          padding-left: 1em;
-        }
-      
-      .collapsed a {
-        max-width: 2em;
-        transition: max-width 300ms ease-in-out;
+    
+    .collapsed a {
+      max-width: 2em;
+      transition: max-width 300ms ease-in-out;
+    }
+      .collapsed a:hover,
+      .collapsed a:focus,
+      .collapsed li:hover a {
+        max-width: 1000px;
       }
-        .collapsed a:hover,
-        .collapsed a:focus,
-        .collapsed li:hover a {
-          max-width: 1000px;
-        }
-        .collapsed li:hover:after {
-          padding-left: 0em;
-          background: transparent;
-        }
+      .collapsed li:hover:after {
+        padding-left: 0em;
+        background: transparent;
+      }
+      #vids{
+        width: 360px;
+        height:215px;
+    }
 }
 
 
@@ -705,6 +741,10 @@ header,
         margin-left: 120px;
         display: flex;
         position: absolute;
+    }
+    #vids{
+        width: 360px;
+        height:215px;
     }
 }
 
@@ -779,6 +819,10 @@ header,
     .formtitle{
         font-size: 14px !important;
     }
+    #vids{
+        width: 260px;
+        height:215px;
+    }
 }
 
 
@@ -833,7 +877,15 @@ header,
         display: flex;
         position: absolute;
     }
+    #vids{
+        width: 160px;
+        height:115px;
+    }
+    #wordterms{
+        font-size: 12px !important;
+    }
 }
+
 
 @media screen and (max-width: 360px) {
     .sidebar {

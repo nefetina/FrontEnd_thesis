@@ -194,6 +194,11 @@ input{
     
    
 }
+#vid{
+    width: 560px;
+    height:315px;
+    
+}
 
 .signContainer canvas {
     border: 1px solid #d6d8d9;
@@ -639,6 +644,10 @@ header,
           padding-left: 0em;
           background: transparent;
         }
+        #vid{
+            width: 360px !important;
+            height:215px !important;
+        }
 }
 
 
@@ -684,6 +693,10 @@ header,
         margin-left: 120px;
         display: flex;
         position: absolute;
+    }
+    #vid{
+        width: 360px !important;
+        height:215px !important;
     }
 }
 
@@ -758,6 +771,10 @@ header,
     .formtitle{
         font-size: 14px !important;
     }
+    #vid{
+        width: 260px;
+        height:215px;
+    }
 }
 
 
@@ -811,6 +828,14 @@ header,
         display: flex;
         position: absolute;
     }
+    #vid{
+        width: 160px;
+        height:115px;
+    }
+    #wordterms{
+        font-size: 12px !important;
+    }
+   
 }
 
 @media screen and (max-width: 360px) {
