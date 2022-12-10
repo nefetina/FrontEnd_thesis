@@ -170,9 +170,11 @@ input{
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
-    
+    height: 400px !important;
+    overflow-y: scroll ;
 
 }
+
 
 /* border bottom line of the form title*/
 

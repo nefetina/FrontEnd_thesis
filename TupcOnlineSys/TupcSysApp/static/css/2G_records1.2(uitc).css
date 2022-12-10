@@ -212,21 +212,33 @@ input{
     color: #fff !important;
 }
 
-#idtable1 {
+#idtable1{
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
 }
-#idtable2 {
+#idtable2{
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
 }
 
-#idtable3 {
+#idtable3{
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
 }
 
 

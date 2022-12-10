@@ -199,10 +199,15 @@ td {
 
 #btn4:hover{
     border: 2px solid RED !important; 
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     transition: .2s ease-in-out;
-    color: RED;
+    color: RED !important;
     font-weight: bold;
+}
+#btn4{
+    
+    color: rgb(255, 255, 255) !important;
+    
 }
 .active {
  
@@ -210,7 +215,33 @@ td {
     border-radius: 5px;
 }
 
+#idtable1{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
 
+    overflow-y: scroll ;
+
+}
+#idtable2{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
+#idtable3{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
 /*****************************************BACKGROUND*******************************/
 
 html,
