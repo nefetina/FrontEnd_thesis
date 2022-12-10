@@ -29,22 +29,25 @@
 
 <body>
  
-  
-  <div class="page">
-    <button  id="printPageButton" onclick="printFunction()" class="button">Print</button>
-   
-  
-    <div class="container">
-      
-      
-        
-          <div class="container-fluid ">
-            {% for p in data1 %}
-            <div class="row no-gutters">
+      <div class="container-fluid ">
+        <div class="row no-gutters">
+
+            <div class="col-xl-12 col-12">
+                <button type="button" class="btn btn-primary btn-block my-2 p-2 download" id="dwnld_btn1">Download</button>
+            </div>
+            
+        </div>
+      </div>
+
+      <div class="page" id="all" >
+        <div class="container-fluid ">
+          {% for p in data1 %}
+          <div class="row no-gutters">
+            <div class="col-xl-12 text-center d-flex align-items-center justify-content-center  mt-5">
               <div class="card">
                 <div class="text-xenter">
                   <div class="pp">
-                             
+                            
                       <img class="profile-img" src="{{p.f_pic}}" alt="" >
                   </div>
                   
@@ -57,44 +60,44 @@
                   </div>
                 </div>
               </div>
-              <div class="card2 text-center d-flex align-items-center justify-content-center  ">
+              <div class="card2 ">
                 
-                <div class="row no-gutters" id="first">
+                <div class="row no-gutters" id="pad">
                   <div class="tophead col-4 text-center"  id="tophead2" >
-                     GSIS No.
+                    GSIS No.
                               
                   </div>
                   
-                  <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
-                    <p id = "first"> {{p.f_gsis}}</p>
+                  <div class="tophead2 col-8 text-center justify-content-center align-items-center " id="tophead">
+                    <p id="words"> {{p.f_gsis}}</p>
                   </div>
                   <div class="tophead col-4 text-center"  id="tophead2" >
                     GSIS Policy No.
                               
                   </div>
                   <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
-                     
+                    <p id="words" > {{p.f_gsisp}}</p>
                   </div>
                   <div class="tophead col-4 text-center"  id="tophead2" >
-                   TIN No.
+                  TIN No.
                               
                   </div>
                   <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
-                     
+                    <p id="words"> {{p.f_tin}}</p>
                   </div>
                   <div class="tophead col-4 text-center"  id="tophead2" >
                     PAG-IBIG No.
                               
                   </div>
                   <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
-                     
+                    <p id="words"> {{p.f_pagibig}}</p>
                   </div>
                   <div class="tophead col-4 text-center"  id="tophead2" >
                     Philhealth No.
                               
                   </div>
                   <div class="tophead2 col-8 text-center  align-items-center " id="tophead">
-                     
+                    <p id="words"> {{p.f_phil}}</p>
                   </div>
                   <div class=" col-12 text-center  align-items-center ">
                     <div class="descriptions d-flex justify-content-center align-items-center  ">
@@ -103,24 +106,24 @@
                   </div>
                   
                   <div class="tophead col-12 text-center"  id="tophead2" >
-                     
+                    
                               
                   </div>
-                  <div class="tophead col-12 text-center"  id="topheadaddress" >
-                     
-                              
+                  <div class="tophead col-12 text-center "  id="topheadaddress" >
+                    
+                    <p> {{p.f_add}}</p>    
                   </div>
                   <div class="tophead col-12 text-center"  id="tophead2" >
-                     
+                    
                               
                   </div>
                   <div class=" col-4 text-center"  id="certified" >
-                     CERTIFIED BY:
+                    CERTIFIED BY:
                               
                   </div>
                   <div class=" col-8 text-center"  id="certifiedname" >
-                     MYRNA M. TEPORA, Ph. D.
-                     Campus Director
+                    MYRNA M. TEPORA, Ph. D.
+                    Campus Director
                               
                   </div>
                   <div class=" col-12 descriptions">
@@ -137,42 +140,54 @@
                   
                 </div>
                 
-                 
+                
                   
               {%endfor%}
-      
+  
               </div>
-      
+  
               </div>
-              
             </div>
             
-           
+            
           </div>
-
-          
-      
-        
           
         
-    </div>
-    
+        </div>
 
-  </div>
+        
+
+      </div>
 
   
 
 
 
-  <script>
-    function printFunction() { 
-      window.print(); 
-    }
-  </script>
+  
 
     
   
   
 </body>
+<script type="text/javascript">
+  $("body").on("click", "#dwnld_btn1", function () {
+    html2canvas($("#all")[0], {
+      onrendered: function (canvas) {
+        var data = canvas.toDataURL();
+        var docDefinition = {
+          content: [
+            {
+              image: data,
+              width: 500,
+            },
+          ],
+        };
+        pdfMake
+          .createPdf(docDefinition)
+          .download("Maintenance.pdf");
+      },
+    });
+  });
+</script>
 
 </html>

@@ -134,7 +134,7 @@
                                                 <input type="date" class="form-control my-2 p-2" placeholder="Date" name="" required>
                                             </div>
                                             <div class="col-xl-1 col-3">
-                                                <button type="submit" class="btn btn-success  mt-2 " name="addInventory" >
+                                                <button type="submit" class="btn btn-success  mt-2 " id="b1" name="addInventory" >
                                                     +ADD
                                                 </button>
                                             </div>
@@ -170,9 +170,11 @@
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-success m-1" data-bs-target="#modalUpdate{{ i.id }}">REPLACE</button>
+                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-success m-1"
+                                                             data-bs-target="#modalUpdate{{ i.id }}" id="b2">REPLACE</button>
 
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger  m-1" data-bs-target="#modalDelete{{ i.id }}">DELETE</button>
+                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger  m-1"
+                                                             data-bs-target="#modalDelete{{ i.id }}" id="b3">DELETE</button>
                                                             
                                                            
                                                         
@@ -180,9 +182,10 @@
                                                         </div>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-warning  m-1">BORROWED</button>
+                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-warning  m-1" id="b4">BORROWED</button>
                                                             
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1" data-bs-target="#modalReturned{{ i.id }}">RETURNED</button>
+                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
+                                                            data-bs-target="#modalReturned{{ i.id }}" id="b5">RETURNED</button>
                                                            
                                                         
                                                         

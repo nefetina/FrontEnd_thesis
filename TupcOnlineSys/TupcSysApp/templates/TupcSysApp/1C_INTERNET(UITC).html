@@ -106,8 +106,8 @@
                 <!--CARD-------------------------------------------------------------------------------------------->
                 <div class="col-xl-11 main">                    
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-                    <!--TABLE1-------------------------------------------------------------------------------------------->
-                         <div id="table1" class="col-xl-12" >
+                    <!-- Employee wifi request TABLE1-------------------------------------------------------------------------------------------->
+                        <div id="table1" class="col-xl-12" >
                             
                             <form>
                                 <div class="form-row">
@@ -196,7 +196,7 @@
                                                               {% endfor %}
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" class="btn btn-primary">OK</button>
+                                                              <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -250,7 +250,7 @@
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
-                                            </table>
+                                              </table>
                                         </div>
                                         <script>
                                             function myFunctionemp() {
@@ -373,7 +373,7 @@
                                                                 {% endfor %}
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" class="btn btn-primary">OK</button>
+                                                              <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -390,10 +390,10 @@
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentWifi_permit' p.pk  %}"><i class="fa fa-check fa-lg" aria-hidden="true"></i></a>
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentWifi_permit' p.pk  %}"><i class="fa fa-check " aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                             data-toggle="modal" data-target="#deny2"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
+                                                             data-toggle="modal" data-target="#deny2"><i class="fa fa-times " aria-hidden="true"></i></a>
                                                         </div>
                                                         
                                                     </td>
