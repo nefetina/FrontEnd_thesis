@@ -15,34 +15,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='borrow_record',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email5', models.CharField(max_length=50, null=True)),
-                ('if_name5', models.CharField(max_length=100, null=True)),
-                ('i_date5', models.DateField()),
-                ('i_time5', models.TimeField()),
-                ('ir_borrow5', models.CharField(max_length=100, null=True)),
-                ('irf_borrow5', models.CharField(max_length=100, null=True)),
-                ('i_sig5', models.TextField(max_length=10000, null=True)),
-                ('i_stats5', models.CharField(max_length=100, null=True)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='faculty_borrow',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email4', models.CharField(max_length=50, null=True)),
-                ('fbname', models.CharField(max_length=100)),
-                ('fbdate', models.DateField()),
-                ('fbtime', models.TimeField()),
-                ('fbreq', models.CharField(max_length=100)),
-                ('fbreason', models.CharField(max_length=100, null=True)),
-                ('fbsign', models.TextField(max_length=10000, null=True)),
-                ('fbstat', models.CharField(max_length=100, null=True)),
-            ],
-        ),
+
         
         migrations.CreateModel(
             name='faculty_lab',
@@ -89,16 +62,7 @@ class Migration(migrations.Migration):
                 ('g_stat', models.CharField(max_length=100, null=True)),
             ],
         ),
-        migrations.CreateModel(
-            name='Inventory',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('i_quantity', models.CharField(max_length=100, null=True)),
-                ('i_equip', models.CharField(max_length=100, null=True)),
-                ('i_model', models.CharField(max_length=100, null=True)),
-                ('i_serial', models.CharField(max_length=100, null=True)),
-            ],
-        ),
+
         migrations.CreateModel(
             name='list',
             fields=[

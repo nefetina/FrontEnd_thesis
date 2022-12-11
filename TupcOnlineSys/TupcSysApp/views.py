@@ -1331,6 +1331,7 @@ def StudentReports_RequestPass(request):
 
 @login_required(login_url='/Index')
 def UitcInventory(request):#UITC ID page
+    data = faculty_borrow.objects.filter(fbstat = "Approved")
     if request.user.is_authenticated:
         getDataInventory = Inventory.objects.all()
         forminventory = InventoryForm(request.POST or None)
@@ -1338,11 +1339,10 @@ def UitcInventory(request):#UITC ID page
         inventory_del = Inventory.objects.filter(id=buy_id)
         
         if request.method == 'POST':
-            if forminventory.is_valid():
-                messages.info(request,'Successfully Added!')
-                inventory_del.delete()
-                forminventory.save()
-                return redirect('/UitcInventory')
+            messages.info(request,'Successfully Added!')
+    
+            forminventory.save()
+            return redirect('/UitcInventory')
 
         if request.method == "POST":
             messages.info(request,'Successfully Deleted!')
@@ -1350,7 +1350,8 @@ def UitcInventory(request):#UITC ID page
             return redirect('/UitcInventory')
 
         context = {
-            'inventory': getDataInventory
+            'inventory': getDataInventory,
+            "data":data
         }
         return render (request, 'TupcSysApp/1S_INVENTORY(UITC).html', context)
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
@@ -1359,7 +1360,39 @@ def UitcInventory(request):#UITC ID page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
-  
+
+def UitcInventory_borrowed(request, id):
+    a = Inventory.objects.get(id=id)
+    fid = request.POST.get("fid")
+    print(fid)
+    for y in Inventory.objects.filter(id=id).values():
+        i_model = y['i_model']
+        i_serial = y['i_serial']
+        
+    for x in Inventory.objects.only('id').filter(i_stats= "Available"):
+            if a == x:
+                Inventory.objects.filter(id=id).update(i_stats="Borrowed")
+                faculty_borrow.objects.filter(id=fid).update(fbrdate=datetime.now(), fbmodel = i_model, fbserial = i_serial, fbstat="Borrowed")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcInventory')
+
+def UitcInventory_returned(request, id):
+    a = Inventory.objects.get(id=id)
+    for y in Inventory.objects.filter(id=id).values():
+        i_model = y['i_model']
+        i_serial = y['i_serial']
+    
+    remarks = request.POST.get("remarks")
+    
+    for x in Inventory.objects.only('id').filter(i_stats= "Borrowed"):
+            if a == x:
+                x = Inventory.objects.filter(id=id).update(i_stats="Available")
+                faculty_borrow.objects.filter(fbmodel = i_model, fbserial = i_serial, fbstat="Borrowed").update(fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
+            break
+    messages.success(request, "Successfully done")
+    return redirect('/UitcInventory')
+
 def forgotpassword(request):
 	if request.method == "POST":
 		password_reset_form = PasswordResetForm(request.POST)

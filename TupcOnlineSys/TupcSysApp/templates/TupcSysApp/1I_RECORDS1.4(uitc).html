@@ -986,6 +986,8 @@
                               <th scope="col">TIME</th>
                               <th scope="col ">RQST BORROW</th>
                               <th scope="col">REASON FOR BORROWING</th>
+                              <th scope="col ">MODEL</th>
+                              <th scope="col">SERIAL NUMBER</th>
                               <th scope="col">SIGNATURE</th>
                               <th scope="col">STATUS</th>
                               <th scope="col">DATE RETURNED</th>
@@ -1001,13 +1003,14 @@
                               <td>{{p.fbtime}}</td>
                               <td>{{p.fbreq}}</td>
                               <td>{{p.fbreason}}</td>
-                              
-                              <td>
-                                <img src="{{p.fbsign}}" style="height: 80px" />
-                              </td>
+                              <td>{{p.fbmodel}}</td>
+                              <td>{{p.fbserial}}</td>
+                              <td><img src="{{p.fbsign}}" style="height: 80px" /></td>
                               <td>{{p.fbstat}}</td>
-                              <td></td>
-                              <td></td>
+                              <td>{{p.fbrdate}}</td>
+                              <td>{{p.fbremarks}}</td>
+                              
+
                               <td>
                                 <div
                                   class="col-xl-12 d-flex justify-content-center align-items-center"

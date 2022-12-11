@@ -142,12 +142,17 @@ class faculty_passreset(models.Model):
 
 class faculty_borrow(models.Model):
     email4 = models.CharField(max_length= 50, null=True)
+    fbuser = models.CharField(max_length= 100, default = "Faculty Member")
     fbname = models.CharField(max_length= 100, null=False)
     fbdate = models.DateField()
+    fbrdate = models.DateField(null = True)
     fbtime = models.TimeField()
     fbreq = models.CharField(max_length= 100, null=False)
     fbreason = models.CharField(max_length = 100, null=True)
+    fbmodel = models.CharField(max_length = 100, null=True)
+    fbserial = models.CharField(max_length = 100, null=True)
     fbsign = models.TextField(max_length = 10000, null=True)
+    fbremarks = models.CharField(max_length = 500, null=True)
     fbstat = models.CharField(max_length = 100, null=True)
 
 #student wifi record #1Q #g
@@ -250,13 +255,19 @@ class maintain_record(models.Model):
 #borrowrecord #1O #i #r
 class borrow_record(models.Model):
     email5 = models.CharField(max_length= 50, null=True)
+    i_user = models.CharField(max_length = 100, default = "Student")
     if_name5 = models.CharField(max_length = 100, null=True)
     i_date5 = models.DateField()
+    i_rdate5 = models.DateField(null=True)
     i_time5 = models.TimeField()
     ir_borrow5 =  models.CharField(max_length = 100, null=True)
     irf_borrow5 =  models.CharField(max_length = 100, null=True)
+    imodel = models.CharField(max_length = 100, null=True)
+    iserial = models.CharField(max_length = 100, null=True)
+    i_remarks =  models.CharField(max_length = 500, null=True)
     i_sig5 = models.TextField(max_length = 10000, null=True)
     i_stats5 = models.CharField(max_length = 100, null=True)
+
 
 #password reset student
 class PassReset(models.Model):
@@ -274,8 +285,9 @@ class PassReset(models.Model):
     psstats = models.CharField(max_length = 100, null=True)
 
 class Inventory(models.Model):
-    i_quantity =  models.CharField(max_length = 100, null=True)
     i_equip =  models.CharField(max_length = 100, null=True)
     i_model =  models.CharField(max_length = 100, null=True)
     i_serial =  models.CharField(max_length = 100, null=True)
+    i_date = models.DateField()
+    i_stats =  models.CharField(max_length = 100, null=True)
 
