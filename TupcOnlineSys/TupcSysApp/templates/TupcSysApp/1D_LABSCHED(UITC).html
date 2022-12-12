@@ -294,9 +294,10 @@
                                     
                                     
                                 <div class="card-body">
-                                    <form>
+                                    <form action="/Schedule/" method="POST">
+                                        {% csrf_token %}
                                         <div class="formtitle">
-                                            
+                                                       
                                         </div>
                                         <div class="table-responsive-xl col-xl-12" id="idtable">
                                             <table class="table" id="myTable">
@@ -309,24 +310,31 @@
                                                         <th scope="col">THURSDAY</th>
                                                         <th scope="col">FRIDAY</th>
                                                         <th scope="col">SATURDAY</th>
+                                                        
                                                     </tr>
                                                 </thead>
+                                                
                                                 <tbody>
+                                                    
                                                     <tr>
-                                                        <td scope="col" id="ta"><textarea row="6" ></textarea>
-                                                            </td>
-                                                        <td scope="col" id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1mon" value="{{ l1.l1mon }}" id="ta"><textarea row="6" ></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1tue" value="{{ l1.l1tue }}"  id="ta"><textarea row="6"></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1wed" value="{{ l1.l1wed }}"  id="ta"><textarea row="6"></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1thurs" value="{{ l1.l1thurs }}"  id="ta"><textarea row="6"></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1fri" value="{{ l1.l1fri }}" id="ta"><textarea row="6"></textarea>
                                                         </td>
-   
+                                                        <td scope="col" name="l1sat" value="{{ l1.l1sat}}"  id="ta"><textarea row="6"></textarea>
+                                                        </td>
+                                                        <td><button type="submit" class="btn btn-success  mt-2 " >
+                                                            SAVE
+                                                        </button></td>
+                                                        
                                                     </tr>
+                                                    
                                                     
                                                 
                                                     
@@ -360,6 +368,9 @@
                                                         </td>
                                                         <td scope="col" id="ta"><textarea row="6"></textarea>
                                                         </td>
+                                                        <td><button type="submit" class="btn btn-success  mt-2 " >
+                                                            SAVE
+                                                        </button></td>
    
                                                     </tr>
                                                     
@@ -395,6 +406,9 @@
                                                         </td>
                                                         <td scope="col" id="ta"><textarea row="6"></textarea>
                                                         </td>
+                                                        <td><button type="submit" class="btn btn-success  mt-2 " >
+                                                            SAVE
+                                                        </button></td>
    
                                                     </tr>
                                                     

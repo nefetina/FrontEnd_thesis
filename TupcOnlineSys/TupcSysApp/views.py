@@ -1086,6 +1086,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        data = Scheduled.objects.all()
         if request.method == "POST":
             request.POST.get('request.user.gsfe')
             request.POST.get('request.user.name')
@@ -1102,7 +1103,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
             data.save()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html')
+        return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html',{'data':data})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -1533,3 +1534,28 @@ def reqrepmain_cancel(request, id):
                 break
     messages.info(request, "Completed")
     return redirect('/UitcReports')
+
+
+@login_required(login_url='/Index')
+def Scheduled(request):
+    if request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        return render (request, 'TupcSysApp/1K_FACULTY(FV).html')
+    elif request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        if request.user.is_authenticated:
+            getDataSchedule = Schedule.objects.all()
+            formschedule = ScheduleForm(request.POST or None)
+            
+            if request.method == 'POST':
+                messages.info(request,'Successfully Added!')
+                if formschedule.is_valid():
+                    formschedule.save()
+                    return redirect('/')
+
+            context = {
+                'schedule': getDataSchedule,
+            }
+        return render (request, 'TupcSysApp/1D_LABSCHED(UITC).html', context)
+    elif request.user.is_authenticated and request.user.Personal_description == "Student":
+        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
+    else:
+        return redirect('/')

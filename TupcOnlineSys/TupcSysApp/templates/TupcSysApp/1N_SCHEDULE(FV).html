@@ -308,22 +308,24 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    {% for l1 in schedule %}
                                                     <tr>
-                                                        <td scope="col" id="ta"><textarea row="6" readonly ></textarea>
-                                                            </td>
-                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        <td>  {{ l1.l1mon }} <textarea  id="ta" scope="col" row="6"  readonly ></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        <td>  {{ l1.l1tue }} <textarea  id="ta" scope="col" row="6"  readonly ></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        <td>  {{ l1.l1wed }} <textarea  id="ta" scope="col" row="6"  readonly ></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        <td>  {{ l1.l1thurs }} <textarea  id="ta" scope="col" row="6"  readonly ></textarea>
                                                         </td>
-                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        <td>  {{ l1.l1fri }} <textarea  id="ta" scope="col" row="6"  readonly ></textarea>
+                                                        </td>
+                                                        <td>  {{ l1.l1sat }} <textarea  id="ta" scope="col" row="6"  readonly ></textarea>
                                                         </td>
    
                                                     </tr>
-                                                    
+                                                    {%endfor%}
+
                                                 
                                                     
                                                
