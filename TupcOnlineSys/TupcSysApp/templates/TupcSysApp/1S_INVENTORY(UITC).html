@@ -108,7 +108,7 @@
                         <div  class=" col-xl-12" >
                             <div class="jumbotron m-1"> <br>
                                 <div class="card-body">
-                                      <form action="/UitcInventory/" method="POST">
+                                    <form action="/UitcInventory/" method="POST">
                                         {% csrf_token %}
                                         <div class="formtitle">
                                             INVENTORY
@@ -171,22 +171,10 @@
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-success m-1"
-                                                             data-bs-target="#modalUpdate{{ i.id }}" id="b2">REPLACE</button>
-
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-danger  m-1"
-                                                             data-bs-target="#modalDelete{{ i.id }}" id="b3">DELETE</button>
-                                                            
-                                                           
-                                                        
-                                                        
-                                                        </div>
-                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                            
-                                                            <a type="button" style="width: 120px;" class="btn btn-warning  m-1" id="b4" data-bs-toggle="modal" data-bs-target="#modalborrowed{{ i.id }}" >BORROWED</a>
+                                                            <a type="button" style="width: 120px;" class="btn btn-warning  m-1" id="b4" data-bs-toggle="modal" data-bs-target="#modalBorrowed{{ i.id }}" >BORROWED</a>
                                                             
                                                             <a type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
-                                                            data-bs-target="#modalReturned{{ i.id }}" id="b5" >RETURNED</a>
+                                                            data-bs-target="#modalReturn{{ i.id }}" id="b5" >RETURNED</a>
                                                            
                                                         
                                                         
@@ -195,58 +183,8 @@
                                                     </td>
                                                 
                                                 </tr>
-                                                <!-- MODAL BORROWED -->
-                                                <div class="modal fade" id="modalborrowed{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalborrowed" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Borrowed by: </h5>
-                                                                <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="text-center">
-                                                                    <form method="post" action="{% url 'TupcSysApp:UitcInventory_borrowed' i.pk  %}" >
-                                                                        {% csrf_token %}
-                                                                        <div>
-                                                                        {%for p in data%}
-                                                                            
-                                                                            <input type="radio" value = "{{p.id}}" name="fid"> {{p.fbname}} {{p.fbdate}} {{p.fbreq}}</input>
-                                                                        
-                                                                        </div>
-                                                                        {%endfor%}
-                                                                            <button type="submit" class="btn btn-danger" name="deleteInventory">Submit</button>
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- MODAL DELETE -->
-                                                <div class="modal fade" id="modalDelete{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalDelete" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Are you sure you want to delete?</h5>
-                                                                <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="text-center">
-                                                                    <form action="" method="POST">
-                                                                        {% csrf_token %}
-                                                                        <input type="hidden" name="id" value="{{ i.id }}">
-                                                                        <h3>You are now deleting this item: {{ i.i_model}} {{ i.i_serial}} {{ i.i_equip }}</h3>
-                                                                        <br>
-                                                                        <button type="submit" class="btn btn-danger" name="deleteInventory">Yes I'm sure</button>
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No not now</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- MODAL Returned -->
-                                                <div class="modal fade" id="modalReturned{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalDelete" aria-hidden="true">
+                                                <!-- MODAL RETURNED-->
+                                                <div class="modal fade" id="modalReturn{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -255,7 +193,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="text-center">
-                                                                    <form action="{% url 'TupcSysApp:UitcInventory_returned' i.pk  %}" method="POST">
+                                                                    <form action="{% url 'TupcSysApp:UitcInventory_returned' i.pk%}" method="POST">
                                                                         {%csrf_token%}
                                                                         
                                                                         <div class="form-row">
@@ -266,66 +204,55 @@
                                                                                 <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "remarks">
                                                                             </div>
                                                                         </div>
-                                                                    <button type="submit"  class="btn btn-primary " name="updateInventory";>Submit</button>
-                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                                                        <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
+                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                                                     </form>
-                                                                
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- MODAL UPDATE -->
-                                                <div class="modal fade" id="modalUpdate{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalUpdate" aria-hidden="true">
+                                                 <!-- MODAL BORROWED -->
+                                                <div class="modal fade" id="modalBorrowed{{ i.id}}" tabindex="-1" role="dialog" aria-labelledby="modalBorrowed" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdropLabel">Are you sure you want to update?</h5>
-                                                        <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                        <div class="text-center">
-                                                            <form action="" method="POST">
-                                                            {% csrf_token %}
-                                                                <div class="form-row">
-            
-                                                                    <div class="col-xl-12">
-                                                                      
-                                                                        <input type="hidden" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px" name="id" value="{{ i.id }}"   placeholder=""  name = "reason">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        
-                                                                        <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"name="i_model" value="{{ i.i_model }}"   placeholder=""  name = "reason">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        
-                                                                        <input type="text"  class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px" name="i_serial" value="{{ i.i_serial }}"  placeholder=""  name = "reason">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        
-                                                                        <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px" name="i_quantity" value="{{ i. }}"   placeholder=""  name = "reason">
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        
-                                                                        <input type="text"  class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px" name="i_equip" value="{{ i.i_equip }}"  placeholder=""  name = "reason">
-                                                                    </div>
-                                                                </div>
-                                                            
-                                                                <button type="submit" class="btn btn-success" name="updateInventory";>Yes I'm sure</button>
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No not now</button>
-                                                            </form>
-                                                            {% endfor %}
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Borrowed by: </h5>
+                                                                <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                        </div>
+                                                            <div class="modal-body">
+                                                                <div class="text-center"}>
+                                                                    <form action="{% url 'TupcSysApp:UitcInventory_borrowed' i.pk%}" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <div>
+                                                                        {%for p in data%}
+                                                                            
+                                                                            <input type="radio" value = "{{p.id}}" name="fid"> {{p.fbname}} {{p.fbdate}} {{p.fbreq}}</input>
+                                                                            <input type="text" value = "Faculty Member" name = "user1" hidden></input>
+                                                                        
+                                                                        </div>
+                                                                        {%endfor%}
+                                                                        <div>
+                                                                        {%for p in data1%}
+                                                                            
+                                                                            <input type="radio" value = "{{p.id}}" name="fid"> {{p.if_name5}} {{p.i_date5}} {{p.ir_borrow5}}</input>
+                                                                            <input type="text" value = "Student" name = "user2" hidden></input>
+                                                                        </div>
+                                                                        {%endfor%}
+                                                                            <button type="submit" class="btn btn-danger" name="borrowedInventory">Submit</button>
+                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                                {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div> 
                                     </form>
+                                    
                                 </div>
                             </div>
                             

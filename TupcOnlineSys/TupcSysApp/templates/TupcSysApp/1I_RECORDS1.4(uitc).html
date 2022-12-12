@@ -278,14 +278,27 @@
                           </thead>
                           <tbody>
                             <tr>
-                              {% for i in data5 %}
-                              <td>{{i.i_equip}}</td>
-                              <td>{{i.i_model}}</td>
-                              <td>{{i.i_quantity}}</td>
-                              <td></td>
+                              {% for i in data5%} 
+                                <td>{{i.i_equip}}</td>
+                                <td>{{i.i_model}}</td>
+                                <td>{{i.id__count}}</td>
                             </tr>
-
+                                {% endfor %}
+                            <tr>
+                                {% for x in data5a%} 
+                                <td>{{x.id__count}}</td>
+                                
+                            </tr>
                             {% endfor %}
+                            <tr>
+                              {% for z in data5b%}
+                                <td>{{z.id__count}}</td>
+                                
+                            
+                            </tr>
+                            {% endfor %}
+                            
+                            
                           </tbody>
                         </table>
                       </div>
@@ -982,6 +995,7 @@
                           <thead class="thead">
                             <tr>
                               <th scope="col">FULL NAME</th>
+                              <th scope="col">USER TYPE</th>
                               <th scope="col ">DATE RQSTD</th>
                               <th scope="col">TIME</th>
                               <th scope="col ">RQST BORROW</th>
@@ -999,6 +1013,7 @@
                             <tr>
                               {% for p in data1 %}
                               <td>{{p.fbname}}</td>
+                              <td>{{p.fbuser}}</td>
                               <td>{{p.fbdate}}</td>
                               <td>{{p.fbtime}}</td>
                               <td>{{p.fbreq}}</td>
@@ -1033,14 +1048,18 @@
                             <tr>
                               {% for p in data2 %}
                               <td>{{p.if_name5}}</td>
+                              <td>{{p.i_user}}</td>
                               <td>{{p.i_date5}}</td>
                               <td>{{p.i_time5}}</td>
                               <td>{{p.ir_borrow5}}</td>
                               <td>{{p.irf_borrow5}}</td>
-                              <td>
-                                <img src="{{p.i_sig5}}" style="height: 80px" />
-                              </td>
+                              <td>{{p.imodel}}</td>
+                              <td>{{p.iserial}}</td>
+                              <td><img src="{{p.i_sig5}}" style="height: 80px" /></td>
                               <td>{{p.i_stats5}}</td>
+                              <td>{{p.i_rdate5}}</td>
+                              <td>{{p.i_remarks}}</td>
+                            
                               <td>
                                 <div
                                   class="col-xl-12 d-flex justify-content-center align-items-center"

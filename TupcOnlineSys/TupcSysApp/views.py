@@ -13,6 +13,7 @@ from .forms import *
 from .forms import Registration
 from .models import *
 
+from django.db.models import Count
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import PasswordResetForm
@@ -1333,6 +1334,7 @@ def StudentReports_RequestPass(request):
 @login_required(login_url='/Index')
 def UitcInventory(request):#UITC ID page
     data = faculty_borrow.objects.filter(fbstat = "Approved")
+    data1 = borrow_record.objects.filter(i_stats5 = "Approved")
     if request.user.is_authenticated:
         getDataInventory = Inventory.objects.all()
         forminventory = InventoryForm(request.POST or None)
@@ -1340,19 +1342,15 @@ def UitcInventory(request):#UITC ID page
         inventory_del = Inventory.objects.filter(id=buy_id)
         
         if request.method == 'POST':
-            messages.info(request,'Successfully Added!')
-    
-            forminventory.save()
-            return redirect('/UitcInventory')
-
-        if request.method == "POST":
-            messages.info(request,'Successfully Deleted!')
-            inventory_del.delete()
-            return redirect('/UitcInventory')
+            if forminventory.is_valid():
+                messages.info(request,'Successfully Added!')
+                forminventory.save()
+                return redirect('/UitcInventory')
 
         context = {
             'inventory': getDataInventory,
-            "data":data
+            'data':data,
+            'data1':data1
         }
         return render (request, 'TupcSysApp/1S_INVENTORY(UITC).html', context)
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
@@ -1365,6 +1363,7 @@ def UitcInventory(request):#UITC ID page
 def UitcInventory_borrowed(request, id):
     a = Inventory.objects.get(id=id)
     fid = request.POST.get("fid")
+    print(a)
     print(fid)
     for y in Inventory.objects.filter(id=id).values():
         i_model = y['i_model']
@@ -1373,8 +1372,11 @@ def UitcInventory_borrowed(request, id):
     for x in Inventory.objects.only('id').filter(i_stats= "Available"):
             if a == x:
                 Inventory.objects.filter(id=id).update(i_stats="Borrowed")
-                faculty_borrow.objects.filter(id=fid).update(fbrdate=datetime.now(), fbmodel = i_model, fbserial = i_serial, fbstat="Borrowed")
-            break
+
+                faculty_borrow.objects.filter(id=fid, fbuser=request.POST.get("user1")).update(fbrdate=datetime.now(), fbmodel = i_model, fbserial = i_serial, fbstat="Borrowed")
+                borrow_record.objects.filter(id=fid, i_user=request.POST.get("user2")).update(i_rdate5=datetime.now(), imodel = i_model, iserial = i_serial, i_stats5="Borrowed")
+            print(x)
+            
     messages.success(request, "Successfully done")
     return redirect('/UitcInventory')
 
@@ -1390,9 +1392,12 @@ def UitcInventory_returned(request, id):
             if a == x:
                 x = Inventory.objects.filter(id=id).update(i_stats="Available")
                 faculty_borrow.objects.filter(fbmodel = i_model, fbserial = i_serial, fbstat="Borrowed").update(fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
+                borrow_record.objects.filter(imodel = i_model, iserial = i_serial, i_stats5="Borrowed" ).update(i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+
             break
     messages.success(request, "Successfully done")
     return redirect('/UitcInventory')
+
 
 def forgotpassword(request):
 	if request.method == "POST":
