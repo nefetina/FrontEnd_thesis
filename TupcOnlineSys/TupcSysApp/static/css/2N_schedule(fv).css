@@ -197,6 +197,23 @@ input{
    
 }
 
+
+#idtable{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
+
+.thead {
+    background-color: #971003 !important;
+    color: #fff !important;
+}
+
+
 .signContainer canvas {
     border: 1px solid #d6d8d9;
     -webkit-border-radius: 2px;

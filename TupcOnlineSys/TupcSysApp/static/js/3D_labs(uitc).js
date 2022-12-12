@@ -22,3 +22,27 @@ function closeNav() {
     z.style.display = "block";
 
 }
+
+
+function requestforlab() {
+    var a = document.getElementById("table1");
+    var b = document.getElementById("table2");
+    
+
+    a.style.display = "block";
+    b.style.display = "none";
+  
+}
+
+
+function labsched() {
+    var a = document.getElementById("table1");
+    var b = document.getElementById("table2");
+    
+
+    a.style.display = "none";
+    b.style.display = "block";
+  
+}
+
+

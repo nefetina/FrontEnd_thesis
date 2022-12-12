@@ -227,6 +227,9 @@ input{
     background-color: #1b412dcc;
     border-radius: 5px;
 }
+#ta{
+    height: 100px !important;
+}
 
 /*****************************************BACKGROUND*******************************/
 

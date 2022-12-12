@@ -66,6 +66,7 @@
         <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
         <div id="titulo">
             <a class="navbar-brand" href="#">LABORATORY SCHEDULE</a>
+            
         </div>
         <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
 
@@ -73,7 +74,8 @@
     <!--BREADCRUMB-------------------------------------------------------------------------------->
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb collapsed">
-            <li class="mx-2 ml-auto active"><a href="#" id="bc">LABORATORY SCHEDULE</a></li>
+            <li class=" mx-2 ml-auto active" onclick="requestforlab()" ><a href="#" id="bc">REQUEST FOR LABORATORY SCHEDULE</a></li>
+            <li class="mx-2 " onclick="labsched()"><a href="#" id="bc">LABORATORY SCHEDULE</a></li>
         </ol>
         <script type="text/javascript">
             $(document).on('click', 'ol, li', function(){
@@ -106,8 +108,8 @@
 
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
 
-                        <!-- LABORATORY SCHEDULING-------------------------------------------------------------------------------------------->
-                        <div class="col-xl-11" id="tableform1">
+                        <!-- REQUEST OF LABORATORY SCHED-------------------------------------------------------------------------------------------->
+                        <div class="col-xl-11 " id="tableform1">
                             <div class="jumbotron m-1"><br>
 
                                 <!--FORM-------------------------------------------------------------------------------------------->
@@ -277,6 +279,141 @@
                                 </div>
                             </div>
                         </div>
+
+                        
+                        <!--LABSCHED-------------------------------------------------------------------------------------------->    
+                        <div  class="col-xl-11 collapse" id="table2">
+                                             
+                            
+                            <div class="jumbotron  m-1 "><br>
+                                    
+                                    
+                                    
+                                <div class="card-body">
+                                    <form>
+                                        <div class="formtitle">
+                                            
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12" id="idtable">
+                                            <table class="table" id="myTable">
+                                                <thead class="thead">
+                                                    <h3>LABORATORY 1</h3>
+                                                    <tr>
+                                                        <th scope="col">MONDAY</th>
+                                                        <th scope="col">TUESDAY</th>
+                                                        <th scope="col">WEDNESDAY</th>
+                                                        <th scope="col">THURSDAY</th>
+                                                        <th scope="col">FRIDAY</th>
+                                                        <th scope="col">SATURDAY</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly ></textarea>
+                                                            </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+   
+                                                    </tr>
+                                                    
+                                                
+                                                    
+                                               
+                                                
+                                                </tbody>
+                                            </table>
+                                            <table class="table" id="myTable">
+                                                <thead class="thead">
+                                                    <h3>LABORATORY 2</h3>
+                                                    <tr>
+                                                        <th scope="col">MONDAY</th>
+                                                        <th scope="col">TUESDAY</th>
+                                                        <th scope="col">WEDNESDAY</th>
+                                                        <th scope="col">THURSDAY</th>
+                                                        <th scope="col">FRIDAY</th>
+                                                        <th scope="col">SATURDAY</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                            </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+   
+                                                    </tr>
+                                                    
+                                                
+                                                    
+                                               
+                                                
+                                                </tbody>
+                                            </table>
+                                            <table class="table" id="myTable">
+                                                <thead class="thead">
+                                                    <h3>LABORATORY 3</h3>
+                                                    <tr>
+                                                        <th scope="col">MONDAY</th>
+                                                        <th scope="col">TUESDAY</th>
+                                                        <th scope="col">WEDNESDAY</th>
+                                                        <th scope="col">THURSDAY</th>
+                                                        <th scope="col">FRIDAY</th>
+                                                        <th scope="col">SATURDAY</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                            </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+                                                        <td scope="col" id="ta"><textarea row="6" readonly></textarea>
+                                                        </td>
+   
+                                                    </tr>
+                                                    
+                                                
+                                                    
+                                               
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+                                    </form>
+                                
+                                    
+                                    
+                                
+                                    
+                                </div>
+                            </div>
+                            
+                        
+                        </div>
+                        
                     </div>
                 </div>
             </div>
