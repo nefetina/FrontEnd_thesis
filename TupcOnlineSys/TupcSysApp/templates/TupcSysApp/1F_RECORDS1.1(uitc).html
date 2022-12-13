@@ -301,6 +301,7 @@
                         <table class="table" id="myTable">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">PICTURE</th>
                               <th scope="col">FIRST NAME</th>
                               <th scope="col">MIDDLE NAME</th>
                               <th scope="col">LAST NAME</th>
@@ -326,6 +327,10 @@
                           <tbody>
                             <tr>
                               {% for p in data %}
+                              <td><a href="{{p.f_pic}}" download>
+                                <img src="{{p.f_pic}}" width="104" height="142">
+                                click to download
+                              </a></td>
                               <td>{{p.ff_name}}</td>
                               <td>{{p.fm_name}}</td>
                               <td>{{p.fl_name}}</td>
@@ -366,6 +371,7 @@
                             {% endfor %}
                           </tbody>
                         </table>
+
                         <script>
                           function sortTable(n) {
                             var table,

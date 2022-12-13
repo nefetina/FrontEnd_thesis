@@ -133,6 +133,7 @@
                                                 <table class="table table-fixed" id="myTable" >
                                                     <thead class="thead">
                                                       <tr>
+                                                        
                                                         <th scope="col">FIRST NAME</th>
                                                         <th scope="col">MIDDLE NAME</th>
                                                         <th scope="col">LAST NAME</th>
@@ -146,6 +147,7 @@
 
                                                         <tr>
                                                             {% for p in dataf %}
+                                                            
                                                             <td><a href="{% url 'TupcSysApp:UitcID_modal' p.pk  %}" data-toggle="modal" data-target="#exampleModal">{{p.ff_name}}</td>
                                                             <td>{{p.fm_name}}</td>
                                                             <td>{{p.fl_name}}</td>

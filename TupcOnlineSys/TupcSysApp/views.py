@@ -378,7 +378,7 @@ def facultyID_permit(request, id):
     data1 = faculty_ID.objects.filter(id=id)
     for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
         if a == x:
-            #x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
+            x = faculty_ID.objects.filter(id=id).update(f_stat="Approved")
             y = faculty_ID.objects.filter(id=id).values()
             for z in y:
                 name = z['ff_name']
