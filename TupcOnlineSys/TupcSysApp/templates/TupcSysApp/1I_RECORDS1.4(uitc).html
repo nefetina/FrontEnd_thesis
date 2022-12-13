@@ -278,26 +278,42 @@
                           </thead>
                           <tbody>
                             <tr>
-                              {% for i in data5%} 
-                                <td>{{i.i_equip}}</td>
-                                <td>{{i.i_model}}</td>
-                                <td>{{i.id__count}}</td>
+                              <td>
+                                  {%for x in data.i_equip%}
+                                  <p>
+                                    {{x}}
+                                  </p>
+                                  {%endfor%}
+                              </td>
+                              <td>
+                                {%for y in data.i_model%}
+                                <p>
+                                  {{y}}
+                                </p>
+                                {%endfor%}
+                              </td>
+                              <td>
+                                {%for z in data.id__count%}
+                                <p>
+                                  {{z}}
+                                </p>
+                                {%endfor%}
+                              </td>
+                              <td>
+                                {%for a in data.c1%}
+                                <p>
+                                  {{a}}
+                                </p>
+                                {%endfor%}
+                              </td>
+                              <td>
+                                {%for b in data.c2%}
+                                <p>
+                                  {{b}}
+                                </p>
+                                {%endfor%}
+                              </td>
                             </tr>
-                                {% endfor %}
-                            <tr>
-                                {% for x in data5a%} 
-                                <td>{{x.id__count}}</td>
-                                
-                            </tr>
-                            {% endfor %}
-                            <tr>
-                              {% for z in data5b%}
-                                <td>{{z.id__count}}</td>
-                                
-                            
-                            </tr>
-                            {% endfor %}
-                            
                             
                           </tbody>
                         </table>

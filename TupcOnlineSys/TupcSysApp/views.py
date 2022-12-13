@@ -944,18 +944,57 @@ def UitcRec3(request):#UITC HOMEPAGE page
     else:
         return redirect('/')
 
-
 @login_required(login_url='/Index')
 def UitcRec4(request):#UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        data5 = Inventory.objects.values('i_equip', 'i_model').annotate(Count('id'))
+        data5a = Inventory.objects.values('i_equip', 'i_model', 'i_stats').annotate(Count('id'))
+        data5b = Inventory.objects.values('i_equip', 'i_model', 'i_stats').annotate(Count('id'))
+        data = {'i_equip':[], 'i_model':[], 'id__count':[], 'c1':[], 'c2':[]}
+        asd = Inventory.objects.values('i_equip', 'i_model').annotate(Count('id'))
+        for x in data5:
+
+            da = x['i_equip']
+            db = x['i_model']
+            d = x['id__count']
+            data['i_equip'].append(da)
+            data['i_model'].append(db)
+            data['id__count'].append(d)
+            print(da,db,d)
+
+        for y in data5a:
+            dq = y['i_stats']
+            print(dq)
+            if dq == "Available":
+                d1 = x['id__count']
+            elif dq == "Borrowed": 
+                d1 = 0
+            else:
+                d1 = 0
+            data['c1'].append(d1)
+            print(d1)
+                
+            
+        for z in data5b:
+            dqs = z['i_stats']
+            print(dqs)
+            if dqs == "Available":
+                d2 = 0
+            elif dqs == "Borrowed": 
+                d2 = x['id__count']
+            else:
+                d2 = 0
+            
+            data['c2'].append(d2)
+        print(data)
         data1 = faculty_borrow.objects.all()
         data2 = borrow_record.objects.all()
         data3 = faculty_passreset.objects.all()
         data4 = PassReset.objects.all()
-        data5 = Inventory.objects.all()
+        #data5 = Inventory.objects.all()
         data6 = maintain_record.objects.all()
         data7 = faculty_reports.objects.all()
-        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data1':data1, 'data2':data2, 'data3':data3,'data4':data4,'data5':data5,'data6':data6,'data7':data7})
+        return render (request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data':data,'data1':data1, 'data2':data2, 'data3':data3,'data4':data4,'data5':data5 , 'data5a':data5a, 'data5b':data5b,'data6':data6,'data7':data7})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
