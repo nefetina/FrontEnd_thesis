@@ -6,6 +6,10 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+class ScheduleForm(forms.ModelForm):
+	class Meta:
+		model = Schedule
+		fields = '__all__'
 
 
 class Registration(UserCreationForm):
@@ -59,10 +63,6 @@ class InventoryForm(forms.ModelForm):
 		model = Inventory
 		fields = '__all__'
 
-class ScheduleForm(forms.ModelForm):
-	class Meta:
-		model = Schedule
-		fields = '__all__'
 
 
 

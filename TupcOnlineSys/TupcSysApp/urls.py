@@ -69,7 +69,7 @@ urlpatterns =[
     path('logout/', views.logoutUser, name='logout'),
     path('reqrepmain_permit/<int:id>', views.reqrepmain_permit, name='reqrepmain_permit'),
     path('reqrepmain_cancel/<int:id>', views.reqrepmain_cancel, name='reqrepmain_cancel'),
-    path('Schedule/', views.Scheduled, name='Schedule'), 
+    path('Scheduled/', views.Scheduled, name='Schedule'), 
 
 
     ]
