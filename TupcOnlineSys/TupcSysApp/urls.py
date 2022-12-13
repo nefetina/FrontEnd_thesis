@@ -40,6 +40,9 @@ urlpatterns =[
     path('forgotpassword/', views.forgotpassword, name='forgotpassword'), 
     path('UitcHome/', views.UitcHome, name='UitcHome'), 
     path('upload_csv/', views.upload_csv, name='upload_csv'), 
+    path('upload_csv_l1/', views.upload_csv_l1, name='upload_csv_l1'), 
+    path('upload_csv_l2/', views.upload_csv_l2, name='upload_csv_l2'), 
+    path('upload_csv_l3/', views.upload_csv_l3, name='upload_csv_l3'), 
     path('UitcID/', views.UitcID, name='UitcID'), 
     path('UitcID_modal/<int:id>', views.UitcID_modal, name='UitcID_modal'), 
     path('UitcInternet/', views.UitcInternet, name='UitcInternet'), 
@@ -67,9 +70,13 @@ urlpatterns =[
     path('StudentReports_RequestPass/', views.StudentReports_RequestPass, name='StudentReports_RequestPass'), 
     path('StudentReports/', views.StudentReports, name='StudentReports'), 
     path('logout/', views.logoutUser, name='logout'),
+    path('l1_delete/', views.l1_delete, name='l1_delete'),
+    path('l2_delete/', views.l2_delete, name='l2_delete'),
+    path('l3_delete/', views.l3_delete, name='l3_delete'),
+    path('list_delete/', views.list_delete, name='list_delete'),
     path('reqrepmain_permit/<int:id>', views.reqrepmain_permit, name='reqrepmain_permit'),
     path('reqrepmain_cancel/<int:id>', views.reqrepmain_cancel, name='reqrepmain_cancel'),
-    path('Scheduled/', views.Scheduled, name='Schedule'), 
+    
 
 
     ]

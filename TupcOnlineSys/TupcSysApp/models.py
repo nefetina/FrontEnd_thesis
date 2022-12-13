@@ -292,22 +292,23 @@ class Inventory(models.Model):
     i_date = models.DateField()
     i_stats =  models.CharField(max_length = 100, null=True)
 
-class Schedule(models.Model):
-    l1mon = models.TextField(max_length = 100, null=True)
-    l1tue = models.TextField(max_length = 100, null=True)
-    l1wed = models.TextField(max_length = 100, null=True)
-    l1thurs = models.TextField(max_length = 100, null=True)
-    l1fri = models.TextField(max_length = 100, null=True)
-    l1sat = models.TextField(max_length = 100, null=True)
-    l2mon = models.TextField(max_length = 100, null=True)
-    l2tue = models.TextField(max_length = 100, null=True)
-    l2wed = models.TextField(max_length = 100, null=True)
-    l2thurs = models.TextField(max_length = 100, null=True)
-    l2fri = models.TextField(max_length = 100, null=True)
-    l2sat = models.TextField(max_length = 100, null=True)
-    l3mon = models.TextField(max_length = 100, null=True)
-    l3tue = models.TextField(max_length = 100, null=True)
-    l3wed = models.TextField(max_length = 100, null=True)
-    l3thurs = models.TextField(max_length = 100, null=True)
-    l3fri = models.TextField(max_length = 100, null=True)
-    l3sat = models.TextField(max_length = 100, null=True)
+class Schedule_l1(models.Model):
+    l1mon = models.CharField(max_length = 100, null=False)
+    l1tue = models.CharField(max_length = 100, null=False)
+    l1wed = models.CharField(max_length = 100, null=False)
+    l1thu = models.CharField(max_length = 100, null=False)
+    l1fri = models.CharField(max_length = 100, null=False)
+
+class Schedule_l2(models.Model):
+    l2mon = models.TextField(max_length = 100, null=False)
+    l2tue = models.TextField(max_length = 100, null=False)
+    l2wed = models.TextField(max_length = 100, null=False)
+    l2thurs = models.TextField(max_length = 100, null=False)
+    l2fri = models.TextField(max_length = 100, null=False)
+
+class Schedule_l3(models.Model):
+    l3mon = models.TextField(max_length = 100, null=False)
+    l3tue = models.TextField(max_length = 100, null=False)
+    l3wed = models.TextField(max_length = 100, null=False)
+    l3thurs = models.TextField(max_length = 100, null=False)
+    l3fri = models.TextField(max_length = 100, null=False)

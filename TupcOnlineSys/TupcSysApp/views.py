@@ -89,8 +89,143 @@ def upload_csv(request):
 	except Exception as e:
             pass
             return redirect('/UitcPermission')
+def upload_csv_l1(request):
+	data = {}
+	if "GET" == request.method:
+		return redirect('/UitcLabsched', data)
+    # if not GET, then proceed
+	try:
+		csv_file = request.FILES["csv_file"]
+		if not csv_file.name.endswith('.csv'):
+			messages.error(request,'File is not CSV type')
+			return redirect('/UitcLabsched')
+        #if file is too large, return
+		if csv_file.multiple_chunks():
+			messages.error(request,"Uploaded file is too big (%.2f MB)." % (csv_file.size/(1000*1000),))
+			return redirect('/UitcLabsched')
 
+		file_data = csv_file.read().decode("utf-8")		
 
+		lines = file_data.split("\n")
+		#loop over the lines and save them in db. If error , store as string and then display
+		for line in lines:						
+			fields = line.split(",")
+			data_dict = {}
+			data_dict["l1mon"] = fields[0]
+			data_dict["l1tue"] = fields[1]
+			data_dict["l1wed"] = fields[2]
+			data_dict["l1thu"] = fields[3]
+			data_dict["l1fri"] = fields[4]
+            
+			try:
+				form = form_list_l1(data_dict)
+				if form.is_valid():
+					form.save()					
+				else:
+					logging.getLogger("error_logger").error(form.errors.as_json())												
+			except Exception as e:
+				logging.getLogger("error_logger").error(repr(e))					
+				pass
+            
+	except Exception as e:
+            pass
+            return redirect('/UitcLabsched')
+def upload_csv_l2(request):
+	data = {}
+	if "GET" == request.method:
+		return redirect('/UitcLabsched', data)
+    # if not GET, then proceed
+	try:
+		csv_file = request.FILES["csv_file"]
+		if not csv_file.name.endswith('.csv'):
+			messages.error(request,'File is not CSV type')
+			return redirect('/UitcLabsched')
+        #if file is too large, return
+		if csv_file.multiple_chunks():
+			messages.error(request,"Uploaded file is too big (%.2f MB)." % (csv_file.size/(1000*1000),))
+			return redirect('/UitcLabsched')
+
+		file_data = csv_file.read().decode("utf-8")		
+
+		lines = file_data.split("\n")
+		#loop over the lines and save them in db. If error , store as string and then display
+		for line in lines:						
+			fields = line.split(",")
+			data_dict = {}
+			data_dict["l2mon"] = fields[0]
+			data_dict["l2tue"] = fields[1]
+			data_dict["l2wed"] = fields[2]
+			data_dict["l2thurs"] = fields[3]
+			data_dict["l2fri"] = fields[4]
+
+			try:
+				form = form_list_l2(data_dict)
+				if form.is_valid():
+					form.save()					
+				else:
+					logging.getLogger("error_logger").error(form.errors.as_json())												
+			except Exception as e:
+				logging.getLogger("error_logger").error(repr(e))					
+				pass
+            
+	except Exception as e:
+            pass
+            return redirect('/UitcLabsched')
+
+def upload_csv_l3(request):
+	data = {}
+	if "GET" == request.method:
+		return redirect('/UitcLabsched', data)
+    # if not GET, then proceed
+	try:
+		csv_file = request.FILES["csv_file"]
+		if not csv_file.name.endswith('.csv'):
+			messages.error(request,'File is not CSV type')
+			return redirect('/UitcLabsched')
+        #if file is too large, return
+		if csv_file.multiple_chunks():
+			messages.error(request,"Uploaded file is too big (%.2f MB)." % (csv_file.size/(1000*1000),))
+			return redirect('/UitcLabsched')
+
+		file_data = csv_file.read().decode("utf-8")		
+
+		lines = file_data.split("\n")
+		#loop over the lines and save them in db. If error , store as string and then display
+		for line in lines:						
+			fields = line.split(",")
+			data_dict = {}
+			data_dict["l3mon"] = fields[0]
+			data_dict["l3tue"] = fields[1]
+			data_dict["l3wed"] = fields[2]
+			data_dict["l3thurs"] = fields[3]
+			data_dict["l3fri"] = fields[4]
+
+			try:
+				form = form_list_l3(data_dict)
+				if form.is_valid():
+					form.save()					
+				else:
+					logging.getLogger("error_logger").error(form.errors.as_json())												
+			except Exception as e:
+				logging.getLogger("error_logger").error(repr(e))					
+				pass
+            
+	except Exception as e:
+            pass
+            return redirect('/UitcLabsched')
+
+def l1_delete(request):
+    Schedule_l1.objects.all().delete()
+    return redirect('/UitcLabsched')
+def l2_delete(request):
+    Schedule_l2.objects.all().delete()
+    return redirect('/UitcLabsched')
+def l3_delete(request):
+    Schedule_l3.objects.all().delete()
+    return redirect('/UitcLabsched')
+def list_delete(request):
+    list.objects.all().delete()
+    return redirect('/UitcPermission')
 #download html button
 def employeeID_dl(request, id):
     data = faculty_ID.objects.filter(id=id)
@@ -769,7 +904,10 @@ def UitcInternet(request):#UITC INTERNET page
 def UitcLabsched(request):#UITC LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         datal = faculty_lab.objects.filter(l_stat = "On Process")
-        return render (request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal':datal})
+        sched = Schedule_l1.objects.all()
+        sched1 = Schedule_l2.objects.all()
+        sched2 = Schedule_l3.objects.all()
+        return render (request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal':datal, 'sched':sched, 'sched1':sched1, 'sched2':sched2})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1128,7 +1266,9 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        data1 = Schedule.objects.all()
+        sched = Schedule_l1.objects.all()
+        sched1 = Schedule_l2.objects.all()
+        sched2 = Schedule_l3.objects.all()
         if request.method == "POST":
             request.POST.get('request.user.gsfe')
             request.POST.get('request.user.name')
@@ -1145,7 +1285,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
             data.save()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html',{'data1':data1})
+        return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html',{'sched':sched, 'sched1':sched1, 'sched2':sched2})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -1580,40 +1720,3 @@ def reqrepmain_cancel(request, id):
                 break
     messages.info(request, "Completed")
     return redirect('/UitcReports')
-
-
-@login_required(login_url='/Index')
-def Scheduled(request):
-    if request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        return render (request, 'TupcSysApp/1K_FACULTY(FV).html')
-    elif request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        if request.method == "POST":
-            l1mon = request.POST.get ('l1mon')
-            l1tue = request.POST.get ('l1tue')
-            l1wed = request.POST.get ('l1wed')
-            l1thurs = request.POST.get ('l1thurs')
-            l1fri = request.POST.get ('l1fri')
-            l1sat = request.POST.get ('l1sat')
-            l2mon = request.POST.get ('l2mon')
-            l2tue = request.POST.get ('l2tue')
-            l2wed = request.POST.get ('l2wed')
-            l2thurs = request.POST.get ('l2thurs')
-            l2fri = request.POST.get ('l2fri')
-            l2sat = request.POST.get ('l2sat')
-            l3mon = request.POST.get ('l3mon')
-            l3tue = request.POST.get ('l3tue')
-            l3wed = request.POST.get ('l3wed')
-            l3thurs = request.POST.get ('l3thurs')
-            l3fri = request.POST.get ('l3fri')
-            l3sat = request.POST.get ('l3sat')
-            data = Schedule.objects.create(l1mon = l1mon, l1tue = l1tue, l1wed=l1wed, 
-             l1thurs=l1thurs, l1fri=l1fri, l1sat=l1sat, l2mon = l2mon, l2tue = l2tue, l2wed=l2wed, 
-             l2thurs=l2thurs, l2fri=l2fri, l2sat=l2sat,l3mon = l3mon, l3tue = l3tue, l3wed=l3wed, 
-             l3thurs=l3thurs, l3fri=l3fri, l3sat=l3sat)
-            data.save()
-            messages.info(request, 'Successfully Submitted!')
-        return render (request, 'TupcSysApp/1D_LABSCHED(UITC).html')
-    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
-    else:
-        return redirect('/')

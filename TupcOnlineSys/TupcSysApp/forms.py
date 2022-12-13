@@ -6,10 +6,7 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-class ScheduleForm(forms.ModelForm):
-	class Meta:
-		model = Schedule
-		fields = '__all__'
+
 
 
 class Registration(UserCreationForm):
@@ -21,7 +18,18 @@ class form_list(forms.ModelForm):
 	class Meta:
 		model = list
 		fields = ['lgsfe', 'lidno', 'type']
-
+class form_list_l1(forms.ModelForm):
+	class Meta: 
+		model = Schedule_l1
+		fields = ['l1mon', 'l1tue', 'l1wed', 'l1fri', 'l1thu']
+class form_list_l2(forms.ModelForm):
+	class Meta: 
+		model = Schedule_l2
+		fields = ['l2mon', 'l2tue', 'l2wed', 'l2thurs', 'l2fri']
+class form_list_l3(forms.ModelForm):
+	class Meta: 
+		model = Schedule_l3
+		fields = ['l3mon', 'l3tue', 'l3wed', 'l3thurs', 'l3fri']
 class Faculty_report(forms.ModelForm):
 	class Meta:
 		model = faculty_reports

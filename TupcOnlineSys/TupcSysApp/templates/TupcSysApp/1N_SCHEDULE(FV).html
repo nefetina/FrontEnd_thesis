@@ -310,26 +310,29 @@
                                                 <tbody>
                                                    
                                                     <tr>
-                                                        <td> <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1mon }}</textarea>
+                                                        {% for p in sched %}
+                                                        <td scope="col" name="l1mon"  id="ta">
+                                                            {{p.l1mon}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1tue }}</textarea>
+                                                        <td scope="col" name="l1tue"   id="ta">
+                                                            {{p.l1tue}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1wed }}</textarea>
+                                                        <td scope="col" name="l1wed"   id="ta">
+                                                            {{p.l1wed}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1thurs }}</textarea>
+                                                        <td scope="col" name="l1thurs"   id="ta">
+                                                            {{p.l1thu}}
                                                         </td>
-                                                        <td>  <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1fri }}</textarea>
+                                                        <td scope="col" name="l1fri"  id="ta">
+                                                            {{p.l1fri}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1sat }}</textarea>
+                                                        <td scope="col" name="l1sat"   id="ta">
+                                                            {{p.l1sat}}
                                                         </td>
-   
+                                                        
                                                     </tr>
+                                                    {% endfor %}
                                                     
-
-                                                
-                                                    
-                                               
-                                                
                                                 </tbody>
                                             </table>
                                             <table class="table" id="myTable">
@@ -346,20 +349,28 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td> <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2mon }}</textarea>
+                                                        {% for p in sched1 %}
+                                                        <td scope="col" name="l1mon"  id="ta">
+                                                            {{p.l2mon}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2tue }}</textarea>
+                                                        <td scope="col" name="l1tue"   id="ta">
+                                                            {{p.l2tue}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2wed }}</textarea>
+                                                        <td scope="col" name="l1wed"   id="ta">
+                                                            {{p.l2wed}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2thurs }}</textarea>
+                                                        <td scope="col" name="l1thurs"   id="ta">
+                                                            {{p.l2thurs}}
                                                         </td>
-                                                        <td>  <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2fri }}</textarea>
+                                                        <td scope="col" name="l1fri"  id="ta">
+                                                            {{p.l2fri}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2sat }}</textarea>
+                                                        <td scope="col" name="l1sat"   id="ta">
+                                                            {{p.l2sat}}
                                                         </td>
-   
+                                                        
                                                     </tr>
+                                                    {% endfor %}
                                                     
                                                 
                                                     
@@ -381,25 +392,28 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td> <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3mon }}</textarea>
+                                                        {% for p in sched1 %}
+                                                        <td scope="col" name="l1mon"  id="ta">
+                                                            {{p.l2mon}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3tue }}</textarea>
+                                                        <td scope="col" name="l1tue"   id="ta">
+                                                            {{p.l2tue}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3wed }}</textarea>
+                                                        <td scope="col" name="l1wed"   id="ta">
+                                                            {{p.l2wed}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3thurs }}</textarea>
+                                                        <td scope="col" name="l1thurs"   id="ta">
+                                                            {{p.l2thurs}}
                                                         </td>
-                                                        <td>  <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3fri }}</textarea>
+                                                        <td scope="col" name="l1fri"  id="ta">
+                                                            {{p.l2fri}}
                                                         </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3sat }}</textarea>
+                                                        <td scope="col" name="l1sat"   id="ta">
+                                                            {{p.l2sat}}
                                                         </td>
-   
+                                                        
                                                     </tr>
-                                                    
-                                                
-                                                    
-                                               
-                                                
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>

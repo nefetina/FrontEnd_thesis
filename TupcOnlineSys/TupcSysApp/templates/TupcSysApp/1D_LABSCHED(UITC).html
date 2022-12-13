@@ -294,8 +294,7 @@
                                     
                                     
                                 <div class="card-body">
-                                    <form action="/Scheduled/" method="POST">
-                                        {% csrf_token %}
+                                  
                                         <div class="formtitle">
                                                        
                                         </div>
@@ -317,44 +316,69 @@
                                                 <tbody>
                                                     
                                                     <tr>
-                                                        <td scope="col" name="l1mon"  id="ta"><textarea row="6" ></textarea>
+                                                        {% for p in sched %}
+                                                        <td scope="col" name="l1mon"  id="ta">
+                                                            {{p.l1mon}}
                                                         </td>
-                                                        <td scope="col" name="l1tue"   id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1tue"   id="ta">
+                                                            {{p.l1tue}}
                                                         </td>
-                                                        <td scope="col" name="l1wed"   id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1wed"   id="ta">
+                                                            {{p.l1wed}}
                                                         </td>
-                                                        <td scope="col" name="l1thurs"   id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1thurs"   id="ta">
+                                                            {{p.l1thu}}
                                                         </td>
-                                                        <td scope="col" name="l1fri"  id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1fri"  id="ta">
+                                                            {{p.l1fri}}
                                                         </td>
-                                                        <td scope="col" name="l1sat"   id="ta"><textarea row="6"></textarea>
+                                                        <td scope="col" name="l1sat"   id="ta">
+                                                            {{p.l1sat}}
                                                         </td>
-
                                                         
                                                     </tr>
-                                                    <tr>
-                                                        <td> <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1mon }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1tue }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1wed }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1thurs }}</textarea>
-                                                        </td>
-                                                        <td>  <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1fri }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l1sat }}</textarea>
-                                                        </td>
-   
-                                                    </tr>
-                                                    
-                                                
-                                                    
-                                               
-                                                
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
-                                            <table class="table" id="myTable">
+                                            <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
+                                                    <div class="col-md-8">
+                                                        <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+                                                    </div>                    
+                                                </div>
+                                                <div class="form-group">                    
+                                                    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+                                                         <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+                                                         <a type = "button" href ="/l1_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
+
+                                                        </div> 
+                                                </div>
+                                                <script>
+                                                    function myFunction() {
+                                                      var input, filter, table, tr, td, i, txtValue;
+                                                      input = document.getElementById("myInput");
+                                                      filter = input.value.toUpperCase();
+                                                      table = document.getElementById("myTable");
+                                                      tr = table.getElementsByTagName("tr");
+                                                      for (i = 0; i < tr.length; i++) {
+                                                        td = tr[i].getElementsByTagName("td")[0];
+                                                        if (td) {
+                                                          txtValue = td.textContent || td.innerText;
+                                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                            tr[i].style.display = "";
+                                                          } else {
+                                                            tr[i].style.display = "none";
+                                                          }
+                                                        }       
+                                                      }
+                                                    }
+                                                    </script>
+                                            </form>
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                            <table class="table" id="myTable1">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 2</h3>
                                                     <tr>
@@ -364,47 +388,76 @@
                                                         <th scope="col">THURSDAY</th>
                                                         <th scope="col">FRIDAY</th>
                                                         <th scope="col">SATURDAY</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td scope="col" name="l2mon"  id="ta"><textarea row="6" ></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l2tue"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l2wed"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l2thurs"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l2fri"  id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l2sat"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-
                                                         
                                                     </tr>
-                                                    <tr>
-                                                        <td> <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2mon }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2tue }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2wed }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2thurs }}</textarea>
-                                                        </td>
-                                                        <td>  <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2fri }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l2sat }}</textarea>
-                                                        </td>
-   
-                                                    </tr>
+                                                </thead>
                                                 
+                                                <tbody>
                                                     
-                                               
-                                                
+                                                    <tr>
+                                                        {% for p in sched1 %}
+                                                        <td scope="col" name="l1mon"  id="ta">
+                                                            {{p.l2mon}}
+                                                        </td>
+                                                        <td scope="col" name="l1tue"   id="ta">
+                                                            {{p.l2tue}}
+                                                        </td>
+                                                        <td scope="col" name="l1wed"   id="ta">
+                                                            {{p.l2wed}}
+                                                        </td>
+                                                        <td scope="col" name="l1thurs"   id="ta">
+                                                            {{p.l2thurs}}
+                                                        </td>
+                                                        <td scope="col" name="l1fri"  id="ta">
+                                                            {{p.l2fri}}
+                                                        </td>
+                                                        <td scope="col" name="l1sat"   id="ta">
+                                                            {{p.l2sat}}
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
-                                            <table class="table" id="myTable">
+                                            <form action="/upload_csv_l2/" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
+                                                    <div class="col-md-8">
+                                                        <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+                                                    </div>                    
+                                                </div>
+                                                <div class="form-group">                    
+                                                    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+                                                         <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+                                                         <a type = "button" href ="/l2_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
+
+                                                        </div> 
+                                                </div>
+                                                <script>
+                                                    function myFunction() {
+                                                      var input, filter, table, tr, td, i, txtValue;
+                                                      input = document.getElementById("myInput");
+                                                      filter = input.value.toUpperCase();
+                                                      table = document.getElementById("myTable");
+                                                      tr = table.getElementsByTagName("tr");
+                                                      for (i = 0; i < tr.length; i++) {
+                                                        td = tr[i].getElementsByTagName("td")[0];
+                                                        if (td) {
+                                                          txtValue = td.textContent || td.innerText;
+                                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                            tr[i].style.display = "";
+                                                          } else {
+                                                            tr[i].style.display = "none";
+                                                          }
+                                                        }       
+                                                      }
+                                                    }
+                                                    </script>
+                                            </form>
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12" id="idtable2">
+                                            <table class="table" id="myTable2">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 3</h3>
                                                     <tr>
@@ -414,56 +467,74 @@
                                                         <th scope="col">THURSDAY</th>
                                                         <th scope="col">FRIDAY</th>
                                                         <th scope="col">SATURDAY</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td scope="col" name="l3mon"  id="ta"><textarea row="6" ></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l3tue"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l3wed"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l3thurs"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l3fri"  id="ta"><textarea row="6"></textarea>
-                                                        </td>
-                                                        <td scope="col" name="l3sat"   id="ta"><textarea row="6"></textarea>
-                                                        </td>
-
                                                         
                                                     </tr>
-                                                    <tr>
-                                                        <td> <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3mon }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3tue }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3wed }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3thurs }}</textarea>
-                                                        </td>
-                                                        <td>  <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3fri }}</textarea>
-                                                        </td>
-                                                        <td>   <textarea  id="ta" scope="col" row="6"  readonly >{{ data1.l3sat }}</textarea>
-                                                        </td>
-   
-                                                    </tr>
+                                                </thead>
                                                 
+                                                <tbody>
                                                     
-                                               
-                                                
+                                                    <tr>
+                                                        {% for p in sched2 %}
+                                                        <td scope="col" name="l1mon"  id="ta">
+                                                            {{p.l3mon}}
+                                                        </td>
+                                                        <td scope="col" name="l1tue"   id="ta">
+                                                            {{p.l3tue}}
+                                                        </td>
+                                                        <td scope="col" name="l1wed"   id="ta">
+                                                            {{p.l3wed}}
+                                                        </td>
+                                                        <td scope="col" name="l1thurs"   id="ta">
+                                                            {{p.l3thurs}}
+                                                        </td>
+                                                        <td scope="col" name="l1fri"  id="ta">
+                                                            {{p.l3fri}}
+                                                        </td>
+                                                        <td scope="col" name="l1sat"   id="ta">
+                                                            {{p.l3sat}}
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
+                                            <form action="/upload_csv_l3/" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
+                                                    <div class="col-md-8">
+                                                        <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+                                                    </div>                    
+                                                </div>
+                                                <div class="form-group">                    
+                                                    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+                                                         <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+                                                         <a type = "button" href ="/l3_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
+
+                                                        </div> 
+                                                </div>
+                                                <script>
+                                                    function myFunction() {
+                                                      var input, filter, table, tr, td, i, txtValue;
+                                                      input = document.getElementById("myInput");
+                                                      filter = input.value.toUpperCase();
+                                                      table = document.getElementById("myTable");
+                                                      tr = table.getElementsByTagName("tr");
+                                                      for (i = 0; i < tr.length; i++) {
+                                                        td = tr[i].getElementsByTagName("td")[0];
+                                                        if (td) {
+                                                          txtValue = td.textContent || td.innerText;
+                                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                            tr[i].style.display = "";
+                                                          } else {
+                                                            tr[i].style.display = "none";
+                                                          }
+                                                        }       
+                                                      }
+                                                    }
+                                                    </script>
+                                            </form>
                                         </div>
-                                        <td><button type="submit" class="btn btn-success  mt-2 " >
-                                            SAVE
-                                        </button></td>
-                                    </form>
-                                
-                                    
-                                    
-                                
-                                    
                                 </div>
                             </div>
                             
