@@ -56,6 +56,7 @@ class faculty_ID(models.Model):
     f_add = models.CharField(max_length = 200, null=True)
     f_signature = models.TextField(max_length = 10000, null=True)
     f_stat = models.CharField(max_length = 200, null=True)
+    f_dept = models.CharField(max_length = 100, null=True)
     
 #faculty wifi request #1M #g
 class faculty_wifi(models.Model):
