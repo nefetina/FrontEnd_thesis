@@ -1087,7 +1087,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        data = Scheduled.objects.all()
+        data1 = Schedule.objects.all()
         if request.method == "POST":
             request.POST.get('request.user.gsfe')
             request.POST.get('request.user.name')
@@ -1104,7 +1104,7 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
             data.save()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html',{'data':data})
+        return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html',{'data1':data1})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -1546,20 +1546,32 @@ def Scheduled(request):
     if request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return render (request, 'TupcSysApp/1K_FACULTY(FV).html')
     elif request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        if request.user.is_authenticated:
-            getDataSchedule = Schedule.objects.all()
-            formschedule = ScheduleForm(request.POST or None)
-            
-            if request.method == 'POST':
-                messages.info(request,'Successfully Added!')
-                if formschedule.is_valid():
-                    formschedule.save()
-                    return redirect('/')
-
-            context = {
-                'schedule': getDataSchedule,
-            }
-        return render (request, 'TupcSysApp/1D_LABSCHED(UITC).html', context)
+        if request.method == "POST":
+            l1mon = request.POST.get ('l1mon')
+            l1tue = request.POST.get ('l1tue')
+            l1wed = request.POST.get ('l1wed')
+            l1thurs = request.POST.get ('l1thurs')
+            l1fri = request.POST.get ('l1fri')
+            l1sat = request.POST.get ('l1sat')
+            l2mon = request.POST.get ('l2mon')
+            l2tue = request.POST.get ('l2tue')
+            l2wed = request.POST.get ('l2wed')
+            l2thurs = request.POST.get ('l2thurs')
+            l2fri = request.POST.get ('l2fri')
+            l2sat = request.POST.get ('l2sat')
+            l3mon = request.POST.get ('l3mon')
+            l3tue = request.POST.get ('l3tue')
+            l3wed = request.POST.get ('l3wed')
+            l3thurs = request.POST.get ('l3thurs')
+            l3fri = request.POST.get ('l3fri')
+            l3sat = request.POST.get ('l3sat')
+            data = Schedule.objects.create(l1mon = l1mon, l1tue = l1tue, l1wed=l1wed, 
+             l1thurs=l1thurs, l1fri=l1fri, l1sat=l1sat, l2mon = l2mon, l2tue = l2tue, l2wed=l2wed, 
+             l2thurs=l2thurs, l2fri=l2fri, l2sat=l2sat,l3mon = l3mon, l3tue = l3tue, l3wed=l3wed, 
+             l3thurs=l3thurs, l3fri=l3fri, l3sat=l3sat)
+            data.save()
+            messages.info(request, 'Successfully Submitted!')
+        return render (request, 'TupcSysApp/1D_LABSCHED(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
