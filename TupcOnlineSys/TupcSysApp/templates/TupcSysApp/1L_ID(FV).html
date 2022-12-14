@@ -207,7 +207,7 @@
                                                     </select>
                                                 </div>
                                             <div class="col-xl-3">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Employee Number" name = 'f_emp1' required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder=" {{request.user.username}}" name = 'f_emp1' readonly>
                                             </div>
                                             <div class="col-xl-3 text-center d-flex justify-content-center align-items-center">
                                                 Date Requested:
@@ -317,9 +317,7 @@
                                         <button type="button" class="btn btn-primary  float-right m-1"  data-toggle="modal" data-target="#confirmation1" >
                                                                     Submit
                                                                 </button>
-                                        <button type="button" class="btn btn-danger float-right m-1">
-                                                                   Clear
-                                                                </button>
+                                       
                    
 
                                     </div>

@@ -309,7 +309,7 @@
                               <th scope="col">END TIME</th>
                               <th scope="col">SIGNATURE</th>
                               <th scope="col">STATUS</th>
-                              <th scope="col">ACTION</th>
+                              
                             </tr>
                           </thead>
                           <tbody>
@@ -324,25 +324,7 @@
                               <td>{{p.e_time}}</td>
                               <td><img src = "{{p.fl_sig}}" style = "height: 80px"></td>
                               <td>{{p.l_stat}}</td>
-                              <td>
-                                <div
-                                  class="col-xl-12 d-flex justify-content-center align-items-center"
-                                >
-                                  <button
-                                    type="button"
-                                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                                    id="btn3"
-                                    data-toggle="tooltip"
-                                    data-placement="top"
-                                    title="Download"
-                                  >
-                                    <i
-                                      class="fa fa-arrow-circle-down"
-                                      aria-hidden="true"
-                                    ></i>
-                                  </button>
-                                </div>
-                              </td>
+                              
                             </tr>
                             {% endfor %}
                           </tbody>

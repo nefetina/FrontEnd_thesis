@@ -1,4 +1,3 @@
-
 function openNav() {
 
     var y = document.getElementById("mySidebar");

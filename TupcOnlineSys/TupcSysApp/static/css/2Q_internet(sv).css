@@ -830,9 +830,9 @@ header,
     .formtitle{
         font-size: 14px !important;
     }
-    #vids{
-        width: 260px;
-        height:215px;
+    #vid{
+        width: 250px !important;
+        height:175px !important;
     }
 }
 
