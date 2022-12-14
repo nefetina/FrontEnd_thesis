@@ -716,76 +716,39 @@
                         Request to Borrow
                       </div>
 
-                      <!--Radio btn-------------------------------------------------------------------------------------------->
+                      <!--checkbox btn-------------------------------------------------------------------------------------------->
                       <div
                         class="form-row text-center d-flex justify-content-center align-items-center m-3"
-                      >
-                        <div class="col-xl-2 col-lg-6">
-                          <h6 class="">
-                            <input
-                              type="checkbox"
-                              class="radio"
-                              name="fbreq"
-                              value="Projector"
-                            />
-                            Projector
-                          </h6>
+                      > <div class="col-xl-4 col-lg-6">
+                          <input class="form-check-input" type="checkbox" value="Projector" id="ir_borrow5" name="fbreq">
+                          <label class="form-check-label" for="ir_borrow5">Projector</label>
                         </div>
-                        <div class="col-xl-2 col-lg-6">
-                          <h6 class="">
-                            <input
-                              type="checkbox"
-                              class="radio"
-                              name="fbreq"
-                              value="Extension"
-                            />
-                            Extension
-                          </h6>
+                        
+                        <div class="col-xl-4 col-lg-6">
+                          <input class="form-check-input" type="checkbox" value="Extension" id="ir_borrow5" name="fbreq">
+                          <label class="form-check-label" for="ir_borrow5">Extension</label>
                         </div>
-                        <div class="col-xl-2 col-lg-12">
-                          <h6 class="">
-                            <input
-                              type="checkbox"
-                              class="radio"
-                              name="fbreq"
-                              value="Patch Cord"
-                            />
-                            Patch Cord
-                          </h6>
+                        
+                        <div class="col-xl-4 col-lg-6">
+                          <input class="form-check-input" type="checkbox" value="Patch Cord" id="ir_borrow5" name="fbreq">
+                          <label class="form-check-label" for="ir_borrow5">Patch Cord</label>
                         </div>
-                        <div class="col-xl-2 col-lg-6">
-                          <h6 class="">
-                            <input
-                              type="checkbox"
-                              class="radio"
-                              name="fbreq"
-                              value="Mouse"
-                            />
-                            Mouse
-                          </h6>
+
+                        <div class="col-xl-4 col-lg-6">
+                          <input class="form-check-input" type="checkbox" value="Mouse" id="ir_borrow5" name="fbreq">
+                          <label class="form-check-label" for="ir_borrow5">Mouse</label>
                         </div>
-                        <div class="col-xl-2 col-lg-6">
-                          <h6 class="">
-                            <input
-                              type="checkbox"
-                              class="radio"
-                              name="fbreq"
-                              value="Keyboard"
-                            />
-                            Keyboard
-                          </h6>
+
+                        <div class="col-xl-4 col-lg-6">
+                          <input class="form-check-input" type="checkbox" value="Keyboard" id="ir_borrow5" name="fbreq">
+                          <label class="form-check-label" for="ir_borrow5">Keyboard</label>
                         </div>
-                        <div class="col-xl-2 col-lg-6">
-                          <h6 class="">
-                            <input
-                              type="checkbox"
-                              class="radio"
-                              name="fbreq"
-                              value="Monitor"
-                            />
-                            Monitor
-                          </h6>
+                        
+                        <div class="col-xl-4 col-lg-6">
+                          <input class="form-check-input" type="checkbox" value="Monitor" id="ir_borrow5" name="fbreq">
+                          <label class="form-check-label" for="ir_borrow5">Monitor</label>
                         </div>
+
                       </div>
                       <div
                         class="form-row text-center d-flex justify-content-center align-items-center m-3"
@@ -910,6 +873,13 @@
                         </button>
                       </div>
                     </form>
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                          {% if fbreq %}
+                              {{ fbreq }}
+                          {% endif %}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1425,27 +1425,18 @@ def FacultyBorrower(request):
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
+            fbreq = []
             request.POST.get('request.user.name')
             fbdate = datetime.now()
             fbtime = datetime.now().time()
-            fbreq = request.POST.get('fbreq')
+            fbreq = request.POST.getlist('fbreq')
             fbreason = request.POST.get('fbreason')
             fbsign = request.POST.get('fbsign')
             fbstat = "On Process"
-            data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
+            data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, 
+            fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
-            x=datetime.now()
-            message = ("Good day " + request.user.name + ",\nYour request for Borrow at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
-            email = EmailMessage(
-                        request.user.name,
-                        message,
-                        'tupc.uitconlinesystem@gmail.com',
-                        [request.user.gsfe],
-                        
-
-                        )
-
-            email.send()
+            
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
