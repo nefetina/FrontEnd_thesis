@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+from time import strftime
 
 from .models import register1
 from django.contrib import messages
@@ -1221,6 +1222,18 @@ def FacultyID(request):#FACULTY ID page
             f_datereq=f_datereq1, f_daterel=f_daterel1, f_gsis=f_gsis1, f_gsisp=f_gsisp1, f_tin=f_tin1, f_pagibig=f_pagibig1, f_phil=f_phil1, 
             f_other=f_other1, f_cp=f_cp1, f_num=f_num1, f_add=f_add1, f_signature=f_signature, f_stat=f_stat,f_dept=f_dept)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for ID at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.success(request, 'Your entry will be in queue, please wait for the admin to approve.')
             return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1L_ID(FV).html')
@@ -1252,6 +1265,18 @@ def FacultyInternet(request):#FACULTY INTERNET page
             data = faculty_wifi.objects.create(gf_name = request.user.name, g_dept=g_dept, g_des=g_des, g_sys=g_sys, g_mac=g_mac, 
              g_num=g_num, g_email=request.user.gsfe, g_fac=g_fac, g_sig=g_sig, g_datereq=g_datereq, g_stat=g_stats)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Internet Access at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
         return render (request, 'TupcSysApp/1M_INTERNET(FV).html')
@@ -1283,6 +1308,18 @@ def FacultyLabsched(request):#FACULTY LABSCHED page
             data = faculty_lab.objects.create(email2 = request.user.gsfe, f_name = request.user.name, dep=dep, l_date=l_date, lab_num=lab_num, crs_sec=crs_sec, 
              s_time=s_time, e_time=e_time, fl_sig=fl_sig, l_stat = l_stat)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Laboratory Schedule at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
         return render (request, 'TupcSysApp/1N_SCHEDULE(FV).html',{'sched':sched, 'sched1':sched1, 'sched2':sched2})
@@ -1314,6 +1351,18 @@ def FacultyReports(request):#FACULTY REPORTS page
             data = faculty_reports.objects.create(ftype = ftype, fbrand=fbrand, fserial=fserial, fspecs=fspecs, fnature=fnature, 
              fname=request.user.name, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Repair & Maintenance at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
         return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
@@ -1350,30 +1399,18 @@ def FacultyRstPass(request):
             fwstat = "On Process"
             data = faculty_passreset.objects.create(fwname = request.user.name, fwempID=fwempID, fwIDtype=fwIDtype, fwemail=request.user.gsfe, fwstat=fwstat)
             data.save()
-            messages.info(request, 'Successfully Submitted!')
-            return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
-    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-        return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
-    else:
-        return redirect('/')
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Password Reset at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
 
-@login_required(login_url='/Index')
-def FacultyBorrower(request):
-    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        return redirect('/UitcHome')
-    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        if request.method == "POST":
-            
-            request.POST.get('request.user.name')
-            fbdate = datetime.now()
-            fbtime = datetime.now().time()
-            fbreq = request.POST.get('fbreq')
-            fbreason = request.POST.get('fbreason')
-            fbsign = request.POST.get('fbsign')
-            fbstat = "On Process"
-            data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
-            data.save()
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
@@ -1397,6 +1434,18 @@ def FacultyBorrower(request):
             fbstat = "On Process"
             data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Borrow at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
         return render(request, 'TupcSysApp/1O_REPORTS(FV).HTML')
@@ -1430,6 +1479,18 @@ def StudentInternet(request):#STUDENT INTERNET ACCESS page
             g_snum2=g_snum2, g_sem2=g_sem2, g_or2=g_or2, g_num2=g_num2, g_email2=request.user.gsfe,
             g_add2=g_add2, gu_name2=gu_name2, g_sig2=g_sig2, g_daterec2=g_daterec2, g_stats2=g_stats2)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Internet Access at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
@@ -1460,6 +1521,18 @@ def StudentWifi(request):#STUDENT WIFI ACCESS page
             g_snum1=g_snum1, g_sem1=g_sem1, g_or1=g_or1, g_sys1=g_sys1, g_mac1=g_mac1, g_num1=g_num1, g_email1=request.user.gsfe,
             g_add1=g_add1, g_sig1=g_sig1, g_daterec1=g_daterec1, g_stats1=g_stats1)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Wifi Access at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1Q_INTERNET(SV).html')
@@ -1484,6 +1557,18 @@ def StudentReports(request):#STUDENT REPORT page
             data = borrow_record.objects.create(email5 = request.user.gsfe, if_name5 = request.user.name, i_date5=i_date5, 
             i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5,)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Borrow at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
@@ -1506,6 +1591,18 @@ def StudentReports_RequestPass(request):
             data = PassReset.objects.create(psname = request.user.name, email = request.user.gsfe, emp_idno=emp_idno, 
             Account=Account, psstats=psstats)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Password Reset at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect ('/StudentHome')
         return render (request, 'TupcSysApp/1R_REPORT(SV).html')
