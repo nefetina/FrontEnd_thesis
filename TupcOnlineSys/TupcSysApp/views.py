@@ -1436,6 +1436,18 @@ def FacultyBorrower(request):
             data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, 
             fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
+            x=datetime.now()
+            message = ("Good day " + request.user.name + ",\nYour request for Borrow at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
+            email = EmailMessage(
+                        request.user.name,
+                        message,
+                        'tupc.uitconlinesystem@gmail.com',
+                        [request.user.gsfe],
+                        
+
+                        )
+
+            email.send()
             
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
@@ -1537,11 +1549,12 @@ def StudentReports(request):#STUDENT REPORT page
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         if request.method == "POST":
+            ir_borrow5 = []
             request.POST.get('request.user.gsfe')
             request.POST.get('request.user.name')
             i_date5 = datetime.now()
             i_time5 = datetime.now().time()
-            ir_borrow5 = request.POST.get('ir_borrow5')
+            ir_borrow5 = request.POST.getlist('ir_borrow5')
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
             i_stats5 = "On Process"
