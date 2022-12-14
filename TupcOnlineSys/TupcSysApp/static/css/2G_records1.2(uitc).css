@@ -557,6 +557,10 @@ header,
     .fa {
         font-size: 7vw !important;
     }
+    .fa-arrow-circle-down {
+        font-size: 15px !important ;
+    }
+    
     #titulo {
         margin-left: 100px;
         display: flex;
@@ -618,6 +622,10 @@ header,
     .fa {
         font-size: 10vw !important;
     }
+    .fa-arrow-circle-down {
+        font-size: 15px !important ;
+    }
+    
     .navbar-brand {
         padding-left: 0px !important;
         font-size: 12pt !important;

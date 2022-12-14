@@ -207,6 +207,24 @@ input{
     overflow-y: scroll ;
 
 }
+#idtable1{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
+#idtable2{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
 
 .thead {
     background-color: #971003 !important;

@@ -179,6 +179,32 @@ input{
     overflow-y: scroll ;
 
 }
+#idtable1{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
+#idtable2{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
+#idtables{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+}
 
 /* border bottom line of the form title*/
 
@@ -500,6 +526,12 @@ header,
     .fa {
         font-size: 7vw !important;
     }
+    .fa-times {
+        font-size: 15px !important ;
+    }
+    .fa-check {
+        font-size: 15px !important;
+    }
     #titulo {
         margin-left: 100px;
         display: flex;
@@ -562,6 +594,12 @@ header,
     }
     .fa {
         font-size: 10vw !important;
+    }
+    .fa-times {
+        font-size: 15px !important ;
+    }
+    .fa-check {
+        font-size: 15px !important;
     }
     .navbar-brand {
         padding-left: 0px !important;

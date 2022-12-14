@@ -130,7 +130,10 @@ header,
     font-weight: bold !important;
 }
 
-
+#pa{
+    margin: -5px;
+    font-weight: 600;
+}
 
 /*************************xtra large*****/
 
@@ -173,6 +176,13 @@ header,
         font-weight: bold !important;
     }
 }
+@media screen and (max-width: 1050px) {
+    #text1 {
+        margin-top: -10px;
+        font-size: 30px !important;
+    }
+   
+}
 
 
 /*************************large*****/
@@ -187,6 +197,7 @@ header,
         width: 100%;
     }
     #text1 {
+        margin-top: 0px;
         font-size: 40px !important;
     }
     #desc{

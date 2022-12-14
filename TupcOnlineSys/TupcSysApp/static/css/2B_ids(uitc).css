@@ -496,6 +496,12 @@ header,
     .fa {
         font-size: 7vw !important;
     }
+    .fa-times {
+        font-size: 15px !important ;
+    }
+    .fa-check {
+        font-size: 15px !important;
+    }
     #titulo {
         margin-left: 100px;
         display: flex;
@@ -552,6 +558,12 @@ header,
     }
     .fa {
         font-size: 10vw !important;
+    }
+    .fa-times {
+        font-size: 15px !important ;
+    }
+    .fa-check {
+        font-size: 15px !important;
     }
     .navbar-brand {
         padding-left: 0px !important;

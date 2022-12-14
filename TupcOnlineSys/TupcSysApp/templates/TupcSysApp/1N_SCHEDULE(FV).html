@@ -107,11 +107,11 @@
                 <div class="col-xl-11 main">
 
                     <div class="container-fluid text-center d-flex justify-content-center align-items-center"><br><br>
-
+    
                         <!-- REQUEST OF LABORATORY SCHED-------------------------------------------------------------------------------------------->
                         <div class="col-xl-11 " id="tableform1">
                             <div class="jumbotron m-1"><br>
-
+    
                                 <!--FORM-------------------------------------------------------------------------------------------->
                                 <div class="card-body">
                                     <form method="post" action = '/FacultyLabsched/' id="labschedform"  name = "myform">
@@ -119,7 +119,7 @@
                                         <div class="formtitle">
                                             FILL UP THE FORM HERE
                                         </div>
-
+    
                                         <div class="form-row">
                                             <div class="col-xl-12">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="{{request.user.name}}" id="hf_name" name="f_name" readonly>
@@ -224,9 +224,9 @@
                                         </div>
                                         <div class="form-row">
                                             <div class=" col-xl-6 sign tempFrmWrapper" tabindex="1" elname="livefield-elem" comptype="25" id="Signature-li" needdata="true" compname="Signature" linkname="Signature" isvisible="true" mandatory="true" page_no="2" page_link_name="Page4"> 
-
-
-
+    
+    
+    
                                                 <label class="labelName"><span>Signature</span> 
                                                 
                                                 <em class="important">*</em>
@@ -279,11 +279,23 @@
                                 </div>
                             </div>
                         </div>
-
+    
                         
                         <!--LABSCHED-------------------------------------------------------------------------------------------->    
                         <div  class="col-xl-11 collapse" id="table2">
-                                             
+                            <div class="form-row">
+        
+                                <div class="col-xl-4 col-12">
+                                    <button type="button" class="btn btn-danger btn-block my-2 p-2" onclick="lab1()">Laboratory 1</button>
+                                </div>
+                            
+                                <div class="col-xl-4 col-12">
+                                    <button type="button" class="btn btn-danger btn-block my-2 p-2" onclick="lab2()">Laboratory 2</button>
+                                </div>
+                                <div class="col-xl-4 col-12">
+                                    <button type="button" class="btn btn-danger btn-block my-2 p-2" onclick="lab3()">Laboratory 3</button>
+                                </div>
+                            </div>                 
                             
                             <div class="jumbotron  m-1 "><br>
                                     
@@ -295,7 +307,7 @@
                                             
                                         </div>
                                         <div class="table-responsive-xl col-xl-12" id="idtable">
-                                            <table class="table" id="myTable">
+                                            <table class="table " id="myTable">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 1</h3>
                                                     <tr>
@@ -335,7 +347,9 @@
                                                     
                                                 </tbody>
                                             </table>
-                                            <table class="table" id="myTable">
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12 collapse" id="idtable1">
+                                            <table class="table " id="myTable">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 2</h3>
                                                     <tr>
@@ -378,7 +392,10 @@
                                                 
                                                 </tbody>
                                             </table>
-                                            <table class="table" id="myTable">
+                                            
+                                        </div>
+                                        <div class="table-responsive-xl col-xl-12 collapse" id="idtable2">
+                                            <table class="table " id="myTable">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 3</h3>
                                                     <tr>

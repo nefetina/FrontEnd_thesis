@@ -844,6 +844,12 @@ header,
     .fa {
         font-size: 7vw !important;
     }
+    .fa-times {
+        font-size: 15px !important ;
+    }
+    .fa-check {
+        font-size: 15px !important;
+    }
     #titulo {
         margin-left: 100px;
         display: flex;
@@ -863,9 +869,8 @@ header,
     .formtitle{
         font-size: 14px !important;
     }
-    .fa {
-        font-size: 20px !important;
-    }
+  
+
 }
 
 
@@ -905,6 +910,12 @@ header,
     .fa {
         font-size: 10vw !important;
     }
+    .fa-times {
+        font-size: 15px !important ;
+    }
+    .fa-check {
+        font-size: 15px !important;
+    }
     .navbar-brand {
         padding-left: 0px !important;
         font-size: 12pt !important;
@@ -920,11 +931,7 @@ header,
         display: flex;
         position: absolute;
     }
-    .fa {
-        font-size: 20px !important;
-    }
 }
-
 @media screen and (max-width: 360px) {
     .sidebar {
         height: 100vh;

@@ -1,3 +1,4 @@
+
 function openNav() {
 
     var y = document.getElementById("mySidebar");
@@ -41,5 +42,41 @@ function labsched() {
 
     a.style.display = "none";
     b.style.display = "block";
+  
+}
+
+
+function lab1(){
+    var x = document.getElementById("idtable");
+    var y = document.getElementById("idtable1");
+    var z = document.getElementById("idtable2");
+    
+    x.style.display = "block";
+    y.style.display = "none";
+    z.style.display = "none";
+
+  
+}
+
+function lab2(){
+    var x = document.getElementById("idtable");
+    var y = document.getElementById("idtable1");
+    var z = document.getElementById("idtable2");
+    
+    x.style.display = "none";
+    y.style.display = "block";
+    z.style.display = "none";
+
+  
+}
+function lab3(){
+    var x = document.getElementById("idtable");
+    var y = document.getElementById("idtable1");
+    var z = document.getElementById("idtable2");
+    
+    x.style.display = "none";
+    y.style.display = "none";
+    z.style.display = "block";
+
   
 }

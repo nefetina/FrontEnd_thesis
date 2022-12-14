@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,7 +110,7 @@
                         <div  class="col-xl-12" id="table1" >
                             <form>
                                 <div class="form-row">
-
+    
                                     <div class="col-xl-10 col-lg-9 col-12">
                                         <input type="text" id="myInput" onkeyup="myFunction()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
@@ -131,7 +130,7 @@
                                         <div class="formtitle">
                                             REQUEST FOR LABORATORY
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable">
+                                        <div class="table-responsive-xl col-xl-12" id="idtables">
                                             <table class="table" id="myTable">
                                                 <thead class="thead">
                                                 <tr>
@@ -144,15 +143,15 @@
                                                 </thead>
                                                 <tbody>
                                                     
-                                                     <!--modal for other info-------------------------------------------------------------------------------------------->
+                                                    <!--modal for other info-------------------------------------------------------------------------------------------->
                                                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                          <div class="modal-content">
+                                                        <div class="modal-content">
                                                             <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLabel"> OTHER INFORMATION</h5>
-                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <h5 class="modal-title" id="exampleModalLabel"> OTHER INFORMATION</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
-                                                              </button>
+                                                            </button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 {% for p in datal %}
@@ -182,15 +181,15 @@
                                                                     
                                                                     
                                                                     
-                                                                   
+                                                                
                                                         
                                                                 </form>
                                                                 {% endfor %}
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" class="btn btn-primary">OK</button>
+                                                            <button type="button" class="btn btn-primary">OK</button>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 <tr>
@@ -199,35 +198,35 @@
                                                     <td>{{p.dep}}</td>
                                                     <td>{{p.l_date}}</td>
                                                     <td><img src="{{p.fl_sig}}" style = "height: 80px"/></td>
-                                                 
+                                                
                                                     
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:labsched_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
-
+    
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                               data-toggle="modal" data-target="#deny1" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                            data-toggle="modal" data-target="#deny1" ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </div>
                                                         
                                                     </td>
                                                     
-                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                     <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                    <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                          <div class="modal-content">
+                                                        <div class="modal-content">
                                                             <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
-                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
-                                                              </button>
+                                                            </button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <form method="post" action = "{% url 'TupcSysApp:labsched_cancel' p.pk  %}">
                                                                     {%csrf_token%}
                                                                     <div class="form-row">
-        
+    
                                                                         <div class="col-xl-12">
                                                                             Reason for Denying
                                                                             <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying"  name = "reason">
@@ -239,11 +238,11 @@
                                                                     </div>
                                                                     
                                                                     
-                                                                   
+                                                                
                                                         
                                                                 </form>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </tr>
@@ -253,22 +252,22 @@
                                         </div>
                                         <script>
                                             function myFunction() {
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInput");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("myTable");
-                                              tr = table.getElementsByTagName("tr");
-                                              for (i = 0; i < tr.length; i++) {
+                                            var input, filter, table, tr, td, i, txtValue;
+                                            input = document.getElementById("myInput");
+                                            filter = input.value.toUpperCase();
+                                            table = document.getElementById("myTable");
+                                            tr = table.getElementsByTagName("tr");
+                                            for (i = 0; i < tr.length; i++) {
                                                 td = tr[i].getElementsByTagName("td")[0];
                                                 if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                txtValue = td.textContent || td.innerText;
+                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
                                                     tr[i].style.display = "";
-                                                  } else {
+                                                } else {
                                                     tr[i].style.display = "none";
-                                                  }
+                                                }
                                                 }       
-                                              }
+                                            }
                                             }
                                             </script>
                                         
@@ -283,22 +282,35 @@
                             
                         
                         </div>
-
-
+    
+    
                         <!--LABSCHED-------------------------------------------------------------------------------------------->    
                         <div  class="col-xl-12 collapse" id="table2">
-                                             
+                            <div class="form-row">
+    
+                                <div class="col-xl-4 col-12">
+                                    <button type="button" class="btn btn-success btn-block my-2 p-2" onclick="lab1()">Laboratory 1</button>
+                                </div>
+                            
+                                <div class="col-xl-4 col-12">
+                                    <button type="button" class="btn btn-success btn-block my-2 p-2" onclick="lab2()">Laboratory 2</button>
+                                </div>
+                                <div class="col-xl-4 col-12">
+                                    <button type="button" class="btn btn-success btn-block my-2 p-2" onclick="lab3()">Laboratory 3</button>
+                                </div>
+                            </div>
+    
                             
                             <div class="jumbotron  m-1 "><br>
                                     
                                     
                                     
                                 <div class="card-body">
-                                  
+                                
                                         <div class="formtitle">
-                                                       
+                                                    
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable">
+                                        <div class="table-responsive-xl col-xl-12 " id="idtable">
                                             <table class="table" id="myTable">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 1</h3>
@@ -350,34 +362,34 @@
                                                 </div>
                                                 <div class="form-group">                    
                                                     <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
-                                                         <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
-                                                         <a type = "button" href ="/l1_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
-
+                                                        <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+                                                        <a type = "button" href ="/l1_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
+    
                                                         </div> 
                                                 </div>
                                                 <script>
                                                     function myFunction() {
-                                                      var input, filter, table, tr, td, i, txtValue;
-                                                      input = document.getElementById("myInput");
-                                                      filter = input.value.toUpperCase();
-                                                      table = document.getElementById("myTable");
-                                                      tr = table.getElementsByTagName("tr");
-                                                      for (i = 0; i < tr.length; i++) {
+                                                    var input, filter, table, tr, td, i, txtValue;
+                                                    input = document.getElementById("myInput");
+                                                    filter = input.value.toUpperCase();
+                                                    table = document.getElementById("myTable");
+                                                    tr = table.getElementsByTagName("tr");
+                                                    for (i = 0; i < tr.length; i++) {
                                                         td = tr[i].getElementsByTagName("td")[0];
                                                         if (td) {
-                                                          txtValue = td.textContent || td.innerText;
-                                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                        txtValue = td.textContent || td.innerText;
+                                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
                                                             tr[i].style.display = "";
-                                                          } else {
+                                                        } else {
                                                             tr[i].style.display = "none";
-                                                          }
+                                                        }
                                                         }       
-                                                      }
+                                                    }
                                                     }
                                                     </script>
                                             </form>
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable1">
+                                        <div class="table-responsive-xl col-xl-12 collapse" id="idtable1">
                                             <table class="table" id="myTable1">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 2</h3>
@@ -429,34 +441,34 @@
                                                 </div>
                                                 <div class="form-group">                    
                                                     <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
-                                                         <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
-                                                         <a type = "button" href ="/l2_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
-
+                                                        <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+                                                        <a type = "button" href ="/l2_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
+    
                                                         </div> 
                                                 </div>
                                                 <script>
                                                     function myFunction() {
-                                                      var input, filter, table, tr, td, i, txtValue;
-                                                      input = document.getElementById("myInput");
-                                                      filter = input.value.toUpperCase();
-                                                      table = document.getElementById("myTable");
-                                                      tr = table.getElementsByTagName("tr");
-                                                      for (i = 0; i < tr.length; i++) {
+                                                    var input, filter, table, tr, td, i, txtValue;
+                                                    input = document.getElementById("myInput");
+                                                    filter = input.value.toUpperCase();
+                                                    table = document.getElementById("myTable");
+                                                    tr = table.getElementsByTagName("tr");
+                                                    for (i = 0; i < tr.length; i++) {
                                                         td = tr[i].getElementsByTagName("td")[0];
                                                         if (td) {
-                                                          txtValue = td.textContent || td.innerText;
-                                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                        txtValue = td.textContent || td.innerText;
+                                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
                                                             tr[i].style.display = "";
-                                                          } else {
+                                                        } else {
                                                             tr[i].style.display = "none";
-                                                          }
+                                                        }
                                                         }       
-                                                      }
+                                                    }
                                                     }
                                                     </script>
                                             </form>
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable2">
+                                        <div class="table-responsive-xl col-xl-12 collapse" id="idtable2">
                                             <table class="table" id="myTable2">
                                                 <thead class="thead">
                                                     <h3>LABORATORY 3</h3>
@@ -508,29 +520,29 @@
                                                 </div>
                                                 <div class="form-group">                    
                                                     <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
-                                                         <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
-                                                         <a type = "button" href ="/l3_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
-
+                                                        <button class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+                                                        <a type = "button" href ="/l3_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
+    
                                                         </div> 
                                                 </div>
                                                 <script>
                                                     function myFunction() {
-                                                      var input, filter, table, tr, td, i, txtValue;
-                                                      input = document.getElementById("myInput");
-                                                      filter = input.value.toUpperCase();
-                                                      table = document.getElementById("myTable");
-                                                      tr = table.getElementsByTagName("tr");
-                                                      for (i = 0; i < tr.length; i++) {
+                                                    var input, filter, table, tr, td, i, txtValue;
+                                                    input = document.getElementById("myInput");
+                                                    filter = input.value.toUpperCase();
+                                                    table = document.getElementById("myTable");
+                                                    tr = table.getElementsByTagName("tr");
+                                                    for (i = 0; i < tr.length; i++) {
                                                         td = tr[i].getElementsByTagName("td")[0];
                                                         if (td) {
-                                                          txtValue = td.textContent || td.innerText;
-                                                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                        txtValue = td.textContent || td.innerText;
+                                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
                                                             tr[i].style.display = "";
-                                                          } else {
+                                                        } else {
                                                             tr[i].style.display = "none";
-                                                          }
+                                                        }
                                                         }       
-                                                      }
+                                                    }
                                                     }
                                                     </script>
                                             </form>
