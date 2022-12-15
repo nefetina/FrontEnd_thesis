@@ -1,4 +1,5 @@
 import logging
+from django.utils import timezone
 from datetime import datetime
 from time import strftime
 
@@ -863,9 +864,10 @@ def UitcHome(request):#UITC HOMEPAGE page
         return redirect('/')
 
 
-def UitcID_modal(request, id):#UITC ID page
-    datag1 = faculty_ID.objects.filter(id=id).only("f_stat")
-    datag = faculty_ID.objects.filter(f_stat = datag1)
+def UitcID_modal(request):#UITC ID page
+    id = request.POST.get("id")
+    print(id)
+    datag = faculty_ID.objects.filter(id=id)
     print(datag1)
     return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'datag':datag})
 
@@ -874,7 +876,6 @@ def UitcID_modal(request, id):#UITC ID page
 def UitcID(request):#UITC ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
        dataf = faculty_ID.objects.filter(f_stat = "On Process")
-       
        return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf':dataf})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
@@ -1433,6 +1434,7 @@ def FacultyBorrower(request):
             fbreason = request.POST.get('fbreason')
             fbsign = request.POST.get('fbsign')
             fbstat = "On Process"
+            print(fbtime)
             data = faculty_borrow.objects.create(email4=request.user.gsfe, fbname = request.user.name, fbdate=fbdate, 
             fbtime=fbtime, fbreq=fbreq, fbreason=fbreason, fbsign=fbsign, fbstat=fbstat)
             data.save()
