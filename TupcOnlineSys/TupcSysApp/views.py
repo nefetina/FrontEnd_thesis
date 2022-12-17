@@ -1204,7 +1204,7 @@ def FacultyID(request):#FACULTY ID page
             fm_name1 = request.POST.get('fm_name1')
             fl_name1 = request.POST.get('fl_name1')
             f_suffix1 = request.POST.get('f_suffix1')
-            f_emp1 = request.POST.get('f_emp1')
+            f_emp1 = request.user.username()
             f_datereq1 = datetime.now()
             f_daterel1 = request.POST.get('f_daterel1')
             f_gsis1 = request.POST.get('f_gsis1')
@@ -1218,10 +1218,7 @@ def FacultyID(request):#FACULTY ID page
             f_add1 = request.POST.get('f_add1')
             f_signature = request.POST.get('f_signatures')
             f_dept = request.POST.get('f_dept')
-
-
             print(f_signature)
-            print(f_add1)
             f_stat = "On Process"
             data = faculty_ID.objects.create(f_pic=f_pic, email1 = request.user.gsfe, ff_name = ff_name1, fm_name=fm_name1, fl_name=fl_name1, f_suffix=f_suffix1, f_emp=f_emp1, 
             f_datereq=f_datereq1, f_daterel=f_daterel1, f_gsis=f_gsis1, f_gsisp=f_gsisp1, f_tin=f_tin1, f_pagibig=f_pagibig1, f_phil=f_phil1, 
