@@ -175,7 +175,9 @@
                                                             
                                                             <a type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
                                                             data-bs-target="#modalReturn{{ i.id }}" id="b5" >RETURNED</a>
-                                                           
+                                                            
+                                                            <a type="button" style="width: 120px; background-color: red;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
+                                                            data-bs-target="#modalnotify{{ i.id }}" id="b5" >NOTIFY</a>
                                                         
                                                         
                                                         </div>
@@ -202,6 +204,35 @@
                                                                                 Remarks
                                                                                 
                                                                                 <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "remarks">
+                                                                            </div>
+                                                                        </div>
+                                                                        <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
+                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                <div class="modal fade" id="modalnotify{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalnotify" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel"> Notify the borrower to return the item</h5>
+                                                                <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="text-center">
+                                                                    <form action="{% url 'TupcSysApp:inventory_notify' i.pk%}" method="POST">
+                                                                        {%csrf_token%}
+                                                                        
+                                                                        <div class="form-row">
+        
+                                                                            <div class="col-xl-12">
+                                                                                Message
+                                                                                
+                                                                                <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "message">
                                                                             </div>
                                                                         </div>
                                                                         <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>

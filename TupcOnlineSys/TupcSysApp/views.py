@@ -838,6 +838,8 @@ def fborrow_permit(request, id):
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
+
+
 def Index(request):
     return redirect('/')
 
@@ -1644,6 +1646,58 @@ def UitcInventory(request):#UITC ID page
         return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
+
+def inventory_notify(request, id):
+    a = Inventory.objects.get(id=id)
+    for y in Inventory.objects.filter(id=id).values():
+        i_model = y['i_model']
+        i_serial = y['i_serial']
+    
+    mes = request.POST.get("message")
+    print(mes)
+    for x in Inventory.objects.only('id').filter(i_stats= "Borrowed"):
+            if a == x:
+                
+                f = faculty_borrow.objects.filter(fbmodel = i_model, fbserial = i_serial, fbstat="Borrowed").values()
+                for f1 in f:
+                    if f1['fbmodel'] == i_model and f1['fbserial'] == i_serial and f1['fbstat'] == "Borrowed":
+                        name = f1['fbname']
+                        emails = f1['email4']
+                        
+                        message = ("Good day " + name + ", \n" + mes + "\n UITC admin")
+                        email = EmailMessage(
+                                    name,
+                                    message,
+                                    'tupc.uitconlinesystem@gmail.com',
+                                    [emails],
+
+                                    )
+
+                        email.send()
+                    break
+                s = borrow_record.objects.filter(imodel = i_model, iserial = i_serial, i_stats5="Borrowed" ).values()
+                for s1 in s:
+                    if s1['imodel'] == i_model and s1['iserial'] == i_serial and s1['i_stats5'] == "Borrowed":
+                        name = s1['if_name5']
+                        emails = s1['email5']
+                        message = ("Good day " + name + ", \n" + mes + "\n UITC admin")
+                        email = EmailMessage(
+                                    name,
+                                    message,
+                                    'tupc.uitconlinesystem@gmail.com',
+                                    [emails],
+
+                                    )
+
+                        email.send()
+                    break
+            break
+
+
+                
+    messages.info(request, "Completed")
+    return redirect('/UitcInventory')
+
 
 def UitcInventory_borrowed(request, id):
     a = Inventory.objects.get(id=id)
