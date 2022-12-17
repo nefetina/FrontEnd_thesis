@@ -868,15 +868,19 @@ def UitcID_modal(request):#UITC ID page
     id = request.POST.get("id")
     print(id)
     datag = faculty_ID.objects.filter(id=id)
-    print(datag1)
-    return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'datag':datag})
+    print(datag)
+    return redirect ('/UitcID', {'datag':datag})
 
 
 @login_required(login_url='/Index')
 def UitcID(request):#UITC ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
        dataf = faculty_ID.objects.filter(f_stat = "On Process")
-       return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf':dataf})
+       id = request.POST.get("id")
+       print(id)
+       datag = faculty_ID.objects.filter(id=id)
+
+       return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf':dataf, 'datag':datag})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":

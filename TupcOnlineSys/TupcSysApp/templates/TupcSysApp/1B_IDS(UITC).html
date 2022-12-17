@@ -125,7 +125,9 @@
                                     
                                     
                                     <div class="card-body">
-                                        <form>
+                                        <form method="post" action = "/UitcID/">
+                                            {%csrf_token%}
+                                            
                                             <div class="formtitle">
                                                 EVALUATION OF EMPLOYEE IDs
                                             </div>
@@ -144,20 +146,17 @@
                                                       </tr>
                                                     </thead>
                                                     <tbody>
-
+                                                        
                                                         <tr>
                                                             {% for q in dataf %}
-                                                            <td><a href="{% url 'TupcSysApp:UitcID_modal' %}" data-toggle="modal" data-target="#exampleModal">{{q.ff_name}}</td>
+                                                            <td><button value="{{q.id}}" name ="id" data-toggle="modal" data-target="#exampleModal">{{q.ff_name}}</td>
                                                             <td>{{q.fm_name}}</td>
                                                             <td>{{q.fl_name}}</td>
                                                             <td>{{q.f_suffix}}</td>
                                                             <td>{{q.f_emp}}</td>
                                                             <td><img src= "{{q.f_pic}}" style = "height: 100px"/>
                                                             </td>
-                                                            <form method="post" action = "/UitcID_modal/">
-                                                                <input type="text" value = "{{p.id}}" name="id" hidden/>
-                                                            
-                                                                                                                        <!--modal for other info-------------------------------------------------------------------------------------------->
+                                                                 <!--modal for other info-------------------------------------------------------------------------------------------->
                                                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
@@ -168,8 +167,8 @@
                                                                         </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            {% for p in dataf %}
-                                                                            <form>
+                                                                            {% for p in datag %}
+                                                                            
                                                                                 <div class="form-row">
                     
                                                                                     <div class="col-xl-6"> 
@@ -236,7 +235,7 @@
                                                                                 
                                                                             
                                                                     
-                                                                            </form>
+                                                                            
                                                                             {% endfor %}
                                                                         </div>
                                                                         <div class="modal-footer">
