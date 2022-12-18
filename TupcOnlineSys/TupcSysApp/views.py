@@ -1413,11 +1413,11 @@ def FacultyBorrower(request):
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            fbreq = []
+            
             request.POST.get('request.user.name')
             fbdate = datetime.now()
             fbtime = datetime.now().time()
-            fbreq = request.POST.getlist('fbreq')
+            fbreq = request.POST.get('fbreq')
             fbreason = request.POST.get('fbreason')
             fbsign = request.POST.get('fbsign')
             fbstat = "On Process"

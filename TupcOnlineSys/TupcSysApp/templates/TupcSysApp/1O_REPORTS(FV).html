@@ -709,32 +709,32 @@
                       <div
                         class="form-row text-center d-flex justify-content-center align-items-center m-3"
                       > <div class="col-xl-4 col-lg-6">
-                          <input class="form-check-input" type="checkbox" value="Projector" id="ir_borrow5" name="fbreq">
+                          <input class="form-check-input" type="radio" value="Projector" id = "cb" name="fbreq">
                           <label class="form-check-label" for="ir_borrow5">Projector</label>
                         </div>
                         
                         <div class="col-xl-4 col-lg-6">
-                          <input class="form-check-input" type="checkbox" value="Extension" id="ir_borrow5" name="fbreq">
+                          <input class="form-check-input" type="radio" value="Extension" id = "cb" name="fbreq">
                           <label class="form-check-label" for="ir_borrow5">Extension</label>
                         </div>
                         
                         <div class="col-xl-4 col-lg-6">
-                          <input class="form-check-input" type="checkbox" value="Patch Cord" id="ir_borrow5" name="fbreq">
+                          <input class="form-check-input" type="radio" value="Patch Cord" id = "cb" name="fbreq">
                           <label class="form-check-label" for="ir_borrow5">Patch Cord</label>
                         </div>
 
                         <div class="col-xl-4 col-lg-6">
-                          <input class="form-check-input" type="checkbox" value="Mouse" id="ir_borrow5" name="fbreq">
+                          <input class="form-check-input" type="radio" value="Mouse" id = "cb" name="fbreq">
                           <label class="form-check-label" for="ir_borrow5">Mouse</label>
                         </div>
 
                         <div class="col-xl-4 col-lg-6">
-                          <input class="form-check-input" type="checkbox" value="Keyboard" id="ir_borrow5" name="fbreq">
+                          <input class="form-check-input" type="radio" value="Keyboard" id = "cb" name="fbreq">
                           <label class="form-check-label" for="ir_borrow5">Keyboard</label>
                         </div>
                         
                         <div class="col-xl-4 col-lg-6">
-                          <input class="form-check-input" type="checkbox" value="Monitor" id="ir_borrow5" name="fbreq">
+                          <input class="form-check-input" type="radio" value="Monitor" id = "cb" name="fbreq">
                           <label class="form-check-label" for="ir_borrow5">Monitor</label>
                         </div>
 
@@ -744,7 +744,7 @@
                       >
                         <div class="col-xl-4 col-lg-6">
                           <h6 class="">
-                            <input type="checkbox" class="radio" /> Others
+                            <input class="form-check-input" type="radio" id="others" name="fbreq" onclick="other()"/> Others
                           </h6>
                         </div>
                         <div class="col-xl-6">
@@ -752,8 +752,10 @@
                             type="text"
                             class="form-control my-2 p-2"
                             placeholder="Please Specify:"
-                            id="ir_borrow5"
+                            
                             name="fbreq"
+                            id = "other_input"
+                            disabled
                           />
                         </div>
                       </div>
@@ -785,25 +787,26 @@
                                 
                                 <div class="tempContDiv">
                                 
-                                <div class="signContainer1" elname="signContainer" id="signContainer1-Signature"><canvas id="drawingCanvas1-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
-                                <div class="signArea" elname="signArea" id="sign-area-Signature1" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas1-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature1"></p>
-                                </div><div class="clearBoth"></div>
-                                <!--file upload signature-->
-                                <div>
-                                  <img id="f_sign" name = "f_sign" hidden/>
-                                  <input type="text" id = "fsign" name = "fsign" hidden/>
-                                  <script>
-                                      var loadFiles = function(event) {
-                                      var image = document.getElementById('f_sign');
-                                      image.src = URL.createObjectURL(event.target.files[0]);
+                                  <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas1-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature"></canvas><canvas id="blankcanvas1" signaturefieldparent="form" tabindex="-1" width="400" hidden></canvas>  
+                                    <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas1-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
+                                    </div><div class="clearBoth"></div>
+                                    <!--file upload signature-->
+                                    <div>
+                                        <img id="f_sign" name = "f_sign" hidden/>
+                                        <input type="text" id = "fbsign" name = "fbsign" hidden/>
+                                        <script>
+                                            var loadFiles = function(event) {
+                                            var image = document.getElementById('f_sign');
+                                            image.src = URL.createObjectURL(event.target.files[0]);
 
-                                      };
+                                            };
 
-                                  </script>
-                                  <input type="file" accept="image/*" onchange="loadFiles(event)"/>
-                                </div>
-                      
-                                <input type = "text" id = "fbsign"  name = "fbsign" hidden></input>
+                                        </script>
+                                        <input type="file" accept="image/*" onchange="loadFiles(event)"/>
+                                    </div>
+                            
+                                    <input type = "text" id = "fbsign"  name = "fbsign" hidden></input>
+
                             </div>
                         </div>
                     </div>
@@ -872,13 +875,7 @@
                         
                       </div>
                     </form>
-                    <div class="row mt-3">
-                      <div class="col-md-12">
-                          {% if fbreq %}
-                              {{ fbreq }}
-                          {% endif %}
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -888,7 +885,37 @@
       </div>
     </div>
     <script type="text/javascript">
+        const canvas1 = document.getElementById("drawingCanvas1-Signature");
+        document.getElementById("btn1br").addEventListener('click', function() {
+            
+            if (canvas1.toDataURL() == document.getElementById('blankcanvas1').toDataURL()) {
+                alert('Nothing drawn on canvas.. AKA, Canvas is Empty');
+                var canvass1 = document.createElement('CANVAS');
+                canvass1.setAttribute('height', 350)
+                canvass1.setAttribute('width', 350)
+                var context1 = canvass1.getContext('2d');
+                context1.drawImage(document.getElementById('f_sign'),0,0);
+                var pic1 = canvass1.toDataURL();
+                document.getElementsByName("fbsign")[1].value = pic1;
+            }
+            else {
 
+                const canvasURL = canvas1.toDataURL();
+                console.log(canvasURL);
+                document.getElementsByName("fbsign")[1].value = canvasURL;
+            }
+           
+            var canvass = document.createElement('CANVAS');
+            canvass.setAttribute('height', 350)
+            canvass.setAttribute('width', 350)
+            var context = canvass.getContext('2d');
+            context.drawImage(document.getElementById('f_pic'),0,0);
+            var pic = canvass.toDataURL();
+            document.forms['myform']['f_pics'].value = pic;
+            
+
+            
+        });
   
   </script>
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
