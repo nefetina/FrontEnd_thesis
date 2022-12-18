@@ -878,7 +878,7 @@ def UitcID_modal(request):#UITC ID page
     print(datag)
     return redirect ('/UitcID', {'datag':datag})
 
-
+#modal
 @login_required(login_url='/Index')
 def UitcID(request):#UITC ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
@@ -1211,7 +1211,7 @@ def FacultyID(request):#FACULTY ID page
             fm_name1 = request.POST.get('fm_name1')
             fl_name1 = request.POST.get('fl_name1')
             f_suffix1 = request.POST.get('f_suffix1')
-            f_emp1 = request.user.username()
+            f_emp1 = request.user.username
             f_datereq1 = datetime.now()
             f_daterel1 = request.POST.get('f_daterel1')
             f_gsis1 = request.POST.get('f_gsis1')
