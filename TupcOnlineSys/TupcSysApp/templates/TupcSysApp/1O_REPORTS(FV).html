@@ -792,11 +792,11 @@
                                     </div><div class="clearBoth"></div>
                                     <!--file upload signature-->
                                     <div>
-                                        <img id="f_sign" name = "f_sign" hidden/>
+                                        <img id="f_sign1" name = "f_sign1" hidden/>
                                         <input type="text" id = "fbsign" name = "fbsign" hidden/>
                                         <script>
                                             var loadFiles = function(event) {
-                                            var image = document.getElementById('f_sign');
+                                            var image = document.getElementById('f_sign1');
                                             image.src = URL.createObjectURL(event.target.files[0]);
 
                                             };
@@ -894,7 +894,7 @@
                 canvass1.setAttribute('height', 350)
                 canvass1.setAttribute('width', 350)
                 var context1 = canvass1.getContext('2d');
-                context1.drawImage(document.getElementById('f_sign'),0,0);
+                context1.drawImage(document.getElementById('f_sign1'),0,0);
                 var pic1 = canvass1.toDataURL();
                 document.getElementsByName("fbsign")[1].value = pic1;
             }
