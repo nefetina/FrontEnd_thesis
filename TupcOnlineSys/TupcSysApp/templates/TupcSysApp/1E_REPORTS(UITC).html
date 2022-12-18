@@ -135,7 +135,7 @@
                                     </form>
                                     <div class="jumbotron "><br>
                                         <div class="card-body">
-                                            <form>
+                                            
                                                 <div class="formtitle">
                                                     REQUEST FOR REPAIR & MAINTENANCE
                                                 </div>
@@ -152,8 +152,15 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
+                                                            <tr>
+                                                                {% for pr in data %}
+                                                                <td><button  value="{{pr.id}}" name ="id" data-toggle="modal" data-target="#modal1{{ pr.id }}">{{pr.ftype}}</td>
+                                                                <td>{{pr.fbrand}}</td>
+                                                                <td>{{pr.fname}}</td>
+                                                                <td>{{pr.Fposjob}}</td>
+                                                                <td><img src="{{pr.fsign}}" style = "height: 80px"/></td>
                                                             <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="modal1{{pr.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -163,8 +170,9 @@
                                                                     </button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        {% for pr in data %}
-                                                                        <form>
+                                                                        
+                                                                        <form method="post" action = "/UitcReports/">
+                                                                            {%csrf_token%}
                                                                             <div class="form-row">
                 
                                                                                 <div class="col-xl-12">
@@ -199,7 +207,7 @@
                                                                         
 
                                                                         </form>
-                                                                        {% endfor %}
+                                                                        
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-primary">OK</button>
@@ -207,13 +215,7 @@
                                                                 </div>
                                                                 </div>
                                                             </div>
-                                                            <tr>
-                                                                {% for pr in data %}
-                                                                <td><a href="" data-toggle="modal" data-target="#modal1">{{pr.ftype}}</td>
-                                                                <td>{{pr.fbrand}}</td>
-                                                                <td>{{pr.fname}}</td>
-                                                                <td>{{pr.Fposjob}}</td>
-                                                                <td><img src="{{pr.fsign}}" style = "height: 80px"/></td>
+                                                            
                                                     
                                                                 
                                                                 <td>
@@ -1333,7 +1335,7 @@
                                     </form>
                                     <div class="jumbotron "><br>
                                         <div class="card-body"  >
-                                            <form>
+                                            
                                                 <div class="formtitle">
                                                     MAINTENANCE
                                                 </div>
@@ -1350,9 +1352,14 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                            
+                                                            <tr>
+                                                                {% for p in data5 %}
+                                                                <td><button  value="{{p.id}}" name ="id" data-toggle="modal" data-target="#modal3{{ q.id }}">{{p.i_type4}}</td>                                                                <td>{{p.i_type4}}</td>
+                                                                <td><img src="{{p.i_sig5}}" style = "height: 80px"></td>
+                                                                <td>{{p.ie_date5}}</td>
+                                                                <td>{{p.i_stats}}</td>
                                                             <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                            <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="modal3{{ q.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -1363,8 +1370,8 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         
-                                                                        <form>
-                                                                            {% for p in data5 %}
+                                                                        <form method="post" action = "/UitcReports/">
+                                                                            {%csrf_token%}
                                                                             <div class="form-row">
                                                             
                                                                                 <div class="col-xl-12">
@@ -1575,7 +1582,7 @@
                                                                         
                                                                 
                                                                         </form>
-                                                                        {% endfor %}
+                                                                        
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                     <button type="button" class="btn btn-primary">OK</button>
@@ -1617,13 +1624,7 @@
                                                                 </div>
                                                                 </div>
                                                             </div>
-                                                        <tr>
-                                                            {% for p in data5 %}
-                                                            <td><a href="" data-toggle="modal" data-target="#modal3">{{p.i_type4}}</td>
-                                                            <td>{{p.i_type4}}</td>
-                                                            <td><img src="{{p.i_sig5}}" style = "height: 80px"></td>
-                                                            <td>{{p.ie_date5}}</td>
-                                                            <td>{{p.i_stats}}</td>
+                                                        
                                                             
                                                             <td>
                                                                 <div class=" col-xl-12 d-flex justify-content-center align-items-center ">

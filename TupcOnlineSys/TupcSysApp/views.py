@@ -1350,18 +1350,7 @@ def FacultyReports(request):#FACULTY REPORTS page
             data = faculty_reports.objects.create(ftype = ftype, fbrand=fbrand, fserial=fserial, fspecs=fspecs, fnature=fnature, 
              fname=request.user.name, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
             data.save()
-            x=datetime.now()
-            message = ("Good day " + request.user.name + ",\nYour request for Repair & Maintenance at the date and time of "  + x.strftime("%b %d, %Y, %I:%M %p") + " has been submitted. \n -UITC admin")
-            email = EmailMessage(
-                        request.user.name,
-                        message,
-                        'tupc.uitconlinesystem@gmail.com',
-                        [request.user.gsfe],
-                        
-
-                        )
-
-            email.send()
+            
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
         return render (request, 'TupcSysApp/1O_REPORTS(FV).html')
