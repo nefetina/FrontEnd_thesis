@@ -126,7 +126,7 @@
                             
                                 
                                 <div class="card-body"  >
-                                    <form>
+                                    
                                         <div class="formtitle">
                                             EMPLOYEE WIFI REQUEST
                                         </div>
@@ -142,8 +142,15 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                  <tr>
+                                                    {% for p in datag %}
+                                                    <td><button  value="{{p.id}}" name ="id" data-toggle="modal" data-target="#exampleModal{{ p.id }}">{{p.gf_name}}</td>
+                                                    <td>{{p.g_dept}}</td>
+                                                    <td><img src="{{p.g_sig}}" style = "height: 80px"/></td>
+                                                    <td>{{p.g_datereq}}</td>
+                                                    
                                                      <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade"  id="exampleModal{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
                                                             <div class="modal-header">
@@ -152,12 +159,9 @@
                                                                 <span aria-hidden="true">&times;</span>
                                                               </button>
                                                             </div>
-                                                            <div class="modal-body">
-                                                            {% for p in datag %}
-                                                              <form>
-                                                                <div class="formtitle">
-                                                                  
-                                                                </div>
+                                                            <div class="modal-body"> 
+                                                              <form method="post" action = "/UitcInternet/">
+                                                                {%csrf_token%}
                                                                 <div class="form-row">
                                                     
                                                                     <div class="col-xl-12">
@@ -192,8 +196,8 @@
                                                                 
                                                                
                                                     
-                                                              </form>
-                                                              {% endfor %}
+                                                              
+                                                              
                                                             </div>
                                                             <div class="modal-footer">
                                                               <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
@@ -202,23 +206,19 @@
                                                         </div>
                                                     </div>
                                                     
-                                                    <tr>
-                                                        {% for p in datag %}
-                                                        <td><a href="" data-toggle="modal" data-target="#modal1">{{p.gf_name}}</td>
-                                                        <td>{{p.g_dept}}</td>
-                                                        <td><img src="{{p.g_sig}}" style = "height: 80px"/></td>
-                                                        <td>{{p.g_datereq}}</td>
-                                                        <td>
-                                                            <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                        
-                                                                <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                data-toggle="tooltip" data-placement="top" title="Approve"  href="{% url 'TupcSysApp:FacultyWifi_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
-    
-                                                                <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                  data-toggle="modal" data-target="#deny1"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                            </div>
-                                                            
-                                                        </td>
+                                                            </form>
+                                                <td>
+                                                  <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+                              
+                                                      <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
+                                                      data-toggle="tooltip" data-placement="top" title="Approve"  href="{% url 'TupcSysApp:FacultyWifi_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+
+                                                      <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
+                                                        data-toggle="modal" data-target="#deny1"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                  </div>
+                                                  
+                                              </td>
+
                                                                                                              <!--modal for deny pop up-------------------------------------------------------------------------------------------->
                                                         <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                           <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -301,7 +301,7 @@
                             <div class="jumbotron  m-1 " ><br>
 
                                 <div class="card-body">
-                                    <form>
+                                    
                                         <div class="formtitle">
                                             STUDENT WIFI REQUEST
                                         </div>
@@ -318,8 +318,15 @@
                                                   </tr>
                                                 </thead>
                                                 <tbody>
+                                                  <tr>
+                                                      {% for q in datah %}
+                                                      <td><button  value="{{q.id}}" name ="id" data-toggle="modal" data-target="#exampleModal1{{ q.id }}">{{q.gf_name1}}</td>
+                                                      <td>{{q.g_csec1}}</td>
+                                                      <td>{{q.g_snum1}}</td>
+                                                      <td><img src="{{q.g_sig1}}" style = "height: 80px"/></td>
+                                                      <td>{{q.g_daterec1}}</td>
                                                   <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="exampleModal1{{ q.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
                                                             <div class="modal-header">
@@ -329,48 +336,49 @@
                                                               </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                {% for p in datah %}
-                                                                <form>
+                                                               
+                                                                <form method="post" action = "/UitcInternet/">
+                                                                  {%csrf_token%}
                                                                     
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="O.R. No.:{{p.g_or1}}" placeholder="O.R. No." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="O.R. No.:{{q.g_or1}}" placeholder="O.R. No." readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Semester: {{p.g_sem1}}" placeholder="Semester" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Semester: {{q.g_sem1}}" placeholder="Semester" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="System: {{p.g_sys1}}" placeholder="System" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="System: {{q.g_sys1}}" placeholder="System" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="MAC Address: {{p.g_mac1}}" placeholder="MAC Address" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="MAC Address: {{q.g_mac1}}" placeholder="MAC Address" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Mobile No.: {{p.g_num1}}" placeholder="Mobile No." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Mobile No.: {{q.g_num1}}" placeholder="Mobile No." readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Email Address: {{p.g_email1}}" placeholder="Email Address" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Email Address: {{q.g_email1}}" placeholder="Email Address" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                       <div class="col-xl-12">
-                                                                          <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{p.g_add1}}" placeholder="Address" readonly>
+                                                                          <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{q.g_add1}}" placeholder="Address" readonly>
                                                                       </div>
                                                                   </div>
                       
                                             
-                                                                </form>
-                                                                {% endfor %}
+                                                               
+                                                                
                                                             </div>
                                                             <div class="modal-footer">
                                                               <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
@@ -378,19 +386,13 @@
                                                           </div>
                                                         </div>
                                                     </div>  
-                                                  <tr>
-                                                    {% for p in datah %}
-                                                        <td><a href="" data-toggle="modal" data-target="#modal2">{{p.gf_name1}}</td>
-                                                        <td>{{p.g_csec1}}</td>
-                                                        <td>{{p.g_snum1}}</td>
-                                                        <td><img src="{{p.g_sig1}}" style = "height: 80px"/></td>
-                                                        <td>{{p.g_daterec1}}</td>
+                                                                </form>
                                                        
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentWifi_permit' p.pk  %}"><i class="fa fa-check " aria-hidden="true"></i></a>
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentWifi_permit' q.pk  %}"><i class="fa fa-check " aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
                                                              data-toggle="modal" data-target="#deny2"><i class="fa fa-times " aria-hidden="true"></i></a>
@@ -408,7 +410,7 @@
                                                             </button>
                                                           </div>
                                                           <div class="modal-body">
-                                                              <form method = "post" action = "{% url 'TupcSysApp:StudentWifi_cancel' p.pk %}">
+                                                              <form method = "post" action = "{% url 'TupcSysApp:StudentWifi_cancel' q.pk %}">
                                                                 {% csrf_token %}
                                                                   <div class="form-row">
       
@@ -481,7 +483,7 @@
                             <div class="jumbotron  m-1 " ><br>
 
                                 <div class="card-body">
-                                    <form>
+                                   
                                         <div class="formtitle">
                                             STUDENT INTERNET ACCESS REQUEST
                                         </div>
@@ -497,8 +499,15 @@
                                                   </tr>
                                                 </thead>
                                                 <tbody>
+                                                  <tr>
+                                                        {% for r in datai %}
+                                                        <td><button  value="{{r.id}}" name ="id" data-toggle="modal" data-target="#exampleModal{{ r.id }}">{{r.gf_name2}}</td>
+                                                        <td>{{r.g_snum2}}</td>
+                                                        <td><img src="{{r.g_sig2}}" style = "height: 80px"/></td>
+                                                        <td>{{r.g_daterec2}}</td>
+                                                        <td>  
                                                     <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="exampleModal{{ r.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
                                                             <div class="modal-header">
@@ -508,47 +517,48 @@
                                                               </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                {% for p in datai %}
-                                                                <form>
+                                                                
+                                                                  <form method="post" action = "/UitcInternet/">
+                                                                    {%csrf_token%}
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Username: {{p.gu_name2}}" placeholder="Username" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Username: {{r.gu_name2}}" placeholder="Username" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                     
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Course and Section: {{p.g_csec2}}" placeholder="Course and Section" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Course and Section: {{r.g_csec2}}" placeholder="Course and Section" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="O.R. No.: {{p.g_or2}}" placeholder="O.R. No." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="O.R. No.: {{r.g_or2}}" placeholder="O.R. No." readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Semester: {{p.g_sem2}}" placeholder="Semester" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Semester: {{r.g_sem2}}" placeholder="Semester" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Mobile No.: {{p.g_num2}}" placeholder="Mobile No." readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Mobile No.: {{r.g_num2}}" placeholder="Mobile No." readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                         <div class="col-xl-12">
-                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Email Address: {{p.g_email2}}" placeholder="Email Address" readonly>
+                                                                            <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Email Address: {{r.g_email2}}" placeholder="Email Address" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-row">
                                                                       <div class="col-xl-12">
-                                                                          <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{p.g_add2}}" placeholder="Address" readonly>
+                                                                          <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Address: {{r.g_add2}}" placeholder="Address" readonly>
                                                                       </div>
                                                                   </div>
                                                                   
-                                                                </form>
-                                                                {% endfor %}
+                                                                        </form>
+                                                                
                                                             </div>
                                                             <div class="modal-footer">
                                                               <button type="button" class="btn btn-primary">OK</button>
@@ -557,17 +567,11 @@
                                                         </div>
                                                     </div>  
                                                      
-                                                  <tr>
-                                                    {% for p in datai %}
-                                                        <td><a href="" data-toggle="modal" data-target="#modal3">{{p.gf_name2}}</td>
-                                                        <td>{{p.g_snum2}}</td>
-                                                        <td><img src="{{p.g_sig2}}" style = "height: 80px"/></td>
-                                                        <td>{{p.g_daterec2}}</td>
-                                                        <td>                                
+                                                                                
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                         
                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentInternet_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentInternet_permit' r.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
                                                              data-toggle="modal" data-target="#deny3"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -585,7 +589,7 @@
                                                             </button>
                                                           </div>
                                                           <div class="modal-body">
-                                                              <form method="post" action = "{% url 'TupcSysApp:StudentInternet_cancel' p.pk  %}">
+                                                              <form method="post" action = "{% url 'TupcSysApp:StudentInternet_cancel' r.pk  %}">
                                                                   {%csrf_token%}
                                                                   <div class="form-row">
                                                                       <div class="col-xl-12">

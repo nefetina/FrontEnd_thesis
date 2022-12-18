@@ -871,23 +871,13 @@ def UitcHome(request):#UITC HOMEPAGE page
         return redirect('/')
 
 
-def UitcID_modal(request):#UITC ID page
-    id = request.POST.get("id")
-    print(id)
-    datag = faculty_ID.objects.filter(id=id)
-    print(datag)
-    return redirect ('/UitcID', {'datag':datag})
-
 #modal
 @login_required(login_url='/Index')
 def UitcID(request):#UITC ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
        dataf = faculty_ID.objects.filter(f_stat = "On Process")
-       id = request.POST.get("id")
-       print(id)
-       datag = faculty_ID.objects.filter(id=id)
-
-       return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf':dataf, 'datag':datag})
+       
+       return render (request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf':dataf})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1223,7 +1213,7 @@ def FacultyID(request):#FACULTY ID page
             f_cp1 = request.POST.get('f_cp1')
             f_num1 = request.POST.get('f_num1')
             f_add1 = request.POST.get('f_add1')
-            f_signature = request.POST.get('f_signatures')
+            f_signature = request.POST.get('f_signature')
             f_dept = request.POST.get('f_dept')
             print(f_signature)
             f_stat = "On Process"
