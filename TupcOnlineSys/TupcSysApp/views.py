@@ -263,6 +263,8 @@ def register(request):#registration
         a = list.objects.all().values()
         b = request.POST.get("username")   
         c = request.POST.get("gsfe")
+        d = request.POST.get("password1")
+        e = request.POST.get("password2")
         ccc = list.objects.only('id').filter(lidno = b)
         y = ccc.values()         
         for x in y:
@@ -293,10 +295,13 @@ def register(request):#registration
                     email.send()
 
                     return redirect('/')
+                elif d != e:
+                    messages.warning(request, "Password Not Match")
                 else:
                     messages.warning(request, "Recheck all your input info")
+           
             else:
-                messages.warning(request, "Recheck all your input info")
+                 messages.warning(request, "Recheck all your input info")
 
                 
     context = {
