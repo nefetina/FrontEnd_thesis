@@ -284,7 +284,7 @@
                                                 
                                                 <div class="tempContDiv" >
                                                 
-                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signaturexx" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature"></canvas>  
+                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signaturexx" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature"></canvas><canvas id="blankcanvas" signaturefieldparent="form" tabindex="-1" width="400" hidden></canvas>  
                                                     <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signaturexx');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
                                                     </div><div class="clearBoth"></div>
                                                     <!--file upload signature-->
@@ -348,54 +348,40 @@
         </div>
     </div>
 
-<script type="text/javascript">
-    const canvas = document.getElementById("drawingCanvas-Signaturexx");
-    document.getElementById("btn1").addEventListener('click', function() {
-        if(!canvas.getContext) return;
-        var ctx     = canvas.getContext('2d');
-        var w       = canvas.width = canvas.height = 100;
-        var drawn   = null;
-        var d       = ctx.getImageData(0, 0, w, w); //image data 
-        var len     = d.data.length;
-        for(var i =0; i< len; i++) {
-            if(!d.data[i]) {
-            drawn = false;
-            }else if(d.data[i]) {
-            drawn = true;
-            alert('Something drawn on Canvas');
-            const canvasURL = canvas.toDataURL();
-            console.log(canvasURL);
-            a = document.getElementsByName("f_signatures")[0].value = canvasURL;
-            alert(a);
-            break;
+    <script type="text/javascript">
+        const canvas = document.getElementById("drawingCanvas-Signaturexx");
+        document.getElementById("btn1").addEventListener('click', function() {
+            
+            if (canvas.toDataURL() == document.getElementById('blankcanvas').toDataURL()) {
+                alert('Nothing drawn on canvas.. AKA, Canvas is Empty');
+                var canvass1 = document.createElement('CANVAS');
+                canvass1.setAttribute('height', 350)
+                canvass1.setAttribute('width', 350)
+                var context1 = canvass1.getContext('2d');
+                context1.drawImage(document.getElementById('f_sign'),0,0);
+                var pic1 = canvass1.toDataURL();
+                document.getElementsByName("f_signatures")[1].value = pic1;
             }
-        }
-        if(!drawn) {
-            var canvass1 = document.createElement('CANVAS');
-            canvass1.setAttribute('height', 350)
-            canvass1.setAttribute('width', 350)
-            var context1 = canvass1.getContext('2d');
-            context1.drawImage(document.getElementById('f_sign'),0,0);
-            var pic1 = canvass1.toDataURL();
-            a = document.getElementsByName("f_signatures")[1].value = pic1;
-            alert(a);
-            alert('Nothing drawn on canvas.. AKA, Canvas is Empty');
-        }
+            else {
 
+                const canvasURL = canvas.toDataURL();
+                console.log(canvasURL);
+                document.getElementsByName("f_signatures")[1].value = canvasURL;
+            }
+           
+            var canvass = document.createElement('CANVAS');
+            canvass.setAttribute('height', 350)
+            canvass.setAttribute('width', 350)
+            var context = canvass.getContext('2d');
+            context.drawImage(document.getElementById('f_pic'),0,0);
+            var pic = canvass.toDataURL();
+            document.forms['myform']['f_pics'].value = pic;
+            
 
-        var canvass = document.createElement('CANVAS');
-        canvass.setAttribute('height', 350)
-        canvass.setAttribute('width', 350)
-        var context = canvass.getContext('2d');
-        context.drawImage(document.getElementById('f_pic'),0,0);
-        var pic = canvass.toDataURL();
-        document.forms['myform']['f_pics'].value = pic;
-        
+            
+        });
 
-        
-    });
-
-</script>
+    </script>
 
 
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
