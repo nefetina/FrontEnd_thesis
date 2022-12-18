@@ -127,7 +127,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <select id="inputState" class="form-control my-2 p-2" name = "g_dept" required>
+                                                <select id="inputState" class="form-control my-2 p-2" name = "dep" required>
                                                     <option selected disabled value="">Department:</option>
                                                     <optgroup label="Administration Building">
                                                         <option value="OP">OPERATOR</option>
@@ -237,24 +237,25 @@
                                                 
                                                 <div class="tempContDiv">
                                                 
-                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature"></canvas>  
-                                                    <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
-                                                    </div><div class="clearBoth"></div>
-                                                     <!--file upload signature-->
-                                                    <div>
-                                                        <img id="f_sign" name = "f_sign" hidden/>
-                                                        <input type="text" id = "fl_sig" name = "fl_sig" hidden/>
-                                                        <script>
-                                                            var loadFiles = function(event) {
-                                                            var image = document.getElementById('f_sign');
-                                                            image.src = URL.createObjectURL(event.target.files[0]);
-        
-                                                            };
-        
-                                                        </script>
-                                                        <input type="file" accept="image/*" onchange="loadFiles(event)"/>
-                                                    </div>
-                                                    <input type = "text" id = "fl_sig"  name = "fl_sig" hidden></input>
+                                                    <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signaturexx" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature"></canvas><canvas id="blankcanvas" signaturefieldparent="form" tabindex="-1" width="400" hidden></canvas>  
+                                                        <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signaturexx');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
+                                                        </div><div class="clearBoth"></div>
+                                                        <!--file upload signature-->
+                                                        <div>
+                                                            <img id="f_sign" name = "f_sign" hidden/>
+                                                            <input type="text" id = "fl_sig" name = "fl_sig" hidden/>
+                                                            <script>
+                                                                var loadFiles = function(event) {
+                                                                var image = document.getElementById('f_sign');
+                                                                image.src = URL.createObjectURL(event.target.files[0]);
+            
+                                                                };
+            
+                                                            </script>
+                                                            <input type="file" accept="image/*" onchange="loadFiles(event)"/>
+                                                        </div>
+                                                
+                                                        <input type = "text" id = "fl_sig"  name = "fl_sig" hidden></input>
                                             </div>
                                         </div>
                                         <!--disclosure modal-------------------------------------------------------------------------------------------->    
@@ -464,53 +465,34 @@
             </div>
         </div>
     </div>
-<script type="text/javascript">
-    const canvas = document.getElementById("drawingCanvas-Signature");
-    document.getElementById("btn1").addEventListener('click', function() {
-        if(!canvas.getContext) return;
-        var ctx     = canvas.getContext('2d');
-        var w       = canvas.width = canvas.height = 100;
-        var drawn   = null;
-        var d       = ctx.getImageData(0, 0, w, w); //image data 
-        var len     = d.data.length;
-        for(var i =0; i< len; i++) {
-            if(!d.data[i]) {
-            drawn = false;
-            }else if(d.data[i]) {
-            drawn = true;
-            alert('Something drawn on Canvas');
-            const canvasURL = canvas.toDataURL();
-            console.log(canvasURL);
-            a = document.getElementsByName("fl_sig")[0].value = canvasURL;
-            alert(a);
-            break;
+    <script type="text/javascript">
+        const canvas = document.getElementById("drawingCanvas-Signaturexx");
+        document.getElementById("btn1").addEventListener('click', function() {
+            
+            if (canvas.toDataURL() == document.getElementById('blankcanvas').toDataURL()) {
+                var canvass1 = document.createElement('CANVAS');
+                canvass1.setAttribute('height', 350)
+                canvass1.setAttribute('width', 350)
+                var context1 = canvass1.getContext('2d');
+                context1.drawImage(document.getElementById('f_sign'),0,0);
+                var pic1 = canvass1.toDataURL();
+                document.getElementsByName("fl_sig")[1].value = pic1;
             }
-        }
-        if(!drawn) {
-            var canvass1 = document.createElement('CANVAS');
-            canvass1.setAttribute('height', 350)
-            canvass1.setAttribute('width', 350)
-            var context1 = canvass1.getContext('2d');
-            context1.drawImage(document.getElementById('f_sign'),0,0);
-            var pic1 = canvass1.toDataURL();
-            a = document.getElementsByName("fl_sig")[1].value = pic1;
-            alert(a);
-            alert('Nothing drawn on canvas.. AKA, Canvas is Empty');
-        }
+            else {
 
+                const canvasURL = canvas.toDataURL();
+                console.log(canvasURL);
+                document.getElementsByName("fl_sig")[1].value = canvasURL;
+            }
+                       
+        });
 
-        
-
-        
-    });
-
-</script>
-
+    </script>
 
 
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
-    $("#drawingCanvas-Signature").mousedown(function (event) {
-    var canvasElem = document.getElementById("drawingCanvas-Signature"); //No I18N	
+    $("#drawingCanvas-Signaturexx").mousedown(function (event) {
+    var canvasElem = document.getElementById("drawingCanvas-Signaturexx"); //No I18N	
     var signatureFieldParent = $(canvasElem).attr('signaturefieldparent'); //No I18N
     var fontColor = "#000000";
     var inputElem = ""; //No I18N
@@ -529,7 +511,8 @@
     if(inputElem != "" && inputElem.length > 0) {
     fontColor = inputElem.css("color");// No I18N
     }
-    var context = canvasElem.getContext("2d");// No I18N
+    var context = canvasElem.getContext("2d");
+    // No I18N
     var position = getXYCoords(event, canvasElem,false);
     context.moveTo(position.X, position.Y);
     context.beginPath();
@@ -558,17 +541,20 @@
     var userAgent = window.navigator.userAgent;
     var msie = userAgent.indexOf("MSIE ");
     if (msie > 0) {
-    $("#drawingCanvas-Signature").keypress(function (event) {
+    $("#drawingCanvas-Signaturexx").keypress(function (event) {
     if (event.keyCode === 13) {
     event.preventDefault();
+    
     }
+    
     });
     }
     if (false == true)  //No I18N
     {
-    $("#drawingCanvas-Signature").css("pointer-events","none");//No I18N
-    $("#drawingCanvas-Signature").css("cursor","default");//No I18N
-    }</script>
+    $("#drawingCanvas-Signaturexx").css("pointer-events","none");//No I18N
+    $("#drawingCanvas-Signaturexx").css("cursor","default");//No I18N
+    }
+    </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {% for message in messages %}

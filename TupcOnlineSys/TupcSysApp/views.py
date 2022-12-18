@@ -1334,7 +1334,7 @@ def FacultyReports(request):#FACULTY REPORTS page
         return render (request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
-            request.POST.get('request.user.gsfe')
+            email3 = request.user.gsfe
             ftype = request.POST.get('ftype')
             fbrand = request.POST.get('fbrand')
             fserial = request.POST.get('fserial')
@@ -1347,7 +1347,7 @@ def FacultyReports(request):#FACULTY REPORTS page
             ftime = request.POST.get('ftime')
             fsign = request.POST.get('fsign')
             fstat = "On Process"
-            data = faculty_reports.objects.create(ftype = ftype, fbrand=fbrand, fserial=fserial, fspecs=fspecs, fnature=fnature, 
+            data = faculty_reports.objects.create(ftype = ftype, email3 = email3, fbrand=fbrand, fserial=fserial, fspecs=fspecs, fnature=fnature, 
              fname=request.user.name, Fposjob=Fposjob, fdep=fdep, fdate = fdate, ftime=ftime, fsign=fsign, fstat = fstat)
             data.save()
             
