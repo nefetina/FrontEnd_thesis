@@ -320,13 +320,13 @@
                                                 <tbody>
                                                   <tr>
                                                       {% for q in datah %}
-                                                      <td><button  value="{{q.id}}" name ="id" data-toggle="modal" data-target="#exampleModal1{{ q.id }}">{{q.gf_name1}}</td>
+                                                      <td><button  value="{{q.id}}" name ="id" data-toggle="modal" data-target="#modal1{{ q.id }}">{{q.gf_name1}}</td>
                                                       <td>{{q.g_csec1}}</td>
                                                       <td>{{q.g_snum1}}</td>
                                                       <td><img src="{{q.g_sig1}}" style = "height: 80px"/></td>
                                                       <td>{{q.g_daterec1}}</td>
                                                   <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="exampleModal1{{ q.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="modal1{{ q.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
                                                             <div class="modal-header">
@@ -501,13 +501,13 @@
                                                 <tbody>
                                                   <tr>
                                                         {% for r in datai %}
-                                                        <td><button  value="{{r.id}}" name ="id" data-toggle="modal" data-target="#exampleModal{{ r.id }}">{{r.gf_name2}}</td>
+                                                        <td><button  value="{{r.id}}" name ="id" data-toggle="modal" data-target="#modal2{{ r.id }}">{{r.gf_name2}}</td>
                                                         <td>{{r.g_snum2}}</td>
                                                         <td><img src="{{r.g_sig2}}" style = "height: 80px"/></td>
                                                         <td>{{r.g_daterec2}}</td>
                                                         <td>  
                                                     <!--modal for other info-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="exampleModal{{ r.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="modal2{{ r.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                           <div class="modal-content">
                                                             <div class="modal-header">
