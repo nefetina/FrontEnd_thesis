@@ -376,8 +376,8 @@
                           />
                         </div>
                       </div>
-                      <div class="form-row">
-                        <div class="col-xl-12">
+                      <div class="form-row ">
+                        <div class="col-xl-12 text-center d-flex justify-content-center align-items-center">
                           <div
                             class="col-xl-6 sign tempFrmWrapper"
                             tabindex="1"
@@ -434,6 +434,20 @@
                               ></p>
                             </div>
                             <div class="clearBoth"></div>
+                            <!--file upload signature-->
+                            <div>
+                              <img id="f_sign" name = "f_sign" hidden/>
+                              <input type="text" id = "fsign" name = "fsign" hidden/>
+                              <script>
+                                  var loadFiles = function(event) {
+                                  var image = document.getElementById('f_sign');
+                                  image.src = URL.createObjectURL(event.target.files[0]);
+
+                                  };
+
+                              </script>
+                              <input type="file" accept="image/*" onchange="loadFiles(event)"/>
+                            </div>
                             <input type = "text" id = "fsign"  name = "fsign" hidden></input>
                           </div>
                         </div>
@@ -490,7 +504,7 @@
                         </div>
                       </div>
                       <!--BUTTONS-------------------------------------------------------------------------------------------->
-                      <div class="col-xl-12">
+                      <div class="col-xl-12 mt-4">
                         <p class="card-text">
                           Check it properly before you send it.
                         </p>
@@ -770,8 +784,8 @@
                           />
                         </div>
                       </div>
-                      <div class="form-row">
-                        <div class="col-xl-12">
+                      <div class="form-row ">
+                        <div class="col-xl-12 text-center d-flex justify-content-center align-items-center">
                             <div class=" col-xl-6 sign tempFrmWrapper" tabindex="1" elname="livefield-elem" comptype="25" id="Signature1-li" needdata="true" compname="Signature1" linkname="Signature1" isvisible="true" mandatory="true" page_no="3" page_link_name="Page3"> 
 
 
@@ -789,6 +803,21 @@
                                 <div class="signContainer1" elname="signContainer" id="signContainer1-Signature"><canvas id="drawingCanvas1-Signature" signaturefieldparent="form" tabindex="-1" width="400" name = 'f_signature1'></canvas>  
                                 <div class="signArea" elname="signArea" id="sign-area-Signature1" style="display:none" name = 'f_signature1'></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas1-Signature');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature1"></p>
                                 </div><div class="clearBoth"></div>
+                                <!--file upload signature-->
+                                <div>
+                                  <img id="f_sign" name = "f_sign" hidden/>
+                                  <input type="text" id = "fsign" name = "fsign" hidden/>
+                                  <script>
+                                      var loadFiles = function(event) {
+                                      var image = document.getElementById('f_sign');
+                                      image.src = URL.createObjectURL(event.target.files[0]);
+
+                                      };
+
+                                  </script>
+                                  <input type="file" accept="image/*" onchange="loadFiles(event)"/>
+                                </div>
+                      
                                 <input type = "text" id = "fbsign"  name = "fbsign" hidden></input>
                             </div>
                         </div>
@@ -843,7 +872,7 @@
                       </div>
 
                       <!--BUTTONS-------------------------------------------------------------------------------------------->
-                      <div class="col-xl-12">
+                      <div class="col-xl-12 mt-4">
                         <p class="card-text">
                           Check it properly before you send it.
                         </p>
@@ -855,12 +884,7 @@
                         >
                           Submit
                         </button>
-                        <button
-                          type="button"
-                          class="btn btn-danger float-right m-1"
-                        >
-                          Clear
-                        </button>
+                        
                       </div>
                     </form>
                     <div class="row mt-3">
@@ -879,14 +903,46 @@
       </div>
     </div>
     <script type="text/javascript">
-        const canvas1 = document.getElementById("drawingCanvas1-Signature");
-        document.getElementById("btn1br").addEventListener('click', function() {
-        const canvasURL = canvas1.toDataURL();
-        console.log(canvasURL);
-        document.forms['myform1']['fbsign'].value = canvasURL;
-        
+      const canvas1 = document.getElementById("drawingCanvas-Signature");
+      document.getElementById("btn1br").addEventListener('click', function() {
+          if(!canvas.getContext) return;
+          var ctx     = canvas.getContext('2d');
+          var w       = canvas.width = canvas.height = 100;
+          var drawn   = null;
+          var d       = ctx.getImageData(0, 0, w, w); //image data 
+          var len     = d.data.length;
+          for(var i =0; i< len; i++) {
+              if(!d.data[i]) {
+              drawn = false;
+              }else if(d.data[i]) {
+              drawn = true;
+              alert('Something drawn on Canvas');
+              const canvasURL = canvas.toDataURL();
+              console.log(canvasURL);
+              a = document.getElementsByName("fsign")[0].value = canvasURL;
+              alert(a);
+              break;
+              }
+          }
+          if(!drawn) {
+              var canvass1 = document.createElement('CANVAS');
+              canvass1.setAttribute('height', 350)
+              canvass1.setAttribute('width', 350)
+              var context1 = canvass1.getContext('2d');
+              context1.drawImage(document.getElementById('f_sign'),0,0);
+              var pic1 = canvass1.toDataURL();
+              a = document.getElementsByName("fsign")[1].value = pic1;
+              alert(a);
+              alert('Nothing drawn on canvas.. AKA, Canvas is Empty');
+          }
+  
+  
+          
+  
+          
       });
-    </script>
+  
+  </script>
     <script type="module">
       setCanvasElemWidth("Signature"); //No I18N
       $("#drawingCanvas-Signature").mousedown(function (event) {
