@@ -1381,7 +1381,7 @@ def FacultyRstPass(request):
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         if request.method == "POST":
             request.POST.get('request.user.name')
-            fwempID = request.POST.get('fwempID')
+            fwempID = request.user.username
             fwIDtype = request.POST.get('fwIDtype')
             request.POST.get('request.user.gsfe')
             fwstat = "On Process"
@@ -1543,7 +1543,7 @@ def StudentReports(request):#STUDENT REPORT page
             request.POST.get('request.user.name')
             i_date5 = datetime.now()
             i_time5 = datetime.now().time()
-            ir_borrow5 = request.POST.getlist('ir_borrow5')
+            ir_borrow5 = request.POST.get('ir_borrow5')
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
             i_stats5 = "On Process"

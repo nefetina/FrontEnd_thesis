@@ -44,3 +44,17 @@ function requestforpassreset() {
     x.style.display = "block";
 
 }
+
+function other() {
+    var a = document.getElementById("others");
+    var b = document.getElementById("other_input");
+
+    if (a.checked == true) {
+        b.disabled = false;
+        a.value = b.value();
+    }
+    else if(a.checked == false) {
+        b.disabled = true;
+
+}
+}
