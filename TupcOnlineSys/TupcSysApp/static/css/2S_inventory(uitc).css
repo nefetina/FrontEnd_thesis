@@ -249,6 +249,11 @@ input {
     color: white ;
     
 }
+#b6 {
+    
+    color: white ;
+    
+}
 #b4:hover {
     border: 2px solid rgb(201, 255, 4) !important;
     background-color: #ffffff;
@@ -261,6 +266,13 @@ input {
     background-color: #ffffff;
     transition: .2s ease-in-out;
     color: rgb(7, 24, 207);
+    
+}
+#b6:hover {
+    border: 2px solid rgb(207, 44, 7) !important;
+    background-color: #ffffff;
+    transition: .2s ease-in-out;
+    color: rgb(207, 44, 7);
     
 }
 .active {

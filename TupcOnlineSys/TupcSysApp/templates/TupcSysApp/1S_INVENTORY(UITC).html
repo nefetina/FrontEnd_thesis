@@ -176,8 +176,8 @@
                                                             <a type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
                                                             data-bs-target="#modalReturn{{ i.id }}" id="b5" >RETURNED</a>
                                                             
-                                                            <a type="button" style="width: 120px; background-color: red;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
-                                                            data-bs-target="#modalnotify{{ i.id }}" id="b5" >NOTIFY</a>
+                                                            <a type="button" style="width: 120px; " data-bs-toggle="modal" class="btn btn-danger  m-1" 
+                                                            data-bs-target="#modalnotify{{ i.id }}" id="b6" >NOTIFY</a>
                                                         
                                                         
                                                         </div>
@@ -201,9 +201,17 @@
                                                                         <div class="form-row">
         
                                                                             <div class="col-xl-12">
-                                                                                Remarks
-                                                                                
-                                                                                <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "remarks">
+                                                                             
+                                                                                <select id="inputState" class="form-control my-2 p-2" name = "remarks" required>
+                                                                                    <option selected disabled value="">Remarks:</option>
+                                                                                        <option value="Good Condition">Good Condition</option>
+                                                                                        <option value="Need to Repair">Need to Repair</option>
+                                                                                        <option value="Need to Replace">Need to Replace</option>
+                                                                                        <option value="Missing some parts">Missing some parts</option>
+                                                                                        <option value="Not working">Not working</option>
+                                                                                  
+                                                                                </select>
+                                                                               
                                                                             </div>
                                                                         </div>
                                                                         <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
@@ -235,7 +243,7 @@
                                                                                 <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "message">
                                                                             </div>
                                                                         </div>
-                                                                        <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
+                                                                        <button type="submit"  class="btn btn-primary " name="returnedInventory" data-bs-dismiss="modal">Submit</button>
                                                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                                                     </form>
                                                                 </div>

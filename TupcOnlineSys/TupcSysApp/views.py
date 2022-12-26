@@ -32,10 +32,6 @@ from django.core.files.storage import FileSystemStorage
 
 installed_apps = ['TupcSysApp']
 
-if str(register1.objects.all().values()) == "<QuerySet []>":
-    print(register1.objects.all().values())
-    admin = register1.objects.create_user(username="TUPC-00-0000", gsfe="tupc.uitconlinesystem@gmail.com", email="tupc.uitconlinesystem@gmail.com", name="Admin", password="UITCtoken0001#", Personal_description="UITC Staff")
-    admin.save()
 
 """def Document_save(request):
     if request.method=="POST":
