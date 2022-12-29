@@ -214,13 +214,13 @@
                                                       data-toggle="tooltip" data-placement="top" title="Approve"  href="{% url 'TupcSysApp:FacultyWifi_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                       <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                        data-toggle="modal" data-target="#deny1"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                        data-toggle="modal" data-target="#deny1{{ p.id }}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                   </div>
                                                   
                                               </td>
 
-                                                                                                             <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                        <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <!--modal for deny pop up-------------------------------------------------------------------------------------------->
+                                                        <div class="modal fade" id="deny1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                           <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                             <div class="modal-content">
                                                               <div class="modal-header">
@@ -395,12 +395,12 @@
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentWifi_permit' q.pk  %}"><i class="fa fa-check " aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                             data-toggle="modal" data-target="#deny2"><i class="fa fa-times " aria-hidden="true"></i></a>
+                                                             data-toggle="modal" data-target="#deny2{{ q.id }}"><i class="fa fa-times " aria-hidden="true"></i></a>
                                                         </div>
                                                         
                                                     </td>
                                                      <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                     <div class="modal fade" id="deny2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                     <div class="modal fade" id="deny2{{ q.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                           <div class="modal-header">
@@ -574,12 +574,12 @@
                                                             data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:StudentInternet_permit' r.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                             data-toggle="modal" data-target="#deny3"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                             data-toggle="modal" data-target="#deny3{{ r.id }}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </div>
                                                         </td>
                                                     </td>
                                                                                                         <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                    <div class="modal fade" id="deny3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="deny3{{ r.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                           <div class="modal-header">

@@ -401,31 +401,31 @@ def facultyID_permit(request, id):
     return render (request, 'TupcSysApp/4HID.html',{'data1':data1})
 
 def facultyID_cancel(request, id):
-    if request.method == 'POST':
-        a = faculty_ID.objects.get(id=id)
-        reason = request.POST.get("reason")
-        for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
-            if a == x:
-                x = faculty_ID.objects.filter(id=id).update(f_stat="Declined")
-                y = faculty_ID.objects.filter(id=id).values()
-                for z in y:
-                    name = z['ff_name']
-                    uemail = z['email1']
-                    print(name)
-                    print(uemail)
-                print(reason)
+
+    a = faculty_ID.objects.get(id=id)
+    reason = request.POST.get("reason")
+    for x in faculty_ID.objects.only('id').filter(f_stat= "On process"):
+        if a == x:
+            x = faculty_ID.objects.filter(id=id).update(f_stat="Declined")
+            y = faculty_ID.objects.filter(id=id).values()
+            for z in y:
+                name = z['ff_name']
+                uemail = z['email1']
+                print(name)
+                print(uemail)
+            break
                 
-                message = "Good day " + name + ", \n Your request for ID request has been declined, " + reason + "\n UITC admin"
-                email = EmailMessage(
-                            name,
-                            message,
-                            'tupc.uitconlinesystem@gmail.com',
-                            [uemail],
+    message = "Good day " + name + ", \n Your request for ID request has been declined, " + reason + "\n UITC admin"
+    email = EmailMessage(
+                name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [uemail],
 
-                            )
+                )
 
-                email.send()
-                break
+    email.send()
+                
     messages.info(request, "Completed")
     return redirect('/UitcID')
 
@@ -637,6 +637,7 @@ def labsched_permit(request, id):
 def fpass_cancel(request, id):
     if request.method == 'POST':
         a = faculty_passreset.objects.get(id=id)
+        reason = request.POST.get("freason")
         for x in faculty_passreset.objects.only('id').filter(fwstat= "On process"):
             if a == x:
                 x = faculty_passreset.objects.filter(id=id).update(fwstat="Declined")
@@ -644,7 +645,7 @@ def fpass_cancel(request, id):
                 for z in y:
                     name = z['fwname']
                     uemail = z['fwemail']  
-                reason = request.POST.get("freason")
+                
                 print(name)
                 print(reason)
                 print(uemail)
@@ -1209,7 +1210,7 @@ def FacultyID(request):#FACULTY ID page
             f_cp1 = request.POST.get('f_cp1')
             f_num1 = request.POST.get('f_num1')
             f_add1 = request.POST.get('f_add1')
-            f_signature = request.POST.get('f_signature')
+            f_signature = request.POST.get('f_signatures')
             f_dept = request.POST.get('f_dept')
             print(f_signature)
             f_stat = "On Process"
@@ -1834,7 +1835,7 @@ def reqrepmain_permit(request, id):
 def reqrepmain_cancel(request, id):
     if request.method == 'POST':
         a = faculty_reports.objects.get(id=id)
-        reason = request.POST.get("reason")
+        reason = request.POST.get("reasonrp")
         for x in faculty_reports.objects.only('id').filter(fstat= "On process"):
             if a == x:
                 x = faculty_reports.objects.filter(id=id).update(fstat="Declined")

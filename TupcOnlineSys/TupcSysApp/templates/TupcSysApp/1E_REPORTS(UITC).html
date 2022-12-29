@@ -225,12 +225,12 @@
                                                                     data-toggle="tooltip" data-placement="top" title="Approve" onclick="form111()" ><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                                     <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                    data-toggle="modal" data-target="#denyrm" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                    data-toggle="modal" data-target="#denyrm{{ pr.id }}" ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
 
                                                             </td>
                                                                                                                                                                      <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                            <div class="modal fade" id="denyrm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="denyrm{{ pr.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -246,7 +246,7 @@
 
                                                                                     <div class="col-xl-12">
                                                                                         Reason for Denying
-                                                                                        <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reasonbf">
+                                                                                        <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reasonrp">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
@@ -638,12 +638,12 @@
                                                                     <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
                                                                     data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fpasswordreset_permit' pf.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                                    <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#denyf1" id="btn4"
+                                                                    <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#denyf1{{ pf.id }}" id="btn4"
                                                                     ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
                                                                 
                                                             </td>
-                                                            <div class="modal fade" id="denyf1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="denyf1{{ pf.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -653,7 +653,7 @@
                                                                     </button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        <form method="post" action = href="{% url 'TupcSysApp:fpass_cancel' pf.pk  %}">
+                                                                        <form method="post" action = "{% url 'TupcSysApp:fpass_cancel' pf.pk  %}">
                                                                             {% csrf_token %}
                                                                             <div class="form-row">
                 
@@ -688,12 +688,12 @@
                                                                     <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
                                                                     data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:spasswordreset_permit' ps.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                                    <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#denys1" id="btn4"
+                                                                    <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" data-toggle="modal" data-target="#denys1{{ ps.id }}" id="btn4"
                                                                     ><i class="fa fa-times" aria-hidden="true" ></i></a>
                                                                 </div>
                                                             </td>
                                                                                                                                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                            <div class="modal fade" id="denys1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="denys1{{ ps.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -1634,13 +1634,13 @@
                                                                     data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:maintain_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                                     <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                    data-toggle="modal" data-target="#deny1" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                    data-toggle="modal" data-target="#deny1{{ p.id }}" ><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
                                                                 
                                                             </td>
                                                             
                                                             <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                            <div class="modal fade" id="deny1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="deny1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -1764,12 +1764,12 @@
                                                                         data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p1.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                                         <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                        title="Deny" data-toggle="modal" data-target="#denybfs"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                        title="Deny" data-toggle="modal" data-target="#denybfs{{ p1.id }}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                                     </div>
                                                                     
                                                                 </td>
                                                                                                                                                                                 <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                                <div class="modal fade" id="denybfs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal fade" id="denybfs{{ p1.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -1817,12 +1817,12 @@
                                                                         data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:sborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                                         <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5"  id="btn4"
-                                                                        title="Deny" data-toggle="modal" data-target="#denybs"><i class="fa fa-times" aria-hidden="true" ></i></a>
+                                                                        title="Deny" data-toggle="modal" data-target="#denybs{{ p.id }}"><i class="fa fa-times" aria-hidden="true" ></i></a>
                                                                     </div>
                                                                     
                                                                 </td>
                                                                                                                                                                                                                                             <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                                <div class="modal fade" id="denybs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal fade" id="denybs{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
