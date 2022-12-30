@@ -251,35 +251,40 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                                  <!-- MODAL BORROWED -->
                                                 <div class="modal fade" id="modalBorrowed{{ i.id}}" tabindex="-1" role="dialog" aria-labelledby="modalBorrowed" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Borrowed by: </h5>
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Borrowers: </h5>
                                                                 <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <div class="modal-body">
+                                                            <div class="modal-body br">
                                                                 <div class="text-center"}>
                                                                     <form action="{% url 'TupcSysApp:UitcInventory_borrowed' i.pk%}" method="POST">
                                                                         {% csrf_token %}
-                                                                        <div>
+                                                                        
                                                                         {%for p in data%}
-                                                                            
+                                                                        <div>   
                                                                             <input type="radio" value = "{{p.id}}" name="fid"> {{p.fbname}} {{p.fbdate}} {{p.fbreq}}</input>
                                                                             <input type="text" value = "Faculty Member" name = "user1" hidden></input>
                                                                         
                                                                         </div>
                                                                         {%endfor%}
-                                                                        <div>
+                                                                        
                                                                         {%for p in data1%}
-                                                                            
+                                                                        <div>    
                                                                             <input type="radio" value = "{{p.id}}" name="fid"> {{p.if_name5}} {{p.i_date5}} {{p.ir_borrow5}}</input>
                                                                             <input type="text" value = "Student" name = "user2" hidden></input>
                                                                         </div>
                                                                         {%endfor%}
-                                                                            <button type="submit" class="btn btn-danger" name="borrowedInventory">Submit</button>
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                        <div>
+                                                                            <button type="submit"  class="btn btn-primary " name="borrowedInventory" data-bs-dismiss="modal">Submit</button>
+                                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                                                        </div>
+                                                                        
+                                                                       
                                                                     </form>
                                                                 </div>
                                                             </div>
