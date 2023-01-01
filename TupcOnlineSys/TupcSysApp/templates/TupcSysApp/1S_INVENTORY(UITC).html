@@ -33,7 +33,7 @@
 
 </head>
 
-<body>
+<body onload="myFunction()">
     <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -147,7 +147,7 @@
                                         <!--TABLE-------------------------------------------------------------------------------------------->
         
                                         <div class="table-responsive col-xl-12" id="inventory">
-                                            <table class="table">
+                                            <table class="table" id ="mytable1">
                                                 <thead class="thead" id="myTableI">
                                                 <tr>
                                                     <th scope="col-xl-2 ">Model</th>
@@ -171,13 +171,13 @@
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
-                                                            <a type="button" style="width: 120px;" class="btn btn-warning  m-1" id="b4{{ i.id }}" data-bs-toggle="modal" data-bs-target="#modalBorrowed{{ i.id }}" >BORROWED</a>
+                                                            <button type="button" style="width: 120px;" class="btn btn-warning  m-1" name="borrow"  id="b4{{ i.id }}" data-bs-toggle="modal" data-bs-target="#modalBorrowed{{ i.id }}" >BORROWED</button>
                                                             
-                                                            <a type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
-                                                            data-bs-target="#modalReturn{{ i.id }}" id="b5{{ i.id }}" >RETURNED</a>
+                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1" 
+                                                            data-bs-target="#modalReturn{{ i.id }}" id="b5{{ i.id }}" name="return">RETURNED</button>
                                                             
-                                                            <a type="button" style="width: 120px; " data-bs-toggle="modal" class="btn btn-danger  m-1" 
-                                                            data-bs-target="#modalnotify{{ i.id }}" id="b6{{ i.id }}" >NOTIFY</a>
+                                                            <button type="button" style="width: 120px; " data-bs-toggle="modal" class="btn btn-danger  m-1" 
+                                                            data-bs-target="#modalnotify{{ i.id }}" id="b6{{ i.id }}" name="notif">NOTIFY</button>
                                                         
                                                         
                                                         </div>

@@ -1704,12 +1704,13 @@ def UitcInventory_borrowed(request, id):
 
 def UitcInventory_returned(request, id):
     a = Inventory.objects.get(id=id)
+    
     for y in Inventory.objects.filter(id=id).values():
         i_model = y['i_model']
         i_serial = y['i_serial']
     
     remarks = request.POST.get("remarks")
-    
+    print(remarks)
     for x in Inventory.objects.only('id').filter(i_stats= "Borrowed"):
             if a == x:
                 x = Inventory.objects.filter(id=id).update(i_stats="Available")
