@@ -740,7 +740,7 @@ def sborrow_cancel(request, id):
         a = borrow_record.objects.get(id=id)
         for x in borrow_record.objects.only('id').filter(i_stats5= "On process"):
             if a == x:
-                x = borrow_record.objects.filter(id=id).update(i_stats5="Approved")
+                x = borrow_record.objects.filter(id=id).update(i_stats5="Declined")
                 y = borrow_record.objects.filter(id=id).only("if_name5").values()
                 for z in y:
                     name = z['if_name5']
@@ -748,7 +748,7 @@ def sborrow_cancel(request, id):
                 reason = request.POST.get("reasonsb")
                 print(name)
                 print(uemail)
-                message = "Good day " + name + ", \n Your request for Password Reset has been declined, " + reason +"\n UITC admin"
+                message = "Good day " + name + ", \n Your request for Borrow has been declined, " + reason +"\n UITC admin"
                 email = EmailMessage(
                             name,
                             message,
@@ -759,7 +759,7 @@ def sborrow_cancel(request, id):
 
                 email.send()
                 break
-    messages.info(request, "Completed")
+    messages.info(request, "Successfully done")
     return redirect('/UitcReports')
 
 def sborrow_permit(request, id):
@@ -788,20 +788,22 @@ def sborrow_permit(request, id):
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
-def fborrow_cancel(request, id):
+def fb_cancel(request, id):
+    print(faculty_borrow.objects.get(id=id))    
     if request.method == 'POST':
         a = faculty_borrow.objects.get(id=id)
         for x in faculty_borrow.objects.only('id').filter(fbstat= "On process"):
             if a == x:
-                x = faculty_borrow.objects.filter(id=id).update(fbstat="Approved")
+                x = faculty_borrow.objects.filter(id=id).update(fbstat="Declined")
                 y = faculty_borrow.objects.filter(id=id).only("fbname").values()
                 for z in y:
                     name = z['fbname']
-                    uemail = z['email4'] 
+                    uemail = z['email4']
                 reason = request.POST.get("reasonbf")
                 print(name)
+                print(reason)
                 print(uemail)
-                message = "Good day " + name + ", \n Your request for Borrowing has been declined, " + reason +"\n UITC admin"
+                message = "Good day " + name + ", \n Your request for Borrow has been declined, " + reason +"\n UITC admin"
                 email = EmailMessage(
                             name,
                             message,
@@ -812,7 +814,7 @@ def fborrow_cancel(request, id):
 
                 email.send()
                 break
-    messages.info(request, "Successfully deleted")
+    messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
 def fborrow_permit(request, id):

@@ -22,3 +22,4 @@ function closeNav() {
     z.style.display = "block";
 
 }
+ 
