@@ -41,6 +41,14 @@ for (i = 0; i < tr.length; i++) {
         buttonr.disabled = true;
         buttonn.disabled = true;
     }
+    if (txtValue == "Replaced" || txtValue == "Broken" || txtValue == "Not working") {
+        var button = document.getElementsByName("borrow")[i - 1];
+        var buttonr = document.getElementsByName("return")[i - 1];
+        var buttonn = document.getElementsByName("notif")[i - 1];
+        button.disabled = true;
+        buttonr.disabled = true;
+        buttonn.disabled = true;
+    }
   } 
 
 }
