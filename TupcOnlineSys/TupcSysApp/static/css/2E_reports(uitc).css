@@ -247,7 +247,11 @@ input{
     color: blue;
     font-weight: bold;
 }
-
+#btn3{
+    
+    color: rgb(255, 255, 255) !important;
+    
+}
 #btn4:hover{
     border: 2px solid RED !important; 
     background-color: #ffffff !important;

@@ -22,7 +22,7 @@
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
- <a href="{% url 'TupcSysApp:UitcID'%}"  id="active"><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
+ 
 
 <title>{{p.ff_name}} {{p.fl_name}}</title>
 
@@ -34,12 +34,15 @@
         <div class="row no-gutters">
 
             <div class="col-xl-12 col-12">
-                <button type="button" class="btn btn-primary btn-block my-2 p-2 download" id="dwnld_btn1">Download</button>
+                <button type="button" class="btn btn-primary btn-block my-2 p-2 download" ><a href="{% url 'TupcSysApp:UitcID'%}" id="back"><h3 >BACK</h3></i></a></button>
             </div>
             
         </div>
       </div>
-
+      <div class="text-center">
+        <h4 id="back">NOTE: Not the Actual ID, it's just for preview</h4>
+      </div>
+      
       <div class="page" id="all" >
         <div class="container-fluid ">
           {% for p in data1 %}
@@ -155,10 +158,8 @@
           
         
         </div>
-
-        
-
       </div>
+      
 
   
 
@@ -185,7 +186,7 @@
         };
         pdfMake
           .createPdf(docDefinition)
-          .download("Maintenance.pdf");
+          .download("Employee ID.pdf");
       },
     });
   });
