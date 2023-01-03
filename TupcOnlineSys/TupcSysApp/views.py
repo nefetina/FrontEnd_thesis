@@ -342,26 +342,34 @@ def logoutUser(request):
 def maintain_permit(request, id):
     a = maintain_record.objects.get(id=id)
     for x in maintain_record.objects.only('id').filter(i_stats= "On process"):
-            if a == x:
-                x = maintain_record.objects.filter(id=id).update(i_stats="Approved")
-            
-            break
+        if a == x:
+            x = maintain_record.objects.filter(id=id).update(i_stats="Approved")
+        name = request.user.name
+        uemail = request.user.email
+        print("asd")
+        message = "Good day " + name + ", \n Your request for repair and maintence has been approved." + "\n UITC admin"
+        email = EmailMessage(
+                    name,
+                    message,
+                    'tupc.uitconlinesystem@gmail.com',
+                    [uemail],
+
+                    )
+
+        email.send()
+        break
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
 def maintain_cancel(request, id):
     if request.method == 'POST':
         a = maintain_record.objects.get(id=id)
-        reason = request.POST.get("reason")
-        for x in maintain_record.objects.only('id').filter(fstat= "On process"):
+        reason = request.POST.get("reasonm")
+        for x in maintain_record.objects.only('id').filter(i_stats= "On process"):
             if a == x:
-                x = maintain_record.objects.filter(id=id).update(fstat="Declined")
-                y = maintain_record.objects.filter(id=id).values()
-                for z in y:
-                    name = z['fname']
-                    uemail = z['email3']
-                    print(name)
-                    print(uemail)
+                x = maintain_record.objects.filter(id=id).update(i_stats="Declined")
+                name = request.user.name
+                uemail = request.user.email
                 print(reason)
                 message = "Good day " + name + ", \n Your request for repair and maintence has been declined, " + reason + "\n UITC admin"
                 email = EmailMessage(
@@ -979,7 +987,7 @@ def UitcReports_maintenance(request):#UITC REPORTS page
             i_brand4 = request.POST.get('i_brand4')
             i_code = request.POST.get('i_code')
             ie_name = request.POST.get('ie_name')
-            iup_sstats = "On Process"
+            iup_sstats = request.POST.get('iup_sstats')
             i_remarks = request.POST.get('i_remarks')
             i_cobfs = request.POST.get('i_cobfs')
             i_remarks2 = request.POST.get('i_remarks2')
