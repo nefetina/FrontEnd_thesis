@@ -1,3 +1,4 @@
+
 function openNav() {
 
     var y = document.getElementById("mySidebar");
@@ -150,7 +151,7 @@ function form111() {
 
     var y1 = document.getElementById("tableform1");
     var x1 = document.getElementById("table1");
-
+    var h = document.getElementById("myforms");
 
 
     h.setAttribute("style","display:block");
@@ -179,7 +180,7 @@ function requestforrep() {
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
     var g = document.getElementById("tableform7");
-
+    var h = document.getElementById("myforms");
 
 
     var x2 = document.getElementById("table1");
@@ -193,7 +194,7 @@ function requestforrep() {
     
     
     d.setAttribute("style","display:none");
-   
+    h.setAttribute("style","display:none");
     
     x2.style.display = "block";
     z2.style.display = "none";
@@ -221,7 +222,7 @@ function requesforpassres() {
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
     var g = document.getElementById("tableform7");
-
+    var h = document.getElementById("myforms");
 
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
@@ -234,7 +235,7 @@ function requesforpassres() {
 
 
     d.setAttribute("style","display:none");
-   
+    h.setAttribute("style","display:none");
 
     x2.style.display = "none";
     z2.style.display = "block";
@@ -261,7 +262,7 @@ function maintenanceform() {
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
     var g = document.getElementById("tableform7");
-
+    var h = document.getElementById("myforms");
 
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
@@ -275,7 +276,7 @@ function maintenanceform() {
     document.getElementById("tableform6").hidden = false;
 
     d.setAttribute("style","display:block");
-   
+    h.setAttribute("style","display:none");
 
     x2.style.display = "none";
     z2.style.display = "none";
@@ -301,7 +302,7 @@ function maintenance() {
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
     var g = document.getElementById("tableform7");
-
+    var h = document.getElementById("myforms");
 
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
@@ -313,7 +314,7 @@ function maintenance() {
 
 
     d.setAttribute("style","display:none");
-   
+    h.setAttribute("style","display:none");
 
 
     x2.style.display = "none";
@@ -341,7 +342,7 @@ function borrow() {
     var e = document.getElementById("tableform5");
     var f = document.getElementById("tableform6");
     var g = document.getElementById("tableform7");
-
+    var h = document.getElementById("myforms");
 
 
     var x2 = document.getElementById("table1");
@@ -356,7 +357,7 @@ function borrow() {
     
 
     d.setAttribute("style","display:none");
- 
+    h.setAttribute("style","display:none");
 
     x2.style.display = "none";
     z2.style.display = "none";
