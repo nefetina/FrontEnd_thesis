@@ -201,7 +201,7 @@
                                                                             </div>
                                                                             <div class="form-row">
                                                                                 <div class="col-xl-12">
-                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Time: {{p.ftime}}" placeholder="TIME" readonly>
+                                                                                    <input type="text" class="form-control my-2 p-2" style="border: none; font-size: 15px"  value="Time: {{pr.ftime}}" placeholder="TIME" readonly>
                                                                                 </div>
                                                                             </div>
                                                                         
@@ -323,11 +323,12 @@
                                                                                     </div>
                                                                                     <div class="form-row">
                                                                                         <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2"  name="i_assessby" required>
+                                                                                            <input type="text" class="form-control my-2 p-2" placeholder = "Accessed by:"  name="i_assessby" required>
                                                                                         </div>
                                                                                         <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" name="i_sig" required>
+                                                                                            <input type="text" class="form-control my-2 p-2" placeholder = "Personal Assigned:"  name="ip_assign" required>
                                                                                         </div>
+
                                                                                     </div>
                                                                                     <div class="form-row">
                                                                                         <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
@@ -336,9 +337,12 @@
                                                                                         <div class="col-xl-5">
                                                                                             <input type="date" class="form-control my-2 p-2"  name="i_dateass" required>
                                                                                         </div>
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2"  name="ip_assign" required>
+                                                                                        <div class="col-xl-3 col-12">
+                                                                                            <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig" value = "Signed">Signed</h6>
                                                                                         </div>
+                                                                                        <div class="col-xl-3 col-12">
+                                                                                            <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig" value = "Not Signed">Not Signed</h6>
+                                                                                        </div>  
                                                                                         
                                                                                     </div>
                                                                                     <div class="descriptions col-12 m-2">
@@ -405,28 +409,31 @@
                                                                                     </div>
                                                                                     <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                                                                         <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Approved" name="i_approve"  > Approved</h6>
+                                                                                            <h6 class=""><input type="radio" class="radio" value="Approved" name="i_approve"  > Approved</h6>
                                                                                         </div> 
                                                                                         <div class="col-xl-4 col-lg-6">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Disapproved" name="i_approve"  > Disapproved</h6>
+                                                                                            <h6 class=""><input type="radio" class="radio" value="Disapproved" name="i_approve"  > Disapproved</h6>
                                                                                         </div> 
                                                                                         <div class="col-xl-4 col-lg-12">
-                                                                                            <h6 class=""><input type="radio" class="radio " value="Resubmit Request" name="i_approve" > Resubmit Request</h6>
+                                                                                            <h6 class=""><input type="radio" class="radio" value="Resubmit Request" name="i_approve" > Resubmit Request</h6>
                                                                                         </div> 
                                                                                     </div>
                                                                                     <div class="form-row">
                                                                                         <div class="col-xl-12">
-                                                                                            <textarea class="form-control"  name="i_note" rows="2" id="textarea1" style="height: 100px" ></textarea>
+                                                                                            <textarea class="form-control" placeholder="Note..."  name="i_note" rows="2" id="textarea1" style="height: 100px" ></textarea>
                                                                                         </div>          
                                                                                     </div>
 
                                                                                     <div class="form-row"> 
                                                                                         <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" name="i_coords" required>
+                                                                                            <input type="text" class="form-control my-2 p-2" placeholder= "Coordinator" name="i_coords" required>
                                                                                         </div>
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder = "Signature" name="i_sig1" required>
+                                                                                        <div class="col-xl-3 col-12">
+                                                                                            <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig1" value = "Signed">Signed</h6>
                                                                                         </div>
+                                                                                        <div class="col-xl-3 col-12">
+                                                                                            <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig1" value = "Not Signed">Not Signed</h6>
+                                                                                        </div>  
                                                                                     </div>
                                                                                     <div class="form-row">
                                                                                         <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
@@ -451,10 +458,13 @@
                                                                                         <div class="col-xl-6">
                                                                                             <input type="text" class="form-control my-2 p-2" placeholder="UITC Personnel:" name="iu_pers" required>
                                                                                         </div>
-                                                                        
-                                                                                        <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder="Signature:" name="i_sig2" required>
+                                                                                        <div class="col-xl-3 col-12">
+                                                                                            <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig2" value = "Signed">Signed</h6>
                                                                                         </div>
+                                                                                        <div class="col-xl-3 col-12">
+                                                                                            <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig2" value = "Not Signed">Not Signed</h6>
+                                                                                        </div>  
+
                                                                                         
                                                                                     </div>
                                                                                     <div class="form-row">
@@ -540,9 +550,12 @@
                                                             </div>
                                                             <div class="form-row">
                                                                 
-                                                                <div class="col-xl-6">
-                                                                    <input type="text" class="form-control my-2 p-2" placeholder="Signature:" name=" i_sig3" required>
+                                                                <div class="col-xl-3 col-12">
+                                                                    <h6 class=""><input type="radio" class="radio" name="i_sig3" value = "Signed">Signed</h6>
                                                                 </div>
+                                                                <div class="col-xl-3 col-12">
+                                                                    <h6 class=""><input type="radio" class="radio" name="i_sig3" value = "Not Signed">Not Signed</h6>
+                                                                </div>  
                                                                 <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
                                                                     Time:
                                                                 </div>
