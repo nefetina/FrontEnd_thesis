@@ -292,12 +292,12 @@ def register(request):#registration
 
                     return redirect('/')
                 elif d != e:
-                    messages.warning(request, "Password Not Match")
+                    messages.info(request, "Password Not Match")
                 else:
-                    messages.warning(request, "Recheck all your input info")
+                    messages.info(request, "Recheck all your input info")
            
             else:
-                 messages.warning(request, "Recheck all your input info")
+                messages.info(request, "Recheck all your input info")
 
                 
     context = {

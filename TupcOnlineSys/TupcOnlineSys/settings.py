@@ -70,7 +70,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TupcOnlineSys.wsgi.application'
 
 
 # Database
@@ -134,7 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'TupcSysApp.register1'
 
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
-SESSION_EXPIRE_SECONDS = 300
+SESSION_EXPIRE_SECONDS = 1800
 SESSION_TIMEOUT_REDIRECT = '/'
 EMAIL_HOST = 'smtp.gmail.com'
 
