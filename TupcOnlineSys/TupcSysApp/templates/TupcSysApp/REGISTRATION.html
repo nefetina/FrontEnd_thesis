@@ -136,7 +136,7 @@
               <div
                 class="col-xl-5 col-lg-5 pt-xl-5 pt-lg-5 pt-md-3 px-5 text-center"
               >
-                <form method="post">
+                <form method="post" name="myforms">
                   {% csrf_token %}
                   <div id="form1">
                     <!------------------------------------------------FORM1---------------------------------------------------->
@@ -146,8 +146,25 @@
                       <div class="col-lg-9">
                         <h1 class="font-weight-bold" id="text1">SIGN UP</h1>
                         <h6 class="font-weight-bold" id="text2">
-                          Create an account
+                          Create an account {% for x in data1%}
+                          <input
+                            type="dropdown"
+                            id="idnum"
+                            name="idnums"
+                            value="{{x.lidno}}"
+                            
+                            hidden
+                          />
+                          
+
+                          <input
+                            type="text"
+                            id="gsfe" name="gsfes"
+                            value="{{x.lgsfe}}"
+                            hidden
+                          />
                         </h6>
+                        {%endfor%}
                       </div>
                     </div>
 
@@ -164,17 +181,19 @@
                           name="gsfe"
                           >GSFE Account</label
                         >
-                        <label class="row-2" name="gsfe">{{form.gsfe}} </label>
+                        <label class="row-2" name="gsfe" id="gsfef"
+                          >{{form.gsfe}}
+                        </label>
                       </div>
                     </div>
                     <div
                       class="form-row d-flex justify-content-center align-items-center"
                     >
-                      <div class="col-lg-9 col-sm-12 " >
+                      <div class="col-lg-9 col-sm-12">
                         <label for="idno" class="col-lg-12" id="desc"
                           >TUPC ID</label
                         >
-                        <label class="row-2 " name="idno"
+                        <label class="row-2" name="idno" id="idnumf"
                           >{{form.username}}
                         </label>
                       </div>
@@ -234,7 +253,7 @@
                           >NAME</label
                         >
                         <label for="idno" class="col-lg-12" id="desc"
-                          >Ex: Mar C. Pag</label
+                          >Ex: Juan E. Tamad</label
                         >
                         <label class="row-2" name="name">{{form.name}} </label>
                       </div>
@@ -258,7 +277,6 @@
                       <div
                         class="col-xl-12 mt-xl-2 d-flex justify-content-center align-items-center"
                       >
-                        
                         <button
                           type="button"
                           class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
@@ -338,7 +356,6 @@
                       <div
                         class="col-xl-12 mt-xl-2 d-flex justify-content-center align-items-center"
                       >
-                        
                         <button
                           type="button"
                           class="btn my-xl-2 my-lg-1 my-md-2 my-sm-2 my-1"
@@ -377,11 +394,12 @@
         </section>
       </div>
     </div>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {% for message in messages %}
     <script>
-        swal("{{message}}","");
+      swal("{{message}}", "");
     </script>
     {% endfor %}
   </body>
