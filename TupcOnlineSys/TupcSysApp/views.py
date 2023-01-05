@@ -253,59 +253,63 @@ def ID_dl(request, id):
     data1 = faculty_ID.objects.filter(id=id)
     return render (request, 'TupcSysApp/4HID(fv).html',{'data1':data1})
 
-def register(request):#registration
+def register(request):  # registration
     form = Registration()
+    a = list.objects.all()
     if request.method == "POST":
-        a = list.objects.all().values()
-        b = request.POST.get("username")   
+
+        b = request.POST.get("username")
         c = request.POST.get("gsfe")
         d = request.POST.get("password1")
         e = request.POST.get("password2")
-        ccc = list.objects.only('id').filter(lidno = b)
-        y = ccc.values()         
+        ccc = list.objects.only('id').filter(lidno=b)
+        y = ccc.values()
         for x in y:
             print(x['type'])
             type = x['type']
             lgsfe = x['lgsfe']
             ids = x['id']
-            
-            
+
             if x["lidno"] == b and x['lgsfe'] == c:
-                form =  Registration(request.POST)
-                #form["Personal_description"].value = c
+                form = Registration(request.POST)
+                # form["Personal_description"].value = c
                 if form.is_valid():
                     form.save()
-                    register1.objects.filter(username=b).update(Personal_description=type)
-                    messages.success(request, 'You are now successfully registered')
-                    #email
+                    register1.objects.filter(username=b).update(
+                        Personal_description=type)
+                    messages.success(
+                        request, 'You are now successfully registered')
+                    # email
                     name = form["name"].value()
-                    message = "You are succesfully registered as " + type + "! \n Your Username is " + b + '.'
+                    message = "You are succesfully registered as " + \
+                        type + "! \n Your Username is " + b + '.'
                     email = EmailMessage(
                         name,
                         message,
                         'tupc.uitconlinesystem@gmail.com',
                         [lgsfe],
 
-                        )
+                    )
 
                     email.send()
 
                     return redirect('/')
-                elif d != e:
-                    messages.info(request, "Password Not Match")
+                if d != e:
+                    messages.warning(request, "Password Not Match")
                 else:
-                    messages.info(request, "Recheck all your input info")
-           
-            else:
-                messages.info(request, "Recheck all your input info")
+                    messages.warning(request, "Recheck all your input info")
 
-                
+            else:
+                messages.warning(request, "Recheck all your input info")
+
     context = {
-        'form':form
+        'form': form,
+        'data1': a
     }
 
-    return render (request, 'TupcSysApp/REGISTRATION.html', context)
-    
+    return render(request, 'TupcSysApp/REGISTRATION.html', context)
+
+
 def index(request):#login page
     if request.method == 'POST':
         username = request.POST.get('username')
