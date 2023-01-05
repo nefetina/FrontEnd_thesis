@@ -323,10 +323,10 @@
                                                                                     </div>
                                                                                     <div class="form-row">
                                                                                         <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder = "Accessed by:"  name="i_assessby" required>
+                                                                                            <input type="text" class="form-control my-2 p-2" placeholder="Accessed by: {{request.user.name}}"  name="i_assessby" readonly>
                                                                                         </div>
                                                                                         <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder = "Personal Assigned:"  name="ip_assign" required>
+                                                                                            <input type="text" class="form-control my-2 p-2" placeholder = "Personnel Assigned: {{request.user.name}}"  name="ip_assign" readonly>
                                                                                         </div>
 
                                                                                     </div>
@@ -426,7 +426,7 @@
 
                                                                                     <div class="form-row"> 
                                                                                         <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder= "Coordinator" name="i_coords" required>
+                                                                                            <input type="text" class="form-control my-2 p-2" placeholder= "Coordinator : {{request.user.name}}" name="i_coords" readonly>
                                                                                         </div>
                                                                                         <div class="col-xl-3 col-12">
                                                                                             <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig1" value = "Signed">Signed</h6>
@@ -456,7 +456,7 @@
                                                                                     <div class="form-row">
                                                                                         
                                                                                         <div class="col-xl-6">
-                                                                                            <input type="text" class="form-control my-2 p-2" placeholder="UITC Personnel:" name="iu_pers" required>
+                                                                                            <input type="text" class="form-control my-2 p-2" placeholder="UITC Personnel: {{request.user.name}}" name="iu_pers" readonly>
                                                                                         </div>
                                                                                         <div class="col-xl-3 col-12">
                                                                                             <h6 class="form-control my-2 p-2"><input type="radio" class="radio" name="i_sig2" value = "Signed">Signed</h6>
@@ -1194,7 +1194,7 @@
                                                                             </div>
                                                                             <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                                                                 <div class="col-xl-6">
-                                                                                    <input type="text" class="form-control my-1 p-2" placeholder="UITC Personnel:" name="iu_pers4" required>
+                                                                                    <input type="text" class="form-control my-1 p-2" placeholder="UITC Personnel: {{request.user.name}}" name="iu_pers4" readonly>
                                                                                 </div> 
                                                                                 <div class="col-xl-6">
                                                                                     <div class="form-row">
@@ -1259,7 +1259,7 @@
                                                                             </div>
                                                                             <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
                                                                                 <div class="col-xl-6">
-                                                                                    <input type="text" class="form-control my-1 p-2" placeholder="End-User:" name="ie_user4" required>
+                                                                                    <input type="text" class="form-control my-1 p-2" placeholder="End-User: {{request.user.name}}" name="ie_user4" readonly>
                                                                                 </div>
                                                                                 <div class="col-xl-3 col-12">
                                                                                     <h6 class=""><input type="radio" class="radio" name="i_sign" value = "Signed">Signed</h6>
