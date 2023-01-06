@@ -102,10 +102,10 @@
                             <div id="mySidebar" class="sidebar">
                                 <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
                                 <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
-                                <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
-                                <a href="{% url 'TupcSysApp:UitcInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
-                                <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
-                                <a href="{% url 'TupcSysApp:UitcReports'%}" id="active"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
+                                <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "id_notif" name = "id_notifs" hidden>{{data6.Faculty_ID}}</span></a>                                
+                                <a href="{% url 'TupcSysApp:UitcInternet'%}"><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "net_notif" name = "net_notifs" hidden>{{data7}}</span></a>
+                                <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "sched_notif" name = "sched_notifs" hidden>{{data6.Faculty_Laboratory}}</span></a>
+                                <a href="{% url 'TupcSysApp:UitcReports'%}" id="active"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "report_notif" name = "report_notifs" hidden>{{data8}}</span></a>
                                 <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
                                 <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
                                 <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-2x fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
