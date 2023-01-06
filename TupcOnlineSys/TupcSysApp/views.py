@@ -116,106 +116,19 @@ def upload_csv_l1(request):
         for line in lines:
             fields = line.split(",")
             data_dict = {}
-            data_dict["l1mon"] = fields[0]
-            data_dict["l1tue"] = fields[1]
-            data_dict["l1wed"] = fields[2]
-            data_dict["l1thu"] = fields[3]
-            data_dict["l1fri"] = fields[4]
+            data_dict['lubnum'] = request.POST.get("lubnum")
+            data_dict['ldate'] = request.POST.get("ldate")
+            data_dict["lmon"] = fields[0]
+            data_dict["ltue"] = fields[1]
+            data_dict["lwed"] = fields[2]
+            data_dict["lthu"] = fields[3]
+            data_dict["lfri"] = fields[4]
 
             try:
                 form = form_list_l1(data_dict)
                 if form.is_valid():
                     form.save()
-                else:
-                    logging.getLogger("error_logger").error(
-                        form.errors.as_json())
-            except Exception as e:
-                logging.getLogger("error_logger").error(repr(e))
-                pass
-
-    except Exception as e:
-        pass
-        return redirect('/UitcLabsched')
-
-
-def upload_csv_l2(request):
-    data = {}
-    if "GET" == request.method:
-        return redirect('/UitcLabsched', data)
-    # if not GET, then proceed
-    try:
-        csv_file = request.FILES["csv_file"]
-        if not csv_file.name.endswith('.csv'):
-            messages.error(request, 'File is not CSV type')
-            return redirect('/UitcLabsched')
-    # if file is too large, return
-        if csv_file.multiple_chunks():
-            messages.error(request, "Uploaded file is too big (%.2f MB)." % (
-                csv_file.size/(1000*1000),))
-            return redirect('/UitcLabsched')
-
-        file_data = csv_file.read().decode("utf-8")
-
-        lines = file_data.split("\n")
-        # loop over the lines and save them in db. If error , store as string and then display
-        for line in lines:
-            fields = line.split(",")
-            data_dict = {}
-            data_dict["l2mon"] = fields[0]
-            data_dict["l2tue"] = fields[1]
-            data_dict["l2wed"] = fields[2]
-            data_dict["l2thurs"] = fields[3]
-            data_dict["l2fri"] = fields[4]
-
-            try:
-                form = form_list_l2(data_dict)
-                if form.is_valid():
-                    form.save()
-                else:
-                    logging.getLogger("error_logger").error(
-                        form.errors.as_json())
-            except Exception as e:
-                logging.getLogger("error_logger").error(repr(e))
-                pass
-
-    except Exception as e:
-        pass
-        return redirect('/UitcLabsched')
-
-
-def upload_csv_l3(request):
-    data = {}
-    if "GET" == request.method:
-        return redirect('/UitcLabsched', data)
-    # if not GET, then proceed
-    try:
-        csv_file = request.FILES["csv_file"]
-        if not csv_file.name.endswith('.csv'):
-            messages.error(request, 'File is not CSV type')
-            return redirect('/UitcLabsched')
-    # if file is too large, return
-        if csv_file.multiple_chunks():
-            messages.error(request, "Uploaded file is too big (%.2f MB)." % (
-                csv_file.size/(1000*1000),))
-            return redirect('/UitcLabsched')
-
-        file_data = csv_file.read().decode("utf-8")
-
-        lines = file_data.split("\n")
-        # loop over the lines and save them in db. If error , store as string and then display
-        for line in lines:
-            fields = line.split(",")
-            data_dict = {}
-            data_dict["l3mon"] = fields[0]
-            data_dict["l3tue"] = fields[1]
-            data_dict["l3wed"] = fields[2]
-            data_dict["l3thurs"] = fields[3]
-            data_dict["l3fri"] = fields[4]
-
-            try:
-                form = form_list_l3(data_dict)
-                if form.is_valid():
-                    form.save()
+                    messages.warning(request, "Submitted")
                 else:
                     logging.getLogger("error_logger").error(
                         form.errors.as_json())
@@ -229,17 +142,7 @@ def upload_csv_l3(request):
 
 
 def l1_delete(request):
-    Schedule_l1.objects.all().delete()
-    return redirect('/UitcLabsched')
-
-
-def l2_delete(request):
-    Schedule_l2.objects.all().delete()
-    return redirect('/UitcLabsched')
-
-
-def l3_delete(request):
-    Schedule_l3.objects.all().delete()
+    Schedule_lab.objects.all().delete()
     return redirect('/UitcLabsched')
 
 
@@ -974,9 +877,12 @@ def UitcHome(request):  # UITC HOMEPAGE page
                  "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
                  "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
 
-        data2 = int(data1['Faculty_Internet']) + int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + int(data1['borrow_record'] ) + int(data1['student_PassReset'] )
+        data2 = int(data1['Faculty_Internet']) + \
+            int(data1['student_wifi']) + int(data1['student_internet'])
+        data3 = int(data1['Faculty_borrow']) + \
+            int(data1['faculty_repair']) + int(data1['maintenance'])
+        + int(data1['Faculty_passreset']) + \
+            int(data1['borrow_record']) + int(data1['student_PassReset'])
 
         return render(request, 'TupcSysApp/1A_HOMEPAGE(UITC).html', {'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
@@ -1004,9 +910,12 @@ def UitcID(request):  # UITC ID page
                  "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
                  "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
 
-        data2 = int(data1['Faculty_Internet']) + int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + int(data1['borrow_record'] ) + int(data1['student_PassReset'] )
+        data2 = int(data1['Faculty_Internet']) + \
+            int(data1['student_wifi']) + int(data1['student_internet'])
+        data3 = int(data1['Faculty_borrow']) + \
+            int(data1['faculty_repair']) + int(data1['maintenance'])
+        + int(data1['Faculty_passreset']) + \
+            int(data1['borrow_record']) + int(data1['student_PassReset'])
 
         return render(request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf': dataf, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
@@ -1035,9 +944,12 @@ def UitcInternet(request):  # UITC INTERNET page
                  "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
                  "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
 
-        data2 = int(data1['Faculty_Internet']) + int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + int(data1['borrow_record'] ) + int(data1['student_PassReset'] )
+        data2 = int(data1['Faculty_Internet']) + \
+            int(data1['student_wifi']) + int(data1['student_internet'])
+        data3 = int(data1['Faculty_borrow']) + \
+            int(data1['faculty_repair']) + int(data1['maintenance'])
+        + int(data1['Faculty_passreset']) + \
+            int(data1['borrow_record']) + int(data1['student_PassReset'])
         return render(request, 'TupcSysApp/1C_INTERNET(UITC).html', {'datag': datag, 'datah': datah, 'datai': datai, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
@@ -1051,9 +963,19 @@ def UitcInternet(request):  # UITC INTERNET page
 def UitcLabsched(request):  # UITC LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         datal = faculty_lab.objects.filter(l_stat="On Process")
-        sched = Schedule_l1.objects.all()
-        sched1 = Schedule_l2.objects.all()
-        sched2 = Schedule_l3.objects.all()
+        sched = []
+        lnum = []
+        labnum = Schedule_lab.objects.values(
+            'lubnum', 'ldate').annotate(Count('id'))
+        for x in labnum:
+            a = x['lubnum']
+            b = x['ldate']
+            lnum.append(a)
+            scheds = Schedule_lab.objects.filter(lubnum=a, ldate=b).values()
+            for z in scheds:
+                z['lnum'] = a
+            sched.append(scheds)
+        print(sched)
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
@@ -1066,10 +988,13 @@ def UitcLabsched(request):  # UITC LABSCHED page
                  "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
                  "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
 
-        data2 = int(data1['Faculty_Internet']) + int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + int(data1['borrow_record'] ) + int(data1['student_PassReset'] )
-        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'sched': sched, 'sched1': sched1, 'sched2': sched2, 'data1': data1, 'data2': data2, 'data3': data3})
+        data2 = int(data1['Faculty_Internet']) + \
+            int(data1['student_wifi']) + int(data1['student_internet'])
+        data3 = int(data1['Faculty_borrow']) + \
+            int(data1['faculty_repair']) + int(data1['maintenance'])
+        + int(data1['Faculty_passreset']) + \
+            int(data1['borrow_record']) + int(data1['student_PassReset'])
+        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1099,9 +1024,12 @@ def UitcReports(request):  # UITC REPORTS page
                  "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
                  "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
 
-        data7 = int(data6['Faculty_Internet']) + int(data6['student_wifi']) + int(data6['student_internet'])
-        data8 = int(data6['Faculty_borrow']) + int(data6['faculty_repair']) + int(data6['maintenance'])
-        + int(data6['Faculty_passreset']) + int(data6['borrow_record'] ) + int(data6['student_PassReset'] )
+        data7 = int(data6['Faculty_Internet']) + \
+            int(data6['student_wifi']) + int(data6['student_internet'])
+        data8 = int(data6['Faculty_borrow']) + \
+            int(data6['faculty_repair']) + int(data6['maintenance'])
+        + int(data6['Faculty_passreset']) + \
+            int(data6['borrow_record']) + int(data6['student_PassReset'])
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data6': data6, 'data7': data7, 'data8': data8})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
@@ -1471,9 +1399,8 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        sched = Schedule_l1.objects.all()
-        sched1 = Schedule_l2.objects.all()
-        sched2 = Schedule_l3.objects.all()
+        sched = Schedule_lab.objects.all()
+
         if request.method == "POST":
             request.POST.get('request.user.gsfe')
             request.POST.get('request.user.name')
@@ -1503,7 +1430,7 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
             email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'sched1': sched1, 'sched2': sched2})
+        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
