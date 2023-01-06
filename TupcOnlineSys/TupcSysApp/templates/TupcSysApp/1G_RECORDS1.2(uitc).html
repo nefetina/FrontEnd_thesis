@@ -331,7 +331,9 @@
                               <td>{{p.g_num}}</td>
                               <td>{{p.g_email}}</td>
                               <td>{{p.g_fac}}</td>
-                              <td><img src="{{p.g_sig}}" style = "height: 80px"/></td>
+                              <td>
+                                <img src="{{p.g_sig}}" style="height: 80px" />
+                              </td>
                               <td>{{p.g_datereq}}</td>
                               <td>{{p.g_stat}}</td>
                               <td>
@@ -477,7 +479,7 @@
                           type="button"
                           class="dropdown-item"
                           href="#"
-                          onclick="sortTable()"
+                          onclick="sortTable(0)"
                           >Ascending</a
                         >
                         <a class="dropdown-item" href="#">Descending</a>
@@ -524,7 +526,9 @@
                               <td>{{g.g_num1}}</td>
                               <td>{{g.g_email1}}</td>
                               <td>{{g.g_add1}}</td>
-                              <td><img src="{{g.g_sig1}}" style = "height: 80px"></td>
+                              <td>
+                                <img src="{{g.g_sig1}}" style="height: 80px" />
+                              </td>
                               <td>{{g.g_daterec1}}</td>
                               <td>{{g.g_stats1}}</td>
                               <td>
@@ -788,7 +792,9 @@
                               <td>{{q.g_email2}}</td>
                               <td>{{q.g_add2}}</td>
                               <td>{{q.gu_name2}}</td>
-                              <td><img src="{{q.g_sig2}}" style = "height: 80px"></td>
+                              <td>
+                                <img src="{{q.g_sig2}}" style="height: 80px" />
+                              </td>
                               <td>{{q.g_daterec2}}</td>
                               <td>{{q.g_stats2}}</td>
                               <td>
@@ -813,7 +819,7 @@
                           </tbody>
                         </table>
                         <script>
-                          function sortTable(n) {
+                          function sortTable1(n) {
                             var table,
                               rows,
                               switching,
