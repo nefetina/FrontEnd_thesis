@@ -879,9 +879,8 @@ def UitcHome(request):  # UITC HOMEPAGE page
 
         data2 = int(data1['Faculty_Internet']) + \
             int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + \
-            int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + \
+        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance']) + \
+            int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
 
         return render(request, 'TupcSysApp/1A_HOMEPAGE(UITC).html', {'data1': data1, 'data2': data2, 'data3': data3})
@@ -912,11 +911,11 @@ def UitcID(request):  # UITC ID page
 
         data2 = int(data1['Faculty_Internet']) + \
             int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + \
-            int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + \
+        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance']) + \
+            int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
-
+        print(data1['Faculty_passreset'])
+        print(data3)
         return render(request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf': dataf, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
@@ -946,10 +945,10 @@ def UitcInternet(request):  # UITC INTERNET page
 
         data2 = int(data1['Faculty_Internet']) + \
             int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + \
-            int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + \
+        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance']) + \
+            int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
+
         return render(request, 'TupcSysApp/1C_INTERNET(UITC).html', {'datag': datag, 'datah': datah, 'datai': datai, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
@@ -990,10 +989,10 @@ def UitcLabsched(request):  # UITC LABSCHED page
 
         data2 = int(data1['Faculty_Internet']) + \
             int(data1['student_wifi']) + int(data1['student_internet'])
-        data3 = int(data1['Faculty_borrow']) + \
-            int(data1['faculty_repair']) + int(data1['maintenance'])
-        + int(data1['Faculty_passreset']) + \
+        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance']) + \
+            int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
+
         return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
@@ -1030,6 +1029,7 @@ def UitcReports(request):  # UITC REPORTS page
             int(data6['faculty_repair']) + int(data6['maintenance'])
         + int(data6['Faculty_passreset']) + \
             int(data6['borrow_record']) + int(data6['student_PassReset'])
+        print(data8)
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data6': data6, 'data7': data7, 'data8': data8})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
