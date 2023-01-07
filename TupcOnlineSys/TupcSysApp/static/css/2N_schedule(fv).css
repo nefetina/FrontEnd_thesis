@@ -532,6 +532,55 @@ input{
     border-radius: 5px;
 }
 
+#net_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+
+}
+
+#id_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+    margin-left: 15px;
+}
+
+#sched_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#report_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#lo{
+    position: relative;
+    top: 54%;
+    padding-bottom: 15px;
+    
+}
+
 /*****************************************BACKGROUND*******************************/
 
 html,

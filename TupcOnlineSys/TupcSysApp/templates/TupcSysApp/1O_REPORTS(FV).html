@@ -153,39 +153,39 @@
                 &times;
               </button>
               <a href="{% url 'TupcSysApp:FacultyHome'%}"
-                ><i class="fa fa-2x fa-user-circle" aria-hidden="true"
+                ><i class="fa fa-lg fa-user-circle" aria-hidden="true"
                   ><br />
                   <h6 id="icons">HOME</h6></i
                 ></a
               >
               <a href="{% url 'TupcSysApp:FacultyID'%}"
-                ><i class="fa fa-2x fa-id-badge" aria-hidden="true"
+                ><i class="fa fa-lg fa-id-badge" aria-hidden="true"
                   ><br />
                   <h6 id="icons">ID'S</h6></i
                 ></a
               >
               <a href="{% url 'TupcSysApp:FacultyInternet'%}"
-                ><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"
+                ><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"
                   ><br />
                   <h6 id="icons">INTERNET</h6></i
                 ></a
               >
               <a href="{% url 'TupcSysApp:FacultyLabsched'%}"
-                ><i class="fa fa-2x fa-calendar" aria-hidden="true"
+                ><i class="fa fa-lg fa-calendar" aria-hidden="true"
                   ><br />
                   <h6 id="icons">SCHEDULE</h6></i
                 ></a
               >
               <a href="{% url 'TupcSysApp:FacultyReports'%}" id="active"
-                ><i class="fa fa-2x fa-file-text" aria-hidden="true"
+                ><i class="fa fa-lg fa-file-text" aria-hidden="true"
                   ><br />
                   <h6 id="icons">REPORT</h6></i
                 ></a
               >
               <a href="" data-toggle="modal" data-target="#logout"
-                ><i class="fa fa-2x fa-sign-out" aria-hidden="true"
+              id="lo"  data-toggle="tooltip" data-placement="top" title="Logout" ><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
                   ><br />
-                  <h6 id="icons">LOG OUT</h6></i
+                  </i
                 ></a
               >
             </div>
@@ -492,7 +492,7 @@
                       </div>
                     </form>
                     <!--tableforms came from UITC--------------------------------------------------------------------------------------------->
-                    <form method="post" action = "{% url 'TupcSysApp:reqrepmain_permit' pr.pk  %}" id="myforms"  class="col-xl-12">
+                    <form method="post" id="myforms"  class="col-xl-12">
                     
 
                       <!--REPAIR AND MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->

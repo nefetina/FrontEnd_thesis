@@ -211,6 +211,7 @@
     border-bottom-left-radius: 2%;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     border-radius: 10px !important;
+    width: 100% !important;
 }
 
 .wrapper header {
@@ -318,7 +319,54 @@ header .current-date {
     color: #fff;
 }
 
+#net_notif{
+    font-size: 12px !important;
+    color: white !important;
 
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+
+}
+
+#id_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+    margin-left: 15px;
+}
+
+#sched_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#report_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#lo{
+    position: relative;
+    top: 54%;
+    padding-bottom: 15px;
+    
+}
 /*****************************************BACKGROUND*******************************/
 
 html,
