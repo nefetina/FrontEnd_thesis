@@ -310,7 +310,7 @@
                                                 
                                                 <thead class="thead">
                                                     
-                                                    <h3>LABORATORY{% for x in q%}
+                                                    <h3>{% for x in q%}
                                                         
                                                         {% if forloop.counter == 1 %}
                                                             {{x.lnum}}
@@ -373,7 +373,7 @@
                                                         File:<input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
                                                     </div> <br/>
                                                     <div class="col-2">                    
-                                                        <input type="text" placeholder = "Laboratory Number:" name="lubnum"></input>
+                                                        <input type="text" placeholder = "Name of Laboratory:" name="lubnum"></input>
                                                         <input type="date" placeholder = "Date:" name="ldate"></input>
                                                     </div>
                                                 </div>
