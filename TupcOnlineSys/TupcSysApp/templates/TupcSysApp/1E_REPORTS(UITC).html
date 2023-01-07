@@ -120,7 +120,7 @@
             
                                 <!--TABLE1 REQUEST FOR REPAIR & MAINTENANCE-------------------------------------------------------------------------------------------->
                                 <div class="col-xl-12 " id="table1">
-                                    <form>
+                                    <form id="searchform">
                                         <div class="form-row">
 
                                             <div class="col-xl-9 col-lg-8 col-12">
@@ -142,7 +142,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <div class="jumbotron "><br>
+                                    <div class="jumbotron " id="tablerp"><br>
                                         <div class="card-body">
                                             
                                                 <div class="formtitle">
@@ -300,14 +300,13 @@
                                         </div>
                                     
                                     </div>
-                                </div>
-                                <div></div>
-                                {% for pr in data %}
-                                    <form method="post" action = "{% url 'TupcSysApp:reqrepmain_permit' pr.pk  %}" id="myforms"  class="col-xl-12 collapse">
-                                        {%csrf_token%}
+                                
+                                    {% for pr in data %}
+                                        <form method="post" action = "{% url 'TupcSysApp:reqrepmain_permit' pr.pk  %}" id="myforms"  class="col-xl-12">
+                                            {%csrf_token%}
 
                                             <!--REPAIR AND MAINTENANCE FORMTABLE1.1-------------------------------------------------------------------------------------------->
-                                            <div class="col-xl-12 collapse " id="tableform1">
+                                            <div class="col-xl-12" id="tableform1" hidden>
                                                 <div class="jumbotron "><br>
                                                     
                                                     <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -388,7 +387,7 @@
                                                                                         <button type="button" class="btn btn-primary  float-right m-1" onclick="next1()" >
                                                                                             Next
                                                                                         </button>
-                                                                                        <button type="button" class="btn btn-danger float-right m-1"  >
+                                                                                        <button type="button" class="btn btn-danger float-right m-1" onclick="return222()" >
                                                                                             Return
                                                                                         </button>
                                                                                         
@@ -404,7 +403,7 @@
                                                                         </div>
                                             </div>
                                             <!--REPAIR AND MAINTENANCE FORMTABLE1.2-------------------------------------------------------------------------------------------->
-                                            <div class="col-xl-12 collapse" id="tableform2">
+                                            <div class="col-xl-12" id="tableform2" hidden>
                                                 <div class="jumbotron "><br>
                                                 
                                                     <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -533,7 +532,7 @@
                                             </div>
                                             <!--REPAIR AND MAINTENANCE FORMTABLE1.3-------------------------------------------------------------------------------------------->          
 
-                                            <div class="col-xl-12 collapse" id="tableform3">
+                                            <div class="col-xl-12" id="tableform3" hidden>
                                                 <div class="jumbotron "><br>
                                                     <!--FORM-------------------------------------------------------------------------------------------->                        
                                                     <div class="card-body" id="tfsize">
@@ -609,14 +608,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    
                                         
-                                    </form>
-                                {% endfor %}
-
+                                            
+                                        </form>
+                                    {% endfor %}
+                                </div>
 
                                 <!--TABLE2 REQUEST FOR PASSWORD RESET-------------------------------------------------------------------------------------------->
-                                <div class="col-xl-12 collapse" id="table2">
+                                <div class="col-xl-12" id="table2" hidden>
                                     <form>
                                         <div class="form-row">
 
@@ -794,10 +793,7 @@
                                 </div>
 
                                
-                                <form method="post" action='/UitcReports_maintenance/' id="myformm "  class="col-xl-12 collapse">
-                                     
-                                    
-                                    
+                                <form method="post" action='/UitcReports_maintenance/' id="myformm "  class="col-xl-12" hidden>
                                     <!--MAINTENANCE FORMTABLE2.1-------------------------------------------------------------------------------------------->
                                     {%csrf_token%}
                                     <div class="col-xl-12" id="tableform4" hidden>
@@ -991,7 +987,7 @@
                                     </div>
                                     <!--MAINTENANCE FORMTABLE2.2-------------------------------------------------------------------------------------------->
                                 
-                                    <div class="col-xl-12 collapse" id="tableform5">
+                                    <div class="col-xl-12" id="tableform5" hidden>
                                         <div class="jumbotron "><br>
                                         
                                             <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -1198,7 +1194,7 @@
                                     </div>
                                     <!--MAINTENANCE FORMTABLE2.3-------------------------------------------------------------------------------------------->
                                 
-                                    <div class="col-xl-12 collapse" id="tableform6">
+                                    <div class="col-xl-12" id="tableform6" hidden>
                                         <div class="jumbotron "><br>
                                         
                                             <!--FORM-------------------------------------------------------------------------------------------->                        
@@ -1352,7 +1348,7 @@
                                     </div>      
                                 </form>
                                 <!--TABLE3 MAINTENANCE-------------------------------------------------------------------------------------------->                    
-                                <div class="col-xl-12 collapse" id="table3">
+                                <div class="col-xl-12" id="table3" hidden>
                                     
                                         <div class="form-row">
 
@@ -1717,7 +1713,7 @@
                                 </div>
 
                                 <!--TABLE4 BORROW-------------------------------------------------------------------------------------------->                    
-                                <div class="col-xl-12 collapse" id="table4">
+                                <div class="col-xl-12" id="table4" hidden>
                                     <form>
                                         <div class="form-row">
 
@@ -1907,9 +1903,9 @@
                                     </div>
                                     
                                 </div>
-                </div>   
+                            </div>   
     
-                </div>    
+                        </div>         
                             
                     
             </div>        

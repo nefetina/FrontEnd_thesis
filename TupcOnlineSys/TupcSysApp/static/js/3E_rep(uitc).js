@@ -31,7 +31,17 @@ window.onload = function() {
     else if (span_Text3 > 0){
         document.getElementById("report_notif").hidden = false;
     }
+
   };
+  var x2 = document.getElementById("table1");
+  var z2 = document.getElementById("table2");
+  var y2 = document.getElementById("table3");
+  var v2 = document.getElementById("table4");
+  x2.hidden = false;
+  z2.hidden = true;
+  y2.hidden = true;
+  v2.hidden = true;
+
 
 
 function openNav() {
@@ -65,13 +75,14 @@ function closeNav() {
 /*tableform 1.1-1.3 navigation*/ ///////////////
 
 function next1() {
-    var y = document.getElementById("tableform1");
-    var x = document.getElementById("tableform2");
-    var z = document.getElementById("tableform3");
 
-    y.style.display = "none";
-    x.style.display = "block";
-    z.style.display = "none";
+    var x1 = document.getElementById("searchform");
+    var h = document.getElementById("tablerp");
+    document.getElementById("tableform1").hidden = true;
+    document.getElementById("tableform2").hidden = false;
+    document.getElementById("tableform3").hidden = true;
+    x1.hidden = true;
+    h.hidden = true;
 
 
 
@@ -80,13 +91,13 @@ function next1() {
 
 
 function next2() {
-    var y = document.getElementById("tableform1");
-    var x = document.getElementById("tableform2");
-    var z = document.getElementById("tableform3");
-
-    y.style.display = "none";
-    x.style.display = "none";
-    z.style.display = "block";
+    var x1 = document.getElementById("searchform");
+    var h = document.getElementById("tablerp");
+    document.getElementById("tableform1").hidden = true;
+    document.getElementById("tableform2").hidden = true;
+    document.getElementById("tableform3").hidden = false;
+    x1.hidden = true;
+    h.hidden = true;
 
 
 
@@ -94,26 +105,26 @@ function next2() {
 }
 
 function back1() {
-    var y = document.getElementById("tableform1");
-    var x = document.getElementById("tableform2");
-    var z = document.getElementById("tableform3");
-
-    y.style.display = "block";
-    x.style.display = "none";
-    z.style.display = "none";
+    var x1 = document.getElementById("searchform");
+    var h = document.getElementById("tablerp");
+    document.getElementById("tableform1").hidden = false;
+    document.getElementById("tableform2").hidden = true;
+    document.getElementById("tableform3").hidden = true;
+    x1.hidden = true;
+    h.hidden = true;
 
 
 
 }
 
 function back2() {
-    var y = document.getElementById("tableform1");
-    var x = document.getElementById("tableform2");
-    var z = document.getElementById("tableform3");
-
-    y.style.display = "none";
-    x.style.display = "block";
-    z.style.display = "none";
+    var x1 = document.getElementById("searchform");
+    var h = document.getElementById("tablerp");
+    document.getElementById("tableform1").hidden = true;
+    document.getElementById("tableform2").hidden = false;
+    document.getElementById("tableform3").hidden = true;
+    x1.hidden = true;
+    h.hidden = true;
 
 
 
@@ -125,14 +136,22 @@ function back2() {
 /*tableform 2.1-2.3 navigation*/ ///////////////
 
 function next3() {
-    var y = document.getElementById("tableform4");
-    var x = document.getElementById("tableform5");
-    var z = document.getElementById("tableform6");
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
+    var y2 = document.getElementById("table3");
+    var v2 = document.getElementById("table4");
+    var w2 = document.getElementById("myformm ");
 
-    y.style.display = "none";
-    x.style.display = "block";
-    z.style.display = "none";
+    document.getElementById("tableform4").hidden = true;
+    document.getElementById("tableform5").hidden = false;
+    document.getElementById("tableform6").hidden = true;
 
+
+    w2.hidden = false;
+    x2.hidden = true;
+    z2.hidden = true;
+    y2.hidden = true;
+    v2.hidden = true;
 
 
 
@@ -140,13 +159,22 @@ function next3() {
 
 
 function next4() {
-    var y = document.getElementById("tableform4");
-    var x = document.getElementById("tableform5");
-    var z = document.getElementById("tableform6");
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
+    var y2 = document.getElementById("table3");
+    var v2 = document.getElementById("table4");
+    var w2 = document.getElementById("myformm ");
 
-    y.style.display = "none";
-    x.style.display = "none";
-    z.style.display = "block";
+    document.getElementById("tableform4").hidden = true;
+    document.getElementById("tableform5").hidden = true;
+    document.getElementById("tableform6").hidden = false;
+
+
+    w2.hidden = false;
+    x2.hidden = true;
+    z2.hidden = true;
+    y2.hidden = true;
+    v2.hidden = true;
 
 
 
@@ -154,26 +182,44 @@ function next4() {
 }
 
 function back3() {
-    var y = document.getElementById("tableform4");
-    var x = document.getElementById("tableform5");
-    var z = document.getElementById("tableform6");
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
+    var y2 = document.getElementById("table3");
+    var v2 = document.getElementById("table4");
+    var w2 = document.getElementById("myformm ");
 
-    y.style.display = "block";
-    x.style.display = "none";
-    z.style.display = "none";
+    document.getElementById("tableform4").hidden = false;
+    document.getElementById("tableform5").hidden = true;
+    document.getElementById("tableform6").hidden = true;
+
+
+    w2.hidden = false;
+    x2.hidden = true;
+    z2.hidden = true;
+    y2.hidden = true;
+    v2.hidden = true;
 
 
 
 }
 
 function back4() {
-    var y = document.getElementById("tableform4");
-    var x = document.getElementById("tableform5");
-    var z = document.getElementById("tableform6");
+    var x2 = document.getElementById("table1");
+    var z2 = document.getElementById("table2");
+    var y2 = document.getElementById("table3");
+    var v2 = document.getElementById("table4");
+    var w2 = document.getElementById("myformm ");
 
-    y.style.display = "none";
-    x.style.display = "block";
-    z.style.display = "none";
+    document.getElementById("tableform4").hidden = true;
+    document.getElementById("tableform5").hidden = false;
+    document.getElementById("tableform6").hidden = true;
+
+
+    w2.hidden = false;
+    x2.hidden = true;
+    z2.hidden = true;
+    y2.hidden = true;
+    v2.hidden = true;
 
 
 
@@ -185,228 +231,136 @@ function form111() {
 
 
     var y1 = document.getElementById("tableform1");
-    var x1 = document.getElementById("table1");
-    var h = document.getElementById("myforms");
+    var x1 = document.getElementById("searchform");
+    var h = document.getElementById("tablerp");
+    document.getElementById("tableform1").hidden = false;
+    document.getElementById("tableform2").hidden = true;
+    document.getElementById("tableform3").hidden = true;
+    x1.hidden = true;
+    h.hidden = true;
 
-
-    h.setAttribute("style","display:block");
-    
-    y1.style.display = "block";
-    x1.style.display = "none";
 }
-function form222() {
-    var w1 = document.getElementById("tableform3");
-    var v1 = document.getElementById("tableform2");
+function return222() {
     var y1 = document.getElementById("tableform1");
-    var x1 = document.getElementById("table1");
-    w1.style.display = "none";
-    v1.style.display = "none";
-    y1.style.display = "none";
-    x1.style.display = "block";
+    var x1 = document.getElementById("searchform");
+    var h = document.getElementById("tablerp");
+    document.getElementById("tableform1").hidden = true;
+    document.getElementById("tableform2").hidden = true;
+    document.getElementById("tableform3").hidden = true;
+    x1.hidden = false;
+    h.hidden = false;
 }
 
 
 
 function requestforrep() {
-    var a = document.getElementById("tableform1");
-    var b = document.getElementById("tableform2");
-    var c = document.getElementById("tableform3");
-    var d = document.getElementById("myformm ");
-    var e = document.getElementById("tableform5");
-    var f = document.getElementById("tableform6");
-    var g = document.getElementById("tableform7");
-    var h = document.getElementById("myforms");
-
 
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
-
+    var w2 = document.getElementById("myformm ");
     document.getElementById("tableform4").hidden = true;
     document.getElementById("tableform5").hidden = true;
     document.getElementById("tableform6").hidden = true;
-    
-    
-    d.setAttribute("style","display:none");
-    h.setAttribute("style","display:none");
-    
-    x2.style.display = "block";
-    z2.style.display = "none";
-    y2.style.display = "none";
-    v2.style.display = "none";
+    w2.hidden = true;
+    x2.hidden = false;
+    z2.hidden = true;
+    y2.hidden = true;
+    v2.hidden = true;
 
 
-    a.style.display = "none";
-    b.style.display = "none";
-    c.style.display = "none";
-    d.style.display = "none";
-    e.style.display = "none";
-    f.style.display = "none";
-    g.style.display = "none";
+
+
 }
 
 
 
 
 function requesforpassres() {
-    var a = document.getElementById("tableform1");
-    var b = document.getElementById("tableform2");
-    var c = document.getElementById("tableform3");
-    var d = document.getElementById("myformm ");
-    var e = document.getElementById("tableform5");
-    var f = document.getElementById("tableform6");
-    var g = document.getElementById("tableform7");
-    var h = document.getElementById("myforms");
 
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
-
+    var w2 = document.getElementById("myformm ");
     document.getElementById("tableform4").hidden = true;
     document.getElementById("tableform5").hidden = true;
     document.getElementById("tableform6").hidden = true;
+    w2.hidden = true;
+    x2.hidden = true;
+    z2.hidden = false;
+    y2.hidden = true;
+    v2.hidden = true;
 
 
-    d.setAttribute("style","display:none");
-    h.setAttribute("style","display:none");
-
-    x2.style.display = "none";
-    z2.style.display = "block";
-    y2.style.display = "none";
-    v2.style.display = "none";
-
-    
-    a.style.display = "none";
-    b.style.display = "none";
-    c.style.display = "none";
-    d.style.display = "none";
-    e.style.display = "none";
-    f.style.display = "none";
-    g.style.display = "none";
 }
 
 
 function maintenanceform() {
 
-    var a = document.getElementById("tableform1");
-    var b = document.getElementById("tableform2");
-    var c = document.getElementById("tableform3");
-    var d = document.getElementById("myformm ");
-    var e = document.getElementById("tableform5");
-    var f = document.getElementById("tableform6");
-    var g = document.getElementById("tableform7");
-    var h = document.getElementById("myforms");
-
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
-    
+    var w2 = document.getElementById("myformm ");
 
-    document.getElementById("myformm ").hidden = false;
     document.getElementById("tableform4").hidden = false;
-    document.getElementById("tableform5").hidden = false;
-    document.getElementById("tableform6").hidden = false;
-
-    d.setAttribute("style","display:block");
-    h.setAttribute("style","display:none");
-
-    x2.style.display = "none";
-    z2.style.display = "none";
-    y2.style.display = "none";
-    v2.style.display = "none";
+    document.getElementById("tableform5").hidden = true;
+    document.getElementById("tableform6").hidden = true;
 
 
-    a.style.display = "none";
-    b.style.display = "none";
-    c.style.display = "none";
-    d.style.display = "block";
-    e.style.display = "none";
-    f.style.display = "none";
-    g.style.display = "none";
+    w2.hidden = false;
+    x2.hidden = true;
+    z2.hidden = true;
+    y2.hidden = true;
+    v2.hidden = true;
+
+
 }
 
 function maintenance() {
 
-    var a = document.getElementById("tableform1");
-    var b = document.getElementById("tableform2");
-    var c = document.getElementById("tableform3");
-    var d = document.getElementById("myformm ");
-    var e = document.getElementById("tableform5");
-    var f = document.getElementById("tableform6");
-    var g = document.getElementById("tableform7");
-    var h = document.getElementById("myforms");
-
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
+    var w2 = document.getElementById("myformm ");
+
     document.getElementById("tableform4").hidden = true;
     document.getElementById("tableform5").hidden = true;
     document.getElementById("tableform6").hidden = true;
 
 
-    d.setAttribute("style","display:none");
-    h.setAttribute("style","display:none");
+    w2.hidden = true;
+    x2.hidden = true;
+    z2.hidden = true;
+    y2.hidden = false;
+    v2.hidden = true;
 
-
-    x2.style.display = "none";
-    z2.style.display = "none";
-    y2.style.display = "block";
-    v2.style.display = "none";
-
-    a.style.display = "none";
-    b.style.display = "none";
-    c.style.display = "none";
-    d.style.display = "none";
-    e.style.display = "none";
-    f.style.display = "none";
-    g.style.display = "none";
 }
 
 
 function borrow() {
     
 
-    var a = document.getElementById("tableform1");
-    var b = document.getElementById("tableform2");
-    var c = document.getElementById("tableform3");
-    var d = document.getElementById("myformm ");
-    var e = document.getElementById("tableform5");
-    var f = document.getElementById("tableform6");
-    var g = document.getElementById("tableform7");
-    var h = document.getElementById("myforms");
-
-
     var x2 = document.getElementById("table1");
     var z2 = document.getElementById("table2");
     var y2 = document.getElementById("table3");
     var v2 = document.getElementById("table4");
-
+    var w2 = document.getElementById("myformm ");
 
     document.getElementById("tableform4").hidden = true;
     document.getElementById("tableform5").hidden = true;
     document.getElementById("tableform6").hidden = true;
-    
-
-    d.setAttribute("style","display:none");
-    h.setAttribute("style","display:none");
-
-    x2.style.display = "none";
-    z2.style.display = "none";
-    y2.style.display = "none";
-    v2.style.display = "block";
 
 
-    a.style.display = "none";
-    b.style.display = "none";
-    c.style.display = "none";
-    d.style.display = "none";
-    e.style.display = "none";
-    f.style.display = "none";
-    g.style.display = "none";
+    w2.hidden = true;
+    x2.hidden = true;
+    z2.hidden = true;
+    y2.hidden = true;
+    v2.hidden = false;
+
 }
 
 

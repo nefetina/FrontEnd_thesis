@@ -1025,11 +1025,9 @@ def UitcReports(request):  # UITC REPORTS page
 
         data7 = int(data6['Faculty_Internet']) + \
             int(data6['student_wifi']) + int(data6['student_internet'])
-        data8 = int(data6['Faculty_borrow']) + \
-            int(data6['faculty_repair']) + int(data6['maintenance'])
-        + int(data6['Faculty_passreset']) + \
+        data8 = int(data6['Faculty_borrow']) + int(data6['faculty_repair']) + int(data6['maintenance']) + \
+            int(data6['Faculty_passreset']) + \
             int(data6['borrow_record']) + int(data6['student_PassReset'])
-        print(data8)
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data6': data6, 'data7': data7, 'data8': data8})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
