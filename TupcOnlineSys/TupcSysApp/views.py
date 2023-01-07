@@ -1827,7 +1827,7 @@ def inventory_notify(request, id):
         break
 
     messages.info(request, "Completed")
-    return redirect('/UitcInventory')
+    return redirect('/UitcReports')
 
 
 def UitcInventory_borrowed(request, id):
@@ -1849,7 +1849,7 @@ def UitcInventory_borrowed(request, id):
                 i_rdate5=datetime.now(), imodel=i_model, iserial=i_serial, i_stats5="Borrowed")
 
     messages.success(request, "Successfully done")
-    return redirect('/UitcInventory')
+    return redirect('/UitcReports')
 
 
 def UitcInventory_returned(request, id):
@@ -1858,7 +1858,8 @@ def UitcInventory_returned(request, id):
     for y in Inventory.objects.filter(id=id).values():
         i_model = y['i_model']
         i_serial = y['i_serial']
-
+    print(i_model)
+    print(i_serial)
     remarks = request.POST.get("remarks")
     print(remarks)
     for x in Inventory.objects.only('id').filter(i_stats="Borrowed"):
@@ -1894,9 +1895,9 @@ def UitcInventory_returned(request, id):
                     fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
                 borrow_record.objects.filter(imodel=i_model, iserial=i_serial, i_stats5="Borrowed").update(
                     i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
-        break
+
     messages.success(request, "Successfully done")
-    return redirect('/UitcInventory')
+    return redirect('/UitcReports')
 
 
 def forgotpassword(request):
