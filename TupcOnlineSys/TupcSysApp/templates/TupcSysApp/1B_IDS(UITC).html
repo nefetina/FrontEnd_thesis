@@ -155,7 +155,7 @@
                                                         
                                                         <tr>
                                                             {% for q in dataf %}
-                                                            <td><button  value="{{q.id}}" name ="id" data-toggle="modal" data-target="#exampleModal{{ q.id }}">{{q.ff_name}}</td>
+                                                            <td><a value="{{q.id}}" name ="id" data-toggle="modal" data-target="#exampleModal{{ q.id }}" href="">{{q.ff_name}}</a></td>
                                                             <td>{{q.fm_name}}</td>
                                                             <td>{{q.fl_name}}</td>
                                                             <td>{{q.f_suffix}}</td>

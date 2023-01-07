@@ -161,7 +161,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 {% for pr in data %}
-                                                                <td><button value="{{pr.id}}" name ="id" data-toggle="modal" data-target="#modal1{{ pr.id }}">{{pr.ftype}}</button></td>
+                                                                <td><a value="{{pr.id}}" name ="id" data-toggle="modal" data-target="#modal1{{ pr.id }}" href="">{{pr.ftype}}</a></button></td>
                                                                 <td>{{pr.fbrand}}</td>
                                                                 <td>{{pr.fname}}</td>
                                                                 <td>{{pr.Fposjob}}</td>
@@ -1384,7 +1384,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 {% for p in data5 %}
-                                                                <td><button  value="{{p.id}}" name ="id" data-toggle="modal" data-target="#modal3{{ p.id }}">{{p.i_type4}}</td>                                                                <td>{{p.i_type4}}</td>
+                                                                <td><a value="{{p.id}}" name ="id" data-toggle="modal" data-target="#modal3{{ p.id }}" href="">{{p.i_type4}}</a></td>                                                                <td>{{p.i_type4}}</td>
                                                                 <td><img src="{{p.i_sig5}}" style = "height: 80px"></td>
                                                                 <td>{{p.ie_date5}}</td>
                                                                 <td>{{p.i_time2}}</td>
