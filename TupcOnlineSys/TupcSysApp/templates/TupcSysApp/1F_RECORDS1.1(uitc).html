@@ -301,7 +301,7 @@
                             <tr>
                               {% for p in data %}
                               <td><a href="{{p.f_pic}}" download>
-                                <img src="{{p.f_pic}}" width="104" height="142">
+                                <img src="{{p.f_pic}}" width="100" height="100">
                                 click to download
                               </a></td>
                               <td>{{p.ff_name}}</td>
@@ -321,7 +321,11 @@
                               <td>{{p.f_cp}}</td>
                               <td>{{p.f_num}}</td>
                               <td>{{p.f_add}}</td>
-                              <td><img src="{{p.f_signature}}" style = "height: 80px"/></td>
+                              <td>
+                              <a href="{{p.f_signature}}" download>
+                                <img src="{{p.f_signature}}" width="250" height="150">
+                                click to download
+                              </a></td>
                               <td>{{p.f_stat}}</td>
                               <td>
                                 <div
