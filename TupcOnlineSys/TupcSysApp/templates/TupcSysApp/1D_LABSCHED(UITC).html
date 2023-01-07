@@ -356,8 +356,26 @@
                                                     </tr>
 
                                                     {% endfor %}
-                                                        <a type = "button" href ="/l1_delete/" class="btn btn-primary" > <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</a>
+                                                    {% for a in datas %}
+                                                        {% if forloop.counter == 1 %}
+                                                            <form method="post" action="{% url 'TupcSysApp:l1_delete' a.pk%}">
+                                                                {%csrf_token%}
+                                                                {% for x in q%}
+                                                            
+                                                                        {% if forloop.counter == 1 %}
+                                                                            <input type="text" name="lnum" value="{{x.lnum}}" readonly hidden></input>
+                                                                            <button type ="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</button>
 
+                                                                            {{ break }}
+                                                                        {% endif %}
+                                                                {% endfor %}
+
+                                                            </form>
+
+                                                                {{ break }}
+                                                        {% endif %}                                              
+
+                                                    {% endfor %}
                                                     {% endfor %}
                                                     
                                                     

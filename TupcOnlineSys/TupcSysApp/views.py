@@ -141,8 +141,14 @@ def upload_csv_l1(request):
         return redirect('/UitcLabsched')
 
 
-def l1_delete(request):
-    Schedule_lab.objects.all().delete()
+def l1_delete(request, id):
+    a = Schedule_lab.objects.get(id=id)
+    sched = request.POST.get("lnum")
+    for x in Schedule_lab.objects.only('id'):
+        if a == x:
+            Schedule_lab.objects.filter(lubnum=sched).delete()
+    print(sched)
+    messages.info(request, "Deleted!")
     return redirect('/UitcLabsched')
 
 
@@ -962,6 +968,7 @@ def UitcInternet(request):  # UITC INTERNET page
 def UitcLabsched(request):  # UITC LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         datal = faculty_lab.objects.filter(l_stat="On Process")
+        datas = Schedule_lab.objects.all()
         sched = []
         lnum = []
         labnum = Schedule_lab.objects.values(
@@ -974,7 +981,6 @@ def UitcLabsched(request):  # UITC LABSCHED page
             for z in scheds:
                 z['lnum'] = a
             sched.append(scheds)
-        print(sched)
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
@@ -993,7 +999,7 @@ def UitcLabsched(request):  # UITC LABSCHED page
             int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
 
-        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
+        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'datas':datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
