@@ -970,9 +970,7 @@
                                                                                 <button type="button" class="btn btn-primary  float-right m-1" onclick="next3()" >
                                                                                     Next
                                                                                 </button>
-                                                                                <button type="button" class="btn btn-danger float-right m-1"  >
-                                                                                    Clear
-                                                                                </button>
+
                                                                                 
                                                                             </div>
                                                                             
@@ -1756,6 +1754,7 @@
                                                                 <th scope="col ">RQST BORROW</th>
                                                                 <th scope="col">REASON FOR BORROWING</th>
                                                                 <th scope="col">SIGNATURE</th>
+                                                                <th scope="col">STATUS</th>
                                                                 <th scope="col">ACTION</th>
                                                             </tr>
                                                             </thead>
@@ -1769,15 +1768,142 @@
                                                                     <td>{{p1.fbreq}}</td>
                                                                     <td>{{p1.fbreason}}</td>
                                                                     <td><img src="{{p1.fbsign}}" style = "height: 80px"/></td>
+                                                                    <td name="fbstat">{{p1.fbstat}}</td>
+                                                                    <td>
+                                                                        
+                                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
+
+                                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnapproved"  
+                                                                            data-toggle="modal" data-target="#borrowed{{ p1.id}}">
+                                                                            <i class="fa fa-check"    aria-hidden="true"></i></a>
+
+                                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreject"
+                                                                            title="Deny" data-toggle="modal" data-target="#denybfs{{ p1.id }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                        
+                                                                            
+                                                                            <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
+                                                                            data-toggle="modal" data-target="#return" hidden  >
+                                                                            Return<i></i></a>
+
+                                                                            <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
+                                                                            title="Deny" data-toggle="modal" data-target="#notif"  hidden>Notify<i></i></a>
+                                                                        </div>
+                                                                    </td>
                                                                     
                                                                     <td>
-                                                                        <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:fborrow_permit' p1.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                                        <!--modal for approved borrowed pop up-------------------------------------------------------------------------------------------->
+                                                                        <div class="modal fade" id="borrowed{{ p1.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                            {% for i in inventory %}
+                                                                            <form action="{% url 'TupcSysApp:UitcInventory_borrowed' i.pk%}" method="POST">
+                                                                                <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle">List of Items</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                                </div>
+                                                                                <div class="modal-body" id="at">
+                                                                                    
+                                                                                        {% csrf_token %}
+                                                                                    
+                                                        
+                                                                                           
 
-                                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                            title="Deny" data-toggle="modal" data-target="#denybfs{{ p1.id }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                                    <input type="radio" name="fid"> {{i.i_model}} {{i.i_serial}} {{i.i_equip}}</input>
+                                                                                    <input type="text" name="b_id" value = "{{p1.id}}" hidden/>
+                                                                                
+                                                                                    {% endfor %}
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                                                                                <button type="submit" class="btn btn-primary" onclick="approved()"  >Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                            </div>
+                                                                            </div>
                                                                         </div>
+
+                                                                        
+                                                                        <!--modal for return borrowed pop up-->
+                                                                        <div class="modal fade" id="return" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle">Return item remarks</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="text-center">
+                                                                                        <form  method="POST">
+                                                                                            
+                                                                                            <div class="form-row">
+                            
+                                                                                                <div class="col-xl-12">
+                                                                                                
+                                                                                                    <select id="inputState" class="form-control my-2 p-2" name = "remarks" required>
+                                                                                                        <option selected disabled value="">Remarks:</option>
+                                                                                                            <option value="Good Condition">Good Condition</option>
+                                                                                                            <option value="Broken">Broken</option>
+                                                                                                            <option value="Replaced">Replaced</option>
+                                                                                                            <option value="Missing some parts">Missing some parts</option>
+                                                                                                            <option value="Not working">Not working</option>
+                                                                                                    
+                                                                                                    </select>
+                                                                                                
+                                                                                                </div>
+                                                                                            </div>
+                                                                                
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"  >Close</button>
+                                                                                <button type="button" class="btn btn-primary" onclick="returned()" data-dismiss="modal" >Submit</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <!--modal for notify pop up-------------------------------------------------------------------------------------------->
+                                                                        <div class="modal fade" id="notif" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle">Notify</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="text-center">
+                                                                                        <form  method="POST">
+                                                                                          
+                                                                                            
+                                                                                            <div class="form-row">
+                            
+                                                                                                <div class="col-xl-12">
+                                                                                                    Message the Borrower
+                                                                                                    
+                                                                                                    <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "message">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                <button type="button" class="btn btn-primary" onclick="approved()" data-dismiss="modal" >Submit</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+
+
+
                                                                         
                                                                     </td>
                                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
@@ -1812,6 +1938,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
+                                                                   
                                                                 </tr>
                                                                 {% endfor %}
                                                                 <tr>
@@ -1823,6 +1951,7 @@
                                                                     <td>{{p.ir_borrow5}}</td>
                                                                     <td>{{p.irf_borrow5}}</td>
                                                                     <td><img src="{{p.i_sig5}}" style = "height: 80px"/></td>
+                                                                    <td name="sbstat">{{p.i_stats5}}</td>
                                                                     
                                                                     <td>
                                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">

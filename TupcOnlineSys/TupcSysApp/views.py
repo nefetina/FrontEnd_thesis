@@ -999,7 +999,7 @@ def UitcLabsched(request):  # UITC LABSCHED page
             int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
 
-        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'datas':datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
+        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1014,9 +1014,12 @@ def UitcReports(request):  # UITC REPORTS page
         data = faculty_reports.objects.filter(fstat="On Process")
         data1 = faculty_passreset.objects.filter(fwstat="On Process")
         data2 = PassReset.objects.filter(psstats="On Process")
-        data3 = faculty_borrow.objects.filter(fbstat="On Process")
-        data4 = borrow_record.objects.filter(i_stats5="On Process")
+        data3 = faculty_borrow.objects.filter(
+            fbstat="On Process") | faculty_borrow.objects.filter(fbstat="Borrowed")
+        data4 = borrow_record.objects.filter(
+            i_stats5="On Process") | borrow_record.objects.filter(i_stats5="Borrowed")
         data5 = maintain_record.objects.filter(i_stats="On Process")
+        inventory = Inventory.objects.filter(i_stats="Available")
         data6 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
@@ -1034,7 +1037,7 @@ def UitcReports(request):  # UITC REPORTS page
         data8 = int(data6['Faculty_borrow']) + int(data6['faculty_repair']) + int(data6['maintenance']) + \
             int(data6['Faculty_passreset']) + \
             int(data6['borrow_record']) + int(data6['student_PassReset'])
-        return render(request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data6': data6, 'data7': data7, 'data8': data8})
+        return render(request, 'TupcSysApp/1E_REPORTS(UITC).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'inventory': inventory, 'data4': data4, 'data5': data5, 'data6': data6, 'data7': data7, 'data8': data8})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1446,7 +1449,7 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
             email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'datas':datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum})
+        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -1829,22 +1832,21 @@ def inventory_notify(request, id):
 
 def UitcInventory_borrowed(request, id):
     a = Inventory.objects.get(id=id)
-    fid = request.POST.get("fid")
-    print(a)
+    fid = request.POST.get("b_id")
+
     print(fid)
     for y in Inventory.objects.filter(id=id).values():
         i_model = y['i_model']
         i_serial = y['i_serial']
-
+    print(i_model)
     for x in Inventory.objects.only('id').filter(i_stats="Available"):
         if a == x:
             Inventory.objects.filter(id=id).update(i_stats="Borrowed")
 
-            faculty_borrow.objects.filter(id=fid, fbuser=request.POST.get("user1")).update(
+            faculty_borrow.objects.filter(id=fid).update(
                 fbrdate=datetime.now(), fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed")
-            borrow_record.objects.filter(id=fid, i_user=request.POST.get("user2")).update(
+            borrow_record.objects.filter(id=fid).update(
                 i_rdate5=datetime.now(), imodel=i_model, iserial=i_serial, i_stats5="Borrowed")
-        print(x)
 
     messages.success(request, "Successfully done")
     return redirect('/UitcInventory')

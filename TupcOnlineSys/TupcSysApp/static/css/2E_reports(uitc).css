@@ -295,6 +295,16 @@ input{
     background-color: #1b412dcc;
     border-radius: 5px;
 }
+
+#at{
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+#approvetable{
+    overflow: hidden;
+    overflow-y: scroll;
+}
 /*****************************************BACKGROUND*******************************/
 
 html,

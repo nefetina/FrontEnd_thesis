@@ -31,7 +31,18 @@ window.onload = function() {
     else if (span_Text3 > 0){
         document.getElementById("report_notif").hidden = false;
     }
-
+    const fbstat = document.getElementsByName("fbstat");
+    
+    for (let i = 0; i < fbstat.length; i++) {
+        var stat = fbstat[i].innerText;
+        if (stat == "Borrowed"){
+            document.getElementsByName("btnreject")[i].hidden = true;
+            document.getElementsByName("btnapproved")[i].hidden = true;
+            document.getElementsByName("btnnotify")[i].hidden = false;
+            document.getElementsByName("btnreturn")[i].hidden = false;
+        }
+        
+      }
   };
   var x2 = document.getElementById("table1");
   var z2 = document.getElementById("table2");
@@ -365,3 +376,23 @@ function borrow() {
 
 
 /*breadcrumb buttons navigation*/ ///////////////
+
+
+
+
+
+
+function approved(){
+    document.getElementById("btnreject").hidden = true;
+    document.getElementById("btnapproved").hidden = true;
+    document.getElementById("btnnotify").hidden = false;
+    document.getElementById("btnreturn").hidden = false;
+}
+
+
+function returned(){
+    document.getElementById("btnreject").hidden = false;
+    document.getElementById("btnapproved").hidden = false;
+    document.getElementById("btnnotify").hidden = true;
+    document.getElementById("btnreturn").hidden = true;
+}
