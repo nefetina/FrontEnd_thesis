@@ -16,7 +16,7 @@ window.onload = function() {
         document.getElementById("net_notif").hidden = false;
     }
 
-    var span_Text2 = document.getElementById("sched_notif").innerText;
+    var span_Text2 = document.getElementById("sched_notif").innerText; 
     if (span_Text2 == 0){
         document.getElementById("sched_notif").hidden = true;
     }

@@ -1156,9 +1156,25 @@ def UitcReports_maintenance(request):  # UITC REPORTS page
 @login_required(login_url='/Index')
 def UitcRec1(request):  # UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
+            "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
+            "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
+            "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
+            "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+            "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
+            "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
+            "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
+            "student_internet": str(student_internet.objects.filter(g_stats2="On Process").count()),
+            "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
+            "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
 
+        data2 = int(data1['Faculty_Internet']) + \
+            int(data1['student_wifi']) + int(data1['student_internet'])
+        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance']) + \
+            int(data1['Faculty_passreset']) + \
+            int(data1['borrow_record']) + int(data1['student_PassReset'])
         data = faculty_ID.objects.all()
-        return render(request, 'TupcSysApp/1F_RECORDS1.1(uitc).html', {'data': data})
+        return render(request, 'TupcSysApp/1F_RECORDS1.1(uitc).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1173,7 +1189,21 @@ def UitcRec2(request):  # UITC HOMEPAGE page
         data1 = faculty_wifi.objects.all()
         data2 = student_wifi.objects.all()
         data3 = student_internet.objects.all()
-        return render(request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data1': data1, 'data2': data2, 'data3': data3})
+        data4 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
+                "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
+                "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
+                "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
+                "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
+                "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
+                "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
+                "student_internet": str(student_internet.objects.filter(g_stats2="On Process").count()),
+                "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
+                "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
+
+        data5 = int(data4['Faculty_Internet']) + int(data4['student_wifi']) + int(data4['student_internet'])
+        data6 = int(data4['Faculty_borrow']) + int(data4['faculty_repair']) + int(data4['maintenance']) + int(data4['Faculty_passreset']) + int(data4['borrow_record']) + int(data4['student_PassReset'])
+        return render(request, 'TupcSysApp/1G_RECORDS1.2(uitc).html', {'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data6': data6})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1186,7 +1216,24 @@ def UitcRec2(request):  # UITC HOMEPAGE page
 def UitcRec3(request):  # UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         data = faculty_lab.objects.all()
-        return render(request, 'TupcSysApp/1H_RECORDS1.3(uitc).html', {'data': data})
+        data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
+            "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
+            "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
+            "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
+            "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+            "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
+            "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
+            "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
+            "student_internet": str(student_internet.objects.filter(g_stats2="On Process").count()),
+            "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
+            "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
+
+        data2 = int(data1['Faculty_Internet']) + \
+            int(data1['student_wifi']) + int(data1['student_internet'])
+        data3 = int(data1['Faculty_borrow']) + int(data1['faculty_repair']) + int(data1['maintenance']) + \
+            int(data1['Faculty_passreset']) + \
+            int(data1['borrow_record']) + int(data1['student_PassReset'])
+        return render(request, 'TupcSysApp/1H_RECORDS1.3(uitc).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1249,7 +1296,24 @@ def UitcRec4(request):  # UITC HOMEPAGE page
         # data5 = Inventory.objects.all()
         data6 = maintain_record.objects.all()
         data7 = faculty_reports.objects.all()
-        return render(request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data5a': data5a, 'data5b': data5b, 'data6': data6, 'data7': data7})
+        d1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
+            "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
+            "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
+            "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
+            "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+            "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
+            "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
+            "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
+            "student_internet": str(student_internet.objects.filter(g_stats2="On Process").count()),
+            "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
+            "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
+
+        d2 = int(d1['Faculty_Internet']) + \
+            int(d1['student_wifi']) + int(d1['student_internet'])
+        d3 = int(d1['Faculty_borrow']) + int(d1['faculty_repair']) + int(d1['maintenance']) + \
+            int(d1['Faculty_passreset']) + \
+            int(d1['borrow_record']) + int(d1['student_PassReset'])
+        return render(request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'d1': d1, 'd3': d3, 'd2': d2,'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data5a': data5a, 'data5b': data5b, 'data6': data6, 'data7': data7})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1262,7 +1326,24 @@ def UitcRec4(request):  # UITC HOMEPAGE page
 def UitcPermission(request):  # UITC PERMISSION page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         lists = list.objects.all()
-        return render(request, 'TupcSysApp/1J_PERMISSION(UITC).html', {'lists': lists})
+        data6 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
+                 "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
+                 "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
+                 "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
+                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
+                 "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
+                 "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
+                 "student_internet": str(student_internet.objects.filter(g_stats2="On Process").count()),
+                 "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
+                 "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
+
+        data7 = int(data6['Faculty_Internet']) + \
+            int(data6['student_wifi']) + int(data6['student_internet'])
+        data8 = int(data6['Faculty_borrow']) + int(data6['faculty_repair']) + int(data6['maintenance']) + \
+            int(data6['Faculty_passreset']) + \
+            int(data6['borrow_record']) + int(data6['student_PassReset'])
+        return render(request, 'TupcSysApp/1J_PERMISSION(UITC).html', {'lists': lists, 'data7': data7, 'data8': data8, 'data6': data6,})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1761,11 +1842,30 @@ def UitcInventory(request):  # UITC ID page
                 messages.info(request, 'Successfully Added!')
                 forminventory.save()
                 return redirect('/UitcInventory')
+        data6 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
+                 "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
+                 "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
+                 "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
+                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
+                 "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
+                 "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
+                 "student_internet": str(student_internet.objects.filter(g_stats2="On Process").count()),
+                 "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
+                 "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
 
+        data7 = int(data6['Faculty_Internet']) + \
+            int(data6['student_wifi']) + int(data6['student_internet'])
+        data8 = int(data6['Faculty_borrow']) + int(data6['faculty_repair']) + int(data6['maintenance']) + \
+            int(data6['Faculty_passreset']) + \
+            int(data6['borrow_record']) + int(data6['student_PassReset'])
         context = {
             'inventory': getDataInventory,
             'data': data,
-            'data1': data1
+            'data1': data1,
+            'data6': data6,
+            'data7': data7,
+            'data8': data8
         }
         return render(request, 'TupcSysApp/1S_INVENTORY(UITC).html', context)
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
