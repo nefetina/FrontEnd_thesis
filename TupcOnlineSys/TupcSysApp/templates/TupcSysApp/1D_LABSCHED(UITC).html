@@ -89,15 +89,15 @@
                 <div class="col-xl-1 text-center">
                     <div id="mySidebar" class="sidebar">
                         <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
-                        <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-2x fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-2x fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "id_notif" name = "id_notifs" hidden>{{data1.Faculty_ID}}</span></a>
-                        <a href="{% url 'TupcSysApp:UitcInternet'%} "><i class="fa fa-2x fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "net_notif" name = "net_notifs" hidden>{{data2}}</span></a>
-                        <a href="{% url 'TupcSysApp:UitcLabsched'%}" id="active"><i class="fa fa-2x fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "sched_notif" name = "sched_notifs" hidden>{{data1.Faculty_Laboratory}}</span></a>
-                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-2x fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="position-relative top-0 start-100 translate-middle bg-danger border border-light rounded-circle" id = "report_notif" name = "report_notifs" hidden>{{data3}}</span></a>
-                        <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-2x fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-2x fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
-                        <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-2x fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
-                        <a href="" data-toggle="modal" data-target="#logout"><i class="fa fa-2x fa-sign-out" aria-hidden="true"><br><h6 id="icons">LOG OUT</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcHome'%}"><i class="fa fa-lg fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-lg fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="badge" id = "id_notif" name = "id_notifs" hidden>{{data1.Faculty_ID}}</span></a>
+                        <a href="{% url 'TupcSysApp:UitcInternet'%} "><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="badge" id = "net_notif" name = "net_notifs" hidden>{{data2}}</span></a>
+                        <a href="{% url 'TupcSysApp:UitcLabsched'%}" id="active"><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="badge" id = "sched_notif" name = "sched_notifs" hidden>{{data1.Faculty_Laboratory}}</span></a>
+                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data3}}</span></a>
+                        <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-lg fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-lg fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-lg fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
+                        <a href="" data-toggle="modal" data-target="#logout" id="lo" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"><br></i></a>
                     </div>
                 </div>
 
@@ -115,10 +115,8 @@
                                         <input type="text" id="myInput" onkeyup="myFunction()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
                                     </div>
                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                    <div class="col-xl-1 col-lg-2 col-12">
-                                        <button type="button" class="btn btn-primary btn-block my-2 p-2">Search</button>
-                                    </div>
-                                    <div class="dropdown col-xl-2  col-lg-2 col-12">
+                                  
+                                    <div class="dropdown col-xl-3  col-lg-4 col-12">
                                         <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           Sorted by:
                                         </button>
@@ -313,8 +311,10 @@
                                                     <h3>{% for x in q%}
                                                         
                                                         {% if forloop.counter == 1 %}
-                                                            {{x.lnum}}
+                                                            <h3>{{x.lnum}}</h3>
+                                                            <p style="color: red; font-weight: bolder">{{x.ldate}}</p>
                                                             {{ break }}
+                                                            
                                                         {% endif %}
                                                         {% endfor %}</h3>
                                                     <tr>
@@ -381,25 +381,30 @@
                                                     
                                                 </tbody>
                                             </table>
-                                            <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+                                            <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="col-xl-12"> 
                                                 {% csrf_token %}
                                                 
-                                                <div class="form-group">
+                                                <div class="form-row">
                                                     
                                                     
-                                                    <div class="col-md-8">
+                                                    <div class="col-3">
                                                         <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
-                                                    </div> <br/>
-                                                    <div class="col-2">                    
-                                                        <input type="text" placeholder = "Name of Laboratory:" name="lubnum"></input>
-                                                        <input type="date" placeholder = "Date:" name="ldate"></input>
+                                                    </div> 
+                                                    <div class="col-3">                    
+                                                        <input type="text" placeholder = "Name of Laboratory:" name="lubnum" class="form-control"></input>
+                                                        
                                                     </div>
-                                                </div>
-                                                <div class="form-group">                    
-                                                    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+                                                    <div class="col-3">                    
+                                                        
+                                                        <input type="date" placeholder = "Date:" name="ldate" class="form-control"></input>
+                                                    </div>
+                                                    <div class="col-3" style="margin-bottom:10px;">
                                                         <button type="submit" class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
     
-                                                        </div> 
+                                                    </div> 
+                                                </div>
+                                                <div class="form-row">                    
+                                                   
                                                 </div>
                                                 <script>
                                                     function myFunction() {

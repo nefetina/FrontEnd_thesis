@@ -305,6 +305,56 @@ input{
     overflow: hidden;
     overflow-y: scroll;
 }
+
+
+#net_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+
+}
+
+#id_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+    margin-left: 15px;
+}
+
+#sched_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#report_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#lo{
+    position: relative;
+    top: 29%;
+    padding-bottom: 15px;
+    
+}
 /*****************************************BACKGROUND*******************************/
 
 html,
@@ -767,7 +817,7 @@ header,
     .sidebar {
         height: 100vh;
         /* 100% Full-height */
-        width: 17%;
+        width: 20%;
         /* 0 width - change this with JavaScript */
         position: fixed;
         /* Stay in place */
@@ -819,7 +869,7 @@ header,
     .sidebar {
         height: 100vh;
         /* 100% Full-height */
-        width: 20% !important;
+        width: 30% !important;
         /* 0 width - change this with JavaScript */
         position: fixed;
         /* Stay in place */

@@ -194,6 +194,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100% !important;
 }
 
 .wrapper {
@@ -201,6 +202,7 @@
     border-bottom-left-radius: 2%;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     border-radius: 10px !important;
+    width: 100% !important;
 }
 
 .wrapper header {
@@ -211,6 +213,7 @@
     background: #177917;
     border-top-right-radius: 10px !important;
     border-top-left-radius: 10px !important;
+    width: 100% !important;
 }
 
 header .icons {
@@ -309,7 +312,54 @@ header .current-date {
     color: #fff;
 }
 
+#net_notif{
+    font-size: 12px !important;
+    color: white !important;
 
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+
+}
+
+#id_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+    margin-left: 15px;
+}
+
+#sched_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#report_notif{
+    font-size: 12px !important;
+    color: white !important;
+
+    border-radius: 100px;
+    background-color: red;
+    font-weight: bolder;
+    position: absolute;
+}
+
+#lo{
+    position: relative;
+    top: 30%;
+    padding-bottom: 15px;
+    
+}
 /*****************************************BACKGROUND*******************************/
 
 html,
@@ -399,6 +449,10 @@ header,
         margin-top: -78px !important;
         margin-bottom: 5px;
     }
+    #lo{
+        position: relative;
+        top: 25% !important;
+    }
 }
 
 
@@ -448,7 +502,7 @@ header,
     .sidebar {
         height: 100vh;
         /* 100% Full-height */
-        width: 17%;
+        width: 20%;
         /* 0 width - change this with JavaScript */
         position: fixed;
         /* Stay in place */
@@ -494,7 +548,7 @@ header,
     .sidebar {
         height: 100vh;
         /* 100% Full-height */
-        width: 20% !important;
+        width: 30% !important;
         /* 0 width - change this with JavaScript */
         position: fixed;
         /* Stay in place */
@@ -557,6 +611,11 @@ header,
     #to-do{
         font-size: 20px !important;
     
+    }
+    #lo{
+        position: relative;
+        top: 23% !important;
+        
     }
     
 }
