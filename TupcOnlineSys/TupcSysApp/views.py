@@ -1403,7 +1403,19 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        sched = Schedule_lab.objects.all()
+        datas = Schedule_lab.objects.all()
+        sched = []
+        lnum = []
+        labnum = Schedule_lab.objects.values(
+            'lubnum', 'ldate').annotate(Count('id'))
+        for x in labnum:
+            a = x['lubnum']
+            b = x['ldate']
+            lnum.append(a)
+            scheds = Schedule_lab.objects.filter(lubnum=a, ldate=b).values()
+            for z in scheds:
+                z['lnum'] = a
+            sched.append(scheds)
 
         if request.method == "POST":
             request.POST.get('request.user.gsfe')
@@ -1434,7 +1446,7 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
             email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched})
+        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'datas':datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:

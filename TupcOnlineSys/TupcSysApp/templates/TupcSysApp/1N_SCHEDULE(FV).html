@@ -296,20 +296,6 @@
                         
                         <!--LABSCHED-------------------------------------------------------------------------------------------->    
                         <div  class="col-xl-11 collapse" id="table2">
-                            <div class="form-row">
-        
-                                <div class="col-xl-4 col-12">
-                                    <button type="button" class="btn btn-danger btn-block my-2 p-2" onclick="lab1()">Laboratory 1</button>
-                                </div>
-                            
-                                <div class="col-xl-4 col-12">
-                                    <button type="button" class="btn btn-danger btn-block my-2 p-2" onclick="lab2()">Laboratory 2</button>
-                                </div>
-                                <div class="col-xl-4 col-12">
-                                    <button type="button" class="btn btn-danger btn-block my-2 p-2" onclick="lab3()">Laboratory 3</button>
-                                </div>
-                            </div>                 
-                            
                             <div class="jumbotron  m-1 "><br>
                                     
                                     
@@ -317,12 +303,21 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="formtitle">
-                                            
+                                                    
                                         </div>
-                                        <div class="table-responsive-xl col-xl-12" id="idtable">
-                                            <table class="table " id="myTable">
+                                        <div class="table-responsive-xl col-xl-12 " id="idtable">
+                                            {% for q in sched %}
+                                            <table class="table" id="myTable">
+                                                
                                                 <thead class="thead">
-                                                    <h3>LABORATORY 1</h3>
+                                                    
+                                                    <h3>{% for x in q%}
+                                                        
+                                                        {% if forloop.counter == 1 %}
+                                                            {{x.lnum}}
+                                                            {{ break }}
+                                                        {% endif %}
+                                                        {% endfor %}</h3>
                                                     <tr>
                                                         <th scope="col">MONDAY</th>
                                                         <th scope="col">TUESDAY</th>
@@ -330,122 +325,44 @@
                                                         <th scope="col">THURSDAY</th>
                                                         <th scope="col">FRIDAY</th>
                                                         <th scope="col">SATURDAY</th>
+                                                        
                                                     </tr>
+                                                    
                                                 </thead>
+                                                
                                                 <tbody>
-                                                   
+                                                    
+                                                        {% for p in q %}
                                                     <tr>
-                                                        {% for p in sched %}
+                                                        
                                                         <td scope="col" name="l1mon"  id="ta">
-                                                            {{p.l1mon}}
+                                                            {{p.lmon}}
                                                         </td>
                                                         <td scope="col" name="l1tue"   id="ta">
-                                                            {{p.l1tue}}
+                                                            {{p.ltue}}
                                                         </td>
                                                         <td scope="col" name="l1wed"   id="ta">
-                                                            {{p.l1wed}}
+                                                            {{p.lwed}}
                                                         </td>
                                                         <td scope="col" name="l1thurs"   id="ta">
-                                                            {{p.l1thu}}
+                                                            {{p.lthu}}
                                                         </td>
                                                         <td scope="col" name="l1fri"  id="ta">
-                                                            {{p.l1fri}}
+                                                            {{p.lfri}}
                                                         </td>
                                                         <td scope="col" name="l1sat"   id="ta">
-                                                            {{p.l1sat}}
+                                                            {{p.lsat}}
                                                         </td>
                                                         
                                                     </tr>
+
                                                     {% endfor %}
                                                     
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="table-responsive-xl col-xl-12 collapse" id="idtable1">
-                                            <table class="table " id="myTable">
-                                                <thead class="thead">
-                                                    <h3>LABORATORY 2</h3>
-                                                    <tr>
-                                                        <th scope="col">MONDAY</th>
-                                                        <th scope="col">TUESDAY</th>
-                                                        <th scope="col">WEDNESDAY</th>
-                                                        <th scope="col">THURSDAY</th>
-                                                        <th scope="col">FRIDAY</th>
-                                                        <th scope="col">SATURDAY</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        {% for p in sched1 %}
-                                                        <td scope="col" name="l1mon"  id="ta">
-                                                            {{p.l2mon}}
-                                                        </td>
-                                                        <td scope="col" name="l1tue"   id="ta">
-                                                            {{p.l2tue}}
-                                                        </td>
-                                                        <td scope="col" name="l1wed"   id="ta">
-                                                            {{p.l2wed}}
-                                                        </td>
-                                                        <td scope="col" name="l1thurs"   id="ta">
-                                                            {{p.l2thurs}}
-                                                        </td>
-                                                        <td scope="col" name="l1fri"  id="ta">
-                                                            {{p.l2fri}}
-                                                        </td>
-                                                        <td scope="col" name="l1sat"   id="ta">
-                                                            {{p.l2sat}}
-                                                        </td>
-                                                        
-                                                    </tr>
                                                     {% endfor %}
                                                     
-                                                
-                                                    
-                                               
-                                                
                                                 </tbody>
                                             </table>
                                             
-                                        </div>
-                                        <div class="table-responsive-xl col-xl-12 collapse" id="idtable2">
-                                            <table class="table " id="myTable">
-                                                <thead class="thead">
-                                                    <h3>LABORATORY 3</h3>
-                                                    <tr>
-                                                        <th scope="col">MONDAY</th>
-                                                        <th scope="col">TUESDAY</th>
-                                                        <th scope="col">WEDNESDAY</th>
-                                                        <th scope="col">THURSDAY</th>
-                                                        <th scope="col">FRIDAY</th>
-                                                        <th scope="col">SATURDAY</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        {% for p in sched1 %}
-                                                        <td scope="col" name="l1mon"  id="ta">
-                                                            {{p.l2mon}}
-                                                        </td>
-                                                        <td scope="col" name="l1tue"   id="ta">
-                                                            {{p.l2tue}}
-                                                        </td>
-                                                        <td scope="col" name="l1wed"   id="ta">
-                                                            {{p.l2wed}}
-                                                        </td>
-                                                        <td scope="col" name="l1thurs"   id="ta">
-                                                            {{p.l2thurs}}
-                                                        </td>
-                                                        <td scope="col" name="l1fri"  id="ta">
-                                                            {{p.l2fri}}
-                                                        </td>
-                                                        <td scope="col" name="l1sat"   id="ta">
-                                                            {{p.l2sat}}
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
                                         </div>
                                         
                                     </form>
