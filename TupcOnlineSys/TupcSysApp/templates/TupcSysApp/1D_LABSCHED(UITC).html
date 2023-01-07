@@ -356,6 +356,9 @@
                                                     </tr>
 
                                                     {% endfor %}
+                                                    {% for p in data %}
+                                                    <p>{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time}}-{{p.e_time}}</p>
+                                                  {% endfor %}
                                                     {% for a in datas %}
                                                         {% if forloop.counter == 1 %}
                                                             <form method="post" action="{% url 'TupcSysApp:l1_delete' a.pk%}">

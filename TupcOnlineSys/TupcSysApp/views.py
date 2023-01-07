@@ -968,6 +968,7 @@ def UitcInternet(request):  # UITC INTERNET page
 def UitcLabsched(request):  # UITC LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         datal = faculty_lab.objects.filter(l_stat="On Process")
+        data = faculty_lab.objects.filter(l_stat="Approved")
         datas = Schedule_lab.objects.all()
         sched = []
         lnum = []
@@ -999,7 +1000,7 @@ def UitcLabsched(request):  # UITC LABSCHED page
             int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
 
-        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'datal': datal, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
+        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'data': data,'datal': datal, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
