@@ -69,6 +69,8 @@ urlpatterns = [
          views.UitcInventory_borrowed, name='UitcInventory_borrowed'),
     path('UitcInventory_returned/<int:id>',
          views.UitcInventory_returned, name='UitcInventory_returned'),
+    path('UitcInventory_modify/<int:id>',
+         views.UitcInventory_modify, name='UitcInventory_modify'),
     path('inventory_notify/<int:id>',
          views.inventory_notify, name='inventory_notify'),
     path('FacultyHome/', views.FacultyHome, name='FacultyHome'),

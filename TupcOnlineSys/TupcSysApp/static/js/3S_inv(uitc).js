@@ -30,25 +30,24 @@ var tr = table.getElementsByTagName("tr");
 for (i = 0; i < tr.length; i++) {
   var td = tr[i].getElementsByTagName("td")[4];
 
+
   if (td) {
     txtValue = td.textContent || td.innerText;
-    if (txtValue == "Borrowed") {
-        
-        var button = document.getElementsByName("borrow")[i - 1];
-        button.disabled = true;
-    } if (txtValue == "Available") {
+    if (txtValue == "Available") {
         var buttonr = document.getElementsByName("return")[i - 1];
-        var buttonn = document.getElementsByName("notif")[i - 1];
-        buttonr.disabled = true;
-        buttonn.disabled = true;
+        buttonr.disabled = false;
+
     }
-    if (txtValue == "Replaced" || txtValue == "Broken" || txtValue == "Not working") {
-        var button = document.getElementsByName("borrow")[i - 1];
+    if (txtValue == "Not working") {
         var buttonr = document.getElementsByName("return")[i - 1];
-        var buttonn = document.getElementsByName("notif")[i - 1];
-        button.disabled = true;
+        buttonr.disabled = false;
+        
+}
+    if (txtValue == "Replaced" || txtValue == "Broken") {
+        var buttonr = document.getElementsByName("return")[i - 1];
         buttonr.disabled = true;
-        buttonn.disabled = true;
+        tr[i].hidden = true;
+
     }
   } 
 
