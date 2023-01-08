@@ -666,6 +666,27 @@ def fpass_cancel(request, id):
 
 
 def fpasswordreset_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_passreset.objects.filter(id=id).only("fwname").values()
+            for z in y:
+                name = z['fwname']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
+            
     a = faculty_passreset.objects.get(id=id)
     for x in faculty_passreset.objects.only('id').filter(fwstat="On process"):
         if a == x:
