@@ -95,6 +95,8 @@ urlpatterns = [
          views.reqrepmain_permit, name='reqrepmain_permit'),
     path('reqrepmain_cancel/<int:id>',
          views.reqrepmain_cancel, name='reqrepmain_cancel'),
+    path('faculty_reqrepmain/<int:id>',
+         views.faculty_reqrepmain, name='faculty_reqrepmain'),
 
 
 

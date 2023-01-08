@@ -1013,7 +1013,8 @@ def UitcLabsched(request):  # UITC LABSCHED page
 def UitcReports(request):  # UITC REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         data = faculty_reports.objects.filter(
-            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved")
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
+
         data1 = faculty_passreset.objects.filter(fwstat="On Process")
         data2 = PassReset.objects.filter(psstats="On Process")
         data3 = faculty_borrow.objects.filter(
@@ -1364,7 +1365,8 @@ def FacultyHome(request):  # FACULTY HOMEPAGE page
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         data = faculty_reports.objects.filter(fstat="On Process", email3=request.user.gsfe) | faculty_reports.objects.filter(
-            fstat="Approved", email3=request.user.gsfe)
+            fstat="Approved", email3=request.user.gsfe) | faculty_reports.objects.filter(
+            fstat="Notified", email3=request.user.gsfe)
 
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process", email1=request.user.gsfe).count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process", g_email=request.user.gsfe).count()),
@@ -1537,11 +1539,13 @@ def FacultyReports(request):  # FACULTY REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        data1 = faculty_reports.objects.filter(
-            fstat="On Process") | faculty_reports.objects.filter(fstat="Completed")
+        data1 = faculty_reports.objects.filter(fstat="On Process", email3=request.user.gsfe) | faculty_reports.objects.filter(
+            fstat="Approved", email3=request.user.gsfe) | faculty_reports.objects.filter(
+            fstat="Notified", email3=request.user.gsfe)
         data2 = data1.count()
-        data3 = faculty_reports.objects.filter(
-            fstat="Completed", email3=request.user.gsfe)
+        data3 = faculty_reports.objects.filter(fstat="On Process", email3=request.user.gsfe) | faculty_reports.objects.filter(
+            fstat="Approved", email3=request.user.gsfe) | faculty_reports.objects.filter(
+            fstat="Notified", email3=request.user.gsfe)
         if request.method == "POST":
             email3 = request.user.gsfe
             ftype = request.POST.get('ftype')
@@ -2066,10 +2070,10 @@ def UitcInventory_modify(request, id):
 
 
 def faculty_reqrepmain(request, id):
-    a = faculty_reports.objects.filter(
-        fstat="Completed", email3=request.user.gsfe).only(id)
+    a = faculty_reports.objects.get(id=id)
     print(a)
     request.POST.get('request.user.name')
+    i_aor = request.POST.get("i_aor")
     ie_user = request.POST.get("ie_user")
     i_daterec2 = request.POST.get("i_daterec2")
     i_sig3 = request.POST.get("i_sig3")
@@ -2077,10 +2081,14 @@ def faculty_reqrepmain(request, id):
     i_serv = request.POST.get("i_serv")
 
     if request.method == "POST":
-        for x in faculty_reports.objects.only('id').filter(fstat="Approved"):
+        d = faculty_reports.objects.only('id').filter(
+            fstat="Notified") | faculty_reports.objects.only('id').filter(fstat="Approved") | faculty_reports.objects.only('id').filter(fstat="On Process")
+        for x in d:
             if a == x:
-                x = faculty_reports.objects.filter(
+                faculty_reports.objects.filter(
                     id=id).update(fstat="Completed")
+                faculty_reports.objects.filter(id=id).update(
+                    i_aor=i_aor)
                 faculty_reports.objects.filter(id=id).update(
                     i_assessby=request.user.name)
                 faculty_reports.objects.filter(id=id).update(ie_user=ie_user)
@@ -2113,7 +2121,7 @@ def faculty_reqrepmain(request, id):
 
 
 def reqrepmain_permit(request, id):
-    a = faculty_reports.objects.fil(id=id)
+    a = faculty_reports.objects.get(id=id)
     print(a)
     request.POST.get('request.user.name')
     i_sig = request.POST.get("i_sig")
@@ -2144,10 +2152,10 @@ def reqrepmain_permit(request, id):
     i_serv = request.POST.get("i_serv")
 
     if request.method == "POST":
-        for x in faculty_reports.objects.only('id').filter(fstat="Approved"):
+        for x in faculty_reports.objects.only('id').filter(fstat="Notified"):
             if a == x:
                 x = faculty_reports.objects.filter(
-                    id=id).update(fstat="Completed")
+                    id=id).update(fstat="Approved")
                 faculty_reports.objects.filter(id=id).update(
                     i_assessby=request.user.name)
                 faculty_reports.objects.filter(id=id).update(i_sig=i_sig)
@@ -2243,8 +2251,9 @@ def notify_rp(request, id):
     if request.method == 'POST':
         a = faculty_reports.objects.get(id=id)
         reason = request.POST.get("message")
-
-        for x in faculty_reports.objects.only('id').filter(fstat="On process"):
+        asd = faculty_reports.objects.only('id').filter(
+            fstat="On process") | faculty_reports.objects.only('id').filter(fstat="Notified")
+        for x in asd:
             if a == x:
                 x = faculty_reports.objects.filter(
                     id=id).update(fstat="Notified")
