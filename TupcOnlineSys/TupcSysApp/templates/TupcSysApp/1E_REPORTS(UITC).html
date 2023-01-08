@@ -155,6 +155,7 @@
                                                             <th scope="col ">FULL NAME</th>
                                                             <th scope="col ">POSITION /JOB</th>
                                                             <th scope="col">SIGNATURE</th>
+                                                            <th scope="col">STATUS</th>
                                                             <th scope="col">ACTION</th>
                                                         </tr>
                                                         </thead>
@@ -166,6 +167,7 @@
                                                                 <td>{{pr.fname}}</td>
                                                                 <td>{{pr.Fposjob}}</td>
                                                                 <td><img src="{{pr.fsign}}" style = "height: 80px"/></td>
+                                                                <td>{{pr.fstat}}</td>
                                                             <!--modal for other info-------------------------------------------------------------------------------------------->
                                                             <div class="modal fade" id="modal1{{pr.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -233,6 +235,10 @@
 
                                                                     <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
                                                                     data-toggle="modal" data-target="#denyrm{{ pr.id }}" ><i class="fa fa-times" aria-hidden="true"></i></a>
+
+                                                                    
+                                                                    <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" 
+                                                                    title="Deny" data-toggle="modal" data-target="#modalnotifyrp{{ pr.id }}" >Notify<i></i></a>
                                                                 </div>
 
                                                             </td>
@@ -265,7 +271,35 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                                
+                                                            <!--modal for notify pop up-------------------------------------------------------------------------------------------->
+                                                            <div class="modal fade" id="modalnotifyrp{{ pr.id }}" tabindex="-1" role="dialog" aria-labelledby="modalnotifyrp" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="staticBackdropLabel"> Email the Schedule of repair </h5>
+                                                                            <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="text-center">
+                                                                                <form action="{% url 'TupcSysApp:notify_rp' pr.pk%}" method="POST">
+                                                                                    {%csrf_token%}
+                                                                                    
+                                                                                    <div class="form-row">
+                    
+                                                                                        <div class="col-xl-12">
+                                                                                            Message
+                                                                                            
+                                                                                            <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "message">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <button type="submit"  class="btn btn-primary " name="returnedInventory" data-bs-dismiss="modal">Submit</button>
+                                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                                 
                                                         </tr>
                                                         {% endfor %}
@@ -390,12 +424,6 @@
                                                                                         </button>
                                                                                         
                                                                                     </div>
-                                                                                    
-                                                                                
-                                                                            
-                                                                                
-                                                                                
-                                                                            
                                                                                 
                                                                             </div>
                                                                         </div>
@@ -506,90 +534,9 @@
                                                                                         </div>          
                                                                                     </div>
                                                                                     
-                                                
-                                                    <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                                                    <div class="col-xl-12 ">
-                                                                                        <p class="card-text">Check it properly before you send it.</p>
-                                                                                        <button type="button" class="btn btn-primary  float-right m-1" onclick="next2()" >
-                                                                                            Next
-                                                                                        </button>
-                                                                                        <button type="button" class="btn btn-danger float-right m-1" onclick="back1()" >
-                                                                                            Back
-                                                                                        </button>
-                                                                                        
-                                                                                    </div>
-                                                                                    
-                                                                                
-                                                                            
-                                                                                
-                                                                                
-                                                                            
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                            </div>
+
                                             <!--REPAIR AND MAINTENANCE FORMTABLE1.3-------------------------------------------------------------------------------------------->          
 
-                                            <div class="col-xl-12" id="tableform3" hidden>
-                                                <div class="jumbotron "><br>
-                                                    <!--FORM-------------------------------------------------------------------------------------------->                        
-                                                    <div class="card-body" id="tfsize">
-                                                        
-                                                            <div class="formtitle">
-                                                                FILL UP THE FORM HERE
-                                                            </div>
-                                                            <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
-                                                                <div class="col-xl-6  col-12">
-                                                                    <h6 class=""><input type="radio" class="radio " value="Accepted" name="i_aor" >Accepted</h6>
-                                                                </div> 
-                                                                <div class="col-xl-6 col-12">
-                                                                    <h6 class=""><input type="radio" class="radio" value="Rejected" name="i_aor" >Rejected</h6>
-                                                                </div> 
-                                                            </div>
-                                                            <div class="form-row">                      
-                                                                <div class="col-xl-6">
-                                                                    <input type="text" class="form-control my-2 p-2" placeholder="End-User:" name="ie_user" required>
-                                                                </div>
-                                                                <div class="col-xl-6">
-                                                                    <input type="Date" class="form-control my-2 p-2" placeholder="Date:" name="i_daterec2" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-row">
-                                                                
-                                                                <div class="col-xl-3 col-12">
-                                                                    <h6 class=""><input type="radio" class="radio" name="i_sig3" value = "Signed">Signed</h6>
-                                                                </div>
-                                                                <div class="col-xl-3 col-12">
-                                                                    <h6 class=""><input type="radio" class="radio" name="i_sig3" value = "Not Signed">Not Signed</h6>
-                                                                </div>  
-                                                                <div class="col-xl-1 text-center d-flex justify-content-center align-items-center">
-                                                                    Time:
-                                                                </div>
-                                                                <div class="col-xl-5">
-                                                                    <input type="time" class="form-control my-2 p-2" placeholder="TIME:" name="i_time2" required>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            
-                                                            <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        Are you sure you want to send?
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Send</button>
-                                                                    </div>
-                                                                </div>
-                                                                </div>
-                                                            </div>
                                                             <!--BUTTONS-------------------------------------------------------------------------------------------->
                                                             <div class="col-xl-12 ">
                                                                 <p class="card-text">Check it properly before you send it.</p>

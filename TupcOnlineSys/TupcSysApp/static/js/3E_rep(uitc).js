@@ -91,7 +91,7 @@ function next1() {
     var h = document.getElementById("tablerp");
     document.getElementById("tableform1").hidden = true;
     document.getElementById("tableform2").hidden = false;
-    document.getElementById("tableform3").hidden = true;
+
     x1.hidden = true;
     h.hidden = true;
 
@@ -106,7 +106,7 @@ function next2() {
     var h = document.getElementById("tablerp");
     document.getElementById("tableform1").hidden = true;
     document.getElementById("tableform2").hidden = true;
-    document.getElementById("tableform3").hidden = false;
+
     x1.hidden = true;
     h.hidden = true;
 
@@ -120,7 +120,7 @@ function back1() {
     var h = document.getElementById("tablerp");
     document.getElementById("tableform1").hidden = false;
     document.getElementById("tableform2").hidden = true;
-    document.getElementById("tableform3").hidden = true;
+
     x1.hidden = true;
     h.hidden = true;
 
@@ -131,17 +131,15 @@ function back1() {
 function back2() {
     var x1 = document.getElementById("searchform");
     var h = document.getElementById("tablerp");
-    document.getElementById("tableform1").hidden = true;
-    document.getElementById("tableform2").hidden = false;
-    document.getElementById("tableform3").hidden = true;
+    document.getElementById("tableform1").hidden = false;
+    document.getElementById("tableform2").hidden = true;
+
     x1.hidden = true;
     h.hidden = true;
 
 
 
 }
-
-
 
 
 /*tableform 2.1-2.3 navigation*/ ///////////////
@@ -246,7 +244,7 @@ function form111() {
     var h = document.getElementById("tablerp");
     document.getElementById("tableform1").hidden = false;
     document.getElementById("tableform2").hidden = true;
-    document.getElementById("tableform3").hidden = true;
+
     x1.hidden = true;
     h.hidden = true;
 
@@ -257,7 +255,7 @@ function return222() {
     var h = document.getElementById("tablerp");
     document.getElementById("tableform1").hidden = true;
     document.getElementById("tableform2").hidden = true;
-    document.getElementById("tableform3").hidden = true;
+
     x1.hidden = false;
     h.hidden = false;
 }

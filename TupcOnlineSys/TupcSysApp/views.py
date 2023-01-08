@@ -1000,7 +1000,7 @@ def UitcLabsched(request):  # UITC LABSCHED page
             int(data1['Faculty_passreset']) + \
             int(data1['borrow_record']) + int(data1['student_PassReset'])
 
-        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'data': data,'datal': datal, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
+        return render(request, 'TupcSysApp/1D_LABSCHED(UITC).html', {'data': data, 'datal': datal, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1012,7 +1012,8 @@ def UitcLabsched(request):  # UITC LABSCHED page
 @login_required(login_url='/Index')
 def UitcReports(request):  # UITC REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data = faculty_reports.objects.filter(fstat="On Process")
+        data = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved")
         data1 = faculty_passreset.objects.filter(fwstat="On Process")
         data2 = PassReset.objects.filter(psstats="On Process")
         data3 = faculty_borrow.objects.filter(
@@ -2058,7 +2059,8 @@ def UitcInventory_modify(request, id):
                 x = Inventory.objects.filter(id=id).update(i_stats="Replaced")
 
             elif remarks == "Missing some parts":
-                x = Inventory.objects.filter(id=id).update(i_stats="Available")
+                x = Inventory.objects.filter(id=id).update(
+                    i_stats="Missing some parts")
 
             elif remarks == "Not working":
                 x = Inventory.objects.filter(
@@ -2100,10 +2102,10 @@ def reqrepmain_permit(request, id):
     i_serv = request.POST.get("i_serv")
 
     if request.method == "POST":
-        for x in faculty_reports.objects.only('id').filter(fstat="On process"):
+        for x in faculty_reports.objects.only('id').filter(fstat="Approved"):
             if a == x:
                 x = faculty_reports.objects.filter(
-                    id=id).update(fstat="Approved")
+                    id=id).update(fstat="Completed")
                 faculty_reports.objects.filter(id=id).update(
                     i_assessby=request.user.name)
                 faculty_reports.objects.filter(id=id).update(i_sig=i_sig)
@@ -2181,6 +2183,36 @@ def reqrepmain_cancel(request, id):
                 message = "Good day " + name + \
                     ", \n Your request for repair and maintence has been declined, " + \
                     reason + "\n UITC admin"
+                email = EmailMessage(
+                    name,
+                    message,
+                    'tupc.uitconlinesystem@gmail.com',
+                    [uemail],
+
+                )
+
+                email.send()
+                break
+    messages.info(request, "Completed")
+    return redirect('/UitcReports')
+
+
+def notify_rp(request, id):
+    if request.method == 'POST':
+        a = faculty_reports.objects.get(id=id)
+        reason = request.POST.get("message")
+        for x in faculty_reports.objects.only('id').filter(fstat="On process"):
+            if a == x:
+                x = faculty_reports.objects.filter(
+                    id=id).update(fstat="Approved")
+                y = faculty_reports.objects.filter(id=id).values()
+                for z in y:
+                    name = z['fname']
+                    uemail = z['email3']
+                    print(name)
+                    print(uemail)
+                print(reason)
+                message = "Good day " + name + ", " + reason + "\n UITC admin"
                 email = EmailMessage(
                     name,
                     message,
