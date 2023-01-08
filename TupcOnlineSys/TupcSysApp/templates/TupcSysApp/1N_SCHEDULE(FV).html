@@ -191,7 +191,14 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Laboratory Name:" id="hl_num" name="lab_num" required>
+                                                
+                                                <select id="inputState" class="form-control my-2 p-2" name = 'lab_num'>
+                                                    <option selected disabled value="">Laboratory Name</option>
+                                                    {% for x in lnum%}
+                                                    <option value="{{x}}">{{x}}</option>
+                                                    {%endfor%}
+    
+                                                </select>
                                             </div>
                                             <div class="col-xl-6">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Course & Section:" id="h_csec" name="crs_sec" required>
