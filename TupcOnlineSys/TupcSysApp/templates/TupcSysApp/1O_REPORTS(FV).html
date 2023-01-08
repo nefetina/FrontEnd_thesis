@@ -546,9 +546,12 @@
                                           <textarea class="form-control"   placeholder="Solution and Recommendation: {{x.is_rec}}" name="is_rec" rows="2" id="textarea1" style="height: 100px" readonly></textarea>
                                       </div>          
                                   </div>
-                                  {%endfor%}
+                                  
                             </div>
+                            <form method="post" action = "{% url 'TupcSysApp:faculty_reqrepmain' x.pk  %}" id="myforms"  class="col-xl-12">
+                              {%csrf_token%}
                                       <div class="formtitle">
+                                      
                                           FILL UP THE FORM HERE
                                       </div>
                                       <div class="form-row text-center d-flex justify-content-center align-items-center m-3">
@@ -561,7 +564,7 @@
                                       </div>
                                       <div class="form-row">                      
                                           <div class="col-xl-6">
-                                              <input type="text" class="form-control my-2 p-2" placeholder="End-User:" name="ie_user" required>
+                                              <input type="text" class="form-control my-2 p-2" placeholder="End-User:"  name="ie_user" value= "{{request.user.name}}" readonly>
                                           </div>
                                           <div class="col-xl-6">
                                               <input type="Date" class="form-control my-2 p-2" placeholder="Date:" name="i_daterec2" required>
@@ -606,7 +609,7 @@
                                       <!--BUTTONS-------------------------------------------------------------------------------------------->
                                       <div class="col-xl-12 ">
                                           <p class="card-text">Check it properly before you send it.</p>
-                                          <button type="button" class="btn btn-primary  float-right m-1" data-toggle="modal" data-target="#confirmation1" >
+                                          <button type="submit" class="btn btn-primary  float-right m-1" data-toggle="modal" data-target="#confirmation1" >
                                               Submit
                                           </button>
                                           <button type="button" class="btn btn-danger float-right m-1" onclick="back2()" >
@@ -620,7 +623,7 @@
                           </div>
                       </div>
                   
-                      
+                      {%endfor%}
                     </form>
                   </div>
                 </div>
