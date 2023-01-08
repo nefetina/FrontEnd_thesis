@@ -2152,15 +2152,21 @@ def reqrepmain_permit(request, id):
     i_sig3 = request.POST.get("i_sig3")
     i_time2 = request.POST.get("i_time2")
     i_serv = request.POST.get("i_serv")
+    f_picc = request.POST.get('f_picss')
+    ffsign = request.POST.get('ffsigns')
+
 
     if request.method == "POST":
         for x in faculty_reports.objects.only('id').filter(fstat="Notified"):
             if a == x:
                 x = faculty_reports.objects.filter(
                     id=id).update(fstat="Approved")
+                faculty_reports.objects.filter(id=id).update(f_picc=f_picc)
+                faculty_reports.objects.filter(id=id).update(ffsign=ffsign)
+
                 faculty_reports.objects.filter(id=id).update(
                     i_assessby=request.user.name)
-                faculty_reports.objects.filter(id=id).update(i_sig=i_sig)
+                faculty_reports.objects.filter(id=id).update(ffsign=i_sig)
                 faculty_reports.objects.filter(
                     id=id).update(i_dateass=i_dateass)
                 faculty_reports.objects.filter(id=id).update(
