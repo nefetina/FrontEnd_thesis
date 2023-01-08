@@ -357,7 +357,7 @@
 
                                                     {% endfor %}
                                                     {% for p in data %}
-                                                    <p>{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time}}-{{p.e_time}}</p>
+                                                    <p>{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time|time:"Gi"}}-{{p.e_time|time:"Gi"}}</p>
                                                   {% endfor %}
                                                     {% for a in datas %}
                                                         {% if forloop.counter == 1 %}
