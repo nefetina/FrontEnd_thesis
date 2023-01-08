@@ -198,12 +198,13 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Device used please specify:" name = "g_sys" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Device used please specify:" name = "g_sys" required autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="MAC Address of the Wireless Card: eg. 30:65:EC:6F:C4:58" name = "g_mac" pattern=".{2}:.{2}:.{2}:.{2}:.{2}:.{2}" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="MAC Address of the Wireless Card: eg. 30:65:EC:6F:C4:58" 
+                                                name = "g_mac" pattern=".{2}:.{2}:.{2}:.{2}:.{2}:.{2}" required autocomplete="off">
                                             </div>
                                             
                                         </div>
@@ -213,7 +214,8 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-6">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Phone/Mobile Number:" name = "g_num" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Phone/Mobile Number:" name = "g_num" 
+                                                 maxlength="11" minlength="11" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"required autocomplete="off">
                                             </div>
                                             <div class="col-xl-6">
                                                 <input type="text" class="form-control my-2 p-2" placeholder=" {{request.user.gsfe}}" name = "g_email" readonly>
@@ -231,7 +233,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Faculty Name:" name = "g_fac" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Faculty Name:" name = "g_fac" required autocomplete="off">
                                             </div>
                                         </div>
 
@@ -252,7 +254,7 @@
                                                         <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signaturexx');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
                                                         </div><div class="clearBoth"></div>
                                                         <!--file upload signature-->
-                                                        <div>*use png image file here</div>
+                                                        <div>Make sure to use .png image file here.</div>
                                                         <div>
                                                             <img id="f_sign" name = "f_sign" hidden/>
                                                             <input type="text" id = "g_sig" name = "g_sig" hidden/>

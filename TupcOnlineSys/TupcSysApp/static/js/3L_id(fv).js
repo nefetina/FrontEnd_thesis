@@ -22,3 +22,17 @@ function closeNav() {
     z.style.display = "block";
 
 }
+
+function isNumberKey(evt)
+{
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode == 45) {
+        return true;
+    }
+    if ((charCode > 47 && charCode <58))
+    {
+        return true;
+    }
+  return false;
+}
+
