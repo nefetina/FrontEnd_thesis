@@ -1,5 +1,12 @@
 
 window.onload = function() {
+    const approved = document.getElementsByName("approved");
+    
+    for (let i = 0; i < approved.length; i++) {
+        const asd = document.getElementsByName("approved")[i].innerText;
+        alert(asd);
+    }
+
     var span_Text = document.getElementById("id_notif").innerText;
     if (span_Text == 0){
         document.getElementById("id_notif").hidden = true;

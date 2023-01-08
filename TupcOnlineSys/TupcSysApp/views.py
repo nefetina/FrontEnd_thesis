@@ -979,8 +979,10 @@ def UitcLabsched(request):  # UITC LABSCHED page
             b = x['ldate']
             lnum.append(a)
             scheds = Schedule_lab.objects.filter(lubnum=a, ldate=b).values()
+
             for z in scheds:
                 z['lnum'] = a
+
             sched.append(scheds)
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),

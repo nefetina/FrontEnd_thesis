@@ -356,9 +356,6 @@
                                                     </tr>
 
                                                     {% endfor %}
-                                                    {% for p in data %}
-                                                    <p>{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time|time:"Gi"}}-{{p.e_time|time:"Gi"}}</p>
-                                                  {% endfor %}
                                                     {% for a in datas %}
                                                         {% if forloop.counter == 1 %}
                                                             <form method="post" action="{% url 'TupcSysApp:l1_delete' a.pk%}">
@@ -379,9 +376,13 @@
                                                         {% endif %}                                              
 
                                                     {% endfor %}
+                                                        {% for p in data %}
+                                                        
+                                                        <p id="approved" name="approved">{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time|time:"Gi"}}-{{p.e_time|time:"Gi"}}</p>
+                                                    {% endfor %}
                                                     {% endfor %}
                                                     
-                                                    
+
                                                 </tbody>
                                             </table>
                                             <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="col-xl-12"> 
