@@ -23,7 +23,23 @@ function closeNav() {
     z.style.display = "block";
 
 }
+function myFunctions() {
+    var s = document.getElementById("parts");
+    var remarkss = document.getElementById("remarks");
+    for (i = 0; i < remarkss.length; i++) {
+        var x = remarkss[i].value;
+        
+        if (x == "Missing some parts"){
+            alert("asd");
+            break
+        }
+
+        }
+  }
+
+
 function myFunction() {
+
 
 var table = document.getElementById("mytable1");
 var tr = table.getElementsByTagName("tr");
@@ -35,7 +51,7 @@ for (i = 0; i < tr.length; i++) {
     txtValue = td.textContent || td.innerText;
     if (txtValue == "Available") {
         var buttonr = document.getElementsByName("return")[i - 1];
-        buttonr.disabled = false;
+        buttonr.disabled = false;   
 
     }
     if (txtValue == "Not working") {

@@ -199,16 +199,17 @@
         
                                                                             <div class="col-xl-12">
                                                                              
-                                                                                <select id="inputState" class="form-control my-2 p-2" name = "remarks" required>
+                                                                                <select class="form-control my-2 p-2" name = "remarks" id="remarks" onchange="myFunctions()"  required>
                                                                                     <option selected disabled value="">Remarks:</option>
                                                                                         <option value="Good Condition">Good Condition</option>
                                                                                         <option value="Broken">Broken</option>
                                                                                         <option value="Replaced">Replaced</option>
                                                                                         <option value="Missing some parts">Missing some parts</option>
                                                                                         <option value="Not working">Not working</option>
+                                                                                        
                                                                                   
                                                                                 </select>
-                                                                               
+                                                                                <input id="parts" type="text"/>
                                                                             </div>
                                                                         </div>
                                                                         <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
