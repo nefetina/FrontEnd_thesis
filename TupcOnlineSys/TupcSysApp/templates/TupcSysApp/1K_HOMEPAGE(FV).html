@@ -1,335 +1,418 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!----TAB NAME------------------------------------------------>
     <title>TUPC ONLINE SYSTEM</title>
     <!----TAB ICON------------------------------------------------>
-    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}">
+    <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}" />
     <!----CSS AND JS------------------------------------------------>
     <script src="{% static 'js/3K_fac.js'%}"></script>
-    <link rel="stylesheet" href="{% static 'css/2K_homepage(fv).css'%}">
+    <link rel="stylesheet" href="{% static 'css/2K_homepage(fv).css'%}" />
 
     <!----BOOTSTRAP LINK------------------------------------------------>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
     <!----ADD UP------------------------------------------------>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!----font links---------->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
-    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to logout?
-            </div>
-            <div class="modal-footer">
-            
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                <a href="{% url 'TupcSysApp:logout'%}" style="color:white" type="button" class="btn btn-primary" >Log out</a>
-                
-            </div>
+  <body>
+    <div
+      class="modal fade"
+      id="logout"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure you want to logout?</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <a
+              href="{% url 'TupcSysApp:logout'%}"
+              style="color: white"
+              type="button"
+              class="btn btn-primary"
+              >Log out</a
+            >
           </div>
         </div>
+      </div>
     </div>
     <!--NAVBAR-------------------------------------------------------------------------------------------->
 
     <nav class="navbar">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="openbtn">&#9776; </span>
-        <div id="titulo">
-            <a class="navbar-brand" href="#">Hi, {{request.user.name}}</a>
-        </div>
-        <img src="{% static 'images/TUP_LOGO.png'%}" width="100" height="80" alt="tuplogo" id="logo">
-
+      <span
+        style="font-size: 30px; cursor: pointer"
+        onclick="openNav()"
+        id="openbtn"
+        >&#9776;
+      </span>
+      <div id="titulo">
+        <a class="navbar-brand" href="#">Hi, {{request.user.name}}</a>
+      </div>
+      <img
+        src="{% static 'images/TUP_LOGO.png'%}"
+        width="100"
+        height="80"
+        alt="tuplogo"
+        id="logo"
+      />
     </nav>
-
 
     <!--CONTAINER FLUID-------------------------------------------------------------------------------------------->
     <div>
+      <div class="container-fluid">
+        <!--SIDEBAR-------------------------------------------------------------------------------------------->
 
-        <div class="container-fluid ">
-
-            <!--SIDEBAR-------------------------------------------------------------------------------------------->
-
-            <div class="row no-gutters">
-                <div class="col-xl-1 text-center">
-                    <div id="mySidebar" class="sidebar">
-                        <button class="closebtn" id="close" onclick="closeNav()">&times; </button>
-                        <a href="{% url 'TupcSysApp:FacultyHome'%}" id="active"><i class="fa fa-lg fa-user-circle " aria-hidden="true"><br><h6 id="icons">HOME</h6></i></a>
-                        <a href="{% url 'TupcSysApp:FacultyID'%}"><i class="fa fa-lg fa-id-badge" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i></a>
-                        <a href="{% url 'TupcSysApp:FacultyInternet'%}"><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i></a>
-                        <a href="{% url 'TupcSysApp:FacultyLabsched'%}"><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i></a>
-                        <a href="{% url 'TupcSysApp:FacultyReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORT</h6></i></a>
-                        <a href="" data-toggle="modal" data-target="#logout" id="lo"  data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"><br></i></a>
-
-                    </div>
-                </div>
-
-
-                <!--CALENDAR // CLOCK // TO DO-------------------------------------------------------------------------------------->
-
-                <div class="col-xl-5 main">
-                    <div class="container-fluid text-center d-flex justify-content-center align-items-center "><br><br>
-                        <div class=" col-12 "><br>
-                            
-                            <div class=" clock_holder ">
-                                <div class="clock ">
-                                    <span class="clock-time"></span>
-                                    <span class="clock-ampm"></span>
-                                </div>
-                            </div>
-                             <!--CALENDAR-------------------------------------------------------------------------------------->
-                            <div class="calendar_holder">
-                                <div class="wrapper">
-                                    <header>
-                                        <p class="current-date"></p>
-                                        <div class="icons">
-                                            <span id="prev" class="material-icon"><i class="fa fa-lg fa-chevron-left" aria-hidden="true"></i></span>
-                                            <span id="next" class="material-icon"><i class="fa fa-lg fa-chevron-right" aria-hidden="true"></i></span>
-                                        </div>
-                                    </header>
-                                    <div class="calendar">
-                                        <ul class="weeks">
-                                            <li>Sun</li>
-                                            <li>Mon</li>
-                                            <li>Tue</li>
-                                            <li>Wed</li>
-                                            <li>Thu</li>
-                                            <li>Fri</li>
-                                            <li>Sat</li>
-                                        </ul>
-                                        <ul class="days"></ul>
-                                    </div>
-                                </div>
-                            </div>
-                                
-
-                                
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 main">
-                    <!-- As a link -->
-                    <div class="container-fluid text-center d-flex justify-content-center align-items-center "><br><br>
-                        <div class="jumbotron col-12 m-4"><br>
-
-                            <div class="card-body ">
-                                <div class="card-title" id="to-do">
-                                    NOTIFICATIONS
-                                </div>
-                                <div class="form-floating">
-                                    <table class="table">
-                                        <thead class="thead">
-                                            <tr>
-                                                <th scope="col">REQUEST</th>
-                                                <th scope="col">PENDING</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <tr>
-                                                
-                                                <td>
-                                                   Faculty ID
-                                                </td>
-                                                <td>
-                                                    {{data1.Faculty_ID}}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Faculty Internet Access
-                                                 </td>
-                                                 <td>
-                                                     {{data1.Faculty_Internet}}
-                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Faculty Laboratory Schedule
-                                                 </td>
-                                                 <td>
-                                                     {{data1.Faculty_Laboratory}}
-                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Faculty Password Reset
-                                                 </td>
-                                                 <td>
-                                                     {{data1.Faculty_passreset}}
-                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Faculty Borrow
-                                                 </td>
-                                                 <td>
-                                                     {{data1.Faculty_borrow}}
-                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Faculty Repair And Maintenance
-                                                 </td>
-                                                 <td>
-                                                     {{data1.faculty_repair}}
-                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Faculty Maintenance
-                                                 </td>
-                                                 <td>
-                                                     {{data1.maintenance}}
-                                                 </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="row no-gutters">
+          <div class="col-xl-1 text-center">
+            <div id="mySidebar" class="sidebar">
+              <button class="closebtn" id="close" onclick="closeNav()">
+                &times;
+              </button>
+              <a href="{% url 'TupcSysApp:FacultyHome'%}" id="active"
+                ><i class="fa fa-lg fa-user-circle" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">HOME</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:FacultyID'%}"
+                ><i class="fa fa-lg fa-id-badge" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">ID'S</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:FacultyInternet'%}"
+                ><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INTERNET</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:FacultyLabsched'%}"
+                ><i class="fa fa-lg fa-calendar" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">SCHEDULE</h6></i
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:FacultyReports'%}"
+                ><i class="fa fa-lg fa-file-text" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">REPORT</h6></i
+                ></a
+              >
+              <a
+                href=""
+                data-toggle="modal"
+                data-target="#logout"
+                id="lo"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Logout"
+                ><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
+                  ><br /></i
+              ></a>
             </div>
+          </div>
 
-            <script>
-                class DigitalClock {
-                    constructor(element) {
-                        this.element = element;
-                    }
+          <!--CALENDAR // CLOCK // TO DO-------------------------------------------------------------------------------------->
 
-                    start() {
-                        this.update();
+          <div class="col-xl-5 main">
+            <div
+              class="container-fluid text-center d-flex justify-content-center align-items-center"
+            >
+              <br /><br />
+              <div class="col-12">
+                <br />
 
-                        setInterval(() => {
-                            this.update();
-                        }, 500);
-                    }
+                <div class="clock_holder">
+                  <div class="clock">
+                    <span class="clock-time"></span>
+                    <span class="clock-ampm"></span>
+                  </div>
+                </div>
+                <!--CALENDAR-------------------------------------------------------------------------------------->
+                <div class="calendar_holder">
+                  <div class="wrapper">
+                    <header>
+                      <p class="current-date"></p>
+                      <div class="icons">
+                        <span id="prev" class="material-icon"
+                          ><i
+                            class="fa fa-lg fa-chevron-left"
+                            aria-hidden="true"
+                          ></i
+                        ></span>
+                        <span id="next" class="material-icon"
+                          ><i
+                            class="fa fa-lg fa-chevron-right"
+                            aria-hidden="true"
+                          ></i
+                        ></span>
+                      </div>
+                    </header>
+                    <div class="calendar">
+                      <ul class="weeks">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                      </ul>
+                      <ul class="days"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 main">
+            <!-- As a link -->
+            <div
+              class="container-fluid text-center d-flex justify-content-center align-items-center"
+            >
+              <br /><br />
+              <div class="jumbotron col-12 m-4">
+                <br />
 
-                    update() {
-                        const parts = this.getTimeParts();
-                        const minuteFormatted = parts.minute.toString().padStart(2, "0");
-                        const timeFormatted = `${parts.hour}:${minuteFormatted}`;
-                        const amPm = parts.isAm ? "AM" : "PM";
-
-                        this.element.querySelector(".clock-time").textContent = timeFormatted;
-                        this.element.querySelector(".clock-ampm").textContent = amPm;
-                    }
-
-                    getTimeParts() {
-                        const now = new Date();
-
-                        return {
-                            hour: now.getHours() % 12 || 12,
-                            minute: now.getMinutes(),
-                            isAm: now.getHours() < 12
-                        };
-                    }
-                }
-
-                const clockElement = document.querySelector(".clock");
-                const clockObject = new DigitalClock(clockElement);
-
-                clockObject.start();
-
-
-                //calendar
-                const daysTag = document.querySelector(".days"),
-                    currentDate = document.querySelector(".current-date"),
-                    prevNextIcon = document.querySelectorAll(".icons span");
-
-                // getting new date, current year and month
-                let date = new Date(),
-                    currYear = date.getFullYear(),
-                    currMonth = date.getMonth();
-
-                // storing full name of all months in array
-                const months = ["January", "February", "March", "April", "May", "June", "July",
-                    "August", "September", "October", "November", "December"
-                ];
-
-                const renderCalendar = () => {
-                    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
-                        lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
-                        lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
-                        lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
-                    let liTag = "";
-
-                    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
-                        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-                    }
-
-                    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
-                        // adding active class to li if the current day, month, and year matched
-                        let isToday = i === date.getDate() && currMonth === new Date().getMonth() &&
-                            currYear === new Date().getFullYear() ? "active" : "";
-                        liTag += `<li class="${isToday}">${i}</li>`;
-                    }
-
-                    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
-                        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
-                    }
-                    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
-                    daysTag.innerHTML = liTag;
-                }
-                renderCalendar();
-
-                prevNextIcon.forEach(icon => { // getting prev and next icons
-                    icon.addEventListener("click", () => { // adding click event on both icons
-                        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
-                        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
-                        if (currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
-                            // creating a new date of current year & month and pass it as date value
-                            date = new Date(currYear, currMonth);
-                            currYear = date.getFullYear(); // updating current year with new date year
-                            currMonth = date.getMonth(); // updating current month with new date month
-                        } else {
-                            date = new Date(); // pass the current date as date value
-                        }
-                        renderCalendar(); // calling renderCalendar function
-                    });
-                });
-            </script>
-
-
-            <!--BG CALL-------------------------------------------------------------------------------------------->
-            <div id="pic" class="view drk "></div>
+                <div class="card-body">
+                  <div class="card-title" id="to-do">NOTIFICATIONS</div>
+                  <div class="form-floating">
+                    <table class="table">
+                      <thead class="thead">
+                        <tr>
+                          <th scope="col">REQUEST</th>
+                          <th scope="col">PENDING</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Faculty ID</td>
+                          <td>{{data1.Faculty_ID}}</td>
+                        </tr>
+                        <tr>
+                          <td>Faculty Internet Access</td>
+                          <td>{{data1.Faculty_Internet}}</td>
+                        </tr>
+                        <tr>
+                          <td>Faculty Laboratory Schedule</td>
+                          <td>{{data1.Faculty_Laboratory}}</td>
+                        </tr>
+                        <tr>
+                          <td>Faculty Password Reset</td>
+                          <td>{{data1.Faculty_passreset}}</td>
+                        </tr>
+                        <tr>
+                          <td>Faculty Borrow</td>
+                          <td>{{data1.Faculty_borrow}}</td>
+                        </tr>
+                        <tr>
+                          <td>Faculty Repair And Maintenance</td>
+                          <td>{{data1.faculty_repair}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="card-text"></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <script>
+          class DigitalClock {
+            constructor(element) {
+              this.element = element;
+            }
+
+            start() {
+              this.update();
+
+              setInterval(() => {
+                this.update();
+              }, 500);
+            }
+
+            update() {
+              const parts = this.getTimeParts();
+              const minuteFormatted = parts.minute.toString().padStart(2, "0");
+              const timeFormatted = `${parts.hour}:${minuteFormatted}`;
+              const amPm = parts.isAm ? "AM" : "PM";
+
+              this.element.querySelector(".clock-time").textContent =
+                timeFormatted;
+              this.element.querySelector(".clock-ampm").textContent = amPm;
+            }
+
+            getTimeParts() {
+              const now = new Date();
+
+              return {
+                hour: now.getHours() % 12 || 12,
+                minute: now.getMinutes(),
+                isAm: now.getHours() < 12,
+              };
+            }
+          }
+
+          const clockElement = document.querySelector(".clock");
+          const clockObject = new DigitalClock(clockElement);
+
+          clockObject.start();
+
+          //calendar
+          const daysTag = document.querySelector(".days"),
+            currentDate = document.querySelector(".current-date"),
+            prevNextIcon = document.querySelectorAll(".icons span");
+
+          // getting new date, current year and month
+          let date = new Date(),
+            currYear = date.getFullYear(),
+            currMonth = date.getMonth();
+
+          // storing full name of all months in array
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+
+          const renderCalendar = () => {
+            let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+              lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+              lastDayofMonth = new Date(
+                currYear,
+                currMonth,
+                lastDateofMonth
+              ).getDay(), // getting last day of month
+              lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+            let liTag = "";
+
+            for (let i = firstDayofMonth; i > 0; i--) {
+              // creating li of previous month last days
+              liTag += `<li class="inactive">${
+                lastDateofLastMonth - i + 1
+              }</li>`;
+            }
+
+            for (let i = 1; i <= lastDateofMonth; i++) {
+              // creating li of all days of current month
+              // adding active class to li if the current day, month, and year matched
+              let isToday =
+                i === date.getDate() &&
+                currMonth === new Date().getMonth() &&
+                currYear === new Date().getFullYear()
+                  ? "active"
+                  : "";
+              liTag += `<li class="${isToday}">${i}</li>`;
+            }
+
+            for (let i = lastDayofMonth; i < 6; i++) {
+              // creating li of next month first days
+              liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+            }
+            currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
+            daysTag.innerHTML = liTag;
+          };
+          renderCalendar();
+
+          prevNextIcon.forEach((icon) => {
+            // getting prev and next icons
+            icon.addEventListener("click", () => {
+              // adding click event on both icons
+              // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
+              currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+              if (currMonth < 0 || currMonth > 11) {
+                // if current month is less than 0 or greater than 11
+                // creating a new date of current year & month and pass it as date value
+                date = new Date(currYear, currMonth);
+                currYear = date.getFullYear(); // updating current year with new date year
+                currMonth = date.getMonth(); // updating current month with new date month
+              } else {
+                date = new Date(); // pass the current date as date value
+              }
+              renderCalendar(); // calling renderCalendar function
+            });
+          });
+        </script>
+
+        <!--BG CALL-------------------------------------------------------------------------------------------->
+        <div id="pic" class="view drk"></div>
+      </div>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {% for message in messages %}
     <script>
-        swal("{{message}}","");
+      swal("{{message}}", "");
     </script>
     {% endfor %}
-</body>
-
+  </body>
 </html>

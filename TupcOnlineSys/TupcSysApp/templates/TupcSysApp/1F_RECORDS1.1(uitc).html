@@ -185,10 +185,44 @@
                   <h6 id="icons">HOME</h6></i
                 ></a
               >
-              <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-lg fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="badge" id = "id_notif" name = "id_notifs" hidden>{{data1.Faculty_ID}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcInternet'%} "><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="badge" id = "net_notif" name = "net_notifs" hidden>{{data2}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcLabsched'%}" ><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="badge" id = "sched_notif" name = "sched_notifs" hidden>{{data1.Faculty_Laboratory}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data3}}</span></a>
+              <a href="{% url 'TupcSysApp:UitcID'%}"
+                ><i class="fa fa-lg fa-id-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">ID'S</h6></i
+                >
+                <span class="badge" id="id_notif" name="id_notifs" hidden
+                  >{{data1.Faculty_ID}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInternet'%} "
+                ><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INTERNET</h6></i
+                ><span class="badge" id="net_notif" name="net_notifs" hidden
+                  >{{data2}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcLabsched'%}"
+                ><i class="fa fa-lg fa-calendar" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">SCHEDULE</h6></i
+                ><span class="badge" id="sched_notif" name="sched_notifs" hidden
+                  >{{data1.Faculty_Laboratory}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcReports'%}"
+                ><i class="fa fa-lg fa-file-text" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">REPORTS</h6></i
+                >
+                <span
+                  class="badge"
+                  id="report_notif"
+                  name="report_notifs"
+                  hidden
+                  >{{data3}}</span
+                ></a
+              >
               <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"
                 ><i class="fa fa-lg fa-clipboard" aria-hidden="true"
                   ><br />
@@ -207,12 +241,17 @@
                   <h6 id="icons">INVENTORY</h6></i
                 ></a
               >
-              <a href="" data-toggle="modal" data-target="#logout"
-              id="lo" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
-                  ><br />
-                  </i
-                ></a
-              >
+              <a
+                href=""
+                data-toggle="modal"
+                data-target="#logout"
+                id="lo"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Logout"
+                ><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
+                  ><br /> </i
+              ></a>
             </div>
           </div>
 
@@ -237,7 +276,7 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                    
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -300,10 +339,16 @@
                           <tbody>
                             <tr>
                               {% for p in data %}
-                              <td><a href="{{p.f_pic}}" download>
-                                <img src="{{p.f_pic}}" width="100" height="100">
-                                click to download
-                              </a></td>
+                              <td>
+                                <a href="{{p.f_pic}}" download>
+                                  <img
+                                    src="{{p.f_pic}}"
+                                    width="100"
+                                    height="100"
+                                  />
+                                  click to download
+                                </a>
+                              </td>
                               <td>{{p.ff_name}}</td>
                               <td>{{p.fm_name}}</td>
                               <td>{{p.fl_name}}</td>
@@ -322,10 +367,15 @@
                               <td>{{p.f_num}}</td>
                               <td>{{p.f_add}}</td>
                               <td>
-                              <a href="{{p.f_signature}}" download>
-                                <img src="{{p.f_signature}}" width="250" height="150">
-                                click to download
-                              </a></td>
+                                <a href="{{p.f_signature}}" download>
+                                  <img
+                                    src="{{p.f_signature}}"
+                                    width="250"
+                                    height="150"
+                                  />
+                                  click to download
+                                </a>
+                              </td>
                               <td>{{p.f_stat}}</td>
                               <td>
                                 <div
@@ -422,9 +472,14 @@
                             }
                           }
                           // convert table to excel
+                          const date = new Date();
+                          const year = date.getFullYear();
+                          const month = date.getMonth() + 1;
+                          const day = date.getDate();
+                          var d = month + "/" + day + "/" + year;
                           function exportTableToExcel(
                             myTable,
-                            filename = "EMPLOYEE ID RECORD"
+                            filename = "EMPLOYEE ID RECORD" + d
                           ) {
                             var downloadLink;
                             var dataType = "application/vnd.ms-excel";
@@ -491,7 +546,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTable', 'Employee_ID_Record')"
+                        onclick="exportTableToExcel('myTable')"
                         title="Download"
                       >
                         <i

@@ -307,7 +307,7 @@
                             <button
                               type="button"
                               class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                              onclick="exportTableToExcel('myTableitr', 'Inventory_Record')"
+                              onclick="exportTableToExcel('myTableitr')"
                               title="Download"
                             >
                               <i
@@ -318,7 +318,12 @@
                           </div>
                     <script>
                        // convert table to excel
-                       function exportTableToExcel(myTableitr, filename = "") {
+                       const date = new Date();
+                       const year = date.getFullYear();
+                       const month = date.getMonth() + 1;
+                       const day = date.getDate();
+                       var d = month + "/" + day + "/" + year;
+                       function exportTableToExcel(myTableitr, filename = "INVENTORY" + d) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTableitr);
@@ -534,7 +539,12 @@
                           }
                         }
                         // convert table to excel
-                        function exportTableToExcel(myTableram, filename = "") {
+                        const date = new Date();
+                        const year = date.getFullYear();
+                        const month = date.getMonth() + 1;
+                        const day = date.getDate();
+                        var d = month + "/" + day + "/" + year;
+                        function exportTableToExcel(myTableram, filename = "REPAIR AND MAINTENANCE" + d) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTableram);
@@ -579,7 +589,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableram', 'Repair_and_Maintenance_Record')"
+                        onclick="exportTableToExcel('myTableram')"
                         title="Download"
                       >
                         <i
@@ -694,7 +704,12 @@
                           }
                         }
                         // convert table to excel
-                        function exportTableToExcel(myTableprr, filename = "") {
+                        const date = new Date();
+                        const year = date.getFullYear();
+                        const month = date.getMonth() + 1;
+                        const day = date.getDate();
+                        var d = month + "/" + day + "/" + year;
+                        function exportTableToExcel(myTableprr, filename = "PASSWORD RESET" + d) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTableprr);
@@ -739,7 +754,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableprr', 'Password_reset_Record')"
+                        onclick="exportTableToExcel('myTableprr')"
                         title="Download"
                       >
                         <i
@@ -1080,7 +1095,12 @@
                           }
                         }
                         // convert table to excel
-                        function exportTableToExcel(myTablebr, filename = "") {
+                        const date = new Date();
+                        const year = date.getFullYear();
+                        const month = date.getMonth() + 1;
+                        const day = date.getDate();
+                        var d = month + "/" + day + "/" + year;
+                        function exportTableToExcel(myTablebr, filename = "BORROW" + d) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTablebr);
@@ -1125,7 +1145,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTablebr', 'Borrow_Record')"
+                        onclick="exportTableToExcel('myTablebr')"
                         title="Download"
                       >
                         <i

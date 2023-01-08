@@ -1,3 +1,12 @@
+window.onload = function() {
+    var request = document.getElementById("request").innerText;
+    var y = document.getElementById("repairmaintenanceform");
+    var x = document.getElementById("tableform3");
+    if (request > 0){
+        y.hidden = true;
+        x.hidden = false;
+    }
+}
 function openNav() {
 
     var y = document.getElementById("mySidebar");
@@ -32,6 +41,8 @@ function requestforrep() {
     y.style.display = "block";
     x.style.display = "none";
     z.style.display = "none";
+    var request = document.getElementById("request").innerText;
+
 
 }
 function requestforpassreset() {

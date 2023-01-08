@@ -38,7 +38,7 @@ installed_apps = ['TupcSysApp']
         image = request.FILES["image"]
         idno = request.POST.get('idno')
         image_file = pics.objects.create(
-                                       
+
                                        pic=image, idno=idno
                                       )
         image_path= image_file.pic.path
@@ -1026,7 +1026,7 @@ def UitcReports(request):  # UITC REPORTS page
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(data.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1072,7 +1072,8 @@ def UitcReports_borrow(request):#UITC REPORTS page
             irf_borrow5 = request.POST.get('irf_borrow5')
             i_sig5 = request.POST.get('i_sig5')
             i_stats5 = "On Process"
-            data = UITC_borrow_record.objects.create(if_name5 = if_name5, i_date5=i_date5, i_time5=i_time5, ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5)
+            data = UITC_borrow_record.objects.create(if_name5 = if_name5, i_date5=i_date5, i_time5=i_time5,
+                                                     ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5)
             data.save()
         return redirect('/UitcReports')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
@@ -1362,13 +1363,15 @@ def FacultyHome(request):  # FACULTY HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return redirect('/UitcHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-        data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
-                 "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
-                 "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
-                 "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
-                 "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
-                 "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count())}
+        data = faculty_reports.objects.filter(fstat="On Process", email3=request.user.gsfe) | faculty_reports.objects.filter(
+            fstat="Approved", email3=request.user.gsfe)
+
+        data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process", email1=request.user.gsfe).count()),
+                 "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process", g_email=request.user.gsfe).count()),
+                 "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process", email2=request.user.gsfe).count()),
+                 "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process", email4=request.user.gsfe).count()),
+                 "faculty_repair": str(data.count()),
+                 "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process", fwemail=request.user.gsfe).count())}
         return render(request, 'TupcSysApp/1K_HOMEPAGE(FV).html', {'data1': data1})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return redirect('/StudentHome')
@@ -1376,20 +1379,7 @@ def FacultyHome(request):  # FACULTY HOMEPAGE page
         return redirect('/')
 
 
-"""def edit(request):
-	cont = register1.objects.get(username="UITC00")
-    cont.set_password("Anggandako28.")
-	form = Registration(instance=cont)
-	if request.method == 'POST':
-		form = Registration(request.POST, instance = cont)
-		if form.is_valid():
-			form.save()
-			return redirect('/')
-
-	return render(request, 'TupcSysApp/ex.html', {'form':form})"""
-
-
-@login_required(login_url='/Index')
+@ login_required(login_url='/Index')
 def FacultyID(request):  # FACULTY ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
@@ -1547,6 +1537,11 @@ def FacultyReports(request):  # FACULTY REPORTS page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        data1 = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Completed")
+        data2 = data1.count()
+        data3 = faculty_reports.objects.filter(
+            fstat="Completed", email3=request.user.gsfe)
         if request.method == "POST":
             email3 = request.user.gsfe
             ftype = request.POST.get('ftype')
@@ -1567,7 +1562,7 @@ def FacultyReports(request):  # FACULTY REPORTS page
 
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1O_REPORTS(FV).html')
+        return render(request, 'TupcSysApp/1O_REPORTS(FV).html', {'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -2070,8 +2065,55 @@ def UitcInventory_modify(request, id):
     return redirect('/UitcInventory')
 
 
+def faculty_reqrepmain(request, id):
+    a = faculty_reports.objects.filter(
+        fstat="Completed", email3=request.user.gsfe).only(id)
+    print(a)
+    request.POST.get('request.user.name')
+    ie_user = request.POST.get("ie_user")
+    i_daterec2 = request.POST.get("i_daterec2")
+    i_sig3 = request.POST.get("i_sig3")
+    i_time2 = request.POST.get("i_time2")
+    i_serv = request.POST.get("i_serv")
+
+    if request.method == "POST":
+        for x in faculty_reports.objects.only('id').filter(fstat="Approved"):
+            if a == x:
+                x = faculty_reports.objects.filter(
+                    id=id).update(fstat="Completed")
+                faculty_reports.objects.filter(id=id).update(
+                    i_assessby=request.user.name)
+                faculty_reports.objects.filter(id=id).update(ie_user=ie_user)
+                faculty_reports.objects.filter(
+                    id=id).update(i_daterec2=i_daterec2)
+                faculty_reports.objects.filter(id=id).update(i_sig3=i_sig3)
+                faculty_reports.objects.filter(id=id).update(i_time2=i_time2)
+                faculty_reports.objects.filter(id=id).update(i_serv=i_serv)
+
+        y = faculty_reports.objects.filter(id=id).values()
+        for z in y:
+            name = z['fname']
+            uemail = z['email3']
+            print(name)
+            print(uemail)
+            message = "Good day " + name + \
+                ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n UITC admin"
+            email = EmailMessage(
+                name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [uemail],
+
+            )
+
+            email.send()
+            break
+        messages.success(request, "Successfully done")
+        return redirect('/UitcReports')
+
+
 def reqrepmain_permit(request, id):
-    a = faculty_reports.objects.get(id=id)
+    a = faculty_reports.objects.fil(id=id)
     print(a)
     request.POST.get('request.user.name')
     i_sig = request.POST.get("i_sig")
@@ -2150,7 +2192,7 @@ def reqrepmain_permit(request, id):
             print(name)
             print(uemail)
             message = "Good day " + name + \
-                ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Repair and Maintenance has been approved, please fill up the and sign the form in your report. \n UITC admin"
             email = EmailMessage(
                 name,
                 message,
@@ -2201,10 +2243,11 @@ def notify_rp(request, id):
     if request.method == 'POST':
         a = faculty_reports.objects.get(id=id)
         reason = request.POST.get("message")
+
         for x in faculty_reports.objects.only('id').filter(fstat="On process"):
             if a == x:
                 x = faculty_reports.objects.filter(
-                    id=id).update(fstat="Approved")
+                    id=id).update(fstat="Notified")
                 y = faculty_reports.objects.filter(id=id).values()
                 for z in y:
                     name = z['fname']

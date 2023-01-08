@@ -351,7 +351,12 @@
                           }
                         }
                         // convert table to excel
-                        function exportTableToExcel(myTableemp, filename = "") {
+                        const date = new Date();
+                        const year = date.getFullYear();
+                        const month = date.getMonth() + 1;
+                        const day = date.getDate();
+                        var d = month + "/" + day + "/" + year;
+                        function exportTableToExcel(myTableemp, filename = "EMPLOYEE WIFI RECORD" + d") {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTableemp);
@@ -396,7 +401,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableemp', 'Employee_Wifi_request_record')"
+                        onclick="exportTableToExcel('myTableemp')"
                         title="Download"
                       >
                         <i
@@ -591,9 +596,14 @@
                             }
                           }
                           // convert table to excel
+                          const date = new Date();
+                          const year = date.getFullYear();
+                          const month = date.getMonth() + 1;
+                          const day = date.getDate();
+                          var d = month + "/" + day + "/" + year;
                           function exportTableToExcel(
                             myTableswr,
-                            filename = ""
+                            filename = "STUDENT WIFI RECORDS" + d
                           ) {
                             var downloadLink;
                             var dataType = "application/vnd.ms-excel";
@@ -661,7 +671,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableswr', 'Student_Wifi_request_record')"
+                        onclick="exportTableToExcel('myTableswr')"
                         title="Download"
                       >
                         <i
@@ -850,9 +860,14 @@
                             }
                           }
                           // convert table to excel
+                          const date = new Date();
+                          const year = date.getFullYear();
+                          const month = date.getMonth() + 1;
+                          const day = date.getDate();
+                          var d = month + "/" + day + "/" + year;
                           function exportTableToExcel(
                             myTableiar,
-                            filename = "EMPLOYEE ID RECORD"
+                            filename = "STUDENT INTERNET ACCESS" + d
                           ) {
                             var downloadLink;
                             var dataType = "application/vnd.ms-excel";
@@ -923,7 +938,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableiar', 'StudentInternetAccess_Record')"
+                        onclick="exportTableToExcel('myTableiar')"
                         title="Download"
                       >
                         <i
