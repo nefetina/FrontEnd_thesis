@@ -297,25 +297,25 @@ def logoutUser(request):
 
 def maintain_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_reports.objects.filter(id=id).only("ie_user").values()
-            for z in y:
-                name = z['ie_user']
-            
-            adm = datetime.now()
-            message = ("Good day! " + name + ",\nYou approved "+ name +"\nrequest for repair and maintence at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nOther details will be provided by "+ name + ",\nand it will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_reports.objects.filter(id=id).only("ie_user").values()
+        for z in y:
+            name = z['ie_user']
+
+        adm = datetime.now()
+        message = ("Good day! " + name + ",\nYou approved " + name + "\nrequest for repair and maintence at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nOther details will be provided by " + name + ",\nand it will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = maintain_record.objects.get(id=id)
     for x in maintain_record.objects.only('id').filter(i_stats="On process"):
         if a == x:
@@ -342,25 +342,25 @@ def maintain_permit(request, id):
 
 def maintain_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_reports.objects.filter(id=id).only("ie_user").values()
-            for z in y:
-                name = z['ie_user']
-            
-            adm = datetime.now()
-            message = ("Good day! " + name + ",\nYou declined "+ name +"\nrequest for repair and maintenance at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_reports.objects.filter(id=id).only("ie_user").values()
+        for z in y:
+            name = z['ie_user']
+
+        adm = datetime.now()
+        message = ("Good day! " + name + ",\nYou declined " + name + "\nrequest for repair and maintenance at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     if request.method == 'POST':
         a = maintain_record.objects.get(id=id)
         reason = request.POST.get("reasonm")
@@ -390,25 +390,25 @@ def maintain_cancel(request, id):
 
 def facultyID_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_ID.objects.filter(id=id).only("ff_name").values()
-            for z in y:
-                name = z['ff_name']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for ID at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_ID.objects.filter(id=id).only("ff_name").values()
+        for z in y:
+            name = z['ff_name']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for ID at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = faculty_ID.objects.get(id=id)
     data1 = faculty_ID.objects.filter(id=id)
     for x in faculty_ID.objects.only('id').filter(f_stat="On process"):
@@ -436,25 +436,25 @@ def facultyID_permit(request, id):
 
 def facultyID_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_ID.objects.filter(id=id).only("ff_name").values()
-            for z in y:
-                name = z['ff_name']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for ID at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_ID.objects.filter(id=id).only("ff_name").values()
+        for z in y:
+            name = z['ff_name']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for ID at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = faculty_ID.objects.get(id=id)
     reason = request.POST.get("reason")
     for x in faculty_ID.objects.only('id').filter(f_stat="On process"):
@@ -486,25 +486,25 @@ def facultyID_cancel(request, id):
 
 def FacultyWifi_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_wifi.objects.filter(id=id).only("gf_name").values()
-            for z in y:
-                name = z['gf_name']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Wifi Access at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_wifi.objects.filter(id=id).only("gf_name").values()
+        for z in y:
+            name = z['gf_name']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Wifi Access at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     if request.method == 'POST':
         a = faculty_wifi.objects.get(id=id)
         reason = request.POST.get("reason1")
@@ -537,25 +537,25 @@ def FacultyWifi_cancel(request, id):
 
 def FacultyWifi_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_wifi.objects.filter(id=id).only("gf_name").values()
-            for z in y:
-                name = z['gf_name']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Wifi Access at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_wifi.objects.filter(id=id).only("gf_name").values()
+        for z in y:
+            name = z['gf_name']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Wifi Access at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = faculty_wifi.objects.get(id=id)
     for x in faculty_wifi.objects.only('id').filter(g_stat="On process"):
         if a == x:
@@ -582,25 +582,25 @@ def FacultyWifi_permit(request, id):
 
 def StudentWifi_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = student_wifi.objects.filter(id=id).only("gf_name1").values()
-            for z in y:
-                name = z['gf_name1']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Wifi Access at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = student_wifi.objects.filter(id=id).only("gf_name1").values()
+        for z in y:
+            name = z['gf_name1']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Wifi Access at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     if request.method == 'POST':
         a = student_wifi.objects.get(id=id)
         reason = request.POST.get("reason2")
@@ -633,25 +633,25 @@ def StudentWifi_cancel(request, id):
 
 def StudentWifi_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = student_wifi.objects.filter(id=id).only("gf_name1").values()
-            for z in y:
-                name = z['gf_name1']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Wifi Access at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = student_wifi.objects.filter(id=id).only("gf_name1").values()
+        for z in y:
+            name = z['gf_name1']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Wifi Access at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = student_wifi.objects.get(id=id)
     for x in student_wifi.objects.only('id').filter(g_stats1="On process"):
         if a == x:
@@ -678,25 +678,25 @@ def StudentWifi_permit(request, id):
 
 def StudentInternet_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = student_internet.objects.filter(id=id).only("gf_name2").values()
-            for z in y:
-                name = z['gf_name2']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Internet Access at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = student_internet.objects.filter(id=id).only("gf_name2").values()
+        for z in y:
+            name = z['gf_name2']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Internet Access at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     if request.method == 'POST':
         a = student_internet.objects.get(id=id)
         reason = request.POST.get("reason3")
@@ -712,7 +712,8 @@ def StudentInternet_cancel(request, id):
                     print(uemail)
                 print(reason)
                 message = "Good day " + name + \
-                    ", \n Your request for Internet Access request has been declined, " + reason + "\n UITC admin"
+                    ", \n Your request for Internet Access request has been declined, " + \
+                    reason + "\n UITC admin"
                 email = EmailMessage(
                     name,
                     message,
@@ -729,25 +730,25 @@ def StudentInternet_cancel(request, id):
 
 def StudentInternet_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = student_internet.objects.filter(id=id).only("gf_name2").values()
-            for z in y:
-                name = z['gf_name2']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Internet Access at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = student_internet.objects.filter(id=id).only("gf_name2").values()
+        for z in y:
+            name = z['gf_name2']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Internet Access at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = student_internet.objects.get(id=id)
     for x in student_internet.objects.only('id').filter(g_stats2="On process"):
         if a == x:
@@ -777,25 +778,25 @@ def StudentInternet_permit(request, id):
 
 def labsched_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_lab.objects.filter(id=id).only("f_name").values()
-            for z in y:
-                name = z['f_name']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Laboratory Schedule at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_lab.objects.filter(id=id).only("f_name").values()
+        for z in y:
+            name = z['f_name']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Laboratory Schedule at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     if request.method == 'POST':
         a = faculty_lab.objects.get(id=id)
         for x in faculty_lab.objects.only('id').filter(l_stat="On process"):
@@ -828,25 +829,25 @@ def labsched_cancel(request, id):
 
 def labsched_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_lab.objects.filter(id=id).only("f_name").values()
-            for z in y:
-                name = z['f_name']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Laboratory Schedule at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_lab.objects.filter(id=id).only("f_name").values()
+        for z in y:
+            name = z['f_name']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Laboratory Schedule at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = faculty_lab.objects.get(id=id)
     for x in faculty_lab.objects.only('id').filter(l_stat="On process"):
         if a == x:
@@ -873,25 +874,25 @@ def labsched_permit(request, id):
 
 def fpass_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_passreset.objects.filter(id=id).only("fwname").values()
-            for z in y:
-                name = z['fwname']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_passreset.objects.filter(id=id).only("fwname").values()
+        for z in y:
+            name = z['fwname']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Password Reset at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     if request.method == 'POST':
         a = faculty_passreset.objects.get(id=id)
         reason = request.POST.get("freason")
@@ -926,26 +927,26 @@ def fpass_cancel(request, id):
 
 def fpasswordreset_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_passreset.objects.filter(id=id).only("fwname").values()
-            for z in y:
-                name = z['fwname']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_passreset.objects.filter(id=id).only("fwname").values()
+        for z in y:
+            name = z['fwname']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Password Reset at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
-            
+        email.send()
+
     a = faculty_passreset.objects.get(id=id)
     for x in faculty_passreset.objects.only('id').filter(fwstat="On process"):
         if a == x:
@@ -978,10 +979,10 @@ def spasswordreset_cancel(request, id):
         y = PassReset.objects.get.objects.filter(id=id).only("psname").values()
         for z in y:
             name = z['psname']
-        
+
         adm = datetime.now()
-        message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
-                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Password Reset at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
             request.user.name,
             message,
@@ -1027,10 +1028,10 @@ def spasswordreset_permit(request, id):
         y = PassReset.objects.get.objects.filter(id=id).only("psname").values()
         for z in y:
             name = z['psname']
-        
+
         adm = datetime.now()
-        message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
-                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Password Reset at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
             request.user.name,
             message,
@@ -1069,13 +1070,14 @@ def sborrow_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         request.POST.get('request.user.gsfe')
         request.POST.get('request.user.name')
-        y = borrow_record.objects.get.objects.filter(id=id).only("if_name5").values()
+        y = borrow_record.objects.get.objects.filter(
+            id=id).only("if_name5").values()
         for z in y:
             name = z['if_name5']
-        
+
         adm = datetime.now()
-        message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Borrow at the date and time of " +
-                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Borrow at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
             request.user.name,
             message,
@@ -1120,13 +1122,14 @@ def sborrow_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         request.POST.get('request.user.gsfe')
         request.POST.get('request.user.name')
-        y = borrow_record.objects.get.objects.filter(id=id).only("if_name5").values()
+        y = borrow_record.objects.get.objects.filter(
+            id=id).only("if_name5").values()
         for z in y:
             name = z['if_name5']
-        
+
         adm = datetime.now()
-        message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Borrow at the date and time of " +
-                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Borrow at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
             request.user.name,
             message,
@@ -1166,25 +1169,25 @@ def sborrow_permit(request, id):
 
 def fb_cancel(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_borrow.objects.filter(id=id).only("fbname").values()
-            for z in y:
-                name = z['fbname']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_borrow.objects.filter(id=id).only("fbname").values()
+        for z in y:
+            name = z['fbname']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Password Reset at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     print(faculty_borrow.objects.get(id=id))
     if request.method == 'POST':
         a = faculty_borrow.objects.get(id=id)
@@ -1219,25 +1222,25 @@ def fb_cancel(request, id):
 
 def fborrow_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-            request.POST.get('request.user.gsfe')
-            request.POST.get('request.user.name')
-            y = faculty_borrow.objects.filter(id=id).only("fbname").values()
-            for z in y:
-                name = z['fbname']
-            
-            adm = datetime.now()
-            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
-            email = EmailMessage(
-                request.user.name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [request.user.gsfe],
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = faculty_borrow.objects.filter(id=id).only("fbname").values()
+        for z in y:
+            name = z['fbname']
+
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Password Reset at the date and time of " +
+                   adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
 
 
-            )
+        )
 
-            email.send()
+        email.send()
     a = faculty_borrow.objects.get(id=id)
     for x in faculty_borrow.objects.only('id').filter(fbstat="On process"):
         if a == x:
@@ -2283,54 +2286,54 @@ def UitcInventory(request):  # UITC ID page
 
 
 def inventory_notify(request, id):
-    a = Inventory.objects.get(id=id)
-    for y in Inventory.objects.filter(id=id).values():
-        i_model = y['i_model']
-        i_serial = y['i_serial']
 
+    for y in faculty_borrow.objects.filter(id=id).values():
+        i_model = y['fbmodel']
+        i_serial = y['fbserial']
+        user = y['fbuser']
+    for y in borrow_record.objects.filter(id=id).values():
+        i_model1 = y['imodel']
+        i_serial1 = y['iserial']
+        user = y['i_user']
     mes = request.POST.get("message")
     print(mes)
-    for x in Inventory.objects.only('id').filter(i_stats="Borrowed"):
-        if a == x:
 
-            f = faculty_borrow.objects.filter(
-                fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").values()
-            for f1 in f:
-                if f1['fbmodel'] == i_model and f1['fbserial'] == i_serial and f1['fbstat'] == "Borrowed":
-                    name = f1['fbname']
-                    emails = f1['email4']
+    if user == "Faculty Member":
+        f = faculty_borrow.objects.filter(
+            id=id, fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").values()
+        for f1 in f:
+            name = f1['fbname']
+            emails = f1['email4']
 
-                    message = ("Good day " + name + ", \n" +
-                               mes + "\n UITC admin")
-                    email = EmailMessage(
-                        name,
-                        message,
-                        'tupc.uitconlinesystem@gmail.com',
-                        [emails],
+            message = ("Good day " + name + ", \n" +
+                       mes + "\n UITC admin")
+            email = EmailMessage(
+                name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [emails],
 
-                    )
+            )
 
-                    email.send()
-                break
-            s = borrow_record.objects.filter(
-                imodel=i_model, iserial=i_serial, i_stats5="Borrowed").values()
-            for s1 in s:
-                if s1['imodel'] == i_model and s1['iserial'] == i_serial and s1['i_stats5'] == "Borrowed":
-                    name = s1['if_name5']
-                    emails = s1['email5']
-                    message = ("Good day " + name + ", \n" +
-                               mes + "\n UITC admin")
-                    email = EmailMessage(
-                        name,
-                        message,
-                        'tupc.uitconlinesystem@gmail.com',
-                        [emails],
+            email.send()
+    if user == "Student":
+        s = borrow_record.objects.filter(
+            id=id, imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").values()
+        for s1 in s:
 
-                    )
+            name = s1['if_name5']
+            emails = s1['email5']
+            message = ("Good day " + name + ", \n" +
+                       mes + "\n UITC admin")
+            email = EmailMessage(
+                name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [emails],
 
-                    email.send()
-                break
-        break
+            )
+
+            email.send()
 
     messages.info(request, "Completed")
     return redirect('/UitcReports')
@@ -2359,47 +2362,61 @@ def UitcInventory_borrowed(request, id):
 
 
 def UitcInventory_returned(request, id):
-    a = Inventory.objects.get(id=id)
-
-    for y in Inventory.objects.filter(id=id).values():
-        i_model = y['i_model']
-        i_serial = y['i_serial']
-    print(i_model)
-    print(i_serial)
+    for y in faculty_borrow.objects.filter(id=id).values():
+        i_model = y['fbmodel']
+        i_serial = y['fbserial']
+        user = y['fbuser']
+    for y in borrow_record.objects.filter(id=id).values():
+        i_model1 = y['imodel']
+        i_serial1 = y['iserial']
+        user = y['fbuser']
     remarks = request.POST.get("remarks")
     print(remarks)
-    for x in Inventory.objects.only('id').filter(i_stats="Borrowed"):
-        if a == x:
-            if remarks == "Good Condition":
-                x = Inventory.objects.filter(id=id).update(i_stats="Available")
+    if request.method == "POST":
+        if remarks == "Good Condition":
+            Inventory.objects.filter(
+                i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Available")
+            if user == "Faculty Member":
                 faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                     fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-                borrow_record.objects.filter(imodel=i_model, iserial=i_serial, i_stats5="Borrowed").update(
+            elif user == "Student":
+                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                     i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
-            elif remarks == "Broken":
-                x = Inventory.objects.filter(id=id).update(i_stats="Broken")
+        elif remarks == "Broken":
+            Inventory.objects.filter(
+                i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Broken")
+            if user == "Faculty Member":
                 faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                     fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-                borrow_record.objects.filter(imodel=i_model, iserial=i_serial, i_stats5="Borrowed").update(
+            elif user == "Student":
+                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                     i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
-            elif remarks == "Replaced":
-                x = Inventory.objects.filter(id=id).update(i_stats="Replaced")
+        elif remarks == "Replaced":
+            Inventory.objects.filter(
+                i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Replaced")
+            if user == "Faculty Member":
                 faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                     fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-                borrow_record.objects.filter(imodel=i_model, iserial=i_serial, i_stats5="Borrowed").update(
+            elif user == "Student":
+                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                     i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
-            elif remarks == "Missing some parts":
-                x = Inventory.objects.filter(id=id).update(i_stats="Available")
+        elif remarks == "Missing some parts":
+            Inventory.objects.filter(i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(
+                i_stats="Missing some parts")
+            if user == "Faculty Member":
                 faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                     fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-                borrow_record.objects.filter(imodel=i_model, iserial=i_serial, i_stats5="Borrowed").update(
+            elif user == "Student":
+                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                     i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
-            elif remarks == "Not working":
-                x = Inventory.objects.filter(
-                    id=id).update(i_stats="Not working")
+        elif remarks == "Not working":
+            Inventory.objects.filter(
+                i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Not working")
+            if user == "Faculty Member":
                 faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                     fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-                borrow_record.objects.filter(imodel=i_model, iserial=i_serial, i_stats5="Borrowed").update(
+            elif user == "Student":
+                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                     i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
 
     messages.success(request, "Successfully done")
@@ -2554,7 +2571,6 @@ def reqrepmain_permit(request, id):
     i_serv = request.POST.get("i_serv")
     f_picc = request.POST.get('f_picss')
     ffsign = request.POST.get('ffsigns')
-
 
     if request.method == "POST":
         for x in faculty_reports.objects.only('id').filter(fstat="Notified"):
