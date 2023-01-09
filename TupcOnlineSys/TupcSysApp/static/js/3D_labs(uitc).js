@@ -4,7 +4,6 @@ window.onload = function() {
     
     for (let i = 0; i < approved.length; i++) {
         const asd = document.getElementsByName("approved")[i].innerText;
-        alert(asd);
     }
 
     var span_Text = document.getElementById("id_notif").innerText;
