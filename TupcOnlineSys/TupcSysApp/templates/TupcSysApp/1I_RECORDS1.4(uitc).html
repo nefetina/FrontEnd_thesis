@@ -270,59 +270,80 @@
 
           <!--CARD-------------------------------------------------------------------------------------------->
           <div class="col-xl-11 main">
+            
             <div
               class="container-fluid text-center d-flex justify-content-center align-items-center"
             >
               <br /><br />
               <!--TABLE 5 INVENTORY RECORD-------------------------------------------------------------------------------------------->
               <div id="table5" class="col-xl-12 collapse">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        id="myInputinv"
+                        onkeyup="myFunctioninv()"
+                        class="form-control my-2 p-2"
+                        placeholder="Search for Status or Date.."
+                        title="Type in a name"
+                      />
+                    </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+
+                    <div class="dropdown col-xl-3 col-lg-4 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
+                          >Ascending</a
+                        >
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
                 <div class="jumbotron m-1">
                   <br />
 
                   <div class="card-body">
                     <form>
                       <div class="formtitle">INVENTORY</div>
-
-                      <!--TABLE-------------------------------------------------------------------------------------------->
-
                       <div class="table-responsive col-xl-12">
-                        <table class="table" id="myTableitr">
+                        <table class="table" id="myTableinv">
                           <thead class="thead">
                             <tr>
-                              <th scope="col">Equipment</th>
                               <th scope="col">Model</th>
-                              <th scope="col">Total Quantity</th>
-                              <th scope="col">Current Quantity</th>
-                              <th scope="col">Borrow</th>
+                              <th scope="col">Serial Number</th>
+                              <th scope="col">Equipment</th>
+                              <th scope="col">Date Received</th>
+                              <th scope="col">Status</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td>
-                                {%for x in data.i_equip%}
-                                <p>{{x}}</p>
-                                {%endfor%}
-                              </td>
-                              <td>
-                                {%for y in data.i_model%}
-                                <p>{{y}}</p>
-                                {%endfor%}
-                              </td>
-                              <td>
-                                {%for z in data.id__count%}
-                                <p>{{z}}</p>
-                                {%endfor%}
-                              </td>
-                              <td>
-                                {%for a in data.c1%}
-                                <p>{{a}}</p>
-                                {%endfor%}
-                              </td>
-                              <td>
-                                {%for b in data.c2%}
-                                <p>{{b}}</p>
-                                {%endfor%}
-                              </td>
+                              {% for i in inventory %}
+                            
+                              <tr>
+                                  <td>{{i.i_model}}</td>
+                                  <td>{{i.i_serial}}</td>
+                                  <td>{{i.i_equip}}</td>
+                                  <td>{{i.i_date}}</td>
+                                  <td>{{i.i_stats}}</td>
+                                  {% endfor %}
+                              </tr>
                             </tr>
                           </tbody>
                         </table>
@@ -345,6 +366,29 @@
                       </button>
                     </div>
                     <script>
+                      function myFunctioninv() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById("myInputinv");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("myTableinv");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                          td = tr[i].getElementsByTagName("td")[3];
+                          td1 = tr[i].getElementsByTagName("td")[4];
+                          if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            txtValue1 = td1.textContent || td1.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                              tr[i].style.display = "";
+                            } else if (txtValue1.toUpperCase().indexOf(filter) > -1) {
+                              tr[i].style.display = "";
+                            }  
+                            else {
+                              tr[i].style.display = "none";
+                            }
+                          }
+                        }
+                      }
                       // convert table to excel
                       const date = new Date();
                       const year = date.getFullYear();
@@ -352,12 +396,12 @@
                       const day = date.getDate();
                       var d = month + "/" + day + "/" + year;
                       function exportTableToExcel(
-                        myTableitr,
+                        myTableinv,
                         filename = "INVENTORY" + d
                       ) {
                         var downloadLink;
                         var dataType = "application/vnd.ms-excel";
-                        var tableSelect = document.getElementById(myTableitr);
+                        var tableSelect = document.getElementById('myTableinv');
                         var tableHTML = tableSelect.outerHTML.replace(
                           / /g,
                           "%20"

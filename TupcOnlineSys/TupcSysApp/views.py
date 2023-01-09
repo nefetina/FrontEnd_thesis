@@ -1690,6 +1690,8 @@ def UitcRec4(request):  # UITC HOMEPAGE page
                 'id__count': [], 'c1': [], 'c2': []}
         asd = Inventory.objects.values(
             'i_equip', 'i_model').annotate(Count('id'))
+        print(data['id__count'])
+        inventory = Inventory.objects.all()
         for x in data5:
 
             da = x['i_equip']
@@ -1698,11 +1700,10 @@ def UitcRec4(request):  # UITC HOMEPAGE page
             data['i_equip'].append(da)
             data['i_model'].append(db)
             data['id__count'].append(d)
-            print(da, db, d)
 
         for y in data5a:
             dq = y['i_stats']
-            print(dq)
+
             if dq == "Available":
                 d1 = x['id__count']
             elif dq == "Borrowed":
@@ -1710,11 +1711,10 @@ def UitcRec4(request):  # UITC HOMEPAGE page
             else:
                 d1 = 0
             data['c1'].append(d1)
-            print(d1)
 
         for z in data5b:
             dqs = z['i_stats']
-            print(dqs)
+
             if dqs == "Available":
                 d2 = 0
             elif dqs == "Borrowed":
@@ -1723,7 +1723,7 @@ def UitcRec4(request):  # UITC HOMEPAGE page
                 d2 = 0
 
             data['c2'].append(d2)
-        print(data)
+
         data1 = faculty_borrow.objects.all()
         data2 = borrow_record.objects.all()
         data3 = faculty_passreset.objects.all()
@@ -1748,7 +1748,7 @@ def UitcRec4(request):  # UITC HOMEPAGE page
         d3 = int(d1['Faculty_borrow']) + int(d1['faculty_repair']) + int(d1['maintenance']) + \
             int(d1['Faculty_passreset']) + \
             int(d1['borrow_record']) + int(d1['student_PassReset'])
-        return render(request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'d1': d1, 'd3': d3, 'd2': d2, 'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data5a': data5a, 'data5b': data5b, 'data6': data6, 'data7': data7})
+        return render(request, 'TupcSysApp/1I_RECORDS1.4(uitc).html', {'d1': d1, 'inventory': inventory, 'd3': d3, 'd2': d2, 'data': data, 'data1': data1, 'data2': data2, 'data3': data3, 'data4': data4, 'data5': data5, 'data5a': data5a, 'data5b': data5b, 'data6': data6, 'data7': data7})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
