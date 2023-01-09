@@ -273,6 +273,7 @@
                         <table class="table" id="myTable">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">FULL NAME</th>
                               <th scope="col">DEPARTMENT</th>
                               <th scope="col">DATE</th>
@@ -288,6 +289,7 @@
                           <tbody>
                             <tr>
                               {% for p in data %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.f_name}}</td>
                               <td>{{p.dep}}</td>
                               <td>{{p.l_date}}</td>

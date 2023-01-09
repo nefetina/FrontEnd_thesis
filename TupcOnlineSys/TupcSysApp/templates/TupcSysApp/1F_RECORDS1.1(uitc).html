@@ -313,6 +313,7 @@
                         <table class="table" id="myTable">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">PICTURE</th>
                               <th scope="col">FIRST NAME</th>
                               <th scope="col">MIDDLE NAME</th>
@@ -339,6 +340,7 @@
                           <tbody>
                             <tr>
                               {% for p in data %}
+                              <td>{{p.adm}}</td>
                               <td>
                                 <a href="{{p.f_pic}}" download>
                                   <img

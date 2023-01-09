@@ -279,6 +279,7 @@
                         <table class="table" id="myTableemp">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">FULL NAME</th>
                               <th scope="col ">DEPARTMENT</th>
                               <th scope="col ">DESIGNATION</th>
@@ -296,6 +297,7 @@
                           <tbody>
                             <tr>
                               {% for p in data1 %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.gf_name}}</td>
                               <td>{{p.g_dept}}</td>
                               <td>{{p.g_des}}</td>
@@ -468,6 +470,7 @@
                         <table class="table" id="myTableswr">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col-xl-1">FULL NAME</th>
                               <th scope="col-xl-1 ">COURSE AND SECTION</th>
                               <th scope="col-xl-1 ">STUDENT NO.</th>
@@ -487,6 +490,7 @@
                           <tbody>
                             <tr>
                               {% for g in data2 %}
+                              <td>{{g.adm}}</td>
                               <td>{{g.gf_name1}}</td>
                               <td>{{g.g_csec1}}</td>
                               <td>{{g.g_snum1}}</td>
@@ -734,6 +738,7 @@
                         <table class="table" id="myTableiar">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">FULL NAME</th>
                               <th scope="col ">COURSE AND SECTION</th>
                               <th scope="col ">STUDENT NO.</th>
@@ -752,6 +757,7 @@
                           <tbody>
                             <tr>
                               {% for q in data3 %}
+                              <td>{{q.adm}}</td>
                               <td>{{q.gf_name2}}</td>
                               <td>{{q.g_csec2}}</td>
                               <td>{{q.g_snum2}}</td>
