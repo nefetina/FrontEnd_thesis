@@ -1,13 +1,32 @@
 window.onload = function() {
     
-    var request = document.getElementById("request").innerText;
+
+    var status = document.getElementById("status");
     var y = document.getElementById("repairmaintenanceform");
     var x = document.getElementById("queue");
-
-    if (request > 0){
-        y.hidden = true;
-        x.hidden = false;
+    var z = document.getElementById("tableform3");
+    if (status == null){
+        y.hidden = false;
+        x.hidden = true;
+        z.hidden = true;
     }
+    else if (status != null) {
+        if (status.innerText == "Approved"){
+            y.hidden = true;
+            x.hidden = true;
+            z.hidden = false;
+        }
+        else if (status.innerText == "Notified" || status.innerText == "On Process"){
+            y.hidden = true;
+            x.hidden = false;
+            z.hidden = true;
+        }
+    
+
+    }
+
+
+
 
 }
 function openNav() {
