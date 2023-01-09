@@ -287,6 +287,7 @@
                                 
                                     
                                 </div>
+
                             </div>
                             
                         
@@ -296,12 +297,12 @@
                         <!--LABSCHED-------------------------------------------------------------------------------------------->    
                         <div  class="col-xl-12 collapse" id="table2">
                             
-                            <div class="jumbotron  m-1 "><br>
-                                <div class="card-body">
-                                
-                                        <div class="formtitle">
-                                                    
+                            <div class="jumbotron">
+                                <div class="card-body col-xl-12">
+                                        <div class="descriptions col-12">
+                                            LABORATORIES
                                         </div>
+                                            
                                         <div class="table-responsive-xl col-xl-12 " id="idtable">
                                             {% for q in sched %}
                                             <table class="table" id="myTable">
@@ -376,64 +377,72 @@
                                                         {% endif %}                                              
 
                                                     {% endfor %}
-                                                        {% for p in data %}
-                                                        
-                                                        <p id="approved" name="approved">{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time|time:"Gi"}}-{{p.e_time|time:"Gi"}}</p>
-                                                    {% endfor %}
                                                     {% endfor %}
                                                     
 
                                                 </tbody>
+                                            
                                             </table>
-                                            <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="col-xl-12"> 
-                                                {% csrf_token %}
-                                                
-                                                <div class="form-row">
-                                                    
-                                                    
-                                                    <div class="col-3">
-                                                        <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
-                                                    </div> 
-                                                    <div class="col-3">                    
-                                                        <input type="text" placeholder = "Name of Laboratory:" name="lubnum" class="form-control"></input>
-                                                        
-                                                    </div>
-                                                    <div class="col-3">                    
-                                                        
-                                                        <input type="date" placeholder = "Date:" name="ldate" class="form-control"></input>
-                                                    </div>
-                                                    <div class="col-3" style="margin-bottom:10px;">
-                                                        <button type="submit" class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
-    
-                                                    </div> 
-                                                </div>
-                                                <div class="form-row">                    
-                                                   
-                                                </div>
-                                                <script>
-                                                    function myFunction() {
-                                                    var input, filter, table, tr, td, i, txtValue;
-                                                    input = document.getElementById("myInput");
-                                                    filter = input.value.toUpperCase();
-                                                    table = document.getElementById("myTable");
-                                                    tr = table.getElementsByTagName("tr");
-                                                    for (i = 0; i < tr.length; i++) {
-                                                        td = tr[i].getElementsByTagName("td")[0];
-                                                        if (td) {
-                                                        txtValue = td.textContent || td.innerText;
-                                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                            tr[i].style.display = "";
-                                                        } else {
-                                                            tr[i].style.display = "none";
-                                                        }
-                                                        }       
-                                                    }
-                                                    }
-                                                    </script>
-                                            </form>
+
+                                            
                                         </div>
 
 
+                                </div>
+                                <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="col-xl-12"> 
+                                    {% csrf_token %}
+                                    
+                                    <div class="form-row">
+                                        
+                                        
+                                        <div class="col-3">
+                                            <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+                                        </div> 
+                                        <div class="col-3">                    
+                                            <input type="text" placeholder = "Name of Laboratory:" name="lubnum" class="form-control"></input>
+                                            
+                                        </div>
+                                        <div class="col-3">                    
+                                            
+                                            <input type="date" placeholder = "Date:" name="ldate" class="form-control"></input>
+                                        </div>
+                                        <div class="col-3" style="margin-bottom:10px;">
+                                            <button type="submit" class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+
+                                        </div> 
+                                    </div>
+                                    <div class="form-row">                    
+                                       
+                                    </div>
+                                    <script>
+                                        function myFunction() {
+                                        var input, filter, table, tr, td, i, txtValue;
+                                        input = document.getElementById("myInput");
+                                        filter = input.value.toUpperCase();
+                                        table = document.getElementById("myTable");
+                                        tr = table.getElementsByTagName("tr");
+                                        for (i = 0; i < tr.length; i++) {
+                                            td = tr[i].getElementsByTagName("td")[0];
+                                            if (td) {
+                                            txtValue = td.textContent || td.innerText;
+                                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                tr[i].style.display = "";
+                                            } else {
+                                                tr[i].style.display = "none";
+                                            }
+                                            }       
+                                        }
+                                        }
+                                        </script>
+                                </form>
+                                <div class="descriptions col-12">
+                                    APPROVED REQUEST
+                                </div>
+                                <div id="pasa">
+                                    {% for p in data %}
+                                                            
+                                    <p id="approved" name="approved">{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time|time:"Gi"}}-{{p.e_time|time:"Gi"}}</p>
+                                    {% endfor %}
                                 </div>
                             </div>
                             
