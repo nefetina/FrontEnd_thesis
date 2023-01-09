@@ -205,22 +205,28 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="form-row">
+                                        <div id="range" class="form-row">
                                             <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
                                                 Start Time:
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" id="hs_time" name="s_time" min="08:00" max="21:00" required>
-                                                <span class="validity"></span>
-
+                                                <input type="time" class="form-control my-2 p-2" mbsc-input placeholder="Please select..."  id="hs_time" name="s_time"  required>
                                             </div>
                                             <div class="col-xl-2 text-center d-flex justify-content-center align-items-center">
                                                 End Time:
                                             </div>
                                             <div class="col-xl-4">
-                                                <input type="time" class="form-control my-2 p-2" placeholder="Time:" id="he_time" name="e_time" min="08:00" max="21:00" required>
-                                                <span class="validity"></span>
+                                                <input type="time" class="form-control my-2 p-2" mbsc-input placeholder="Please select..."  id="he_time" name="e_time"  required>
                                             </div>
+                                            <script>
+                                                mobiscroll.datepicker('#time', {
+                                                controls: ['time'],
+                                                select: 'range',
+                                                startInput: '#hs_time',
+                                                endInput: '#he_time',
+                                                touchUi: true
+                                            });
+                                            </script>
                                         </div>
                                         <div class="form-row text-center d-flex justify-content-center align-items-center">
                                             <div class=" col-xl-6 sign tempFrmWrapper" tabindex="1" elname="livefield-elem" comptype="25" id="Signature-li" needdata="true" compname="Signature" linkname="Signature" isvisible="true" mandatory="true" page_no="2" page_link_name="Page4"> 

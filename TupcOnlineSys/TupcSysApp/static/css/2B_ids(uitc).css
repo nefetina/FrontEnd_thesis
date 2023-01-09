@@ -273,6 +273,12 @@ input{
     padding-bottom: 15px;
     
 }
+td {
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;   
+  }
 /*****************************************BACKGROUND*******************************/
 
 html,
@@ -568,6 +574,11 @@ header,
     }
     .formtitle{
         font-size: 14px !important;
+    }
+
+    .table td {
+        
+        font-size: 12px !important;
     }
 }
 

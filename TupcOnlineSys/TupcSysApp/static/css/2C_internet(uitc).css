@@ -302,6 +302,12 @@ td {
     padding-bottom: 15px;
     
 }
+td {
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;   
+  }
 /*****************************************BACKGROUND*******************************/
 
 html,

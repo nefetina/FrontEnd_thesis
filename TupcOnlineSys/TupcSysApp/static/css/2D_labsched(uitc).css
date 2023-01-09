@@ -168,6 +168,7 @@ input{
 .thead {
     background-color: #449049 !important;
     color: #fff !important;
+    width: auto !important;
 }
 
 #idtable{
@@ -289,14 +290,17 @@ input{
     padding-bottom: 15px;
     
 }
-#pasa{
+#labname{
     width: auto !important;
-    overflow: hidden !important;
-    overflow-y: scroll  !important;
-    background-color: rgba(128, 128, 128, 0.644);
-    color: white;
-    height: 150px !important;
 }
+td {
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;   
+    width: 10px !important;
+  }
+  
 /*****************************************BACKGROUND*******************************/
 
 html,

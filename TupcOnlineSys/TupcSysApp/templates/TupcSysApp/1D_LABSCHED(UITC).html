@@ -152,7 +152,7 @@
                                                 <tbody>
                                                     <tr>
                                                         {% for p in datal %}
-                                                        <td><button  value="{{p.id}}" name ="id" data-toggle="modal" data-target="#modal1{{ p.id }}">{{p.f_name}}</td>
+                                                        <td><a  value="{{p.id}}" name ="id" data-toggle="modal" data-target="#modal1{{ p.id }}" href="">{{p.f_name}}</a></td>
                                                         <td>{{p.dep}}</td>
                                                         <td>{{p.l_date}}</td>
                                                         <td><img src="{{p.fl_sig}}" style = "height: 80px"/></td>
@@ -303,21 +303,23 @@
                                             LABORATORIES
                                         </div>
                                             
-                                        <div class="table-responsive-xl col-xl-12 " id="idtable">
+                                        <div class="table-responsive-xl col-xl-12" id="idtable">
                                             {% for q in sched %}
-                                            <table class="table" id="myTable">
+                                            <table class="table col-xl-12" id="myTable">
                                                 
                                                 <thead class="thead">
-                                                    
-                                                    <h3>{% for x in q%}
+                                                    <div class="col-12" id="labname">
+                                                        <h3>{% for x in q%}
                                                         
-                                                        {% if forloop.counter == 1 %}
-                                                            <h3>{{x.lnum}}</h3>
-                                                            <p style="color: red; font-weight: bolder">{{x.ldate}}</p>
-                                                            {{ break }}
-                                                            
-                                                        {% endif %}
-                                                        {% endfor %}</h3>
+                                                            {% if forloop.counter == 1 %}
+                                                                <h3>{{x.lnum}}</h3>
+                                                                <p style="color: red; font-weight: bolder">{{x.ldate}}</p>
+                                                                {{ break }}
+                                                                
+                                                            {% endif %}
+                                                            {% endfor %}</h3>
+                                                    </div>
+                                                    
                                                     <tr>
                                                         <th scope="col">MONDAY</th>
                                                         <th scope="col">TUESDAY</th>
@@ -365,7 +367,7 @@
                                                             
                                                                         {% if forloop.counter == 1 %}
                                                                             <input type="text" name="lnum" value="{{x.lnum}}" readonly hidden></input>
-                                                                            <button type ="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Delete</button>
+                                                                            <button type ="submit" class="btn btn-primary form-control">Delete</button>
 
                                                                             {{ break }}
                                                                         {% endif %}
@@ -395,19 +397,19 @@
                                     <div class="form-row">
                                         
                                         
-                                        <div class="col-3">
+                                        <div class="col-xl-3 col-12 my-2">
                                             <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
                                         </div> 
-                                        <div class="col-3">                    
+                                        <div class="col-xl-3 col-12 my-2">                    
                                             <input type="text" placeholder = "Name of Laboratory:" name="lubnum" class="form-control"></input>
                                             
                                         </div>
-                                        <div class="col-3">                    
+                                        <div class="col-xl-3 col-12 my-2">                    
                                             
                                             <input type="date" placeholder = "Date:" name="ldate" class="form-control"></input>
                                         </div>
-                                        <div class="col-3" style="margin-bottom:10px;">
-                                            <button type="submit" class="btn btn-primary" id="b1"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;" ></span>Upload List</button>
+                                        <div class="col-xl-3 col-12 my-2" style="margin-bottom:10px;">
+                                            <button type="submit" class="btn btn-primary form-control" id="b1"></span>Upload List</button>
 
                                         </div> 
                                     </div>
