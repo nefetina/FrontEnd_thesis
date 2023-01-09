@@ -296,6 +296,26 @@ def logoutUser(request):
 
 
 def maintain_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_reports.objects.filter(id=id).only("ie_user").values()
+            for z in y:
+                name = z['ie_user']
+            
+            adm = datetime.now()
+            message = ("Good day! " + name + ",\nYou approved "+ name +"\nrequest for repair and maintence at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     a = maintain_record.objects.get(id=id)
     for x in maintain_record.objects.only('id').filter(i_stats="On process"):
         if a == x:
@@ -305,7 +325,7 @@ def maintain_permit(request, id):
         uemail = request.user.email
         print("asd")
         message = "Good day " + name + \
-            ", \n Your request for repair and maintence has been approved." + "\n UITC admin"
+            ", \n Your request for repair and maintence has been approved. Please check your app for further details" + "\n UITC admin"
         email = EmailMessage(
             name,
             message,
@@ -321,6 +341,26 @@ def maintain_permit(request, id):
 
 
 def maintain_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_reports.objects.filter(id=id).only("ie_user").values()
+            for z in y:
+                name = z['ie_user']
+            
+            adm = datetime.now()
+            message = ("Good day! " + name + ",\nYou declined "+ name +"\nrequest for repair and maintenance at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     if request.method == 'POST':
         a = maintain_record.objects.get(id=id)
         reason = request.POST.get("reasonm")
