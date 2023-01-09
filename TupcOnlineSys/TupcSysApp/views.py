@@ -305,7 +305,7 @@ def maintain_permit(request, id):
             
             adm = datetime.now()
             message = ("Good day! " + name + ",\nYou approved "+ name +"\nrequest for repair and maintence at the date and time of " +
-                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nOther details will be provided by "+ name + ",\nand it will be recorded, Thankyou! ")
             email = EmailMessage(
                 request.user.name,
                 message,
