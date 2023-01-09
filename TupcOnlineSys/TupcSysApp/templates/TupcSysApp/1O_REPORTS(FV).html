@@ -555,7 +555,16 @@
                                                   <textarea class="form-control"   placeholder="Solution and Recommendation: {{x.is_rec}}" name="is_rec" rows="2" id="textarea1" style="height: 100px" readonly></textarea>
                                               </div>          
                                           </div>
-                                        
+                                          <div class="col-xl-12 ">
+                                            <p class="card-text">Check it properly before you send it.</p>
+                                            <button type="button" id="btnsig3" class="btn btn-primary  float-right m-1" data-toggle="modal" data-target="#confirmation0" >
+                                                Submit
+                                            </button>
+                                            <button type="button" class="btn btn-danger float-right m-1"  >
+                                                Back
+                                            </button>
+                                            
+                                          </div>
                                   
                                           <form method="post" action = "{% url 'TupcSysApp:faculty_reqrepmain' x.pk  %}" id="myforms"  class="col-xl-12">
                                             {%csrf_token%}
@@ -605,39 +614,34 @@
                                                                   
                                                               
                                                               <div class="tempContDiv" >
-                                                              
-                                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature2" signaturefieldparent="form" tabindex="-1" width="400" name = "ffsigns"></canvas><canvas id="blankcanvas" signaturefieldparent="form" tabindex="-1" width="400" hidden></canvas>  
+                                                
+                                                                <div class="signContainer" elname="signContainer" id="signContainer-Signature"><canvas id="drawingCanvas-Signature2" signaturefieldparent="form" tabindex="-1" width="400" name = "f_signature"></canvas><canvas id="blankcanvas0" signaturefieldparent="form" tabindex="-1" width="400" hidden></canvas>  
                                                                     <div class="signArea" elname="signArea" id="sign-area-Signature" style="display:none" ></div><a id="clearSign" elname="clearSign" class="instrSpace" href="javascript:void(0);" onclick="clearSignature('drawingCanvas-Signature2');">Clear</a></div><p class="errorMessage" elname="error" id="error-Signature"></p>
                                                                     </div><div class="clearBoth"></div>
-                                                                    
-                                                                    
                                                                     <!--file upload signature-->
                                                                     <div>Make sure to use a (.png) image file here.</div>
-                                                                      <div>
-                                                                          <img id="i_sig3" name = "i_sig3" hidden/>
-                                                                          <input type="text" id = "ffsign" name = "ffsign" hidden/>
-                                                                          <script>
-                                                                              var loadFiles = function(event) {
-                                                                              var image = document.getElementById('i_sig3');
-                                                                              image.src = URL.createObjectURL(event.target.files[0]);
-                          
-                                                                              };
-                          
-                                                                          </script>
-                                                                          <input type="file" accept="image/*" onchange="loadFiles(event)"/>
-                                                                      
+                                                                    <div>
+                                                                        <img id="f_sign0" name = "f_sign0" hidden/>
+                                                                        <input type="text" id = "i_sig3" name = "i_sig3" hidden/>
+                                                                        <script>
+                                                                            var loadFiles = function(event) {
+                                                                            var image = document.getElementById('f_sign0');
+                                                                            image.src = URL.createObjectURL(event.target.files[0]);
+                        
+                                                                            };
+                        
+                                                                        </script>
+                                                                        <input type="file" accept="image/*" onchange="loadFiles(event)"/>
+                                                                    </div>
                                                             
-                                                                          <input type = "text" id = "ffsign"  name = "ffsign" hidden></input>
-                                                                      
+                                                                    <input type = "text" id = "i_sig3"  name = "i_sig3" hidden></input>
                 
-                                                                    
+                                                            </div>
                 
-                                                          
-                                                                      </div>
-                                                              </div>
+                                                        </div>
                                                     </div>
                                                     
-                                                    <div class="modal fade" id="confirmation1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal fade" id="confirmation0" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -651,26 +655,14 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary">Send</button>
+                                                            <button type="submit"  class="btn btn-primary">Send</button>
                                                             </div>
                                                         </div>
                                                         </div>
                                                     </div>
                                                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                                                    <div class="col-xl-12 ">
-                                                        <p class="card-text">Check it properly before you send it.</p>
-                                                        <button type="submit" class="btn btn-primary  float-right m-1" data-toggle="modal" data-target="#confirmation1" >
-                                                            Submit
-                                                        </button>
-                                                        <button type="button" class="btn btn-danger float-right m-1" onclick="back2()" >
-                                                            Back
-                                                        </button>
-                                                        
-                                                    </div>
-                                                    
-                                                
-                                                    
-                                        
+
+
                                             {%endfor%}
                                           </form>
                                         </div> 
@@ -826,7 +818,7 @@
                                       >
                                         Close
                                       </button>
-                                      <button type="submit" id="btnsig3"  class="btn btn-primary">
+                                      <button type="submit"  class="btn btn-primary">
                                         Send
                                       </button>
                                     </div>
@@ -1095,40 +1087,7 @@
     </div>
 
 <!--i_sig3-------------------------------------------------------------------------------------------->
-<script type="text/javascript">
-  const canvas2 = document.getElementById("drawingCanvas2-Signature");
-  document.getElementById("btnsig3").addEventListener('click', function() {
-      
-      if (canvas1.toDataURL() == document.getElementById('blankcanvas2').toDataURL()) {
-          
-          var canvass1 = document.createElement('CANVAS');
-          canvass1.setAttribute('height', 350)
-          canvass1.setAttribute('width', 350)
-          var context1 = canvass1.getContext('2d');
-          context1.drawImage(document.getElementById('i_sig3'),0,0);
-          var pic1 = canvass1.toDataURL();
-          document.getElementsByName("ffsign")[1].value = pic1;
-      }
-      else {
 
-          const canvasURL = canvas1.toDataURL();
-          console.log(canvasURL);
-          document.getElementsByName("ffsign")[1].value = canvasURL;
-      }
-     
-      var canvass = document.createElement('CANVAS');
-      canvass.setAttribute('height', 350)
-      canvass.setAttribute('width', 350)
-      var context = canvass.getContext('2d');
-      context.drawImage(document.getElementById('f_picc'),0,0);
-      var pic = canvass.toDataURL();
-      document.forms['myform']['f_picss'].value = pic;
-      
-
-      
-  });
-
-</script>
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
 $("#drawingCanvas-Signature2").mousedown(function (event) {
 var canvasElem = document.getElementById("drawingCanvas-Signature2"); //No I18N	
@@ -1225,10 +1184,34 @@ $("#drawingCanvas-Signature2").css("cursor","default");//No I18N
             var pic = canvass.toDataURL();
             document.forms['myform']['f_pics'].value = pic;
             
-
+        });
+        const canvas0 = document.getElementById("drawingCanvas-Signature2");
+        document.getElementById("btnsig3").addEventListener('click', function() {
+            
+            if (canvas0.toDataURL() == document.getElementById('blankcanvas0').toDataURL()) {
+                
+                var canvass10 = document.createElement('CANVAS');
+                canvass10.setAttribute('height', 350)
+                canvass10.setAttribute('width', 350)
+                var context1 = canvass1.getContext('2d');
+                context1.drawImage(document.getElementById('f_sign0'),0,0);
+                var pic1 = canvass1.toDataURL();
+                document.getElementsByName("i_sig3")[1].value = pic1;
+                
+            }
+            else {
+      
+                const canvasURL = canvas.toDataURL();
+                console.log(canvasURL);
+                document.getElementsByName("i_sig3")[1].value = canvasURL;
+                
+            }
+           
+      
+            
+      
             
         });
-  
   </script>
 <script type="module">setCanvasElemWidth("Signature");	//No I18N				   		
   $("#drawingCanvas-Signaturexx").mousedown(function (event) {
