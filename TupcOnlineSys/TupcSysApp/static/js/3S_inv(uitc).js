@@ -24,17 +24,23 @@ function closeNav() {
 
 }
 function myFunctions() {
-    var s = document.getElementById("parts");
+    
     var remarkss = document.getElementById("remarks");
     for (i = 0; i < remarkss.length; i++) {
         var x = remarkss[i].value;
         
         if (x == "Missing some parts"){
-            alert("asd");
+            const z = document.getElementsByName("msp");
+        
+            for (let i = 0; i < x.length; i++) {
+                z[i].hidden = false;
+                
+            }
             break
         }
 
         }
+        
   }
 
 

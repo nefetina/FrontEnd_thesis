@@ -2487,7 +2487,9 @@ def UitcInventory_modify(request, id):
     print(i_model)
     print(i_serial)
     remarks = request.POST.get("remarks")
+    msp = request.POST.get("msp")
     print(remarks)
+    mspp = "Missing some parts" + ":" + msp
     for x in Inventory.objects.only('id'):
         if a == x:
             if remarks == "Good Condition":
@@ -2501,7 +2503,7 @@ def UitcInventory_modify(request, id):
 
             elif remarks == "Missing some parts":
                 x = Inventory.objects.filter(id=id).update(
-                    i_stats="Missing some parts")
+                    i_stats=mspp)
 
             elif remarks == "Not working":
                 x = Inventory.objects.filter(
