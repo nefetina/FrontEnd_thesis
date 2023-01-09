@@ -171,15 +171,7 @@ input{
     width: auto !important;
 }
 
-#idtable{
-    width: auto;
-    overflow: hidden;
-    overflow-x: scroll;
-    height: 400px !important;
 
-    overflow-y: scroll ;
-
-}
 
 
 #idtables{
@@ -298,13 +290,31 @@ input{
     color: white;
     height: 130px !important;
 }
-td {
+.thead {
+    width: auto !important;
+
+}
+#labname{
+    border: 2px rgb(255, 255, 255) solid;
+}
+#labs{
 
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;   
-  }
-  
+    
+    height: 800px !important;
+
+    overflow-y: scroll ;  
+}
+#idtable{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 550px !important;
+
+    overflow-y: scroll ;
+
+}
+
 /*****************************************BACKGROUND*******************************/
 
 html,

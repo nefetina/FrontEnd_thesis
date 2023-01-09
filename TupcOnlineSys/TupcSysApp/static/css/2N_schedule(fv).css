@@ -580,7 +580,14 @@ input{
     padding-bottom: 15px;
     
 }
-
+#pasa{
+    width: auto !important;
+    overflow: hidden !important;
+    overflow-y: scroll  !important;
+    background-color: rgba(128, 128, 128, 0.644);
+    color: white;
+    height: 130px !important;
+}
 /*****************************************BACKGROUND*******************************/
 
 html,

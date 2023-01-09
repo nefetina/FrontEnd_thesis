@@ -1913,6 +1913,7 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         datas = Schedule_lab.objects.all()
+        approve = faculty_lab.objects.filter(l_stat="Approved")
         sched = []
         lnum = []
         labnum = Schedule_lab.objects.values(
@@ -1955,7 +1956,7 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
             email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum})
+        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'approve': approve, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:

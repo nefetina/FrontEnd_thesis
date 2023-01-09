@@ -373,6 +373,15 @@
                                         </div>
                                         
                                     </form>
+                                    <div class="descriptions col-12">
+                                        APPROVED REQUEST
+                                    </div>
+                                    <div id="pasa">
+                                        {% for p in approve %}
+                                                                
+                                        <p id="approved" name="approved">{{p.f_name}} {{p.l_date}} {{p.lab_num}} {{p.crs_sec}} {{p.s_time|time:"Gi"}}-{{p.e_time|time:"Gi"}}</p>
+                                        {% endfor %}
+                                    </div>
                                 
                                     
                                     

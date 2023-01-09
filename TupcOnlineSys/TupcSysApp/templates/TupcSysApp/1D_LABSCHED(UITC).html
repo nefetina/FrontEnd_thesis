@@ -297,23 +297,70 @@
                         <!--LABSCHED-------------------------------------------------------------------------------------------->    
                         <div  class="col-xl-12 collapse" id="table2">
                             
-                            <div class="jumbotron">
+                            <div class="jumbotron" id="labs">
                                 <div class="card-body col-xl-12">
                                         <div class="descriptions col-12">
                                             LABORATORIES
                                         </div>
+                                        <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="col-xl-12"> 
+                                            {% csrf_token %}
+                                            
+                                            <div class="form-row">
+                                                
+                                                
+                                                <div class="col-xl-3 col-12 my-2">
+                                                    <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+                                                </div> 
+                                                <div class="col-xl-3 col-12 my-2">                    
+                                                    <input type="text" placeholder = "Name of Laboratory:" name="lubnum" class="form-control"></input>
+                                                    
+                                                </div>
+                                                <div class="col-xl-3 col-12 my-2">                    
+                                                    
+                                                    <input type="date" placeholder = "Date:" name="ldate" class="form-control"></input>
+                                                </div>
+                                                <div class="col-xl-3 col-12 my-2" style="margin-bottom:10px;">
+                                                    <button type="submit" class="btn btn-primary form-control" id="b1"></span>Upload List</button>
+        
+                                                </div> 
+                                            </div>
+                                            <div class="form-row">                    
+                                               
+                                            </div>
+                                            <script>
+                                                function myFunction() {
+                                                var input, filter, table, tr, td, i, txtValue;
+                                                input = document.getElementById("myInput");
+                                                filter = input.value.toUpperCase();
+                                                table = document.getElementById("myTable");
+                                                tr = table.getElementsByTagName("tr");
+                                                for (i = 0; i < tr.length; i++) {
+                                                    td = tr[i].getElementsByTagName("td")[0];
+                                                    if (td) {
+                                                    txtValue = td.textContent || td.innerText;
+                                                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                        tr[i].style.display = "";
+                                                    } else {
+                                                        tr[i].style.display = "none";
+                                                    }
+                                                    }       
+                                                }
+                                                }
+                                                </script>
+                                        </form>
                                             
                                         <div class="table-responsive-xl col-xl-12" id="idtable">
                                             {% for q in sched %}
                                             <table class="table col-xl-12" id="myTable">
                                                 
                                                 <thead class="thead">
-                                                    <div class="col-12" id="labname">
+                                                    
+                                                    <div class="col-12 my-2" id="labname">
                                                         <h3>{% for x in q%}
                                                         
                                                             {% if forloop.counter == 1 %}
                                                                 <h3>{{x.lnum}}</h3>
-                                                                <p style="color: red; font-weight: bolder">{{x.ldate}}</p>
+                                                              
                                                                 {{ break }}
                                                                 
                                                             {% endif %}
@@ -367,7 +414,7 @@
                                                             
                                                                         {% if forloop.counter == 1 %}
                                                                             <input type="text" name="lnum" value="{{x.lnum}}" readonly hidden></input>
-                                                                            <button type ="submit" class="btn btn-primary form-control">Delete</button>
+                                                                            <button type ="submit" class="btn btn-primary form-control my-2">Delete</button>
 
                                                                             {{ break }}
                                                                         {% endif %}
@@ -391,52 +438,7 @@
 
 
                                 </div>
-                                <form action="/upload_csv_l1/" method="POST" enctype="multipart/form-data" class="col-xl-12"> 
-                                    {% csrf_token %}
-                                    
-                                    <div class="form-row">
-                                        
-                                        
-                                        <div class="col-xl-3 col-12 my-2">
-                                            <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
-                                        </div> 
-                                        <div class="col-xl-3 col-12 my-2">                    
-                                            <input type="text" placeholder = "Name of Laboratory:" name="lubnum" class="form-control"></input>
-                                            
-                                        </div>
-                                        <div class="col-xl-3 col-12 my-2">                    
-                                            
-                                            <input type="date" placeholder = "Date:" name="ldate" class="form-control"></input>
-                                        </div>
-                                        <div class="col-xl-3 col-12 my-2" style="margin-bottom:10px;">
-                                            <button type="submit" class="btn btn-primary form-control" id="b1"></span>Upload List</button>
-
-                                        </div> 
-                                    </div>
-                                    <div class="form-row">                    
-                                       
-                                    </div>
-                                    <script>
-                                        function myFunction() {
-                                        var input, filter, table, tr, td, i, txtValue;
-                                        input = document.getElementById("myInput");
-                                        filter = input.value.toUpperCase();
-                                        table = document.getElementById("myTable");
-                                        tr = table.getElementsByTagName("tr");
-                                        for (i = 0; i < tr.length; i++) {
-                                            td = tr[i].getElementsByTagName("td")[0];
-                                            if (td) {
-                                            txtValue = td.textContent || td.innerText;
-                                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                tr[i].style.display = "";
-                                            } else {
-                                                tr[i].style.display = "none";
-                                            }
-                                            }       
-                                        }
-                                        }
-                                        </script>
-                                </form>
+                                
                                 <div class="descriptions col-12">
                                     APPROVED REQUEST
                                 </div>
