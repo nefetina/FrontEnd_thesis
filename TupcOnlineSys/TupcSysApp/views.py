@@ -349,6 +349,26 @@ def maintain_cancel(request, id):
 
 
 def facultyID_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_ID.objects.filter(id=id).only("ff_name").values()
+            for z in y:
+                name = z['ff_name']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for ID at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     a = faculty_ID.objects.get(id=id)
     data1 = faculty_ID.objects.filter(id=id)
     for x in faculty_ID.objects.only('id').filter(f_stat="On process"):
@@ -375,7 +395,26 @@ def facultyID_permit(request, id):
 
 
 def facultyID_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_ID.objects.filter(id=id).only("ff_name").values()
+            for z in y:
+                name = z['ff_name']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for ID at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
 
+
+            )
+
+            email.send()
     a = faculty_ID.objects.get(id=id)
     reason = request.POST.get("reason")
     for x in faculty_ID.objects.only('id').filter(f_stat="On process"):
@@ -406,6 +445,26 @@ def facultyID_cancel(request, id):
 
 
 def FacultyWifi_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_wifi.objects.filter(id=id).only("gf_name").values()
+            for z in y:
+                name = z['gf_name']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Wifi Access at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     if request.method == 'POST':
         a = faculty_wifi.objects.get(id=id)
         reason = request.POST.get("reason1")
@@ -437,6 +496,26 @@ def FacultyWifi_cancel(request, id):
 
 
 def FacultyWifi_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_wifi.objects.filter(id=id).only("gf_name").values()
+            for z in y:
+                name = z['gf_name']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Wifi Access at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     a = faculty_wifi.objects.get(id=id)
     for x in faculty_wifi.objects.only('id').filter(g_stat="On process"):
         if a == x:
@@ -462,6 +541,26 @@ def FacultyWifi_permit(request, id):
 
 
 def StudentWifi_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = student_wifi.objects.filter(id=id).only("gf_name1").values()
+            for z in y:
+                name = z['gf_name1']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Wifi Access at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     if request.method == 'POST':
         a = student_wifi.objects.get(id=id)
         reason = request.POST.get("reason2")
@@ -493,6 +592,26 @@ def StudentWifi_cancel(request, id):
 
 
 def StudentWifi_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = student_wifi.objects.filter(id=id).only("gf_name1").values()
+            for z in y:
+                name = z['gf_name1']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Wifi Access at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     a = student_wifi.objects.get(id=id)
     for x in student_wifi.objects.only('id').filter(g_stats1="On process"):
         if a == x:
@@ -518,6 +637,26 @@ def StudentWifi_permit(request, id):
 
 
 def StudentInternet_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = student_internet.objects.filter(id=id).only("gf_name2").values()
+            for z in y:
+                name = z['gf_name2']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Internet Access at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     if request.method == 'POST':
         a = student_internet.objects.get(id=id)
         reason = request.POST.get("reason3")
@@ -533,7 +672,7 @@ def StudentInternet_cancel(request, id):
                     print(uemail)
                 print(reason)
                 message = "Good day " + name + \
-                    ", \n Your request for Wifi request has been declined, " + reason + "\n UITC admin"
+                    ", \n Your request for Internet Access request has been declined, " + reason + "\n UITC admin"
                 email = EmailMessage(
                     name,
                     message,
@@ -549,6 +688,26 @@ def StudentInternet_cancel(request, id):
 
 
 def StudentInternet_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = student_internet.objects.filter(id=id).only("gf_name2").values()
+            for z in y:
+                name = z['gf_name2']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Internet Access at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     a = student_internet.objects.get(id=id)
     for x in student_internet.objects.only('id').filter(g_stats2="On process"):
         if a == x:
@@ -577,6 +736,26 @@ def StudentInternet_permit(request, id):
 
 
 def labsched_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_lab.objects.filter(id=id).only("f_name").values()
+            for z in y:
+                name = z['f_name']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Laboratory Schedule at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     if request.method == 'POST':
         a = faculty_lab.objects.get(id=id)
         for x in faculty_lab.objects.only('id').filter(l_stat="On process"):
@@ -608,6 +787,26 @@ def labsched_cancel(request, id):
 
 
 def labsched_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_lab.objects.filter(id=id).only("f_name").values()
+            for z in y:
+                name = z['f_name']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Laboratory Schedule at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     a = faculty_lab.objects.get(id=id)
     for x in faculty_lab.objects.only('id').filter(l_stat="On process"):
         if a == x:
@@ -633,6 +832,26 @@ def labsched_permit(request, id):
 
 
 def fpass_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_passreset.objects.filter(id=id).only("fwname").values()
+            for z in y:
+                name = z['fwname']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     if request.method == 'POST':
         a = faculty_passreset.objects.get(id=id)
         reason = request.POST.get("freason")
@@ -713,6 +932,26 @@ def fpasswordreset_permit(request, id):
 
 
 def spasswordreset_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = PassReset.objects.get.objects.filter(id=id).only("psname").values()
+        for z in y:
+            name = z['psname']
+        
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
+                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
+
+
+        )
+
+        email.send()
     if request.method == 'POST':
         a = PassReset.objects.get(id=id)
         for x in PassReset.objects.only('id').filter(psstats="On process"):
@@ -742,6 +981,26 @@ def spasswordreset_cancel(request, id):
 
 
 def spasswordreset_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = PassReset.objects.get.objects.filter(id=id).only("psname").values()
+        for z in y:
+            name = z['psname']
+        
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
+                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
+
+
+        )
+
+        email.send()
     a = PassReset.objects.get(id=id)
     for x in PassReset.objects.only('id').filter(psstats="On process"):
         if a == x:
@@ -767,6 +1026,26 @@ def spasswordreset_permit(request, id):
 
 
 def sborrow_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = borrow_record.objects.get.objects.filter(id=id).only("if_name5").values()
+        for z in y:
+            name = z['if_name5']
+        
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Borrow at the date and time of " +
+                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
+
+
+        )
+
+        email.send()
     if request.method == 'POST':
         a = borrow_record.objects.get(id=id)
         for x in borrow_record.objects.only('id').filter(i_stats5="On process"):
@@ -798,6 +1077,26 @@ def sborrow_cancel(request, id):
 
 
 def sborrow_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        request.POST.get('request.user.gsfe')
+        request.POST.get('request.user.name')
+        y = borrow_record.objects.get.objects.filter(id=id).only("if_name5").values()
+        for z in y:
+            name = z['if_name5']
+        
+        adm = datetime.now()
+        message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Borrow at the date and time of " +
+                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+        email = EmailMessage(
+            request.user.name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [request.user.gsfe],
+
+
+        )
+
+        email.send()
     a = borrow_record.objects.get(id=id)
     for x in borrow_record.objects.only('id').filter(i_stats5="On process"):
         if a == x:
@@ -826,6 +1125,26 @@ def sborrow_permit(request, id):
 
 
 def fb_cancel(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_borrow.objects.filter(id=id).only("fbname").values()
+            for z in y:
+                name = z['fbname']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     print(faculty_borrow.objects.get(id=id))
     if request.method == 'POST':
         a = faculty_borrow.objects.get(id=id)
@@ -859,6 +1178,26 @@ def fb_cancel(request, id):
 
 
 def fborrow_permit(request, id):
+    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+            request.POST.get('request.user.gsfe')
+            request.POST.get('request.user.name')
+            y = faculty_borrow.objects.filter(id=id).only("fbname").values()
+            for z in y:
+                name = z['fbname']
+            
+            adm = datetime.now()
+            message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
+                       adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
+            email = EmailMessage(
+                request.user.name,
+                message,
+                'tupc.uitconlinesystem@gmail.com',
+                [request.user.gsfe],
+
+
+            )
+
+            email.send()
     a = faculty_borrow.objects.get(id=id)
     for x in faculty_borrow.objects.only('id').filter(fbstat="On process"):
         if a == x:
