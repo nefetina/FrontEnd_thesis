@@ -412,6 +412,7 @@
                         <table class="table" id="myTableram">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">TYPE</th>
                               <th scope="col">BRAND/MODEL</th>
                               <th scope="col">SERIAL No.</th>
@@ -456,6 +457,7 @@
                           <tbody>
                             <tr>
                               {% for p in data7 %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.ftype}}</td>
                               <td>{{p.fbrand}}</td>
                               <td>{{p.fserial}}</td>
@@ -650,6 +652,7 @@
                         <table class="table" id="myTableprr">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">FULL NAME</th>
                               <th scope="col">ID NUMBER</th>
                               <th scope="col">ACCOUNT TYPE</th>
@@ -661,6 +664,7 @@
                           <tbody>
                             <tr>
                               {% for p in data3 %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.fwname}}</td>
                               <td>{{p.fwempID}}</td>
                               <td>{{p.fwemail}}</td>
@@ -672,6 +676,7 @@
                             {% endfor %}
                             <tr>
                               {% for p in data4 %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.psname}}</td>
                               <td>{{p.emp_idno}}</td>
                               <td>{{p.email}}</td>
@@ -799,6 +804,7 @@
                         <table class="table">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">TYPE</th>
                               <th scope="col ">SERIAL NO.</th>
                               <th scope="col ">DATE OF MAINTENANCE</th>
@@ -859,6 +865,7 @@
                           <tbody>
                             <tr>
                               {% for p in data6 %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.i_type4}}</td>
                               <td>{{p.is_num4}}</td>
                               <td>{{p.i_datem}}</td>
@@ -984,6 +991,7 @@
                         <table class="table" id="myTablebr">
                           <thead class="thead">
                             <tr>
+                              <th scope="col">TRANSACTION DATE & TIME</th>
                               <th scope="col">FULL NAME</th>
                               <th scope="col">USER TYPE</th>
                               <th scope="col ">DATE RQSTD</th>
@@ -1002,6 +1010,7 @@
                           <tbody>
                             <tr>
                               {% for p in data1 %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.fbname}}</td>
                               <td>{{p.fbuser}}</td>
                               <td>{{p.fbdate}}</td>
@@ -1037,6 +1046,7 @@
                             {% endfor %}
                             <tr>
                               {% for p in data2 %}
+                              <td>{{p.adm}}</td>
                               <td>{{p.if_name5}}</td>
                               <td>{{p.i_user}}</td>
                               <td>{{p.i_date5}}</td>

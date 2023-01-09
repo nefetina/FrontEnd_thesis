@@ -304,6 +304,7 @@ def maintain_permit(request, id):
                 name = z['ie_user']
             
             adm = datetime.now()
+            faculty_reports.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + name + ",\nYou approved "+ name +"\nrequest for repair and maintence at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nOther details will be provided by "+ name + ",\nand it will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -325,7 +326,7 @@ def maintain_permit(request, id):
         uemail = request.user.email
         print("asd")
         message = "Good day " + name + \
-            ", \n Your request for repair and maintence has been approved. Please check your app for further details" + "\n UITC admin"
+            ", \n Your request for repair and maintence has been approved." + "\n UITC admin"
         email = EmailMessage(
             name,
             message,
@@ -349,6 +350,7 @@ def maintain_cancel(request, id):
                 name = z['ie_user']
             
             adm = datetime.now()
+            faculty_reports.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + name + ",\nYou declined "+ name +"\nrequest for repair and maintenance at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -397,6 +399,7 @@ def facultyID_permit(request, id):
                 name = z['ff_name']
             
             adm = datetime.now()
+            faculty_ID.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for ID at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -409,6 +412,7 @@ def facultyID_permit(request, id):
             )
 
             email.send()
+            
     a = faculty_ID.objects.get(id=id)
     data1 = faculty_ID.objects.filter(id=id)
     for x in faculty_ID.objects.only('id').filter(f_stat="On process"):
@@ -443,6 +447,7 @@ def facultyID_cancel(request, id):
                 name = z['ff_name']
             
             adm = datetime.now()
+            faculty_ID.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for ID at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -493,6 +498,7 @@ def FacultyWifi_cancel(request, id):
                 name = z['gf_name']
             
             adm = datetime.now()
+            faculty_wifi.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Wifi Access at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -544,6 +550,7 @@ def FacultyWifi_permit(request, id):
                 name = z['gf_name']
             
             adm = datetime.now()
+            faculty_wifi.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Wifi Access at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -589,6 +596,7 @@ def StudentWifi_cancel(request, id):
                 name = z['gf_name1']
             
             adm = datetime.now()
+            student_wifi.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Wifi Access at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -640,6 +648,7 @@ def StudentWifi_permit(request, id):
                 name = z['gf_name1']
             
             adm = datetime.now()
+            student_wifi.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Wifi Access at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -685,6 +694,7 @@ def StudentInternet_cancel(request, id):
                 name = z['gf_name2']
             
             adm = datetime.now()
+            student_internet.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Internet Access at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -736,6 +746,7 @@ def StudentInternet_permit(request, id):
                 name = z['gf_name2']
             
             adm = datetime.now()
+            student_internet.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Internet Access at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -784,6 +795,7 @@ def labsched_cancel(request, id):
                 name = z['f_name']
             
             adm = datetime.now()
+            faculty_lab.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Laboratory Schedule at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -835,6 +847,7 @@ def labsched_permit(request, id):
                 name = z['f_name']
             
             adm = datetime.now()
+            faculty_lab.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Laboratory Schedule at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -880,6 +893,7 @@ def fpass_cancel(request, id):
                 name = z['fwname']
             
             adm = datetime.now()
+            faculty_passreset.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -933,6 +947,7 @@ def fpasswordreset_permit(request, id):
                 name = z['fwname']
             
             adm = datetime.now()
+            faculty_passreset.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -980,6 +995,8 @@ def spasswordreset_cancel(request, id):
             name = z['psname']
         
         adm = datetime.now()
+        PassReset.objects.filter(id=id).update(adm=adm)
+
         message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
                     adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
@@ -1029,6 +1046,7 @@ def spasswordreset_permit(request, id):
             name = z['psname']
         
         adm = datetime.now()
+        PassReset.objects.filter(id=id).update(adm=adm)
         message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
                     adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
@@ -1074,6 +1092,7 @@ def sborrow_cancel(request, id):
             name = z['if_name5']
         
         adm = datetime.now()
+        borrow_record.objects.filter(id=id).update(adm=adm)
         message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Borrow at the date and time of " +
                     adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
@@ -1125,6 +1144,7 @@ def sborrow_permit(request, id):
             name = z['if_name5']
         
         adm = datetime.now()
+        borrow_record.objects.filter(id=id).update(adm=adm)
         message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Borrow at the date and time of " +
                     adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
@@ -1173,6 +1193,7 @@ def fb_cancel(request, id):
                 name = z['fbname']
             
             adm = datetime.now()
+            faculty_borrow.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou declined "+ name +"\nrequest for Password Reset at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -1226,6 +1247,7 @@ def fborrow_permit(request, id):
                 name = z['fbname']
             
             adm = datetime.now()
+            faculty_borrow.objects.filter(id=id).update(adm=adm)
             message = ("Good day! " + request.user.name + ",\nYou approved "+ name +"\nrequest for Password Reset at the date and time of " +
                        adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
             email = EmailMessage(
@@ -1322,6 +1344,7 @@ def UitcID(request):  # UITC ID page
             int(data1['borrow_record']) + int(data1['student_PassReset'])
         print(data1['Faculty_passreset'])
         print(data3)
+
         return render(request, 'TupcSysApp/1B_IDS(UITC).html', {'dataf': dataf, 'data1': data1, 'data2': data2, 'data3': data3})
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')

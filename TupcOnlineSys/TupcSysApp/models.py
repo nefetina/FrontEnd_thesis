@@ -42,6 +42,7 @@ class register1(AbstractUser):
 
 
 class faculty_ID(models.Model):
+    adm = models.DateTimeField(null=True)
     f_pic = models.TextField(max_length=10000, null=True)
     email1 = models.CharField(max_length=50, null=True)
     ff_name = models.CharField(max_length=50, null=False)
@@ -68,6 +69,7 @@ class faculty_ID(models.Model):
 
 
 class faculty_wifi(models.Model):
+    adm = models.DateTimeField(null=True)
     gf_name = models.CharField(max_length=100, null=False)
     g_dept = models.CharField(max_length=100, null=True)
     g_des = models.CharField(max_length=100, null=True)
@@ -82,6 +84,7 @@ class faculty_wifi(models.Model):
 
 
 class faculty_lab(models.Model):
+    adm = models.DateTimeField(null=True)
     email2 = models.CharField(max_length=50, null=True)
     f_name = models.CharField(max_length=100, null=False)
     dep = models.CharField(max_length=100, null=True)
@@ -95,6 +98,7 @@ class faculty_lab(models.Model):
 
 
 class faculty_reports(models.Model):
+    adm = models.DateTimeField(null=True)
     email3 = models.CharField(max_length=50, null=True)
     ftype = models.CharField(max_length=100, null=False)
     fbrand = models.CharField(max_length=100, null=True)
@@ -145,6 +149,7 @@ class faculty_passreset(models.Model):
         ('ERS ACCOUNT', 'ERS ACCOUNT'),
         ('NAS', 'NAS'),
     ]
+    adm = models.DateTimeField(null=True)
     fwname = models.CharField(max_length=100, null=False)
     fwempID = models.CharField(max_length=100, null=True)
     fwIDtype = models.CharField(max_length=40, null=False, choices=id_type)
@@ -153,6 +158,7 @@ class faculty_passreset(models.Model):
 
 
 class faculty_borrow(models.Model):
+    adm = models.DateTimeField(null=True)
     email4 = models.CharField(max_length=50, null=True)
     fbuser = models.CharField(max_length=100, default="Faculty Member")
     fbname = models.CharField(max_length=100, null=False)
@@ -171,6 +177,7 @@ class faculty_borrow(models.Model):
 
 
 class student_wifi(models.Model):
+    adm = models.DateTimeField(null=True)
     gf_name1 = models.CharField(max_length=100, null=False)
     g_csec1 = models.CharField(max_length=100, null=True)
     g_snum1 = models.CharField(max_length=100, null=True)
@@ -189,6 +196,7 @@ class student_wifi(models.Model):
 
 
 class student_internet(models.Model):
+    adm = models.DateTimeField(null=True)
     gf_name2 = models.CharField(max_length=100, null=False)
     g_csec2 = models.CharField(max_length=100, null=True)
     g_snum2 = models.CharField(max_length=100, null=True)
@@ -219,6 +227,7 @@ class sched_rec(models.Model):
 
 # maintenance record #1E #i
 class maintain_record(models.Model):
+    adm = models.DateTimeField(null=True)
     i_type4 = models.CharField(max_length=100, null=True)
     is_num4 = models.CharField(max_length=100, null=True)
     i_datem = models.DateField()
@@ -269,6 +278,7 @@ class maintain_record(models.Model):
 
 # borrowrecord #1O #i #r
 class borrow_record(models.Model):
+    adm = models.DateTimeField(null=True)
     email5 = models.CharField(max_length=50, null=True)
     i_user = models.CharField(max_length=100, default="Student")
     if_name5 = models.CharField(max_length=100, null=True)
@@ -293,6 +303,7 @@ class PassReset(models.Model):
         ('ERS ACCOUNT', 'ERS ACCOUNT'),
         ('NAS', 'NAS'),
     ]
+    adm = models.DateTimeField(null=True)
     psname = models.CharField(max_length=100, null=True)
     email = models.CharField(max_length=100, null=True)
     emp_idno = models.CharField(max_length=50, null=True)
