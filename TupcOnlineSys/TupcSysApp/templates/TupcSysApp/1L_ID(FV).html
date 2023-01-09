@@ -255,7 +255,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-4">
-                                                <input type="tel" class="form-control my-2 p-2" placeholder="GSIS" name = 'f_gsis1' maxlength="11" minlength="11" autocomplete="off" >
+                                                <input type="tel" class="form-control my-2 p-2" placeholder="GSIS: 0000-0000000-0" name = 'f_gsis1' maxlength="14" minlength="14"  onkeypress="return isNumberKey(event);" autocomplete="off" >
                                             </div>
                                             <div class="col-xl-4">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="TIN: 000-000-000-000"  name = 'f_tin1' pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{3}"
@@ -268,8 +268,8 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-4">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="GSIS Policy No." name = 'f_gsisp1' maxlength="11" minlength="11"
-                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '')" autocomplete="off" >
+                                                <input type="text" class="form-control my-2 p-2" placeholder="GSIS Policy No.:" name = 'f_gsisp1' maxlength="11" minlength="11"
+                                                 onkeypress="return isNumberKey1(event);" autocomplete="off" >
                                             </div>
                                             <div class="col-xl-4">
                                                 <input type="text" class="form-control my-2 p-2" placeholder="Philhealth: 0000-0000-0000" name = 'f_phil1'

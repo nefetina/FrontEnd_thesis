@@ -36,3 +36,16 @@ function isNumberKey(evt)
   return false;
 }
 
+function isNumberKey1(evt)
+{
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode == 32) {
+        return true;
+    }
+    if ((charCode > 47 && charCode <58))
+    {
+        return true;
+    }
+  return false;
+}
+
