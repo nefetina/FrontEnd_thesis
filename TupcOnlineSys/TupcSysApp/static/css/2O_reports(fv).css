@@ -271,6 +271,17 @@ input{
     padding-bottom: 15px;
     
 }
+#wait{
+    font-size: 100px;
+    margin-bottom: 20px;
+    margin-top: 7%;
+
+}
+#queue{
+    height: 400px;
+    
+}
+
 /*****************************************BACKGROUND*******************************/
 
 html,
@@ -487,6 +498,12 @@ header,
         display: flex;
         position: absolute;
     }
+    #wait{
+        font-size: 100px;
+        margin-bottom: 20px;
+        margin-top: 50%;
+    
+    }
 }
 
 
@@ -560,7 +577,19 @@ header,
     .formtitle{
         font-size: 14px !important;
     }
+    #wait{
+        font-size: 100px !important;
+        margin-bottom: 20px;
+        margin-top: 50%;
+    
+    }
+    #wait2{
+        font-size: 20px !important;
+      
+    
+    }
 }
+
 
 
 /*************************lower than small lang*****/
@@ -612,6 +641,11 @@ header,
         margin-left: 80px;
         display: flex;
         position: absolute;
+    }
+    #wait2{
+        font-size: 15px !important;
+      
+    
     }
 }
 

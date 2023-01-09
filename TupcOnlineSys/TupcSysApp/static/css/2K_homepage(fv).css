@@ -232,12 +232,13 @@ header .icons span {
     height: 38px;
     width: 38px;
     cursor: pointer;
-    color: #ff0808;
+    color: white;
     text-align: center;
     line-height: 38px;
     font-size: 1.9rem;
     user-select: none;
     border-radius: 50%;
+    transition: 0.2s ease-in-out ;
 }
 
 .icons span:last-child {
@@ -245,7 +246,7 @@ header .icons span {
 }
 
 header .icons span:hover {
-    background: #f2f2f2;
+    background: #ff0808;
 }
 
 header .current-date {

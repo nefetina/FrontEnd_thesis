@@ -2,7 +2,7 @@ window.onload = function() {
     
     var request = document.getElementById("request").innerText;
     var y = document.getElementById("repairmaintenanceform");
-    var x = document.getElementById("tableform3");
+    var x = document.getElementById("queue");
 
     if (request > 0){
         y.hidden = true;
