@@ -290,15 +290,19 @@ input{
     padding-bottom: 15px;
     
 }
-#labname{
+#pasa{
     width: auto !important;
+    overflow: hidden !important;
+    overflow-y: scroll  !important;
+    background-color: rgba(128, 128, 128, 0.644);
+    color: white;
+    height: 130px !important;
 }
 td {
 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;   
-    width: 10px !important;
   }
   
 /*****************************************BACKGROUND*******************************/
