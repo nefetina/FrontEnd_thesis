@@ -10,7 +10,9 @@
     <!----TAB ICON------------------------------------------------>
     <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}" />
     <!----CSS AND JS------------------------------------------------>
+    <script src="http://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <script src="{% static 'js/3I_rec1.4(uitc).js'%}"></script>
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -39,7 +41,6 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-
     <!----ADD UP------------------------------------------------>
     <link
       rel="stylesheet"
@@ -197,10 +198,44 @@
                   <h6 id="icons">HOME</h6></i
                 ></a
               >
-              <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-lg fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="badge" id = "id_notif" name = "id_notifs" hidden>{{d1.Faculty_ID}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcInternet'%} "><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="badge" id = "net_notif" name = "net_notifs" hidden>{{d2}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="badge" id = "sched_notif" name = "sched_notifs" hidden>{{d1.Faculty_Laboratory}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{d3}}</span></a>
+              <a href="{% url 'TupcSysApp:UitcID'%}"
+                ><i class="fa fa-lg fa-id-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">ID'S</h6></i
+                >
+                <span class="badge" id="id_notif" name="id_notifs" hidden
+                  >{{d1.Faculty_ID}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInternet'%} "
+                ><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INTERNET</h6></i
+                ><span class="badge" id="net_notif" name="net_notifs" hidden
+                  >{{d2}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcLabsched'%}"
+                ><i class="fa fa-lg fa-calendar" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">SCHEDULE</h6></i
+                ><span class="badge" id="sched_notif" name="sched_notifs" hidden
+                  >{{d1.Faculty_Laboratory}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcReports'%}"
+                ><i class="fa fa-lg fa-file-text" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">REPORTS</h6></i
+                >
+                <span
+                  class="badge"
+                  id="report_notif"
+                  name="report_notifs"
+                  hidden
+                  >{{d3}}</span
+                ></a
+              >
               <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"
                 ><i class="fa fa-lg fa-clipboard" aria-hidden="true"
                   ><br />
@@ -219,12 +254,17 @@
                   <h6 id="icons">INVENTORY</h6></i
                 ></a
               >
-              <a href="" data-toggle="modal" data-target="#logout" id="lo" data-toggle="tooltip" data-placement="top" title="Logout"
+              <a
+                href=""
+                data-toggle="modal"
+                data-target="#logout"
+                id="lo"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Logout"
                 ><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
-                  ><br />
-                  </i
-                ></a
-              >
+                  ><br /> </i
+              ></a>
             </div>
           </div>
 
@@ -246,7 +286,7 @@
                       <!--TABLE-------------------------------------------------------------------------------------------->
 
                       <div class="table-responsive col-xl-12">
-                        <table class="table" id = "myTableitr">
+                        <table class="table" id="myTableitr">
                           <thead class="thead">
                             <tr>
                               <th scope="col">Equipment</th>
@@ -259,106 +299,97 @@
                           <tbody>
                             <tr>
                               <td>
-                                  {%for x in data.i_equip%}
-                                  <p>
-                                    {{x}}
-                                  </p>
-                                  {%endfor%}
+                                {%for x in data.i_equip%}
+                                <p>{{x}}</p>
+                                {%endfor%}
                               </td>
                               <td>
                                 {%for y in data.i_model%}
-                                <p>
-                                  {{y}}
-                                </p>
+                                <p>{{y}}</p>
                                 {%endfor%}
                               </td>
                               <td>
                                 {%for z in data.id__count%}
-                                <p>
-                                  {{z}}
-                                </p>
+                                <p>{{z}}</p>
                                 {%endfor%}
                               </td>
                               <td>
                                 {%for a in data.c1%}
-                                <p>
-                                  {{a}}
-                                </p>
+                                <p>{{a}}</p>
                                 {%endfor%}
                               </td>
                               <td>
                                 {%for b in data.c2%}
-                                <p>
-                                  {{b}}
-                                </p>
+                                <p>{{b}}</p>
                                 {%endfor%}
                               </td>
                             </tr>
-                            
                           </tbody>
-
                         </table>
                       </div>
                     </form>
-                      <div>Download Records</div>
-                          <div
-                            class="col-xl-12 d-flex justify-content-center align-items-center"
-                          >
-                            <button
-                              type="button"
-                              class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                              onclick="exportTableToExcel('myTableitr')"
-                              title="Download"
-                            >
-                              <i
-                                class="fa fa-arrow-circle-down"
-                                aria-hidden="true"
-                              ></i>
-                            </button>
-                          </div>
+                    <div>Download Records</div>
+                    <div
+                      class="col-xl-12 d-flex justify-content-center align-items-center"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                        onclick="exportTableToExcel('myTableitr')"
+                        title="Download"
+                      >
+                        <i
+                          class="fa fa-arrow-circle-down"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                    </div>
                     <script>
-                       // convert table to excel
-                       const date = new Date();
-                       const year = date.getFullYear();
-                       const month = date.getMonth() + 1;
-                       const day = date.getDate();
-                       var d = month + "/" + day + "/" + year;
-                       function exportTableToExcel(myTableitr, filename = "INVENTORY" + d) {
-                          var downloadLink;
-                          var dataType = "application/vnd.ms-excel";
-                          var tableSelect = document.getElementById(myTableitr);
-                          var tableHTML = tableSelect.outerHTML.replace(
-                            / /g,
-                            "%20"
-                          );
+                      // convert table to excel
+                      const date = new Date();
+                      const year = date.getFullYear();
+                      const month = date.getMonth() + 1;
+                      const day = date.getDate();
+                      var d = month + "/" + day + "/" + year;
+                      function exportTableToExcel(
+                        myTableitr,
+                        filename = "INVENTORY" + d
+                      ) {
+                        var downloadLink;
+                        var dataType = "application/vnd.ms-excel";
+                        var tableSelect = document.getElementById(myTableitr);
+                        var tableHTML = tableSelect.outerHTML.replace(
+                          / /g,
+                          "%20"
+                        );
 
-                          // Specify file name
-                          filename = filename
-                            ? filename + ".xls"
-                            : "excel_data.xls";
+                        // Specify file name
+                        filename = filename
+                          ? filename + ".xls"
+                          : "excel_data.xls";
 
-                          // Create download link element
-                          downloadLink = document.createElement("a");
+                        // Create download link element
+                        downloadLink = document.createElement("a");
 
-                          document.body.appendChild(downloadLink);
+                        document.body.appendChild(downloadLink);
 
-                          if (navigator.msSaveOrOpenBlob) {
-                            var blob = new Blob(["\ufeff", tableHTML], {
-                              type: dataType,
-                            });
-                            navigator.msSaveOrOpenBlob(blob, filename);
-                          } else {
-                            // Create a link to the file
-                            downloadLink.href =
-                              "data:" + dataType + ", " + tableHTML;
+                        if (navigator.msSaveOrOpenBlob) {
+                          var blob = new Blob(["\ufeff", tableHTML], {
+                            type: dataType,
+                          });
+                          navigator.msSaveOrOpenBlob(blob, filename);
+                        } else {
+                          // Create a link to the file
+                          downloadLink.href =
+                            "data:" + dataType + ", " + tableHTML;
 
-                            // Setting the file name
-                            downloadLink.download = filename;
+                          // Setting the file name
+                          downloadLink.download = filename;
 
-                            //triggering the function
-                            downloadLink.click();
-                          }
+                          //triggering the function
+                          downloadLink.click();
                         }
+                      }
                     </script>
                   </div>
                 </div>
@@ -379,7 +410,7 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                    
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -396,7 +427,9 @@
                         aria-labelledby="dropdownMenuButton"
                       >
                         <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)">Ascending</a>
+                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
+                          >Ascending</a
+                        >
                         <a class="dropdown-item" href="#">Descending</a>
                       </div>
                     </div>
@@ -466,7 +499,13 @@
                               <td>{{p.fname}}</td>
                               <td>{{p.Fposjob}}</td>
                               <td>{{p.fdep}}</td>
-                              <td> <img src="{{p.fsign}}" width="250" height="150" /></td>
+                              <td>
+                                <img
+                                  src="{{p.fsign}}"
+                                  width="250"
+                                  height="150"
+                                />
+                              </td>
                               <td>{{p.fdate}}</td>
                               <td>{{p.ftime}}</td>
                               <td>{{p.i_assessby}}</td>
@@ -493,7 +532,13 @@
                               <td>{{p.i_aor}}</td>
                               <td>{{p.ie_user}}</td>
                               <td>{{p.i_daterec2}}</td>
-                              <td> <img src="{{p.i_sig3}}" width="250" height="150" /></td>
+                              <td>
+                                <img
+                                  src="{{p.i_sig3}}"
+                                  width="250"
+                                  height="150"
+                                />
+                              </td>
                               <td>{{p.i_time2}}</td>
                               <td>{{p.fstat}}</td>
                               <td>
@@ -529,7 +574,7 @@
                           table = document.getElementById("myTableram");
                           tr = table.getElementsByTagName("tr");
                           for (i = 0; i < tr.length; i++) {
-                            td = tr[i].getElementsByTagName("td")[5];
+                            td = tr[i].getElementsByTagName("td")[6];
                             if (td) {
                               txtValue = td.textContent || td.innerText;
                               if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -546,7 +591,10 @@
                         const month = date.getMonth() + 1;
                         const day = date.getDate();
                         var d = month + "/" + day + "/" + year;
-                        function exportTableToExcel(myTableram, filename = "REPAIR AND MAINTENANCE" + d) {
+                        function exportTableToExcel(
+                          myTableram,
+                          filename = "REPAIR AND MAINTENANCE" + d
+                        ) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTableram);
@@ -619,7 +667,7 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                    
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -636,7 +684,9 @@
                         aria-labelledby="dropdownMenuButton"
                       >
                         <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)">Ascending</a>
+                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
+                          >Ascending</a
+                        >
                         <a class="dropdown-item" href="#">Descending</a>
                       </div>
                     </div>
@@ -649,16 +699,19 @@
                     <form>
                       <div class="formtitle">PASSWORD RESET RECORD</div>
                       <div class="table-responsive-xl col-xl-12" id="idtable2">
-                        <table class="table" id="myTableprr">
+                        <table class="table" id="myTableprr" class="sortable">
                           <thead class="thead">
                             <tr>
-                              <th scope="col">TRANSACTION DATE & TIME</th>
+                              <th>TRANSACTION DATE AND TIME</th>
                               <th scope="col">FULL NAME</th>
-                              <th scope="col">ID NUMBER</th>
+                              <th class="sorttable_sorted">
+                                ID NUMBER<span id="sorttable_sortfwdind"
+                                  >&nbsp;▾</span
+                                >
+                              </th>
                               <th scope="col">ACCOUNT TYPE</th>
                               <th scope="col">EMAIL</th>
                               <th scope="col">STATUS</th>
-                         
                             </tr>
                           </thead>
                           <tbody>
@@ -670,8 +723,6 @@
                               <td>{{p.fwemail}}</td>
                               <td>{{p.fwIDtype}}</td>
                               <td>{{p.fwstat}}</td>
-
-                              
                             </tr>
                             {% endfor %}
                             <tr>
@@ -682,8 +733,6 @@
                               <td>{{p.email}}</td>
                               <td>{{p.Account}}</td>
                               <td>{{p.psstats}}</td>
-
-                              
                             </tr>
                             {% endfor %}
                           </tbody>
@@ -714,7 +763,10 @@
                         const month = date.getMonth() + 1;
                         const day = date.getDate();
                         var d = month + "/" + day + "/" + year;
-                        function exportTableToExcel(myTableprr, filename = "PASSWORD RESET" + d) {
+                        function exportTableToExcel(
+                          myTableprr,
+                          filename = "PASSWORD RESET" + d
+                        ) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTableprr);
@@ -773,28 +825,48 @@
               </div>
 
               <!--TABLE 3 MAINTENANCE RECORD -------------------------------------------------------------------------------------------->
-              
-              <div id="table3" class="col-xl-12 collapse">
-                  <form>
-                    <div class="form-row">
 
-                        <div class="col-xl-9 col-lg-8 col-12">
-                            <input type="text" id="myInput" onkeyup="myFunction()" class="form-control my-2 p-2" placeholder="Search for names.." title="Type in a name">
-                            <span><i class='bx bx-search-alt-2 nav_logo-icon'></i></span> 
-                        </div>
-                        <!--BUTTONS-------------------------------------------------------------------------------------------->
-                        
-                        <div class="dropdown col-xl-3  col-lg-4 col-12">
-                            <button class="btn btn-success dropdown-toggle my-2 p-2  btn-block"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Sorted by:
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Date</a>
-                                <a class="dropdown-item" href="#" onclick="sortTable(0)">Ascending</a>
-                                <a class="dropdown-item" href="#">Descending</a>
-                            </div>
-                        </div>
+              <div id="table3" class="col-xl-12 collapse">
+                <form>
+                  <div class="form-row">
+                    <div class="col-xl-9 col-lg-8 col-12">
+                      <input
+                        type="text"
+                        id="myInput"
+                        onkeyup="myFunction()"
+                        class="form-control my-2 p-2"
+                        placeholder="Search for names.."
+                        title="Type in a name"
+                      />
+                      <span
+                        ><i class="bx bx-search-alt-2 nav_logo-icon"></i
+                      ></span>
                     </div>
+                    <!--BUTTONS-------------------------------------------------------------------------------------------->
+
+                    <div class="dropdown col-xl-3 col-lg-4 col-12">
+                      <button
+                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Sorted by:
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <a class="dropdown-item" href="#">Date</a>
+                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
+                          >Ascending</a
+                        >
+                        <a class="dropdown-item" href="#">Descending</a>
+                      </div>
+                    </div>
+                  </div>
                 </form>
                 <div class="jumbotron m-1">
                   <div class="card-body">
@@ -901,7 +973,13 @@
                               <td>{{p.i_create}}</td>
                               <td>{{p.i_remarks14}}</td>
                               <td>{{p.iu_pers4}}</td>
-                              <td> <img src="{{p.i_sig5}}" width="250" height="150" /></td>
+                              <td>
+                                <img
+                                  src="{{p.i_sig5}}"
+                                  width="250"
+                                  height="150"
+                                />
+                              </td>
                               <td>{{p.is_date4}}</td>
                               <td>{{p.is_time4}}</td>
                               <td>{{p.ie_date4}}</td>
@@ -930,7 +1008,7 @@
                                       class="fa fa-arrow-circle-down"
                                       aria-hidden="true"
                                     ></i>
-                              </a>
+                                  </a>
                                 </div>
                               </td>
                             </tr>
@@ -959,7 +1037,7 @@
                     </div>
 
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                    
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -976,7 +1054,9 @@
                         aria-labelledby="dropdownMenuButton"
                       >
                         <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)">Ascending</a>
+                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
+                          >Ascending</a
+                        >
                         <a class="dropdown-item" href="#">Descending</a>
                       </div>
                     </div>
@@ -1019,11 +1099,16 @@
                               <td>{{p.fbreason}}</td>
                               <td>{{p.fbmodel}}</td>
                               <td>{{p.fbserial}}</td>
-                              <td><img src="{{p.fbsign}}" width="250" height="150" /></td>
+                              <td>
+                                <img
+                                  src="{{p.fbsign}}"
+                                  width="250"
+                                  height="150"
+                                />
+                              </td>
                               <td>{{p.fbstat}}</td>
                               <td>{{p.fbrdate}}</td>
                               <td>{{p.fbremarks}}</td>
-                              
 
                               <td>
                                 <div
@@ -1055,11 +1140,13 @@
                               <td>{{p.irf_borrow5}}</td>
                               <td>{{p.imodel}}</td>
                               <td>{{p.iserial}}</td>
-                              <td><img src="{{p.i_sig5}}" style="height: 80px" /></td>
+                              <td>
+                                <img src="{{p.i_sig5}}" style="height: 80px" />
+                              </td>
                               <td>{{p.i_stats5}}</td>
                               <td>{{p.i_rdate5}}</td>
                               <td>{{p.i_remarks}}</td>
-                            
+
                               <td>
                                 <div
                                   class="col-xl-12 d-flex justify-content-center align-items-center"
@@ -1110,7 +1197,10 @@
                         const month = date.getMonth() + 1;
                         const day = date.getDate();
                         var d = month + "/" + day + "/" + year;
-                        function exportTableToExcel(myTablebr, filename = "BORROW" + d) {
+                        function exportTableToExcel(
+                          myTablebr,
+                          filename = "BORROW" + d
+                        ) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTablebr);

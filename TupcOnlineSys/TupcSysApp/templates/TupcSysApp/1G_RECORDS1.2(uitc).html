@@ -191,10 +191,44 @@
                   <h6 id="icons">HOME</h6></i
                 ></a
               >
-              <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-lg fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="badge" id = "id_notif" name = "id_notifs" hidden>{{data4.Faculty_ID}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcInternet'%} "><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="badge" id = "net_notif" name = "net_notifs" hidden>{{data5}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcLabsched'%}" ><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="badge" id = "sched_notif" name = "sched_notifs" hidden>{{data4.Faculty_Laboratory}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data6}}</span></a>
+              <a href="{% url 'TupcSysApp:UitcID'%}"
+                ><i class="fa fa-lg fa-id-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">ID'S</h6></i
+                >
+                <span class="badge" id="id_notif" name="id_notifs" hidden
+                  >{{data4.Faculty_ID}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInternet'%} "
+                ><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INTERNET</h6></i
+                ><span class="badge" id="net_notif" name="net_notifs" hidden
+                  >{{data5}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcLabsched'%}"
+                ><i class="fa fa-lg fa-calendar" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">SCHEDULE</h6></i
+                ><span class="badge" id="sched_notif" name="sched_notifs" hidden
+                  >{{data4.Faculty_Laboratory}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcReports'%}"
+                ><i class="fa fa-lg fa-file-text" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">REPORTS</h6></i
+                >
+                <span
+                  class="badge"
+                  id="report_notif"
+                  name="report_notifs"
+                  hidden
+                  >{{data6}}</span
+                ></a
+              >
               <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"
                 ><i class="fa fa-lg fa-clipboard" aria-hidden="true"
                   ><br />
@@ -213,12 +247,17 @@
                   <h6 id="icons">INVENTORY</h6></i
                 ></a
               >
-              <a href="" data-toggle="modal" data-target="#logout"
-              id="lo" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
-                  ><br />
-                  </i
-                ></a
-              >
+              <a
+                href=""
+                data-toggle="modal"
+                data-target="#logout"
+                id="lo"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Logout"
+                ><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
+                  ><br /> </i
+              ></a>
             </div>
           </div>
 
@@ -246,7 +285,7 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                    
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -279,7 +318,7 @@
                         <table class="table" id="myTableemp">
                           <thead class="thead">
                             <tr>
-                              <th scope="col">TRANSACTION DATE & TIME</th>
+                              <th scope="col">TRANSACTION DATE AND TIME</th>
                               <th scope="col">FULL NAME</th>
                               <th scope="col ">DEPARTMENT</th>
                               <th scope="col ">DESIGNATION</th>
@@ -307,7 +346,11 @@
                               <td>{{p.g_email}}</td>
                               <td>{{p.g_fac}}</td>
                               <td>
-                                <img src="{{p.g_sig}}" width="250" height="150" />
+                                <img
+                                  src="{{p.g_sig}}"
+                                  width="250"
+                                  height="150"
+                                />
                               </td>
                               <td>{{p.g_datereq}}</td>
                               <td>{{p.g_stat}}</td>
@@ -342,9 +385,41 @@
                           tr = table.getElementsByTagName("tr");
                           for (i = 0; i < tr.length; i++) {
                             td = tr[i].getElementsByTagName("td")[0];
-                            if (td) {
+                            td1 = tr[i].getElementsByTagName("td")[1];
+                            td2 = tr[i].getElementsByTagName("td")[2];
+                            td3 = tr[i].getElementsByTagName("td")[8];
+                            td4 = tr[i].getElementsByTagName("td")[10];
+                            td5 = tr[i].getElementsByTagName("td")[11];
+
+                            if ((td, td1, td2, td3, td4, td5)) {
                               txtValue = td.textContent || td.innerText;
+                              txtValue1 = td1.textContent || td1.innerText;
+                              txtValue2 = td2.textContent || td2.innerText;
+                              txtValue3 = td3.textContent || td3.innerText;
+                              txtValue4 = td4.textContent || td4.innerText;
+                              txtValue5 = td5.textContent || td5.innerText;
+
                               if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue1.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue2.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue3.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue4.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue5.toUpperCase().indexOf(filter) > -1
+                              ) {
                                 tr[i].style.display = "";
                               } else {
                                 tr[i].style.display = "none";
@@ -358,7 +433,10 @@
                         const month = date.getMonth() + 1;
                         const day = date.getDate();
                         var d = month + "/" + day + "/" + year;
-                        function exportTableToExcel(myTableemp, filename = "EMPLOYEE WIFI RECORD" + d") {
+                        function exportTableToExcel(
+                          myTableemp,
+                          filename = "EMPLOYEE WIFI RECORD" + d
+                        ) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
                           var tableSelect = document.getElementById(myTableemp);
@@ -430,7 +508,7 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                    
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -470,7 +548,7 @@
                         <table class="table" id="myTableswr">
                           <thead class="thead">
                             <tr>
-                              <th scope="col">TRANSACTION DATE & TIME</th>
+                              <th scope="col">TRANSACTION DATE AND TIME</th>
                               <th scope="col-xl-1">FULL NAME</th>
                               <th scope="col-xl-1 ">COURSE AND SECTION</th>
                               <th scope="col-xl-1 ">STUDENT NO.</th>
@@ -502,7 +580,11 @@
                               <td>{{g.g_email1}}</td>
                               <td>{{g.g_add1}}</td>
                               <td>
-                                <img src="{{g.g_sig1}}" width="250" height="150" />
+                                <img
+                                  src="{{g.g_sig1}}"
+                                  width="250"
+                                  height="150"
+                                />
                               </td>
                               <td>{{g.g_daterec1}}</td>
                               <td>{{g.g_stats1}}</td>
@@ -656,9 +738,41 @@
                           tr = table.getElementsByTagName("tr");
                           for (i = 0; i < tr.length; i++) {
                             td = tr[i].getElementsByTagName("td")[0];
-                            if (td) {
+                            td1 = tr[i].getElementsByTagName("td")[1];
+                            td2 = tr[i].getElementsByTagName("td")[2];
+                            td3 = tr[i].getElementsByTagName("td")[3];
+                            td4 = tr[i].getElementsByTagName("td")[4];
+                            td5 = tr[i].getElementsByTagName("td")[13];
+                            
+                            if ((td, td1, td2, td3, td4, td5)) {
                               txtValue = td.textContent || td.innerText;
+                              txtValue1 = td1.textContent || td1.innerText;
+                              txtValue2 = td2.textContent || td2.innerText;
+                              txtValue3 = td3.textContent || td3.innerText;
+                              txtValue4 = td4.textContent || td4.innerText;
+                              txtValue5 = td5.textContent || td5.innerText;
+                              
                               if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue1.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue2.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue3.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue4.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue5.toUpperCase().indexOf(filter) > -1
+                              ) {
                                 tr[i].style.display = "";
                               } else {
                                 tr[i].style.display = "none";
@@ -703,7 +817,7 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                   
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -768,7 +882,11 @@
                               <td>{{q.g_add2}}</td>
                               <td>{{q.gu_name2}}</td>
                               <td>
-                                <img src="{{q.g_sig2}}" width="250" height="150" />
+                                <img
+                                  src="{{q.g_sig2}}"
+                                  width="250"
+                                  height="150"
+                                />
                               </td>
                               <td>{{q.g_daterec2}}</td>
                               <td>{{q.g_stats2}}</td>
@@ -922,16 +1040,46 @@
                             tr = table.getElementsByTagName("tr");
                             for (i = 0; i < tr.length; i++) {
                               td = tr[i].getElementsByTagName("td")[0];
-                              if (td) {
-                                txtValue = td.textContent || td.innerText;
-                                if (
-                                  txtValue.toUpperCase().indexOf(filter) > -1
-                                ) {
-                                  tr[i].style.display = "";
-                                } else {
-                                  tr[i].style.display = "none";
-                                }
+                            td1 = tr[i].getElementsByTagName("td")[1];
+                            td2 = tr[i].getElementsByTagName("td")[2];
+                            td3 = tr[i].getElementsByTagName("td")[3];
+                            td4 = tr[i].getElementsByTagName("td")[4];
+                            td5 = tr[i].getElementsByTagName("td")[12];
+                            
+                            if ((td, td1, td2, td3, td4, td5)) {
+                              txtValue = td.textContent || td.innerText;
+                              txtValue1 = td1.textContent || td1.innerText;
+                              txtValue2 = td2.textContent || td2.innerText;
+                              txtValue3 = td3.textContent || td3.innerText;
+                              txtValue4 = td4.textContent || td4.innerText;
+                              txtValue5 = td5.textContent || td5.innerText;
+                              
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue1.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue2.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue3.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue4.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue5.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else {
+                                tr[i].style.display = "none";
                               }
+                            }
                             }
                           }
                         </script>

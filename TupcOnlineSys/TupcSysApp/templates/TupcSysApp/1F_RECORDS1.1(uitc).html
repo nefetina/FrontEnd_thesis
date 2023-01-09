@@ -40,6 +40,8 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <!----SORT------------------------------------------------>
+    <script src="http://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 
     <!----ADD UP------------------------------------------------>
     <link
@@ -293,10 +295,10 @@
                         aria-labelledby="dropdownMenuButton"
                       >
                         <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
+                        <a class="dropdown-item" href="#" onclick="sortTable(2)"
                           >First Name</a
                         >
-                        <a class="dropdown-item" href="#" onclick="sortTable(2)"
+                        <a class="dropdown-item" href="#" onclick="sortTable(4)"
                           >Last Name</a
                         >
                       </div>
@@ -313,7 +315,7 @@
                         <table class="table" id="myTable">
                           <thead class="thead">
                             <tr>
-                              <th scope="col">TRANSACTION DATE & TIME</th>
+                              <th scope="col">TRANSACTION DATE AND TIME</th>
                               <th scope="col">PICTURE</th>
                               <th scope="col">FIRST NAME</th>
                               <th scope="col">MIDDLE NAME</th>
@@ -522,16 +524,64 @@
                       </div>
                       <script>
                         function myFunction() {
-                          var input, filter, table, tr, td, i, txtValue;
+                          var input, filter, table, tr, td, td1, i, txtValue;
                           input = document.getElementById("myInput");
                           filter = input.value.toUpperCase();
                           table = document.getElementById("myTable");
                           tr = table.getElementsByTagName("tr");
                           for (i = 0; i < tr.length; i++) {
-                            td = tr[i].getElementsByTagName("td")[1];
-                            if (td) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            td1 = tr[i].getElementsByTagName("td")[2];
+                            td2 = tr[i].getElementsByTagName("td")[3];
+                            td3 = tr[i].getElementsByTagName("td")[4];
+                            td4 = tr[i].getElementsByTagName("td")[5];
+                            td5 = tr[i].getElementsByTagName("td")[6];
+                            td6 = tr[i].getElementsByTagName("td")[7];
+                            td7 = tr[i].getElementsByTagName("td")[8];
+                            td8 = tr[i].getElementsByTagName("td")[19];
+                            if ((td, td1, td2, td3, td4, td5, td6, td7, td8)) {
                               txtValue = td.textContent || td.innerText;
+                              txtValue1 = td1.textContent || td1.innerText;
+                              txtValue2 = td2.textContent || td2.innerText;
+                              txtValue3 = td3.textContent || td3.innerText;
+                              txtValue4 = td4.textContent || td4.innerText;
+                              txtValue5 = td5.textContent || td5.innerText;
+                              txtValue6 = td6.textContent || td6.innerText;
+                              txtValue7 = td7.textContent || td7.innerText;
+                              txtValue8 = td8.textContent || td8.innerText;
                               if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue1.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue2.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue3.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue4.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue5.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue6.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue7.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue8.toUpperCase().indexOf(filter) > -1
+                              ) {
                                 tr[i].style.display = "";
                               } else {
                                 tr[i].style.display = "none";

@@ -187,10 +187,44 @@
                   <h6 id="icons">HOME</h6></i
                 ></a
               >
-              <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-lg fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="badge" id = "id_notif" name = "id_notifs" hidden>{{data1.Faculty_ID}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcInternet'%} "><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="badge" id = "net_notif" name = "net_notifs" hidden>{{data2}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcLabsched'%}" ><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="badge" id = "sched_notif" name = "sched_notifs" hidden>{{data1.Faculty_Laboratory}}</span></a>
-              <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data3}}</span></a>
+              <a href="{% url 'TupcSysApp:UitcID'%}"
+                ><i class="fa fa-lg fa-id-card" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">ID'S</h6></i
+                >
+                <span class="badge" id="id_notif" name="id_notifs" hidden
+                  >{{data1.Faculty_ID}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcInternet'%} "
+                ><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">INTERNET</h6></i
+                ><span class="badge" id="net_notif" name="net_notifs" hidden
+                  >{{data2}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcLabsched'%}"
+                ><i class="fa fa-lg fa-calendar" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">SCHEDULE</h6></i
+                ><span class="badge" id="sched_notif" name="sched_notifs" hidden
+                  >{{data1.Faculty_Laboratory}}</span
+                ></a
+              >
+              <a href="{% url 'TupcSysApp:UitcReports'%}"
+                ><i class="fa fa-lg fa-file-text" aria-hidden="true"
+                  ><br />
+                  <h6 id="icons">REPORTS</h6></i
+                >
+                <span
+                  class="badge"
+                  id="report_notif"
+                  name="report_notifs"
+                  hidden
+                  >{{data3}}</span
+                ></a
+              >
               <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"
                 ><i class="fa fa-lg fa-clipboard" aria-hidden="true"
                   ><br />
@@ -209,12 +243,17 @@
                   <h6 id="icons">INVENTORY</h6></i
                 ></a
               >
-              <a href="" data-toggle="modal" data-target="#logout"
-              id="lo" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
-                  ><br />
-                  </i
-                ></a
-              >
+              <a
+                href=""
+                data-toggle="modal"
+                data-target="#logout"
+                id="lo"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Logout"
+                ><i class="fa fa-lg fa-arrow-circle-left" aria-hidden="true"
+                  ><br /> </i
+              ></a>
             </div>
           </div>
 
@@ -239,7 +278,7 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-                    
+
                     <div class="dropdown col-xl-3 col-lg-4 col-12">
                       <button
                         class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
@@ -273,7 +312,7 @@
                         <table class="table" id="myTable">
                           <thead class="thead">
                             <tr>
-                              <th scope="col">TRANSACTION DATE & TIME</th>
+                              <th scope="col">TRANSACTION DATE AND TIME</th>
                               <th scope="col">FULL NAME</th>
                               <th scope="col">DEPARTMENT</th>
                               <th scope="col">DATE</th>
@@ -283,7 +322,6 @@
                               <th scope="col">END TIME</th>
                               <th scope="col">SIGNATURE</th>
                               <th scope="col">STATUS</th>
-                              
                             </tr>
                           </thead>
                           <tbody>
@@ -297,9 +335,14 @@
                               <td>{{p.crs_sec}}</td>
                               <td>{{p.s_time}}</td>
                               <td>{{p.e_time}}</td>
-                              <td><img src = "{{p.fl_sig}}" width="250" height="150"></td>
+                              <td>
+                                <img
+                                  src="{{p.fl_sig}}"
+                                  width="250"
+                                  height="150"
+                                />
+                              </td>
                               <td>{{p.l_stat}}</td>
-                              
                             </tr>
                             {% endfor %}
                           </tbody>
@@ -314,9 +357,41 @@
                           tr = table.getElementsByTagName("tr");
                           for (i = 0; i < tr.length; i++) {
                             td = tr[i].getElementsByTagName("td")[0];
-                            if (td) {
+                            td1 = tr[i].getElementsByTagName("td")[1];
+                            td2 = tr[i].getElementsByTagName("td")[2];
+                            td3 = tr[i].getElementsByTagName("td")[4];
+                            td4 = tr[i].getElementsByTagName("td")[5];
+                            td5 = tr[i].getElementsByTagName("td")[9];
+
+                            if ((td, td1, td2, td3, td4, td5)) {
                               txtValue = td.textContent || td.innerText;
+                              txtValue1 = td1.textContent || td1.innerText;
+                              txtValue2 = td2.textContent || td2.innerText;
+                              txtValue3 = td3.textContent || td3.innerText;
+                              txtValue4 = td4.textContent || td4.innerText;
+                              txtValue5 = td5.textContent || td5.innerText;
+
                               if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue1.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue2.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue3.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue4.toUpperCase().indexOf(filter) > -1
+                              ) {
+                                tr[i].style.display = "";
+                              } else if (
+                                txtValue5.toUpperCase().indexOf(filter) > -1
+                              ) {
                                 tr[i].style.display = "";
                               } else {
                                 tr[i].style.display = "none";
