@@ -24,37 +24,44 @@ function closeNav() {
 
 }
 function myFunctions() {
-    
-    var remarkss = document.getElementById("remarks");
-    selectElement = document.querySelector('#remarks');
-    output = selectElement.options[selectElement.selectedIndex].value;
-    
 
+    for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
+        selectElement = document.getElementsByName('remarks')[i];
+        output = selectElement.options[selectElement.selectedIndex].value;
         
-        if (output == "Missing some parts"){
-            const z = document.getElementsByName("msp");
+
             
-            
-            for (let i = 0; i < selectElement.length; i++) {
-                z[i].hidden = false;
-               
+            if (output == "Missing some parts"){
+                const z = document.getElementsByName("msp");
+                
+                
+                for (let i = 0; i < selectElement.length; i++) {
+                    z[i].hidden = false;
+                
+                }
+                
             }
-            
+            if (output != "Missing some parts"){
+                const z = document.getElementsByName("msp");
+                
+                
+                for (let i = 0; i < selectElement.length; i++) {
+                    z[i].hidden = true;
+            }
         }
-        if (output != "Missing some parts"){
+        
+        
+    }
+  }
+function modify() {
+    for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
+        selectElement = document.getElementsByName('remarks')[i];
+        for (let i = 0; i < selectElement.length; i++) {
             const z = document.getElementsByName("msp");
-            
-            
-            for (let i = 0; i < selectElement.length; i++) {
-                z[i].hidden = true;
+            z[i].hidden = true;
         }
     }
-        
-        
-        
-  }
-
-
+}
 function myFunction() {
 
 
