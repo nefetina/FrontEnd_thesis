@@ -244,9 +244,9 @@ input {
     color: white ;
     
 }
-#b5 {
+.b5 {
     
-    color: white ;
+    color: white  ;
     
 }
 #b6 {
@@ -261,11 +261,11 @@ input {
     color: rgb(201, 255, 4);
     
 }
-#b5:hover {
+.b5:hover {
     border: 2px solid rgb(7, 24, 207) !important;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     transition: .2s ease-in-out;
-    color: rgb(7, 24, 207);
+    color: rgb(7, 24, 207) !important;
     
 }
 #b6:hover {

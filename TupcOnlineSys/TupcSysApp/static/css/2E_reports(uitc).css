@@ -361,6 +361,28 @@ td {
     text-overflow: ellipsis;
     white-space: nowrap;   
   }
+#not{
+    color: rgb(0, 0, 0);
+
+}
+#not:hover{
+    border: 2px solid rgb(229, 255, 0) !important; 
+    background-color: #a27f7f !important;
+    transition: .2s ease-in-out;
+    color: rgb(229, 255, 0) !important;
+    font-weight: bold;
+}
+#ret{
+    color: white;
+
+}
+#ret:hover{
+    border: 2px solid #008f0085!important; 
+    background-color: #ffffff;
+    transition: .2s ease-in-out;
+    color: #008f0085;
+    font-weight: bold;
+}
 /*****************************************BACKGROUND*******************************/
 
 html,

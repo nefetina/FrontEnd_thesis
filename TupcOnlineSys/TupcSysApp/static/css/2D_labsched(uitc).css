@@ -210,7 +210,7 @@ input{
     background-color: #ffffff;
     transition: .2s ease-in-out;
     color: blue;
-    font-weight: bold;
+
 }
 
 #btn4:hover{
@@ -313,6 +313,13 @@ input{
 
     overflow-y: scroll ;
 
+}
+#b1:hover{
+    border: 2px solid BLUE !important; 
+    background-color: #ffffff;
+    transition: .2s ease-in-out;
+    color: blue;
+   
 }
 
 /*****************************************BACKGROUND*******************************/

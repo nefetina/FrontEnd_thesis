@@ -234,11 +234,11 @@
                                                                     data-toggle="tooltip" data-placement="top" title="Approve" onclick="form111()" ><i class="fa fa-check" aria-hidden="true"></i></a>
 
                                                                     <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn4"
-                                                                    data-toggle="modal" data-target="#denyrm{{ pr.id }}" ><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                    data-toggle="modal" data-target="#denyrm{{ pr.id }}" ><i class="fa fa-times" aria-hidden="true" title="Deny"></i></a>
 
                                                                     
                                                                     <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 mx-2 px-5 " 
-                                                                    title="Deny" data-toggle="modal" data-target="#modalnotifyrp{{ pr.id }}" >Notify<i></i></a>
+                                                                    title="Notify" data-toggle="modal" data-target="#modalnotifyrp{{ pr.id }}" id="not">Notify<i></i></a>
                                                                 </div>
 
                                                             </td>
@@ -1719,7 +1719,7 @@
                                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
 
                                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnapproved"  
-                                                                            data-toggle="modal" data-target="#borrowed{{ p1.id}}" id="btn3">
+                                                                            data-toggle="modal" data-target="#borrowed{{ p1.id}}" id="btn3" title="Approve">
                                                                             <i class="fa fa-check"    aria-hidden="true"></i></a>
 
                                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreject"
@@ -1727,11 +1727,11 @@
                                                                         
                                                                             
                                                                             <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
-                                                                            data-toggle="modal" data-target="#modalReturn{{ p1.id }}" onclick="returned1()" hidden  >
-                                                                            Return<i></i></a>
+                                                                            data-toggle="modal" title="Return" data-target="#modalReturn{{ p1.id }}" onclick="returned1()" hidden 
+                                                                            id="ret" >Return<i></i></a>
 
                                                                             <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
-                                                                            title="Deny" data-toggle="modal" data-target="#modalnotify{{ p1.id }}"  hidden>Notify<i></i></a>
+                                                                            title="Notify" data-toggle="modal" data-target="#modalnotify{{ p1.id }}" id="not" hidden>Notify<i></i></a>
                                                                         </div>
                                                                     </td>
                                                                     
@@ -1901,7 +1901,7 @@
                                                                     <td>
                                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                                                             <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnapproved"  
-                                                                            data-toggle="modal" data-target="#borrowed1{{ p.id}}"  id="btn3">
+                                                                            data-toggle="modal" data-target="#borrowed1{{ p.id}}"  id="btn3" title="Approve">
                                                                             <i class="fa fa-check"    aria-hidden="true"></i></a>
 
                                                                             <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreject"
@@ -1909,11 +1909,11 @@
                                                                         
                                                                             
                                                                             <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
-                                                                            data-toggle="modal" data-target="#modalReturn1{{ p.id }}" onclick="returned1()" hidden  >
+                                                                            data-toggle="modal" title="Return" data-target="#modalReturn1{{ p.id }}" onclick="returned1()" hidden  id="ret">
                                                                             Return<i></i></a>
 
                                                                             <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
-                                                                            title="Deny" data-toggle="modal" data-target="#modalnotify1{{ p.id }}"  hidden>Notify<i></i></a>
+                                                                            title="Notify" data-toggle="modal" data-target="#modalnotify1{{ p.id }}"  hidden id="not">Notify<i></i></a>
                                                                         </div>
                                                                         
                                                                     </td>
