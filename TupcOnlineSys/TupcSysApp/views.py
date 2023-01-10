@@ -2314,54 +2314,60 @@ def inventory_notify(request, id):
     for y in faculty_borrow.objects.filter(id=id).values():
         i_model = y['fbmodel']
         i_serial = y['fbserial']
-        user = y['fbuser']
-    for y in borrow_record.objects.filter(id=id).values():
-        i_model1 = y['imodel']
-        i_serial1 = y['iserial']
-        user = y['i_user']
     mes = request.POST.get("message")
     print(mes)
 
-    if user == "Faculty Member":
-        f = faculty_borrow.objects.filter(
-            id=id, fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").values()
-        for f1 in f:
-            name = f1['fbname']
-            emails = f1['email4']
 
-            message = ("Good day " + name + ", \n" +
-                       mes + "\n UITC admin")
-            email = EmailMessage(
-                name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [emails],
+    f = faculty_borrow.objects.filter(
+        id=id, fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").values()
+    for f1 in f:
+        name = f1['fbname']
+        emails = f1['email4']
 
-            )
+        message = ("Good day " + name + ", \n" +
+                    mes + "\n UITC admin")
+        email = EmailMessage(
+            name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [emails],
 
-            email.send()
-    if user == "Student":
-        s = borrow_record.objects.filter(
-            id=id, imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").values()
-        for s1 in s:
+        )
 
-            name = s1['if_name5']
-            emails = s1['email5']
-            message = ("Good day " + name + ", \n" +
-                       mes + "\n UITC admin")
-            email = EmailMessage(
-                name,
-                message,
-                'tupc.uitconlinesystem@gmail.com',
-                [emails],
+        email.send()
 
-            )
-
-            email.send()
 
     messages.info(request, "Completed")
     return redirect('/UitcReports')
 
+def inventory_notifys(request, id):
+
+    for y in borrow_record.objects.filter(id=id).values():
+        i_model1 = y['imodel']
+        i_serial1 = y['iserial']
+    mes = request.POST.get("message")
+    print(mes)
+
+    s = borrow_record.objects.filter(
+        id=id, imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").values()
+    for s1 in s:
+
+        name = s1['if_name5']
+        emails = s1['email5']
+        message = ("Good day " + name + ", \n" +
+                    mes + "\n UITC admin")
+        email = EmailMessage(
+            name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [emails],
+
+        )
+
+        email.send()
+
+    messages.info(request, "Completed")
+    return redirect('/UitcReports')
 
 def UitcInventory_borrowed(request, id):
     a = Inventory.objects.get(id=id)
@@ -2371,6 +2377,7 @@ def UitcInventory_borrowed(request, id):
     for y in Inventory.objects.filter(id=id).values():
         i_model = y['i_model']
         i_serial = y['i_serial']
+
     print(i_model)
     for x in Inventory.objects.only('id').filter(i_stats="Available"):
         if a == x:
@@ -2378,6 +2385,25 @@ def UitcInventory_borrowed(request, id):
 
             faculty_borrow.objects.filter(id=fid).update(
                 fbrdate=datetime.now(), fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed")
+
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
+
+
+def UitcInventory_borroweds(request, id):
+    a = Inventory.objects.get(id=id)
+    fid = request.POST.get("b_id")
+
+    print(fid)
+    for y in Inventory.objects.filter(id=id).values():
+        i_model = y['i_model']
+        i_serial = y['i_serial']
+
+    print(i_model)
+    for x in Inventory.objects.only('id').filter(i_stats="Available"):
+        if a == x:
+            Inventory.objects.filter(id=id).update(i_stats="Borrowed")
+
             borrow_record.objects.filter(id=fid).update(
                 i_rdate5=datetime.now(), imodel=i_model, iserial=i_serial, i_stats5="Borrowed")
 
@@ -2389,59 +2415,73 @@ def UitcInventory_returned(request, id):
     for y in faculty_borrow.objects.filter(id=id).values():
         i_model = y['fbmodel']
         i_serial = y['fbserial']
-        user = y['fbuser']
-    for y in borrow_record.objects.filter(id=id).values():
-        i_model1 = y['imodel']
-        i_serial1 = y['iserial']
-        user = y['fbuser']
+
     remarks = request.POST.get("remarks")
     print(remarks)
     if request.method == "POST":
         if remarks == "Good Condition":
             Inventory.objects.filter(
                 i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Available")
-            if user == "Faculty Member":
-                faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
-                    fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-            elif user == "Student":
-                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
-                    i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+            faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
+                fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
         elif remarks == "Broken":
             Inventory.objects.filter(
                 i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Broken")
-            if user == "Faculty Member":
-                faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
-                    fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-            elif user == "Student":
-                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
-                    i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+            faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
+                fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
         elif remarks == "Replaced":
             Inventory.objects.filter(
                 i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Replaced")
-            if user == "Faculty Member":
-                faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
-                    fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-            elif user == "Student":
-                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
-                    i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+            faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
+                fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
+
         elif remarks == "Missing some parts":
             Inventory.objects.filter(i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(
                 i_stats="Missing some parts")
-            if user == "Faculty Member":
-                faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
-                    fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-            elif user == "Student":
-                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
-                    i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+            faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
+                fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
         elif remarks == "Not working":
             Inventory.objects.filter(
                 i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Not working")
-            if user == "Faculty Member":
-                faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
-                    fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-            elif user == "Student":
-                borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
-                    i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+            faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
+                fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
+
+    messages.success(request, "Successfully done")
+    return redirect('/UitcReports')
+
+
+def UitcInventory_returneds(request, id):
+    for y in borrow_record.objects.filter(id=id).values():
+        i_model1 = y['imodel']
+        i_serial1 = y['iserial']
+    remarks = request.POST.get("remarks")
+    print(remarks)
+    if request.method == "POST":
+        if remarks == "Good Condition":
+            Inventory.objects.filter(
+                i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(i_stats="Available")
+            borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
+                i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+        elif remarks == "Broken":
+            Inventory.objects.filter(
+                i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(i_stats="Broken")
+            borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
+                i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+        elif remarks == "Replaced":
+            Inventory.objects.filter(
+                i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(i_stats="Replaced")
+            borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
+                i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+        elif remarks == "Missing some parts":
+            Inventory.objects.filter(i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(
+                i_stats="Missing some parts")
+            borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
+                i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
+        elif remarks == "Not working":
+            Inventory.objects.filter(
+                i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(i_stats="Not working")
+            borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
+                i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
 
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')

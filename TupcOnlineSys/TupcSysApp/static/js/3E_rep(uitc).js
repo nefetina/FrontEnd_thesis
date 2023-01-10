@@ -31,18 +31,45 @@ window.onload = function() {
     else if (span_Text3 > 0){
         document.getElementById("report_notif").hidden = false;
     }
-    const fbstat = document.getElementsByName("fbstat");
-    
-    for (let i = 0; i < fbstat.length; i++) {
-        var stat = fbstat[i].innerText;
-        if (stat == "Borrowed"){
-            document.getElementsByName("btnreject")[i].hidden = true;
-            document.getElementsByName("btnapproved")[i].hidden = true;
-            document.getElementsByName("btnnotify")[i].hidden = false;
-            document.getElementsByName("btnreturn")[i].hidden = false;
+    var table = document.getElementById("myTable");
+    var tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName("td")[7];
+    var td1 = tr[i].getElementsByTagName("td")[1];
+        
+    if (td, td1) {
+        txtValue = td.textContent || td.innerText;
+        txtValue1 = td1.textContent || td1.innerText;
+        if (txtValue == "Borrowed" && txtValue1 == "Student") {
+            document.getElementsByName("btnreject")[0].hidden = true;
+            document.getElementsByName("btnapproved")[0].hidden = true;
+            document.getElementsByName("btnnotify")[0].hidden = false;
+            document.getElementsByName("btnreturn")[0].hidden = false;
+            
+            
+
+        }
+        if (txtValue == "Borrowed") {
+
+            document.getElementsByName("btnreject")[i-1].hidden = true;
+            document.getElementsByName("btnapproved")[i-1].hidden = true;
+            document.getElementsByName("btnnotify")[i-1].hidden = false;
+            document.getElementsByName("btnreturn")[i-1].hidden = false;
+            
+            
+
         }
         
-      }
+        if (txtValue == "On Process") {
+            document.getElementsByName("btnreject")[i-1].hidden = false;
+            document.getElementsByName("btnapproved")[i-1].hidden = false;
+            document.getElementsByName("btnnotify")[i-1].hidden = true;
+            document.getElementsByName("btnreturn")[i-1].hidden = true;
+            
+    }
+    } 
+
+    }
   };
   var x2 = document.getElementById("table1");
   var z2 = document.getElementById("table2");

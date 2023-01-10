@@ -1893,20 +1893,29 @@
                                                                     
                                                                     <td>
                                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
-                                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" id="btn3"  
-                                                                            data-toggle="tooltip" data-placement="top" title="Approve" href="{% url 'TupcSysApp:sborrow_permit' p.pk  %}"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                                            <a type="button" class="btn btn-primary  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnapproved"  
+                                                                            data-toggle="modal" data-target="#borrowed1{{ p.id}}">
+                                                                            <i class="fa fa-check"    aria-hidden="true"></i></a>
 
-                                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5"  id="btn4"
-                                                                            title="Deny" data-toggle="modal" data-target="#denybs{{ p.id }}"><i class="fa fa-times" aria-hidden="true" ></i></a>
+                                                                            <a type="button" class="btn btn-danger  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreject"
+                                                                            title="Deny" data-toggle="modal" data-target="#denybfs1{{ p.id }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                        
+                                                                            
+                                                                            <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
+                                                                            data-toggle="modal" data-target="#modalReturn1{{ p.id }}" hidden  >
+                                                                            Return<i></i></a>
+
+                                                                            <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
+                                                                            title="Deny" data-toggle="modal" data-target="#modalnotify1{{ p.id }}"  hidden>Notify<i></i></a>
                                                                         </div>
                                                                         
                                                                     </td>
-                                                                                                                                            <!--modal for approved borrowed pop up-------------------------------------------------------------------------------------------->
-                                                                        <div class="modal fade" id="borrowed{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                        <!--modal for approved borrowed pop up-------------------------------------------------------------------------------------------->
+                                                                        <div class="modal fade" id="borrowed1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                             <div class="modal-content">
                                                                             {% for i in inventory %}
-                                                                            <form action="{% url 'TupcSysApp:UitcInventory_borrowed' i.pk%}" method="POST">
+                                                                            <form action="{% url 'TupcSysApp:UitcInventory_borroweds' i.pk%}" method="POST">
                                                                                 <div class="modal-header">
                                                                                 <h5 class="modal-title" id="exampleModalLongTitle">List of Items</h5>
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1936,7 +1945,7 @@
 
                                                                         
                                                                         <!--modal for return borrowed pop up-->
-                                                                        <div class="modal fade" id="modalReturn{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
+                                                                        <div class="modal fade" id="modalReturn1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
                                                                             <div class="modal-dialog modal-dialog-centered">
                                                                                 <div class="modal-content">
                                                                                     
@@ -1947,7 +1956,7 @@
                                                                                     <div class="modal-body">
                                                                                         <div class="text-center">
                                                                                            
-                                                                                            <form action="{% url 'TupcSysApp:UitcInventory_returned' p.pk%}" method="POST">
+                                                                                            <form action="{% url 'TupcSysApp:UitcInventory_returneds' p.pk%}" method="POST">
                                                                                                 {% csrf_token %}
                                                                                                 <div class="form-row">
                                 
@@ -1981,7 +1990,7 @@
 
 
                                                                         <!--modal for notify pop up-------------------------------------------------------------------------------------------->
-                                                                        <div class="modal fade" id="modalnotify{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="modalnotify" aria-hidden="true">
+                                                                        <div class="modal fade" id="modalnotify1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="modalnotify" aria-hidden="true">
                                                                             <div class="modal-dialog modal-dialog-centered">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
@@ -1990,7 +1999,7 @@
                                                                                     </div>
                                                                                     <div class="modal-body">
                                                                                         <div class="text-center">
-                                                                                            <form action="{% url 'TupcSysApp:inventory_notify' p.pk%}" method="POST">
+                                                                                            <form action="{% url 'TupcSysApp:inventory_notifys' p.pk%}" method="POST">
                                                                                                 {%csrf_token%}
                                                                                                 
                                                                                                 <div class="form-row">
@@ -2009,8 +2018,13 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
+
+
+                                                                        
+                                                                    </td>
                                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
-                                                                    <div class="modal fade" id="denybs{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal fade" id="denybfs1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
@@ -2020,13 +2034,13 @@
                                                                             </button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <form method="post" action = "{% url 'TupcSysApp:sborrow_cancel' p.pk  %}">
+                                                                                <form method="post" action = "{% url 'TupcSysApp:fb_cancel' p.pk  %}">
                                                                                     {%csrf_token%}
                                                                                     <div class="form-row">
                         
                                                                                         <div class="col-xl-12">
                                                                                             Reason for Denying
-                                                                                            <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reasonsb">
+                                                                                            <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reasonbf">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="modal-footer">
@@ -2038,6 +2052,7 @@
                                                                                 
                                                                         
                                                                                 </form>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </tr>
