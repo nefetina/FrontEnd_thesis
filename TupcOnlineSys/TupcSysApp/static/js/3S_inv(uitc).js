@@ -26,20 +26,31 @@ function closeNav() {
 function myFunctions() {
     
     var remarkss = document.getElementById("remarks");
-    for (i = 0; i < remarkss.length; i++) {
-        var x = remarkss[i].value;
-        
-        if (x == "Missing some parts"){
-            const z = document.getElementsByName("msp");
-        
-            for (let i = 0; i < x.length; i++) {
-                z[i].hidden = false;
-                
-            }
-            break
-        }
+    selectElement = document.querySelector('#remarks');
+    output = selectElement.options[selectElement.selectedIndex].value;
+    
 
+        
+        if (output == "Missing some parts"){
+            const z = document.getElementsByName("msp");
+            
+            
+            for (let i = 0; i < selectElement.length; i++) {
+                z[i].hidden = false;
+               
+            }
+            
         }
+        if (output != "Missing some parts"){
+            const z = document.getElementsByName("msp");
+            
+            
+            for (let i = 0; i < selectElement.length; i++) {
+                z[i].hidden = true;
+        }
+    }
+        
+        
         
   }
 
