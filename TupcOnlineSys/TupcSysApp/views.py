@@ -1298,11 +1298,13 @@ def Index(request):
 @login_required(login_url='/Index')
 def UitcHome(request):  # UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1330,11 +1332,13 @@ def UitcHome(request):  # UITC HOMEPAGE page
 def UitcID(request):  # UITC ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         dataf = faculty_ID.objects.filter(f_stat="On Process")
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1362,6 +1366,8 @@ def UitcID(request):  # UITC ID page
 @login_required(login_url='/Index')
 def UitcInternet(request):  # UITC INTERNET page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         datag = faculty_wifi.objects.filter(g_stat="On Process")
         datah = student_wifi.objects.filter(g_stats1="On Process")
         datai = student_internet.objects.filter(g_stats2="On Process")
@@ -1369,7 +1375,7 @@ def UitcInternet(request):  # UITC INTERNET page
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1395,6 +1401,8 @@ def UitcInternet(request):  # UITC INTERNET page
 @login_required(login_url='/Index')
 def UitcLabsched(request):  # UITC LABSCHED page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        data0 = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         datal = faculty_lab.objects.filter(l_stat="On Process")
         data = faculty_lab.objects.filter(l_stat="Approved")
         datas = Schedule_lab.objects.all()
@@ -1416,7 +1424,7 @@ def UitcLabsched(request):  # UITC LABSCHED page
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(data0.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1477,42 +1485,6 @@ def UitcReports(request):  # UITC REPORTS page
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
         return redirect('/')
-
-
-"""@login_required(login_url='/Index')
-def UitcReports_borrow(request):#UITC REPORTS page
-    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        data1 = faculty_borrow.objects.filter(fbstat = "On Process")
-        data2 = borrow_record.objects.filter(i_stats5 = "On Process")
-        return redirect (request, ('/UitcReports'), {'data1':data1, 'data2':data2 })
-    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-       return redirect('/FacultyHome')
-    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-       return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
-    else:
-        return redirect('/')"""
-
-'''@login_required(login_url='/Index')
-def UitcReports_borrow(request):#UITC REPORTS page
-    if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
-        if request.method == "POST":
-            if_name5 = request.POST.get('if_name5')
-            i_date5 = request.POST.get('i_date5')
-            i_time5 = request.POST.get('i_time5')
-            ir_borrow5 = request.POST.get('ir_borrow5')
-            irf_borrow5 = request.POST.get('irf_borrow5')
-            i_sig5 = request.POST.get('i_sig5')
-            i_stats5 = "On Process"
-            data = UITC_borrow_record.objects.create(if_name5 = if_name5, i_date5=i_date5, i_time5=i_time5,
-                                                     ir_borrow5=ir_borrow5, irf_borrow5=irf_borrow5, i_sig5=i_sig5, i_stats5=i_stats5)
-            data.save()
-        return redirect('/UitcReports')
-    elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
-       return redirect('/FacultyHome')
-    elif request.user.is_authenticated and request.user.Personal_description == "Student":
-       return render (request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
-    else:
-        return redirect('/')'''
 
 
 @login_required(login_url='/Index')
@@ -1590,11 +1562,13 @@ def UitcReports_maintenance(request):  # UITC REPORTS page
 @login_required(login_url='/Index')
 def UitcRec1(request):  # UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1620,6 +1594,8 @@ def UitcRec1(request):  # UITC HOMEPAGE page
 @login_required(login_url='/Index')
 def UitcRec2(request):  # UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data1 = faculty_wifi.objects.all()
         data2 = student_wifi.objects.all()
         data3 = student_internet.objects.all()
@@ -1627,7 +1603,7 @@ def UitcRec2(request):  # UITC HOMEPAGE page
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1653,11 +1629,13 @@ def UitcRec2(request):  # UITC HOMEPAGE page
 def UitcRec3(request):  # UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         data = faculty_lab.objects.all()
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data1 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1682,6 +1660,8 @@ def UitcRec3(request):  # UITC HOMEPAGE page
 @login_required(login_url='/Index')
 def UitcRec4(request):  # UITC HOMEPAGE page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data5 = Inventory.objects.values(
             'i_equip', 'i_model').annotate(Count('id'))
         data5a = Inventory.objects.values(
@@ -1737,7 +1717,7 @@ def UitcRec4(request):  # UITC HOMEPAGE page
               "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
               "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
               "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-              "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+              "faculty_repair": str(datas.count()),
               "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
               "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
               "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -1763,11 +1743,13 @@ def UitcRec4(request):  # UITC HOMEPAGE page
 def UitcPermission(request):  # UITC PERMISSION page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         lists = list.objects.all()
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data6 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
@@ -2277,11 +2259,13 @@ def UitcInventory(request):  # UITC ID page
                 messages.info(request, 'Successfully Added!')
                 forminventory.save()
                 return redirect('/UitcInventory')
+        datas = faculty_reports.objects.filter(
+            fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data6 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
                  "Faculty_Internet": str(faculty_wifi.objects.filter(g_stat="On Process").count()),
                  "Faculty_Laboratory": str(faculty_lab.objects.filter(l_stat="On Process").count()),
                  "Faculty_borrow": str(faculty_borrow.objects.filter(fbstat="On Process").count()),
-                 "faculty_repair": str(faculty_reports.objects.filter(fstat="On Process").count()),
+                 "faculty_repair": str(datas.count()),
                  "maintenance": str(maintain_record.objects.filter(i_stats="On Process").count()),
                  "Faculty_passreset": str(faculty_passreset.objects.filter(fwstat="On Process").count()),
                  "student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
