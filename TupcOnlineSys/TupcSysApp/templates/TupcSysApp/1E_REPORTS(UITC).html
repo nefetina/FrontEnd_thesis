@@ -1722,7 +1722,7 @@
                                                                         
                                                                             
                                                                             <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
-                                                                            data-toggle="modal" data-target="#modalReturn{{ p1.id }}" hidden  >
+                                                                            data-toggle="modal" data-target="#modalReturn{{ p1.id }}" onclick="returned1()" hidden  >
                                                                             Return<i></i></a>
 
                                                                             <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
@@ -1783,17 +1783,17 @@
                                 
                                                                                                     <div class="col-xl-12">
                                                                                                         
-                                                                                                        <select id="inputState" class="form-control my-2 p-2" name = "remarks" required>
+                                                                                                        <select class="form-control my-2 p-2" name = "remarks" id="remarks" onclick="mspp()"  required>
                                                                                                             <option selected disabled value="">Remarks:</option>
                                                                                                                 <option value="Good Condition">Good Condition</option>
                                                                                                                 <option value="Broken">Broken</option>
                                                                                                                 <option value="Replaced">Replaced</option>
-                                                                                                                <option value="Missing some parts">Missing some parts</option>
+                                                                                                                <option value="Missing some parts" onclick="other">Missing some parts</option>
                                                                                                                 <option value="Not working">Not working</option>
-                                                                                                          
+                                                                                                                
+                                                                                                            
                                                                                                         </select>
-                                                                                                        
-                                                                                                        
+                                                                                                        <input id="msp" name="msp" type="text" hidden></input>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 
@@ -1902,7 +1902,7 @@
                                                                         
                                                                             
                                                                             <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
-                                                                            data-toggle="modal" data-target="#modalReturn1{{ p.id }}" hidden  >
+                                                                            data-toggle="modal" data-target="#modalReturn1{{ p.id }}" onclick="returned1()" hidden  >
                                                                             Return<i></i></a>
 
                                                                             <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
@@ -1962,17 +1962,17 @@
                                 
                                                                                                     <div class="col-xl-12">
                                                                                                         
-                                                                                                        <select id="inputState" class="form-control my-2 p-2" name = "remarks" required>
+                                                                                                        <select class="form-control my-2 p-2" name = "remarks" id="remarks" onclick="mspp()"  required>
                                                                                                             <option selected disabled value="">Remarks:</option>
                                                                                                                 <option value="Good Condition">Good Condition</option>
                                                                                                                 <option value="Broken">Broken</option>
                                                                                                                 <option value="Replaced">Replaced</option>
-                                                                                                                <option value="Missing some parts">Missing some parts</option>
+                                                                                                                <option value="Missing some parts" onclick="other">Missing some parts</option>
                                                                                                                 <option value="Not working">Not working</option>
-                                                                                                          
+                                                                                                                
+                                                                                                            
                                                                                                         </select>
-                                                                                                        
-                                                                                                        
+                                                                                                        <input id="msp" name="msp" type="text" hidden></input>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 
@@ -1981,7 +1981,6 @@
 
 
                                                                                             </form>
-                                                                                            
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>

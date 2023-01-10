@@ -80,7 +80,46 @@ window.onload = function() {
   y2.hidden = true;
   v2.hidden = true;
 
+function mspp() {
 
+for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
+    selectElement = document.getElementsByName('remarks')[i];
+    output = selectElement.options[selectElement.selectedIndex].value;
+    
+
+        
+        if (output == "Missing some parts"){
+            const z = document.getElementsByName("msp");
+            
+            
+            for (let i = 0; i < selectElement.length; i++) {
+                z[i].hidden = false;
+            
+            }
+            
+        }
+        if (output != "Missing some parts"){
+            const z = document.getElementsByName("msp");
+            
+            
+            for (let i = 0; i < selectElement.length; i++) {
+                z[i].hidden = true;
+        }
+    }
+    
+    
+}
+}
+
+function returned1() {
+    for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
+        selectElement = document.getElementsByName('remarks')[i];
+        for (let i = 0; i < selectElement.length; i++) {
+            const z = document.getElementsByName("msp");
+            z[i].hidden = true;
+        }
+    }
+}
 
 function openNav() {
 
