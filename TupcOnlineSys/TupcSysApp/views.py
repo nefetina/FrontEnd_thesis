@@ -303,7 +303,7 @@ def maintain_permit(request, id):
         for z in y:
             name = z['ie_user']
 
-        adm = datetime.now()
+        adm = datetime.now('%Y/%m/%d')
         faculty_reports.objects.filter(id=id).update(adm=adm)
         message = ("Good day! " + name + ",\nYou approved " + name + "\nrequest for repair and maintence at the date and time of " +
                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nOther details will be provided by " + name + ",\nand it will be recorded, Thankyou! ")
@@ -1042,12 +1042,14 @@ def spasswordreset_permit(request, id):
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         request.POST.get('request.user.gsfe')
         request.POST.get('request.user.name')
-        y = PassReset.objects.get.objects.filter(id=id).only("psname").values()
+
+        y = PassReset.objects.filter(id=id).only("psname").values()
         for z in y:
             name = z['psname']
 
         adm = datetime.now()
-        PassReset.objects.filter(id=id).update(adm=adm)
+        adm1 = adm.strftime("%Y-%m-%dT%H:%M")
+        PassReset.objects.filter(id=id).update(adm=adm1)
         message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Password Reset at the date and time of " +
                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
@@ -2317,7 +2319,6 @@ def inventory_notify(request, id):
     mes = request.POST.get("message")
     print(mes)
 
-
     f = faculty_borrow.objects.filter(
         id=id, fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").values()
     for f1 in f:
@@ -2325,7 +2326,7 @@ def inventory_notify(request, id):
         emails = f1['email4']
 
         message = ("Good day " + name + ", \n" +
-                    mes + "\n UITC admin")
+                   mes + "\n UITC admin")
         email = EmailMessage(
             name,
             message,
@@ -2336,9 +2337,9 @@ def inventory_notify(request, id):
 
         email.send()
 
-
     messages.info(request, "Completed")
     return redirect('/UitcReports')
+
 
 def inventory_notifys(request, id):
 
@@ -2355,7 +2356,7 @@ def inventory_notifys(request, id):
         name = s1['if_name5']
         emails = s1['email5']
         message = ("Good day " + name + ", \n" +
-                    mes + "\n UITC admin")
+                   mes + "\n UITC admin")
         email = EmailMessage(
             name,
             message,
@@ -2368,6 +2369,7 @@ def inventory_notifys(request, id):
 
     messages.info(request, "Completed")
     return redirect('/UitcReports')
+
 
 def UitcInventory_borrowed(request, id):
     a = Inventory.objects.get(id=id)

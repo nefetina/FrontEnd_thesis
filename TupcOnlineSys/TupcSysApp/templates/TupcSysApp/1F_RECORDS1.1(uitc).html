@@ -342,7 +342,7 @@
                           <tbody>
                             <tr>
                               {% for p in data %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d, h:i:sa"}}</td>
                               <td>
                                 <a href="{{p.f_pic}}" download>
                                   <img

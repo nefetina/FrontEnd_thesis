@@ -280,7 +280,7 @@
                         id="myInputemp"
                         onkeyup="myFunctionemp()"
                         class="form-control my-2 p-2"
-                        placeholder="Search for names.."
+                        placeholder="Search.."
                         title="Type in a name"
                       />
                     </div>
@@ -336,7 +336,7 @@
                           <tbody>
                             <tr>
                               {% for p in data1 %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d, h:i:sa"}}</td>
                               <td>{{p.gf_name}}</td>
                               <td>{{p.g_dept}}</td>
                               <td>{{p.g_des}}</td>
@@ -428,14 +428,10 @@
                           }
                         }
                         // convert table to excel
-                        const date = new Date();
-                        const year = date.getFullYear();
-                        const month = date.getMonth() + 1;
-                        const day = date.getDate();
-                        var d = month + "/" + day + "/" + year;
+
                         function exportTableToExcel(
                           myTableemp,
-                          filename = "EMPLOYEE WIFI RECORD" + d
+                          filename = "EMPLOYEE WIFI RECORD"
                         ) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
@@ -481,7 +477,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableemp')"
+                        onclick="exportTableToExcel('myTableemp', 'Employee Wifi Reques Records')"
                         title="Download"
                       >
                         <i
@@ -503,7 +499,7 @@
                         id="myInputswr"
                         onkeyup="myFunctionswr()"
                         class="form-control my-2 p-2"
-                        placeholder="Search for names.."
+                        placeholder="Search.."
                         title="Type in a name"
                       />
                     </div>
@@ -568,7 +564,7 @@
                           <tbody>
                             <tr>
                               {% for g in data2 %}
-                              <td>{{g.adm}}</td>
+                              <td>{{g.adm |date:"Y M d, h:i:sa"}}</td>
                               <td>{{g.gf_name1}}</td>
                               <td>{{g.g_csec1}}</td>
                               <td>{{g.g_snum1}}</td>
@@ -682,15 +678,7 @@
                             }
                           }
                           // convert table to excel
-                          const date = new Date();
-                          const year = date.getFullYear();
-                          const month = date.getMonth() + 1;
-                          const day = date.getDate();
-                          var d = month + "/" + day + "/" + year;
-                          function exportTableToExcel(
-                            myTableswr,
-                            filename = "STUDENT WIFI RECORDS" + d
-                          ) {
+                          function exportTableToExcel(myTableswr) {
                             var downloadLink;
                             var dataType = "application/vnd.ms-excel";
                             var tableSelect =
@@ -743,7 +731,7 @@
                             td3 = tr[i].getElementsByTagName("td")[3];
                             td4 = tr[i].getElementsByTagName("td")[4];
                             td5 = tr[i].getElementsByTagName("td")[13];
-                            
+
                             if ((td, td1, td2, td3, td4, td5)) {
                               txtValue = td.textContent || td.innerText;
                               txtValue1 = td1.textContent || td1.innerText;
@@ -751,7 +739,7 @@
                               txtValue3 = td3.textContent || td3.innerText;
                               txtValue4 = td4.textContent || td4.innerText;
                               txtValue5 = td5.textContent || td5.innerText;
-                              
+
                               if (txtValue.toUpperCase().indexOf(filter) > -1) {
                                 tr[i].style.display = "";
                               } else if (
@@ -789,7 +777,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableswr')"
+                        onclick="exportTableToExcel('myTableswr', 'Student Wifi Request Records')"
                         title="Download"
                       >
                         <i
@@ -812,7 +800,7 @@
                         id="myInputiar"
                         onkeyup="myFunctioniar()"
                         class="form-control my-2 p-2"
-                        placeholder="Search for names.."
+                        placeholder="Search.."
                         title="Type in a name"
                       />
                     </div>
@@ -871,7 +859,7 @@
                           <tbody>
                             <tr>
                               {% for q in data3 %}
-                              <td>{{q.adm}}</td>
+                              <td>{{q.adm |date:"Y M d, h:i:sa"}}</td>
                               <td>{{q.gf_name2}}</td>
                               <td>{{q.g_csec2}}</td>
                               <td>{{q.g_snum2}}</td>
@@ -984,14 +972,10 @@
                             }
                           }
                           // convert table to excel
-                          const date = new Date();
-                          const year = date.getFullYear();
-                          const month = date.getMonth() + 1;
-                          const day = date.getDate();
                           var d = month + "/" + day + "/" + year;
                           function exportTableToExcel(
                             myTableiar,
-                            filename = "STUDENT INTERNET ACCESS" + d
+                            filename = "STUDENT INTERNET ACCESS"
                           ) {
                             var downloadLink;
                             var dataType = "application/vnd.ms-excel";
@@ -1040,46 +1024,48 @@
                             tr = table.getElementsByTagName("tr");
                             for (i = 0; i < tr.length; i++) {
                               td = tr[i].getElementsByTagName("td")[0];
-                            td1 = tr[i].getElementsByTagName("td")[1];
-                            td2 = tr[i].getElementsByTagName("td")[2];
-                            td3 = tr[i].getElementsByTagName("td")[3];
-                            td4 = tr[i].getElementsByTagName("td")[4];
-                            td5 = tr[i].getElementsByTagName("td")[12];
-                            
-                            if ((td, td1, td2, td3, td4, td5)) {
-                              txtValue = td.textContent || td.innerText;
-                              txtValue1 = td1.textContent || td1.innerText;
-                              txtValue2 = td2.textContent || td2.innerText;
-                              txtValue3 = td3.textContent || td3.innerText;
-                              txtValue4 = td4.textContent || td4.innerText;
-                              txtValue5 = td5.textContent || td5.innerText;
-                              
-                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                tr[i].style.display = "";
-                              } else if (
-                                txtValue1.toUpperCase().indexOf(filter) > -1
-                              ) {
-                                tr[i].style.display = "";
-                              } else if (
-                                txtValue2.toUpperCase().indexOf(filter) > -1
-                              ) {
-                                tr[i].style.display = "";
-                              } else if (
-                                txtValue3.toUpperCase().indexOf(filter) > -1
-                              ) {
-                                tr[i].style.display = "";
-                              } else if (
-                                txtValue4.toUpperCase().indexOf(filter) > -1
-                              ) {
-                                tr[i].style.display = "";
-                              } else if (
-                                txtValue5.toUpperCase().indexOf(filter) > -1
-                              ) {
-                                tr[i].style.display = "";
-                              } else {
-                                tr[i].style.display = "none";
+                              td1 = tr[i].getElementsByTagName("td")[1];
+                              td2 = tr[i].getElementsByTagName("td")[2];
+                              td3 = tr[i].getElementsByTagName("td")[3];
+                              td4 = tr[i].getElementsByTagName("td")[4];
+                              td5 = tr[i].getElementsByTagName("td")[12];
+
+                              if ((td, td1, td2, td3, td4, td5)) {
+                                txtValue = td.textContent || td.innerText;
+                                txtValue1 = td1.textContent || td1.innerText;
+                                txtValue2 = td2.textContent || td2.innerText;
+                                txtValue3 = td3.textContent || td3.innerText;
+                                txtValue4 = td4.textContent || td4.innerText;
+                                txtValue5 = td5.textContent || td5.innerText;
+
+                                if (
+                                  txtValue.toUpperCase().indexOf(filter) > -1
+                                ) {
+                                  tr[i].style.display = "";
+                                } else if (
+                                  txtValue1.toUpperCase().indexOf(filter) > -1
+                                ) {
+                                  tr[i].style.display = "";
+                                } else if (
+                                  txtValue2.toUpperCase().indexOf(filter) > -1
+                                ) {
+                                  tr[i].style.display = "";
+                                } else if (
+                                  txtValue3.toUpperCase().indexOf(filter) > -1
+                                ) {
+                                  tr[i].style.display = "";
+                                } else if (
+                                  txtValue4.toUpperCase().indexOf(filter) > -1
+                                ) {
+                                  tr[i].style.display = "";
+                                } else if (
+                                  txtValue5.toUpperCase().indexOf(filter) > -1
+                                ) {
+                                  tr[i].style.display = "";
+                                } else {
+                                  tr[i].style.display = "none";
+                                }
                               }
-                            }
                             }
                           }
                         </script>
@@ -1092,7 +1078,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableiar')"
+                        onclick="exportTableToExcel('myTableiar', 'Student Internet Request Records')"
                         title="Download"
                       >
                         <i

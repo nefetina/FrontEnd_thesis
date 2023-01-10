@@ -273,7 +273,7 @@
                         id="myInput"
                         onkeyup="myFunction()"
                         class="form-control my-2 p-2"
-                        placeholder="Search for names.."
+                        placeholder="Search.."
                         title="Type in a name"
                       />
                     </div>
@@ -327,7 +327,7 @@
                           <tbody>
                             <tr>
                               {% for p in data %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d, h:i:sa"}}</td>
                               <td>{{p.f_name}}</td>
                               <td>{{p.dep}}</td>
                               <td>{{p.l_date}}</td>

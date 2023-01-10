@@ -140,11 +140,21 @@
                                         <div class="descriptions col-12 m-2">
                                             Equipments Information
                                         </form>
+                                        
                                         </div>
 
         
                                         <!--TABLE-------------------------------------------------------------------------------------------->
-        
+                                        <div class="col-xl-9 col-lg-8 col-12">
+                                            <input
+                                              type="text"
+                                              id="myInputinv"
+                                              onkeyup="myFunctioninv()"
+                                              class="form-control my-2 p-2"
+                                              placeholder="Search for Status or Date.."
+                                              title="Type in a name"
+                                            />
+                                          </div>
                                         <div class="table-responsive col-xl-12" id="inventory">
                                             <table class="table" id ="mytable1">
                                                 <thead class="thead" id="myTableI">
@@ -165,7 +175,7 @@
                                                     <td>{{i.i_model}}</td>
                                                     <td>{{i.i_serial}}</td>
                                                     <td>{{i.i_equip}}</td>
-                                                    <td>{{i.i_date}}</td>
+                                                    <td>{{i.i_date |date:"Y M d"}}</td>
                                                     <td>{{i.i_stats}}</td>
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
@@ -224,84 +234,31 @@
                                                 {% endfor %}
                                                 </tbody>
                                             </table>
-                                            <table id = "mytableitr" hidden>
-                                                <thead class="thead" >
-                                                    <tr>
-                                                        <th scope="col-xl-2 ">Model</th>
-                                                        <th scope="col-xl-6 ">Serial Number</th>
-                                                        <th scope="col-xl-6 ">Equipment</th>
-                                                        <th scope="col-xl-4 ">Date Received</th>
-                                                        <th scope="col-xl-4 ">Status</th>
-                                                        
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {% for i in inventory %}
-                                                    
-                                                    <tr>
-                                                        <td>{{i.i_model}}</td>
-                                                        <td>{{i.i_serial}}</td>
-                                                        <td>{{i.i_equip}}</td>
-                                                        <td>{{i.i_date}}</td>
-                                                        <td>{{i.i_stats}}</td>
-                                                        {% endfor %}
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+
                                         </div> 
                                     </form>
-                                    <div>Download Records</div>
-                                    <div
-                                      class="col-xl-12 d-flex justify-content-center align-items-center"
-                                    >
-                                      <button
-                                        type="button"
-                                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                                        onclick="exportTableToExcel('mytableitr', 'Inventory')"
-                                        title="Download"
-                                      >
-                                        <i
-                                          class="fa fa-arrow-circle-down"
-                                          aria-hidden="true"
-                                        ></i>
-                                      </button>
-                                    </div>
                                     <script>
-                                        // convert table to excel
-                                        function exportTableToExcel(mytableitr, filename = "") {
-                                            var downloadLink;
-                                            var dataType = "application/vnd.ms-excel";
-                                            var tableSelect = document.getElementById(mytableitr);
-                                            var tableHTML = tableSelect.outerHTML.replace(
-                                            / /g,
-                                            "%20"
-                                            );
-                
-                                            // Specify file name
-                                            filename = filename
-                                            ? filename + ".xls"
-                                            : "excel_data.xls";
-                
-                                            // Create download link element
-                                            downloadLink = document.createElement("a");
-                
-                                            document.body.appendChild(downloadLink);
-                
-                                            if (navigator.msSaveOrOpenBlob) {
-                                            var blob = new Blob(["\ufeff", tableHTML], {
-                                                type: dataType,
-                                            });
-                                            navigator.msSaveOrOpenBlob(blob, filename);
-                                            } else {
-                                            // Create a link to the file
-                                            downloadLink.href =
-                                                "data:" + dataType + ", " + tableHTML;
-                
-                                            // Setting the file name
-                                            downloadLink.download = filename;
-                
-                                            //triggering the function
-                                            downloadLink.click();
+                                        function myFunctioninv() {
+                                            var input, filter, table, tr, td, i, txtValue;
+                                            input = document.getElementById("myInputinv");
+                                            filter = input.value.toUpperCase();
+                                            table = document.getElementById("mytable1");
+                                            tr = table.getElementsByTagName("tr");
+                                            for (i = 0; i < tr.length; i++) {
+                                            td = tr[i].getElementsByTagName("td")[3];
+                                            td1 = tr[i].getElementsByTagName("td")[4];
+                                            if (td) {
+                                                txtValue = td.textContent || td.innerText;
+                                                txtValue1 = td1.textContent || td1.innerText;
+                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                tr[i].style.display = "";
+                                                } else if (txtValue1.toUpperCase().indexOf(filter) > -1) {
+                                                tr[i].style.display = "";
+                                                }  
+                                                else {
+                                                tr[i].style.display = "none";
+                                                }
+                                            }
                                             }
                                         }
                                     </script>

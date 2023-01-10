@@ -340,7 +340,7 @@
                                   <td>{{i.i_model}}</td>
                                   <td>{{i.i_serial}}</td>
                                   <td>{{i.i_equip}}</td>
-                                  <td>{{i.i_date}}</td>
+                                  <td>{{i.i_date |date:"Y M d"}}</td>
                                   <td>{{i.i_stats}}</td>
                                   {% endfor %}
                               </tr>
@@ -356,7 +356,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableitr')"
+                        onclick="exportTableToExcel('myTableinv', 'INVENTORY RECORDS')"
                         title="Download"
                       >
                         <i
@@ -390,14 +390,9 @@
                         }
                       }
                       // convert table to excel
-                      const date = new Date();
-                      const year = date.getFullYear();
-                      const month = date.getMonth() + 1;
-                      const day = date.getDate();
-                      var d = month + "/" + day + "/" + year;
+            
                       function exportTableToExcel(
-                        myTableinv,
-                        filename = "INVENTORY" + d
+                        myTableinv
                       ) {
                         var downloadLink;
                         var dataType = "application/vnd.ms-excel";
@@ -449,7 +444,7 @@
                         id="myInputram"
                         onkeyup="myFunctionram()"
                         class="form-control my-2 p-2"
-                        placeholder="Search for names.."
+                        placeholder="Search for names and date.."
                         title="Type in a name"
                       />
                     </div>
@@ -534,7 +529,7 @@
                           <tbody>
                             <tr>
                               {% for p in data7 %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d, h:i:sa"}}</td>
                               <td>{{p.ftype}}</td>
                               <td>{{p.fbrand}}</td>
                               <td>{{p.fserial}}</td>
@@ -610,88 +605,90 @@
                           </tbody>
                         </table>
                       </div>
-                      <script>
-                        function myFunctionram() {
-                          var input, filter, table, tr, td, i, txtValue;
-                          input = document.getElementById("myInputram");
-                          filter = input.value.toUpperCase();
-                          table = document.getElementById("myTableram");
-                          tr = table.getElementsByTagName("tr");
-                          for (i = 0; i < tr.length; i++) {
-                            td = tr[i].getElementsByTagName("td")[6];
-                            if (td) {
-                              txtValue = td.textContent || td.innerText;
-                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                tr[i].style.display = "";
-                              } else {
-                                tr[i].style.display = "none";
-                              }
-                            }
-                          }
-                        }
-                        // convert table to excel
-                        const date = new Date();
-                        const year = date.getFullYear();
-                        const month = date.getMonth() + 1;
-                        const day = date.getDate();
-                        var d = month + "/" + day + "/" + year;
-                        function exportTableToExcel(
-                          myTableram,
-                          filename = "REPAIR AND MAINTENANCE" + d
-                        ) {
-                          var downloadLink;
-                          var dataType = "application/vnd.ms-excel";
-                          var tableSelect = document.getElementById(myTableram);
-                          var tableHTML = tableSelect.outerHTML.replace(
-                            / /g,
-                            "%80"
-                          );
-
-                          // Specify file name
-                          filename = filename
-                            ? filename + ".xls"
-                            : "excel_data.xls";
-
-                          // Create download link element
-                          downloadLink = document.createElement("a");
-
-                          document.body.appendChild(downloadLink);
-
-                          if (navigator.msSaveOrOpenBlob) {
-                            var blob = new Blob(["\ufeff", tableHTML], {
-                              type: dataType,
-                            });
-                            navigator.msSaveOrOpenBlob(blob, filename);
-                          } else {
-                            // Create a link to the file
-                            downloadLink.href =
-                              "data:" + dataType + ", " + tableHTML;
-
-                            // Setting the file name
-                            downloadLink.download = filename;
-
-                            //triggering the function
-                            downloadLink.click();
-                          }
-                        }
-                      </script>
                     </form>
                     <div>Download Records</div>
                     <div
                       class="col-xl-12 d-flex justify-content-center align-items-center"
                     >
-                      <button
-                        type="button"
-                        class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableram')"
-                        title="Download"
-                      >
-                        <i
-                          class="fa fa-arrow-circle-down"
-                          aria-hidden="true"
-                        ></i>
-                      </button>
+                    <button
+                    type="button"
+                    class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                    onclick="exportTableToExcel('myTableram','REPAIR AND MAINTENANCE RECORD')"
+                    title="Download"
+                  >
+                    <i
+                      class="fa fa-arrow-circle-down"
+                      aria-hidden="true"
+                    ></i>
+                  </button>
                     </div>
+                    <script>
+                      function myFunctionram() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById("myInputram");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("myTableram");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                          td = tr[i].getElementsByTagName("td")[0];
+                          td1 = tr[i].getElementsByTagName("td")[6];
+                          if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            txtValue1 = td1.textContent || td1.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                              tr[i].style.display = "";
+                            } else if (txtValue1.toUpperCase().indexOf(filter) > -1) {
+                              tr[i].style.display = "";
+                            }  
+                            else {
+                              tr[i].style.display = "none";
+                            }
+                          }
+                        }
+                      }
+                      // convert table to excel
+
+                      function exportTableToExcel(
+                        myTableram,
+                        filename = "REQUEST FOR REPAIR AND MAINTENANCE"
+                      ) {
+                        var downloadLink;
+                        var dataType = "application/vnd.ms-excel";
+                        var tableSelect = document.getElementById('myTableram');
+                        var tableHTML = tableSelect.outerHTML.replace(
+                          / /g,
+                          "%20"
+                        );
+
+                        // Specify file name
+                        filename = filename
+                          ? filename + ".xls"
+                          : "excel_data.xls";
+
+                        // Create download link element
+                        downloadLink = document.createElement("a");
+
+                        document.body.appendChild(downloadLink);
+
+                        if (navigator.msSaveOrOpenBlob) {
+                          var blob = new Blob(["\ufeff", tableHTML], {
+                            type: dataType,
+                          });
+                          navigator.msSaveOrOpenBlob(blob, filename);
+                        } else {
+                          // Create a link to the file
+                          downloadLink.href =
+                            "data:" + dataType + ", " + tableHTML;
+
+                          // Setting the file name
+                          downloadLink.download = filename;
+
+                          //triggering the function
+                          downloadLink.click();
+                        }
+                      }
+                    </script>
+
                   </div>
                 </div>
               </div>
@@ -761,7 +758,7 @@
                           <tbody>
                             <tr>
                               {% for p in data3 %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d"}}</td>
                               <td>{{p.fwname}}</td>
                               <td>{{p.fwempID}}</td>
                               <td>{{p.fwemail}}</td>
@@ -802,14 +799,10 @@
                           }
                         }
                         // convert table to excel
-                        const date = new Date();
-                        const year = date.getFullYear();
-                        const month = date.getMonth() + 1;
-                        const day = date.getDate();
-                        var d = month + "/" + day + "/" + year;
+
                         function exportTableToExcel(
                           myTableprr,
-                          filename = "PASSWORD RESET" + d
+                          filename = "PASSWORD RESET"
                         ) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
@@ -855,7 +848,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableprr')"
+                        onclick="exportTableToExcel('myTableprr', 'PASSWORD RESET RECORDS')"
                         title="Download"
                       >
                         <i
@@ -1240,10 +1233,11 @@
                         const year = date.getFullYear();
                         const month = date.getMonth() + 1;
                         const day = date.getDate();
-                        var d = month + "/" + day + "/" + year;
+                        var d = "BORROW" + month + "/" + day + "/" + year;
+
                         function exportTableToExcel(
                           myTablebr,
-                          filename = "BORROW" + d
+                          filename = d
                         ) {
                           var downloadLink;
                           var dataType = "application/vnd.ms-excel";
@@ -1289,7 +1283,7 @@
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTablebr')"
+                        onclick="exportTableToExcel('myTablebr', 'BORROW RECORD')"
                         title="Download"
                       >
                         <i

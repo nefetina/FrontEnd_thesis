@@ -32,7 +32,9 @@ window.onload = function() {
     else if (span_Text3 > 0){
         document.getElementById("report_notif").hidden = false;
     }
+
   };
+
 function openNav() {
 
     var y = document.getElementById("mySidebar");
