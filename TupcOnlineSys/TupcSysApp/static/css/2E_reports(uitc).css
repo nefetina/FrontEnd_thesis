@@ -244,7 +244,7 @@ input{
     border: 2px solid BLUE !important; 
     background-color: #ffffff;
     transition: .2s ease-in-out;
-    color: blue;
+    color: blue !important;
     font-weight: bold;
 }
 #btn3{

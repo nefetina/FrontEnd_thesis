@@ -96,8 +96,8 @@
                         <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-lg fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="badge" id = "id_notif" name = "id_notifs" hidden>{{data1.Faculty_ID}}</span></a>
                         <a href="{% url 'TupcSysApp:UitcInternet'%}" id="active"><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="badge" id = "net_notif" name = "net_notifs" hidden>{{data2}}</span></a>
                         <a href="{% url 'TupcSysApp:UitcLabsched'%}"><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="badge" id = "sched_notif" name = "sched_notifs" hidden>{{data1.Faculty_Laboratory}}</span></a>
-                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data3}}</span></a>
-                        <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-lg fa-clipboard" aria-hidden="true"><br><h6 id="icons">RECORDS</h6></i></a>
+                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">INVOKE</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data3}}</span></a>
+                        <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-lg fa-clipboard" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcPermission'%}"><i class="fa fa-lg fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-lg fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
                         <a href="" data-toggle="modal" data-target="#logout" id="lo" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-lg fa-arrow-circle-left"" aria-hidden="true"><br></i></a>
@@ -243,7 +243,8 @@
                                                                       <div class="form-row">
                                                                           <div class="col-xl-12">
                                                                               Reason for Denying
-                                                                              <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reason1">
+                                                                              <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reason1"
+                                                                              autocomplete="off" required>
                                                                           </div>
                                                                       </div>
                                                                       </div>
@@ -432,7 +433,8 @@
       
                                                                       <div class="col-xl-12">
                                                                           Reason for Denying
-                                                                          <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reason2">
+                                                                          <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name = "reason2" 
+                                                                          autocomplete="off" required>
                                                                       </div>
                                                                   </div>
                                                                 <div class="modal-footer">
@@ -585,7 +587,7 @@
                                                                 
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" class="btn btn-primary">OK</button>
+                                                              <button type="button" class="btn btn-primary " data-dismiss="modal">OK</button>
                                                             </div>
                                                           </div>
                                                         </div>
@@ -618,7 +620,7 @@
                                                                   <div class="form-row">
                                                                       <div class="col-xl-12">
                                                                           Reason for Denying
-                                                                          <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name="reason3">
+                                                                          <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder="Reason of denying" name="reason3" autocomplete="off" required>
                                                                       </div>
                                                                   </div>
                                                                   <div class="modal-footer">

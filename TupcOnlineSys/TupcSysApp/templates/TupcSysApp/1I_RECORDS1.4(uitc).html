@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!----TAB NAME------------------------------------------------>
-    <title>UITC RECORDS</title>
+    <title>UITC REPORTS</title>
     <!----TAB ICON------------------------------------------------>
     <link rel="icon" href="{% static 'images/TUP_LOGO.png'%}" />
     <!----CSS AND JS------------------------------------------------>
@@ -106,7 +106,7 @@
         >&#9776;
       </span>
       <div id="titulo">
-        <a class="navbar-brand" id="title" href="#">RECORDS</a>
+        <a class="navbar-brand" id="title" href="#">REPORTS</a>
       </div>
       <img
         src="{% static 'images/TUP_LOGO.png'%}"
@@ -149,7 +149,7 @@
           </li>
           <li class="nav-item" id="actibo">
             <a class="nav-link" href="{% url 'TupcSysApp:UitcRec4'%}"
-              >REPORTS</a
+              >INVOKE</a
             >
           </li>
         </ul>
@@ -226,7 +226,7 @@
               <a href="{% url 'TupcSysApp:UitcReports'%}"
                 ><i class="fa fa-lg fa-file-text" aria-hidden="true"
                   ><br />
-                  <h6 id="icons">REPORTS</h6></i
+                  <h6 id="icons">INVOKE</h6></i
                 >
                 <span
                   class="badge"
@@ -239,7 +239,7 @@
               <a href="{% url 'TupcSysApp:UitcRec1'%}" id="active"
                 ><i class="fa fa-lg fa-clipboard" aria-hidden="true"
                   ><br />
-                  <h6 id="icons">RECORDS</h6></i
+                  <h6 id="icons">REPORTS</h6></i
                 ></a
               >
               <a href="{% url 'TupcSysApp:UitcPermission'%}"
@@ -349,14 +349,14 @@
                         </table>
                       </div>
                     </form>
-                    <div>Download Records</div>
+                    <div>Download Reports</div>
                     <div
                       class="col-xl-12 d-flex justify-content-center align-items-center"
                     >
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableinv', 'INVENTORY RECORDS')"
+                        onclick="exportTableToExcel('myTableinv', 'Inventory Reports')"
                         title="Download"
                       >
                         <i
@@ -606,14 +606,14 @@
                         </table>
                       </div>
                     </form>
-                    <div>Download Records</div>
+                    <div>Download Reports</div>
                     <div
                       class="col-xl-12 d-flex justify-content-center align-items-center"
                     >
                     <button
                     type="button"
                     class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                    onclick="exportTableToExcel('myTableram','REPAIR AND MAINTENANCE RECORD')"
+                    onclick="exportTableToExcel('myTableram','Repair and Maintenance Reports')"
                     title="Download"
                   >
                     <i
@@ -841,14 +841,14 @@
                         }
                       </script>
                     </form>
-                    <div>Download Records</div>
+                    <div>Download Reports</div>
                     <div
                       class="col-xl-12 d-flex justify-content-center align-items-center"
                     >
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTableprr', 'PASSWORD RESET RECORDS')"
+                        onclick="exportTableToExcel('myTableprr', 'Password Reset Reports')"
                         title="Download"
                       >
                         <i
@@ -1276,14 +1276,14 @@
                         }
                       </script>
                     </form>
-                    <div>Download Records</div>
+                    <div>Download Reports</div>
                     <div
                       class="col-xl-12 d-flex justify-content-center align-items-center"
                     >
                       <button
                         type="button"
                         class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
-                        onclick="exportTableToExcel('myTablebr', 'BORROW RECORD')"
+                        onclick="exportTableToExcel('myTablebr', 'Borrow Reports')"
                         title="Download"
                       >
                         <i
