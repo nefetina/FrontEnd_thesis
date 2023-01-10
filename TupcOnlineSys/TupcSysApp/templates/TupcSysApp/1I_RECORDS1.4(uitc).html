@@ -873,8 +873,8 @@
                     <div class="col-xl-9 col-lg-8 col-12">
                       <input
                         type="text"
-                        id="myInput"
-                        onkeyup="myFunction()"
+                        id="myInputmr"
+                        onkeyup="myFunctionmr()"
                         class="form-control my-2 p-2"
                         placeholder="Search for names.."
                         title="Type in a name"
@@ -914,7 +914,7 @@
                     <form>
                       <div class="formtitle">MAINTENANCE RECORD</div>
                       <div class="table-responsive-xl col-xl-12" id="idtable3">
-                        <table class="table">
+                        <table class="table" id = "mytablemr">
                           <thead class="thead">
                             <tr>
                               <th scope="col">TRANSACTION DATE & TIME</th>
@@ -1056,6 +1056,89 @@
                             {% endfor %}
                           </tbody>
                         </table>
+                      </div>
+                      <script>
+                        function myFunctionmr() {
+                          var input, filter, table, tr, td, i, txtValue;
+                          input = document.getElementById("myInputmr");
+                          filter = input.value.toUpperCase();
+                          table = document.getElementById("mytablemr");
+                          tr = table.getElementsByTagName("tr");
+                          for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            td1 = tr[i].getElementsByTagName("td")[48];
+                            if (td) {
+                              txtValue = td.textContent || td.innerText;
+                              txtValue1 = td1.textContent || td1.innerText;
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else if (txtValue1.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              }  
+                              else {
+                                tr[i].style.display = "none";
+                              }
+                            }
+                          }
+                        }
+                        // convert table to excel
+  
+                        function exportTableToExcel(
+                          mytablemr,
+                          filename = "REQUEST MAINTENANCE"
+                        ) {
+                          var downloadLink;
+                          var dataType = "application/vnd.ms-excel";
+                          var tableSelect = document.getElementById('mytablemr');
+                          var tableHTML = tableSelect.outerHTML.replace(
+                            / /g,
+                            "%20"
+                          );
+  
+                          // Specify file name
+                          filename = filename
+                            ? filename + ".xls"
+                            : "excel_data.xls";
+  
+                          // Create download link element
+                          downloadLink = document.createElement("a");
+  
+                          document.body.appendChild(downloadLink);
+  
+                          if (navigator.msSaveOrOpenBlob) {
+                            var blob = new Blob(["\ufeff", tableHTML], {
+                              type: dataType,
+                            });
+                            navigator.msSaveOrOpenBlob(blob, filename);
+                          } else {
+                            // Create a link to the file
+                            downloadLink.href =
+                              "data:" + dataType + ", " + tableHTML;
+  
+                            // Setting the file name
+                            downloadLink.download = filename;
+  
+                            //triggering the function
+                            downloadLink.click();
+                          }
+                        }
+                      </script>
+                      <div>Download Reports</div>
+                      <div
+                        class="col-xl-12 d-flex justify-content-center align-items-center"
+                      >
+                        <button
+                          type="button"
+                          class="btn btn-success my-lg-1 my-md-2 my-sm-2 my-1 px-5"
+                          onclick="exportTableToExcel('mytablemr', 'Maintenance Reports')"
+                          title="Download"
+                          id="btn3"
+                        >
+                          <i
+                            class="fa fa-arrow-circle-down"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
                       </div>
                     </form>
                   </div>
