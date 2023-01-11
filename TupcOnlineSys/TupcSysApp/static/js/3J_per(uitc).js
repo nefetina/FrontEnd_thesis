@@ -56,3 +56,31 @@ function closeNav() {
     z.style.display = "block";
 
 }
+
+function users() {
+  
+
+    document.getElementById("table1").hidden = false;
+    document.getElementById("table2").hidden = true;
+    document.getElementById("table3").hidden = true;
+
+   
+    
+  
+}
+function department() {
+ 
+    document.getElementById("table1").hidden = true;
+    document.getElementById("table2").hidden = false;
+    document.getElementById("table3").hidden = true;
+  
+  
+}
+function design() {
+ 
+    document.getElementById("table1").hidden = true;
+    document.getElementById("table2").hidden = true;
+    document.getElementById("table3").hidden = false;
+  
+  
+}

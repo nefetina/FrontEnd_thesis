@@ -159,7 +159,11 @@ input{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 700px;
 }
-
+#j2 {
+    border-radius: 5px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 800px;
+}
 
 /* card body scroll function*/
 
@@ -208,7 +212,7 @@ input{
     border-radius: 5px;
 }
 #idtable{
-    height: 400px !important;
+    height: 300px !important;
     overflow: hidden !important;
     overflow-y: scroll !important;
     overflow-x: scroll !important;
@@ -264,6 +268,31 @@ input{
     padding-bottom: 15px;
     
 }
+#designs{
+    height: 700px !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+    
+}
+#idtable{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ;
+
+}
+
+#inventory{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 350px !important;
+
+    overflow-y: scroll ; 
+}
+
 /*****************************************BACKGROUND*******************************/
 
 html,
