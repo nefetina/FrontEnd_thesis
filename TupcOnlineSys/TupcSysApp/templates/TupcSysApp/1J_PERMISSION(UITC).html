@@ -95,7 +95,7 @@
                         <a href="{% url 'TupcSysApp:UitcID'%}"  ><i class="fa fa-lg fa-id-card" aria-hidden="true"><br><h6 id="icons">ID'S</h6></i> <span class="badge" id = "id_notif" name = "id_notifs" hidden>{{data6.Faculty_ID}}</span></a>
                         <a href="{% url 'TupcSysApp:UitcInternet'%} "><i class="fa fa-lg fa-lg-1x fa-wifi" aria-hidden="true"><br><h6 id="icons">INTERNET</h6></i><span class="badge" id = "net_notif" name = "net_notifs" hidden>{{data7}}</span></a>
                         <a href="{% url 'TupcSysApp:UitcLabsched'%}" ><i class="fa fa-lg fa-calendar" aria-hidden="true"><br><h6 id="icons">SCHEDULE</h6></i><span class="badge" id = "sched_notif" name = "sched_notifs" hidden>{{data6.Faculty_Laboratory}}</span></a>
-                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">INVOKE</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data8}}</span></a>
+                        <a href="{% url 'TupcSysApp:UitcReports'%}"><i class="fa fa-lg fa-file-text" aria-hidden="true"><br><h6 id="icons">FORMS</h6></i> <span class="badge" id = "report_notif" name = "report_notifs" hidden>{{data8}}</span></a>
                         <a href="{% url 'TupcSysApp:UitcRec1'%}"><i class="fa fa-lg fa-clipboard" aria-hidden="true"><br><h6 id="icons">REPORTS</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcPermission'%}" id="active"><i class="fa fa-lg fa-address-card" aria-hidden="true"><br><h6 id="icons">USERS</h6></i></a>
                         <a href="{% url 'TupcSysApp:UitcInventory'%}"><i class="fa fa-lg fa-archive" aria-hidden="true"><br><h6 id="icons">INVENTORY</h6></i></a>
@@ -225,7 +225,7 @@
 
                         <div  class=" col-xl-12" id="table2" hidden >
                             <div class="jumbotron m-1" id="j2"> <br>
-                                <div class="card-body" id="designs">
+                                <div class="card-body" >
                                     <form action="/department1/" method="POST"  >
                                         {% csrf_token %}
                                         <div class="formtitle">
@@ -326,7 +326,7 @@
 
                         <div  class=" col-xl-12" id="table3" hidden >
                             <div class="jumbotron m-1" id="j2"> <br>
-                                <div class="card-body" id="designs">
+                                <div class="card-body" >
                                     <form action="/designation1/" method="POST" >
                                         {% csrf_token %}
                                         <div class="formtitle">
@@ -354,7 +354,7 @@
                                       
                                         <!--TABLE-------------------------------------------------------------------------------------------->
                                        
-                                        <div class="table-responsive col-xl-12" id="inventory">
+                                        <div class="table-responsive col-xl-12" id="design">
                                             <table class="table" id ="mytable1">
                                                 <thead class="thead" id="myTableI">
                                                 <tr>

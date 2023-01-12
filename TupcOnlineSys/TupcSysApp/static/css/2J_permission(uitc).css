@@ -211,13 +211,6 @@ input{
     background-color: #1b412dcc;
     border-radius: 5px;
 }
-#idtable{
-    height: 300px !important;
-    overflow: hidden !important;
-    overflow-y: scroll !important;
-    overflow-x: scroll !important;
-
-}
 
 
 #net_notif{
@@ -268,29 +261,40 @@ input{
     padding-bottom: 15px;
     
 }
-#designs{
-    height: 700px !important;
-    overflow: hidden !important;
-    overflow-y: scroll !important;
-    
-}
+
 #idtable{
     width: auto;
     overflow: hidden;
-    overflow-x: scroll;
+  
     height: 400px !important;
 
     overflow-y: scroll ;
 
 }
 
-#inventory{
+#design{
     width: auto;
     overflow: hidden;
     overflow-x: scroll;
-    height: 350px !important;
+    height: 400px !important;
 
     overflow-y: scroll ; 
+}
+#department{
+    width: auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 400px !important;
+
+    overflow-y: scroll ; 
+}
+
+#idtable{
+    height: 400px !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+    overflow-x: scroll !important;
+
 }
 
 /*****************************************BACKGROUND*******************************/
