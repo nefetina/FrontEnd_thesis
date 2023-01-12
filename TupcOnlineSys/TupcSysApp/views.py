@@ -311,7 +311,7 @@ def maintain_permit(request, id):
         for z in y:
             name = z['ie_user']
 
-        adm = datetime.now('%Y/%m/%d')
+        adm = datetime.now()
         faculty_reports.objects.filter(id=id).update(adm=adm)
         message = ("Good day! " + name + ",\nYou approved " + name + "\nrequest for repair and maintence at the date and time of " +
                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nOther details will be provided by " + name + ",\nand it will be recorded, Thankyou! ")
@@ -2389,28 +2389,47 @@ def inventory_notifys(request, id):
 
 
 def UitcInventory_borrowed(request, id):
-    
+    adm = datetime.now()
     fid = request.POST.get("f_id")
-    a = Inventory.objects.get(id=fid)
-    print(fid)
+    sid = request.POST.get("fid")
+    a = Inventory.objects.filter(id=fid)
+
+    print(a)
+    print(sid)
     for y in Inventory.objects.filter(id=fid).values():
         i_model = y['i_model']
         i_serial = y['i_serial']
 
     print(i_model)
-    for x in Inventory.objects.only('id').filter(i_stats="Available"):
-        if a == x:
-            Inventory.objects.filter(id=fid).update(i_stats="Borrowed")
 
-            faculty_borrow.objects.filter(id=id).update(
-                fbrdate=datetime.now(), fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed")
+    Inventory.objects.filter(id=fid).update(i_stats="Borrowed")
+
+    faculty_borrow.objects.filter(id=id).update(
+        fbrdate=datetime.now(), fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed", adm=adm)
+
+    s = faculty_borrow.objects.filter(id=id).values()
+    for s1 in s:
+
+        name = f1['fbname']
+        emails = f1['email4']
+        message = ("Good day " + name + ", \n" +
+                    "your requested borrow item is ready to pick up, please proceed to UITC." + "\n UITC admin")
+        email = EmailMessage(
+            name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [emails],
+
+        )
+
+        email.send()
 
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
 
 
 def UitcInventory_borroweds(request, id):
-    
+    adm = datetime.now()
     fid = request.POST.get("s_id")
     a = Inventory.objects.get(id=fid)
     print(fid)
@@ -2418,13 +2437,27 @@ def UitcInventory_borroweds(request, id):
         i_model = y['i_model']
         i_serial = y['i_serial']
 
-    print(i_model)
-    for x in Inventory.objects.only('id').filter(i_stats="Available"):
-        if a == x:
-            Inventory.objects.filter(id=fid).update(i_stats="Borrowed")
+    Inventory.objects.filter(id=fid).update(i_stats="Borrowed")
 
-            borrow_record.objects.filter(id=id).update(
-                i_rdate5=datetime.now(), imodel=i_model, iserial=i_serial, i_stats5="Borrowed")
+    borrow_record.objects.filter(id=id).update(
+        i_rdate5=datetime.now(), imodel=i_model, iserial=i_serial, i_stats5="Borrowed", adm=adm)
+
+    s = borrow_record.objects.filter(id=id).values()
+    for s1 in s:
+
+        name = s1['if_name5']
+        emails = s1['email5']
+        message = ("Good day " + name + ", \n" +
+                   "your requested borrow item is ready to pick up, please proceed to UITC. " + "\n UITC admin")
+        email = EmailMessage(
+            name,
+            message,
+            'tupc.uitconlinesystem@gmail.com',
+            [emails],
+
+        )
+
+        email.send()
 
     messages.success(request, "Successfully done")
     return redirect('/UitcReports')
@@ -2436,6 +2469,7 @@ def UitcInventory_returned(request, id):
         i_serial = y['fbserial']
         
     remarks = request.POST.get("remarks")
+    msp = remarks + ": " + request.POST.get("msp")
     print(remarks)
     if request.method == "POST":
         if remarks == "Good Condition":
@@ -2456,7 +2490,7 @@ def UitcInventory_returned(request, id):
 
         elif remarks == "Missing some parts":
             Inventory.objects.filter(i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(
-                i_stats="Missing some parts")
+                i_stats=msp)
             faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                 fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
         elif remarks == "Not working":
@@ -2474,6 +2508,7 @@ def UitcInventory_returneds(request, id):
         i_model1 = y['imodel']
         i_serial1 = y['iserial']
     remarks = request.POST.get("remarks")
+    msp = remarks + ": " + request.POST.get("msp")
     print(remarks)
     if request.method == "POST":
         if remarks == "Good Condition":
@@ -2493,7 +2528,7 @@ def UitcInventory_returneds(request, id):
                 i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
         elif remarks == "Missing some parts":
             Inventory.objects.filter(i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(
-                i_stats="Missing some parts")
+                i_stats=msp)
             borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                 i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
         elif remarks == "Not working":

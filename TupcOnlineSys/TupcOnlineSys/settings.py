@@ -139,7 +139,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_HOST_USER = 'tupc.uitconlinesystem@gmail.com'
 
-EMAIL_HOST_PASSWORD = 'ujatoikcpcggcmoh'
+EMAIL_HOST_PASSWORD = 'ssqrifrdhuqawocb'
 
 EMAIL_PORT = 587
 

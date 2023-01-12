@@ -1726,7 +1726,7 @@
                                                                         
                                                                             
                                                                             <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
-                                                                            data-toggle="modal" title="Return" data-target="#modalReturn{{ p1.id }}" onclick="returned1()" hidden 
+                                                                            data-toggle="modal" title="Return" data-target="#modalReturnf{{ p1.id }}" onclick="returned1()" hidden 
                                                                             id="ret" >Return<i></i></a>
 
                                                                             <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
@@ -1735,86 +1735,7 @@
                                                                     </td>
                                                                     
                                                                     <td>
-                                                                        <!--modal for approved borrowed pop up-------------------------------------------------------------------------------------------->
-                                                                        <div class="modal fade" id="borrowed{{ p1.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                                            <div class="modal-content">
-
-                                                                                <div class="modal-header">
-                                                                                <h5 class="modal-title" id="exampleModalLongTitle">List of Items</h5>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                    <span aria-hidden="true">&times;</span>
-                                                                                </button>
-                                                                                </div>
-                                                                                {% for i in inventory %}
-                                                                                    <form action="{% url 'TupcSysApp:UitcInventory_borrowed' i.pk%}" method="POST">
-                                                                                        {% csrf_token %}
-                                                                                <div class="modal-body" >
-                                                                                    
-                                                                                    
-                                                        
-                                                                                           
-
-                                                                                    <input type="radio" name="fid"> {{i.i_model}} {{i.i_serial}} {{i.i_equip}}</input>
-                                                                                    <input type="text" name="f_id" value = "{{i.id}}" hidden/>
-                                                                                
-                                                                                    {% endfor %}
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
-                                                                                <button type="submit" class="btn btn-primary" onclick="approved()"  >Submit</button>
-                                                                                </div>
-                                                                            </form>
-                                                                            </div>
-                                                                            </div>
-                                                                        </div>
-
                                                                         
-                                                                        <!--modal for return borrowed pop up-->
-                                                                        <div class="modal fade" id="modalReturn{{ p1.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-dialog-centered">
-                                                                                <div class="modal-content">
-                                                                                    
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="staticBackdropLabel"> Stated the condition of the returned item</h5>
-                                                                                        <button  class="btn-close fa fa-times" data-dismiss="modal" aria-label="Close"></button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <div class="text-center">
-                                                                                           
-                                                                                            <form action="{% url 'TupcSysApp:UitcInventory_returned' p1.pk%}" method="POST">
-                                                                                                {% csrf_token %}
-                                                                                                <div class="form-row">
-                                
-                                                                                                    <div class="col-xl-12">
-                                                                                                        
-                                                                                                        <select class="form-control my-2 p-2" name = "remarks" id="remarks" onclick="mspp()"  required>
-                                                                                                            <option selected disabled value="">Remarks:</option>
-                                                                                                                <option value="Good Condition">Good Condition</option>
-                                                                                                                <option value="Defect">Defect</option>
-                                                                                                                <option value="Replaced">Replaced</option>
-                                                                                                                <option value="Missing some parts" onclick="other">Missing some parts</option>
-                                                                                                                <option value="Not working">Not working</option>
-                                                                                                                
-                                                                                                            
-                                                                                                        </select>
-                                                                                                        <input id="msp" name="msp" type="text" hidden></input>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                
-                                                                                                <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
-                                                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-
-
-                                                                                            </form>
-                                                                                            
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-
                                                                         <!--modal for notify pop up-------------------------------------------------------------------------------------------->
                                                                         <div class="modal fade" id="modalnotify{{ p1.id }}" tabindex="-1" role="dialog" aria-labelledby="modalnotify" aria-hidden="true">
                                                                             <div class="modal-dialog modal-dialog-centered">
@@ -1847,6 +1768,83 @@
                                                                         </div>
 
 
+                                                                        <div class="modal fade" id="modalReturnf{{ p1.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="staticBackdropLabel"> Stated the condition of the returned item</h5>
+                                                                                    <button  class="btn-close fa fa-times" data-dismiss="modal" aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="text-center">
+                                                                                       
+                                                                                        <form action="{% url 'TupcSysApp:UitcInventory_returned' p1.pk%}" method="POST">
+                                                                                            {% csrf_token %}
+                                                                                            <div class="form-row">
+                            
+                                                                                                <div class="col-xl-12">
+                                                                                                    
+                                                                                                    <select class="form-control my-2 p-2" name = "remarks" id="remarks" onclick="mspp()"  required>
+                                                                                                        <option selected disabled value="">Remarks:</option>
+                                                                                                            <option value="Good Condition">Good Condition</option>
+                                                                                                            <option value="Defect">Defect</option>
+                                                                                                            <option value="Replaced">Replaced</option>
+                                                                                                            <option value="Missing some parts">Missing some parts</option>
+                                                                                                            <option value="Not working">Not working</option>
+                                                                                                            
+                                                                                                        
+                                                                                                    </select>
+                                                                                                    <input id="msp" name="msp" type="text" hidden></input>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                            <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
+                                                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+
+                                                                                        </form>
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--modal for approved borrowed pop up-------------------------------------------------------------------------------------------->
+                                                                        <div class="modal fade" id="borrowed{{ p1.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+
+                                                                                <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle">List of Items</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                                </div>
+                                                                                
+                                                                                <form action="{% url 'TupcSysApp:UitcInventory_borrowed' p1.pk%}" method="POST">
+                                                                                {% csrf_token %}
+                                                                                
+                                                                                <div class="modal-body" >
+                                                                                    
+                                                                                    <select id="inputState" class="form-control my-2 p-2" name="f_id"  required>
+                                                                                        <option selected disabled value="">Available Items:</option>
+                                                                                        {% for x in inventory%}
+                                                                                        <option value="{{x.id}}">{{x.i_model}} {{x.i_serial}} {{x.i_equip}}</option>
+                                                                                        {%endfor%}
+                                        
+                                                                                    </select>
+
+                                                                                    
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                                                                                <button type="submit" class="btn btn-primary" onclick="approved()"  >Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
 
                                                                         
                                                                     </td>
@@ -1909,7 +1907,7 @@
                                                                         
                                                                             
                                                                             <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
-                                                                            data-toggle="modal" title="Return" data-target="#modalReturn1{{ p.id }}"  hidden  id="ret">
+                                                                            data-toggle="modal" title="Return" data-target="#modalReturn1{{ p.id }}" onclick="returned1()" hidden  id="ret">
                                                                             Return<i></i></a>
 
                                                                             <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
@@ -1917,40 +1915,38 @@
                                                                         </div>
                                                                         
                                                                     </td>
-                                                                        <!--modal for approved borrowed pop up-------------------------------------------------------------------------------------------->
-                                                                        <div class="modal fade" id="borrowed1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                                                            <div class="modal-content">
-                                                                            {% for i in inventory %}
-                                                                            <form action="{% url 'TupcSysApp:UitcInventory_borroweds' i.pk%}" method="POST">
-                                                                                <div class="modal-header">
-                                                                                <h5 class="modal-title" id="exampleModalLongTitle">List of Items</h5>
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                    <span aria-hidden="true">&times;</span>
-                                                                                </button>
+                                                                        
+                                                                        <!--modal for notify pop up-------------------------------------------------------------------------------------------->
+                                                                        <div class="modal fade" id="modalnotify1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="modalnotify" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="staticBackdropLabel"> Notify the borrower to return the item</h5>
+                                                                                        <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <div class="text-center">
+                                                                                            <form action="{% url 'TupcSysApp:inventory_notifys' p.pk%}" method="POST">
+                                                                                                {%csrf_token%}
+                                                                                                
+                                                                                                <div class="form-row">
+                                
+                                                                                                    <div class="col-xl-12">
+                                                                                                        Message
+                                                                                                        
+                                                                                                        <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "message"
+                                                                                                        autocomplete="off" required>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
+                                                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="modal-body" id="at">
-                                                                                    
-                                                                                        {% csrf_token %}
-                                                                                    
-                                                        
-                                                                                           
-
-                                                                                    <input type="radio" name="fid"> {{i.i_model}} {{i.i_serial}} {{i.i_equip}}</input>
-                                                                                    <input type="text" name="s_id" value = "{{i.id}}" hidden/>
-                                                                                
-                                                                                    {% endfor %}
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
-                                                                                <button type="submit" class="btn btn-primary" onclick="approved()"  >Submit</button>
-                                                                                </div>
-                                                                            </form>
-                                                                            </div>
                                                                             </div>
                                                                         </div>
-
-                                                                        
+                                                                                                                                      
                                                                         <!--modal for return borrowed pop up-->
                                                                         <div class="modal fade" id="modalReturn1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
                                                                             <div class="modal-dialog modal-dialog-centered">
@@ -1993,42 +1989,41 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
-
-                                                                        <!--modal for notify pop up-------------------------------------------------------------------------------------------->
-                                                                        <div class="modal fade" id="modalnotify1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="modalnotify" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-dialog-centered">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="staticBackdropLabel"> Notify the borrower to return the item</h5>
-                                                                                        <button  class="btn-close fa fa-times" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <div class="text-center">
-                                                                                            <form action="{% url 'TupcSysApp:inventory_notifys' p.pk%}" method="POST">
-                                                                                                {%csrf_token%}
-                                                                                                
-                                                                                                <div class="form-row">
-                                
-                                                                                                    <div class="col-xl-12">
-                                                                                                        Message
-                                                                                                        
-                                                                                                        <input type="text" class="form-control my-2 p-2" style="border: 1px solid black; font-size: 15px"   placeholder=""  name = "message"
-                                                                                                        autocomplete="off" required>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <button type="submit"  class="btn btn-primary " name="returnedInventory">Submit</button>
-                                                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                                                                            </form>
-                                                                                        </div>
-                                                                                    </div>
+                                                                        <!--modal for approved borrowed pop up-------------------------------------------------------------------------------------------->
+                                                                        <div class="modal fade" id="borrowed1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                            
+                                                                            
+                                                                                <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLongTitle">List of Items</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
                                                                                 </div>
+                                                                                <div class="modal-body" id="at">
+                                                                                    <form action="{% url 'TupcSysApp:UitcInventory_borroweds' p.pk%}" method="POST">
+                                                                                        {% csrf_token %}
+                                                                                    
+                                                        
+                                                                                        <select id="inputState" class="form-control my-2 p-2" name="s_id"  required>
+                                                                                            <option selected disabled value="">Available Items:</option>
+                                                                                            {% for x in inventory%}
+                                                                                            <option value="{{x.id}}">{{x.i_model}} {{x.i_serial}} {{x.i_equip}}</option>
+                                                                                            {%endfor%}
+                                            
+                                                                                        </select>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                                                                                <button type="submit" class="btn btn-primary" onclick="approved()"  >Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                            </div>
                                                                             </div>
                                                                         </div>
 
 
-
-                                                                        
                                                                     </td>
                                                                     <!--modal for deny pop up-------------------------------------------------------------------------------------------->
                                                                     <div class="modal fade" id="denybfs1{{ p.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

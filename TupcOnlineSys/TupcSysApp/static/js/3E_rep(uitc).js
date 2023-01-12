@@ -36,11 +36,15 @@ window.onload = function() {
     for (i = 0; i < tr.length; i++) {
     var td = tr[i].getElementsByTagName("td")[7];
     var td1 = tr[i].getElementsByTagName("td")[1];
-        
+    var td2 = tr[1].getElementsByTagName("td")[1];
+
+
     if (td, td1) {
         txtValue = td.textContent || td.innerText;
         txtValue1 = td1.textContent || td1.innerText;
-        if (txtValue == "Borrowed" && txtValue1 == "Student") {
+
+        if (txtValue == "Borrowed" && td2 != "[object HTMLTableCellElement]" && txtValue1 == "Student" && tr.length==3) {
+ 
             document.getElementsByName("btnreject")[0].hidden = true;
             document.getElementsByName("btnapproved")[0].hidden = true;
             document.getElementsByName("btnnotify")[0].hidden = false;
@@ -49,7 +53,7 @@ window.onload = function() {
             
 
         }
-        if (txtValue == "Borrowed") {
+        else if (txtValue == "Borrowed") {
 
             document.getElementsByName("btnreject")[i-1].hidden = true;
             document.getElementsByName("btnapproved")[i-1].hidden = true;
@@ -60,7 +64,7 @@ window.onload = function() {
 
         }
         
-        if (txtValue == "On Process") {
+        else if (txtValue == "On Process") {
             document.getElementsByName("btnreject")[i-1].hidden = false;
             document.getElementsByName("btnapproved")[i-1].hidden = false;
             document.getElementsByName("btnnotify")[i-1].hidden = true;
