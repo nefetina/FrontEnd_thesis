@@ -2026,10 +2026,10 @@ def StudentHome(request):  # STUDENT HOMEPAGE page
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
-        data1 = {"student_wifi": str(student_wifi.objects.filter(g_stats1="On Process").count()),
-                 "student_internet": str(student_internet.objects.filter(g_stats2="On Process").count()),
-                 "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process").count()),
-                 "student_PassReset": str(PassReset.objects.filter(psstats="On Process").count()), }
+        data1 = {"student_wifi": str(student_wifi.objects.filter(g_stats1="On Process", g_email1=request.user.gsfe).count()),
+                 "student_internet": str(student_internet.objects.filter(g_stats2="On Process", g_email2=request.user.gsfe).count()),
+                 "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process", email5=request.user.gsfe).count()),
+                 "student_PassReset": str(PassReset.objects.filter(psstats="On Process", fwemail=request.user.gsfe).count()), }
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html', {'data1': data1})
     else:
         return redirect('/')
