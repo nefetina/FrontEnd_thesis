@@ -1991,7 +1991,7 @@ def FacultyReports(request):  # FACULTY REPORTS page
             fstat="Approved", email3=request.user.gsfe) | faculty_reports.objects.filter(
             fstat="Notified", email3=request.user.gsfe)
         departmentq = department.objects.all()
-        designations = designation.objects.all()
+        designationq = designation.objects.all()
         if request.method == "POST":
             email3 = request.user.gsfe
             ftype = request.POST.get('ftype')
@@ -2029,7 +2029,7 @@ def StudentHome(request):  # STUDENT HOMEPAGE page
         data1 = {"student_wifi": str(student_wifi.objects.filter(g_stats1="On Process", g_email1=request.user.gsfe).count()),
                  "student_internet": str(student_internet.objects.filter(g_stats2="On Process", g_email2=request.user.gsfe).count()),
                  "borrow_record": str(borrow_record.objects.filter(i_stats5="On Process", email5=request.user.gsfe).count()),
-                 "student_PassReset": str(PassReset.objects.filter(psstats="On Process", fwemail=request.user.gsfe).count()), }
+                 "student_PassReset": str(PassReset.objects.filter(psstats="On Process", email=request.user.gsfe).count()), }
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html', {'data1': data1})
     else:
         return redirect('/')
@@ -2443,9 +2443,9 @@ def UitcInventory_returned(request, id):
                 i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Available")
             faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                 fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
-        elif remarks == "Broken":
+        elif remarks == "Defect":
             Inventory.objects.filter(
-                i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Broken")
+                i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(i_stats="Defect")
             faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
                 fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
         elif remarks == "Replaced":
@@ -2481,9 +2481,9 @@ def UitcInventory_returneds(request, id):
                 i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(i_stats="Available")
             borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                 i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
-        elif remarks == "Broken":
+        elif remarks == "Defect":
             Inventory.objects.filter(
-                i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(i_stats="Broken")
+                i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(i_stats="Defect")
             borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                 i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
         elif remarks == "Replaced":
@@ -2555,8 +2555,8 @@ def UitcInventory_modify(request, id):
             if remarks == "Good Condition":
                 x = Inventory.objects.filter(id=id).update(i_stats="Available")
 
-            elif remarks == "Broken":
-                x = Inventory.objects.filter(id=id).update(i_stats="Broken")
+            elif remarks == "Defect":
+                x = Inventory.objects.filter(id=id).update(i_stats="Defect")
 
             elif remarks == "Replaced":
                 x = Inventory.objects.filter(id=id).update(i_stats="Replaced")

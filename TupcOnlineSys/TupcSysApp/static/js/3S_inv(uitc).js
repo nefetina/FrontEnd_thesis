@@ -83,7 +83,7 @@ for (i = 0; i < tr.length; i++) {
         buttonr.disabled = false;
         
 }
-    if (txtValue == "Replaced" || txtValue == "Broken") {
+    if (txtValue == "Replaced" || txtValue == "Defect") {
         var buttonr = document.getElementsByName("return")[i - 1];
         buttonr.disabled = true;
         tr[i].hidden = true;
