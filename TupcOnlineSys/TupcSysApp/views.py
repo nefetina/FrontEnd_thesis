@@ -2410,8 +2410,8 @@ def UitcInventory_borrowed(request, id):
     s = faculty_borrow.objects.filter(id=id).values()
     for s1 in s:
 
-        name = f1['fbname']
-        emails = f1['email4']
+        name = s1['fbname']
+        emails = s1['email4']
         message = ("Good day " + name + ", \n" +
                     "your requested borrow item is ready to pick up, please proceed to UITC." + "\n UITC admin")
         email = EmailMessage(

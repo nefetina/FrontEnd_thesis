@@ -86,34 +86,56 @@ window.onload = function() {
 
 function mspp() {
 
-for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
-    selectElement = document.getElementsByName('remarks')[i];
-    output = selectElement.options[selectElement.selectedIndex].value;
-    
-
+    for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
+        selectElement = document.getElementsByName('remarks')[i];
+        output = selectElement.options[selectElement.selectedIndex].value;
         
-        if (output == "Missing some parts"){
-            const z = document.getElementsByName("msp");
+    
             
-            
-            for (let i = 0; i < selectElement.length; i++) {
+            if (output == "Missing some parts"){
+                const z = document.getElementsByName("msp");
                 z[i].hidden = false;
-            
+                
+
+                
             }
-            
-        }
-        if (output != "Missing some parts"){
-            const z = document.getElementsByName("msp");
-            
-            
-            for (let i = 0; i < selectElement.length; i++) {
+            if (output != "Missing some parts"){
+                const z = document.getElementsByName("msp");
                 z[i].hidden = true;
+                
         }
+        
+        
+    }
     }
     
     
-}
-}
+
+
+function mspp1() {
+
+    for (let i = 0; i < document.getElementsByName('remarks1').length; i++) {
+        selectElement = document.getElementsByName('remarks1')[i];
+        output = selectElement.options[selectElement.selectedIndex].value;
+        
+    
+            
+            if (output == "Missing some parts"){
+                const z = document.getElementsByName("msp1");
+                z[i].hidden = false;
+                
+
+                
+            }
+            if (output != "Missing some parts"){
+                const z = document.getElementsByName("msp1");
+                z[i].hidden = true;
+                
+        }
+        
+        
+    }
+    }
 
 function returned1() {
     for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
