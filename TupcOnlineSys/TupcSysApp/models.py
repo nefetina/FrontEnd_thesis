@@ -328,5 +328,8 @@ class Schedule_lab(models.Model):
     lfri = models.CharField(max_length=100, null=True, default="")
     ldate = models.DateField()
 
+class designation(models.Model):
+    desig = models.CharField(max_length=100, null=False)
 
-
+class department(models.Model):
+    dep = models.CharField(max_length=100, null=False)

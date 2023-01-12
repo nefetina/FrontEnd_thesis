@@ -126,67 +126,18 @@
                                             <div class="col-xl-6">
                                                 <select id="inputState" class="form-control my-2 p-2" name = "g_dept" required>
                                                     <option selected disabled value="">Department:</option>
-                                                    <option value="DCG">Document Control Group</option>
-                                                    <option value="DED">Department of Industrial Education</option>
-                                                    <option value="DES">Department of Engineering Sciences</option>
-                                                    <option value="DIT">Department of Industrial Technology</option>
-                                                    <option value="DLA">Department of Liberal Arts</option>
-                                                    <option value="DMS">Department of Mathematics and Sciences</option>
-                                                    <option value="DPE">Department of Physical Education, Culture and Sports</option>
-                                                    <option value="ETP">ETEAP</option>
-                                                    <option value="IDO">Infrastructure Development Office</option>
-                                                    <option value="IQA">Internal Quality Audit</option>
-                                                    <option value="ISC">Office of ISO Coordinator</option>
-                                                    <option value="NST">NSTP</option>
-                                                    <option value="OAA">Office of the Asst. Director for Academic Affairs</option>
-                                                    <option value="OAC">Office of Accounting</option>
-                                                    <option value="OAD">Office of Admission</option>
-                                                    <option value="OAF">Office of the Asst. Director for Administration and Finance</option>
-                                                    <option value="OAL">Office of Alumni Affairs</option>
-                                                    <option value="OAS">Office of Administrative Services</option>
-                                                    <option value="OAX">Office of Auxiliary Services</option>
-                                                    <option value="OBA">Office of Bids and Awards</option>
-                                                    <option value="OBD">Office of Budget</option>
-                                                    <option value="OCD">Office of the Campus Director</option>
-                                                    <option value="OCG">Off-campus Graduate</option>
-                                                    <option value="OCL">Office of the Campus Librarian</option>
-                                                    <option value="OCP">Office of Campus Planning</option>
-                                                    <option value="OCR">Office of the Campus Registrar</option>
-                                                    <option value="OCS">Office of Cashier</option>
-                                                    <option value="OES">Office of Extension Services</option>
-                                                    <option value="OFS">Office of Finance Services</option>
-                                                    <option value="OGD">Office of Gender and Development</option>
-                                                    <option value="OGS">Office of Guidance Services</option>
-                                                    <option value="OHR">Office of Human Resources and Management</option>
-                                                    <option value="OHS">Office of Health Services</option>
-                                                    <option value="OIT">Office of University Information Technology</option>
-                                                    <option value="OJP">Office of Industrial Relation and Job Placement</option>
-                                                    <option value="OLK">Office of Linkages</option>
-                                                    <option value="OPC">Office of Pollution Control</option>
-                                                    <option value="OPR">Office of Procurement</option>
-                                                    <option value="OQA">Office of the Accreditation and Quality Assurance</option>
-                                                    <option value="ORE">Office of the Asst. Director for Research and Extension</option>
-                                                    <option value="ORG">Office of Resource Generation</option>
-                                                    <option value="ORM">Office of Records Management</option>
-                                                    <option value="ORS">Office of Research Services</option>
-                                                    <option value="OSA">Office of Student Affairs</option>
-                                                    <option value="OSH">Office of 5S, Safety and Housekeeping</option>
-                                                    <option value="OSP">Office of Supply</option>
-                                                    <option value="PMC">Project Management Committee</option>
-                                                    <option value="QMR">Office of the Quality Management Representative</option>
+                                                    {% for x in department%}
+                                                    <option value="{{x.dep}}">{{x.dep}}</option>
+                                                    {%endfor%}
 
                                                 </select>
                                             </div>
                                             <div class="col-xl-6">
                                                 <select id="inputState" class="form-control my-2 p-2" name = "g_des" required>
                                                     <option selected disabled value="">Designation:</option>
-                                                    <option value="Faculty">Faculty</option>
-                                                    <option value="DED">Admin</option>
-                                                    <option value="DES">Coordinator</option>
-                                                    <option value="DIT">HeadDirector</option>
-                                                    <option value="DLA">Assistant</option>
-                                                    <option value="DMS">Director</option>
-                                                    <option value="DPE">Job Order</option>
+                                                    {% for x in designation%}
+                                                    <option value="{{x.dep}}">{{x.dep}}</option>
+                                                    {%endfor%}
                                                    
 
                                                 </select>

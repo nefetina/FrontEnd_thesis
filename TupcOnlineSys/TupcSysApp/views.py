@@ -155,8 +155,16 @@ def l1_delete(request, id):
 def list_delete(request):
     list.objects.all().delete()
     return redirect('/UitcPermission')
+
 # download html button
 
+def designation_delete(request, id):
+    designation.objects.filter(id=id).delete()
+    return redirect('/UitcPermission')
+
+def department_delete(request, id):
+    department.objects.filter(id=id).delete()
+    return redirect('/UitcPermission')
 
 def employeeID_dl(request, id):
     data = faculty_ID.objects.filter(id=id)
@@ -1738,11 +1746,29 @@ def UitcRec4(request):  # UITC HOMEPAGE page
     else:
         return redirect('/')
 
+def department1(request):
+    if request.method == 'POST':
+        dep = request.POST.get('dep')
+        data = department.objects.create(dep=dep)
+        data.save()
+        messages.info(request, 'Successfully Added!')
+       
+    return redirect('/UitcPermission')
+def designation1(request):
+    if request.method == 'POST':
+        desig = request.POST.get('desig')
+        data = designation.objects.create(desig=desig)
+        data.save()
+        messages.info(request, 'Successfully Added!')
+        
+    return redirect('/UitcPermission')
 
 @login_required(login_url='/Index')
 def UitcPermission(request):  # UITC PERMISSION page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         lists = list.objects.all()
+        departments = department.objects.all()
+        designations = designation.objects.all()
         datas = faculty_reports.objects.filter(
             fstat="On Process") | faculty_reports.objects.filter(fstat="Approved") | faculty_reports.objects.filter(fstat="Notified")
         data6 = {"Faculty_ID": str(faculty_ID.objects.filter(f_stat="On Process").count()),
@@ -1762,7 +1788,7 @@ def UitcPermission(request):  # UITC PERMISSION page
         data8 = int(data6['Faculty_borrow']) + int(data6['faculty_repair']) + int(data6['maintenance']) + \
             int(data6['Faculty_passreset']) + \
             int(data6['borrow_record']) + int(data6['student_PassReset'])
-        return render(request, 'TupcSysApp/1J_PERMISSION(UITC).html', {'lists': lists, 'data7': data7, 'data8': data8, 'data6': data6, })
+        return render(request, 'TupcSysApp/1J_PERMISSION(UITC).html', {'lists': lists, 'department': departments, 'designation': designations, 'data7': data7, 'data8': data8, 'data6': data6, })
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         return redirect('/FacultyHome')
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
@@ -1798,6 +1824,8 @@ def FacultyID(request):  # FACULTY ID page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        departmentq = department.objects.all()
+        
         if request.method == "POST":
             request.POST.get('request.user.gsfe')
             f_pic = request.POST.get('f_pics')
@@ -1841,7 +1869,7 @@ def FacultyID(request):  # FACULTY ID page
             messages.success(
                 request, 'Your entry will be in queue, please wait for the admin to approve.')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1L_ID(FV).html')
+        return render(request, 'TupcSysApp/1L_ID(FV).html', {'department':departmentq})
 
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
@@ -1854,6 +1882,8 @@ def FacultyInternet(request):  # FACULTY INTERNET page
     if request.user.is_authenticated and request.user.Personal_description == "UITC Staff":
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
+        departmentq = department.objects.all()
+        designationq = designation.objects.all()
         if request.method == "POST":
             request.POST.get('request.user.name')
             g_dept = request.POST.get('g_dept')
@@ -1884,7 +1914,7 @@ def FacultyInternet(request):  # FACULTY INTERNET page
             email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1M_INTERNET(FV).html')
+        return render(request, 'TupcSysApp/1M_INTERNET(FV).html', {'department':departmentq, 'designation':designationq})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -1897,6 +1927,7 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
         return render(request, 'TupcSysApp/1E_REPORTS(UITC).html')
     elif request.user.is_authenticated and request.user.Personal_description == "Faculty Member":
         datas = Schedule_lab.objects.all()
+        departmentq = department.objects.all()
         approve = faculty_lab.objects.filter(l_stat="Approved")
         sched = []
         lnum = []
@@ -1940,7 +1971,7 @@ def FacultyLabsched(request):  # FACULTY LABSCHED page
             email.send()
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'approve': approve, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum})
+        return render(request, 'TupcSysApp/1N_SCHEDULE(FV).html', {'sched': sched, 'approve': approve, 'datas': datas, 'sched': sched, 'lnum': lnum, 'labnum': labnum, 'department':departmentq})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -1959,6 +1990,8 @@ def FacultyReports(request):  # FACULTY REPORTS page
         data3 = faculty_reports.objects.filter(fstat="On Process", email3=request.user.gsfe) | faculty_reports.objects.filter(
             fstat="Approved", email3=request.user.gsfe) | faculty_reports.objects.filter(
             fstat="Notified", email3=request.user.gsfe)
+        departmentq = department.objects.all()
+        designations = designation.objects.all()
         if request.method == "POST":
             email3 = request.user.gsfe
             ftype = request.POST.get('ftype')
@@ -1979,7 +2012,7 @@ def FacultyReports(request):  # FACULTY REPORTS page
 
             messages.info(request, 'Successfully Submitted!')
             return redirect('/FacultyHome')
-        return render(request, 'TupcSysApp/1O_REPORTS(FV).html', {'data2': data2, 'data3': data3})
+        return render(request, 'TupcSysApp/1O_REPORTS(FV).html', {'data2': data2, 'data3': data3, 'department':departmentq, 'designation':designationq})
     elif request.user.is_authenticated and request.user.Personal_description == "Student":
         return render(request, 'TupcSysApp/1P_HOMEPAGE(SV).html')
     else:
@@ -2356,20 +2389,20 @@ def inventory_notifys(request, id):
 
 
 def UitcInventory_borrowed(request, id):
-    a = Inventory.objects.get(id=id)
-    fid = request.POST.get("b_id")
-
+    
+    fid = request.POST.get("f_id")
+    a = Inventory.objects.get(id=fid)
     print(fid)
-    for y in Inventory.objects.filter(id=id).values():
+    for y in Inventory.objects.filter(id=fid).values():
         i_model = y['i_model']
         i_serial = y['i_serial']
 
     print(i_model)
     for x in Inventory.objects.only('id').filter(i_stats="Available"):
         if a == x:
-            Inventory.objects.filter(id=id).update(i_stats="Borrowed")
+            Inventory.objects.filter(id=fid).update(i_stats="Borrowed")
 
-            faculty_borrow.objects.filter(id=fid).update(
+            faculty_borrow.objects.filter(id=id).update(
                 fbrdate=datetime.now(), fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed")
 
     messages.success(request, "Successfully done")
@@ -2377,20 +2410,20 @@ def UitcInventory_borrowed(request, id):
 
 
 def UitcInventory_borroweds(request, id):
-    a = Inventory.objects.get(id=id)
-    fid = request.POST.get("b_id")
-
+    
+    fid = request.POST.get("s_id")
+    a = Inventory.objects.get(id=fid)
     print(fid)
-    for y in Inventory.objects.filter(id=id).values():
+    for y in Inventory.objects.filter(id=fid).values():
         i_model = y['i_model']
         i_serial = y['i_serial']
 
     print(i_model)
     for x in Inventory.objects.only('id').filter(i_stats="Available"):
         if a == x:
-            Inventory.objects.filter(id=id).update(i_stats="Borrowed")
+            Inventory.objects.filter(id=fid).update(i_stats="Borrowed")
 
-            borrow_record.objects.filter(id=fid).update(
+            borrow_record.objects.filter(id=id).update(
                 i_rdate5=datetime.now(), imodel=i_model, iserial=i_serial, i_stats5="Borrowed")
 
     messages.success(request, "Successfully done")
@@ -2401,7 +2434,7 @@ def UitcInventory_returned(request, id):
     for y in faculty_borrow.objects.filter(id=id).values():
         i_model = y['fbmodel']
         i_serial = y['fbserial']
-
+        
     remarks = request.POST.get("remarks")
     print(remarks)
     if request.method == "POST":

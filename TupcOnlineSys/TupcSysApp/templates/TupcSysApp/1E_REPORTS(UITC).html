@@ -1756,7 +1756,7 @@
                                                                                            
 
                                                                                     <input type="radio" name="fid"> {{i.i_model}} {{i.i_serial}} {{i.i_equip}}</input>
-                                                                                    <input type="text" name="b_id" value = "{{p1.id}}" hidden/>
+                                                                                    <input type="text" name="f_id" value = "{{i.id}}" hidden/>
                                                                                 
                                                                                     {% endfor %}
                                                                                 </div>
@@ -1909,7 +1909,7 @@
                                                                         
                                                                             
                                                                             <a type="button" class="btn btn-success  my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnreturn"  
-                                                                            data-toggle="modal" title="Return" data-target="#modalReturn1{{ p.id }}" onclick="returned1()" hidden  id="ret">
+                                                                            data-toggle="modal" title="Return" data-target="#modalReturn1{{ p.id }}"  hidden  id="ret">
                                                                             Return<i></i></a>
 
                                                                             <a type="button" class="btn btn-warning my-lg-1 my-md-2 my-sm-2 my-1 px-5" name="btnnotify"
@@ -1937,7 +1937,7 @@
                                                                                            
 
                                                                                     <input type="radio" name="fid"> {{i.i_model}} {{i.i_serial}} {{i.i_equip}}</input>
-                                                                                    <input type="text" name="b_id" value = "{{p.id}}" hidden/>
+                                                                                    <input type="text" name="s_id" value = "{{i.id}}" hidden/>
                                                                                 
                                                                                     {% endfor %}
                                                                                 </div>

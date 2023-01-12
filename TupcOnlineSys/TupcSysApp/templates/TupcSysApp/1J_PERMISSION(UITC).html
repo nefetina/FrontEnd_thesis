@@ -226,7 +226,7 @@
                         <div  class=" col-xl-12" id="table2" hidden >
                             <div class="jumbotron m-1" id="j2"> <br>
                                 <div class="card-body" id="designs">
-                                    <form action="/UitcInventory/" method="POST"  >
+                                    <form action="/department1/" method="POST"  >
                                         {% csrf_token %}
                                         <div class="formtitle">
                                             DEPARTMENTS
@@ -236,7 +236,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-9 col-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Department with acronym:" name="i_equip" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Department with acronym:" name="dep" required>
                                             </div>
                                        
                                             <div class="col-xl-3 col-12">
@@ -251,24 +251,13 @@
                                             LIST
                                         </div>
                                       
-                                        <div class="form-row">
-                                            <div class="col-xl-12 col-lg-8 col-12">
-                                                <input
-                                                  type="text"
-                                                  id="myInputinv"
-                                                  onkeyup="myFunctioninv()"
-                                                  class="form-control my-2 p-2"
-                                                  placeholder="Search for Status or Date.."
-                                                  title="Type in a name"
-                                                />
-                                            </div>
-                                        </div>
+
                                        
                                         
-        
+    
                                         <!--TABLE-------------------------------------------------------------------------------------------->
                                        
-                                        <div class="table-responsive col-xl-12" id="inventory">
+                                        <div class="table-responsive col-xl-12" id="department">
                                             <table class="table" id ="mytable1">
                                                 <thead class="thead" id="myTableI">
                                                 <tr>
@@ -279,24 +268,24 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody id="tb">
-                                                    {% for i in inventory %}
+                                                    {% for d1 in department %}
                                                     
                                                 <tr>
-                                                    <td>{{i.i_model}}</td>
+                                                    <td>{{d1.dep}}</td>
                                                    
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1 b5" 
-                                                            data-bs-target="#modalReturn{{ i.id }}" id="b5{{ i.id }}" name="return" onclick="modify()">DELETE</button>
+                                                            <a type="button" href="{% url 'TupcSysApp:department_delete' d1.pk  %}" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1 b5" 
+                                                            data-bs-target="#modalReturn{{ i.id }}" id="b5{{ d1.id }}" name="return" >DELETE</a>
                                                         
                                                         </div>
                                                         
                                                     </td>
                                                 
                                                 </tr>
-                                                <!-- MODAL RETURNED-->
-                                                <div class="modal fade" id="modalReturn{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
+                                                <!-- MODAL delete-->
+                                                <div class="modal fade" id="modalReturn{{ d1.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -328,75 +317,6 @@
 
                                         </div> 
                                     </form>
-
-                                 
-                                    <script>
-                                        function myFunctioninv() {
-                                            var input, filter, table, tr, td, i, txtValue;
-                                            input = document.getElementById("myInputinv");
-                                            filter = input.value.toUpperCase();
-                                            table = document.getElementById("mytable1");
-                                            tr = table.getElementsByTagName("tr");
-                                            for (i = 0; i < tr.length; i++) {
-                                            td = tr[i].getElementsByTagName("td")[3];
-                                            td1 = tr[i].getElementsByTagName("td")[4];
-                                            if (td) {
-                                                txtValue = td.textContent || td.innerText;
-                                                txtValue1 = td1.textContent || td1.innerText;
-                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                tr[i].style.display = "";
-                                                } else if (txtValue1.toUpperCase().indexOf(filter) > -1) {
-                                                tr[i].style.display = "";
-                                                }  
-                                                else {
-                                                tr[i].style.display = "none";
-                                                }
-                                            }
-                                            }
-                                        }
-                                    </script>
-                                    <form action="/upload_csv/" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
-                                        {% csrf_token %}
-                                        <div class="form-row">
-                                            
-                                            <div class="col-xl-4 col-12 mt-xl-0 mt-lg-0 mt-2 ">
-                                                <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
-                                            </div>     
-                                            <div class="col-xl-2 col-12 mt-xl-0 mt-lg-0 mt-2 " >
-                                                <button class="btn btn-primary form-control" id="b1">Upload List</button>
-                                               
-                                            </div>
-                                            <div class="col-xl-2 col-12 mt-xl-0 mt-lg-0 mt-2">
-                                                
-                                                <a type = "button" href ="/list_delete/" class="btn btn-primary form-control" id="b1" >Delete</a>
-                                            </div>     
-                                                        
-                                        </div>
-                                        <div class="form-group">                    
-                                          
-                                        </div>
-                                        <script>
-                                            function myFunction() {
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInput");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("myTable");
-                                              tr = table.getElementsByTagName("tr");
-                                              for (i = 0; i < tr.length; i++) {
-                                                td = tr[i].getElementsByTagName("td")[0];
-                                                if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                    tr[i].style.display = "";
-                                                  } else {
-                                                    tr[i].style.display = "none";
-                                                  }
-                                                }       
-                                              }
-                                            }
-                                            </script>
-                                    </form>
-                                   
                                 </div>
                             
                             
@@ -407,7 +327,7 @@
                         <div  class=" col-xl-12" id="table3" hidden >
                             <div class="jumbotron m-1" id="j2"> <br>
                                 <div class="card-body" id="designs">
-                                    <form action="/UitcInventory/" method="POST" >
+                                    <form action="/designation1/" method="POST" >
                                         {% csrf_token %}
                                         <div class="formtitle">
                                             DESIGNATION
@@ -417,7 +337,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-xl-9 col-12">
-                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Designation:" name="i_equip" required>
+                                                <input type="text" class="form-control my-2 p-2" placeholder="Name of Designation:" name="desig" required>
                                             </div>
                                        
                                             <div class="col-xl-3 col-12">
@@ -432,21 +352,6 @@
                                             LIST
                                         </div>
                                       
-                                        <div class="form-row">
-                                            <div class="col-xl-12 col-lg-8 col-12">
-                                                <input
-                                                  type="text"
-                                                  id="myInputinv"
-                                                  onkeyup="myFunctioninv()"
-                                                  class="form-control my-2 p-2"
-                                                  placeholder="Search for Status or Date.."
-                                                  title="Type in a name"
-                                                />
-                                            </div>
-                                        </div>
-                                       
-                                        
-        
                                         <!--TABLE-------------------------------------------------------------------------------------------->
                                        
                                         <div class="table-responsive col-xl-12" id="inventory">
@@ -460,16 +365,16 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {% for i in inventory %}
+                                                    {% for d2 in designation %}
                                                     
                                                 <tr>
-                                                    <td>{{i.i_model}}</td>
+                                                    <td>{{d2.desig}}</td>
                                                    
                                                     <td>
                                                         <div class=" col-xl-12 d-flex justify-content-center align-items-center ">
                                             
-                                                            <button type="button" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1 b5" 
-                                                            data-bs-target="#modalReturn{{ i.id }}" id="b5{{ i.id }}" name="return" onclick="modify()">DELETE</button>
+                                                            <a type="button" href="{% url 'TupcSysApp:designation_delete' d2.pk  %}" style="width: 120px;" data-bs-toggle="modal" class="btn btn-primary  m-1 b5" 
+                                                            data-bs-target="#modalReturn1{{ d2.id }}" id="b5{{ d2.id }}" name="return" >DELETE</a>
                                                         
                                                         </div>
                                                         
@@ -477,7 +382,7 @@
                                                 
                                                 </tr>
                                                 <!-- MODAL RETURNED-->
-                                                <div class="modal fade" id="modalReturn{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
+                                                <div class="modal fade" id="modalReturn1{{ d2.id }}" tabindex="-1" role="dialog" aria-labelledby="modalReturn" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -510,72 +415,8 @@
                                         </div> 
                                     </form>
                                  
-                                    <script>
-                                        function myFunctioninv() {
-                                            var input, filter, table, tr, td, i, txtValue;
-                                            input = document.getElementById("myInputinv");
-                                            filter = input.value.toUpperCase();
-                                            table = document.getElementById("mytable1");
-                                            tr = table.getElementsByTagName("tr");
-                                            for (i = 0; i < tr.length; i++) {
-                                            td = tr[i].getElementsByTagName("td")[3];
-                                            td1 = tr[i].getElementsByTagName("td")[4];
-                                            if (td) {
-                                                txtValue = td.textContent || td.innerText;
-                                                txtValue1 = td1.textContent || td1.innerText;
-                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                tr[i].style.display = "";
-                                                } else if (txtValue1.toUpperCase().indexOf(filter) > -1) {
-                                                tr[i].style.display = "";
-                                                }  
-                                                else {
-                                                tr[i].style.display = "none";
-                                                }
-                                            }
-                                            }
-                                        }
-                                    </script>
-                                    <form action="/upload_csv/" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
-                                        {% csrf_token %}
-                                        <div class="form-row">
-                                            
-                                            <div class="col-xl-4 col-12 mt-xl-0 mt-lg-0 mt-2">
-                                                <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
-                                            </div>     
-                                            <div class="col-xl-2 col-12 mt-xl-0 mt-lg-0 mt-2 " >
-                                                <button class="btn btn-primary form-control" id="b1">Upload List</button>
-                                               
-                                            </div>
-                                            <div class="col-xl-2 col-12 mt-xl-0 mt-lg-0 mt-2">
-                                                
-                                                <a type = "button" href ="/list_delete/" class="btn btn-primary form-control" id="b1" >Delete</a>
-                                            </div>     
-                                                        
-                                        </div>
-                                        <div class="form-group">                    
-                                          
-                                        </div>
-                                        <script>
-                                            function myFunction() {
-                                              var input, filter, table, tr, td, i, txtValue;
-                                              input = document.getElementById("myInput");
-                                              filter = input.value.toUpperCase();
-                                              table = document.getElementById("myTable");
-                                              tr = table.getElementsByTagName("tr");
-                                              for (i = 0; i < tr.length; i++) {
-                                                td = tr[i].getElementsByTagName("td")[0];
-                                                if (td) {
-                                                  txtValue = td.textContent || td.innerText;
-                                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                    tr[i].style.display = "";
-                                                  } else {
-                                                    tr[i].style.display = "none";
-                                                  }
-                                                }       
-                                              }
-                                            }
-                                            </script>
-                                    </form>
+
+
                                 </div>
                             
                             
