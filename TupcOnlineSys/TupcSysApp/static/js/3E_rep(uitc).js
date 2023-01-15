@@ -45,10 +45,10 @@ window.onload = function() {
 
         if (txtValue == "Borrowed" && td2 != "[object HTMLTableCellElement]" && txtValue1 == "Student" && tr.length==3) {
  
-            document.getElementsByName("btnreject")[0].hidden = true;
-            document.getElementsByName("btnapproved")[0].hidden = true;
-            document.getElementsByName("btnnotify")[0].hidden = false;
-            document.getElementsByName("btnreturn")[0].hidden = false;
+            document.getElementsByName("btnreject")[i-2].hidden = true;
+            document.getElementsByName("btnapproved")[i-2].hidden = true;
+            document.getElementsByName("btnnotify")[i-2].hidden = false;
+            document.getElementsByName("btnreturn")[i-2].hidden = false;
             
             
 
@@ -141,7 +141,7 @@ function returned1() {
     for (let i = 0; i < document.getElementsByName('remarks').length; i++) {
         selectElement = document.getElementsByName('remarks')[i];
         for (let i = 0; i < selectElement.length; i++) {
-            const z = document.getElementsByName("msp");
+            const z = document.getElementsByName("msp1");
             z[i].hidden = true;
         }
     }
@@ -472,17 +472,3 @@ function borrow() {
 
 
 
-function approved(){
-    document.getElementById("btnreject").hidden = true;
-    document.getElementById("btnapproved").hidden = true;
-    document.getElementById("btnnotify").hidden = false;
-    document.getElementById("btnreturn").hidden = false;
-}
-
-
-function returned(){
-    document.getElementById("btnreject").hidden = false;
-    document.getElementById("btnapproved").hidden = false;
-    document.getElementById("btnnotify").hidden = true;
-    document.getElementById("btnreturn").hidden = true;
-}

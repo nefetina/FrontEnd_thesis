@@ -2469,7 +2469,7 @@ def UitcInventory_returned(request, id):
         i_serial = y['fbserial']
         
     remarks = request.POST.get("remarks")
-    msp = remarks + ": " + request.POST.get("msp")
+    
     print(remarks)
     if request.method == "POST":
         if remarks == "Good Condition":
@@ -2489,6 +2489,7 @@ def UitcInventory_returned(request, id):
                 fbremarks=remarks, fbrdate=datetime.now(), fbstat="Returned")
 
         elif remarks == "Missing some parts":
+            msp = remarks + ": " + request.POST.get("msp")
             Inventory.objects.filter(i_model=i_model, i_serial=i_serial, i_stats="Borrowed").update(
                 i_stats=msp)
             faculty_borrow.objects.filter(fbmodel=i_model, fbserial=i_serial, fbstat="Borrowed").update(
@@ -2507,8 +2508,8 @@ def UitcInventory_returneds(request, id):
     for y in borrow_record.objects.filter(id=id).values():
         i_model1 = y['imodel']
         i_serial1 = y['iserial']
-    remarks = request.POST.get("remarks")
-    msp = remarks + ": " + request.POST.get("msp")
+    remarks = request.POST.get("remarks1")
+    
     print(remarks)
     if request.method == "POST":
         if remarks == "Good Condition":
@@ -2527,6 +2528,7 @@ def UitcInventory_returneds(request, id):
             borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
                 i_remarks=remarks, i_rdate5=datetime.now(), i_stats5="Returned")
         elif remarks == "Missing some parts":
+            msp = remarks + ": " + request.POST.get("msp1")
             Inventory.objects.filter(i_model=i_model1, i_serial=i_serial1, i_stats="Borrowed").update(
                 i_stats=msp)
             borrow_record.objects.filter(imodel=i_model1, iserial=i_serial1, i_stats5="Borrowed").update(
