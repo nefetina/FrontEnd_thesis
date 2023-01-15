@@ -632,36 +632,36 @@
                                           
                           </div>
                        
+                        </div>
+                      
+                      
+                        <script type="text/javascript">
+                          const canvas = document.getElementById("drawingCanvas-Signaturexx");
+                          document.getElementById("btn1rm").addEventListener('click', function() {
+                              
+                              if (canvas.toDataURL() == document.getElementById('blankcanvas').toDataURL()) {
+                                  
+                                  var canvass1 = document.createElement('CANVAS');
+                                  canvass1.setAttribute('height', 350)
+                                  canvass1.setAttribute('width', 350)
+                                  var context1 = canvass1.getContext('2d');
+                                  context1.drawImage(document.getElementById('f_sign'),0,0);
+                                  var pic1 = canvass1.toDataURL();
+                                  document.getElementsByName("fsign")[1].value = pic1;
+                              }
+                              else {
+                  
+                                  const canvasURL = canvas.toDataURL();
+                                  console.log(canvasURL);
+                                  document.getElementsByName("fsign")[1].value = canvasURL;
+                              }
+                            
+                              
+                              
+                          });
+                  
+                        </script>
                       </div>
-                      
-                      
-                      <script type="text/javascript">
-                        const canvas = document.getElementById("drawingCanvas-Signaturexx");
-                        document.getElementById("btn1rm").addEventListener('click', function() {
-                            
-                            if (canvas.toDataURL() == document.getElementById('blankcanvas').toDataURL()) {
-                                
-                                var canvass1 = document.createElement('CANVAS');
-                                canvass1.setAttribute('height', 350)
-                                canvass1.setAttribute('width', 350)
-                                var context1 = canvass1.getContext('2d');
-                                context1.drawImage(document.getElementById('f_sign'),0,0);
-                                var pic1 = canvass1.toDataURL();
-                                document.getElementsByName("fsign")[1].value = pic1;
-                            }
-                            else {
-                
-                                const canvasURL = canvas.toDataURL();
-                                console.log(canvasURL);
-                                document.getElementsByName("fsign")[1].value = canvasURL;
-                            }
-                          
-                            
-                            
-                        });
-                
-                      </script>
-
 
 
                       <!--REQUEST FOR PASSWORD RESET-------------------------------------------------------------------------------------------->

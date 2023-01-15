@@ -1002,10 +1002,8 @@ def spasswordreset_cancel(request, id):
         y = PassReset.objects.get.objects.filter(id=id).only("psname").values()
         for z in y:
             name = z['psname']
-
         adm = datetime.now()
         PassReset.objects.filter(id=id).update(adm=adm)
-
         message = ("Good day! " + request.user.name + ",\nYou declined " + name + "\nrequest for Password Reset at the date and time of " +
                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
@@ -1020,6 +1018,7 @@ def spasswordreset_cancel(request, id):
         email.send()
     if request.method == 'POST':
         a = PassReset.objects.get(id=id)
+
         for x in PassReset.objects.only('id').filter(psstats="On process"):
             if a == x:
                 x = PassReset.objects.filter(id=id).update(psstats="Approved")
@@ -1056,8 +1055,8 @@ def spasswordreset_permit(request, id):
             name = z['psname']
 
         adm = datetime.now()
-        adm1 = adm.strftime("%Y-%m-%dT%H:%M")
-        PassReset.objects.filter(id=id).update(adm=adm1)
+
+        PassReset.objects.filter(id=id).update(adm=adm)
         message = ("Good day! " + request.user.name + ",\nYou approved " + name + "\nrequest for Password Reset at the date and time of " +
                    adm.strftime("%b %d, %Y, %I:%M %p")+"."+"\nDetails will be recorded, Thankyou! ")
         email = EmailMessage(
