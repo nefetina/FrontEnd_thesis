@@ -290,29 +290,6 @@
                       />
                     </div>
                     <!--BUTTONS-------------------------------------------------------------------------------------------->
-
-                    <div class="dropdown col-xl-3 col-lg-4 col-12">
-                      <button
-                        class="btn btn-success dropdown-toggle my-2 p-2 btn-block"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Sorted by:
-                      </button>
-                      <div
-                        class="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
-                          >Ascending</a
-                        >
-                        <a class="dropdown-item" href="#">Descending</a>
-                      </div>
-                    </div>
                   </div>
                 </form>
                 <div class="jumbotron m-1">
@@ -466,11 +443,13 @@
                         class="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
-                          >Ascending</a
+
+                        <a class="dropdown-item" href="#" onclick="sortTableram(6)"
+                          >Name</a
                         >
-                        <a class="dropdown-item" href="#">Descending</a>
+                        <a class="dropdown-item" href="#" onclick="sortTableram(0)"
+                          >TRANSACTION DATE & TIME</a
+                        >
                       </div>
                     </div>
                   </div>
@@ -690,6 +669,78 @@
                           downloadLink.click();
                         }
                       }
+                      function sortTableram(n) {
+                            var table,
+                              rows,
+                              switching,
+                              i,
+                              x,
+                              y,
+                              shouldSwitch,
+                              dir,
+                              switchcount = 0;
+                            table = document.getElementById("myTableram");
+                            switching = true;
+                            // Set the sorting direction to ascending:
+                            dir = "asc";
+                            /* Make a loop that will continue until
+                                          no switching has been done: */
+                            while (switching) {
+                              // Start by saying: no switching is done:
+                              switching = false;
+                              rows = table.rows;
+                              /* Loop through all table rows (except the
+                                            first, which contains table headers): */
+                              for (i = 1; i < rows.length - 1; i++) {
+                                // Start by saying there should be no switching:
+                                shouldSwitch = false;
+                                /* Get the two elements you want to compare,
+                                              one from current row and one from the next: */
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+                                /* Check if the two rows should switch place,
+                                              based on the direction, asc or desc: */
+                                if (dir == "asc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() >
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                } else if (dir == "desc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() <
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                }
+                              }
+                              if (shouldSwitch) {
+                                /* If a switch has been marked, make the switch
+                                              and mark that a switch has been done: */
+                                rows[i].parentNode.insertBefore(
+                                  rows[i + 1],
+                                  rows[i]
+                                );
+                                switching = true;
+                                // Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                              } else {
+                                /* If no switching has been done AND the direction is "asc",
+                                              set the direction to "desc" and run the while loop again. */
+                                if (switchcount == 0 && dir == "asc") {
+                                  dir = "desc";
+                                  switching = true;
+                                }
+                              }
+                            }
+                          }
+                          
                     </script>
 
                   </div>
@@ -727,11 +778,12 @@
                         class="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
-                          >Ascending</a
+                        <a class="dropdown-item" href="#" onclick="sortTableprr(1)"
+                          >Name</a
                         >
-                        <a class="dropdown-item" href="#">Descending</a>
+                        <a class="dropdown-item" href="#" onclick="sortTableprr(0)"
+                        >TRANSACTION DATE & TIME</a
+                      >
                       </div>
                     </div>
                   </div>
@@ -771,7 +823,7 @@
                             {% endfor %}
                             <tr>
                               {% for p in data4 %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d"}}</td>
                               <td>{{p.psname}}</td>
                               <td>{{p.emp_idno}}</td>
                               <td>{{p.email}}</td>
@@ -842,6 +894,78 @@
                             downloadLink.click();
                           }
                         }
+                        function sortTableprr(n) {
+                            var table,
+                              rows,
+                              switching,
+                              i,
+                              x,
+                              y,
+                              shouldSwitch,
+                              dir,
+                              switchcount = 0;
+                            table = document.getElementById("myTableprr");
+                            switching = true;
+                            // Set the sorting direction to ascending:
+                            dir = "asc";
+                            /* Make a loop that will continue until
+                                          no switching has been done: */
+                            while (switching) {
+                              // Start by saying: no switching is done:
+                              switching = false;
+                              rows = table.rows;
+                              /* Loop through all table rows (except the
+                                            first, which contains table headers): */
+                              for (i = 1; i < rows.length - 1; i++) {
+                                // Start by saying there should be no switching:
+                                shouldSwitch = false;
+                                /* Get the two elements you want to compare,
+                                              one from current row and one from the next: */
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+                                /* Check if the two rows should switch place,
+                                              based on the direction, asc or desc: */
+                                if (dir == "asc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() >
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                } else if (dir == "desc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() <
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                }
+                              }
+                              if (shouldSwitch) {
+                                /* If a switch has been marked, make the switch
+                                              and mark that a switch has been done: */
+                                rows[i].parentNode.insertBefore(
+                                  rows[i + 1],
+                                  rows[i]
+                                );
+                                switching = true;
+                                // Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                              } else {
+                                /* If no switching has been done AND the direction is "asc",
+                                              set the direction to "desc" and run the while loop again. */
+                                if (switchcount == 0 && dir == "asc") {
+                                  dir = "desc";
+                                  switching = true;
+                                }
+                              }
+                            }
+                          }
+                          
                       </script>
                     </form>
                     <div>Download Reports</div>
@@ -900,11 +1024,13 @@
                         class="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
-                          >Ascending</a
+                        <a class="dropdown-item" href="#" onclick="sortTablemr(0)"
+                        >TRANSACTION DATE & TIME</a
+                      >
+                        <a class="dropdown-item" href="#" onclick="sortTablemr(42)"
+                          >END USER</a
                         >
-                        <a class="dropdown-item" href="#">Descending</a>
+                        <a class="dropdown-item" href="#" onclick="sortTablemr(35)">UITC PERSONNEL</a>
                       </div>
                     </div>
                   </div>
@@ -978,7 +1104,7 @@
                           <tbody>
                             <tr>
                               {% for p in data6 %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d"}}</td>
                               <td>{{p.i_type4}}</td>
                               <td>{{p.is_num4}}</td>
                               <td>{{p.i_datem}}</td>
@@ -1122,6 +1248,79 @@
                             downloadLink.click();
                           }
                         }
+                        
+                        function sortTablemr(n) {
+                            var table,
+                              rows,
+                              switching,
+                              i,
+                              x,
+                              y,
+                              shouldSwitch,
+                              dir,
+                              switchcount = 0;
+                            table = document.getElementById("mytablemr");
+                            switching = true;
+                            // Set the sorting direction to ascending:
+                            dir = "asc";
+                            /* Make a loop that will continue until
+                                          no switching has been done: */
+                            while (switching) {
+                              // Start by saying: no switching is done:
+                              switching = false;
+                              rows = table.rows;
+                              /* Loop through all table rows (except the
+                                            first, which contains table headers): */
+                              for (i = 1; i < rows.length - 1; i++) {
+                                // Start by saying there should be no switching:
+                                shouldSwitch = false;
+                                /* Get the two elements you want to compare,
+                                              one from current row and one from the next: */
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+                                /* Check if the two rows should switch place,
+                                              based on the direction, asc or desc: */
+                                if (dir == "asc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() >
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                } else if (dir == "desc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() <
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                }
+                              }
+                              if (shouldSwitch) {
+                                /* If a switch has been marked, make the switch
+                                              and mark that a switch has been done: */
+                                rows[i].parentNode.insertBefore(
+                                  rows[i + 1],
+                                  rows[i]
+                                );
+                                switching = true;
+                                // Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                              } else {
+                                /* If no switching has been done AND the direction is "asc",
+                                              set the direction to "desc" and run the while loop again. */
+                                if (switchcount == 0 && dir == "asc") {
+                                  dir = "desc";
+                                  switching = true;
+                                }
+                              }
+                            }
+                          }
+                          
                       </script>
                       <div>Download Reports</div>
                       <div
@@ -1177,11 +1376,13 @@
                         class="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <a class="dropdown-item" href="#">Date</a>
-                        <a class="dropdown-item" href="#" onclick="sortTable(0)"
-                          >Ascending</a
+                          <a class="dropdown-item" href="#" onclick="sortTablebr(0)"
+                          >TRANSACTION DATE & TIME</a
                         >
-                        <a class="dropdown-item" href="#">Descending</a>
+                        <a class="dropdown-item" href="#" onclick="sortTablebr(1)"
+                          >Name</a
+                        >
+
                       </div>
                     </div>
                   </div>
@@ -1214,7 +1415,7 @@
                           <tbody>
                             <tr>
                               {% for p in data1 %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d"}}</td>
                               <td>{{p.fbname}}</td>
                               <td>{{p.fbuser}}</td>
                               <td>{{p.fbdate}}</td>
@@ -1256,7 +1457,7 @@
                             {% endfor %}
                             <tr>
                               {% for p in data2 %}
-                              <td>{{p.adm}}</td>
+                              <td>{{p.adm |date:"Y M d"}}</td>
                               <td>{{p.if_name5}}</td>
                               <td>{{p.i_user}}</td>
                               <td>{{p.i_date5}}</td>
@@ -1363,7 +1564,80 @@
                             downloadLink.click();
                           }
                         }
-                      </script>
+                        
+                        function sortTablebr(n) {
+                            var table,
+                              rows,
+                              switching,
+                              i,
+                              x,
+                              y,
+                              shouldSwitch,
+                              dir,
+                              switchcount = 0;
+                            table = document.getElementById("myTablebr");
+                            switching = true;
+                            // Set the sorting direction to ascending:
+                            dir = "asc";
+                            /* Make a loop that will continue until
+                                          no switching has been done: */
+                            while (switching) {
+                              // Start by saying: no switching is done:
+                              switching = false;
+                              rows = table.rows;
+                              /* Loop through all table rows (except the
+                                            first, which contains table headers): */
+                              for (i = 1; i < rows.length - 1; i++) {
+                                // Start by saying there should be no switching:
+                                shouldSwitch = false;
+                                /* Get the two elements you want to compare,
+                                              one from current row and one from the next: */
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+                                /* Check if the two rows should switch place,
+                                              based on the direction, asc or desc: */
+                                if (dir == "asc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() >
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                } else if (dir == "desc") {
+                                  if (
+                                    x.innerHTML.toLowerCase() <
+                                    y.innerHTML.toLowerCase()
+                                  ) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                  }
+                                }
+                              }
+                              if (shouldSwitch) {
+                                /* If a switch has been marked, make the switch
+                                              and mark that a switch has been done: */
+                                rows[i].parentNode.insertBefore(
+                                  rows[i + 1],
+                                  rows[i]
+                                );
+                                switching = true;
+                                // Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                              } else {
+                                /* If no switching has been done AND the direction is "asc",
+                                              set the direction to "desc" and run the while loop again. */
+                                if (switchcount == 0 && dir == "asc") {
+                                  dir = "desc";
+                                  switching = true;
+                                }
+                              }
+                            }
+                          }
+                          
+                     </script>
                     </form>
                     <div>Download Reports</div>
                     <div
