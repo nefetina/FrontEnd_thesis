@@ -672,7 +672,7 @@ def StudentWifi_permit(request, id):
     a = student_wifi.objects.get(id=id)
     for x in student_wifi.objects.only('id').filter(g_stats1="On process"):
         if a == x:
-            x = student_wifi.objects.filter(id=id).update(g_stats1="Declined")
+            x = student_wifi.objects.filter(id=id).update(g_stats1="Approved")
             y = student_wifi.objects.filter(id=id).values()
             for z in y:
                 name = z['gf_name1']
