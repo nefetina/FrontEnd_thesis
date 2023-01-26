@@ -334,7 +334,7 @@ def maintain_permit(request, id):
         uemail = request.user.email
         print("asd")
         message = "Good day " + name + \
-            ", \n Your request for repair and maintence has been approved." + "\n UITC admin"
+            ", \n Your request for repair and maintence has been approved. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
         email = EmailMessage(
             name,
             message,
@@ -431,7 +431,7 @@ def facultyID_permit(request, id):
                 name = z['ff_name']
                 uemail = z['email1']
             message = "Good day " + name + \
-                ", \n Your request for Evaluation of ID has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Evaluation of ID has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -580,7 +580,7 @@ def FacultyWifi_permit(request, id):
                 name = z['gf_name']
                 uemail = z['g_email']
             message = "Good day " + name + \
-                ", \n Your request for Wifi Access has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Wifi Access has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -678,7 +678,7 @@ def StudentWifi_permit(request, id):
                 name = z['gf_name1']
                 uemail = z['g_email1']
             message = "Good day " + name + \
-                ", \n Your request for Wifi Access has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Wifi Access has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -780,7 +780,7 @@ def StudentInternet_permit(request, id):
                 print(name)
                 print(uemail)
             message = "Good day " + name + \
-                ", \n Your request for Internet Access has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Internet Access has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -878,7 +878,7 @@ def labsched_permit(request, id):
                 name = z['f_name']
                 uemail = z['email2']
             message = "Good day " + name + \
-                ", \n Your request for Laboratory Schedule has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Laboratory Schedule has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -980,7 +980,7 @@ def fpasswordreset_permit(request, id):
                 name = z['fwname']
                 uemail = z['fwemail']
             message = "Good day " + name + \
-                ", \n Your request for Password Reset has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Password Reset has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -1021,7 +1021,7 @@ def spasswordreset_cancel(request, id):
 
         for x in PassReset.objects.only('id').filter(psstats="On process"):
             if a == x:
-                x = PassReset.objects.filter(id=id).update(psstats="Approved")
+                x = PassReset.objects.filter(id=id).update(psstats="Declined")
                 y = PassReset.objects.filter(id=id).only("psname").values()
                 for z in y:
                     name = z['psname']
@@ -1078,7 +1078,7 @@ def spasswordreset_permit(request, id):
                 name = z['psname']
                 uemail = z['email']
             message = "Good day " + name + \
-                ", \n Your request for Password Reset has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Password Reset has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -1181,7 +1181,7 @@ def sborrow_permit(request, id):
             print(name)
             print(uemail)
             message = "Good day " + name + \
-                ", \n Your request for Borrowing has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Borrowing has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -1283,7 +1283,7 @@ def fborrow_permit(request, id):
             print(name)
             print(uemail)
             message = "Good day " + name + \
-                ", \n Your request for Borrowing has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Borrowing has been approved, please proceed to UITC. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -2554,7 +2554,7 @@ def forgotpassword(request):
                     email_template_name = "TupcSysApp/password_reset_email.txt"
                     c = {
                         "email": user.email,
-                        'domain': '127.0.0.1:8000',
+                        'domain': 'tupcuitc.com',
                         'site_name': 'TupcSysApp',
                         "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                         'token': default_token_generator.make_token(user),
@@ -2645,7 +2645,8 @@ def faculty_reqrepmain(request, id):
             print(name)
             print(uemail)
             message = "Good day " + name + \
-                ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n UITC admin"
+                ", \n Your request for Repair and Maintenance has been approved, please proceed to UITC. \n" 
+                + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
@@ -2744,7 +2745,7 @@ def reqrepmain_permit(request, id):
             print(name)
             print(uemail)
             message = "Good day " + name + \
-                ", \n Your request for Repair and Maintenance has been approved, please fill up the and sign the form in your report. \n UITC admin"
+                ", \n Your request for Repair and Maintenance has been approved, please fill up the and sign the form in your report. \n" + "Thank you for using TUPC-UITC Online System. Please fill in this Customer Satisfaction Survey to know your rate on us. Thank you and have a great day. \n UITC admin \n https://docs.google.com/forms/d/e/1FAIpQLSeJNBz5kUcd8gMMZ4uzOgXUcb5gZSZBSeklYMfwniQa-ml1zg/viewform?pli=1"
             email = EmailMessage(
                 name,
                 message,
